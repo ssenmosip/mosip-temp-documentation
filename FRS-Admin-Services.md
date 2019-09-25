@@ -31,10 +31,10 @@
     * [2.7 List of Devices - Create/Read/Update/Decommission](#27-list-of-devices---createreadupdatedecommission-) _(ADM_FR_2.7)_
     * [2.8 List of Device Specifications - Create/Read/Update/Delete](#28-list-of-device-specifications---createreadupdatedelete-) _(ADM_FR_2.8)_
     * [2.9 List of Device Types - Create](#29-list-of-device-types---create-) _(ADM_FR_2.9)_
-    * [2.10 Mappings of Registration Center and Machine - Create/Delete](#210-mappings-of-registration-center-and-machine---createdelete-) _(ADM_FR_2.10)_
-    * [2.11 Mappings of Registration Center and Device - Create/Read/Delete](#211-mappings-of-registration-center-and-device---createreaddelete-) _(ADM_FR_2.11)_
+    * [2.10 Mappings of Registration Center and Machine - Create/Delete](#210-mappings-of-registration-center-and-machine---mapunmap-) _(ADM_FR_2.10)_
+    * [2.11 Mappings of Registration Center and Device - Create/Read/Delete](#211-mappings-of-registration-center-and-device---mapunmapread-) _(ADM_FR_2.11)_
     * [2.12 Mappings of Registration Center, Machine and Device - Create/Delete](#212-mappings-of-registration-center-machine-and-device---createdelete-) _(ADM_FR_2.12)_
-    * [2.13 Mappings of Registration Center and User- Create/Delete](#213-mappings-of-registration-center-and-user---createdelete-) _(ADM_FR_2.13)_
+    * [2.13 Mappings of Registration Center and User- Create/Delete](#213-mappings-of-registration-center-and-user---mapunmap-) _(ADM_FR_2.13)_
   * [3. MISP Management](#3-MISP-management) 
     * [3.1 MISP - Create/Read/Update/Delete](#31-misp---createreadupdatedelete) _(ADM_FR_3.1)_
       * [3.1.1 License Key Allocation- Create/Read/Update/Delete](#311-license-key-allocation--createreadupdatedelete-) _(ADM_FR_3.2)_ 
@@ -1987,7 +1987,7 @@ Refer below for the process:
 3. Responds with the Device Type Code and Language Code for the Device Type created successfully
 1. In case of Exceptions, system triggers relevant error messages
 
-### 2.10 Mappings of Registration Center and Machine - Create/Delete [**[↑]**](#table-of-contents)
+### 2.10 Mappings of Registration Center and Machine - Map/Unmap [**[↑]**](#table-of-contents)
 #### A. Create a mapping record of Machine and Center in Machine-Center Mapping Master Database
 Upon receiving a request to add a mapping of Machine and Center with the input parameters (regcntr_id, machine_id, and is_active), the system stores the Mapping of Machine and Center in the Database
 
@@ -1997,50 +1997,63 @@ Refer below for the process:
    * regcntr_id - character (10) – Mandatory (refers to a Registration Center stored in Registration Center)
    * machine_id - character (10) – Mandatory (refers to a Machine stored in Machine Masterdata)
    * is_active - boolean - Mandatory
-2. Responds with the Machine Id and Center ID for the mapping of Machine and Center created successfully
-1. The component restricts the bulk creation of Master Data
-1. In case of Exceptions, system triggers error messages as received from the Database. 
+2. Validate if the Registration Center belongs to the Zone of Admin or belongs to a child Zone of the Admin’s Zone
+3. Validate if the Registration Center belongs to the Zone of Machine or belongs to a child Zone of the Machine’s Zone
+4. Validate if the Machine belongs to the Zone of Admin or belongs to a child Zone of the Admin’s Zone
+5. Validate if the Registration Center and Machine received are not in decommissioned state
+6. If the above conditions in point 2, 3, 4 and 5 are not met, throw respective error messages. Refer messages section
+7. If the Machine ID is already mapped to another Registration Center ID and the mapping is Active, throw an appropriate error
+8. If the mapping is Inactive, create the new mapping
+9. Store the default language code against the mapping
+10. If the Registration Center ID - Machine ID mapping already exist but is in Inactive state, re-activate the mapping
+11. In case of Exceptions/Success, system should trigger relevant messages. Refer “Messages” sectione. 
 
 
 #### B. Delete a Center-Machine mapping in the Center-Machine mapping Master Database
 
-Upon receiving a request to delete a Center-Machine mapping with the input parameters (regcntr_id, machine_id), the system updates the is_deleted flag to true in the Center-Machine mapping Database against the input received
+Upon receiving a request to delete a Center-Machine mapping with the input parameters (regcntr_id, machine_id), the system updates the is_active flag to false in the Center-Machine mapping Database against the input received
 
 Refer below for the process:
 1. Validates if all required input parameters have been received as listed below for each specific request
    * regcntr_id - character (36) - Mandatory
    * machine_id - character (36) - Mandatory
-2. Deleted record are not be deleted again
-1. Responds with data not found error if deleted record is received in the request.
-1. Responds with the Machine Id and Center ID for the mapping of Machine and Center deleted successfully
-1. In case of Exceptions, system triggers relevant error messages .
+2. Validate if the Registration Center belongs to the Zone of Admin or belongs to a child Zone of the Admin’s Zone
+3. Validate if the Machine belongs to the Zone of Admin or belongs to a child Zone of the Admin’s Zone
+4. If the above conditions in point 3 and 4 are not met, throw respective error messages. Refer messages section
+5. If the mapping does not exist or is in inactive state, throw an appropriate error
+6. In case of Exceptions/Success, system should trigger relevant messages. Refer “Messages” section
 
-
-### 2.11 Mappings of Registration Center and Device - Create/Read/Delete [**[↑]**](#table-of-contents)
+### 2.11 Mappings of Registration Center and Device - Map/Unmap/Read [**[↑]**](#table-of-contents)
 #### A. Create a mapping record of Device and Center in Device-Center Mapping Master Database
-Upon receiving a request to add a mapping of Device and Center with the input parameters (regcntr_id, device_id, and is_active), the system stores the Mapping of Device and Center in the Database
+Upon receiving a request to add a mapping of Device and Center with the input parameters (regcntr_id, device_id), the system stores the Mapping of Device and Center in the Database
 
 Refer below for the process:
 1. Validates if all required input parameters have been received as listed below for each specific request
    * regcntr_id - character (10) – Mandatory (refers to a Registration Center stored in Registration Center)
    * device_id - character (36) – Mandatory (refers to a Device stored in Device Masterdata)
-   * is_active - boolean - Mandatory
-2. Responds with the Device Id and Center ID for the mapping of Device and Center created successfully
-1. The component restricts the bulk creation of Master Data
-1. In case of Exceptions, system triggers error messages as received from the Database. 
+2. Validate if the Registration Center belongs to the Zone of Admin or belongs to a child Zone of the Admin’s Zone
+3. Validate if the Registration Center belongs to the Zone of Device or belongs to a child Zone of the Device’s Zone
+4. Validate if the Device belongs to the Zone of Admin or belongs to a child Zone of the Admin’s Zone
+5. Validate if the Registration Center and Device received are not in decommissioned state
+6. If the above conditions in point 2, 3, 4 and 5 are not met, throw respective error messages. Refer messages section
+7. If the Device ID is already mapped to another Registration Center ID and the mapping is Active, throw an appropriate error
+8. If the mapping is Inactive, create the new mapping
+9. Store the default language code against the mapping
+10. If the Registration Center ID - Device ID mapping already exist but is in Inactive state, re-activate the mapping
+11. In case of Exceptions/Success, system should trigger relevant messages. Refer “Messages” section
 
-
-#### B. Delete a Center-Device mapping in the Center-Device mapping Master Database
-Upon receiving a request to delete a Center-Device mapping with the input parameters (regcntr_id, device_id), the system updates the is_deleted flag to true in the Center-Device mapping Database against the input received
+#### B. Unmap a Center-Device mapping in the Center-Device mapping Master Database
+Upon receiving a request to delete a Center-Device mapping with the input parameters (regcntr_id, device_id), the system updates the is_active flag to false in the Center-Device mapping Database against the input received
 
 Refer below for the process:
 1. Validates if all required input parameters have been received as listed below for each specific request
    * regcntr_id - character (36) - Mandatory
    * device_id - character (36) - Mandatory
-2. Deleted record should not be deleted again
-1. Responds with data not found error if deleted record is received in the request
-1. Responds with the Device Id and Center ID for the mapping of Device and Center deleted successfully
-1. In case of Exceptions, system triggers relevant error messages.
+2. Validate if the Registration Center belongs to the Zone of Admin or belongs to a child Zone of the Admin’s Zone
+3. Validate if the Device belongs to the Zone of Admin or belongs to a child Zone of the Admin’s Zone
+4. If the above conditions in point 3 and 4 are not met, throw respective error messages. Refer messages section
+5 If the mapping does not exist or is in inactive state, throw an appropriate error
+6. In case of Exceptions/Success, system should trigger relevant messages. Refer “Messages” section
 
 
 #### C. Fetch Device-Center History record based on the timestamp received
@@ -2096,7 +2109,7 @@ Refer below for the process:
 
 [**Link to design**](/mosip/mosip-platform/blob/master/design/kernel/kernel-masterdata.md)
 
-### 2.13 Mappings of Registration Center and User - Create/Delete [**[↑]**](#table-of-contents)
+### 2.13 Mappings of Registration Center and User - Map/Unmap [**[↑]**](#table-of-contents)
 #### A. Create a mapping record of User and Center in User-Center Mapping Master Database
 Upon receiving a request to add a mapping of User and Center with the input parameters (regcntr_id, usr_id, and is_active), the system stores the Mapping of User and Center in the Database
 
@@ -2105,21 +2118,30 @@ Refer below for the process:
    * regcntr_id - character (10) – Mandatory (refers to a Registration Center stored in Registration Center)
    * usr_id - character (36) – Mandatory (refers to a User stored in User Masterdata)
    * is_active - boolean - Mandatory
-2. Responds with the User Id and Center ID for the mapping of User and Center created successfully
-1. The component restricts the bulk creation of Master Data
-1. In case of Exceptions, system triggers error messages as received from the Database. 
+2. Validate if the Registration Center belongs to the Zone of Admin or belongs to a child Zone of the Admin’s Zone
+3. Validate if the Registration Center belongs to the Zone of User or belongs to a child Zone of the User’s Zone
+4. Validate if the User belongs to the Zone of Admin or belongs to a child Zone of the Admin’s Zone
+5. Validate if the Registration Center and User received are not in decommissioned state
+6. If the above conditions in point 2, 3, 4 and 5 are not met, throw respective error messages. Refer messages section
+7. If the User ID is already mapped to another Registration Center ID and the mapping is Active, throw an appropriate error
+8. If the mapping is Inactive, create the new mapping
+9. Store the default language code against the mapping
+10. If the Registration Center ID - User ID mapping already exist but is in Inactive state, re-activate the mapping
+11. In case of Exceptions/Success, system should trigger relevant messages. Refer “Messages” section
 
 
-#### B. Delete a Center-User mapping in the Center-Device mapping Master Database
+#### B. Delete a Center-User mapping in the Center-User mapping Master Database
 Upon receiving a request to delete a Center-User mapping with the input parameters (regcntr_id, usr_id), the system updates the is_active flag to false in the Center-User mapping Database against the input received
 
 Refer below for the process:
 1. Validates if all required input parameters have been received as listed below for each specific request
    * regcntr_id - character (36) - Mandatory
    * usr_id - character (36) - Mandatory
-1. Responds with data not found error if non-existing record is received in the request
-1. Responds with the User Id and Center ID for the mapping of User and Center deleted successfully
-1. In case of Exceptions, system triggers relevant error messages.
+2. Validate if the Registration Center belongs to the Zone of Admin or belongs to a child Zone of the Admin’s Zone
+3. Validate if the User belongs to the Zone of Admin or belongs to a child Zone of the Admin’s Zone
+4. If the above conditions in point 3 and 4 are not met, throw respective error messages. Refer messages section
+5. If the mapping does not exist or is in inactive state, throw an appropriate error
+6. In case of Exceptions/Success, system should trigger relevant messages. Refer “Messages” section
 
 ## 3. MISP Management 
 ### 3.1 MISP - Create/Read/Update/Delete
