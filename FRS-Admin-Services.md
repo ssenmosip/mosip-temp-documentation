@@ -1057,26 +1057,30 @@ Refer below for the process:
 1. Validates if all required input parameters have been received as listed below for each specific request
    * doctyp_code - character - 36 - mandatory
    * doccat_code - character - 36 - mandatory
+
 2 If the mapping does not exist
    a. is_active flag should be stored as true when the mapping is created
    b. Store the default language code against the mapping
    c. cr_by should be the User ID of the user who is accessing this API
    d. cr_dtimes should be the date-time at which the user is creating the Document Category - Document Type Mapping
+
 2 if the mapping already exist but is in inactive state
    a. Update the is_acitve flag as “True”
    b. Updated the upd_by and upd_dtimes values against the mapping
+
 3. If the mapping already exist in active state, throw appropriate error message
 4. Responds with the approriate message for the mapping being created successfully
 5. The API restricts the bulk creation of Master Data
 6. In case of Exceptions, system triggers error messages as received from the Database. 
 
-#### A. Remove a mapping record of Document Type and Document Category in Valid Document Mapping Master Database
+#### B. Remove a mapping record of Document Type and Document Category in Valid Document Mapping Master Database
 Upon receiving a request to add a mapping of Document Type and Document Category with the input parameters (doctyp_code, doccat_code) the system stores the Mapping of Document type and Document category in the Database
 
 Refer below for the process:
 1. Validates if all required input parameters have been received as listed below for each specific request
    * doctyp_code - character - 36 - mandatory
    * doccat_code - character - 36 - mandatory
+
 2  If the Document Type is already un-mapped from Document Category, throw an appropriate error message
 3  upd_by should be the User ID of the user who is accessing this API
 4  upd_dtimes should be the date-time when the Document Category - Document Type Mapping is being updated
