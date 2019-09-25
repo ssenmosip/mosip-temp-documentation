@@ -2181,7 +2181,7 @@ Refer below for the process:
 [**Link to design**](/mosip/mosip-platform/blob/master/design/kernel/kernel-licensekeymanager.md)
 
 ### Kernel API [**[↑]**](#table-of-contents)
-[**Refer to Wiki for more details on Kernel API**](Kernel-APIs)
+[**Refer to Wiki (Masterdata APIs) for more details on Kernel API**](/mosip/mosip-docs/wiki/Platform-Documentation#6-mosip-apis)
 
 
 
