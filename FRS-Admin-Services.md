@@ -1,6 +1,6 @@
 ## Table Of Contents
 
-  * [1. Master Data Management](#1-master-data-management) 
+  * [1. Master Data Management](#1-master-data-management-) 
     * [1.1 Location Hierarchy - Create/Read/Update/Delete](#11-location-hierarchy---createreadupdatedelete-) _(ADM_FR_1.1)_
     * [1.2 List of Holidays - Create/Read/Update/Delete](#12-list-of-holidays---createreadupdatedelete-) _(ADM_FR_1.2)_
     * [1.3 Biometric Authentication Type - Create/Read](#13-biometric-authentication-type---createread-) _(ADM_FR_1.3)_
@@ -21,7 +21,7 @@
     * [1.18 List of ID Types - Create/Read](#118-list-of-id-types---createread-) _(ADM_FR_1.18)_
     * [1.19 User History](#119-user-history-) _(ADM_FR_1.19)_
     * [1.20 Document Type - Category Mapping](#120-document-type-to-category-mapping---mapunmap-) _(ADM_FR_1.20)_
-  * [2. Registration Management](#2-registration-management) 
+  * [2. Registration Management](#2-registration-management-) 
     * [2.1 Registration Center Type - Create/Update/Decommission](#21-registration-center-type---createreadupdatedecommission-) _(ADM_FR_2.1)_
     * [2.2 Registration Center - Create/Read/Update/Delete](#22-registration-center---createreadupdatedecommission-) _(ADM_FR_2.2)_
     * [2.3 List of Machine Types - Create](#23-list-of-machine-types---create-) _(ADM_FR_2.3)_
@@ -35,13 +35,13 @@
     * [2.11 Mappings of Registration Center and Device - Create/Read/Delete](#211-mappings-of-registration-center-and-device---mapunmapread-) _(ADM_FR_2.11)_
     * [2.12 Mappings of Registration Center, Machine and Device - Create/Delete](#212-mappings-of-registration-center-machine-and-device---createdelete-) _(ADM_FR_2.12)_
     * [2.13 Mappings of Registration Center and User- Create/Delete](#213-mappings-of-registration-center-and-user---mapunmap-) _(ADM_FR_2.13)_
-  * [3. MISP Management](#3-MISP-management) 
-    * [3.1 MISP - Create/Read/Update/Delete](#31-misp---createreadupdatedelete) _(ADM_FR_3.1)_
+  * [3. MISP Management](#3-MISP-management-) 
+    * [3.1 MISP - Create/Read/Update/Delete](#31-misp---createreadupdatedelete-) _(ADM_FR_3.1)_
       * [3.1.1 License Key Allocation- Create/Read/Update/Delete](#311-license-key-allocation--createreadupdatedelete-) _(ADM_FR_3.2)_ 
   *  [Kernel API](#kernel-api-)
   
 # Admin Services
-## 1. Master Data Management
+## 1. Master Data Management [**[↑]**](#table-of-contents)
 ### 1.1 Location Hierarchy - Create/Read/Update/Delete [**[↑]**](#table-of-contents)
 
 #### A. Create Location Hierarchy in the Master database 
