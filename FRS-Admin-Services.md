@@ -1604,11 +1604,13 @@ Refer below for the process:
 5. The API should not allow activation of Machine if the data for the Machine is not present in all the languages which are configured for a country
 6. While receiving the request for activation, If the Machine is already Active, the API should throw an error message. Refer messages section.
 7. While receiving the request for de-activation, If the Machine is already In-active, the API should throw an error message. Refer messages section.
-8. upd_by should be the Username of the user who is accessing this API
-9. upd_dtimes should be the date-time at which the user is creating the Machine
-10. History record should be stores for every modification of a Machine
-11. Responds with the Registration Center Code and Language Code for the Machine updated successfully
-12. In case of Exceptions, system triggers relevant error messages
+8. If the request has been received for Deactivating an active machine, and the machine is mapped to a Registration Center, reduce the number of kiosk by 1 for that Registration Center in the Registration Center Master DB.
+9. If the request has been received for Activating an Inactive machine, and the machine is mapped to a Registration Center, increase the number of kiosk by 1 for that Registration Center in the Registration Center Master DB.
+10. upd_by should be the Username of the user who is accessing this API
+11. upd_dtimes should be the date-time at which the user is creating the Machine
+12. History record should be stores for every modification of a Machine
+13. Responds with the Registration Center Code and Language Code for the Machine updated successfully
+14. In case of Exceptions, system triggers relevant error messages
 
 #### C. Decommission a Machine in the List of Machines Master Database
 
