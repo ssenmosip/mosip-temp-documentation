@@ -2143,9 +2143,9 @@ Refer below for the process:
 5. If the mapping does not exist or is in inactive state, throw an appropriate error
 6. In case of Exceptions/Success, system should trigger relevant messages. Refer “Messages” section
 
-## 3. MISP Management 
-### 3.1 MISP - Create/Read/Update/Delete
-#### 3.1.1 License Key Allocation- Create/Read/Update/Delete [**[↑]**](#table-of-contents)
+## 3. MISP Management  [**[↑]**](#table-of-contents)
+### 3.1 MISP - Create/Read/Update/Delete [**[↑]**](#table-of-contents)
+#### 3.1.1 License Key Allocation- Create/Read/Update/Delete 
 
 #### A. Create MISP
 1. The system receives a request to create a MISP with input parameters (MISP ID, MISP Organization Name, MISP Contact Number, MISP Email ID, MISP Address, MISP User name, MISP Password, MISP License Key, MISP License Key Status, IsActive)
