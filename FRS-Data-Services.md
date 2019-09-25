@@ -199,6 +199,7 @@ Refer below for the process:
    * Partner ID - Mandatory
 4. Raise an exception if input parameter is missing. Refer messages section
 5. Token ID length should be of 36 digits
+
 [**Link to design**](/mosip/mosip-platform/blob/master/design/kernel/kernel-idgenerator-tokenid.md)
 
 
