@@ -1979,7 +1979,7 @@ Refer below for the process:
 
 [**Link to design**](/mosip/mosip-platform/blob/master/design/kernel/kernel-masterdata.md)
 
-### 2.13 Mappings of Registration Center and User - Create/Read/Delete [**[↑]**](#table-of-contents)
+### 2.13 Mappings of Registration Center and User - Create/Delete [**[↑]**](#table-of-contents)
 #### A. Create a mapping record of User and Center in User-Center Mapping Master Database
 Upon receiving a request to add a mapping of User and Center with the input parameters (regcntr_id, usr_id, and is_active), the system stores the Mapping of User and Center in the Database
 
