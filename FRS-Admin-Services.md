@@ -69,7 +69,35 @@ While storing the location hierarchy in the database, the system performs the fo
 1. The component restricts the bulk creation of Master Data through API. However it could be done through a script as need be depending on the requirement of the country.
 1. In case of exceptions, system triggers error messages as received from the Database
 
-#### B. Check the existence of a Location in Master Database
+#### B. Update a Location in Location Master Database
+On receiving a  request to update a Location with the input parameters (code, name, hierarchy_level, hierarchy_level_name, parent_loc_code, lang_code and is_active), the system updates the Location in the Location Database
+for the code received.
+
+The system performs the following steps to update the location in the Master Database:
+ 
+1. Validates if all required input parameters have been received as listed below for each specific request
+   * code character (36) - Mandatory
+   * name character (128) - Mandatory
+   * hierarchy_level smallint - Mandatory
+   * hierarchy_level_name character (64) - Mandatory
+   * parent_loc_code character (32) - Mandatory
+   * lang_code character (3) - Mandatory
+   * is_active boolean - Mandatory
+1. Validate if the Location name received does not already exist in the hierarchy of the Location
+   * If Location name already exist under the hierarchy level, throw an appropriate error
+1. The API should not allow activation of Location if the data for the Location is not present in all the languages which are configured for a country
+2. For the code received in the request, replaces all the data received in the request against the data existing in the Location database against the same code.
+3. While receiving the request for activation, If the Location is already Active, the API should throw an error message. Refer messages section.
+4. While receiving the request for deactivation, If the Location is already Inactive, the API should throw an error message. Refer messages section
+5. If for a Location data, is_active flag is being sent as “False” and there are active child Locations (also the subsequent child locations) being mapped to received location, do not deactivate the location. Respond with appropriate message. Refer messages section
+6. Deleted record are not be updated
+7. upd_by should be the Username of the user who is accessing this API
+8. upd_dtimes should be the date-time when the Location is being updated
+9. Responds with data not found error if deleted record is received in the request
+10. Responds with appropriate message if the Location is updated successfully
+11. In case of Exceptions, system triggers relevant error messages
+
+#### C. Check the existence of a Location in Master Database
 Upon receiving a request to validate the Location Name with input parameters (Location Name), the system checks the Location Name in the Master Database
 
 While checking the location in the Database, the system performs the following steps:
@@ -78,7 +106,8 @@ While checking the location in the Database, the system performs the following s
    * Location Name - Mandatory
 2. If the mandatory input parameters are missing, throw the appropriate message
 1. In case of Exceptions, system triggers relevant error messages
-#### C. Fetch Location Hierarchy Levels based on a Language Code
+
+#### D. Fetch Location Hierarchy Levels based on a Language Code
 Upon receiving a request to fetch the Location Hierarchy Levels with input parameters (Language Code), the system fetches the Location Hierarchy Levels in the requested language. The following steps are performed by the system: 
 
 1. Validates if the request contains following input parameters (Language Code)
@@ -88,7 +117,8 @@ Upon receiving a request to fetch the Location Hierarchy Levels with input param
    * Hierarchy Name
    * IsActive
 3. In case of Exceptions, system triggers relevant error messages
-#### D. Fetch the Location Hierarchy Data based on a Location Code and a Language Code
+
+#### E. Fetch the Location Hierarchy Data based on a Location Code and a Language Code
 
 Upon receiving a  request to fetch all the Location Hierarchy Data with input parameters (Location Code and Language Code), the system fetches the Location Hierarchy Data based on requested Location code and language code. The following steps are performed by the system:
 
@@ -129,7 +159,7 @@ Upon receiving a  request to fetch all the Location Hierarchy Data with input pa
 4. Responds to the source with all the Location Hierarchy Data based on the Location Code
 1. In case of Exceptions, system triggers relevant error messages. 
 
-#### E. Fetch the Location Hierarchy Data for the bottom next hierarchy based on a Location Code and a Language Code
+#### F. Fetch the Location Hierarchy Data for the bottom next hierarchy based on a Location Code and a Language Code
 Upon receiving a request to fetch all the Location Hierarchy Data with input parameters (Location Code and Language Code), the system fetches the Location Hierarchy Data for the next hierarchy level. The following steps are performed by the system:
 1. Validates if the request contains the following input parameters
    * Location Code - Mandatory
@@ -138,34 +168,6 @@ Upon receiving a request to fetch all the Location Hierarchy Data with input par
 1. Fetches the Location data of only the child hierarchy of location code received (For e.g., if the location code for a particular Province is received, responds with the data of all the Cities existing in that Province, similarly if location code of a City is received, responds all the data regarding the Local Administrative Authorities existing under that City)
 1. Responds to the source with the data fetched
 1. In case of Exceptions, system should trigger an error message. 
-
-#### F. Update a Location in Location Master Database
-On receiving a  request to update a Location with the input parameters (code, name, hierarchy_level, hierarchy_level_name, parent_loc_code, lang_code and is_active), the system updates the Location in the Location Database
-for the code received.
-
-The system performs the following steps to update the location in the Master Database:
- 
-1. Validates if all required input parameters have been received as listed below for each specific request
-   * code character (36) - Mandatory
-   * name character (128) - Mandatory
-   * hierarchy_level smallint - Mandatory
-   * hierarchy_level_name character (64) - Mandatory
-   * parent_loc_code character (32) - Mandatory
-   * lang_code character (3) - Mandatory
-   * is_active boolean - Mandatory
-1. Validate if the Location name received does not already exist in the hierarchy of the Location
-   * If Location name already exist under the hierarchy level, throw an appropriate error
-1. The API should not allow activation of Location if the data for the Location is not present in all the languages which are configured for a country
-2. For the code received in the request, replaces all the data received in the request against the data existing in the Location database against the same code.
-3. While receiving the request for activation, If the Location is already Active, the API should throw an error message. Refer messages section.
-4. While receiving the request for deactivation, If the Location is already Inactive, the API should throw an error message. Refer messages section
-5. If for a Location data, is_active flag is being sent as “False” and there are active child Locations (also the subsequent child locations) being mapped to received location, do not deactivate the location. Respond with appropriate message. Refer messages section
-6. Deleted record are not be updated
-7. upd_by should be the Username of the user who is accessing this API
-8. upd_dtimes should be the date-time when the Location is being updated
-9. Responds with data not found error if deleted record is received in the request
-10. Responds with appropriate message if the Location is updated successfully
-11. In case of Exceptions, system triggers relevant error messages
 
 #### G. Delete a Location in Location Master Database
 On receiving a request to delete a Location with the input parameters (code), the system updates the is_deleted flag to true in the Location Database against the code received. 
