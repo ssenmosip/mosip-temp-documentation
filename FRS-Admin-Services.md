@@ -443,15 +443,14 @@ Refer below for the process:
    * descr - character (128) - Optional
    * lang_code - character (3) - Mandatory
    * is_active - boolean - Mandatory
-2. Validates if the response contains the following attributes for a Document Type added
-   * Code
-   * Language Code
-3. Responds with the Document Type Code and Language Code for the Document Type created successfully
-1. In case of Exceptions, system triggers relevant error messages
+2. The API should not allow creation of the Document Type if the data is not received in default language
+3. If the data for the Document Type is not received in all the configured languages, the API should allow the Document Type to be created given the Point 2 is satisfied.
+4. The API should activate the Document Type while creation provided data for all the configured languages is received during the initial creation
+5. If the data for all the configured languages is not received, deactivate the Document Type while creation
+6. Responds with an appropriate message for the Document Type created successfully
+7. In case of Exceptions, system triggers relevant error messages
 
-#### B. Update and Delete a Document Type in the Document Type Master Database
-
-#### (i) Update
+#### B. Update a Document Type in the Document Type Master Database
 
 On receiving a request to update a Document Type with the input parameters (code, name, descr, lang_code and is_active), the system updates the Document Type in the Document Type Database for the Code received
 
@@ -463,12 +462,15 @@ Refer below for the process:
    * lang_code - character (3) - Mandatory
    * is_active - boolean - Mandatory
 2. For the code received in the request, replaces all the data received in the request against the data existing in the Document Type database against the same code
-1. Deleted record are not be updated
-1. Responds with data not found error if deleted record is received in the request
-1. Responds with the Document Category Code and Language Code for the Document Category updated successfully
-1. In case of Exceptions, system triggers relevant error messages
+3. The API should not allow activation of Document Type if the data for the Document Type is not present in all the languages which are configured for a country
+4. While receiving the request for activation, If the Document Type is already Active, the API should throw an error message. Refer messages section.
+5. While receiving the request for deactivation, If the Document Type is already Inactive, the API should throw an error message. Refer messages section.
+6. Deleted record are not be updated
+7. Responds with data not found error if deleted record is received in the request
+8. Responds with the appropriate message for the Document Category updated successfully
+9. In case of Exceptions, system triggers relevant error messages
 
-#### (ii) Delete
+#### C. Delete a Document Type in the Document Type Master Database
 
 On receiving a request to delete a Document Type with the input parameters (code), the system updates the is_deleted flag to true in the Document Type Database against the code received
 
