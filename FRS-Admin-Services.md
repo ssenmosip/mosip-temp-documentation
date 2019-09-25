@@ -139,8 +139,7 @@ Upon receiving a request to fetch all the Location Hierarchy Data with input par
 1. Responds to the source with the data fetched
 1. In case of Exceptions, system should trigger an error message. 
 
-#### F. Update and Delete a Location in Location Master Database
-#### (i) Update
+#### F. Update a Location in Location Master Database
 On receiving a  request to update a Location with the input parameters (code, name, hierarchy_level, hierarchy_level_name, parent_loc_code, lang_code and is_active), the system updates the Location in the Location Database
 for the code received.
 
@@ -154,15 +153,24 @@ The system performs the following steps to update the location in the Master Dat
    * parent_loc_code character (32) - Mandatory
    * lang_code character (3) - Mandatory
    * is_active boolean - Mandatory
+1. Validate if the Location name received does not already exist in the hierarchy of the Location
+   * If Location name already exist under the hierarchy level, throw an appropriate error
+1. The API should not allow activation of Location if the data for the Location is not present in all the languages which are configured for a country
 2. For the code received in the request, replaces all the data received in the request against the data existing in the Location database against the same code.
-1. Deleted record are not be updated
-1. Responds with data not found error if deleted record is received in the request
-1. Responds with the Code and Language Code for the Location Hierarchy updated successfully
-1. In case of Exceptions, system triggers relevant error messages
-#### (ii) Delete
-On receiving a  request to delete a Location with the input parameters (code), the system updates the is_deleted flag to true in the Location Database against the code received. 
+3. While receiving the request for activation, If the Location is already Active, the API should throw an error message. Refer messages section.
+4. While receiving the request for deactivation, If the Location is already Inactive, the API should throw an error message. Refer messages section
+5. If for a Location data, is_active flag is being sent as “False” and there are active child Locations (also the subsequent child locations) being mapped to received location, do not deactivate the location. Respond with appropriate message. Refer messages section
+6. Deleted record are not be updated
+7. upd_by should be the Username of the user who is accessing this API
+8. upd_dtimes should be the date-time when the Location is being updated
+9. Responds with data not found error if deleted record is received in the request
+10. Responds with appropriate message if the Location is updated successfully
+11. In case of Exceptions, system triggers relevant error messages
 
-The system performs the following steps in order to delete the loaction\s received in the code:
+#### G. Delete a Location in Location Master Database
+On receiving a request to delete a Location with the input parameters (code), the system updates the is_deleted flag to true in the Location Database against the code received. 
+
+The system performs the following steps in order to delete the loaction received in the code:
 1. Validates if all required input parameters have been received as listed below for each specific request
 1. Delete all records for the code received
 1. Deleted record are not be deleted again
