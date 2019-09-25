@@ -56,6 +56,15 @@ While storing the location hierarchy in the database, the system performs the fo
     * parent_loc_code - character (32) - Optional
     * lang_code - character (3) - Mandatory
     * is_active - boolean - Mandatory
+1. Validate if the Location name received does not already exist in the hierarchy for which the location is getting created
+    * If Location name already exist under the hierarchy level, throw an appropriate error
+1. The API should not allow creation of the Location if the data is not received in default language
+1. If the data for the Location is not received in all the configured languages, the API should allow the Location to be created given the Point 3 is satisfied.
+1. The API should activate the Location while creation provided the data for all the configured languages is received during the initial creation
+    * If the data for all the configured languages is not received, deactivate the Location while creation
+2. While storing the location, 
+    * cr_by should be the Username of the user who is accessing this API
+    * cr_dtimes should be the date-time at which the user is creating the Location 
 2. Responds with the Location Hierarchy created successfully
 1. The component restricts the bulk creation of Master Data through API. However it could be done through a script as need be depending on the requirement of the country.
 1. In case of exceptions, system triggers error messages as received from the Database
