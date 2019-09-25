@@ -33,6 +33,7 @@
     * [2.10 Mappings of Registration Center and Machine - Create/Delete](#210-mappings-of-registration-center-and-machine---createdelete-) _(ADM_FR_2.10)_
     * [2.11 Mappings of Registration Center and Device - Create/Read/Delete](#211-mappings-of-registration-center-and-device---createreaddelete-) _(ADM_FR_2.11)_
     * [2.12 Mappings of Registration Center, Machine and Device - Create/Delete](#212-mappings-of-registration-center-machine-and-device---createdelete-) _(ADM_FR_2.12)_
+    * [2.13 Mappings of Registration Center and User- Create/Delete](#212-mappings-of-registration-center-and-user---createdelete-) _(ADM_FR_2.13)_
   * [3. MISP Management](#3-MISP-management) 
     * [3.1 MISP - Create/Read/Update/Delete](#31-misp---createreadupdatedelete) _(ADM_FR_3.1)_
       * [3.1.1 License Key Allocation- Create/Read/Update/Delete](#311-license-key-allocation--createreadupdatedelete-) _(ADM_FR_3.2)_ 
@@ -1977,6 +1978,31 @@ Refer below for the process:
 1. In case of Exceptions, system triggers relevant error messages. 
 
 [**Link to design**](/mosip/mosip-platform/blob/master/design/kernel/kernel-masterdata.md)
+
+### 2.13 Mappings of Registration Center and User - Create/Read/Delete [**[↑]**](#table-of-contents)
+#### A. Create a mapping record of User and Center in User-Center Mapping Master Database
+Upon receiving a request to add a mapping of User and Center with the input parameters (regcntr_id, usr_id, and is_active), the system stores the Mapping of User and Center in the Database
+
+Refer below for the process:
+1. Validates if all required input parameters have been received as listed below for each specific request
+   * regcntr_id - character (10) – Mandatory (refers to a Registration Center stored in Registration Center)
+   * usr_id - character (36) – Mandatory (refers to a User stored in User Masterdata)
+   * is_active - boolean - Mandatory
+2. Responds with the User Id and Center ID for the mapping of User and Center created successfully
+1. The component restricts the bulk creation of Master Data
+1. In case of Exceptions, system triggers error messages as received from the Database. 
+
+
+#### B. Delete a Center-User mapping in the Center-Device mapping Master Database
+Upon receiving a request to delete a Center-User mapping with the input parameters (regcntr_id, usr_id), the system updates the is_active flag to false in the Center-User mapping Database against the input received
+
+Refer below for the process:
+1. Validates if all required input parameters have been received as listed below for each specific request
+   * regcntr_id - character (36) - Mandatory
+   * usr_id - character (36) - Mandatory
+1. Responds with data not found error if non-existing record is received in the request
+1. Responds with the User Id and Center ID for the mapping of User and Center deleted successfully
+1. In case of Exceptions, system triggers relevant error messages.
 
 ## 3. MISP Management 
 ### 3.1 MISP - Create/Read/Update/Delete
