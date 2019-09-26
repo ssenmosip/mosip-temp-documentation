@@ -1341,7 +1341,7 @@ Firstly, update below files present in config folder in configuration repository
  6.  `registration-processor-camel-routes-res_update-dmz-<env-name>.xml` 
 
 We are deploying DMZ services into another VM having docker installed. The steps to setup DMZ environment and services deployment:
-1. Need to set Up VM with RHEL 7.5
+1. Need to set Up VM with RHEL 7.6
 2. Installing the Docker ce:
 
           $ sudo yum install http://mirror.centos.org/centos/7/extras/x86_64/Packages/container-selinux-2.107- 
