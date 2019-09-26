@@ -1060,7 +1060,7 @@ registration.processor.queue.printpostaladdress={postal_queue_address}
 ```
 ## 7. Configuring MOSIP [**[↑]**](#table-of-content)
 
-We are using Spring cloud configuration server in MOSIP for storing and serving distributed configurations across all the applications and environments.
+We are using kubernetes configuration server in MOSIP for storing and serving distributed configurations across all the applications and environments.
 
 We are storing all applications' configuration in config-templates folder inside our Github Repository [here](https://github.com/mosip/mosip-config.git).
 
