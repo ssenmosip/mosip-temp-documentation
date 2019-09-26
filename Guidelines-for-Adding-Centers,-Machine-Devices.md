@@ -12,7 +12,7 @@
   * [2.9 Map Center-Machine-Device](#29-map-center-machine-device)
   * [2.10 Map Center-Machine-User](#210-map-center-machine-user)
   * [2.11 Store History of MasterData](#211-store-history-of-masterdata)
-- [3. Load updated CSVs to the database using dml sql script](#3-Load updated CSVs to the database using dml sql script)
+- [3. Load updated CSVs to the database using dml sql script](#3-Load-updated-CSVs-to-the-database-using-dml-sql-script)
 
 ## 1. Seed Data Source files (in csv format):
 1. Registration Centers: [**master-registration_center**](/mosip/mosip-platform/blob/master/db_scripts/mosip_master/dml/master-registration_center.csv)
