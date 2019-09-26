@@ -30,9 +30,9 @@ This section talks about the Hardware and Software requirements for MOSIP pilot 
 * Minimum 12 cores CPU
 * 128 GB RAM
 * 3 TB HDD
-Note : Get 3 servers each with this configuration 
-* SAN Storage for backup
-
+* Red Hat Enterprise Linux or CentOS latest version
+* SAN Storage for backup atleast 6 TB with a dual controller SAN Switch
+Note : Get 3 servers each with this configuration * Hardware Firewall Device 
 
 # For Staging and Production
 This section talks about the hardware and software requirements for serious MOSIP deployments for staging and production.
