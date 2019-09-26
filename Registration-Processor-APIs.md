@@ -642,12 +642,12 @@ Failure :
 
 # 5 Bio Dedupe Service
 
-- #### `GET /registrationprocessor/v1/bio-dedupe/{referenceid}`
+- #### `GET /registrationprocessor/v1/bio-dedupe/biometricfile/{referenceid}`
 
 The abis would call bio-dedupe service to get the biometric cbeff file.
 
 #### Resource URL
-https://mosip.io/registrationprocessor/v1/bio-dedupe/{referenceid}
+https://mosip.io/registrationprocessor/v1/bio-dedupe/biometricfile/{referenceid}
 
 #### Resource details
 
