@@ -1344,10 +1344,11 @@ We are deploying DMZ services into another VM having docker installed. The steps
 1. Need to set Up VM with RHEL 7.5
 2. Installing the Docker ce:
 
-         $ sudo yum install http://mirror.centos.org/centos/7/extras/x86_64/Packages/container-selinux-2.107-3.el7.noarch.rpm
+          $ sudo yum install http://mirror.centos.org/centos/7/extras/x86_64/Packages/container-selinux-2.107- 
+            3.el7.noarch.rpm
 
-         $ sudo yum -y install lvm2 device-mapper device-mapper-persistent-data device-mapper-event device-mapper-libs device- 
-   mapper-event-libs
+         $ sudo yum -y install lvm2 device-mapper device-mapper-persistent-data device-mapper-event device-mapper-libs 
+           device-mapper-event-libs
 
          $ sudo wget https://download.docker.com/linux/centos/docker-ce.repo -O /etc/yum.repos.d/docker-ce.repo
 
