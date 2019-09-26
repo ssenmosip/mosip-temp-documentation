@@ -129,5 +129,5 @@ After adding all these data in the DB, we would need to create the same records 
 
 ## 3. Load updated CSVs to the database using dml sql script:
 Run dml sql scripts on DB server where master seed data to be updates.
-mosip_master=#\ir '/mosip/mosip-platform/blob/master/db_scripts/mosip_master/mosip_master_dml_deploy.sql'
+      mosip_master=#\ir '/mosip/mosip-platform/blob/master/db_scripts/mosip_master/mosip_master_dml_deploy.sql'
 
