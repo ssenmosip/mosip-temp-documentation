@@ -618,7 +618,7 @@ ClamAV is a free, cross-platform and open-source antivirus software toolkit able
 #### Steps to install ClamAV in RHEL-7.5
 To install clamAV first we need to install EPEL Repository:
 ```
-$ yum install epel-release
+$ sudo yum install -y https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm
 ```
 After that we need to install ClamAV and its related tools. 
 ```
@@ -657,8 +657,10 @@ ClamAV update process started at Thu May 23 07:25:44 2019
 .
 .
 main.cvd is up to date (version: 58, sigs: 4566249, f-level: 60, builder: sigmgr)
-daily.cld is up to date (version: 25457, sigs: 1578165, f-level: 63, builder: raynman)
-bytecode.cvd is up to date (version: 328, sigs: 94, f-level: 63, builder: neo)
+Downloading daily-25584.cdiff [100%]
+daily.cld updated (version: 25584, sigs: 1779512, f-level: 63, builder: raynman)
+bytecode.cld is up to date (version: 331, sigs: 94, f-level: 63, builder: anvilleg)
+Database updated (6345855 signatures) from database.clamav.net (IP: 104.16.218.84)
 ```
 We will create a service of freshclam so that freshclam will run in the daemon mode and periodically check for updates throughout the day. To do that we will create a service file for freshclam - 
 ```
@@ -709,7 +711,7 @@ Add following lines at the end of clamd.service file.
 [Install]
 WantedBy=multi-user.target
 ```
-And also remove `%i` symbol from various locations. Note that at the end of the editing the service file should look something like this - 
+And also remove `%i` symbol from various locations (ex: Description and ExecStart options). Note that at the end of the editing the service file should look something like this - 
 ```
 [Unit]
 Description = clamd scanner daemon
@@ -753,8 +755,7 @@ $ sudo firewall-cmd --zone=public --add-port=3310/tcp --permanent
 $ sudo firewall-cmd --reload
 ```
 
-##### Reference link:
-https://www.golinuxcloud.com/steps-install-configure-clamav-antivirus-centos-linux</div>
+##### Reference link: [link](https://www.golinuxcloud.com/steps-install-configure-clamav-antivirus-centos-linux</div>)
 
 
 ### 6.4 Steps to Install and configuration CEPH 
