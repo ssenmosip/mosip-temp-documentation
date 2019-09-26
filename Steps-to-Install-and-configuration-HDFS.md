@@ -19,12 +19,15 @@ update-alternatives --display java
 For example on RHEL 7, the link is /usr/lib/jvm/java-1.8.0-openjdk-1.8.0.191.b12-1.el7_6.x86_64/jre/bin/java, <br/>
 so JAVA_HOME should be /usr/lib/jvm/java-1.8.0-openjdk-1.8.0.191.b12-1.el7_6.x86_64/jre.
 
-#### Edit ~/bashrc.sh or ~/hadoop/etc/hadoop/hadoop-env.sh :
+#### Edit ~/bashrc.sh:
 export JAVA_HOME={path-tojava} <br/>
 with your actual java installation path. For example on a Debian with open-jdk-8:
 ```
 export JAVA_HOME=/usr/lib/jvm/java-1.8.0-openjdk-1.8.0.191.b12-1.el7_6.x86_64/jre
 ```
+
+Note: in the further steps when u login to the hadoop account set the java path in ~/hadoop/etc/hadoop/hadoop-env.sh also.
+
 3. Get the IP of master and slave nodes using:
 ```
 ifconfig
