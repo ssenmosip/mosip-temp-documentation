@@ -1103,6 +1103,8 @@ The scripts to create the above objects are available under [db_scripts](https:/
 
 **Note: Please skip Registration client related deployment scripts (Apache derby DB specific) as this will be executed as part of registration client software installation.**
 
+### Setup and configure MOSIP
+
 We are using kubernetes configuration server in MOSIP for storing and serving distributed configurations across all the applications and environments.
 
 We are storing all applications' configuration in config-templates folder inside our Github Repository [here](https://github.com/mosip/mosip-config.git).
