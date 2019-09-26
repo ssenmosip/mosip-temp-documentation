@@ -12,6 +12,7 @@
   * [2.9 Map Center-Machine-Device](#29-map-center-machine-device)
   * [2.10 Map Center-Machine-User](#210-map-center-machine-user)
   * [2.11 Store History of MasterData](#211-store-history-of-masterdata)
+- [3. Load updated CSVs to the database using dml sql script](#3-Load updated CSVs to the database using dml sql script)
 
 ## 1. Seed Data Source files (in csv format):
 1. Registration Centers: [**master-registration_center**](/mosip/mosip-platform/blob/master/db_scripts/mosip_master/dml/master-registration_center.csv)
@@ -126,3 +127,4 @@ After adding all these data in the DB, we would need to create the same records 
    1. Center Machine User Mapping: [**master-reg_center_machine_device_h**](/mosip/mosip-platform/blob/master/db_scripts/mosip_master/dml/master-reg_center_machine_device_h.csv)
    1. User Zone Mapping: [**master-zone_user_h**](/mosip/mosip-platform/blob/master/db_scripts/mosip_master/dml/master-zone_user_h.csv)
 
+## 3. Load updated CSVs to the database using dml sql script:
