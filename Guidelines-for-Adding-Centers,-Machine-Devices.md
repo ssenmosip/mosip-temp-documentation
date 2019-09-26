@@ -128,3 +128,5 @@ After adding all these data in the DB, we would need to create the same records 
    1. User Zone Mapping: [**master-zone_user_h**](/mosip/mosip-platform/blob/master/db_scripts/mosip_master/dml/master-zone_user_h.csv)
 
 ## 3. Load updated CSVs to the database using dml sql script:
+    \ir '/mosip/mosip-platform/blob/master/db_scripts/mosip_master/mosip_master_dml_deploy.sql'
+
