@@ -941,8 +941,16 @@ Kernel Keymanager Service is setup outside of Kubernetes cluster on a standalone
 
 To deploy keymanager service, follow below steps -
 1.  Prerequiste:<br/>
-       *  A machine with RHEL 7.5 installed.
+       *  A machine with RHEL 7.6 installed.
        * Docker installed and Docker service enabled.
+Steps to install Docker ce.
+1. sudo yum install http://mirror.centos.org/centos/7/extras/x86_64/Packages/container-selinux-2.107-3.el7.noarch.rpm
+2. sudo yum -y install lvm2 device-mapper device-mapper-persistent-data device-mapper-event device-mapper-libs    device-mapper-event-libs
+3. sudo wget https://download.docker.com/linux/centos/docker-ce.repo -O /etc/yum.repos.d/docker-ce.repo
+4. sudo yum -y install docker-ce
+5. sudo systemctl start docker
+6. sudo systemctl status docker
+
 
 2. Open port 8088 on the VM:
 
@@ -1327,8 +1335,14 @@ Firstly, update below files present in config folder in configuration repository
 
 We are deploying DMZ services into another VM having docker installed. The steps to setup DMZ environment and services deployment:
 1. Need to set Up VM with RHEL 7.5
-2. Installing the Docker:
-sudo yum install docker
+2. Installing the Docker ce:
+   $ sudo yum install http://mirror.centos.org/centos/7/extras/x86_64/Packages/container-selinux-2.107-3.el7.noarch.rpm
+   $ sudo yum -y install lvm2 device-mapper device-mapper-persistent-data device-mapper-event device-mapper-libs device- 
+   mapper-event-libs
+  $ sudo wget https://download.docker.com/linux/centos/docker-ce.repo -O /etc/yum.repos.d/docker-ce.repo
+  $ sudo yum -y install docker-ce
+  $ sudo systemctl start docker
+  $ sudo systemctl status docker
 3. Need to copy the Jenkins server public key(id_rsa.pub) inside this newly created VM's authorized_keys(because through jenkins job, we will ssh into new VM and deploy)
 
 After installing Docker Start the Docker Service
