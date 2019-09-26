@@ -50,10 +50,10 @@ Use one of the three methods below to download the binary file of ApacheDs.
     ![apacheds-installation-4](_images/auth/apacheds-installation-4.png)
 
 
-## Start, Stop and check status ApacheDs server
+## go to the location (cd /etc/init.d) Start, Stop and check status ApacheDs server.
 
-* To run ApacheDs server, run the below command
-
+* To run ApacheDs server, run the below command 
+      
     ```shell
     ./apacheds-2.0.0.AM25-mosip start
     ```
