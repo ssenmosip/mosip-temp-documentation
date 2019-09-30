@@ -455,7 +455,7 @@ For more details, please refer to [link](/mosip/mosip-docs/wiki/FRS-Admin-Servic
 
 2. Global Configurable Parameters
 
-[**Link to Global Configurable Parameters**](mosip/mosip-config/blob/master/config-templates/application-env.properties)
+[**Link to Global Configurable Parameters**](/mosip/mosip-config/blob/master/config-templates/application-env.properties)
 
 ## Administrator Services API
 Refer the following links for Administrator APIs
