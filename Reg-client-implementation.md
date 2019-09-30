@@ -286,4 +286,5 @@ Below find the list of error code and description which are thrown from applicat
 |RestClientAuthAdvice			|REG-SDU-004	|Response header received from the web-service is not as expected					|	
 |DemographicDetailController            |KER-IDV-102    |PRID should not contain any sequential and repeated block of number for 2 or more than two digits 
 |UpdateUINController                    |KER-IDV-203    |UIN length should be as per configured digit.
-|RegistrationController                 |KER-TRL-002    |Language code not supported                 
+|RegistrationController                 |KER-TRL-002    |Language code not supported 
+|DemographicDetailController            |KER-IDV-103    | PRID length should be as configured digit             
