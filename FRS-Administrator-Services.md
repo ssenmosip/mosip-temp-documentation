@@ -449,9 +449,13 @@ For more details, please refer to [link](/mosip/mosip-docs/wiki/FRS-Admin-Servic
 
 ## List of Configurable Parameters and Processes [**[↑]**](#table-of-contents)
 
-1. Configurable Parameters
+1. Admin Configurable Parameters
 
-   [**Link to Configurable Parameters of Administrator Services**](/mosip/mosip-config/blob/master/config/admin.properties)
+[**Link to Configurable Parameters of Administrator Services**](/mosip/mosip-config/blob/master/config-templates/admin-env.properties)
+
+2. Global Configurable Parameters
+
+[**Link to Global Configurable Parameters**](mosip/mosip-config/blob/master/config-templates/application-env.properties)
 
 ## Administrator Services API
 Refer the following links for Administrator APIs
