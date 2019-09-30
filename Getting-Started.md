@@ -20,7 +20,7 @@ Once Forked, start the process of setting up your CI/CD tools to build and run M
 In this step, we will setup jenkins and configure it. Configuration contains steps like creating credentials, creating pipelines using xml files present in MOSIP source code, connecting Jenkins to recently forked repository and creating webhooks. Lets look at these steps one by one - 
 
 ### A. Installing Jenkins version 2.150.1
-Jenkins installation is standard(see [How to install Jenkins](//jenkins.io/doc/book/installing/)), but to use MOSIP supported build pipelines you have to install Jenkins in an Redhat 7.5 environment. The prerequisite for installing Jenkins is you should have java already installed and path for JAVA_HOME is also set. Also the following plugins have to be installed
+Jenkins installation is standard(see [How to install Jenkins](//jenkins.io/doc/book/installing/)), but to use MOSIP supported build pipelines you have to install Jenkins in an Redhat 7.6 environment. The prerequisite for installing Jenkins is you should have java already installed and path for JAVA_HOME is also set. Also the following plugins have to be installed
  list of plugins - 
 * [Github Plugin](//wiki.jenkins.io/display/JENKINS/GitHub+Plugin)
 * [Artifactory Plugin](//wiki.jenkins.io/display/JENKINS/Artifactory+Plugin)
@@ -274,7 +274,7 @@ To check if the service is running, run:
 ***
 ## 5. Setup and Configure Docker Registry [**[↑]**](#table-of-content)
 In this step we will setup and configure a private docker registry, which will be basic authenticated, SSL secured. In our setup we are using azure blobs as storage for our docker images. More options for configuring registry can be found [here](//docs.docker.com/registry/configuration/)
-We are deploying Docker registry as Containerized services. For setting up the registry, [Docker](//docs.docker.com/install/) and [Docker Compose](//docs.docker.com/compose/install/) need to be installed. We have setted up the registry in a machine with Redhat 7.5 installed.<br/>
+We are deploying Docker registry as Containerized services. For setting up the registry, [Docker](//docs.docker.com/install/) and [Docker Compose](//docs.docker.com/compose/install/) need to be installed. We have setted up the registry in a machine with Redhat 7.6 installed.<br/>
 Once installation is done, the yaml files which we will be using to setup the registry can be found in this [link](https://github.com/mosip/mosip-infra/tree/master/deployment/cloud/docker-registry)
 We are using Registry image : registry:2.5.1, registry with any other version can be deployed from [here](//hub.docker.com/_/registry). <br/>For routing purpose, we are using HAproxy image dockercloud/haproxy:1.6.2, other options such as ngnix etc. can also be used for the same purpose.<br/>
 We have the following docker-compose files, under this [link](https://github.com/mosip/mosip-infra/tree/master/deployment/cloud/docker-registry)
@@ -1003,7 +1003,7 @@ ActiveMQ is the message broker used for MOSIP Registartion processor module.
 #### Installation steps
 * ``` <version> ``` : please check http://www.apache.org/dist/activemq/ to find out the latest version. Tested ActiveMQ version - 5.4.1. 
 * Prerequiste:<br/>
-        A machine with RHEL 7.5 installed, Docker installed and Docker service enabled.
+        A machine with RHEL 7.6 installed, Docker installed and Docker service enabled.
 * Download activemq using command - <br/>
 ``` wget https://archive.apache.org/dist/activemq/5.14.3/apache-activemq-5.14.3-bin.tar.gz ```
 * Extract the archive <br/>
