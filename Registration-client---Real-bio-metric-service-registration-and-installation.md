@@ -1,4 +1,4 @@
-# Registration client - Real biometric device integration
+# Registration client - Real biometric device registration and installation
    This document contains information regarding the installation of biometric devices and how to register the biometric device for capturing the biodata.
    
 ## REQUIRED BINARIES
