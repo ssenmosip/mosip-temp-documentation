@@ -1204,53 +1204,6 @@ ldap_1_DS.datastore.port
 **_database_username
 ```
 
-
-
-
-
-### MOSIP database object deployment / configuration
-
-Database deployment consists of the following 4 categories of objects to be deployed on postgresql database.
-
-1. **User / Roles:** In MOSIP, the following user / roles are defined to perform various activities
-
-	* **sysadmin:** sysadmin user/role is a super administrator role, who will have all the privileges to performa any task within the database.
-	
-	* **dbadmin:** dbadmin user / role is created to handle all the database administration activities db monitoring, performance tuning, backups, restore, replication setup, etc.
-	
-	* **appadmin:** appadmin user / role is used to perform all the DDL (Data Definition Language) tasks. All the db objects that are created in these databases will be owned by appadmin user.
-	
-	* **Application User:** Each application will have a user / role created to perform DML (Data Manipulation Language) tasks like CRUD operations (select, insert, update, delete). The user prereguser, is created to connect from the application to perform all the DML activities. Similarly, we will have masteruser, prereguser, reguser, idauser, idrepouser, kerneluser, audituser, regprcuser to perform DML tasks for master, pre-registration, registration, ida, ID repository, kernel, audit and registration processor modules respectively.
-
-	**Note:** From the above set of roles only application user / role is specific to a application / module. The other user / roles are common which needs to be  created per postresql db instance / server.
-	
-2. **Database and Schema:** Each application / module of MOSIP platform will have a database and schema defined. All the objects (tables) related to an application / module would be created under the respective database / schema. In MOSIP the following database and scehmas are defined
-
-|application / module name|Database tool|database Name|schema name|
-|---------------------------|-----------------|-----------------|-------------------|
-|Master / Administration module|postgresql|mosip_master|master|
-|Kernel|postgresql|mosip_kernel|kernel|
-|Pre-registration |postgresql|mosip_prereg|prereg|
-|Registration|Apache Derby|mosip_reg|reg|
-|Registration Processor|postgresql|mosip_regprc|regprc|
-|ID Authentication|postgresql|mosip_ida|ida|
-|ID Repository|postgresql|mosip_idrepo|idrepo|
-|Audit|postgresql|mosip_audit|audit|
-|IAM|postgresql|mosip_iam|iam|
-|idmap|postgresql|mosip_idmap|idmap|
-
-**Note:** These databases can be deployed on single or separate database servers / instances.
-
-3. **DB Objects (Tables):** All the tables of each application / module will be created in their respective database and schema. appadmin user / role will own these objects and the respective application user / role will have access to perform DML operations on these objects.
-
-4. **Seed Data:** MOSIP platform is designed to provide most of its features to be configured in the system. These configuration are deployed with default setup on config server and few in database. Few of these configuration can be modified / updated by the MOSIP administrator. These configuration include, system configurations, master datasetup, etc. The steps to add new center, machine / device is detailed in [**Guidelines-for-Adding-Centers,-Machine-Devices**](https://github.com/mosip/mosip-docs/wiki/Guidelines-for-Adding-Centers,-Machine-Devices) 
-
-The system configuration and master data is available under the respective application / database related folder. for example, the master data configuration is available in csv file format under [**folder**](https://github.com/mosip/mosip-platform/tree/master/db_scripts/mosip_master/dml).
-
-The scripts to create the above objects are available under [db_scripts](https://github.com/mosip/mosip-platform/tree/master/db_scripts). To deploy the database objects of each application / module **except registration client**, please refer to [README.MD](https://github.com/mosip/mosip-platform/blob/master/db_scripts/README.MD) file. These scripts will contain the deployment of all the DB object categories. 
-
-**Note: Please skip Registration client related deployment scripts (Apache derby DB specific) as this will be executed as part of registration client software installation.**
-
 ***
 ## 8. MOSIP Deployment [**[↑]**](#table-of-content)
 
