@@ -10,12 +10,13 @@
     This is the service application which we have to run in order to install the driver dependencies of the concerned biometric devices, upon successful installation of this binary it will start an ever running service named SYNCBYTEMOSIPRDSERVICE.
 	
 ### MosipClient_Debug.rar
-    Upon unzipping this file you will find a runnable binary named MosipCleint.exe among other dependency files. <br/>
+    Upon unzipping this file you will find a runnable binary named MosipCleint.exe among other dependency files.
 	
 **MosipCleint.exe**
-		Run this client application you will be prompted with a client UI
+	Run this client application you will be prompted with a client UI <br/>
 		![Biometric service UI ](_images/registration/mdm_integ_01.png)
-		MosipClient application is a client-side application which will be used to register the biometric devices such as fingerprint capturing device or iris capturing device to the SYNCBYTEMOSIPRDSERVICE which is running in the background.
+		
+	MosipClient application is a client-side application which will be used to register the biometric devices such as fingerprint capturing device or iris capturing device to the **SYNCBYTEMOSIPRDSERVICE** which is running in the background.	
 
 ### Please follow the below-mentioned steps to register a biometric device with SYNCBYTEMOSIPRDSERVICE service
 
@@ -97,8 +98,8 @@ Location of the log file in windows machine:  **C:\Program Files\Syncbyte Innova
          ![Device Information](_images/registration/mdm_integ_04.png)<br/>
        * VID = 0x046D, PID = 0x081B
 
-Please find the following **config.properties** file : **C:\Program Files\Syncbyte Innovations Private Limited\SyncbyteMosipRDService\source\ config.properties**
-And change the value of faceVID, and facePID to the VID and PID that you have found earlier.
+2. Please find the following **config.properties** file : **C:\Program Files\Syncbyte Innovations Private Limited\SyncbyteMosipRDService\source\ config.properties**
+	And change the value of faceVID, and facePID to the VID and PID that you have found earlier.
 
 
 
