@@ -16,7 +16,7 @@
 	Run this client application you will be prompted with a client UI <br/>
 		![Biometric service UI ](_images/registration/mdm_integ_01.png)
 		
-	MosipClient application is a client-side application which will be used to register the biometric devices such as fingerprint capturing device or iris capturing device to the **SYNCBYTEMOSIPRDSERVICE** which is running in the background.	
+MosipClient application is a client-side application which will be used to register the biometric devices such as fingerprint capturing device or iris capturing device to the **SYNCBYTEMOSIPRDSERVICE** which is running in the background.	
 
 ### Please follow the below-mentioned steps to register a biometric device with SYNCBYTEMOSIPRDSERVICE service
 
