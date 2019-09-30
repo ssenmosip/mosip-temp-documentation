@@ -10,10 +10,9 @@
     This is the service application which we have to run in order to install the driver dependencies of the concerned biometric devices, upon successful installation of this binary it will start an ever running service named SYNCBYTEMOSIPRDSERVICE.
 	
 ### MosipClient_Debug.rar
-
     Upon unzipping this file you will find a runnable binary named MosipCleint.exe among other dependency files. <br/>
 	
-	**MosipCleint.exe**
+**MosipCleint.exe**
 		Run this client application you will be prompted with a client UI
 		![Biometric service UI ](_images/registration/mdm_integ_01.png)
 		MosipClient application is a client-side application which will be used to register the biometric devices such as fingerprint capturing device or iris capturing device to the SYNCBYTEMOSIPRDSERVICE which is running in the background.
@@ -29,10 +28,10 @@
 4. Configuring the DEVICE REGISTRATION INFO 
      Configure the following dropdowns<br/>
 		
-        * Process		: Registration (Select from dropdown)
-        * Dev. Type		: Fingerprint (Select from dropdown)
-        * Reg. OTP      : MOS-4290-0604-2827 (Type, Set of OTP’s will be shared  from the service provider )
-        * Dev. SubType	: Slab (Select from dropdown)	
+	* Process		: Registration (Select from dropdown)
+	* Dev. Type		: Fingerprint (Select from dropdown)
+	* Reg. OTP		: MOS-4290-0604-2827 (Type, Set of OTP’s will be shared from the service provider)
+	* Dev. SubType	: Slab (Select from dropdown)	
 5. Hit the button Device Reg. With OTP 
 6. Hit the button Refresh RD
 7. Now you should be able to see (in the dropdown below Refresh RD button) the connected device will be in an ACTIVE state
@@ -77,7 +76,7 @@
 ]
 `
 
-** Note:**  At any time you can check the log of any activity with the SYNCBYTEMOSIPRDSERVICE service either from the MosipClient or the code implementation
+**Note:**  At any time you can check the log of any activity with the SYNCBYTEMOSIPRDSERVICE service either from the MosipClient or the code implementation
 
 Location of the log file in windows machine:  **C:\Program Files\Syncbyte Innovations Private Limited\SyncbyteMosipRDService\MOSIPRDSERVICE.log**
 
@@ -85,15 +84,17 @@ Location of the log file in windows machine:  **C:\Program Files\Syncbyte Innova
  Special measures should be in place when registering the photo capture device
  Apart from performing the above-mentioned steps, you have to specify the VID and PID of the connected device for the 
  service application.
+ 
 ### Follow the mentioned steps.
+
 1. Find the VID and PID of the connected device (I have connected Logitech HD Webcam  to my machine) <br/>
-       * From windows, start panel go to  Device Manager
-       * In the device manager, you should see imaging devices among other devices
-         ![Device Manager](_images/registration/mdm_integ_02.png)
-       * Select Imaging devices it should give you the web came device that you have connected
-         ![Selected Devices](_images/registration/mdm_integ_03.png)
-       * Click on the Device Information tab
-         ![Device Information](_images/registration/mdm_integ_04.png)
+       * From windows, start panel go to  Device Manager <br/>
+       * In the device manager, you should see imaging devices among other devices </br>
+         ![Device Manager](_images/registration/mdm_integ_02.png) <br/>
+       * Select Imaging devices it should give you the web came device that you have connected <br/>
+         ![Selected Devices](_images/registration/mdm_integ_03.png) <br/>
+       * Click on the Device Information tab <br/>
+         ![Device Information](_images/registration/mdm_integ_04.png)<br/>
        * VID = 0x046D, PID = 0x081B
 
 Please find the following **config.properties** file : **C:\Program Files\Syncbyte Innovations Private Limited\SyncbyteMosipRDService\source\ config.properties**
