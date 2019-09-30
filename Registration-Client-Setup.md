@@ -186,6 +186,10 @@ Refer the **Global configuration** maintained in [QA](https://github.com/mosip/m
 |1.|	mosip.mdm.enabled=N        | Y - Enable , N - Disable |  
 |2.|	mosip.reg.mdm.server.port=8080        | To run the MDM service in local machine's port.  |
 
+
+## Real biometric service installation to windows.
+Please refer to the detailed [**process flow**](Process-view#registration-client---real-bio-metric-service-integration)
+
 **Network Connectivity Check:**  
    Registration client verifies the below-configured URL to check whether the system is in online or not. The application uses this URL to perform the health check before communicating with the external services.
    
