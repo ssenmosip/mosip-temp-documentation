@@ -973,8 +973,10 @@ And also open the port.
 
 **Process to deploy Services in VM through JenkinsFile:**
 
+3. ensure that config server is already deployed
 
-3. Refer the github url for Jenkinsfile : in root directory of kernel module
+
+4. Refer the github url for Jenkinsfile : in root directory of kernel module
  
 The last stage in the Jenkinsfile viz 'Key-Manager Deployment' in which we are sshing into this newly created VM through Jenkins to deploy this service, basically, running the docker image of key manager.
 
