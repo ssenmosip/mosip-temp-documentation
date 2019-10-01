@@ -971,9 +971,9 @@ sudo firewall-cmd --reload
 
 And also open the port.
 
-**Process to deploy Services in VM through JenkinsFile:**
+3. ensure that config server is already deployed.
 
-3. ensure that config server is already deployed
+**Process to deploy Services in VM through JenkinsFile:**
 
 
 4. Refer the github url for Jenkinsfile : in root directory of kernel module
