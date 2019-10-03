@@ -1,5 +1,3 @@
-**ApacheDs Server installation and config**
-
 # ApacheDs Installation and Config
 
 **Note:** The below documentation is for linux machines.
