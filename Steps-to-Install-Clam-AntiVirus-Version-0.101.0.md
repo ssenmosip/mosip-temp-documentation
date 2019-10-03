@@ -44,19 +44,19 @@ We will create a service of freshclam so that freshclam will run in the daemon m
     $ vim /usr/lib/systemd/system/clam-freshclam.service
 And add below content -
 
-[Unit]
-Description = freshclam scanner
-After = network.target
+   [Unit]
+   Description = freshclam scanner
+   After = network.target
 
-[Service]
-Type = forking
-ExecStart = /usr/bin/freshclam -d -c 4
-Restart = on-failure
-PrivateTmp = true
-RestartSec = 20sec
+   [Service]
+   Type = forking
+   ExecStart = /usr/bin/freshclam -d -c 4
+   Restart = on-failure
+   PrivateTmp = true
+   RestartSec = 20sec
 
-[Install]
-WantedBy=multi-user.target
+   [Install]
+   WantedBy=multi-user.target
 Now save and quit. Also reload the systemd daemon to refresh the changes -
 
     $ systemctl daemon-reload
@@ -78,25 +78,25 @@ We will edit Clamd service file now -
     $ vim /usr/lib/systemd/system/clamd.service
 Add following lines at the end of clamd.service file.
 
-[Install]
-WantedBy=multi-user.target
+    [Install]
+    WantedBy=multi-user.target
 And also remove %i symbol from various locations (ex: Description and ExecStart options). Note that at the end of the editing the service file should look something like this -
 
-[Unit]
-Description = clamd scanner daemon
-Documentation=man:clamd(8) man:clamd.conf(5) https://www.clamav.net/documents/
-# Check for database existence
-# ConditionPathExistsGlob=@DBDIR@/main.{c[vl]d,inc}
-# ConditionPathExistsGlob=@DBDIR@/daily.{c[vl]d,inc}
-After = syslog.target nss-lookup.target network.target
+    [Unit]
+    Description = clamd scanner daemon
+    Documentation=man:clamd(8) man:clamd.conf(5) https://www.clamav.net/documents/
+    # Check for database existence
+    # ConditionPathExistsGlob=@DBDIR@/main.{c[vl]d,inc}
+    # ConditionPathExistsGlob=@DBDIR@/daily.{c[vl]d,inc}
+    After = syslog.target nss-lookup.target network.target
 
-[Service]
-Type = forking
-ExecStart = /usr/sbin/clamd -c /etc/clamd.d/scan.conf
-Restart = on-failure
+    [Service]
+    Type = forking
+    ExecStart = /usr/sbin/clamd -c /etc/clamd.d/scan.conf
+    Restart = on-failure
 
-[Install]
-WantedBy=multi-user.target
+    [Install]
+    WantedBy=multi-user.target
 Now finally start the ClamAV service.
 
     $ systemctl start clamd.service
