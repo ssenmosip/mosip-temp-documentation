@@ -3,9 +3,9 @@ This page represents the Device type and Device subtype API's
 # Device Types API
 
 * [POST /devicetypes](#post-devicetypes)
-* [GET /devicetypes/{code}](#get-devicetypes)
+* [GET /devicetypes/{code}](#get-devicetypescode)
 * [PUT /devicetypes](#put-devicetypes)
-* [DELETE /devicetypes/{code}](#delete-devicetypes)
+* [DELETE /devicetypes/{code}](#delete-devicetypescode)
 	
 # POST /devicetypes
 Master data is required across the platform. 
