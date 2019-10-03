@@ -38,7 +38,7 @@ After running above command you should see an output similar to this -
     daily.cld updated (version: 25584, sigs: 1779512, f-level: 63, builder: raynman)
     bytecode.cld is up to date (version: 331, sigs: 94, f-level: 63, builder: anvilleg)
     Database updated (6345855 signatures) from database.clamav.net (IP: 104.16.218.84)
-    We will create a service of freshclam so that freshclam will run in the daemon mode and periodically check for updates throughout the day. To do that we will create a service file for freshclam -
+We will create a service of freshclam so that freshclam will run in the daemon mode and periodically check for updates throughout the day. To do that we will create a service file for freshclam -
 
     $ vim /usr/lib/systemd/system/clam-freshclam.service
 And add below content -
