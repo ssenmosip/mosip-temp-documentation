@@ -2,7 +2,7 @@ Often simply Postgres, is an object-relational database management system (ORDBM
 
 **Steps to install Postgresql in RHEL-7.5**
 
-**Download and install PostgreSQL.**
+Download and install PostgreSQL.
 
     $ sudo yum install https://download.postgresql.org/pub/repos/yum/10/redhat/rhel-7-x86_64/pgdg-redhat10-10-2.noarch.rpm 
     $ sudo  yum-config-manager --disable pgdg95
@@ -15,8 +15,8 @@ checking the postgresql packages
 Installation command 
 
     $ sudo yum install postgresql10 postgresql10-server
-    $sudo /usr/pgsql-10/bin/postgresql-10-setup initdb
-    $sudo systemctl enable postgresql-10
+    $ sudo /usr/pgsql-10/bin/postgresql-10-setup initdb
+    $ sudo systemctl enable postgresql-10
 
 Postgresql service stop/start/restart command 
 
@@ -24,29 +24,38 @@ Postgresql service stop/start/restart command
     $ sudo systemctl status postgresql-10 
     $ sudo systemctl stop postgresql-10
 
-    To changing default port 5432 to 9001 and connection + buffer size we need to edit the postgresql.conf file from below path 
-    PostgreSQL is running on default port 5432. 
-    you decide to change the default port, please ensure that your new port number does not conflict with any services running on that port. 
+To changing default port 5432 to 9001 and connection + buffer size we need to edit the postgresql.conf file from below path 
+PostgreSQL is running on default port 5432. 
+you decide to change the default port, please ensure that your new port number does not conflict with any services running on that port. 
 
 Steps to change the default port :
 
 Open the file  and modify the below changes 
+
     $ sudo vi /var/lib/pgsql/10/data/postgresql.conf
 
     listen_addresses = '*'   (changed to * instead of local host )
     port = 9001       ( uncomment port=5432 and change the port number 
     ###### Open the port 9001 from the VM 
 
+Use below command to open the port 9001 from RHEL 7.5 VM
+
     $ sudo firewall-cmd --zone=public --add-port=9001/tcp --permanent
-    $  sudo firewall-cmd --reload
+    $ sudo firewall-cmd --reload
+
 To increase the buffer size and number of postgreSql connection same fine modify the below changes also
+
     $ sudo vi /var/lib/pgsql/10/data/postgresql.conf 
 
     unix_socket_directories = '/var/run/postgresql, /tmp' max_connections = 1000
     shared_buffers = 2GB
 
+Start the service:
+
     $ sudo systemctl start postgresql-10
+
 To change the default password
+
 Login to postgrsql
 
     $ sudo su postgres
@@ -56,34 +65,43 @@ Login to postgrsql
     Enter it again:
     postgres=# \q
 
-    sudo systemctl restart postgresql-10
+Restart the service:
+
+    $ sudo systemctl restart postgresql-10
+
 It will ask new password to login to postgresql
 
 ####### example for sourcing the sql file form command line
 
     $ psql --username=postgres --host=<server ip> --port=9001 --dbname=postgres 
+
 Open the file
+
     $ sudo vim /var/lib/pgsql/10/data/pg_hba.conf
 
 Default lines are present in pg_hab.conf file
+
 TYPE DATABASE USER ADDRESS METHOD
 
-local all all peer
-host all all 127.0.0.1/32 ident
-host all all ::1/128 ident
-local replication all peer
-host replication all 127.0.0.1/32 ident
-host replication all ::1/128 ident
+ local all all peer
+
+ host all all 127.0.0.1/32 ident
+ host all all ::1/128 ident
+ local replication all peer
+ host replication all 127.0.0.1/32 ident
+ host replication all ::1/128 ident
 
 Modify with below changes in file /var/lib/pgsql/10/data/pg_hba.conf
-local all all md5
-host all all 127.0.0.1/32 ident
-host all all 0.0.0.0/0 md5
-host all all ::1/128 ident
-local replication all peer
-host replication all 127.0.0.1/32 ident
-host replication all ::1/128 ident
+
+ local all all md5
+ host all all 127.0.0.1/32 ident
+ host all all 0.0.0.0/0 md5
+ host all all ::1/128 ident
+ local replication all peer
+ host replication all 127.0.0.1/32 ident
+ host replication all ::1/128 ident
 
     $sudo systemctl restart postgresql-10
     $sudo systemctl status postgresql-10
+
 Reference link: https://www.tecmint.com/install-postgresql-on-centos-rhel-fedora
