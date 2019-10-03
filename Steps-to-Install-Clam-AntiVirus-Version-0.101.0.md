@@ -3,7 +3,7 @@ ClamAV is a free, cross-platform and open-source antivirus software toolkit able
 Steps to install ClamAV in RHEL-7.5
 To install clamAV first we need to install EPEL Repository:
 
-      $ sudo yum install -y https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm
+   $ sudo yum install -y https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm
 After that we need to install ClamAV and its related tools.
 
 $ yum -y install clamav-server clamav-data clamav-update clamav-filesystem clamav clamav-scanner-systemd clamav-devel clamav-lib clamav-server-systemd
