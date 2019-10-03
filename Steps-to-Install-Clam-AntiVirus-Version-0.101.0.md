@@ -28,7 +28,7 @@ Test freshclam via running-
     $ freshclam
 After running above command you should see an output similar to this -
 
-ClamAV update process started at Thu May 23 07:25:44 2019
+    ClamAV update process started at Thu May 23 07:25:44 2019
 .
 .
 .
