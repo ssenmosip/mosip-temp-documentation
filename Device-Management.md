@@ -2,7 +2,7 @@
 * [Device Providers](#device-providers)
 * [Foundational Trust Providers](#foundational-trust-providers)
 * [Devices](#devices)
-* [MDS](#mds)
+* [MDS API](#mds-api)
 
 
 # Device Providers
@@ -1371,3 +1371,332 @@ dpSignature|yes|This is the signature of the image|-NA|-NA-
 ### Response codes
 200
 
+# MDS API
+
+* [POST /mds](#post-mds)
+* [GET /mds/{id}](#get-mds)
+* [PUT /mds](#put-devicetypes)
+* [DELETE /mds/{id}](#delete-mds)
+
+# POST /mds
+Master data is required across the platform. 
+
+This service will create the MDS which are used in the MOSIP platform. 
+
+### Resource URL
+### `POST /mds`
+
+### Resource details
+
+Resource Details | Description
+------------ | -------------
+Response format | JSON
+Requires Authentication | Yes
+
+### Parameters
+Name | Required | Description | Default Value | Example
+-----|----------|-------------|---------------|--------
+id|Yes|id of the mds| | 
+deviceProviderId|Yes|Deviceproviderid of the mds| | 
+deviceTypeCode|Yes|Devicetypecode of the mds| | 
+deviceSubTypeCode|Yes|Devicesubtypecode of the mds| | 
+swversion|Yes|sofware version of the mds| | 
+swbinaryhash|Yes|sofware version of the mds| | 
+make|Yes|make of the mds| | 
+model|Yes|model of the mds| | 
+
+### Example Request
+```JSON
+{
+  "id": "string",
+  "metadata": {},
+  "request":  {
+    "id": "mdsid",
+    "deviceProviderId": "deviceProviderId",
+    "deviceTypeCode": "Finger",
+    "deviceSubTypeCode": "Slab",
+    "swversion": "v1",
+    "swbinaryhash": "10B4ABB32EDF42C2862D857C0FD26B8FD810CE973B5FF34CEF4D4128C3F5C510",
+    "make": "make",
+    "model": "model"
+  },
+  "requesttime": "2018-12-10T06:12:52.994Z",
+  "version": "string"
+}
+```
+### Example Response
+
+200 Ok
+
+```JSON
+{
+  "id": "string",
+  "version": "string",
+  "metadata": {},
+  "responsetime": "2018-12-10T06:12:52.994Z",
+  "errors": null,
+  "response":  [
+    {
+      "id": "mdsid"
+    }
+  ],
+}
+
+```
+
+##### Error Response:
+
+```JSON
+{
+  "id": "string",
+  "version": "string",
+  "metadata": {},
+  "responsetime": "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'",
+  "errors": [
+    {
+      "errorCode": "string",
+      "message": "string"
+    }
+  ],
+ "response": null
+}
+
+```
+
+#### Failure details
+Error Code  | Error Message | Error Description
+-----|----------|-------------
+KER-MSD-500 |Internal Server Error|If system error occurs
+KER-ATH-403 |Forbidden|If unauthorized role detected
+KER-ATH-401 |Authentication Failed|If no role/invalid token is detected
+
+# GET /mds/{id}
+Master data is required across the platform. 
+
+This service will provides the service to get the mds. 
+
+### Resource URL
+### `GET /mds/{id}`
+
+### Resource details
+
+Resource Details | Description
+------------ | -------------
+Response format | JSON
+Requires Authentication | Yes
+
+### Parameters
+Name | Required | Description | Default Value | Example
+-----|----------|-------------|---------------|--------
+-NA-
+
+
+### Example Response
+```JSON
+{
+  "id": "string",
+  "version": "string",
+  "metadata": {},
+  "responsetime": "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'",
+  "errors": null,
+  "response": {
+		"id": "mdsid",
+    "deviceProviderId": "deviceProviderId",
+    "deviceTypeCode": "Finger",
+    "deviceSubTypeCode": "Slab",
+    "swversion": "v1",
+    "swbinaryhash": "10B4ABB32EDF42C2862D857C0FD26B8FD810CE973B5FF34CEF4D4128C3F5C510",
+    "make": "make",
+    "model": "model",
+    "isActive": true,
+    "swCreatedBy": "superadmin",
+    "swCreatedDateTime": "2019-07-26T12:18:40.718Z",
+    "createdBy": "superadmin",
+    "createdDateTime": "2019-07-26T12:18:40.718Z",
+    "updatedBy": null,
+    "updatedDateTime": null,
+    "isDeleted": null,
+    "deletedDateTime": null
+  }
+}
+```
+##### Error Response:
+
+```JSON
+{
+  "id": "string",
+  "version": "string",
+  "metadata": {},
+  "responsetime": "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'",
+  "errors": [
+    {
+      "errorCode": "string",
+      "message": "string"
+    }
+  ],
+ "response": null
+}
+
+```
+
+#### Failure details
+Error Code  | Error Message | Error Description
+-----|----------|-------------
+KER-MSD-500 |Internal Server Error|If system error occurs
+KER-ATH-403 |Forbidden|If unauthorized role detected
+KER-ATH-401 |Authentication Failed|If no role/invalid token is detected
+
+# PUT /mds
+Master data is required across the platform. 
+
+This service will update the MDS which are used in the MOSIP platform. 
+
+### Resource URL
+### `PUT /mds`
+
+### Resource details
+
+Resource Details | Description
+------------ | -------------
+Response format | JSON
+Requires Authentication | Yes
+
+### Parameters
+Name | Required | Description | Default Value | Example
+-----|----------|-------------|---------------|--------
+id|Yes|id of the mds| | 
+deviceProviderId|Yes|Deviceproviderid of the mds| | 
+deviceTypeCode|Yes|Devicetypecode of the mds| | 
+deviceSubTypeCode|Yes|Devicesubtypecode of the mds| | 
+swversion|Yes|sofware version of the mds| | 
+swbinaryhash|Yes|sofware version of the mds| | 
+make|Yes|make of the mds| | 
+model|Yes|model of the mds| | 
+
+### Example Request
+```JSON
+{
+  "id": "string",
+  "metadata": {},
+  "request":  {
+    "id": "mdsid",
+    "deviceProviderId": "deviceProviderId",
+    "deviceTypeCode": "Finger",
+    "deviceSubTypeCode": "Slab",
+    "swversion": "v1",
+    "swbinaryhash": "10B4ABB32EDF42C2862D857C0FD26B8FD810CE973B5FF34CEF4D4128C3F5C510",
+    "make": "make",
+    "model": "model"
+  },
+  "requesttime": "2018-12-10T06:12:52.994Z",
+  "version": "string"
+}
+```
+### Example Response
+
+200 Ok
+
+```JSON
+{
+  "id": "string",
+  "version": "string",
+  "metadata": {},
+  "responsetime": "2018-12-10T06:12:52.994Z",
+  "errors": null,
+  "response":  [
+    {
+      "id": "mdsid"
+    }
+  ],
+}
+
+```
+
+##### Error Response:
+
+```JSON
+{
+  "id": "string",
+  "version": "string",
+  "metadata": {},
+  "responsetime": "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'",
+  "errors": [
+    {
+      "errorCode": "string",
+      "message": "string"
+    }
+  ],
+ "response": null
+}
+
+```
+
+#### Failure details
+Error Code  | Error Message | Error Description
+-----|----------|-------------
+KER-MSD-500 |Internal Server Error|If system error occurs
+KER-ATH-403 |Forbidden|If unauthorized role detected
+KER-ATH-401 |Authentication Failed|If no role/invalid token is detected
+
+# DELETE /mds/{id}
+Master data is required across the platform. 
+
+This service will provides the service to delete the mds. 
+
+### Resource URL
+### `DELETE /mds/{id}`
+
+### Resource details
+
+Resource Details | Description
+------------ | -------------
+Response format | JSON
+Requires Authentication | Yes
+
+### Parameters
+Name | Required | Description | Default Value | Example
+-----|----------|-------------|---------------|--------
+-NA-
+
+
+### Example Response
+
+200 Ok
+
+```JSON
+{
+  "id": "string",
+  "version": "string",
+  "metadata": {},
+  "responsetime": "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'",
+  "errors": null,
+  "response": {
+		 "id": "mdsid"
+  }
+}
+```
+##### Error Response:
+
+```JSON
+{
+  "id": "string",
+  "version": "string",
+  "metadata": {},
+  "responsetime": "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'",
+  "errors": [
+    {
+      "errorCode": "string",
+      "message": "string"
+    }
+  ],
+ "response": null
+}
+
+```
+
+#### Failure details
+Error Code  | Error Message | Error Description
+-----|----------|-------------
+KER-MSD-500 |Internal Server Error|If system error occurs
+KER-ATH-403 |Forbidden|If unauthorized role detected
+KER-ATH-401 |Authentication Failed|If no role/invalid token is detected
