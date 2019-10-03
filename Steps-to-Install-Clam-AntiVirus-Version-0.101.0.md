@@ -42,6 +42,7 @@ After running above command you should see an output similar to this -
 We will create a service of freshclam so that freshclam will run in the daemon mode and periodically check for updates throughout the day. To do that we will create a service file for freshclam -
 
     $ vim /usr/lib/systemd/system/clam-freshclam.service
+
 And add below content -
 
    [Unit]
@@ -57,6 +58,7 @@ And add below content -
 
    [Install]
    WantedBy=multi-user.target
+
 Now save and quit. Also reload the systemd daemon to refresh the changes -
 
     $ systemctl daemon-reload
