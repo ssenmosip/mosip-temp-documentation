@@ -3,18 +3,23 @@ Often simply Postgres, is an object-relational database management system (ORDBM
 **Steps to install Postgresql in RHEL-7.5**
 
 **Download and install PostgreSQL.**
+
     $ sudo yum install https://download.postgresql.org/pub/repos/yum/10/redhat/rhel-7-x86_64/pgdg-redhat10-10-2.noarch.rpm 
     $ sudo  yum-config-manager --disable pgdg95
+
 checking the postgresql packages
+
     $ sudo yum update 
     $ sudo yum list postgresql*
 
 Installation command 
+
     $ sudo yum install postgresql10 postgresql10-server
     $sudo /usr/pgsql-10/bin/postgresql-10-setup initdb
     $sudo systemctl enable postgresql-10
 
 Postgresql service stop/start/restart command 
+
     $ sudo systemctl start postgresql-10
     $ sudo systemctl status postgresql-10 
     $ sudo systemctl stop postgresql-10
