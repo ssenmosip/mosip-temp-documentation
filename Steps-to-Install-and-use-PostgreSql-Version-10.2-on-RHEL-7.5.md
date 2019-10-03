@@ -79,27 +79,27 @@ Open the file
 
     $ sudo vim /var/lib/pgsql/10/data/pg_hba.conf
 
-Default lines are present in pg_hab.conf file
+###### Default lines are present in pg_hab.conf file <br/>
 
-TYPE DATABASE USER ADDRESS METHOD
+ TYPE  DATABASE        USER            ADDRESS                 METHOD <br/>
 
- local all all peer
+local   all             all                                     peer <br/>
+host    all             all             127.0.0.1/32            ident <br/>
+host    all             all             ::1/128                 ident <br/>
+local   replication     all                                     peer  <br/>
+host    replication     all             127.0.0.1/32            ident <br/>
+host    replication     all             ::1/128                 ident <br/>
 
- host all all 127.0.0.1/32 ident
- host all all ::1/128 ident
- local replication all peer
- host replication all 127.0.0.1/32 ident
- host replication all ::1/128 ident
+###### Modify  with below changes in file  /var/lib/pgsql/10/data/pg_hba.conf   
+local   all             all                                     md5 <br/>
+host    all             all             127.0.0.1/32            ident <br/>
+host    all             all             0.0.0.0/0               md5 <br/>
+host    all             all             ::1/128                 ident <br/>
+local   replication     all                                     peer <br/>
+host    replication     all             127.0.0.1/32            ident <br/>
+host    replication     all             ::1/128                 ident <br/>
 
-Modify with below changes in file /var/lib/pgsql/10/data/pg_hba.conf
-
- local all all md5
- host all all 127.0.0.1/32 ident
- host all all 0.0.0.0/0 md5
- host all all ::1/128 ident
- local replication all peer
- host replication all 127.0.0.1/32 ident
- host replication all ::1/128 ident
+```
 
     $sudo systemctl restart postgresql-10
     $sudo systemctl status postgresql-10
