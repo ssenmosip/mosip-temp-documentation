@@ -44,21 +44,21 @@ We will create a service of freshclam so that freshclam will run in the daemon m
     $ vim /usr/lib/systemd/system/clam-freshclam.service
 
 And add below content -
+```
+[Unit]
+Description = freshclam scanner
+After = network.target
 
-   [Unit]
-   Description = freshclam scanner
-   After = network.target
+[Service]
+Type = forking
+ExecStart = /usr/bin/freshclam -d -c 4
+Restart = on-failure
+PrivateTmp = true
+RestartSec = 20sec
 
-   [Service]
-   Type = forking
-   ExecStart = /usr/bin/freshclam -d -c 4
-   Restart = on-failure
-   PrivateTmp = true
-   RestartSec = 20sec
-
-   [Install]
-   WantedBy=multi-user.target
-
+[Install]
+WantedBy=multi-user.target
+```
 Now save and quit. Also reload the systemd daemon to refresh the changes -
 
     $ systemctl daemon-reload
