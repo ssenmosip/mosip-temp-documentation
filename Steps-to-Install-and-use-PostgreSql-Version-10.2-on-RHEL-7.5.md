@@ -101,7 +101,8 @@ host    replication     all             ::1/128                 ident <br/>
 
 ```
 
-    $sudo systemctl restart postgresql-10
-    $sudo systemctl status postgresql-10
-
-Reference link: https://www.tecmint.com/install-postgresql-on-centos-rhel-fedora
+sudo systemctl status postgresql-10
+```
+Reference link:
+https://www.tecmint.com/install-postgresql-on-centos-rhel-fedora</div> 
+***
