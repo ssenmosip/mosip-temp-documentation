@@ -143,9 +143,11 @@ deviceProviderId|yes|This is the id of the device provider|-NA|-NA-
 	"response" : null
 }
 ```
+#### Failure details
+Error Code  | Error Message | Error Description
+-----|----------|-------------
+KER-ATH-401 |Authentication Failed|If no role/invalid token is detected
 
-### Response codes
-200
 
 ### POST /deviceprovider
 
@@ -222,6 +224,14 @@ is_active|yes|This field represents whether this entity is active or not|-NA|-NA
 ### Response codes
 200
 
+#### Failure details
+Error Code  | Error Message | Error Description
+-----|----------|-------------
+KER-ATH-401 |Authentication Failed|If no role/invalid token is detected
+ADM-DPM-010 |Mandatory input parameter is missing|If any mandatory input parameter is missing
+ADM-DPM-011 |Device Provider already exist|If the Device provider details already exist
+ADM-DPM-012 |Error occurred while registering a Device Provider|If there an error from DB while storing details of Device Provider
+
 ### PUT /deviceprovider
 
 This service updates a service provider. The history is persisted
@@ -296,6 +306,13 @@ is_active|yes|This field represents whether this entity is active or not|-NA|-NA
 
 ### Response codes
 200
+
+#### Failure details
+Error Code  | Error Message | Error Description
+-----|----------|-------------
+KER-ATH-401 |Authentication Failed|If no role/invalid token is detected
+ADM-DPM-013|Mandatory input parameter is missing|If any mandatory input parameter is missing
+ADM-DPM-014 |Error occurred while registering a Device Provider|If there an error from DB while storing details of Device Provider
 
 # Foundational Trust Providers
 
@@ -515,6 +532,13 @@ is_active|yes|This field represents whether this entity is active or not|-NA|-NA
 ### Response codes
 200
 
+#### Failure details
+Error Code  | Error Message | Error Description
+-----|----------|-------------
+KER-ATH-401|Authentication Failed|If no role/invalid token is detected
+ADM-DPM-015|Mandatory input parameter is missing|If any mandatory input parameter is missing
+ADM-DPM-016|Foundational Trust Provider already exist|If the Foundational Trust provider details already exist
+ADM-DPM-017|Error occurred while registering a Foundational Trust Provider|If there an error from DB while storing details of Foundational Trust Provider
 
 
 ### PUT /foundationaltrustprovider
@@ -591,6 +615,13 @@ is_active|yes|This field represents whether this entity is active or not|-NA|-NA
 
 ### Response codes
 200
+
+#### Failure details
+Error Code  | Error Message | Error Description
+-----|----------|-------------
+KER-ATH-401|Authentication Failed|If no role/invalid token is detected
+ADM-DPM-018|Mandatory input parameter is missing|If any mandatory input parameter is missing
+ADM-DPM-019|Error occurred while registering a Foundational Trust Provider|If there an error from DB while storing details of Foundational Trust Provider
 
 
 
@@ -793,6 +824,21 @@ dpSignature|yes|This is the signature of the image|-NA|-NA-
 
 ### Response codes
 200
+
+#### Failure details
+Error Code  | Error Message | Error Description
+-----|----------|-------------
+KER-ATH-401|Authentication Failed|If no role/invalid token is detected
+ADM-DPM-025|Mandatory input parameter is missing|If any mandatory input parameter is missing
+ADM-DPM-026|Device Type does not exist|If Device Type received does not exist
+ADM-DPM-027|Device Sub-Type does not exist|If Device Sub-Type received does not exist
+ADM-DPM-028|Invalid Status received|If in Status, standard values are not received
+ADM-DPM-029|For Device ID, Json value expected for a L1 Device|If in Device, a singed Json is not received if certification level is L1
+ADM-DPM-030|Make/Model inside the Json does not match with the input|If Make/Model inside the digital ID does not match with details received in input
+ADM-DPM-031|Device Provider details inside the Json does not match with the input|If Device Provider ID/Device Provider name inside the digital ID does not match with details received in input
+ADM-DPM-032|Device Provider ID/Name does not exist in the list of Registered Device Providers|If Device Provider ID/Name does not exist against the Device Provider Details
+ADM-DPM-034|Invalid Purpose received|If in purpose, standard values are not received
+ADM-DPM-036|Error occurred while storing MDS Details|If there an error from DB while registering the Device
 
 
 ### POST /device/l1/register
@@ -1264,6 +1310,14 @@ dpSignature|yes|This is the signature of the image|-NA|-NA-
 ### Response codes
 200
 
+#### Failure details
+Error Code  | Error Message | Error Description
+-----|----------|-------------
+KER-ATH-401|Authentication Failed|If no role/invalid token is detected
+ADM-DPM-036|Mandatory input parameter is missing|If any mandatory input parameter is missing
+ADM-DPM-037|Invalid Status received|If in Status, standard values are not received
+ADM-DPM-038|Error occurred while updating Device Status|If there an error from DB while updating Device Status
+
 
 ### PUT /device/l2
 
@@ -1370,6 +1424,14 @@ dpSignature|yes|This is the signature of the image|-NA|-NA-
 
 ### Response codes
 200
+
+#### Failure details
+Error Code  | Error Message | Error Description
+-----|----------|-------------
+KER-ATH-401|Authentication Failed|If no role/invalid token is detected
+ADM-DPM-036|Mandatory input parameter is missing|If any mandatory input parameter is missing
+ADM-DPM-037|Invalid Status received|If in Status, standard values are not received
+ADM-DPM-038|Error occurred while updating Device Status|If there an error from DB while updating Device Status
 
 ### POST /device/validate
 
@@ -1558,9 +1620,12 @@ model|Yes|model of the mds| |
 #### Failure details
 Error Code  | Error Message | Error Description
 -----|----------|-------------
-KER-MSD-500 |Internal Server Error|If system error occurs
-KER-ATH-403 |Forbidden|If unauthorized role detected
-KER-ATH-401 |Authentication Failed|If no role/invalid token is detected
+KER-ATH-401|Authentication Failed|If no role/invalid token is detected
+ADM-DPM-020|Mandatory input parameter is missing|If any mandatory input parameter is missing
+ADM-DPM-021|MDS Details already exist|If the MDS Details already exist
+ADM-DPM-039|Device Provider ID not found in the list of Device Providers|Device Provider ID received does not exist in the Device Provider Table
+ADM-DPM-040|Device Type Code not found in the list of Device Types|Device Type Code received does not exist in the Device Type Table
+ADM-DPM-041|Device Sub Type Code not found in the list of Device Sub Types|Device Sub Type Code received does not exist in the Device Sub Type Table
 
 # GET /mds/{id}
 Master data is required across the platform. 
@@ -1726,9 +1791,12 @@ model|Yes|model of the mds| |
 #### Failure details
 Error Code  | Error Message | Error Description
 -----|----------|-------------
-KER-MSD-500 |Internal Server Error|If system error occurs
-KER-ATH-403 |Forbidden|If unauthorized role detected
-KER-ATH-401 |Authentication Failed|If no role/invalid token is detected
+KER-ATH-401|Authentication Failed|If no role/invalid token is detected
+ADM-DPM-020|Mandatory input parameter is missing|If any mandatory input parameter is missing
+ADM-DPM-021|MDS Details already exist|If the MDS Details already exist
+ADM-DPM-039|Device Provider ID not found in the list of Device Providers|Device Provider ID received does not exist in the Device Provider Table
+ADM-DPM-040|Device Type Code not found in the list of Device Types|Device Type Code received does not exist in the Device Type Table
+ADM-DPM-041|Device Sub Type Code not found in the list of Device Sub Types|Device Sub Type Code received does not exist in the Device Sub Type Table
 
 # DELETE /mds/{id}
 Master data is required across the platform. 
