@@ -4,7 +4,6 @@
 * [Devices](#devices)
 * [MDS API](#mds-api)
 
-
 # Device Providers
 
 * [GET /deviceprovider](#get-deviceprovider)
@@ -604,6 +603,7 @@ is_active|yes|This field represents whether this entity is active or not|-NA|-NA
 * [DELETE /device/l2/deregister](#delete-devicel2deregister)
 * [PUT /device/l1](#put-devicel1)
 * [PUT /device/l2](#put-devicel2)
+* [POST /device/validate](#post-devicevalidate)
 
 ### GET /device/{devicetype}
 
@@ -1370,6 +1370,98 @@ dpSignature|yes|This is the signature of the image|-NA|-NA-
 
 ### Response codes
 200
+
+### POST /device/validate
+
+This service will validate the device details from the list of registered devices.
+
+### Resource URL
+### `POST /device/validate`
+
+### Resource details
+
+Resource Details | Description
+------------ | -------------
+Response format | JSON
+Requires Authentication | Yes
+
+### Parameters
+Name | Required | Description | Default Value | Example
+-----|----------|-------------|---------------|--------
+deviceCode|Yes|code of the device| | 
+deviceProviderId|Yes|Deviceproviderid of the device provider| | 
+deviceServiceId|Yes|Devicetypecode of the mds| | 
+deviceServiceVersion|Yes|DeviceServiceVersion of the mds| | 
+
+### Example Request
+```JSON
+{
+  "id": "string",
+  "metadata": {},
+  "request":  {
+    "deviceCode": "deviceCode",
+    "deviceProviderId": "deviceProviderId",
+    "deviceServiceId": "deviceServiceId",
+	"deviceServiceVersion": "V1",
+  },
+  "requesttime": "2018-12-10T06:12:52.994Z",
+  "version": "string"
+}
+```
+### Example Response
+
+200 Ok
+
+```JSON
+{
+  "id": "string",
+  "version": "string",
+  "metadata": {},
+  "responsetime": "2018-12-10T06:12:52.994Z",
+  "errors": null,
+  "response":  [
+    {
+      "message": "Device details validated successfully"
+    }
+  ],
+}
+
+```
+
+##### Error Response:
+
+```JSON
+{
+  "id": "string",
+  "version": "string",
+  "metadata": {},
+  "responsetime": "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'",
+  "errors": [
+    {
+      "errorCode": "string",
+      "message": "string"
+    }
+  ],
+ "response": null
+}
+
+```
+
+#### Failure details
+Error Code  | Error Message | Error Description
+-----|----------|-------------
+KER-MSD-500 |Internal Server Error|If system error occurs
+KER-ATH-403 |Forbidden|If unauthorized role detected
+KER-ATH-401 |Authentication Failed|If no role/invalid token is detected
+ADM-DPM-001 |Device does not exist|If the Device does not exist 
+ADM-DPM-002 |Device is Revoked/Retired|If the Device exist and is in Revoked/Retired
+ADM-DPM-003 |Device Provider does not exist|If the Device Provider does not exist
+ADM-DPM-004 |Device Provider is marked Inactive|If the Device Provider exist and is in Inactive State
+ADM-DPM-005 |MDS does not exist|If the MDS does not exist
+ADM-DPM-006 |MDS is marked Inactive|If the MDS exist and is in Inactive State
+ADM-DPM-007 |Software version does not match against the Service ID|If the Software version does not match the Service ID received
+ADM-DPM-008 |Device Provider ID does not match against the Service ID|If the Device provider ID does not match the Service ID received
+ADM-DPM-009 |Error occurred while checking a Device Details| If there an error from DB while checking device details
 
 # MDS API
 
