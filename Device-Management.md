@@ -628,12 +628,12 @@ ADM-DPM-019|Error occurred while registering a Foundational Trust Provider|If th
 # Devices
 
 * [GET /devices/{devicetype}](#get-devicesdevicetype)
+* [POST /device/l0/register](#post-devicel0register)
 * [POST /device/l1/register](#post-devicel1register)
-* [POST /device/l2/register](#post-devicel2register)
+* [DELETE /device/l0/deregister](#delete-devicel0deregister)
 * [DELETE /device/l1/deregister](#delete-devicel1deregister)
-* [DELETE /device/l2/deregister](#delete-devicel2deregister)
+* [PUT /device/l0](#put-devicel0)
 * [PUT /device/l1](#put-devicel1)
-* [PUT /device/l2](#put-devicel2)
 * [POST /device/validate](#post-devicevalidate)
 
 ### GET /device/{devicetype}
@@ -653,7 +653,7 @@ Requires Authentication | Yes
 ### Parameters
 Name | Required | Description | Default Value | Example
 -----|----------|-------------|---------------|--------
-devicetype|yes|This is the device type. It can be L0 or L1. This field is case insensitive|-NA-|L1
+devicetype|yes|This is the device type. It can be L0 or L1. This field is case insensitive|-NA-|L0
 
 
 ### Example Request
@@ -719,12 +719,12 @@ devicetype|yes|This is the device type. It can be L0 or L1. This field is case i
 200
 
 
-### POST /device/l1/register
+### POST /device/l0/register
 
-This service creates a L1 device in the platform. The history is persisted
+This service creates a L0 device in the platform. The history is persisted
 
 ### Resource URL
-### `POST /device/l1/register`
+### `POST /device/l0/register`
 
 ### Resource details
 
@@ -748,18 +748,18 @@ firmware|yes|This is the firmware of the device|-NA|-NA-
 timestamp|yes|This is the timestamp of the record|-NA|-NA-
 deviceProviderId|yes|This is the id of the provide|-NA|-NA-
 deviceProviderName|yes|This is the name of the device|-NA|-NA-
-foundationTrustCertificate|yes|This is the foundational trust provider's certificate|-NA|-NA-
-foundationalTrustProviderID|yes|This is the id of the foundational trust provider|-NA|-NA-
-foundationalTrustSignature|yes|This is the signature of the foundational trust provider|-NA|-NA-
+foundationTrustCertificate|no|This is the foundational trust provider's certificate|-NA|-NA-
+foundationalTrustProviderID|no|This is the id of the foundational trust provider|-NA|-NA-
+foundationalTrustSignature|no|This is the signature of the foundational trust provider|-NA|-NA-
 status|yes|This is the status of the device|-NA|-NA-
 subType|yes|This is the sub type of the device|-NA|-NA-
 type|yes|This is the type of the device|-NA|-NA-
-dpSignature|yes|This is the signature of the image|-NA|-NA-
+dpSignature|no|This is the signature of the image|-NA|-NA-
 
 ### Example Request
 ```JSON
 {
-  "id": "io.mosip.masterdata.device.l1.create",
+  "id": "io.mosip.masterdata.device.l0.create",
   "version": "V1.0",
   "metadata": {},
   "requesttime": "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'",
@@ -793,7 +793,7 @@ dpSignature|yes|This is the signature of the image|-NA|-NA-
 ### Example success response
 ```JSON
 {
-	"id": "io.mosip.masterdata.device.l1.create",
+	"id": "io.mosip.masterdata.device.l0.create",
 	"version": "1.0",
 	"metadata": {},
 	"responsetime": "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'",
@@ -810,7 +810,7 @@ dpSignature|yes|This is the signature of the image|-NA|-NA-
 ### Example failure response
 ```JSON
 {
-	"id": "io.mosip.masterdata.device.l1.create",
+	"id": "io.mosip.masterdata.device.l0.create",
 	"version": "1.0",
 	"metadata": {},
 	"responsetime": "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'",
@@ -833,12 +833,119 @@ ADM-DPM-025|Mandatory input parameter is missing|If any mandatory input paramete
 ADM-DPM-026|Device Type does not exist|If Device Type received does not exist
 ADM-DPM-027|Device Sub-Type does not exist|If Device Sub-Type received does not exist
 ADM-DPM-028|Invalid Status received|If in Status, standard values are not received
-ADM-DPM-029|For Device ID, Json value expected for a L1 Device|If in Device, a singed Json is not received if certification level is L1
+ADM-DPM-029|For Device ID, Json value expected for a L0 Device|If in Device, a singed Json is not received if certification level is L0
 ADM-DPM-030|Make/Model inside the Json does not match with the input|If Make/Model inside the digital ID does not match with details received in input
 ADM-DPM-031|Device Provider details inside the Json does not match with the input|If Device Provider ID/Device Provider name inside the digital ID does not match with details received in input
 ADM-DPM-032|Device Provider ID/Name does not exist in the list of Registered Device Providers|If Device Provider ID/Name does not exist against the Device Provider Details
 ADM-DPM-034|Invalid Purpose received|If in purpose, standard values are not received
 ADM-DPM-036|Error occurred while storing MDS Details|If there an error from DB while registering the Device
+
+
+### POST /device/l0/register
+
+This service creates a L0 device in the platform. The history is persisted
+
+### Resource URL
+### `POST /device/l0/register`
+
+### Resource details
+
+Resource Details | Description
+------------ | -------------
+Response format | JSON
+Requires Authentication | Yes
+
+### Parameters
+Name | Required | Description | Default Value | Example
+-----|----------|-------------|---------------|--------
+deviceCode|yes|This is the code of the device|-NA|-NA-
+deviceId|yes|This is the id of the device|-NA|-NA-
+deviceInfo|yes|This is the information about the device|-NA|-NA-
+certification|yes|This is the certification of the device|-NA|-NA-
+deviceExpiry|yes|This is the expiry date of the device|-NA|-NA-
+deviceMake|yes|This is the make of the device|-NA|-NA-
+deviceModel|yes|This is the model of the device|-NA|-NA-
+deviceSubId|yes|This is the sub type id of the device|-NA|-NA-
+firmware|yes|This is the firmware of the device|-NA|-NA-
+timestamp|yes|This is the timestamp of the record|-NA|-NA-
+deviceProviderId|yes|This is the id of the provide|-NA|-NA-
+deviceProviderName|yes|This is the name of the device|-NA|-NA-
+foundationTrustCertificate|yes|This is the foundational trust provider's certificate|-NA|-NA-
+foundationalTrustProviderID|yes|This is the id of the foundational trust provider|-NA|-NA-
+foundationalTrustSignature|yes|This is the signature of the foundational trust provider|-NA|-NA-
+status|yes|This is the status of the device|-NA|-NA-
+subType|yes|This is the sub type of the device|-NA|-NA-
+type|yes|This is the type of the device|-NA|-NA-
+dpSignature|yes|This is the signature of the image|-NA|-NA-
+
+### Example Request
+```JSON
+{
+  "id": "io.mosip.masterdata.device.l0.create",
+  "version": "V1.0",
+  "metadata": {},
+  "requesttime": "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'",
+  "request": {
+			"deviceData": {
+				"deviceCode": "string",
+				"deviceId": "string",
+				"deviceInfo": {
+					"certification": "string",
+					"deviceExpiry": "date",
+					"deviceMake": "string",
+					"deviceModel": "string",
+					"deviceSubId": "string",
+					"firmware": "string",
+					"timestamp": "date"
+				},
+				"deviceProviderId": "string",
+				"deviceProviderName": "string",
+				"foundationTrustCertificate": "string",
+				"foundationalTrustProviderID": "string",
+				"foundationalTrustSignature": "string",
+				"status": "string",
+				"subType": "string",
+				"type": "string"
+			},
+			"dpSignature": "string"
+        }
+ }
+```
+
+### Example success response
+```JSON
+{
+	"id": "io.mosip.masterdata.device.l0.create",
+	"version": "1.0",
+	"metadata": {},
+	"responsetime": "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'",
+	"errors": null,
+	"response" : {
+		"deviceId": "string"
+	}
+}
+```
+
+### Response codes
+200
+
+### Example failure response
+```JSON
+{
+	"id": "io.mosip.masterdata.device.l0.create",
+	"version": "1.0",
+	"metadata": {},
+	"responsetime": "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'",
+	"errors": [{
+		"errorCode": "string",
+		"message": "string"
+	}],
+	"response" : null
+}
+```
+
+### Response codes
+200
 
 
 ### POST /device/l1/register
@@ -948,12 +1055,13 @@ dpSignature|yes|This is the signature of the image|-NA|-NA-
 200
 
 
-### POST /device/l2/register
 
-This service creates a L2 device in the platform. The history is persisted
+### DELETE /device/l0/deregister
+
+This service creates a L0 device in the platform. The history is persisted
 
 ### Resource URL
-### `POST /device/l2/register`
+### `DELETE /device/l0/register`
 
 ### Resource details
 
@@ -966,55 +1074,22 @@ Requires Authentication | Yes
 Name | Required | Description | Default Value | Example
 -----|----------|-------------|---------------|--------
 deviceCode|yes|This is the code of the device|-NA|-NA-
-deviceId|yes|This is the id of the device|-NA|-NA-
-deviceInfo|yes|This is the information about the device|-NA|-NA-
-certification|yes|This is the certification of the device|-NA|-NA-
-deviceExpiry|yes|This is the expiry date of the device|-NA|-NA-
-deviceMake|yes|This is the make of the device|-NA|-NA-
-deviceModel|yes|This is the model of the device|-NA|-NA-
-deviceSubId|yes|This is the sub type id of the device|-NA|-NA-
-firmware|yes|This is the firmware of the device|-NA|-NA-
 timestamp|yes|This is the timestamp of the record|-NA|-NA-
-deviceProviderId|yes|This is the id of the provide|-NA|-NA-
-deviceProviderName|yes|This is the name of the device|-NA|-NA-
-foundationTrustCertificate|yes|This is the foundational trust provider's certificate|-NA|-NA-
-foundationalTrustProviderID|yes|This is the id of the foundational trust provider|-NA|-NA-
-foundationalTrustSignature|yes|This is the signature of the foundational trust provider|-NA|-NA-
-status|yes|This is the status of the device|-NA|-NA-
-subType|yes|This is the sub type of the device|-NA|-NA-
-type|yes|This is the type of the device|-NA|-NA-
-dpSignature|yes|This is the signature of the image|-NA|-NA-
+dpSignature|yes|This is the digital signature|-NA|-NA-
 
 ### Example Request
 ```JSON
 {
-  "id": "io.mosip.masterdata.device.l2.create",
+  "id": "io.mosip.masterdata.device.l0.delete",
   "version": "V1.0",
   "metadata": {},
   "requesttime": "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'",
   "request": {
-			"deviceData": {
+			"device": {
 				"deviceCode": "string",
-				"deviceId": "string",
-				"deviceInfo": {
-					"certification": "string",
-					"deviceExpiry": "date",
-					"deviceMake": "string",
-					"deviceModel": "string",
-					"deviceSubId": "string",
-					"firmware": "string",
-					"timestamp": "date"
-				},
-				"deviceProviderId": "string",
-				"deviceProviderName": "string",
-				"foundationTrustCertificate": "string",
-				"foundationalTrustProviderID": "string",
-				"foundationalTrustSignature": "string",
-				"status": "string",
-				"subType": "string",
-				"type": "string"
+				"timestamp": "date"
 			},
-			"dpSignature": "string"
+			"signature": "string"
         }
  }
 ```
@@ -1022,7 +1097,7 @@ dpSignature|yes|This is the signature of the image|-NA|-NA-
 ### Example success response
 ```JSON
 {
-	"id": "io.mosip.masterdata.device.l2.create",
+	"id": "io.mosip.masterdata.device.l0.delete",
 	"version": "1.0",
 	"metadata": {},
 	"responsetime": "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'",
@@ -1039,7 +1114,7 @@ dpSignature|yes|This is the signature of the image|-NA|-NA-
 ### Example failure response
 ```JSON
 {
-	"id": "io.mosip.masterdata.device.l2.create",
+	"id": "io.mosip.masterdata.device.l0.create",
 	"version": "1.0",
 	"metadata": {},
 	"responsetime": "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'",
@@ -1053,7 +1128,6 @@ dpSignature|yes|This is the signature of the image|-NA|-NA-
 
 ### Response codes
 200
-
 
 
 ### DELETE /device/l1/deregister
@@ -1130,12 +1204,12 @@ dpSignature|yes|This is the digital signature|-NA|-NA-
 200
 
 
-### DELETE /device/l2/deregister
+### PUT /device/l0
 
-This service creates a L2 device in the platform. The history is persisted
+This service updates a L0 device. The history is persisted
 
 ### Resource URL
-### `DELETE /device/l2/register`
+### `PUT /device/l0`
 
 ### Resource details
 
@@ -1148,22 +1222,55 @@ Requires Authentication | Yes
 Name | Required | Description | Default Value | Example
 -----|----------|-------------|---------------|--------
 deviceCode|yes|This is the code of the device|-NA|-NA-
+deviceId|yes|This is the id of the device|-NA|-NA-
+deviceInfo|yes|This is the information about the device|-NA|-NA-
+certification|yes|This is the certification of the device|-NA|-NA-
+deviceExpiry|yes|This is the expiry date of the device|-NA|-NA-
+deviceMake|yes|This is the make of the device|-NA|-NA-
+deviceModel|yes|This is the model of the device|-NA|-NA-
+deviceSubId|yes|This is the sub type id of the device|-NA|-NA-
+firmware|yes|This is the firmware of the device|-NA|-NA-
 timestamp|yes|This is the timestamp of the record|-NA|-NA-
-dpSignature|yes|This is the digital signature|-NA|-NA-
+deviceProviderId|yes|This is the id of the provide|-NA|-NA-
+deviceProviderName|yes|This is the name of the device|-NA|-NA-
+foundationTrustCertificate|no|This is the foundational trust provider's certificate|-NA|-NA-
+foundationalTrustProviderID|no|This is the id of the foundational trust provider|-NA|-NA-
+foundationalTrustSignature|no|This is the signature of the foundational trust provider|-NA|-NA-
+status|yes|This is the status of the device|-NA|-NA-
+subType|yes|This is the sub type of the device|-NA|-NA-
+type|yes|This is the type of the device|-NA|-NA-
+dpSignature|no|This is the signature of the image|-NA|-NA-
 
 ### Example Request
 ```JSON
 {
-  "id": "io.mosip.masterdata.device.l2.delete",
+  "id": "io.mosip.masterdata.device.l0.update",
   "version": "V1.0",
   "metadata": {},
   "requesttime": "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'",
   "request": {
-			"device": {
+			"deviceData": {
 				"deviceCode": "string",
-				"timestamp": "date"
+				"deviceId": "string",
+				"deviceInfo": {
+					"certification": "string",
+					"deviceExpiry": "date",
+					"deviceMake": "string",
+					"deviceModel": "string",
+					"deviceSubId": "string",
+					"firmware": "string",
+					"timestamp": "date"
+				},
+				"deviceProviderId": "string",
+				"deviceProviderName": "string",
+				"foundationTrustCertificate": "string",
+				"foundationalTrustProviderID": "string",
+				"foundationalTrustSignature": "string",
+				"status": "string",
+				"subType": "string",
+				"type": "string"
 			},
-			"signature": "string"
+			"dpSignature": "string"
         }
  }
 ```
@@ -1171,7 +1278,7 @@ dpSignature|yes|This is the digital signature|-NA|-NA-
 ### Example success response
 ```JSON
 {
-	"id": "io.mosip.masterdata.device.l2.delete",
+	"id": "io.mosip.masterdata.device.l0.update",
 	"version": "1.0",
 	"metadata": {},
 	"responsetime": "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'",
@@ -1188,7 +1295,7 @@ dpSignature|yes|This is the digital signature|-NA|-NA-
 ### Example failure response
 ```JSON
 {
-	"id": "io.mosip.masterdata.device.l2.create",
+	"id": "io.mosip.masterdata.device.l0.update",
 	"version": "1.0",
 	"metadata": {},
 	"responsetime": "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'",
@@ -1202,6 +1309,14 @@ dpSignature|yes|This is the digital signature|-NA|-NA-
 
 ### Response codes
 200
+
+#### Failure details
+Error Code  | Error Message | Error Description
+-----|----------|-------------
+KER-ATH-401|Authentication Failed|If no role/invalid token is detected
+ADM-DPM-036|Mandatory input parameter is missing|If any mandatory input parameter is missing
+ADM-DPM-037|Invalid Status received|If in Status, standard values are not received
+ADM-DPM-038|Error occurred while updating Device Status|If there an error from DB while updating Device Status
 
 
 ### PUT /device/l1
@@ -1296,121 +1411,6 @@ dpSignature|yes|This is the signature of the image|-NA|-NA-
 ```JSON
 {
 	"id": "io.mosip.masterdata.device.l1.update",
-	"version": "1.0",
-	"metadata": {},
-	"responsetime": "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'",
-	"errors": [{
-		"errorCode": "string",
-		"message": "string"
-	}],
-	"response" : null
-}
-```
-
-### Response codes
-200
-
-#### Failure details
-Error Code  | Error Message | Error Description
------|----------|-------------
-KER-ATH-401|Authentication Failed|If no role/invalid token is detected
-ADM-DPM-036|Mandatory input parameter is missing|If any mandatory input parameter is missing
-ADM-DPM-037|Invalid Status received|If in Status, standard values are not received
-ADM-DPM-038|Error occurred while updating Device Status|If there an error from DB while updating Device Status
-
-
-### PUT /device/l2
-
-This service updates a L2 device. The history is persisted
-
-### Resource URL
-### `PUT /device/l2`
-
-### Resource details
-
-Resource Details | Description
------------- | -------------
-Response format | JSON
-Requires Authentication | Yes
-
-### Parameters
-Name | Required | Description | Default Value | Example
------|----------|-------------|---------------|--------
-deviceCode|yes|This is the code of the device|-NA|-NA-
-deviceId|yes|This is the id of the device|-NA|-NA-
-deviceInfo|yes|This is the information about the device|-NA|-NA-
-certification|yes|This is the certification of the device|-NA|-NA-
-deviceExpiry|yes|This is the expiry date of the device|-NA|-NA-
-deviceMake|yes|This is the make of the device|-NA|-NA-
-deviceModel|yes|This is the model of the device|-NA|-NA-
-deviceSubId|yes|This is the sub type id of the device|-NA|-NA-
-firmware|yes|This is the firmware of the device|-NA|-NA-
-timestamp|yes|This is the timestamp of the record|-NA|-NA-
-deviceProviderId|yes|This is the id of the provide|-NA|-NA-
-deviceProviderName|yes|This is the name of the device|-NA|-NA-
-foundationTrustCertificate|yes|This is the foundational trust provider's certificate|-NA|-NA-
-foundationalTrustProviderID|yes|This is the id of the foundational trust provider|-NA|-NA-
-foundationalTrustSignature|yes|This is the signature of the foundational trust provider|-NA|-NA-
-status|yes|This is the status of the device|-NA|-NA-
-subType|yes|This is the sub type of the device|-NA|-NA-
-type|yes|This is the type of the device|-NA|-NA-
-dpSignature|yes|This is the signature of the image|-NA|-NA-
-
-### Example Request
-```JSON
-{
-  "id": "io.mosip.masterdata.device.l2.update",
-  "version": "V1.0",
-  "metadata": {},
-  "requesttime": "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'",
-  "request": {
-			"deviceData": {
-				"deviceCode": "string",
-				"deviceId": "string",
-				"deviceInfo": {
-					"certification": "string",
-					"deviceExpiry": "date",
-					"deviceMake": "string",
-					"deviceModel": "string",
-					"deviceSubId": "string",
-					"firmware": "string",
-					"timestamp": "date"
-				},
-				"deviceProviderId": "string",
-				"deviceProviderName": "string",
-				"foundationTrustCertificate": "string",
-				"foundationalTrustProviderID": "string",
-				"foundationalTrustSignature": "string",
-				"status": "string",
-				"subType": "string",
-				"type": "string"
-			},
-			"dpSignature": "string"
-        }
- }
-```
-
-### Example success response
-```JSON
-{
-	"id": "io.mosip.masterdata.device.l2.update",
-	"version": "1.0",
-	"metadata": {},
-	"responsetime": "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'",
-	"errors": null,
-	"response" : {
-		"deviceId": "string"
-	}
-}
-```
-
-### Response codes
-200
-
-### Example failure response
-```JSON
-{
-	"id": "io.mosip.masterdata.device.l2.update",
 	"version": "1.0",
 	"metadata": {},
 	"responsetime": "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'",
