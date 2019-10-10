@@ -634,7 +634,8 @@ ADM-DPM-019|Error occurred while registering a Foundational Trust Provider|If th
 * [DELETE /device/l1/deregister](#delete-devicel1deregister)
 * [PUT /device/l0](#put-devicel0)
 * [PUT /device/l1](#put-devicel1)
-* [POST /device/validate](#post-devicevalidate)
+* [GET /device/validate](#get-devicevalidate)
+* [GET /device/validate/history](#get-devicevalidatehistory)
 
 ### GET /device/{devicetype}
 
@@ -1433,12 +1434,12 @@ ADM-DPM-036|Mandatory input parameter is missing|If any mandatory input paramete
 ADM-DPM-037|Invalid Status received|If in Status, standard values are not received
 ADM-DPM-038|Error occurred while updating Device Status|If there an error from DB while updating Device Status
 
-### POST /device/validate
+### GET /device/validate
 
 This service will validate the device details from the list of registered devices.
 
 ### Resource URL
-### `POST /device/validate`
+### `GET /device/validate`
 
 ### Resource details
 
@@ -1447,7 +1448,7 @@ Resource Details | Description
 Response format | JSON
 Requires Authentication | Yes
 
-### Parameters
+### Request Parameters
 Name | Required | Description | Default Value | Example
 -----|----------|-------------|---------------|--------
 deviceCode|Yes|code of the device| | 
@@ -1456,20 +1457,11 @@ deviceServiceId|Yes|Devicetypecode of the mds| |
 deviceServiceVersion|Yes|DeviceServiceVersion of the mds| | 
 
 ### Example Request
-```JSON
-{
-  "id": "string",
-  "metadata": {},
-  "request":  {
-    "deviceCode": "deviceCode",
-    "deviceProviderId": "deviceProviderId",
-    "deviceServiceId": "deviceServiceId",
-	"deviceServiceVersion": "V1",
-  },
-  "requesttime": "2018-12-10T06:12:52.994Z",
-  "version": "string"
-}
 ```
+https://mosip.io/masterdata/device/validate?deviceCode="12344"&deviceProviderId="test"
+&deviceServiceId="test"&deviceServiceVersion="v1"
+```
+
 ### Example Response
 
 200 Ok
@@ -1484,6 +1476,89 @@ deviceServiceVersion|Yes|DeviceServiceVersion of the mds| |
   "response":  [
     {
       "message": "Device details validated successfully"
+    }
+  ],
+}
+
+```
+
+##### Error Response:
+
+```JSON
+{
+  "id": "string",
+  "version": "string",
+  "metadata": {},
+  "responsetime": "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'",
+  "errors": [
+    {
+      "errorCode": "string",
+      "message": "string"
+    }
+  ],
+ "response": null
+}
+
+```
+
+#### Failure details
+Error Code  | Error Message | Error Description
+-----|----------|-------------
+KER-MSD-500 |Internal Server Error|If system error occurs
+KER-ATH-403 |Forbidden|If unauthorized role detected
+KER-ATH-401 |Authentication Failed|If no role/invalid token is detected
+ADM-DPM-001 |Device does not exist|If the Device does not exist 
+ADM-DPM-002 |Device is Revoked/Retired|If the Device exist and is in Revoked/Retired
+ADM-DPM-003 |Device Provider does not exist|If the Device Provider does not exist
+ADM-DPM-004 |Device Provider is marked Inactive|If the Device Provider exist and is in Inactive State
+ADM-DPM-005 |MDS does not exist|If the MDS does not exist
+ADM-DPM-006 |MDS is marked Inactive|If the MDS exist and is in Inactive State
+ADM-DPM-007 |Software version does not match against the Service ID|If the Software version does not match the Service ID received
+ADM-DPM-008 |Device Provider ID does not match against the Service ID|If the Device provider ID does not match the Service ID received
+ADM-DPM-009 |Error occurred while checking a Device Details| If there an error from DB while checking device details
+
+### GET /device/validate/history
+
+This service will validate the device history details from the list of registered devices.
+
+### Resource URL
+### `GET /device/validate/history`
+
+### Resource details
+
+Resource Details | Description
+------------ | -------------
+Response format | JSON
+Requires Authentication | Yes
+
+### Request Parameters
+Name | Required | Description | Default Value | Example
+-----|----------|-------------|---------------|--------
+deviceCode|Yes|code of the device| | 
+deviceProviderId|Yes|Deviceproviderid of the device provider| | 
+deviceServiceId|Yes|Devicetypecode of the mds| | 
+deviceServiceVersion|Yes|DeviceServiceVersion of the mds| | 
+
+### Example Request
+```
+https://mosip.io/masterdata/device/validate/history?deviceCode="12344"&deviceProviderId="test"
+&deviceServiceId="test"&deviceServiceVersion="v1"
+```
+
+### Example Response
+
+200 Ok
+
+```JSON
+{
+  "id": "string",
+  "version": "string",
+  "metadata": {},
+  "responsetime": "2018-12-10T06:12:52.994Z",
+  "errors": null,
+  "response":  [
+    {
+      "message": "Device details history validated successfully"
     }
   ],
 }
