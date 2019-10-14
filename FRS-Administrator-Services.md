@@ -67,11 +67,11 @@
 - [8. UIN Activation/Deactivation](#8-uin-activationdeactivation-wip-) _(ASR_FR_8)_
 - [9. Packet Status Check (based on RID)(WIP)](#9-packet-status-check-based-on-rid-wip-) _(ASR_FR_9)_
 - [10. Device Provider Management](#10-device-provider-management-) _(ASR_FR_10)_
-  * [10.1 Device Providers (Create/Update)](#10.1-device-providers-createupdate-) _(ASR_FR_10.1)_
-  * [10.2 Foundational Trust Providers (Create/Update)](#10.2-foundational-trust-providers-createupdate-) _(ASR_FR_10.2)_
-  * [10.3 MOSIP Complaint MDS services (Create/Update)](#10.3-mosip-complaint-mds-services-createupdate-) _(ASR_FR_10.3)_
-  * [10.4 Devices (Register/De-Register)](#10.4-devices-registerde-register) _(ASR_FR_10.4)_
-  * [10.5 Device Detail Validation](#10.5-device-detail-validation-) _(ASR_FR_10.5)_
+  * [10.1 Device Providers (Create/Update)](#101-device-providers-createupdate-) _(ASR_FR_10.1)_
+  * [10.2 Foundational Trust Providers (Create/Update)](#102-foundational-trust-providers-createupdate-) _(ASR_FR_10.2)_
+  * [10.3 MOSIP Complaint MDS services (Create/Update)](#103-mosip-complaint-mds-services-createupdate-) _(ASR_FR_10.3)_
+  * [10.4 Devices (Register/De-Register)](#104-devices-registerde-register) _(ASR_FR_10.4)_
+  * [10.5 Device Detail Validation](#105-device-detail-validation-) _(ASR_FR_10.5)_
 - [11. Multi-language Support (WIP)](#11-multi-language-support-wip-) _(ASR_FR_11)_
     * [11.1 i18N](#101-i18n) _(ASR_FR_11.1)_
     * [11.2 Implementation in English (Labels etc)](#102-implementation-in-english-labels-etc) _(ASR_FR_11.2)_
