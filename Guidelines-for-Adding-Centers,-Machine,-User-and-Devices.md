@@ -1,6 +1,6 @@
 ## List of Contents
 - [1. Seed Data to be Changed](#1-seed-data-source-files-in-csv-format)
-- [2. Steps to Add a Mac-Address Machine](#2-steps-to-add-a-mac-address-machine)
+- [2. Steps to add seed data](#2-steps-to-add-seed-data)
   * [2.1 Create a Registration Center](#21-create-a-registration-center)
   * [2.2 Create a Machine](#22-create-a-machine)
   * [2.3 Create a User](#23-create-a-user)
@@ -25,7 +25,7 @@
 1. Center-Machine-Device Mapping: [**master-reg_center_user_machine**](/mosip/mosip-platform/blob/master/db_scripts/mosip_master/dml/master-reg_center_user_machine.csv)
 1. Center Machine User Mapping: [**master-reg_center_machine_device**](/mosip/mosip-platform/blob/master/db_scripts/mosip_master/dml/master-reg_center_machine_device.csv)
 1. User Zone Mapping: [**master-zone_user**](/mosip/mosip-platform/blob/master/db_scripts/mosip_master/dml/master-zone_user.csv)
-## 2. Steps to Add a Mac-Address Machine:
+## 2. Steps to Add seed data:
 ### 2.1 Create a Registration Center:
 1. **Center ID**: This should be a 5-digit ID and Ideally should be in an incremental sequence for each center added. The sequence should start from 10000. Keeping the lenght other than 5 digits will fail validations as the same Center ID is used to generate the Request ID (Registration ID)
 1. **Center Name**: This can be a Random name that a country chooses
