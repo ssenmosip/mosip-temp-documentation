@@ -70,7 +70,7 @@
   * [10.1 Device Providers (Create/Update)](#101-device-providers-createupdate-) _(ASR_FR_10.1)_
   * [10.2 Foundational Trust Providers (Create/Update)](#102-foundational-trust-providers-createupdate-) _(ASR_FR_10.2)_
   * [10.3 MOSIP Complaint MDS services (Create/Update)](#103-mosip-complaint-mds-services-createupdate-) _(ASR_FR_10.3)_
-  * [10.4 Devices (Register/De-Register)](#104-devices-registerde-register) _(ASR_FR_10.4)_
+  * [10.4 Devices (Register/De-Register)](#104-devices-registerde-register-) _(ASR_FR_10.4)_
   * [10.5 Device Detail Validation](#105-device-detail-validation-) _(ASR_FR_10.5)_
 - [11. Multi-language Support (WIP)](#11-multi-language-support-wip-) _(ASR_FR_11)_
     * [11.1 i18N](#101-i18n) _(ASR_FR_11.1)_
