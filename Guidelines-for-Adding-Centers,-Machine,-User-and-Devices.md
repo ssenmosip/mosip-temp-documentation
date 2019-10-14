@@ -28,9 +28,9 @@
 1. User Zone Mapping: [**master-zone_user**](/mosip/mosip-platform/blob/master/db_scripts/mosip_master/dml/master-zone_user.csv)
 ## 2. Steps to Add seed data:
 ### 2.1 Create Roles in LDAP
-Before creating the Masterdata, Roles used across MOSIP are needed to be created in LDAP.([Refer here](https://github.com/mosip/mosip-docs/wiki/Apache-Directory-Studio-user-guide#create-a-new-role) for help on how to create roles in LDAP.)
+Before creating the Masterdata, Roles used across MOSIP are needed to be created in LDAP.
 
-Following roles have to be created using the process as mentioned above.
+Following roles have to be created using the process as mentioned above.([Refer here](https://github.com/mosip/mosip-docs/wiki/Apache-Directory-Studio-user-guide#create-a-new-role) for help on how to create roles in LDAP.)
    1. REGISTRATION_ADMIN
    2. REGISTRATION_SUPERVISOR
    3. REGISTRATION_OFFICER
