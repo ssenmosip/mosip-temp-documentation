@@ -42,26 +42,26 @@ Following roles have to be created using the process as mentioned above.([Refer 
    9. ID_AUTHENTICATION
    10. PRE_REGISTRATION_ADMIN
 ### 2.2 Create a Registration Center:
-1. **Center ID**: This should be a 5-digit ID and Ideally should be in an incremental sequence for each center added. The sequence should start from 10000. Keeping the lenght other than 5 digits will fail validations as the same Center ID is used to generate the Request ID (Registration ID)
-1. **Center Name**: This can be a Random name that a country chooses
-1. **Center Type Code**: Should be kept as “REG”. Center Type Code will come from a Center Type Masterdata which currently have one center Type defined as “Regular” and Code as “REG”
+1. **Center ID**: This should be a 5-digit ID and should be in an incremental sequence for each center added. The sequence should start from 10000. Keeping the length other than 5 digits will fail validations as the same Center ID is used to generate the Request ID (Registration ID). For each Center created, Center ID should be incremented sequentially to avoid inconsistency in data. 
+1. **Center Name**: Country defined name for the Center
+1. **Center Type Code**: (Should be kept as “REG”). Center Type Code will come from a Center Type Masterdata which currently have one center Type defined as “Regular” and Code as “REG”. More Center Types can be defined by the country in the Center Type Masterdata
 1. **Address Line 1**: It is an Optional Field but should be defined to be visible to the resident on the Pre-Registration UI
 1. **Address Line 2**: It is an Optional Field
 1. **Address Line 3**: It is an Optional Field
-1. **Latitude**: Should be defined in format **XX.XXXX**. minimum 4 digits are need after the decimal for the accuracy to be atleast 11 meters on the GPS map
-1. **Longitude**: Should be defined in format **XX.XXXX**. minimum 4 digits are need after the decimal for the accuracy to be atleast 11 meters on the GPS map
-1. **Location Code**: Should be a location code from the location MasterData table. This code cannot be other than the location defined in the location MasterData table and should always be the code of the location which is at the lowest hierarchy level
-1. **Contact Phone**: Can be a random number
-1. **Contact Person**: Can be a random name
-1. **Number of Kiosk**: This number is used by the pre-registration to calculate slots for registration. This should always be equal to the number of machines assigned to the Center. Refer [**point 2.5**](#25-map-the-machine-to-a-center) in steps below
+1. **Latitude**: Should be defined in format **XX.XXXX**. minimum 4 digits are need after the decimal for the accuracy to be atleast 11 meters on the GPS map on Pre-Registration Portal
+1. **Longitude**: Should be defined in format **XX.XXXX**. minimum 4 digits are need after the decimal for the accuracy to be atleast 11 meters on the GPS map on Pre-Registration Portal
+1. **Location Code**: Maps the Registration Center to a Location. Should be a location code referring to a location defined in the location Masterdata table. Should always be the code of the location which is at the lowest hierarchy level
+1. **Contact Phone**: An optional field. Usually a point of contact for a Registration Center
+1. **Contact Person**: Name of the person who is a point of contact for a Registration Center
+1. **Number of Kiosk**: Number of Registration Kiosk a Registration Center will have to register residents. This number is used by the pre-registration to calculate appointment slots for Registration. This should always be equal to the number of machines assigned to the Center or will be assigned to the Center. Refer [**point 2.5**](#25-map-the-machine-to-a-center) in steps below
 1. **Working Hours**: Should be the difference of “**Center Start Time**” and “**Center End Time**”. Should be in format **hh:mm:ss**
-1. **Per Kiosk Processing time**: Is used by pre-Registration to calculate appointment slots. Should be in format **hh:mm:ss**
-1. **Center Start Time**: _Will be time Center would start working at_. Is used by pre-Registration to calculate appointment slots. Should be in format **hh:mm:ss**
-1. **Center End Time**: _Will be the time Center would close at_. Is used by pre-Registration to calculate appointment slots. Should be in format **hh:mm:ss**
-1. **Lunch Start Time**: _Starting of Lunch Time the Center would have in-between the Working hours_. Is used by Pre-Registration to calculate appointment slots. Should be in format **hh:mm:ss**
-1. **Lunch End Time**: _Ending of Lunch Time the Center would have in-between the Working hours_. Is used by Pre-Registration to calculate appointment slots. Should be in format **hh:mm:ss**
+1. **Per Kiosk Processing time**: Duration of Registration Appointment defined as per the country requirement. This attribute is used by pre-Registration to calculate appointment slots. Should be in format **hh:mm:ss**
+1. **Center Start Time**: Time when Center would start taking registration of Residents. This time is used by Pre-Registration to calculate appointment slots. Should be in format **hh:mm:ss**
+1. **Center End Time**: Time when the Center closes. This time is used by Pre-Registration to calculate appointment slots. Should be in format **hh:mm:ss**
+1. **Lunch Start Time**: Starting of Lunch Time the Center would have in-between the Working hours. It is used by Pre-Registration to calculate appointment slots. Should be in format **hh:mm:ss**
+1. **Lunch End Time**: Ending of Lunch Time the Center would have in-between the Working hours. It is used by Pre-Registration to calculate appointment slots. Should be in format **hh:mm:ss**
 1. **Time Zone**: (GTM+01:00) CENTRAL EUROPEAN TIME
-1. **Holiday Location Code**: Should come from the Location master table. Current values can only be “**KTA**” or “**RBT**” as holidays are only defined for these two location codes.
+1. **Holiday Location Code**: Refers to the location to which country defined holidays are mapped in holiday location table. Should come from the Holiday master table. Current values can only be “**KTA**” or “**RBT**” as holidays are only defined for these two location codes.
 1. **Zone Code**: Should come from a pre-defined list of Administrative Zone codes created in Zone Masterdata. Current values can be “RBT”, “KTA”, “SAL”, “BSN”, “CSB”, ”STT”, ”NDR”, ”BRK”, “JRD”, “SAF“, “YSF“, “TTA“, “TZT”.
 1. **Language Code**: Should be the language code for the languages supported by the Country as primary and secondary Language. Currently can be “fra” or “ara”
 1. **Is_Active**: TRUE. If set as false, this Registration will not be shown up in Pre-Registration UI and no appointments will be generated for this Center
