@@ -458,7 +458,7 @@ An MOSIP Administrator can register each Device Provider with MOSIP by storing t
 
 Admin portal will also allow an Admin to update details of the Device Provider including the Name, Address, Contact Details and Status. Changing the status from Active to Inactive will render that provider inactive and any biometric received from a device of such a provider will fail the validation checks and thus rejecting the Auth/Registration request. Any creation and modification in the details of a Device Providers is maintained in a history table to future references.
 
-For API design, [refer here](https://github.com/mosip/mosip-docs/wiki/Device-Management#device-providers)
+For API design, [refer here.](https://github.com/mosip/mosip-docs/wiki/Device-Management#device-providers)
 
 ### 10.2 Foundational Trust Providers (Create/Update) [**[↑]**](#table-of-contents)
 MOSIP will use two types of devices. L0 devices (encryption is done on the host machine device driver or the MOSIP device service) and L1 (capable of performing encryption in device’s trusted module). A Foundational Trust Provider provides this module which is then put in the L1 devices during manufacturing. These Foundational Trust Providers are identified before-hand and are registered with MOSIP. 
@@ -467,7 +467,7 @@ An MOSIP Administrator can register each Foundational Trust Provider with MOSIP 
 
 Admin portal will also allow an Admin to update details of the Foundational Trust Provider including the Name, Address, Contact Details and Status. Any creation and modification in the details of a Foundational Trust Providers is maintained in a history table to future references.
 
-For API design, [refer here](https://github.com/mosip/mosip-docs/wiki/Device-Management#foundational-trust-providers)
+For API design, [refer here.](https://github.com/mosip/mosip-docs/wiki/Device-Management#foundational-trust-providers)
 
 ### 10.3 MOSIP Complaint MDS services (Create/Update) [**[↑]**](#table-of-contents)
 Every Registration/Auth Device needs to use a MDS (MOSIP Device Service) to communicate with MOSIP. Each MDS needs to be registered before-hand with the MOSIP.
@@ -477,7 +477,7 @@ An MOSIP Administrator can register each MDS with MOSIP by storing the attribute
 There will always be a unique service ID of an MDS against a unique combination of a Software Version, Provider ID, Device Type, Device Sub Type, Make and Model. Thus, no two MDS can exist with same above-mentioned combination. 
 Admin portal will also allow an Admin to update details of an MDS. Any creation and modification in the details of a MDS is maintained in a history table to future references.
 
-For API design, [refer here](https://github.com/mosip/mosip-docs/wiki/Device-Management#mds-api)
+For API design, [refer here.](https://github.com/mosip/mosip-docs/wiki/Device-Management#mds-api)
 
 ### 10.4 Devices (Register/De-Register) [**[↑]**](#table-of-contents)
 Devices are categorized in two types based on the usage. Registration Devices (used during registrations in Registration Client) and Auth Devices (used during authentication through Partners). Before being used, these devices are needed to be registered in MOSIP using the Register/De-Register API.
@@ -508,7 +508,7 @@ Registration Device can only be registered if they exist in the list of white-li
 
 Once the device is registered, there details should not be changed. However, an Admin can change the status of the device. The device can have three different statuses: Registered, Retired, and Revoked. Once retired, a device can be re-registered by updating the its status, although same is not the case of Revoked devices as they cannot be re-registered once revoked. Any creation and modification in the details of a Device is maintained in a history table to future references.
 
-For API design, [refer here](https://github.com/mosip/mosip-docs/wiki/Device-Management#devices)
+For API design, [refer here.](https://github.com/mosip/mosip-docs/wiki/Device-Management#devices)
 
 ### 10.5 Device Detail Validation [**[↑]**](#table-of-contents)
 Device Provider Management also provides an API to validate device details during Authentication in IDA or during packet validation in Registration Processor.
@@ -523,7 +523,7 @@ The API receives Device Code, Device Provider ID, MDS Service ID and MDS Service
 
 For validation in IDA, the API checks the current status of the details, But for validation in Registration processor, API checks the status of details as on the packet generation date and time. For this, the API additionally receives packet generation timestamp.
 
-For API design, [refer here](https://github.com/mosip/mosip-docs/wiki/Device-Management#get-devicevalidate)
+For API design, [refer here.](https://github.com/mosip/mosip-docs/wiki/Device-Management#get-devicevalidate)
 
 ## 11. Multi-language Support (WIP) [**[↑]**](#table-of-contents)
 ### 11.1 i18N
