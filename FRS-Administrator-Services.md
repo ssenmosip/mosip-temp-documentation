@@ -486,7 +486,7 @@ The Device is needed to be registered with the following attributes.
    1.	Device Type - Mandatory
    2.	Device Sub Type - Mandatory
    3.	Status – [Registered, Retired, Revoked]
-   4.	Device ID – [refer here](https://github.com/mosip/mosip-docs/wiki/MOSIP-Device-Service-Specification#4-device-trust). Refer Digital ID section
+   4.	Device ID – [Refer here](https://github.com/mosip/mosip-docs/wiki/MOSIP-Device-Service-Specification#4-device-trust). Refer Digital ID section
    5.	Device Provider Name
    6.	Device Provider ID
    7.	Purpose – [Registration or Auth]
