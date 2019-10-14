@@ -548,7 +548,7 @@ For more details, please refer to [link](/mosip/mosip-docs/wiki/FRS-Admin-Servic
 
 [**Link to Global Configurable Parameters**](/mosip/mosip-config/blob/master/config-templates/application-env.properties)
 
-## Administrator Services API
+## Administrator Services API [**[↑]**](#table-of-contents)
 Refer the following links for Administrator APIs
 1. Document Type/Category/Document Category-Type Mapping CRUD APIs - [Refer here](/mosip/mosip-docs/wiki/Document-APIs)
 2. Registration Center CRUD APIs - [Refer here](/mosip/mosip-docs/wiki/Registration-Center-APIs)
@@ -559,6 +559,7 @@ Refer the following links for Administrator APIs
 7. Administrative Zone APIs - Refer here (TBD)
 8. Multi Language Validator for Create/Update - Refer here (TBD)
 9. Check Packet Status - Refer here (TBD)
+10. Device Provider Management - [Refer here](https://github.com/mosip/mosip-docs/wiki/Device-Management)
 
 
 ## Process View [**[↑]**](#table-of-contents)
