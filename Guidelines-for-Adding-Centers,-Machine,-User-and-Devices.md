@@ -28,7 +28,19 @@
 1. User Zone Mapping: [**master-zone_user**](/mosip/mosip-platform/blob/master/db_scripts/mosip_master/dml/master-zone_user.csv)
 ## 2. Steps to Add seed data:
 ### 2.1 Create Roles in LDAP
-
+Roles used across MOSIP are needed to be created in LDAP.
+[Refer here] (https://github.com/mosip/mosip-docs/wiki/Apache-Directory-Studio-user-guide#create-a-new-role) for process to create roles.
+Following roles have to be created using the process as mentioned above.
+   1. REGISTRATION_ADMIN
+   2. REGISTRATION_SUPERVISOR
+   3. REGISTRATION_OFFICER
+   4. ZONAL_ADMIN
+   5. GLOBAL_ADMIN
+   6. AUTH
+   7. PREREG
+   8. REGISTRATION_PROCESSOR
+   9. ID_AUTHENTICATION
+   10. PRE_REGISTRATION_ADMIN
 ### 2.2 Create a Registration Center:
 1. **Center ID**: This should be a 5-digit ID and Ideally should be in an incremental sequence for each center added. The sequence should start from 10000. Keeping the lenght other than 5 digits will fail validations as the same Center ID is used to generate the Request ID (Registration ID)
 1. **Center Name**: This can be a Random name that a country chooses
