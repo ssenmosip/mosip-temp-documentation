@@ -1,5 +1,5 @@
 ## List of Contents
-- [1. Seed Data Sample](#1-seed-data-source-files-in-csv-format)
+- [1. Sample Seed Data](#1-seed-data-source-files-in-csv-format)
 - [2. Steps to add seed data](#2-steps-to-add-seed-data)
   * [2.1 Create a Registration Center](#21-create-a-registration-center)
   * [2.2 Create a Machine](#22-create-a-machine)
