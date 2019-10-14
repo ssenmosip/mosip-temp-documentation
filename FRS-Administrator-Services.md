@@ -480,13 +480,13 @@ Admin portal will also allow an Admin to update details of an MDS. Any creation 
 For API design, [refer here](https://github.com/mosip/mosip-docs/wiki/Device-Management#mds-api)
 
 ### 10.4 Devices (Register/De-Register) [**[↑]**](#table-of-contents)
-Devices are categorized in two types based on the usage. Registration Devices (used during registrations in Registration Client) and Auth Devices (used during authentication through Partners). Before being used, these devices are needed to be registered in MOSIP using the Register/De-Register API. Refer API link <Device Register/De-Register> for the API spec.
+Devices are categorized in two types based on the usage. Registration Devices (used during registrations in Registration Client) and Auth Devices (used during authentication through Partners). Before being used, these devices are needed to be registered in MOSIP using the Register/De-Register API.
 
 The Device is needed to be registered with the following attributes.
    1.	Device Type - Mandatory
    2.	Device Sub Type - Mandatory
    3.	Status – [Registered, Retired, Revoked]
-   4.	Device ID – <refer link>
+   4.	Device ID – [refer here](https://github.com/mosip/mosip-docs/wiki/MOSIP-Device-Service-Specification#4-device-trust). Refer Digital ID section
    5.	Device Provider Name
    6.	Device Provider ID
    7.	Purpose – [Registration or Auth]
@@ -504,7 +504,7 @@ The Device is needed to be registered with the following attributes.
 
 [Note: L0 devices (encryption is done on the host machine device driver or the MOSIP device service) and L1 (capable of performing encryption in device’s trusted module]
 
-Registration Device can only be registered if they exist in the list of white-listed devices. For white-listed devices, Refer <Link>. Once a device is registered, a unique device code is generated for each device. For Registration devices, the code comes from the white-list table.
+Registration Device can only be registered if they exist in the list of white-listed devices. For white-listed devices, [Refer section 5.3](#53-device-management-). Once a device is registered, a unique device code is generated for each device. For Registration devices, the code comes from the white-list table.
 
 Once the device is registered, there details should not be changed. However, an Admin can change the status of the device. The device can have three different statuses: Registered, Retired, and Revoked. Once retired, a device can be re-registered by updating the its status, although same is not the case of Revoked devices as they cannot be re-registered once revoked. Any creation and modification in the details of a Device is maintained in a history table to future references.
 
