@@ -27,7 +27,9 @@
 1. Center Machine User Mapping: [**master-reg_center_machine_device**](/mosip/mosip-platform/blob/master/db_scripts/mosip_master/dml/master-reg_center_machine_device.csv)
 1. User Zone Mapping: [**master-zone_user**](/mosip/mosip-platform/blob/master/db_scripts/mosip_master/dml/master-zone_user.csv)
 ## 2. Steps to Add seed data:
-### 2.1 Create a Registration Center:
+### 2.1 Create Roles in LDAP
+
+### 2.2 Create a Registration Center:
 1. **Center ID**: This should be a 5-digit ID and Ideally should be in an incremental sequence for each center added. The sequence should start from 10000. Keeping the lenght other than 5 digits will fail validations as the same Center ID is used to generate the Request ID (Registration ID)
 1. **Center Name**: This can be a Random name that a country chooses
 1. **Center Type Code**: Should be kept as “REG”. Center Type Code will come from a Center Type Masterdata which currently have one center Type defined as “Regular” and Code as “REG”
@@ -54,7 +56,7 @@
 1. **Cr_by**: `<username>` ideally name of the admin
 1. **cr_dtimes**: now()
 <br>**Note**: A Registration Center is needed to be created in all the languages supported by the country. This is currently configured as Primary – French and Secondary – Arabic. For this, create the same registration twice. One with language code as **fra** for French and one with language code as **ara** for Arabic. Center ID should be same for both the records as both the records are for one center only.<br>
-### 2.2 Create a Machine:
+### 2.3 Create a Machine:
 1. **Machine ID**: This should be a 5-digit ID and Ideally should be in an incremental sequence for each machine added. The sequence should start from 10000. Keeping length other than 5 digits will fail validations as the same Machine ID is used to generate the Request ID(Registration ID)
 1. **Machine Name**: Machine Host name
 1. **Machine Mac-Address**: Machine’s Mac-Address
@@ -66,7 +68,7 @@
 1. **Is_active**: True
 1. **cr_by**: `<username>` ideally name of the admin'
 1. **cr_dtimes**: now()
-### 2.3 Create a User
+### 2.4 Create a User
 1. Create a User in LDAP (User ID/Password)
 1. Create a User in DB
    1. **Id**: ID used in LDAP
@@ -79,7 +81,7 @@
    1. **Is_active**: True
    1. **cr_by**: `<username>` ideally name of the admin
    1. **cr_dtimes**: now()
-### 2.4 Create a Device
+### 2.5 Create a Device
 1. **Device ID**: This can be a random ID.
 1. **Device Name**: `<Name of the device>`
 1. **Device Mac-Address**: `<mac-address of device>`
@@ -91,28 +93,28 @@
 1. **Is_active**: True
 1. **cr_by**: `<username>` ideally name of the admin
 1. **cr_dtimes**: now()
-### 2.5 Map the User to a Zone
+### 2.6 Map the User to a Zone
 1. **User ID**: from master_userdetail
 1. **Zone_code**: Should come from a pre-defined list of Administrative Zone codes created in Zone Masterdata. Current values can be “RBT”, “KTA”, “SAL”, “BSN”, “CSB”, ”STT”, ”NDR”, ”BRK”, “JRD”, “SAF“, “YSF“, “TTA“, “TZT”.”
 
 **Note**: While mapping Machine, User, Device to a Center in points 2.6, 2.7, 2.8, 2.9, 2.10, these resources should belong to the same zone code. For example, while mapping a machine to a Center, both machine and a center should belong to same zone.
 
-### 2.6 Map the Machine to a Center
+### 2.7 Map the Machine to a Center
 1. **Center ID**: from **master-registration_center**
 1. **Machine ID**: from **master-machine_master** (newly created machine)
 1. **Lang_code**: eng
 1. **Is_active**: True
 1. **cr_by**: `<username>` ideally name of the admin
 1. **cr_dtimes**: now()
-### 2.7 Map the User to a Center
+### 2.8 Map the User to a Center
 Follow the above example in [**point 2.4**](#24-create-a-device).
-### 2.8 Map the Device to a Center
+### 2.9 Map the Device to a Center
 Follow the above example in [**point 2.4**](#24-create-a-device).
-### 2.9 Map Center-Machine-Device
+### 2.10 Map Center-Machine-Device
 Follow the above example in [**point 2.4**](#24-create-a-device).
-### 2.10 Map Center-Machine-User
+### 2.11 Map Center-Machine-User
 Follow the above example in [**point 2.4**](#24-create-a-device).
-### 2.11 Store History of MasterData 
+### 2.12 Store History of MasterData 
 After adding all these data in the DB, we would need to create the same records in all the History tables for every table mentioned in the “**Tables Names**” section.
 1. Each history table has an extra attribute “effective date” other than the standard attributes mentioned for each table. 
 1. The Effective date should be now().and all the attributes should be same as they are stored in the standard tables.
