@@ -444,6 +444,7 @@ Using the Portal, A Zonal Admin can view the status of a packet by giving the RI
 All the bio-metric devices which will be used for Authentication and Registration needs to be registered with MOSIP. Unless these devices are not registered, they cannot be used for capturing resident Bio-metrics for registrations or authentication.
 
 For managing these devices, MOSIP needs to store details of following four entities.
+
      1.	Device Provider
      2.	Foundational Trust Providers
      3.	MOSIP Complaint MDS services
