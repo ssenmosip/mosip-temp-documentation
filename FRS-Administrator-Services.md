@@ -66,14 +66,15 @@
   * [7.2 Approval for Master Data Creation (WIP)](#72-approval-for-master-data-creation) _(ASR_FR_7.5)_
 - [8. UIN Activation/Deactivation](#8-uin-activationdeactivation-wip-) _(ASR_FR_8)_
 - [9. Packet Status Check (based on RID)(WIP)](#9-packet-status-check-based-on-rid-wip-) _(ASR_FR_9)_
-- [10.Multi-language Support (WIP)](#10-multi-language-support-wip-) _(ASR_FR_10)_
-    * [10.1 i18N](#101-i18n) _(ASR_FR_10.1)_
-    * [10.2 Implementation in English (Labels etc)](#102-implementation-in-english-labels-etc) _(ASR_FR_10.2)_
-    * [10.3 Language Specific Setup](#103-language-specific-setup) _(ASR_FR_10.3)_
-- [11. Responsive UI](#11-responsive-ui-wip-) _(ASR_FR_11)
-- [12. MOSIP Platform Setup (WIP)](#12-mosip-platform-setup-wip-) _(ASR_FR_12)
-- [13. Configuration Setup (WIP)](#13-configuration-setup-wip-) _(ASR_FR_13)
-- [14. Process Flow Setup (WIP)](#14-process-flow-setup-wip-) _(ASR_FR_14)
+- [10. Device Provider Management](#10-device-provider-management-) _(ASR_FR_10)_
+- [11.Multi-language Support (WIP)](#11-multi-language-support-wip-) _(ASR_FR_11)_
+    * [11.1 i18N](#101-i18n) _(ASR_FR_11.1)_
+    * [11.2 Implementation in English (Labels etc)](#102-implementation-in-english-labels-etc) _(ASR_FR_11.2)_
+    * [11.3 Language Specific Setup](#103-language-specific-setup) _(ASR_FR_11.3)_
+- [12. Responsive UI](#12-responsive-ui-wip-) _(ASR_FR_12)
+- [13. MOSIP Platform Setup (WIP)](#13-mosip-platform-setup-wip-) _(ASR_FR_13)
+- [14. Configuration Setup (WIP)](#14-configuration-setup-wip-) _(ASR_FR_14)
+- [15. Process Flow Setup (WIP)](#15-process-flow-setup-wip-) _(ASR_FR_15)
 - [List of Configurable Parameters and Processes](#list-of-configurable-parameters-and-processes-)
 - [Administrator Services API](#administrator-services-api-)
 - [Process View](#process-view-)
@@ -434,18 +435,20 @@ Using the portal, A Global Admin can activate or deactivate a UIN based on the r
 A Registration packet generated in Registration Client is sent to Registration Processor for further processing and UIN generation.
 Using the Portal, A Zonal Admin can view the status of a packet by giving the RID of the packet. The packet status will contain all the stages the packet has passed through along with the last stage the packet is in. In case the packet has not been processed or is marked for Re-Send/Re-Register, the admin will be able to view specific comments indicating the reason for that particular status.
 
-## 10. Multi-language Support (WIP) [**[↑]**](#table-of-contents)
-### 10.1 i18N
-### 10.2 Implementation in English (Labels etc)
-### 10.3 Language Specific Setup
-## 11. Responsive UI (WIP) [**[↑]**](#table-of-contents)
-## 12. MOSIP Platform Setup (WIP) [**[↑]**](#table-of-contents)
+## 10. Device Provider Management [**[↑]**](#table-of-contents)
+
+## 11. Multi-language Support (WIP) [**[↑]**](#table-of-contents)
+### 11.1 i18N
+### 11.2 Implementation in English (Labels etc)
+### 11.3 Language Specific Setup
+## 12. Responsive UI (WIP) [**[↑]**](#table-of-contents)
+## 13. MOSIP Platform Setup (WIP) [**[↑]**](#table-of-contents)
 The system admin will set up platform data such as list of template types, list of rejection reason etc. through a CSV. 
 
 For more details, please refer to [link](/mosip/mosip-docs/wiki/FRS-Admin-Services#table-of-contents)
 
-## 13. Configuration Setup (WIP) [**[↑]**](#table-of-contents)
-## 14. Process Flow Setup (WIP) [**[↑]**](#table-of-contents)
+## 14. Configuration Setup (WIP) [**[↑]**](#table-of-contents)
+## 15. Process Flow Setup (WIP) [**[↑]**](#table-of-contents)
 
 ## List of Configurable Parameters and Processes [**[↑]**](#table-of-contents)
 
