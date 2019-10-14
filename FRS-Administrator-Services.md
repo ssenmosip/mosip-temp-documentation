@@ -67,6 +67,11 @@
 - [8. UIN Activation/Deactivation](#8-uin-activationdeactivation-wip-) _(ASR_FR_8)_
 - [9. Packet Status Check (based on RID)(WIP)](#9-packet-status-check-based-on-rid-wip-) _(ASR_FR_9)_
 - [10. Device Provider Management](#10-device-provider-management-) _(ASR_FR_10)_
+  * [10.1 Device Providers (Create/Update)](#10.1-device-providers-createupdate-) _(ASR_FR_10.1)_
+  * [10.2 Foundational Trust Providers (Create/Update)](#10.1-foundational-trust-providers-createupdate-) _(ASR_FR_10.2)_
+  * [10.3 MOSIP Complaint MDS services (Create/Update)](#10.1-mosip-complaint-mds-services-createupdate-) _(ASR_FR_10.3)_
+  * [10.4 Devices (Register/De-Register)](#10.1-devices-registerde-register) _(ASR_FR_10.4)_
+  * [10.5 Device Detail Validation](#10.1-device-detail-validation-) _(ASR_FR_10.5)_
 - [11. Multi-language Support (WIP)](#11-multi-language-support-wip-) _(ASR_FR_11)_
     * [11.1 i18N](#101-i18n) _(ASR_FR_11.1)_
     * [11.2 Implementation in English (Labels etc)](#102-implementation-in-english-labels-etc) _(ASR_FR_11.2)_
@@ -436,6 +441,11 @@ A Registration packet generated in Registration Client is sent to Registration P
 Using the Portal, A Zonal Admin can view the status of a packet by giving the RID of the packet. The packet status will contain all the stages the packet has passed through along with the last stage the packet is in. In case the packet has not been processed or is marked for Re-Send/Re-Register, the admin will be able to view specific comments indicating the reason for that particular status.
 
 ## 10. Device Provider Management [**[↑]**](#table-of-contents)
+### 10.1 Device Providers (Create/Update) [**[↑]**](#table-of-contents)
+### 10.2 Foundational Trust Providers (Create/Update) [**[↑]**](#table-of-contents)
+### 10.3 MOSIP Complaint MDS services (Create/Update) [**[↑]**](#table-of-contents)
+### 10.4 Devices (Register/De-Register) [**[↑]**](#table-of-contents)
+### 10.5 Device Detail Validation [**[↑]**](#table-of-contents)
 
 ## 11. Multi-language Support (WIP) [**[↑]**](#table-of-contents)
 ### 11.1 i18N
