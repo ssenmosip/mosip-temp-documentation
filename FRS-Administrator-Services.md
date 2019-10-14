@@ -449,7 +449,7 @@ For managing these devices, MOSIP needs to store details of following four entit
      3.	MOSIP Complaint MDS services
      4.	Biometric Devices (Registered and White-listed)
 
-For more information, refer [MOSIP Device Service Specification Page](https://github.com/mosip/mosip-docs/wiki/MOSIP-Device-Service-Specification)
+For more information, refer [MOSIP Device Service Specification Page.](https://github.com/mosip/mosip-docs/wiki/MOSIP-Device-Service-Specification)
 
 ### 10.1 Device Providers (Create/Update) [**[↑]**](#table-of-contents)
 Device Providers are the vendors supplying devices for Registration or Authentication. This device provides are needed to be registered before the devices of this providers are getting registered. 
