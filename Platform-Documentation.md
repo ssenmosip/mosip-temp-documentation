@@ -101,15 +101,15 @@ Kernel is a platform to build higher-level services as well as a secure sandbox.
 * [Data Services](FRS-Data-Services)
 * [Admin Services](FRS-Admin-Services)
 
-### 2.6 Administrator Services (WIP)
-MOSIP Admin manages the functional and non-functional activities of MOSIP on Admin Portal through either the backend process or the UI screens. 
+### 2.6 Admin Portal and Administrator Services (WIP)
+Admin Portal allows an MOSIP Administrator to manages administrative activities of MOSIP through either the back-end process with the help of available APIs or the UI screens. 
 
-Admin will be able to:
+These administrative activities are:
 
- * Set up Platform Data, Process Flows, ID Definition, Configuration, and Security Policy (Through backend process).
- * Manage (Create, Update, View, Activate/Deactivate, Map/Un-map/Re-map/Decommission) the resources.
- * Map the resources (Users, Machines, and Devices) to a registration center.
- * Manage the master data (Create/Update/Activate/Deactivate).
+ * Set up Platform Data, Process Flows, ID Definition, Configuration, and Security Policy (Through back-end process).
+ * Manage (Create, Update, View, Activate/Deactivate, Map/Un-map/Re-map/Decommission) the resources. (Through API and UI Screens)
+ * Map the resources (Users, Machines, and Devices) to a registration center.(Through APIs)
+ * Manage the master data (Create/Update/Activate/Deactivate).(Through APIs)
  * Manage approval requests for creation and updation of resources and master data.
  * Manage personal account details (Reset Password, Forgot User Name, Change Password, Unlock Account, and Edit Personal 
    Details.
