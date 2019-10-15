@@ -196,7 +196,7 @@ The user opts to view the available slots for a selected registration center.
 1. An Individual can opt to cancel selected Appointment\s against application which is\are in Booked Status.
 1. In such case the system notifies the user about the successful cancellation 
 1. Following a successful Appointment Cancellation the system unlocks the time slot of the Registration Center
-1. In case working day is changed to non-working day by the administrator for any reason, the affected appointments will be automatically cancelled a notification will be sent to the mobile number or email id of the resident.
+1. In case a working day is changed to a non-working day by the administrator for any reason, the affected appointments will be automatically cancelled and a notification will be sent to the mobile number or email id of the resident.
 
 [**Link to design**](/mosip/mosip-platform/blob/master/design/pre-registration/pre-registration-booking-service.md)
 
