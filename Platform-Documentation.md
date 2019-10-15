@@ -169,7 +169,7 @@ Further Certificates are used by Partners for signing the authentication request
 <!---  #### 3.5.6 [Resident Services](Resident-services) --->
 #### 3.5.7 [Administrator Services](Admin)
 #### 3.5.8 [ID Repository](ID-Repository)
-### 3.5 [Deployment Architecture](Deployment-Architecture)
+### 3.6 [Deployment Architecture](Deployment-Architecture)
 
 ## 4. REQUIREMENT SPECIFICATIONS[**[↑]**](#table-of-contents)
 ### 4.1 Functional Requirement Specifications
