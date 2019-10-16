@@ -1517,12 +1517,12 @@ ADM-DPM-007 |Software version does not match against the Service ID|If the Softw
 ADM-DPM-008 |Device Provider ID does not match against the Service ID|If the Device provider ID does not match the Service ID received
 ADM-DPM-009 |Error occurred while checking a Device Details| If there an error from DB while checking device details
 
-### GET /device/deviceprovidermanagement/history
+### GET /deviceprovidermanagement/validate/history
 
 This service will validate the device history details from the list of registered devices.
 
 ### Resource URL
-### `GET /device/deviceprovidermanagement/history`
+### `GET /deviceprovidermanagement/validate/history`
 
 ### Resource details
 
