@@ -634,8 +634,8 @@ ADM-DPM-019|Error occurred while registering a Foundational Trust Provider|If th
 * [DELETE /device/l1/deregister](#delete-devicel1deregister)
 * [PUT /device/l0](#put-devicel0)
 * [PUT /device/l1](#put-devicel1)
-* [GET /device/validate](#get-devicevalidate)
-* [GET /device/validate/history](#get-devicevalidatehistory)
+* [GET /deviceprovidermanagement/validate](#get-deviceprovidermanagementvalidate)
+* [GET /deviceprovidermanagement/validate/history](#get-deviceprovidermanagementvalidatehistory)
 
 ### GET /device/{devicetype}
 
@@ -1434,12 +1434,12 @@ ADM-DPM-036|Mandatory input parameter is missing|If any mandatory input paramete
 ADM-DPM-037|Invalid Status received|If in Status, standard values are not received
 ADM-DPM-038|Error occurred while updating Device Status|If there an error from DB while updating Device Status
 
-### GET /device/validate
+### GET /deviceprovidermanagement/validate
 
 This service will validate the device details from the list of registered devices.
 
 ### Resource URL
-### `GET /device/validate`
+### `GET /deviceprovidermanagement/validate`
 
 ### Resource details
 
@@ -1458,7 +1458,7 @@ deviceServiceVersion|Yes|DeviceServiceVersion of the mds| |
 
 ### Example Request
 ```
-https://mosip.io/masterdata/device/validate?deviceCode="12344"&deviceProviderId="test"
+https://mosip.io/masterdata/deviceprovidermanagement/validate?deviceCode="12344"&deviceProviderId="test"
 &deviceServiceId="test"&deviceServiceVersion="v1"
 ```
 
@@ -1517,12 +1517,12 @@ ADM-DPM-007 |Software version does not match against the Service ID|If the Softw
 ADM-DPM-008 |Device Provider ID does not match against the Service ID|If the Device provider ID does not match the Service ID received
 ADM-DPM-009 |Error occurred while checking a Device Details| If there an error from DB while checking device details
 
-### GET /device/validate/history
+### GET /device/deviceprovidermanagement/history
 
 This service will validate the device history details from the list of registered devices.
 
 ### Resource URL
-### `GET /device/validate/history`
+### `GET /device/deviceprovidermanagement/history`
 
 ### Resource details
 
@@ -1541,8 +1541,8 @@ deviceServiceVersion|Yes|DeviceServiceVersion of the mds| |
 
 ### Example Request
 ```
-https://mosip.io/masterdata/device/validate/history?deviceCode="12344"&deviceProviderId="test"
-&deviceServiceId="test"&deviceServiceVersion="v1"
+https://mosip.io/masterdata/deviceprovidermanagement/validate/history?deviceCode=12344&deviceProviderId=test
+&deviceServiceId=test&deviceServiceVersion=v1&timeStamp=2019-12-10T06%3A12%3A52.994Z
 ```
 
 ### Example Response
@@ -1558,6 +1558,7 @@ https://mosip.io/masterdata/device/validate/history?deviceCode="12344"&devicePro
   "errors": null,
   "response":  [
     {
+      "status": "valid"
       "message": "Device details history validated successfully"
     }
   ],
