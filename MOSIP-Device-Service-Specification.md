@@ -824,7 +824,7 @@ customOpts - If in case the device vendor has additional parameters that they ca
 
           },
 
-          "hash": "sha256(sha256 hash in hex format of the previous data block + sha256 of the current data block in hex format before encryption)",
+          "hash": "sha256(sha256 hash in hex format of the previous data block + sha256 hash in hex format of the current data block before encryption)",
 
           "sessionKey": "encrypted with MOSIP public key (dynamically selected based on the uri) and encoded session key biometric",
 
@@ -868,7 +868,7 @@ customOpts - If in case the device vendor has additional parameters that they ca
 
           },
 
-          "hash": "sha256(sha256 hash of the previous data block + sha256 of the current data block before encryption)",
+          "hash": "sha256(sha256 hash in hex format of the previous data block + sha256 hash in hex format of the current data block before encryption)",
 
           "sessionKey": "encrypted with MOSIP public key and encoded session key biometric",
 
@@ -1111,7 +1111,7 @@ bio.previousHash - The previous hash for the image captured by this device per r
 
           },
 
-          "hash": "sha256(sha256 hash of the previous data block + sha256 of the current data block)",         
+          "hash": "sha256(sha256 hash in hex format of the previous data block + sha256 hash in hex format of the current data block)",         
 
          "error": {
 
@@ -1152,7 +1152,7 @@ bio.previousHash - The previous hash for the image captured by this device per r
 
           },
 
-          "hash": "sha256(sha256 hash of the previous data block + sha256 of the current data block before encryption)",
+          "hash": "sha256(sha256 hash in hex format of the previous data block + sha256 hash in hex format of the current data block before encryption)",
 
     "error": {
 
