@@ -1,4 +1,4 @@
-#### Aug 2019 | Version: 0.9 
+#### Aug 2019 | Version: 0.9.1 
 #### Status: Draft 
 
 ## Table of Contents 
@@ -515,6 +515,7 @@ Note: “Biometric Device” - is a special type and used in case if you are loo
     “deviceSubId”: "device sub Id’s",
     “callbackId”: "baseurl to reach to the device“,
     "digitalId": "unsigned digital id object of the device",
+    "deviceCode": "A unique code given by MOSIP after successfull registration",
     "specVersion": ["Array of supported MDS specification version"],
     "purpose": "Auth  or Registration",
     "error": {
@@ -550,6 +551,8 @@ deviceSubId - is the internal Id of the device. For example in case of iris capt
 callbackId - this differs as per the OS. In case of linux and windows operating systems it is a http url. In the case of android, it is the intent name. In IOS it is the url scheme. The call back url takes precedence over future request as a base url.
 
 digitalId - As per the Digital Id definition. No signature is attached. 
+
+deviceCode: A unique code given by MOSIP after successfull registration,
 
 specVersion - Array of supported MDS specification version",
 
@@ -639,6 +642,7 @@ NONE
         “deviceSubId”: "device sub Id’s",
         “callbackId”: "baseurl to reach to the device“,
         "digitalId": "unsigned digital id object of the device",
+        "deviceCode": "A unique code given by MOSIP after successfull registration",
         "purpose": "Auth  or Registration",
         "specVersion": ["Array of supported MDS specification version"],
         "error": {
@@ -794,6 +798,8 @@ customOpts - If in case the device vendor has additional parameters that they ca
 
             "digitalId" : "Digital Id object as described in this document",
 
+            "deviceCode": "A unique code given by MOSIP after successfull registration",
+
             "deviceServiceVersion": "Service version",
 
             "bioType": "FIR",
@@ -818,7 +824,7 @@ customOpts - If in case the device vendor has additional parameters that they ca
 
           },
 
-          "hash": "sha256(sha256 hash of the previous data block + sha256 of the current data block before encryption)",
+          "hash": "sha256(sha256 hash in hex format of the previous data block + sha256 of the current data block in hex format before encryption)",
 
           "sessionKey": "encrypted with MOSIP public key (dynamically selected based on the uri) and encoded session key biometric",
 
@@ -838,7 +844,9 @@ customOpts - If in case the device vendor has additional parameters that they ca
           "specVersion" : "MDS spec version",
           "data": {
 
-            "digitalId": "Digital Id object as described in this document",
+            "digitalId": "Digital Id object as        described in this document",
+ 
+            "deviceCode": "A unique code given by MOSIP after successfull registration",
 
             "deviceServiceVersion": "Service version",
 
@@ -1074,13 +1082,12 @@ bio.previousHash - The previous hash for the image captured by this device per r
 
         {
           "specVersion" : "MDS Spec version",
+          
           "data": {	//The entire block is base64. One data block for each index or segment
 
-            "deviceCode": "",
+            "digitalId": "As per the Digital Id definition. No signature is attached.",
 
-            "deviceProviderId": "",
-
-            "deviceServiceId": "",
+            "deviceCode": "A unique code given by MOSIP after successfull registration",
 
             "deviceServiceVersion": "",
 
@@ -1124,9 +1131,9 @@ bio.previousHash - The previous hash for the image captured by this device per r
 
             "deviceCode": "",
 
-            "deviceProviderId": "",
+            "digitalId": "As per the Digital Id definition. No signature is attached.",
 
-            "deviceServiceId": "",
+            "deviceProviderId": "",
 
             "deviceServiceVersion": "",
 
