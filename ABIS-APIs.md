@@ -81,18 +81,19 @@ All the below operations send biometric data in CBEFF format. (Please refer to t
 	"maxResults" : 10,
 	"targetFPIR" : 30,
 	"gallery" : {
-    "referenceIds" : [ {
-      "referenceId" : "2cce7b7d-b58a-4466-a006-c79297281123"
-    }, {
-      "referenceId" : "2cce7b7d-b58a-4466-a006-c79297281456"
-    }, {
-      "referenceId" : "2cce7b7d-b58a-4466-a006-c79297281678"
-    }, {
-      "referenceId" : "2cce7b7d-b58a-4466-a006-c79297281098"
-    }, {
-      "referenceId" : "2cce7b7d-b58a-4466-a006-c79297281321"
-    } ]
-  }	
+		"referenceIds" : [ {
+			  "referenceId" : "2cce7b7d-b58a-4466-a006-c79297281123"
+			}, {
+			  "referenceId" : "2cce7b7d-b58a-4466-a006-c79297281456"
+			}, {
+			  "referenceId" : "2cce7b7d-b58a-4466-a006-c79297281678"
+			}, {
+			  "referenceId" : "2cce7b7d-b58a-4466-a006-c79297281098"
+			}, {
+			  "referenceId" : "2cce7b7d-b58a-4466-a006-c79297281321"
+			} 
+		]
+  }
 }
 
 //Success response
