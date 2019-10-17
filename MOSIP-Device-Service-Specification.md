@@ -1223,8 +1223,6 @@ Type: POST
 
 “deviceId”: "unique Id to identify a biometric capture device",
 
-“deviceProviderName”: "device provider name",
-“deviceProviderId”: "device provider Id",
 "purpose": "Auth  or Registration",
 
 “deviceInfo”:
@@ -1233,17 +1231,15 @@ Type: POST
 
     “deviceSubId”: "an array of sub Ids that are available"
 
-        “firmware”: "firmware version",
+    "digitalId": "unsigned digital id object of the device",
 
-        “deviceModel”: "device model",
+    “firmware”: "firmware version",
 
-        “deviceMake”: "device make",
+    “deviceExpiry”: "device expiry date",
 
-        “deviceExpiry”: "device expiry date",
+    “certification”:  "certification level",
 
-        “certification”:  "certification level",
-
-        “timestamp”:  "ISO format datetime with timezone",
+    “timestamp”:  "ISO format datetime with timezone",
 
     },
 “foundationalTrustProviderId” : <foundation trust provider Id>
