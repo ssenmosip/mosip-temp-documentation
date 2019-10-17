@@ -122,8 +122,7 @@ Mandatory fields for different types of authentications-
           "environment": "",
           "version": "",
           "deviceCode": "",
-          "deviceProviderID": "",
-          "deviceServiceID": "",
+          "digitalId": "",
           "deviceServiceVersion": "",
           "bioType": "FMR",
           "bioSubType": "UNKNOWN",
@@ -133,7 +132,7 @@ Mandatory fields for different types of authentications-
           "requestedScore": "<floating point number to represent the minimum required score for the capture>",
           "qualityScore": "<floating point number representing the score for the current capture>"
         },
-        "hash": "sha256(sha256 hash of the previous data block + sha256 of the current data block before encryption)",
+        "hash": "sha256(sha256 hash of the previous data block + sha256 of the current data block before encoding)",
         "sessionKey": "<encrypted with MOSIP public key and encoded session key biometric>",
         "signature": "base64 signature of the data and metaData block"
       },
@@ -143,8 +142,7 @@ Mandatory fields for different types of authentications-
           "environment": "",
           "version": "",
           "deviceCode": "",
-          "deviceProviderID": "",
-          "deviceServiceID": "",
+          "digitalId": "",
           "deviceServiceVersion": "",
           "bioType": "IIR",
           "bioSubType": "RIGHT",
@@ -152,7 +150,7 @@ Mandatory fields for different types of authentications-
           "transactionID": "1234567890",
           "timestamp": "2019-02-15T10:01:57.086+05:30"
         },
-        "hash": "sha256(sha256 hash of the previous data block + sha256 of the current data block before encryption)",
+        "hash": "sha256(sha256 hash of the previous data block + sha256 of the current data block before encoding)",
         "sessionKey": "<encrypted with MOSIP public key and encoded session key biometric>",
         "signature": "base64 signature of the data and metaData block"
       }
@@ -336,8 +334,7 @@ request: transactionID|N| Transaction ID provided by Device Service| |
           "environment": "",
           "version": "",
           "deviceCode": "",
-          "deviceProviderID": "",
-          "deviceServiceID": "",
+          "digitalId": "",
           "deviceServiceVersion": "",
           "bioType": "FMR",
           "bioSubType": "UNKNOWN",
@@ -347,7 +344,7 @@ request: transactionID|N| Transaction ID provided by Device Service| |
           "requestedScore": "<floating point number to represent the minimum required score for the capture>",
           "qualityScore": "<floating point number representing the score for the current capture>"
         },
-        "hash": "sha256(sha256 hash of the previous data block + sha256 of the current data block before encryption)",
+        "hash": "sha256(sha256 hash of the previous data block + sha256 of the current data block before encoding)",
         "sessionKey": "<encrypted with MOSIP public key and encoded session key biometric>",
         "signature": "base64 signature of the data and metaData block"
       }
@@ -701,7 +698,7 @@ request: biometrics|N| Biometric data of an Individual| |
           "bioSubType": "UNKNOWN",
           "bioValue": "<encrypted with session key and base64 encoded biometric data>",
         },
-        "hash": "sha256(sha256 hash of the previous data block + sha256 of the current data block before encryption)",
+        "hash": "sha256(sha256 hash of the previous data block + sha256 of the current data block before encoding)",
         "sessionKey": "<encrypted with MOSIP public key and encoded session key biometric>",
         "signature": "base64 signature of the data and metaData block"
       },
@@ -711,7 +708,7 @@ request: biometrics|N| Biometric data of an Individual| |
           "bioSubType": "RIGHT",
           "bioValue": "<encrypted with session key and base64 encoded biometric data>",
         },
-        "hash": "sha256(sha256 hash of the previous data block + sha256 of the current data block before encryption)",
+        "hash": "sha256(sha256 hash of the previous data block + sha256 of the current data block before encoding)",
         "sessionKey": "<encrypted with MOSIP public key and encoded session key biometric>",
         "signature": "base64 signature of the data and metaData block"
       }
