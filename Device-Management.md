@@ -1458,7 +1458,7 @@ deviceServiceVersion|Yes|DeviceServiceVersion of the mds| |
 ### Example Request
 ```
 https://mosip.io/masterdata/deviceprovidermanagement/validate?deviceCode="12344"&deviceProviderId="test"
-&deviceServiceId="test"
+&deviceServiceVersion=v1
 ```
 
 ### Example Response
