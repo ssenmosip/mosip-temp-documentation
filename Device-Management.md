@@ -1453,13 +1453,12 @@ Name | Required | Description | Default Value | Example
 -----|----------|-------------|---------------|--------
 deviceCode|Yes|code of the device| | 
 deviceProviderId|Yes|Deviceproviderid of the device provider| | 
-deviceServiceId|Yes|Devicetypecode of the mds| | 
 deviceServiceVersion|Yes|DeviceServiceVersion of the mds| | 
 
 ### Example Request
 ```
 https://mosip.io/masterdata/deviceprovidermanagement/validate?deviceCode="12344"&deviceProviderId="test"
-&deviceServiceId="test"&deviceServiceVersion="v1"
+&deviceServiceId="test"
 ```
 
 ### Example Response
@@ -1536,13 +1535,12 @@ Name | Required | Description | Default Value | Example
 -----|----------|-------------|---------------|--------
 deviceCode|Yes|code of the device| | 
 deviceProviderId|Yes|Deviceproviderid of the device provider| | 
-deviceServiceId|Yes|Devicetypecode of the mds| | 
 deviceServiceVersion|Yes|DeviceServiceVersion of the mds| | 
 
 ### Example Request
 ```
 https://mosip.io/masterdata/deviceprovidermanagement/validate/history?deviceCode=12344&deviceProviderId=test
-&deviceServiceId=test&deviceServiceVersion=v1&timeStamp=2019-12-10T06%3A12%3A52.994Z
+&deviceServiceVersion=v1&timeStamp=2019-12-10T06%3A12%3A52.994Z
 ```
 
 ### Example Response
