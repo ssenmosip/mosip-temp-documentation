@@ -1535,7 +1535,8 @@ Name | Required | Description | Default Value | Example
 -----|----------|-------------|---------------|--------
 deviceCode|Yes|code of the device| | 
 deviceProviderId|Yes|Deviceproviderid of the device provider| | 
-deviceServiceVersion|Yes|DeviceServiceVersion of the mds| | 
+deviceServiceVersion|Yes|DeviceServiceVersion of the mds| |
+timeStamp|Yes|Timestamp in LocalDataTimeformat of history table| | 
 
 ### Example Request
 ```
