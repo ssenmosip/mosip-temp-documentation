@@ -1425,9 +1425,9 @@ docker run --restart always -it -d --network host --privileged=true -e active_pr
    otherwise it will login using ppk file available in config with property name registration.processor.vm.ppk.
    PPK generation command ssh-keygen -t rsa -b 4096 -f mykey.
 
-### 8.2 ID Repository Salt Generator
+### 8.2 Kernel Salt Generator
  
-ID Repository Salt Generator Job is a one-time job which is run to populate salts to be used to hash and encrypt UIN in ID Repo and ID Map DB. This generic job takes schema and table name as input, and generates and populates salts in the given schema and table.
+Kernel Salt Generator Job is a one-time job which is run to populate salts to be used to hash and encrypt data. This generic job takes schema and table name as input, and generates and populates salts in the given schema and table.
 
 **Salt Generator Deployment steps**
 
@@ -1447,56 +1447,32 @@ And also open the port from AZURE OR AWS or any cloud where the VM is launched.
      
 
       1.  docker run -it -p 8092:8092 -e active_profile_env="${profile_env}" -e spring_config_label_env="${label_env}"  
-         -e spring_config_url_env="${config_url}" -e schema_name=idrepo -e table_name=uin_hash_salt 
+         -e spring_config_url_env="${config_url}" -e spring_config_name_env=id-repository -e db_url=mosip.idrepo.identity.db.shard.url -e schema_name=idrepo -e table_name=uin_hash_salt 
          "${registryAddress}"/id-repository-salt-generator
 
       2.  docker run -it -p 8092:8092 -e active_profile_env="${profile_env}" -e spring_config_label_env="${label_env}"  
-         -e spring_config_url_env="${config_url}" -e schema_name=idrepo -e table_name=uin_encrypt_salt 
+         -e spring_config_url_env="${config_url}" -e spring_config_name_env=id-repository -e db_url=mosip.idrepo.identity.db.shard.url -e schema_name=idrepo -e table_name=uin_encrypt_salt 
          "${registryAddress}"/id-repository-salt-generator
 
       3.  docker run -it -p 8092:8092 -e active_profile_env="${profile_env}" -e spring_config_label_env="${label_env}"  
-         -e spring_config_url_env="${config_url}" -e schema_name=idmap -e table_name=uin_hash_salt 
+         -e spring_config_url_env="${config_url}" -e spring_config_name_env=id-repository -e db_url=mosip.idrepo.vid.db.url -e schema_name=idmap -e table_name=uin_hash_salt 
          "${registryAddress}"/id-repository-salt-generator
 
       4.  docker run -it -p 8092:8092 -e active_profile_env="${profile_env}" -e spring_config_label_env="${label_env}"       
-         -e spring_config_url_env="${config_url}" -e schema_name=idmap -e table_name=uin_encrypt_salt 
+         -e spring_config_url_env="${config_url}" -e spring_config_name_env=id-repository -e db_url=mosip.idrepo.vid.db.url -e schema_name=idmap -e table_name=uin_encrypt_salt 
          "${registryAddress}"/id-repository-salt-generator
 
-**Note** - Please change the value for variables active_profile_env, spring_config_label_env, spring_config_url_env and registryAddress in the above four commands accordingly
-
-### 8.3 ID Authentication Salt Generator
- 
-ID Authentication Salt Generator Job is a one-time job which is run to populate salts to be used to hash and encrypt UIN in IDA DB. This generic job takes schema and table name as input, and generates and populates salts in the given schema and table.
-
-**Salt Generator Deployment steps**
-
-  a. Login into the VM.
-     Open the port 8092 from the VM:
-
-sudo firewall-cmd --zone=public --add-port=8092/tcp --permanent
-
-sudo firewall-cmd --reload
-
-And also open the port from AZURE OR AWS or any cloud where the VM is launched.
-
-  b. Perform docker hub login
-
-  c. Execute the following commands sequentially one after the other. Wait for the completion of previous command before 
-     executing next commands.
-     
-
-      1.  docker run -it -d -p 8092:8092 -e active_profile_env="${profile_env}" -e spring_config_label_env="${label_env}" 
-          -e spring_config_url_env="${config_url}" -e schema_name=ida -e table_name=uin_hash_salt 
+      5.  docker run -it -d -p 8092:8092 -e active_profile_env="${profile_env}" -e spring_config_label_env="${label_env}" 
+          -e spring_config_url_env="${config_url}" -e spring_config_name_env=id-authentication -e schema_name=ida -e table_name=uin_hash_salt 
           "${registryAddress}"/authentication-salt-generator
 
-      2. docker run -it -d -p 8092:8092 -e active_profile_env="${profile_env}" -e spring_config_label_env="${label_env}" 
-         -e spring_config_url_env="${config_url}" -e schema_name=ida -e table_name=uin_encrypt_salt 
+      6. docker run -it -d -p 8092:8092 -e active_profile_env="${profile_env}" -e spring_config_label_env="${label_env}" 
+         -e spring_config_url_env="${config_url}" -e spring_config_name_env=id-authentication -e schema_name=ida -e table_name=uin_encrypt_salt 
          "${registryAddress}"/authentication-salt-generator
-
 
 **Note** - Please change the value for variables active_profile_env, spring_config_label_env, spring_config_url_env and registryAddress in the above four commands accordingly
 
-### 8.4 First User Registration and Onboarding
+### 8.3 First User Registration and Onboarding
 [Refer to wiki for detailed procedure on First User Registration and Onboarding](First-User-Registration-and-Onboarding)
 
 
