@@ -54,6 +54,10 @@ request: otp| N | OTP | |
 request: timestamp| N | Timestamp when request block was captured| | 
 request: demographics|N| Demographic data of an Individual| |
 request: biometrics|N| Biometric data of an Individual| |
+request: biometrics: data|N| Biometric data of an Individual| |
+request: biometrics: hash|N| Hash of Biometric data of an Individual| |
+request: biometrics: sessionKey|N| Session key used to encrypt Biometric data of an Individual| |
+request: biometrics: signature|N| Signature of Biometric data of an Individual| |
 
 Mandatory fields for different types of authentications- 
 1. **OTP Auth** - request: **otp** attribute is mandatory 
@@ -117,17 +121,16 @@ Mandatory fields for different types of authentications-
     },
     "biometrics": [
       {
-        "data": // Base64 encoded response from [Capture API of MDS v0.9.1](https://github.com/mosip/mosip-docs/wiki/MOSIP-Device-Service-Specification#53-capture),
-        "hash": "sha256(sha256 hash of the previous data block + sha256 of the current data block before encoding)",
+        "data": "<Base64 encoded response from Capture API of MDS v0.9.1>",
+        "hash": "<sha256 hash of (sha256 hash of previous data block in hex format + sha256 of current data block before encoding in hex format) in hex format>",
         "sessionKey": "<encrypted with MOSIP public key and encoded session key biometric>",
-        "signature": "base64 signature of the data and metaData block"
+        "signature": "<base64 signature of data block>"
       },
       {
-        "data": // Base64 encoded response from [Capture API of MDS v0.9.1](https://github.com/mosip/mosip-docs/wiki/MOSIP-Device-Service-Specification#53-capture),
-        },
-        "hash": "sha256(sha256 hash of the previous data block + sha256 of the current data block before encoding)",
+        "data": "<Base64 encoded response from Capture API of MDS v0.9.1>",
+        "hash": "<sha256 hash of (sha256 hash of previous data block in hex format + sha256 of current data block before encoding in hex format) in hex format>",
         "sessionKey": "<encrypted with MOSIP public key and encoded session key biometric>",
-        "signature": "base64 signature of the data and metaData block"
+        "signature": "<base64 signature of data block>"
       }
     ]
   }
