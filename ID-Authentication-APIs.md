@@ -54,10 +54,10 @@ request: otp| N | OTP | |
 request: timestamp| N | Timestamp when request block was captured| | 
 request: demographics|N| Demographic data of an Individual| |
 request: biometrics|N| Biometric data of an Individual| |
-request: biometrics: data|N| Biometric data of an Individual| |
-request: biometrics: hash|N| Hash of Biometric data of an Individual| |
-request: biometrics: sessionKey|N| Session key used to encrypt Biometric data of an Individual| |
-request: biometrics: signature|N| Signature of Biometric data of an Individual| |
+request: biometrics: data|N| Biometric data of an Individual, encrypted by MDS using below sessionKey using symmetric algorithm - AES/GCM/PKCS5Padding | |
+request: biometrics: hash|N| This is SHA-256 hashing of above biometric data of an Individual| |
+request: biometrics: sessionKey|N| This is the symmetric key used to encrypt above biometric data attribute. This symmetric key is encrypted by MOSIP Public Key shared to Partners and Device Providers using asymmetric key algorithm - RSA/ECB/OAEPWITHSHA-256ANDMGF1PADDING| |
+request: biometrics: signature|N| This is the signature of above biometric data attribute of an Individual, which contains X509 certificate containing public key to verify the signature| |
 
 Mandatory fields for different types of authentications- 
 1. **OTP Auth** - request: **otp** attribute is mandatory 
