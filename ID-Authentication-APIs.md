@@ -117,38 +117,13 @@ Mandatory fields for different types of authentications-
     },
     "biometrics": [
       {
-        "data": { // Base64 encoded
-          "mosipProcess": "",
-          "environment": "",
-          "version": "",
-          "deviceCode": "",
-          "digitalId": "",
-          "deviceServiceVersion": "",
-          "bioType": "FMR",
-          "bioSubType": "UNKNOWN",
-          "bioValue": "<encrypted with session key and base64 encoded biometric data>",
-          "transactionID": "1234567890",
-          "timestamp": "2019-02-15T10:01:57.086+05:30",
-          "requestedScore": "<floating point number to represent the minimum required score for the capture>",
-          "qualityScore": "<floating point number representing the score for the current capture>"
-        },
+        "data": // Base64 encoded response from [Capture API of MDS v0.9.1](https://github.com/mosip/mosip-docs/wiki/MOSIP-Device-Service-Specification#53-capture),
         "hash": "sha256(sha256 hash of the previous data block + sha256 of the current data block before encoding)",
         "sessionKey": "<encrypted with MOSIP public key and encoded session key biometric>",
         "signature": "base64 signature of the data and metaData block"
       },
       {
-        "data": { // Base64 encoded
-          "mosipProcess": "",
-          "environment": "",
-          "version": "",
-          "deviceCode": "",
-          "digitalId": "",
-          "deviceServiceVersion": "",
-          "bioType": "IIR",
-          "bioSubType": "RIGHT",
-          "bioValue": "<encrypted with session key and base64 encoded biometric data>",
-          "transactionID": "1234567890",
-          "timestamp": "2019-02-15T10:01:57.086+05:30"
+        "data": // Base64 encoded response from [Capture API of MDS v0.9.1](https://github.com/mosip/mosip-docs/wiki/MOSIP-Device-Service-Specification#53-capture),
         },
         "hash": "sha256(sha256 hash of the previous data block + sha256 of the current data block before encoding)",
         "sessionKey": "<encrypted with MOSIP public key and encoded session key biometric>",
