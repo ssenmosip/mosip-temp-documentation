@@ -634,8 +634,8 @@ ADM-DPM-019|Error occurred while registering a Foundational Trust Provider|If th
 * [DELETE /device/l1/deregister](#delete-devicel1deregister)
 * [PUT /device/l0](#put-devicel0)
 * [PUT /device/l1](#put-devicel1)
-* [GET /deviceprovidermanagement/validate](#get-deviceprovidermanagementvalidate)
-* [GET /deviceprovidermanagement/validate/history](#get-deviceprovidermanagementvalidatehistory)
+* [POST/deviceprovidermanagement/validate](#post-deviceprovidermanagementvalidate)
+* [POST/deviceprovidermanagement/validate/history](#post-deviceprovidermanagementvalidatehistory)
 
 ### GET /device/{devicetype}
 
@@ -1458,6 +1458,24 @@ deviceServiceVersion|Yes|DeviceServiceVersion of the mds| |
 ### Example Request
 ```
 https://mosip.io/masterdata/deviceprovidermanagement/validate
+
+{
+   "id":"string",
+   "metadata":null,
+   "request":{
+        "deviceCode":"string",
+     	"deviceServiceVersion":"string",
+     	"digitalId":{
+     		"make":"string",
+     		"model":"string",
+     		"deviceProviderId":"string",
+     		"deviceProviderName":"string",
+     		"serialNo":"string"
+}
+},
+   "version":"1.0",
+   "requesttime":"2019-08-21T16:34:22.890Z"
+}
 ```
 
 ### Example Response
@@ -1515,12 +1533,12 @@ ADM-DPM-007 |Software version does not match against the Service ID|If the Softw
 ADM-DPM-008 |Device Provider ID does not match against the Service ID|If the Device provider ID does not match the Service ID received
 ADM-DPM-009 |Error occurred while checking a Device Details| If there an error from DB while checking device details
 
-### GET /deviceprovidermanagement/validate/history
+### POST/deviceprovidermanagement/validate/history
 
 This service will validate the device history details from the list of registered devices.
 
 ### Resource URL
-### `GET /deviceprovidermanagement/validate/history`
+### `POST/deviceprovidermanagement/validate/history`
 
 ### Resource details
 
@@ -1533,14 +1551,34 @@ Requires Authentication | Yes
 Name | Required | Description | Default Value | Example
 -----|----------|-------------|---------------|--------
 deviceCode|Yes|code of the device| | 
-deviceProviderId|Yes|Deviceproviderid of the device provider| | 
+digitalId|Yes|JSON object of the device details| | 
 deviceServiceVersion|Yes|DeviceServiceVersion of the mds| |
 timeStamp|Yes|Timestamp in LocalDataTimeformat of history table| | 
 
 ### Example Request
 ```
-https://mosip.io/masterdata/deviceprovidermanagement/validate/history?deviceCode=12344&deviceProviderId=test
-&deviceServiceVersion=v1&timeStamp=2019-12-10T06%3A12%3A52.994Z
+https://mosip.io/masterdata/deviceprovidermanagement/validate/history
+
+{
+   "id":"string",
+   "metadata":null,
+   "request":{
+    
+     	"deviceCode":"10001",
+     	"deviceServiceVersion":"0.1v",
+        "timestamp":"2019-09-09T09:09:09.000Z"
+     	"digitalId":{
+     		"make":"make-upda",
+     		"model":"model-upda",
+     		"deviceProviderId":"11",
+     		"deviceProviderName":"INT",
+     		"serialNo":"SZ59128789"
+    }
+
+},
+   "version":"1.0",
+   "requesttime":"2019-08-21T16:34:22.890Z"
+}
 ```
 
 ### Example Response
