@@ -1434,12 +1434,12 @@ ADM-DPM-036|Mandatory input parameter is missing|If any mandatory input paramete
 ADM-DPM-037|Invalid Status received|If in Status, standard values are not received
 ADM-DPM-038|Error occurred while updating Device Status|If there an error from DB while updating Device Status
 
-### GET /deviceprovidermanagement/validate
+### POST /deviceprovidermanagement/validate
 
 This service will validate the device details from the list of registered devices.
 
 ### Resource URL
-### `GET /deviceprovidermanagement/validate`
+### `POST /deviceprovidermanagement/validate`
 
 ### Resource details
 
@@ -1452,13 +1452,12 @@ Requires Authentication | Yes
 Name | Required | Description | Default Value | Example
 -----|----------|-------------|---------------|--------
 deviceCode|Yes|code of the device| | 
-deviceProviderId|Yes|Deviceproviderid of the device provider| | 
+digitalId|Yes|JSON object consists of device details| | 
 deviceServiceVersion|Yes|DeviceServiceVersion of the mds| | 
 
 ### Example Request
 ```
-https://mosip.io/masterdata/deviceprovidermanagement/validate?deviceCode="12344"&deviceProviderId="test"
-&deviceServiceVersion=v1
+https://mosip.io/masterdata/deviceprovidermanagement/validate
 ```
 
 ### Example Response
