@@ -1466,11 +1466,14 @@ https://mosip.io/masterdata/deviceprovidermanagement/validate
         "deviceCode":"string",
      	"deviceServiceVersion":"string",
      	"digitalId":{
-     		"make":"string",
-     		"model":"string",
-     		"deviceProviderId":"string",
-     		"deviceProviderName":"string",
-     		"serialNo":"string"
+     		"serialNo": "string",
+                "make": "string",
+                "model" : "string",
+                "type": "string",
+                "dp": "string",
+                "dpId": "string",
+                "dateTime": "string"
+
 }
 },
    "version":"1.0",
@@ -1563,17 +1566,18 @@ https://mosip.io/masterdata/deviceprovidermanagement/validate/history
    "id":"string",
    "metadata":null,
    "request":{
-    
-     	"deviceCode":"10001",
+        "deviceCode":"10001",
      	"deviceServiceVersion":"0.1v",
         "timestamp":"2019-09-09T09:09:09.000Z"
      	"digitalId":{
-     		"make":"make-upda",
-     		"model":"model-upda",
-     		"deviceProviderId":"11",
-     		"deviceProviderName":"INT",
-     		"serialNo":"SZ59128789"
-    }
+     		"serialNo": "string",
+                "make": "string",
+                "model" : "string",
+                "type": "string",
+                "dp": "string",
+                "dpId": "string",
+                "dateTime": "string"
+                }
 
 },
    "version":"1.0",
