@@ -486,14 +486,11 @@ The Device is needed to be registered with the following attributes.
    1.	Device Type - Mandatory
    2.	Device Sub Type - Mandatory
    3.	Status – [Registered, Retired, Revoked]
-   4.	Device ID – [Refer here](https://github.com/mosip/mosip-docs/wiki/MOSIP-Device-Service-Specification#4-device-trust). Refer Digital ID section
-   5.	Device Provider Name
-   6.	Device Provider ID
+   4.	Device ID – Mandatory
    7.	Purpose – [Registration or Auth]
    8.	Device Sub Ids - (optional)
+   4.	Digital ID – [Refer here](https://github.com/mosip/mosip-docs/wiki/MOSIP-Device-Service-Specification#4-device-trust). Refer Digital ID section
    9.	Firmware
-   10.	Device Model
-   11.	Device Make
    12.	Device Expiry - (optional)
    13.	Certification Level – [L0 or L1]
    14.	Timestamp - ISO format date time with time-zone
@@ -513,17 +510,17 @@ For API design, [refer here.](https://github.com/mosip/mosip-docs/wiki/Device-Ma
 ### 10.5 Device Detail Validation [**[↑]**](#table-of-contents)
 Device Provider Management also provides an API to validate device details during Authentication in IDA or during packet validation in Registration Processor.
 
-The API receives Device Code, Device Provider ID, MDS Service ID and MDS Service Version and validates the following conditions.
+The API receives Device Code, Digital ID, and MDS Service Version and validates the following conditions.
     1.	The Device exist and is ‘Registered’ and ‘Active’
     2.	The Device is not Revoked or Retired
     3.	The Device Provider exist and is 'Active’
-    4.	The MDS service is in the list and is marked ‘Active’
-    5.	Software version matches against the MDS Service ID
-    6.	Device Provider ID is mapped to the MDS Service ID
+    4.	The MDS service against he software version is in the list and is marked ‘Active’
+    5.	The MDS Software version matches against the Device Type, Device Sub Type, Make, Model and Provider ID of the device as received in input as part of Digital ID
+    6.	The Device Code received matches against the Make, Model, Serial Number, Provider Name and Provider ID of the device which received as part of Digital ID
 
 For validation in IDA, the API checks the current status of the details, But for validation in Registration processor, API checks the status of details as on the packet generation date and time. For this, the API additionally receives packet generation timestamp.
 
-For API design, [refer here.](https://github.com/mosip/mosip-docs/wiki/Device-Management#get-devicevalidate)
+For API design, [refer here.](https://github.com/mosip/mosip-docs/wiki/Device-Management#post-deviceprovidermanagementvalidate)
 
 ## 11. Multi-language Support (WIP) [**[↑]**](#table-of-contents)
 ### 11.1 i18N
