@@ -238,11 +238,9 @@ When a registration officer starts a new registration by entering a pre-registra
 
 **(ii) Manual downloads of Pre-registration data**
 
-A registration officer can download the pre-registration data while being online. The system allows the registration officer to download the demographic data of an applicant but restricts the registration officer to download the documents that were uploaded by an applicant.
+A registration officer can download the pre-registration data while being online. The system allows the registration officer to download the demographic data of an applicant.
 
-The system also enables a registration officer to view the progress of download.
-
-The pre-registration data can be downloaded only for that particular registration center, where the pre-registration data download is initiated
+The pre-registration data can be downloaded only for any registration center.
 
 It is possible to download the pre-registration data within the date range (Current date - End Date). This date range is  configurable.
 
