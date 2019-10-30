@@ -418,7 +418,11 @@ When an individual approaches the registration officer for UIN update, the follo
 #### C. UIN Update
 1. The registration officer selects the fields to update for an individual seeking modification of UIN data. Select one or more of the following fields to update the corresponding data: Name, Age or Date of Birth, Gender, Foreigner/National, Address, Email ID, Phone Number, PIN/Residence Card Number, parent/guardian Details, Biometrics.
 1. Registration officer captures the mandatory demographic attributes (individual's name is captured) and other demographic fields selected for update. In case of update of parent/guardian details, the applicable fields that are updated will be ‘Parent/Guardian Name’ and ‘Parent/Guardian UIN’. The system at this stage also validates that the parent/guardian’s UIN is different from the individual’s UIN. If they are same, displays an error message 
-1. Registration officer then uploads documents. The applicable documents are determined by the system based on configuration
+1. Registration officer then uploads documents. The applicable documents are determined by the system based on the fields marked for update
+EG: PoI is mandatory if Name, Age/DoB, Gender is updated
+EG: PoA is mandatory if Address is updated
+EG: PoR is mandatory if Parent/Guardian Details is marked for update (It may be the only field or combined with other fields for a Child). If it is combined update with other fields for a Child/Adult, then the relevant categories will also be mandated.
+The System will render a standard set of mapped Doc Types for each Doc Category, irrespective of whether the individual is Adult or Child. The selection of applicable document type per Category is left to the discretion of the Operator.
 1. If biometrics were selected for update, the registration officer marks exceptions and scans all biometrics. Else scans any one biometric.
 1. Registration officer captures face photo and exception photo.
 1. After capturing all the biometric and demographic details the registration officer can see a preview of the data captured and performs registration officer authentication.
