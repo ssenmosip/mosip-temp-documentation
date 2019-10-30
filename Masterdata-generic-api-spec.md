@@ -1,16 +1,16 @@
-* [Fetch](#fetch)
+* [Search](#search)
 
 
-# Fetch
+# Search
 
-* [POST /fetch](#post-fetch)
+* [POST /search](#post-fetch)
 
-### POST /fetch
+### POST /search
 
-This service fetches the master data details. 
+This service searches the master data details. 
 
 #### Resource URL
-<div>https://mosip.io/v1/admin/fetch</div>
+<div>https://mosip.io/v1/admin/search</div>
 
 #### Resource details
 
@@ -116,6 +116,23 @@ Error Responses
 			{
 				"errorCode": "ADMN_MST_FTCH_AUTH_ENTITY_INVALID",
 				"message": "The passed in entity is not correct"
+		  }	
+		]
+}
+
+```
+
+3. Invalid fields: If the passed fields are not correct. 
+```JSON
+
+{
+	"id": "mosip.admin.masterdata.fetch",
+	"ver": "1.0",
+	"responsetime": "2007-12-03T10:15:30Z",
+	"errors":[
+			{
+				"errorCode": "ADMN_MST_FTCH_AUTH_FLDS_INVALID",
+				"message": "The passed in fields are not correct"
 		  }	
 		]
 }
