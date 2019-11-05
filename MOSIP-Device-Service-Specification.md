@@ -775,7 +775,7 @@ purpose - Allowed values are Auth| Registration
 
 version - version of the biometric block as specified in the authentication or customer registration specification.
 
-timeout - Max time the app will wait for the capture. Its expected that the api will respond back before timeout with the best frame. 
+timeout - Max time the app will wait for the capture. Its expected that the api will respond back before timeout with the best frame. All timeouts are in milliseconds
 
 captureTime - time of capture in ISO format with timezone.
 
