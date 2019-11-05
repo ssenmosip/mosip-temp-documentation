@@ -57,6 +57,10 @@ All devices that collect biometric data for MOSIP should operate within the spec
 * FPS - Frames Per Second
 * Management Server - A server run by the device provider to manage the life cycle of the biometric devices.
 * Device Registration - The process of registering the device with MOSIP servers.
+* Signature - All signature are formated as per RFC 7515.
+* header in signature - Header in signature means the attribute with "type" set to "MDSSign" "alg" set to RS256 and x5c set to base64encoded certificate.
+* payload is the byte array of the actual data, always represented as base64urlencoded.
+* signature - base64urlencoded signature bytes
 ---
 ## 3. Device Specification
 
