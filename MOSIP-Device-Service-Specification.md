@@ -65,6 +65,7 @@ All devices that collect biometric data for MOSIP should operate within the spec
 ## 3. Device Specification
 
 The MOSIP device specification provides compliance guidelines to devices for them to work with MOSIP. The compliance is based on device capability, trust and communication protocols. A MOSIP compliant device would follow the standards established in this document. It is expected that the devices are compliant to this specification and tested and validated. The details of each of these are outlined in the subsequent sections.
+
 **Device Capability:**
 The MOSIP compliant device is expected to perform the following:
 *   Should have the ability to collect one or more biometric
