@@ -673,7 +673,7 @@ So the API would respond in the following format.
  {
   "deviceInfo": "base64urlencode(header).base64urlencode(payload).base64urlencode(signature)"
   "error": {
-     "errorcode": "201",
+     "errorcode": "100",
       "errorinfo": "Device not registered. In this case the device info will be only base64urlencode(payload)"
    }
  }
@@ -1229,47 +1229,37 @@ Type: POST
 ```
 {
 
-“deviceData”:
-
-{
-
-“type”:  "exact type".
-
-“subType”: "sub type",
-
-“status”: "current status",
+“deviceData”: { 
 
 “deviceId”: "unique Id to identify a biometric capture device",
 
-"purpose": "Auth  or Registration",
+"purpose": "Auth  or Registration. Can not be empty",
 
-“deviceInfo”:
+“deviceInfo”: {
+    “deviceSubId”: "an array of sub Ids that are available",
+    
+    “certification”:  "certification level",
 
-{
-
-    “deviceSubId”: "an array of sub Ids that are available"
-
-    "digitalId": "unsigned digital id object of the device",
+    "digitalId": "signed digital id of the device",
 
     “firmware”: "firmware version",
 
     “deviceExpiry”: "device expiry date",
 
-    “certification”:  "certification level",
-
-    “timestamp”:  "ISO format datetime with timezone",
-
+    “timestamp”:  "ISO format datetime with timezone"
     },
-“foundationalTrustProviderId” : <foundation trust provider Id>
-“foundationalTrustSignature”: <signature of the device info element>,
-“foundationTrustCertificate”: <foundation trust certificate>,
+“foundationalTrustProviderId” : "foundation trust provider Id, in case of L0 this is empty"
 
 }
-
-dpSignature:  <device provider signature>
 
 }
 ```
+Accepted Values:
+device data is sent in the following format.
+
+"deviceData" : base64urlencode(header).base64urlencode(payload).base64urlencode(signature)
+
+payload is the object in deviceData.
 
 Response:
 
@@ -1296,11 +1286,12 @@ Response:
 
     }
 
-"signature": <signed response from MOSIP>
-
 }
 
 ```
+The response is of the following format
+
+"response" : base64urlencode(header).base64urlencode(payload).base64urlencode(signature)
 
 The response should be sent to the device. The device is expected to store the deviceCode within its storage in a safe manner. This device code is used during the capture stage.
 
