@@ -978,7 +978,8 @@ Used only for the registration module compatible devices. This api is visible on
 **Accepted Values **
 
 ```
-bio.exception: “LF_INDEX”, “LF_MIDDLE”, “LF_RING”, “LF_LITTLE”,  “LF_THUMB” “RF_INDEX”, “RF_MIDDLE”, “RF_RING”, “RF_LITTLE”,  “RF_THUMB”, “L_IRIS”, “R_IRIS”. This is an array and all the exceptions are marked. In case of an empty element assume there is no exception.
+deviceId - Internal Id
+deviceSubId - The sub id of the device thats responsoible to stream the data.
 ```
 
 **Response:**
