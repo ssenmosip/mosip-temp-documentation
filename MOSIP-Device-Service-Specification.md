@@ -825,7 +825,7 @@ customOpts - If in case the device vendor has additional parameters that they ca
 
             "domainUri": "uri of the auth server",
 
-            "bioValue": "encrypted with session key and base64 encoded biometric data",
+            "bioValue": "encrypted with session key and base64urlencoded biometric data",
 
             "transactionId": "unique transaction id",
 
@@ -871,7 +871,7 @@ customOpts - If in case the device vendor has additional parameters that they ca
             
             "domainUri": "uri of the auth server",          
 
-            "bioValue": "encrypted with session key and base64 encoded biometric data",
+            "bioValue": "encrypted with session key and base64urlencoded biometric data",
 
             "transactionId": "unique transaction id",
 
@@ -898,7 +898,7 @@ customOpts - If in case the device vendor has additional parameters that they ca
 
 **Accepted values:**
 
-data.bioValue - Encrypted and Encoded to base64 biometric value. AES GCM encryption with a random key. The IV for the encryption is set to last 16 digits of the timestamp. ISO formated bioValue. Look at the Authentication document to understand more about the encryption.  
+data.bioValue - Encrypted and Encoded to base64urlencode biometric value. AES GCM encryption with a random key. The IV for the encryption is set to last 16 digits of the timestamp. ISO formated bioValue. Look at the Authentication document to understand more about the encryption.  
 
 data - The entire data object is stored as follows. 
 ```
@@ -1113,9 +1113,9 @@ bio.previousHash - The previous hash for the image captured by this device per r
             "purpose": "Auth  or Registration",
             "env":  "target environment",
 
-            "bioValue": "<base64 encoded biometric data (raw image)>",
+            "bioValue": "<base64urlencoded biometric data (raw image)>",
 
-            "bioExtract": "<base64 encoded extracted biometric (ISO format)",
+            "bioExtract": "<base64urlencoded extracted biometric (ISO format)",
 
             "registrationId": "1234567890",
 
@@ -1154,9 +1154,9 @@ bio.previousHash - The previous hash for the image captured by this device per r
             "purpose": "Auth  or Registration",
             "env":  "<target environment>",             
 
-            "bioValue": "<base64 encoded biometric data (raw image)>",
+            "bioValue": "<base64urlencoded biometric data (raw image)>",
 
-            "bioExtract": "<base64 encoded extracted biometric (ISO format)",
+            "bioExtract": "<base64urlencoded extracted biometric (ISO format)",
 
             "registrationId": "1234567890",
 
