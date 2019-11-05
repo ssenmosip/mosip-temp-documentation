@@ -559,17 +559,17 @@ deviceId - Internal Id to identify the actual biometric device within the device
 
 deviceSubId - is the internal Id of the device. For example in case of iris capture, the device can have two modules in a single device, it is possible to address each device with a sub Id so we can identify or command each of it in isolation. Sub Id is a simple index which always starts with 1 and increases sequentially for each sub device present.
 
-callbackId - this differs as per the OS. In case of linux and windows operating systems it is a http url. In the case of android, it is the intent name. In IOS it is the url scheme. The call back url takes precedence over future request as a base url.
+callbackId - this differs as per the OS. In case of Linux and windows operating systems it is a http URL. In the case of android, it is the intent name. In IOS it is the URL scheme. The call back url takes precedence over future request as a base URL.
 
 digitalId - As per the Digital Id definition. unsigned digitalId. 
 
-deviceCode: A unique code given by MOSIP after successfull registration,
+deviceCode: A unique code given by MOSIP after successful registration,
 
 specVersion - Array of supported MDS specification version",
 
-purpose - Purpose of the device in the mosip ecosystem.
+purpose - Purpose of the device in the MOSIP ecosystem.
 
-errorCode - standaridized error code.
+errorCode - standardized error code.
 errorInfo - description of the error that can be displayed to end user. Multi lingual support. 
 
 ```
@@ -845,11 +845,9 @@ customOpts - If in case the device vendor has additional parameters that they ca
 
         "errorinfo": "Invalid JSON Value"
 
+    }
+
     },
-
-          "signature": "base64 signature of the data block"
-
-        },
 
         {
           "specVersion" : "MDS spec version",
@@ -885,15 +883,13 @@ customOpts - If in case the device vendor has additional parameters that they ca
 
           "error": {
 
-        "errorcode": "101",
+             "errorcode": "101",
 
-        "errorinfo": "Invalid JSON Value"
+              "errorinfo": "Invalid JSON Value"
 
-    },
+         }
 
-          "signature": "base64 signature of the data block. base64 signature of the hash element"
-
-        }
+    }
 
 ]
 ```
@@ -902,11 +898,15 @@ customOpts - If in case the device vendor has additional parameters that they ca
 
 data.bioValue - Encrypted and Encoded to base64 biometric value. AES GCM encryption with a random key. The IV for the encryption is set to last 16 digits of the timestamp. ISO formated bioValue. Look at the Authentication document to understand more about the encryption.  
 
-hash - the value of the previousHash atribute in the request object or the value of hash atribute of the previous data block (used to chain every single data block) concatenated with the hex encode sha256 hash of the current data block before encryption.  
-sessionKey - Random AES key used for the encryption of the bioValue. The encryption key is encrypted using the public key with RSA OAEP. Sent as bas64
+data - The entire data object is stored as follows. 
+```
+"data" : "base64urlencode(header).base64urlencode(payload).base64urlencode(signature)
 
-payload is defined as the entire encrypted byte array of data block. The data block 
-data - Data block is of JWS format base64urlencode(header).base64urlencode(payload).base64urlencode(signature)
+payload is defined as the entire byte array of data block. The data block
+```
+
+hash - the value of the previousHash atribute in the request object or the value of hash atribute of the previous data block (used to chain every single data block) concatenated with the hex encode sha256 hash of the current data block before encryption.  
+sessionKey - Random AES key used for the encryption of the bioValue. The encryption key is encrypted using the public key with RSA OAEP. Sent as base64urlencoded
 
 #### Windows/Linux:
 
@@ -1134,9 +1134,7 @@ bio.previousHash - The previous hash for the image captured by this device per r
 
         "errorinfo": "Invalid JSON Value Type For Discovery.. ex: {type: “Biometric Device” or “Fingerprint” or “Face” or “Iris” or “Vein”} "
 
-    },
-
-          "signature": "base64 signature of the data block. base64 signature of the hash element"
+    }
 
         },
 
@@ -1175,9 +1173,7 @@ bio.previousHash - The previous hash for the image captured by this device per r
 
             "errorinfo": "Invalid JSON Value Type For Discovery.. ex: {type: “Biometric Device” or “Fingerprint” or “Face” or “Iris” or “Vein”} “
 
-        },
-
-          "signature": "base64 signature of the data block. base64 signature of the hash element"
+        }
 
         }
 
@@ -1185,6 +1181,7 @@ bio.previousHash - The previous hash for the image captured by this device per r
 ```
 
 **Accepted values:**
+data - base64urlencode(header).base64urlencode(payload).base64urlencode(signature)
 
 #### Windows/Linux: 
 
