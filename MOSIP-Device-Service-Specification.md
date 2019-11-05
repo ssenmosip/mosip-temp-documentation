@@ -646,7 +646,7 @@ NONE
         “serviceVersion”: "device service version",
         “deviceSubId”: "device sub Id’s",
         “callbackId”: "baseurl to reach to the device“,
-        "digitalId": "unsigned digital id as described in the digital id section of this document",
+        "digitalId": "signed digital id as described in the digital id section of this document",
         "deviceCode": "A unique code given by MOSIP after successful registration",
         "purpose": "Auth  or Registration",
         "specVersion": ["Array of supported MDS specification version"],
@@ -662,12 +662,14 @@ NONE
 
 The final JSON is Signed with the JSON Web Signature using the “Foundational Trust Module” Identity key, this data is the fundamental identity of the device.  Every MOSIP compliant device will need the foundational trust module.
 
-So the API would respond in the JWT format.
+So the API would respond in the following format.
 ```
 [
  {
   "deviceInfo": "base64urlencode(header).base64urlencode(payload).base64urlencode(signature)"
   "error": {
+     "errorcode": "201",
+      "errorinfo": "Device not registered. In this case the device info will be only base64urlencode(payload)"
    }
  }
 ]
