@@ -1,4 +1,4 @@
-#### Aug 2019 | Version: 0.9.1 
+#### Aug 2019 | Version: 0.9.2 
 #### Status: Draft 
 
 ## Table of Contents 
@@ -537,7 +537,7 @@ Note: “Biometric Device” - is a special type and used in case if you are loo
     "digitalId": "unsigned digital id of the device",
     "deviceCode": "A unique code given by MOSIP after successful registration",
     "specVersion": ["Array of supported MDS specification version"],
-    "purpose": "Auth  or Registration",
+    "purpose": "Auth  or Registration or empty if not registered",
     "error": {
         "errorcode": "101",
         "errorinfo": "Invalid JSON Value Type For Discovery.. 
@@ -549,7 +549,7 @@ Note: “Biometric Device” - is a special type and used in case if you are loo
 **Accepted values:**
 ```
 
-deviceStatus - “Active”, “Inactive”
+deviceStatus - “Active”, “Inactive or Not Registered”
 
 certification - “L0”, “L1” - Level of certification
 
@@ -1095,40 +1095,39 @@ bio.previousHash - The previous hash for the image captured by this device per r
 **Response:**
 
 ```
-"biometrics": [
+{"biometrics": [
 
-        {
+        {
           "specVersion" : "MDS Spec version",
           
-          "data": {	//The entire block is base64. One data block for each index or segment
+          "data": {	
 
-            "digitalId": "As per the Digital Id definition. No signature is attached.",
+            "digitalId": "Unsigned digital id of the device as per the Digital Id definition..",
 
-            "deviceCode": "A unique code given by MOSIP after successfull registration",
+            "deviceCode": "A unique code given by MOSIP after successfull registration",
 
-            "deviceServiceVersion": "",
+            "deviceServiceVersion": "",
 
-            "bioSubType": "Middle Finger",
+            "bioSubType": "Middle Finger",
 
-            “purpose”: "Auth  or Registration",
-            “env”:  "target environment",
+            "purpose": "Auth  or Registration",
+            "env":  "target environment",
 
-            "bioValue": "<base64 encoded biometric data (raw image)>",
+            "bioValue": "<base64 encoded biometric data (raw image)>",
 
-            “bioExtract”: <base64 encoded extracted biometric (ISO format)",
+            "bioExtract": "<base64 encoded extracted biometric (ISO format)",
 
-            “transactionId”: <transaction Id for the current capture>,
             "registrationId": "1234567890",
 
-            "timestamp": "2019-02-15T10:01:57.086+05:30",
+            "timestamp": "2019-02-15T10:01:57.086+05:30",
 
-            "requestedScore": "<floating point number to represent the minimum required score for the capture. This ranges from 0-100>",
+            "requestedScore": "<floating point number to represent the minimum required score for the capture. This ranges from 0-100>",
 
-            "qualityScore": "<floating point number representing the score for the current capture. This ranges from 0-100>"
+            "qualityScore": "<floating point number representing the score for the current capture. This ranges from 0-100>"
 
-          },
+          },
 
-          "hash": "sha256(sha256 hash in hex format of the previous data block + sha256 hash in hex format of the current data block)",         
+          "hash": "sha256(sha256 hash in hex format of the previous data block + sha256 hash in hex format of the current data block)",         
 
          "error": {
 
@@ -1138,48 +1137,47 @@ bio.previousHash - The previous hash for the image captured by this device per r
 
     }
 
-        },
+        },
 
-        {
+        {
           "specVersion" : "MDS Spec version",
-          "data": {
+          "data": {
 
-            "deviceCode": "",
+            "deviceCode": "",
 
-            "digitalId": "As per the Digital Id definition. No signature is attached.",
+            "digitalId": "Unsigned digital id of the device as per the Digital Id definition.", 
 
-            "deviceProviderId": "",
+            "deviceServiceVersion": "",
 
-            "deviceServiceVersion": "",
+            "bioSubType": "LEFT",
 
-            "bioSubType": "LEFT",
+            "purpose": "Auth  or Registration",
+            "env":  "<target environment>",             
 
-            “purpose”: "Auth  or Registration",
-            “env”:  <target environment>,             
+            "bioValue": "<base64 encoded biometric data (raw image)>",
 
-            "bioValue": "<base64 encoded biometric data (raw image)>",
+            "bioExtract": "<base64 encoded extracted biometric (ISO format)",
 
-            “bioExtract”: <base64 encoded extracted biometric (ISO format)",
+            "registrationId": "1234567890",
 
-            "registrationId": "1234567890",
+            "timestamp": "2019-02-15T10:01:57.086+05:30"
 
-            "timestamp": "2019-02-15T10:01:57.086+05:30"
+          },
 
-          },
-
-          "hash": "sha256(sha256 hash in hex format of the previous data block + sha256 hash in hex format of the current data block before encryption)",
+          "hash": "sha256(sha256 hash in hex format of the previous data block + sha256 hash in hex format of the current data block before encryption)",
 
     "error": {
 
             "errorcode": "101",
 
-            "errorinfo": "Invalid JSON Value Type For Discovery.. ex: {type: “Biometric Device” or “Fingerprint” or “Face” or “Iris” or “Vein”} “
+            "errorinfo": "Invalid JSON Value Type For Discovery.. ex: {type: “Biometric Device” or “Fingerprint” or “Face” or “Iris” or “Vein”} "
 
         }
 
-        }
+        }
 
-      ]
+      ]
+}
 ```
 
 **Accepted values:**
