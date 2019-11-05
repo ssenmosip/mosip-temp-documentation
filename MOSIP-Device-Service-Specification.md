@@ -793,7 +793,7 @@ bio.deviceId - a unique Id per device service. In case a single device handles b
 
 bio.deviceSubId  - a specific device sub Id.  Should be set to 0 if we don't know any specific device sub Id.
 
-bio.previousHash - For the first capture the previousHash is hash of empty utf8 string. From the second capture the first captures hash is used as input. This is used to chain all the captures across modalities so all captures have happened for the same transaction and during the same time period. 
+bio.previousHash - For the first capture the previousHash is hash of empty utf8 string. From the second capture the previous captures hash (as hex encoded) is used as input. This is used to chain all the captures across modalities so all captures have happened for the same transaction and during the same time period. 
 
 customOpts - If in case the device vendor has additional parameters that they can take and act accordingly then those values can be sent by the application developers to the device service.
 ```
@@ -902,7 +902,11 @@ customOpts - If in case the device vendor has additional parameters that they ca
 
 data.bioValue - Encrypted and Encoded to base64 biometric value. AES GCM encryption with a random key. The IV for the encryption is set to last 16 digits of the timestamp. ISO formated bioValue. Look at the Authentication document to understand more about the encryption.  
 
-data.sessionKey - Random AES key used for the encryption of the bioValue. The encryption key is encrypted using the public key with RSA OAEP. Sent as bas64
+hash - the value of the previousHash atribute in the request object or the value of hash atribute of the previous data block (used to chain every single data block) concatenated with the hex encode sha256 hash of the current data block before encryption.  
+sessionKey - Random AES key used for the encryption of the bioValue. The encryption key is encrypted using the public key with RSA OAEP. Sent as bas64
+
+payload is defined as the entire encrypted byte array of data block. The data block 
+data - Data block is of JWS format base64urlencode(header).base64urlencode(payload).base64urlencode(signature)
 
 #### Windows/Linux:
 
