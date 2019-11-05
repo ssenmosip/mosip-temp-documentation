@@ -561,7 +561,7 @@ deviceSubId - is the internal Id of the device. For example in case of iris capt
 
 callbackId - this differs as per the OS. In case of Linux and windows operating systems it is a http URL. In the case of android, it is the intent name. In IOS it is the URL scheme. The call back url takes precedence over future request as a base URL.
 
-digitalId - As per the Digital Id definition. unsigned digitalId. 
+digitalId - unsigned digital id as per the Digital Id definition.  
 
 deviceCode: A unique code given by MOSIP after successful registration,
 
@@ -646,7 +646,7 @@ NONE
         “serviceVersion”: "device service version",
         “deviceSubId”: "device sub Id’s",
         “callbackId”: "baseurl to reach to the device“,
-        "digitalId": "unsigned digital id object of the device",
+        "digitalId": "unsigned digital id as described in the digital id section of this document",
         "deviceCode": "A unique code given by MOSIP after successful registration",
         "purpose": "Auth  or Registration",
         "specVersion": ["Array of supported MDS specification version"],
@@ -807,7 +807,7 @@ customOpts - If in case the device vendor has additional parameters that they ca
           "specVersion" : "MDS spec version",
           "data": {	
 
-            "digitalId" : "digital Id as described in this document",
+            "digitalId" : "unsigned digital Id as described in this document",
 
             "deviceCode": "A unique code given by MOSIP after successfull registration",
 
@@ -853,7 +853,7 @@ customOpts - If in case the device vendor has additional parameters that they ca
           "specVersion" : "MDS spec version",
           "data": {
 
-            "digitalId": "Digital Id object as        described in this document",
+            "digitalId": "unsigned digital Id as described in this document",
  
             "deviceCode": "A unique code given by MOSIP after successfull registration",
 
