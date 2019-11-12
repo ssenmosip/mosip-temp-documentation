@@ -1,5 +1,0 @@
-Bonjour $ name_eng,
-
-Votre demande d'historique d'authentification a été traitée avec succès.
-
-Merci!

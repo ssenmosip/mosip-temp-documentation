@@ -1,5 +1,0 @@
-Bonjour $ name_eng,
-
-Votre demande de "Mise à jour UIN" a été placée avec succès. Votre RID (numéro de demande) est $ RID pour le suivi.
-
-Merci!

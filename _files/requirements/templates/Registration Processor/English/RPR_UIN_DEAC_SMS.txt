@@ -1,4 +1,0 @@
-Hi $name_eng,
-
-Your UIN has been de-activated. 
-If you have any conserns please visit the nearest Registration Center.

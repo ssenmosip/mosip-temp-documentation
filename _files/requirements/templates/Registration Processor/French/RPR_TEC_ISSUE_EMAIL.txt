@@ -1,6 +1,0 @@
-﻿Bonjour $name_fra,
-
-Votre demande d'enregistrement $RID a échoué à cause d'un problème technique, veuillez vous rendre au bureau d'inscription le plus proche.
-Et visitez https://mosip.io/grievances
-
-Merci

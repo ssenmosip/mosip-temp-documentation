@@ -1,5 +1,0 @@
-Bonjour $ name_eng,
-
-Le $ UIN / $ VID entré n'est pas valide. Veuillez entrer un UID / $ VID valide.
-
-Merci!

@@ -1,5 +1,0 @@
-Hi $name_eng,
-
-Your UIN Generation status for Request ID $RID is $status.
-
-Thank You!

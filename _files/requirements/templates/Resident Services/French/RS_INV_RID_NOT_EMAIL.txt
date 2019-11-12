@@ -1,5 +1,0 @@
-Bonjour $ name_eng,
-
-L'identifiant de la demande (RID) entré n'est pas valide. Veuillez entrer un RID valide.
-
-Merci!

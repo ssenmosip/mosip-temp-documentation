@@ -1,5 +1,0 @@
-Bonjour $ name_eng,
-
-Le document que vous avez téléchargé n'a pas été validé correctement par rapport au champ que vous demandez la mise à jour. Veuillez télécharger le type de document correct.
-
-Merci!

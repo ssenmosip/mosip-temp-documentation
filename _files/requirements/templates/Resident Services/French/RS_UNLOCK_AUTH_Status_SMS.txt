@@ -1,9 +1,0 @@
-Bonjour $ name_eng,
-
-Votre demande de déverrouillage du ou des types AUTH mentionnés ci-dessous a été acceptée.
-
-1. $ AUTH_1
-2. $ AUTH_2
-3. $ AUTH_N
-
-Merci!

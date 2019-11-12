@@ -1,5 +1,0 @@
-Bonjour $ name_eng,
-
-Aucun numéro de mobile enregistré ou ID de messagerie trouvé pour $ UIN. Veuillez visiter le centre le plus proche pour votre requête.
-
-Merci!

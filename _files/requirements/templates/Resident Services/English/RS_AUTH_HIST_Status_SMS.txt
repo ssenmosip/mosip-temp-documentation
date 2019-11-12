@@ -1,5 +1,0 @@
-Hi $name_eng,
-
-Your Request for Authentication History has been processed successfully.
-
-Thank You!

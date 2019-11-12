@@ -1,5 +1,0 @@
-Bonjour $ name_eng,
-
-Votre statut de mise à jour UIN pour l'ID de demande $ RID est $ status.
-
-Merci!

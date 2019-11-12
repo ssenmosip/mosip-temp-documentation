@@ -1,5 +1,0 @@
-Bonjour $ name_eng,
-
-Votre $ VID a été révoqué avec succès.
-
-Merci!

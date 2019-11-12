@@ -1,5 +1,0 @@
-Bonjour $ name_eng,
-
-Votre demande de "Réimpression de UIN" a été placée avec succès. Votre RID (numéro de demande) est $ RID.
-
-Merci!

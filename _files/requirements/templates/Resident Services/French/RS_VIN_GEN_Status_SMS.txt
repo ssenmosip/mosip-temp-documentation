@@ -1,5 +1,0 @@
-Bonjour $ name_eng,
-
-Votre VID pour $ UIN a été généré avec succès. Votre numéro de VID est $ VID.
-
-Merci!
