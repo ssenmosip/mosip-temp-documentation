@@ -1,0 +1,5 @@
+Hi $name_eng,
+
+Your $VID has been successfully revoked.
+
+Thank You!

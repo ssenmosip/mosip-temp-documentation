@@ -1,0 +1,5 @@
+﻿Cher $name_fra,
+
+Votre UIN est trouvé. Vous recevrez bientôt votre carte UIN à votre adresse postale.
+
+Merci

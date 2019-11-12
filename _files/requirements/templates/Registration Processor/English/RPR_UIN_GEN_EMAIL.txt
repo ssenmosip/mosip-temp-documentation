@@ -1,0 +1,5 @@
+Hi $name_eng,
+
+Your UIN for the Registration $RID has been successfully generated and will reach soon at your Postal Address.
+
+Thank You

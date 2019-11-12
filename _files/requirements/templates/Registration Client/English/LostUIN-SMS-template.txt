@@ -1,0 +1,2 @@
+Dear user, 
+Thank you for your request to retrieve your lost UIN. Your registration id for this request is $Registration ID.

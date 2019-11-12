@@ -1,0 +1,5 @@
+Hi $name_eng,
+
+Your request for "Reprint Of UIN" has been successfully placed. Your RID (Req Number) is $RID.
+
+Thank You!

@@ -1,0 +1,6 @@
+﻿Bonjour $name_fra,
+
+Votre UIN a été désactivé.
+Si vous avez des intérêts, veuillez vous rendre au centre d’inscription le plus proche.
+
+Merci

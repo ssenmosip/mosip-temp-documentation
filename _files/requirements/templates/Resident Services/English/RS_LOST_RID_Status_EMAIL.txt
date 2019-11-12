@@ -1,0 +1,5 @@
+Hi $name_eng,
+
+Congratulations your request is processed. The link to download your RID is $link.
+
+Thank You!

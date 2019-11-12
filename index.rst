@@ -7,10 +7,10 @@ Welcome to MOSIP's documentation!
    :maxdepth: 3
    :caption: Contents:
 
-   Platform-Documentation
-   Interfaces
-   Privacy-and-Security
-   Getting-Started     
+   Platform-Documentation.md
+   Interfaces.md
+   Privacy-and-Security.md
+   Getting-Started.md     
 
 
 
