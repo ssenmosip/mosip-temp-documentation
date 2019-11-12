@@ -51,7 +51,7 @@ templates_path = ['rtdtemplates']
 source_suffix = ['.rst''.md']
 
 # The master toctree document.
-master_doc = 'index.rst'
+master_doc = 'index'
 
 # General information about the project.
 project = 'MOSIP'
