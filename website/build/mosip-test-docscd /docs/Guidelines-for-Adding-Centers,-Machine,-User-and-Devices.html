@@ -1,0 +1,169 @@
+<!DOCTYPE html><html lang="en"><head><meta charSet="utf-8"/><meta http-equiv="X-UA-Compatible" content="IE=edge"/><title>Guidelines-for-Adding-Centers,-Machine,-User-and-Devices · MOSIP Documentation</title><meta name="viewport" content="width=device-width"/><meta name="generator" content="Docusaurus"/><meta name="description" content="## List of Contents"/><meta name="docsearch:language" content="en"/><meta property="og:title" content="Guidelines-for-Adding-Centers,-Machine,-User-and-Devices · MOSIP Documentation"/><meta property="og:type" content="website"/><meta property="og:url" content="https://your-docusaurus-test-site.com/"/><meta property="og:description" content="## List of Contents"/><meta property="og:image" content="https://your-docusaurus-test-site.com/img/undraw_online.svg"/><meta name="twitter:card" content="summary"/><meta name="twitter:image" content="https://your-docusaurus-test-site.com/img/undraw_tweetstorm.svg"/><link rel="shortcut icon" href="/img/favicon.ico"/><link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css"/><link rel="alternate" type="application/atom+xml" href="https://your-docusaurus-test-site.com/blog/atom.xml" title="MOSIP Documentation Blog ATOM Feed"/><link rel="alternate" type="application/rss+xml" href="https://your-docusaurus-test-site.com/blog/feed.xml" title="MOSIP Documentation Blog RSS Feed"/><script type="text/javascript" src="https://buttons.github.io/buttons.js"></script><script src="/js/scrollSpy.js"></script><link rel="stylesheet" href="/css/main.css"/><script src="/js/codetabs.js"></script></head><body class="sideNavVisible separateOnPageNav"><div class="fixedHeaderContainer"><div class="headerWrapper wrapper"><header><a href="/"><img class="logo" src="/img/favicon.ico" alt="MOSIP Documentation"/><h2 class="headerTitleWithLogo">MOSIP Documentation</h2></a><div class="navigationWrapper navigationSlider"><nav class="slidingNav"><ul class="nav-site nav-site-internal"><li class=""><a href="/docs/Platform-Documentation" target="_self">Docs</a></li><li class=""><a href="/docs/Getting-Started" target="_self">API</a></li><li class=""><a href="/Contributor-Guide" target="_self">Help</a></li><li class=""><a href="/blog/" target="_self">Blog</a></li></ul></nav></div></header></div></div><div class="navPusher"><div class="docMainWrapper wrapper"><div class="container mainContainer"><div class="wrapper"><div class="post"><header class="postHeader"><h1 class="postHeaderTitle">Guidelines-for-Adding-Centers,-Machine,-User-and-Devices</h1></header><article><div><span><h2><a class="anchor" aria-hidden="true" id="list-of-contents"></a><a href="#list-of-contents" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>List of Contents</h2>
+<ul>
+<li><a href="#1-seed-data-source-files-in-csv-format">1. Sample Seed Data</a></li>
+<li><a href="#2-steps-to-add-seed-data">2. Steps to add seed data</a>
+<ul>
+<li><a href="#21-create-roles-in-ldap">2.1 Create roles in LDAP</a></li>
+<li><a href="#22-create-a-registration-center">2.2 Create a Registration Center</a></li>
+<li><a href="#23-create-a-machine">2.3 Create a Machine</a></li>
+<li><a href="#24-create-a-user">2.4 Create a User</a></li>
+<li><a href="#25-create-a-device">2.5 Create a Device</a></li>
+<li><a href="#26-map-the-user-to-a-zone">2.6 Map the User to a Zone</a></li>
+<li><a href="#27-map-the-machine-to-a-center">2.7 Map the Machine to a Center</a></li>
+<li><a href="#28-map-the-user-to-a-center">2.8 Map the User to a Center</a></li>
+<li><a href="#29-map-the-device-to-a-center">2.9 Map the Device to a Center</a></li>
+<li><a href="#210-map-center-machine-device">2.10 Map Center-Machine-Device</a></li>
+<li><a href="#211-map-center-machine-user">2.11 Map Center-Machine-User</a></li>
+<li><a href="#212-store-history-of-masterdata">2.12 Store History of MasterData</a></li>
+</ul></li>
+<li><a href="#3-Load-updated-CSVs-to-the-database-using-dml-sql-script">3. Load updated CSVs to the database using dml sql script</a></li>
+</ul>
+<h2><a class="anchor" aria-hidden="true" id="1-seed-data-source-files-in-csv-format"></a><a href="#1-seed-data-source-files-in-csv-format" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>1. Seed Data Source files (in csv format):</h2>
+<ol>
+<li>Registration Centers: <a href="/mosip/mosip-platform/blob/master/db_scripts/mosip_master/dml/master-registration_center.csv"><strong>master-registration_center</strong></a></li>
+<li>Machines: <a href="/mosip/mosip-platform/blob/master/db_scripts/mosip_master/dml/master-machine_master.csv"><strong>master-machine_master</strong></a></li>
+<li>Users: <a href="/mosip/mosip-platform/blob/master/db_scripts/mosip_master/dml/master-user_detail.csv"><strong>master-user_detail</strong></a></li>
+<li>Devices: <a href="/mosip/mosip-platform/blob/master/db_scripts/mosip_master/dml/master-device_master.csv"><strong>master-device_master</strong></a></li>
+<li>Center-Machine Mapping: <a href="/mosip/mosip-platform/blob/master/db_scripts/mosip_master/dml/master-reg_center_machine.csv"><strong>master-reg_center_machine</strong></a></li>
+<li>Center-Device Mapping: <a href="/mosip/mosip-platform/blob/master/db_scripts/mosip_master/dml/master-reg_center_device.csv"><strong>master-reg_center_device</strong></a></li>
+<li>Center-User Mapping: <a href="/mosip/mosip-platform/blob/master/db_scripts/mosip_master/dml/master-reg_center_user.csv"><strong>master-reg_center_user</strong></a></li>
+<li>Center-Machine-Device Mapping: <a href="/mosip/mosip-platform/blob/master/db_scripts/mosip_master/dml/master-reg_center_user_machine.csv"><strong>master-reg_center_user_machine</strong></a></li>
+<li>Center Machine User Mapping: <a href="/mosip/mosip-platform/blob/master/db_scripts/mosip_master/dml/master-reg_center_machine_device.csv"><strong>master-reg_center_machine_device</strong></a></li>
+<li>User Zone Mapping: <a href="/mosip/mosip-platform/blob/master/db_scripts/mosip_master/dml/master-zone_user.csv"><strong>master-zone_user</strong></a></li>
+</ol>
+<h2><a class="anchor" aria-hidden="true" id="2-steps-to-add-seed-data"></a><a href="#2-steps-to-add-seed-data" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>2. Steps to Add seed data:</h2>
+<h3><a class="anchor" aria-hidden="true" id="21-create-roles-in-ldap"></a><a href="#21-create-roles-in-ldap" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>2.1 Create Roles in LDAP</h3>
+<p>Before creating the Masterdata, Roles used across MOSIP are needed to be created in LDAP.</p>
+<p>Following roles have to be created using the process as mentioned above.(<a href="https://github.com/mosip/mosip-docs/wiki/Apache-Directory-Studio-user-guide#create-a-new-role">Refer here</a> for help on how to create roles in LDAP.)</p>
+<ol>
+<li>REGISTRATION_ADMIN</li>
+<li>REGISTRATION_SUPERVISOR</li>
+<li>REGISTRATION_OFFICER</li>
+<li>ZONAL_ADMIN</li>
+<li>GLOBAL_ADMIN</li>
+<li>AUTH</li>
+<li>PREREG</li>
+<li>REGISTRATION_PROCESSOR</li>
+<li>ID_AUTHENTICATION</li>
+<li>PRE_REGISTRATION_ADMIN</li>
+</ol>
+<h3><a class="anchor" aria-hidden="true" id="22-create-a-registration-center"></a><a href="#22-create-a-registration-center" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>2.2 Create a Registration Center:</h3>
+<ol>
+<li><strong>Center ID</strong>: This should be a 5-digit ID and should be in an incremental sequence for each center added. The sequence should start from 10000. Keeping the length other than 5 digits will fail validations as the same Center ID is used to generate the Request ID (Registration ID). For each Center created, Center ID should be incremented sequentially to avoid inconsistency in data.</li>
+<li><strong>Center Name</strong>: Country defined name for the Center</li>
+<li><strong>Center Type Code</strong>: (Should be kept as “REG”). Center Type Code will come from a Center Type Masterdata which currently have one center Type defined as “Regular” and Code as “REG”. More Center Types can be defined by the country in the Center Type Masterdata</li>
+<li><strong>Address Line 1</strong>: It is an Optional Field but should be defined to be visible to the resident on the Pre-Registration UI</li>
+<li><strong>Address Line 2</strong>: It is an Optional Field</li>
+<li><strong>Address Line 3</strong>: It is an Optional Field</li>
+<li><strong>Latitude</strong>: Should be defined in format <strong>XX.XXXX</strong>. minimum 4 digits are need after the decimal for the accuracy to be atleast 11 meters on the GPS map on Pre-Registration Portal</li>
+<li><strong>Longitude</strong>: Should be defined in format <strong>XX.XXXX</strong>. minimum 4 digits are need after the decimal for the accuracy to be atleast 11 meters on the GPS map on Pre-Registration Portal</li>
+<li><strong>Location Code</strong>: Maps the Registration Center to a Location. Should be a location code referring to a location defined in the location Masterdata table. Should always be the code of the location which is at the lowest hierarchy level</li>
+<li><strong>Contact Phone</strong>: An optional field. Usually a point of contact for a Registration Center</li>
+<li><strong>Contact Person</strong>: Name of the person who is a point of contact for a Registration Center</li>
+<li><strong>Number of Kiosk</strong>: Number of Registration Kiosk a Registration Center will have to register residents. This number is used by the pre-registration to calculate appointment slots for Registration. This should always be equal to the number of machines assigned to the Center or will be assigned to the Center. Refer <a href="#25-map-the-machine-to-a-center"><strong>point 2.5</strong></a> in steps below</li>
+<li><strong>Working Hours</strong>: Should be the difference of “<strong>Center Start Time</strong>” and “<strong>Center End Time</strong>”. Should be in format <strong>hh:mm:ss</strong></li>
+<li><strong>Per Kiosk Processing time</strong>: Duration of Registration Appointment defined as per the country requirement. This attribute is used by pre-Registration to calculate appointment slots. Should be in format <strong>hh:mm:ss</strong></li>
+<li><strong>Center Start Time</strong>: Time when Center would start taking registration of Residents. This time is used by Pre-Registration to calculate appointment slots. Should be in format <strong>hh:mm:ss</strong></li>
+<li><strong>Center End Time</strong>: Time when the Center closes. This time is used by Pre-Registration to calculate appointment slots. Should be in format <strong>hh:mm:ss</strong></li>
+<li><strong>Lunch Start Time</strong>: Starting of Lunch Time the Center would have in-between the Working hours. It is used by Pre-Registration to calculate appointment slots. Should be in format <strong>hh:mm:ss</strong></li>
+<li><strong>Lunch End Time</strong>: Ending of Lunch Time the Center would have in-between the Working hours. It is used by Pre-Registration to calculate appointment slots. Should be in format <strong>hh:mm:ss</strong></li>
+<li><strong>Time Zone</strong>: (GTM+01:00) CENTRAL EUROPEAN TIME</li>
+<li><strong>Holiday Location Code</strong>: Refers to the location to which country defined holidays are mapped in holiday location table. Should come from the Holiday master table. Current values can only be “<strong>KTA</strong>” or “<strong>RBT</strong>” as holidays are only defined for these two location codes.</li>
+<li><strong>Zone Code</strong>: Should come from a pre-defined list of Administrative Zone codes created in Zone Masterdata. Current values can be “RBT”, “KTA”, “SAL”, “BSN”, “CSB”, ”STT”, ”NDR”, ”BRK”, “JRD”, “SAF“, “YSF“, “TTA“, “TZT”.</li>
+<li><strong>Language Code</strong>: Should be the language code for the languages supported by the Country as primary and secondary Language. Currently can be “fra” or “ara”</li>
+<li><strong>Is_Active</strong>: TRUE. If set as false, this Registration will not be shown up in Pre-Registration UI and no appointments will be generated for this Center</li>
+<li><strong>Cr_by</strong>: <code>&lt;username&gt;</code> ideally name of the admin</li>
+<li><strong>cr_dtimes</strong>: now()
+<br><strong>Note</strong>: A Registration Center is needed to be created in all the languages supported by the country. This is currently configured as Primary – French and Secondary – Arabic. For this, create the same registration twice. One with language code as <strong>fra</strong> for French and one with language code as <strong>ara</strong> for Arabic. Center ID should be same for both the records as both the records are for one center only.<br></li>
+</ol>
+<h3><a class="anchor" aria-hidden="true" id="23-create-a-machine"></a><a href="#23-create-a-machine" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>2.3 Create a Machine:</h3>
+<ol>
+<li><strong>Machine ID</strong>: This should be a 5-digit ID and Ideally should be in an incremental sequence for each machine added. The sequence should start from 10000. Keeping length other than 5 digits will fail validations as the same Machine ID is used to generate the Request ID(Registration ID)</li>
+<li><strong>Machine Name</strong>: Machine Host name</li>
+<li><strong>Machine Mac-Address</strong>: Machine’s Mac-Address</li>
+<li><strong>Serial Number</strong>: <code>&lt;serial number of machine&gt;</code></li>
+<li><strong>IP Address</strong>: Leave it blank</li>
+<li><strong>Mspecid</strong>: 1001. These values come from a Machine Spec table. Putting any value other than these will throw an error</li>
+<li><strong>Zone Code</strong>: Should come from a pre-defined list of Administrative Zone codes created in Zone Masterdata. Current values can be “RBT”, “KTA”, “SAL”, “BSN”, “CSB”, ”STT”, ”NDR”, ”BRK”, “JRD”, “SAF“, “YSF“, “TTA“, “TZT”.</li>
+<li><strong>Lang_code</strong>: eng</li>
+<li><strong>Is_active</strong>: True</li>
+<li><strong>cr_by</strong>: <code>&lt;username&gt;</code> ideally name of the admin'</li>
+<li><strong>cr_dtimes</strong>: now()</li>
+</ol>
+<h3><a class="anchor" aria-hidden="true" id="24-create-a-user"></a><a href="#24-create-a-user" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>2.4 Create a User</h3>
+<ol>
+<li>Create a User in LDAP (User ID/Password)</li>
+<li>Create a User in DB
+<ol>
+<li><strong>Id</strong>: ID used in LDAP</li>
+<li><strong>UIN</strong>: Leave it black</li>
+<li><strong>Email</strong>: Email used in LDAP</li>
+<li><strong>Mobile</strong>: Mobile used in LDAP</li>
+<li><strong>Status Code</strong>: ACT</li>
+<li><strong>Lang_code</strong>: eng</li>
+<li><strong>last_login_method</strong>: PWD</li>
+<li><strong>Is_active</strong>: True</li>
+<li><strong>cr_by</strong>: <code>&lt;username&gt;</code> ideally name of the admin</li>
+<li><strong>cr_dtimes</strong>: now()</li>
+</ol></li>
+</ol>
+<h3><a class="anchor" aria-hidden="true" id="25-create-a-device"></a><a href="#25-create-a-device" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>2.5 Create a Device</h3>
+<ol>
+<li><strong>Device ID</strong>: This can be a random ID.</li>
+<li><strong>Device Name</strong>: <code>&lt;Name of the device&gt;</code></li>
+<li><strong>Device Mac-Address</strong>: <code>&lt;mac-address of device&gt;</code></li>
+<li><strong>Serial Number</strong>: <code>&lt;serial number of device&gt;</code></li>
+<li><strong>IP Address</strong>: Leave it blank</li>
+<li><strong>Dspecid</strong>: Can be either 165(fingerprint scanner), 327 (iris scanner), 736(web camera), 801(Document scanner) or 920(Printer). These values come from a Device Spec table. Putting any value other than these will throw an error</li>
+<li><strong>Zone Code</strong>: Should come from a pre-defined list of Administrative Zone codes created in Zone Masterdata. Current values can be “RBT”, “KTA”, “SAL”, “BSN”, “CSB”, ”STT”, ”NDR”, ”BRK”, “JRD”, “SAF“, “YSF“, “TTA“, “TZT”.”</li>
+<li><strong>Lang_code</strong>: eng</li>
+<li><strong>Is_active</strong>: True</li>
+<li><strong>cr_by</strong>: <code>&lt;username&gt;</code> ideally name of the admin</li>
+<li><strong>cr_dtimes</strong>: now()</li>
+</ol>
+<h3><a class="anchor" aria-hidden="true" id="26-map-the-user-to-a-zone"></a><a href="#26-map-the-user-to-a-zone" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>2.6 Map the User to a Zone</h3>
+<ol>
+<li><strong>User ID</strong>: from master_userdetail</li>
+<li><strong>Zone_code</strong>: Should come from a pre-defined list of Administrative Zone codes created in Zone Masterdata. Current values can be “RBT”, “KTA”, “SAL”, “BSN”, “CSB”, ”STT”, ”NDR”, ”BRK”, “JRD”, “SAF“, “YSF“, “TTA“, “TZT”.”</li>
+</ol>
+<p><strong>Note</strong>: While mapping Machine, User, Device to a Center in points 2.6, 2.7, 2.8, 2.9, 2.10, these resources should belong to the same zone code. For example, while mapping a machine to a Center, both machine and a center should belong to same zone.</p>
+<h3><a class="anchor" aria-hidden="true" id="27-map-the-machine-to-a-center"></a><a href="#27-map-the-machine-to-a-center" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>2.7 Map the Machine to a Center</h3>
+<ol>
+<li><strong>Center ID</strong>: from <strong>master-registration_center</strong></li>
+<li><strong>Machine ID</strong>: from <strong>master-machine_master</strong> (newly created machine)</li>
+<li><strong>Lang_code</strong>: eng</li>
+<li><strong>Is_active</strong>: True</li>
+<li><strong>cr_by</strong>: <code>&lt;username&gt;</code> ideally name of the admin</li>
+<li><strong>cr_dtimes</strong>: now()</li>
+</ol>
+<h3><a class="anchor" aria-hidden="true" id="28-map-the-user-to-a-center"></a><a href="#28-map-the-user-to-a-center" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>2.8 Map the User to a Center</h3>
+<p>Follow the above example in <a href="#24-create-a-device"><strong>point 2.4</strong></a>.</p>
+<h3><a class="anchor" aria-hidden="true" id="29-map-the-device-to-a-center"></a><a href="#29-map-the-device-to-a-center" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>2.9 Map the Device to a Center</h3>
+<p>Follow the above example in <a href="#24-create-a-device"><strong>point 2.4</strong></a>.</p>
+<h3><a class="anchor" aria-hidden="true" id="210-map-center-machine-device"></a><a href="#210-map-center-machine-device" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>2.10 Map Center-Machine-Device</h3>
+<p>Follow the above example in <a href="#24-create-a-device"><strong>point 2.4</strong></a>.</p>
+<h3><a class="anchor" aria-hidden="true" id="211-map-center-machine-user"></a><a href="#211-map-center-machine-user" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>2.11 Map Center-Machine-User</h3>
+<p>Follow the above example in <a href="#24-create-a-device"><strong>point 2.4</strong></a>.</p>
+<h3><a class="anchor" aria-hidden="true" id="212-store-history-of-masterdata"></a><a href="#212-store-history-of-masterdata" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>2.12 Store History of MasterData</h3>
+<p>After adding all these data in the DB, we would need to create the same records in all the History tables for every table mentioned in the “<strong>Tables Names</strong>” section.</p>
+<ol>
+<li>Each history table has an extra attribute “effective date” other than the standard attributes mentioned for each table.</li>
+<li>The Effective date should be now().and all the attributes should be same as they are stored in the standard tables.</li>
+<li>Find the table names below for history tables
+<ol>
+<li>Registration Centers: <a href="/mosip/mosip-platform/blob/master/db_scripts/mosip_master/dml/master-registration_center_h.csv"><strong>master-registration_center_h</strong></a></li>
+<li>Machines: <a href="/mosip/mosip-platform/blob/master/db_scripts/mosip_master/dml/master-machine_master_h.csv"><strong>master-machine_master_h</strong></a></li>
+<li>Users: <a href="/mosip/mosip-platform/blob/master/db_scripts/mosip_master/dml/master-user_detail_h.csv"><strong>master-user_detail_h</strong></a></li>
+<li>Devices: <a href="/mosip/mosip-platform/blob/master/db_scripts/mosip_master/dml/master-device_master_h.csv"><strong>master-device_master_h</strong></a></li>
+<li>Center-Machine Mapping: <a href="/mosip/mosip-platform/blob/master/db_scripts/mosip_master/dml/master-reg_center_machine_h.csv"><strong>master-reg_center_machine_h</strong></a></li>
+<li>Center-Device Mapping: <a href="/mosip/mosip-platform/blob/master/db_scripts/mosip_master/dml/master-reg_center_device_h.csv"><strong>master-reg_center_device_h</strong></a></li>
+<li>Center-User Mapping: <a href="/mosip/mosip-platform/blob/master/db_scripts/mosip_master/dml/master-reg_center_user_h.csv"><strong>master-reg_center_user_h</strong></a></li>
+<li>Center-Machine-Device Mapping: <a href="/mosip/mosip-platform/blob/master/db_scripts/mosip_master/dml/master-reg_center_user_machine_h.csv"><strong>master-reg_center_user_machine_h</strong></a></li>
+<li>Center Machine User Mapping: <a href="/mosip/mosip-platform/blob/master/db_scripts/mosip_master/dml/master-reg_center_machine_device_h.csv"><strong>master-reg_center_machine_device_h</strong></a></li>
+<li>User Zone Mapping: <a href="/mosip/mosip-platform/blob/master/db_scripts/mosip_master/dml/master-zone_user_h.csv"><strong>master-zone_user_h</strong></a></li>
+</ol></li>
+</ol>
+<h2><a class="anchor" aria-hidden="true" id="3-load-updated-csvs-to-the-database-using-dml-sql-script"></a><a href="#3-load-updated-csvs-to-the-database-using-dml-sql-script" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>3. Load updated CSVs to the database using dml sql script:</h2>
+<p>Run dml sql scripts on DB server where master seed data needs to be updates.</p>
+<p><code>mosip_master=#\ir '/mosip/mosip-platform/blob/master/db_scripts/mosip_master/mosip_master_dml_deploy.sql'</code></p>
+</span></div></article></div><div class="docs-prevnext"></div></div></div><nav class="onPageNav"><ul class="toc-headings"><li><a href="#list-of-contents">List of Contents</a></li><li><a href="#1-seed-data-source-files-in-csv-format">1. Seed Data Source files (in csv format):</a></li><li><a href="#2-steps-to-add-seed-data">2. Steps to Add seed data:</a><ul class="toc-headings"><li><a href="#21-create-roles-in-ldap">2.1 Create Roles in LDAP</a></li><li><a href="#22-create-a-registration-center">2.2 Create a Registration Center:</a></li><li><a href="#23-create-a-machine">2.3 Create a Machine:</a></li><li><a href="#24-create-a-user">2.4 Create a User</a></li><li><a href="#25-create-a-device">2.5 Create a Device</a></li><li><a href="#26-map-the-user-to-a-zone">2.6 Map the User to a Zone</a></li><li><a href="#27-map-the-machine-to-a-center">2.7 Map the Machine to a Center</a></li><li><a href="#28-map-the-user-to-a-center">2.8 Map the User to a Center</a></li><li><a href="#29-map-the-device-to-a-center">2.9 Map the Device to a Center</a></li><li><a href="#210-map-center-machine-device">2.10 Map Center-Machine-Device</a></li><li><a href="#211-map-center-machine-user">2.11 Map Center-Machine-User</a></li><li><a href="#212-store-history-of-masterdata">2.12 Store History of MasterData</a></li></ul></li><li><a href="#3-load-updated-csvs-to-the-database-using-dml-sql-script">3. Load updated CSVs to the database using dml sql script:</a></li></ul></nav></div><footer class="nav-footer" id="footer"><section class="sitemap"><a href="/" class="nav-home"><img src="/img/favicon.ico" alt="MOSIP Documentation" width="66" height="58"/></a><div><h5>Docs</h5><a href="/docs/en/doc1.html">Getting Started (or other categories)</a><a href="/docs/en/doc2.html">Guides (or other categories)</a><a href="/docs/en/doc3.html">API Reference (or other categories)</a></div><div><h5>Community</h5><a href="/en/users.html">User Showcase</a><a href="https://stackoverflow.com/questions/tagged/" target="_blank" rel="noreferrer noopener">Stack Overflow</a><a href="https://discordapp.com/">Project Chat</a><a href="https://twitter.com/" target="_blank" rel="noreferrer noopener">Twitter</a></div><div><h5>More</h5><a href="/blog">Blog</a><a href="https://github.com/">GitHub</a><a class="github-button" data-icon="octicon-star" data-count-href="/facebook/docusaurus/stargazers" data-show-count="true" data-count-aria-label="# stargazers on GitHub" aria-label="Star this project on GitHub">Star</a></div></section><a href="https://opensource.facebook.com/" target="_blank" rel="noreferrer noopener" class="fbOpenSource"><img src="/img/oss_logo.png" alt="Facebook Open Source" width="170" height="45"/></a><section class="copyright">Copyright © 2019 Your Name or Your Company Name</section></footer></div></body></html>

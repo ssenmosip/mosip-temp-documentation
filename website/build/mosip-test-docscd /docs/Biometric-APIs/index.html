@@ -1,0 +1,424 @@
+<!DOCTYPE html><html lang="en"><head><meta charSet="utf-8"/><meta http-equiv="X-UA-Compatible" content="IE=edge"/><title>Biometric-APIs · MOSIP Documentation</title><meta name="viewport" content="width=device-width"/><meta name="generator" content="Docusaurus"/><meta name="description" content="This section details about the service APIs in the Biometric types and biometric attributes modules"/><meta name="docsearch:language" content="en"/><meta property="og:title" content="Biometric-APIs · MOSIP Documentation"/><meta property="og:type" content="website"/><meta property="og:url" content="https://your-docusaurus-test-site.com/"/><meta property="og:description" content="This section details about the service APIs in the Biometric types and biometric attributes modules"/><meta property="og:image" content="https://your-docusaurus-test-site.com/img/undraw_online.svg"/><meta name="twitter:card" content="summary"/><meta name="twitter:image" content="https://your-docusaurus-test-site.com/img/undraw_tweetstorm.svg"/><link rel="shortcut icon" href="/img/favicon.ico"/><link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css"/><link rel="alternate" type="application/atom+xml" href="https://your-docusaurus-test-site.com/blog/atom.xml" title="MOSIP Documentation Blog ATOM Feed"/><link rel="alternate" type="application/rss+xml" href="https://your-docusaurus-test-site.com/blog/feed.xml" title="MOSIP Documentation Blog RSS Feed"/><script type="text/javascript" src="https://buttons.github.io/buttons.js"></script><script src="/js/scrollSpy.js"></script><link rel="stylesheet" href="/css/main.css"/><script src="/js/codetabs.js"></script></head><body class="sideNavVisible separateOnPageNav"><div class="fixedHeaderContainer"><div class="headerWrapper wrapper"><header><a href="/"><img class="logo" src="/img/favicon.ico" alt="MOSIP Documentation"/><h2 class="headerTitleWithLogo">MOSIP Documentation</h2></a><div class="navigationWrapper navigationSlider"><nav class="slidingNav"><ul class="nav-site nav-site-internal"><li class=""><a href="/docs/Platform-Documentation" target="_self">Docs</a></li><li class=""><a href="/docs/Getting-Started" target="_self">API</a></li><li class=""><a href="/Contributor-Guide" target="_self">Help</a></li><li class=""><a href="/blog/" target="_self">Blog</a></li></ul></nav></div></header></div></div><div class="navPusher"><div class="docMainWrapper wrapper"><div class="container mainContainer"><div class="wrapper"><div class="post"><header class="postHeader"><h1 class="postHeaderTitle">Biometric-APIs</h1></header><article><div><span><p>This section details about the service APIs in the Biometric types and biometric attributes modules</p>
+<ul>
+<li><p><a href="#biometric-types-master-api">Biometric Types API</a></p></li>
+<li><p><a href="#biometric-attributes-master-api">Biometrics Attributes API</a></p></li>
+</ul>
+<h1><a class="anchor" aria-hidden="true" id="biometric-types-master-api"></a><a href="#biometric-types-master-api" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Biometric types Master API</h1>
+<ul>
+<li><a href="#post-biometrictypes">POST /biometrictypes</a></li>
+<li><a href="#get-biometrictypes">GET /biometrictypes</a></li>
+<li><a href="#get-biometrictypes-id-languagecode">GET /biometrictypes/{id}/{languagecode}</a></li>
+</ul>
+<h1><a class="anchor" aria-hidden="true" id="post-biometrictypes"></a><a href="#post-biometrictypes" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>POST /biometrictypes</h1>
+<p>Master data is required across the platform.</p>
+<p>This service will create the list of Biometric types which are used in the MOSIP platform.</p>
+<h3><a class="anchor" aria-hidden="true" id="resource-url"></a><a href="#resource-url" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Resource URL</h3>
+<h3><a class="anchor" aria-hidden="true" id="post-biometrictypes-1"></a><a href="#post-biometrictypes-1" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><code>POST /biometrictypes</code></h3>
+<h3><a class="anchor" aria-hidden="true" id="resource-details"></a><a href="#resource-details" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Resource details</h3>
+<table>
+<thead>
+<tr><th>Resource Details</th><th>Description</th></tr>
+</thead>
+<tbody>
+<tr><td>Response format</td><td>JSON</td></tr>
+<tr><td>Requires Authentication</td><td>Yes</td></tr>
+</tbody>
+</table>
+<h3><a class="anchor" aria-hidden="true" id="parameters"></a><a href="#parameters" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Parameters</h3>
+<table>
+<thead>
+<tr><th>Name</th><th>Required</th><th>Description</th><th>Default Value</th><th>Example</th></tr>
+</thead>
+<tbody>
+<tr><td>biometrictype</td><td>Yes</td><td>Array of the biometric types</td><td></td></tr>
+</tbody>
+</table>
+<h3><a class="anchor" aria-hidden="true" id="example-request"></a><a href="#example-request" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Example Request</h3>
+<pre><code class="hljs css language-JSON">
+{
+  <span class="hljs-attr">"id"</span>: <span class="hljs-string">"string"</span>,
+  <span class="hljs-attr">"version"</span>: <span class="hljs-string">"string"</span>,
+  <span class="hljs-attr">"metadata"</span>: {},
+  <span class="hljs-attr">"requesttime"</span>: <span class="hljs-string">"yyyy-MM-dd'T'HH:mm:ss.SSS'Z'"</span>,
+  <span class="hljs-attr">"request"</span>: {
+      <span class="hljs-attr">"biometrictypes"</span>: [
+                {<span class="hljs-attr">"biometrictype"</span>:<span class="hljs-string">"string"</span>},
+                {<span class="hljs-attr">"biometrictype"</span>:<span class="hljs-string">"string"</span>}
+                {<span class="hljs-attr">"languagecode"</span>:<span class="hljs-string">"string"</span>}
+                       ]
+                 }
+}
+</code></pre>
+<h3><a class="anchor" aria-hidden="true" id="example-response"></a><a href="#example-response" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Example Response</h3>
+<pre><code class="hljs css language-JSON">{
+  <span class="hljs-attr">"id"</span>: <span class="hljs-string">"string"</span>,
+  <span class="hljs-attr">"version"</span>: <span class="hljs-string">"string"</span>,
+  <span class="hljs-attr">"metadata"</span>: {},
+  <span class="hljs-attr">"responsetime"</span>: <span class="hljs-string">"yyyy-MM-dd'T'HH:mm:ss.SSS'Z'"</span>,
+  <span class="hljs-attr">"errors"</span>: <span class="hljs-literal">null</span>,
+  <span class="hljs-attr">"response"</span>: {
+    <span class="hljs-attr">"biometrictypes"</span>: [
+                 {<span class="hljs-attr">"biometrictype"</span>:<span class="hljs-string">"string"</span>},
+                 {<span class="hljs-attr">"biometrictype"</span>:<span class="hljs-string">"string"</span>}
+                 {<span class="hljs-attr">"languagecode"</span>:<span class="hljs-string">"string"</span>}
+                     ]
+             }
+}
+</code></pre>
+<h3><a class="anchor" aria-hidden="true" id="response-codes"></a><a href="#response-codes" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Response codes</h3>
+<p>202</p>
+<p>Description: Accepted</p>
+<p>400</p>
+<p>Description: Bad request</p>
+<p>401</p>
+<p>Description: Unauthorized</p>
+<p>403</p>
+<p>Description: Forbidden</p>
+<h1><a class="anchor" aria-hidden="true" id="get-biometrictypes"></a><a href="#get-biometrictypes" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>GET /biometrictypes</h1>
+<p>This service will provides the service for the List of Biometrics.</p>
+<h3><a class="anchor" aria-hidden="true" id="resource-url-1"></a><a href="#resource-url-1" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Resource URL</h3>
+<h3><a class="anchor" aria-hidden="true" id="get-biometrictypes-1"></a><a href="#get-biometrictypes-1" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><code>GET /biometrictypes</code></h3>
+<h3><a class="anchor" aria-hidden="true" id="resource-details-1"></a><a href="#resource-details-1" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Resource details</h3>
+<table>
+<thead>
+<tr><th>Resource Details</th><th>Description</th></tr>
+</thead>
+<tbody>
+<tr><td>Response format</td><td>JSON</td></tr>
+<tr><td>Requires Authentication</td><td>Yes</td></tr>
+</tbody>
+</table>
+<h3><a class="anchor" aria-hidden="true" id="parameters-1"></a><a href="#parameters-1" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Parameters</h3>
+<table>
+<thead>
+<tr><th>Name</th><th>Required</th><th>Description</th><th>Default Value</th><th>Example</th></tr>
+</thead>
+<tbody>
+<tr><td>biometrictypeid</td><td>Yes</td><td>Code of the language</td><td></td></tr>
+<tr><td>biometrictype</td><td>Yes</td><td>Name of the language</td><td></td></tr>
+</tbody>
+</table>
+<h3><a class="anchor" aria-hidden="true" id="example-response-1"></a><a href="#example-response-1" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Example Response</h3>
+<pre><code class="hljs css language-JSON">{
+  <span class="hljs-attr">"id"</span>: <span class="hljs-string">"string"</span>,
+  <span class="hljs-attr">"version"</span>: <span class="hljs-string">"string"</span>,
+  <span class="hljs-attr">"metadata"</span>: {},
+  <span class="hljs-attr">"responsetime"</span>: <span class="hljs-string">"yyyy-MM-dd'T'HH:mm:ss.SSS'Z'"</span>,
+  <span class="hljs-attr">"errors"</span>: <span class="hljs-literal">null</span>,
+   <span class="hljs-attr">"response"</span>:{
+                   <span class="hljs-attr">"biometrictypes"</span>: [  { 
+                    <span class="hljs-attr">"biometrictype"</span>: [
+                                 {<span class="hljs-attr">"biometrictypeid"</span>:<span class="hljs-string">"string"</span>},
+                                 {<span class="hljs-attr">"biometrictype"</span>:<span class="hljs-string">"string"</span>},
+                                 {<span class="hljs-attr">"languagecode"</span>:<span class="hljs-string">"string"</span>}                      
+                                    ]
+                                        }, 
+                       { 
+                    <span class="hljs-attr">"biometrictype"</span>: [
+                        {<span class="hljs-attr">"biometrictypeid"</span>:<span class="hljs-string">"string"</span>},
+                        {<span class="hljs-attr">"biometrictype"</span>:<span class="hljs-string">"string"</span>},
+                        {<span class="hljs-attr">"languagecode"</span>:<span class="hljs-string">"string"</span>}                       
+                    ]
+                }
+            ]
+}
+</code></pre>
+<p>200</p>
+<p>Description: Success</p>
+<p>400</p>
+<p>Description: Bad request</p>
+<p>401</p>
+<p>Description: Unauthorized</p>
+<p>404</p>
+<p>Description: Not Found</p>
+<h1><a class="anchor" aria-hidden="true" id="get-biometrictypes-id-languagecode"></a><a href="#get-biometrictypes-id-languagecode" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>GET /biometrictypes/{id}/{languagecode}</h1>
+<p>Master data is required across the platform.</p>
+<p>This service will provides the service for the List of Biometrics.</p>
+<h3><a class="anchor" aria-hidden="true" id="resource-url-2"></a><a href="#resource-url-2" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Resource URL</h3>
+<h3><a class="anchor" aria-hidden="true" id="get-biometrictypes-id-languagecode-1"></a><a href="#get-biometrictypes-id-languagecode-1" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><code>GET /biometrictypes/{id}/{languagecode}</code></h3>
+<h3><a class="anchor" aria-hidden="true" id="resource-details-2"></a><a href="#resource-details-2" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Resource details</h3>
+<table>
+<thead>
+<tr><th>Resource Details</th><th>Description</th></tr>
+</thead>
+<tbody>
+<tr><td>Response format</td><td>JSON</td></tr>
+<tr><td>Requires Authentication</td><td>Yes</td></tr>
+</tbody>
+</table>
+<h3><a class="anchor" aria-hidden="true" id="parameters-2"></a><a href="#parameters-2" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Parameters</h3>
+<table>
+<thead>
+<tr><th>Name</th><th>Required</th><th>Description</th><th>Default Value</th><th>Example</th></tr>
+</thead>
+<tbody>
+<tr><td>biometrictypeid</td><td>Yes</td><td>Code of the language</td><td></td></tr>
+<tr><td>biometrictype</td><td>Yes</td><td>Name of the language</td><td></td></tr>
+</tbody>
+</table>
+<h3><a class="anchor" aria-hidden="true" id="example-response-2"></a><a href="#example-response-2" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Example Response</h3>
+<h5><a class="anchor" aria-hidden="true" id="success-response"></a><a href="#success-response" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Success Response:</h5>
+<pre><code class="hljs css language-JSON">{
+<span class="hljs-attr">"id"</span>: <span class="hljs-string">"string"</span>,
+  <span class="hljs-attr">"version"</span>: <span class="hljs-string">"string"</span>,
+  <span class="hljs-attr">"metadata"</span>: {},
+  <span class="hljs-attr">"responsetime"</span>: <span class="hljs-string">"yyyy-MM-dd'T'HH:mm:ss.SSS'Z'"</span>,
+  <span class="hljs-attr">"errors"</span>: <span class="hljs-literal">null</span>,
+  <span class="hljs-attr">"biometrictypes"</span>: [
+                { 
+                    <span class="hljs-attr">"biometrictype"</span>: [
+                        {<span class="hljs-attr">"biometrictypeid"</span>:<span class="hljs-string">"string"</span>},
+                        {<span class="hljs-attr">"biometrictype"</span>:<span class="hljs-string">"string"</span>},
+                        {<span class="hljs-attr">"languagecode"</span>:<span class="hljs-string">"string"</span>}                       
+                    ]
+                }, 
+                { 
+                    <span class="hljs-attr">"biometrictype"</span>: [
+                        {<span class="hljs-attr">"biometrictypeid"</span>:<span class="hljs-string">"string"</span>},
+                        {<span class="hljs-attr">"biometrictype"</span>:<span class="hljs-string">"string"</span>},
+                        {<span class="hljs-attr">"languagecode"</span>:<span class="hljs-string">"string"</span>}                       
+                    ]
+                }
+            ]
+}
+</code></pre>
+<p>200</p>
+<p>Description: Success</p>
+<p>400</p>
+<p>Description: Bad request</p>
+<p>401</p>
+<p>Description: Unauthorized</p>
+<p>404</p>
+<p>Description: Not Found</p>
+<h5><a class="anchor" aria-hidden="true" id="error-response"></a><a href="#error-response" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Error Response:</h5>
+<pre><code class="hljs css language-JSON">{
+  <span class="hljs-attr">"id"</span>: <span class="hljs-string">"string"</span>,
+  <span class="hljs-attr">"version"</span>: <span class="hljs-string">"string"</span>,
+  <span class="hljs-attr">"metadata"</span>: {},
+  <span class="hljs-attr">"responsetime"</span>: <span class="hljs-string">"yyyy-MM-dd'T'HH:mm:ss.SSS'Z'"</span>,
+  <span class="hljs-attr">"errors"</span>: [{
+              <span class="hljs-attr">"errorCode"</span>: <span class="hljs-string">"string"</span>,
+              <span class="hljs-attr">"message"</span>: <span class="hljs-string">"string"</span>
+           }],
+   <span class="hljs-attr">"response"</span>:<span class="hljs-literal">null</span>
+}
+</code></pre>
+<h4><a class="anchor" aria-hidden="true" id="failure-details"></a><a href="#failure-details" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Failure details</h4>
+<table>
+<thead>
+<tr><th>Error Code</th><th>Error Message</th><th>Error Description</th></tr>
+</thead>
+<tbody>
+<tr><td>KER-MSD-005</td><td>Error occurred while fetching Biometric Types</td><td>Fetch Exception</td></tr>
+<tr><td>KER-MSD-105</td><td>Error occurred while inserting biometric type details</td><td>Insertion Exception</td></tr>
+<tr><td>KER-MSD-006</td><td>Biometric Type not found</td><td>Data not found</td></tr>
+</tbody>
+</table>
+<h1><a class="anchor" aria-hidden="true" id="biometric-attributes-master-api"></a><a href="#biometric-attributes-master-api" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Biometric attributes Master API</h1>
+<ul>
+<li><a href="#post-biometricattributes">POST /biometricattributes</a></li>
+<li><a href="#get-biometricattributesbiometricatributeidlanguagecode">GET /biometricattributes/{biometricatributeid}/{languagecode}</a></li>
+<li><a href="#get-getbiometricattributesbyauthtypelanguagecodebiometrictypeid">GET /getbiometricattributesbyauthtype/{languagecode}/{biometrictypeid}</a></li>
+</ul>
+<h1><a class="anchor" aria-hidden="true" id="post-biometricattributes"></a><a href="#post-biometricattributes" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>POST /biometricattributes</h1>
+<p>This service will create the list of Biometric attributes which are used in the MOSIP platform.</p>
+<h3><a class="anchor" aria-hidden="true" id="resource-url-3"></a><a href="#resource-url-3" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Resource URL</h3>
+<h3><a class="anchor" aria-hidden="true" id="post-biometricattributes-1"></a><a href="#post-biometricattributes-1" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><code>POST /biometricattributes</code></h3>
+<h3><a class="anchor" aria-hidden="true" id="resource-details-3"></a><a href="#resource-details-3" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Resource details</h3>
+<table>
+<thead>
+<tr><th>Resource Details</th><th>Description</th></tr>
+</thead>
+<tbody>
+<tr><td>Response format</td><td>JSON</td></tr>
+<tr><td>Requires Authentication</td><td>Yes</td></tr>
+</tbody>
+</table>
+<h3><a class="anchor" aria-hidden="true" id="parameters-3"></a><a href="#parameters-3" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Parameters</h3>
+<table>
+<thead>
+<tr><th>Name</th><th>Required</th><th>Description</th><th>Default Value</th><th>Example</th></tr>
+</thead>
+<tbody>
+<tr><td>biometricattribute</td><td>Yes</td><td>Array of the biometric attributes</td><td></td></tr>
+</tbody>
+</table>
+<h3><a class="anchor" aria-hidden="true" id="example-request-1"></a><a href="#example-request-1" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Example Request</h3>
+<pre><code class="hljs css language-JSON">{
+  <span class="hljs-attr">"id"</span>: <span class="hljs-string">"string"</span>,
+  <span class="hljs-attr">"version"</span>: <span class="hljs-string">"string"</span>,
+  <span class="hljs-attr">"metadata"</span>: {},
+  <span class="hljs-attr">"requesttime"</span>: <span class="hljs-string">"yyyy-MM-dd'T'HH:mm:ss.SSS'Z'"</span>,
+  <span class="hljs-attr">"request"</span>: {
+      <span class="hljs-attr">"biometricattributes"</span>: [
+                <span class="hljs-string">"biometricattribute"</span>,
+                <span class="hljs-string">"languagecode"</span>:<span class="hljs-string">"string"</span>
+                           ]
+        }
+}
+</code></pre>
+<h3><a class="anchor" aria-hidden="true" id="example-response-3"></a><a href="#example-response-3" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Example Response</h3>
+<pre><code class="hljs css language-JSON">{
+  <span class="hljs-attr">"id"</span>: <span class="hljs-string">"string"</span>,
+  <span class="hljs-attr">"version"</span>: <span class="hljs-string">"string"</span>,
+  <span class="hljs-attr">"metadata"</span>: {},
+  <span class="hljs-attr">"responsetime"</span>: <span class="hljs-string">"yyyy-MM-dd'T'HH:mm:ss.SSS'Z'"</span>,
+  <span class="hljs-attr">"errors"</span>: <span class="hljs-literal">null</span>,
+  <span class="hljs-attr">"response"</span>:{
+             <span class="hljs-attr">"successfully_created_biometricattributes"</span>: [
+                      {<span class="hljs-attr">"biometricatributeid"</span>:<span class="hljs-string">"string"</span>}
+                      {<span class="hljs-attr">"languagecode"</span>:<span class="hljs-string">"string"</span>}
+                          ]
+             }
+}
+</code></pre>
+<h3><a class="anchor" aria-hidden="true" id="response-codes-1"></a><a href="#response-codes-1" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Response codes</h3>
+<p>202</p>
+<p>Description: Accepted</p>
+<p>400</p>
+<p>Description: Bad request</p>
+<p>401</p>
+<p>Description: Unauthorized</p>
+<p>403</p>
+<p>Description: Forbidden</p>
+<h1><a class="anchor" aria-hidden="true" id="get-biometricattributes-biometricatributeid-languagecode"></a><a href="#get-biometricattributes-biometricatributeid-languagecode" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>GET /biometricattributes/{biometricatributeid}/{languagecode}</h1>
+<p>Master data is required across the platform.</p>
+<p>This service will provides the service for the List of Biometrics.</p>
+<h3><a class="anchor" aria-hidden="true" id="resource-url-4"></a><a href="#resource-url-4" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Resource URL</h3>
+<h3><a class="anchor" aria-hidden="true" id="get-biometricattributes-biometricatributeid-languagecode-1"></a><a href="#get-biometricattributes-biometricatributeid-languagecode-1" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><code>GET /biometricattributes/{biometricatributeid}/{languagecode}</code></h3>
+<h3><a class="anchor" aria-hidden="true" id="resource-details-4"></a><a href="#resource-details-4" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Resource details</h3>
+<table>
+<thead>
+<tr><th>Resource Details</th><th>Description</th></tr>
+</thead>
+<tbody>
+<tr><td>Response format</td><td>JSON</td></tr>
+<tr><td>Requires Authentication</td><td>Yes</td></tr>
+</tbody>
+</table>
+<h3><a class="anchor" aria-hidden="true" id="parameters-4"></a><a href="#parameters-4" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Parameters</h3>
+<table>
+<thead>
+<tr><th>Name</th><th>Required</th><th>Description</th><th>Default Value</th><th>Example</th></tr>
+</thead>
+<tbody>
+<tr><td>biometricatributeid</td><td>Yes</td><td>Code of the language</td><td></td></tr>
+<tr><td>biometricattribute</td><td>Yes</td><td>Name of the language</td><td></td></tr>
+</tbody>
+</table>
+<h3><a class="anchor" aria-hidden="true" id="example-response-4"></a><a href="#example-response-4" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Example Response</h3>
+<pre><code class="hljs css language-JSON">{
+  <span class="hljs-attr">"id"</span>: <span class="hljs-string">"string"</span>,
+  <span class="hljs-attr">"version"</span>: <span class="hljs-string">"string"</span>,
+  <span class="hljs-attr">"metadata"</span>: {},
+  <span class="hljs-attr">"responsetime"</span>: <span class="hljs-string">"yyyy-MM-dd'T'HH:mm:ss.SSS'Z'"</span>,
+  <span class="hljs-attr">"errors"</span>: <span class="hljs-literal">null</span>,
+  <span class="hljs-attr">"response"</span>:{
+              <span class="hljs-attr">"biometricattributes"</span>: [
+                      { 
+                    <span class="hljs-attr">"biometricattribute"</span>: [
+                                        {<span class="hljs-attr">"biometricatributeid"</span>:<span class="hljs-string">"string"</span>},
+                                        {<span class="hljs-attr">"biometricattribute"</span>:<span class="hljs-string">"string"</span>},
+                                        {<span class="hljs-attr">"languagecode"</span>:<span class="hljs-string">"string"</span>}
+                                         ]
+                       }, 
+                      { 
+                    <span class="hljs-attr">"biometricattribute"</span>: [
+                                {<span class="hljs-attr">"biometricatributeid"</span>:<span class="hljs-string">"string"</span>},
+                                {<span class="hljs-attr">"biometricattribute"</span>:<span class="hljs-string">"string"</span>},
+                                {<span class="hljs-attr">"languagecode"</span>:<span class="hljs-string">"string"</span>}
+                                      ]
+                     }
+                 ]
+             }
+     }
+</code></pre>
+<p>200</p>
+<p>Description: Success</p>
+<p>400</p>
+<p>Description: Bad request</p>
+<p>401</p>
+<p>Description: Unauthorized</p>
+<p>404</p>
+<p>Description: Not Found</p>
+<h1><a class="anchor" aria-hidden="true" id="get-getbiometricattributesbyauthtype-languagecode-biometrictypeid"></a><a href="#get-getbiometricattributesbyauthtype-languagecode-biometrictypeid" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>GET /getbiometricattributesbyauthtype/{languagecode}/{biometrictypeid}</h1>
+<p>This service will provides the service for the List of Biometrics based on the biometric authentication type.</p>
+<h3><a class="anchor" aria-hidden="true" id="resource-url-5"></a><a href="#resource-url-5" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Resource URL</h3>
+<h3><a class="anchor" aria-hidden="true" id="get-getbiometricattributesbyauthtype-languagecode-biometrictypeid-1"></a><a href="#get-getbiometricattributesbyauthtype-languagecode-biometrictypeid-1" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><code>GET /getbiometricattributesbyauthtype/{languagecode}/{biometrictypeid}</code></h3>
+<h3><a class="anchor" aria-hidden="true" id="resource-details-5"></a><a href="#resource-details-5" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Resource details</h3>
+<table>
+<thead>
+<tr><th>Resource Details</th><th>Description</th></tr>
+</thead>
+<tbody>
+<tr><td>Response format</td><td>JSON</td></tr>
+<tr><td>Requires Authentication</td><td>Yes</td></tr>
+</tbody>
+</table>
+<h3><a class="anchor" aria-hidden="true" id="parameters-5"></a><a href="#parameters-5" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Parameters</h3>
+<table>
+<thead>
+<tr><th>Name</th><th>Required</th><th>Description</th><th>Default Value</th><th>Example</th></tr>
+</thead>
+<tbody>
+<tr><td>biometrictypeid</td><td>Yes</td><td>Id of the biometric auth type</td><td></td></tr>
+</tbody>
+</table>
+<h3><a class="anchor" aria-hidden="true" id="example-response-5"></a><a href="#example-response-5" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Example Response</h3>
+<pre><code class="hljs css language-JSON">{
+  <span class="hljs-attr">"id"</span>: <span class="hljs-string">"string"</span>,
+  <span class="hljs-attr">"version"</span>: <span class="hljs-string">"string"</span>,
+  <span class="hljs-attr">"metadata"</span>: {},
+  <span class="hljs-attr">"responsetime"</span>: <span class="hljs-string">"yyyy-MM-dd'T'HH:mm:ss.SSS'Z'"</span>,
+  <span class="hljs-attr">"errors"</span>: <span class="hljs-literal">null</span>,
+  <span class="hljs-attr">"response"</span>:{
+  <span class="hljs-attr">"biometricattributes"</span>: [
+                         {  
+                           <span class="hljs-attr">"code"</span>: <span class="hljs-string">"string"</span>,
+                       <span class="hljs-attr">"name"</span>: <span class="hljs-string">"string"</span>,
+                       <span class="hljs-attr">"description"</span>: <span class="hljs-string">"string"</span>,
+                           <span class="hljs-attr">"active"</span>: <span class="hljs-literal">true</span>
+                         },
+                    {
+                       <span class="hljs-attr">"code"</span>: <span class="hljs-string">"string"</span>,
+                       <span class="hljs-attr">"name"</span>: <span class="hljs-string">"string"</span>,
+                       <span class="hljs-attr">"description"</span>: <span class="hljs-string">"string"</span>,
+                           <span class="hljs-attr">"active"</span>: <span class="hljs-literal">true</span>
+                        }
+                    ]
+          }
+}
+</code></pre>
+<p>200</p>
+<p>Description: Success</p>
+<p>400</p>
+<p>Description: Bad request</p>
+<p>401</p>
+<p>Description: Unauthorized</p>
+<p>404</p>
+<p>Description: Not Found</p>
+<h5><a class="anchor" aria-hidden="true" id="failure-response"></a><a href="#failure-response" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Failure Response:</h5>
+<pre><code class="hljs css language-JSON">{
+  <span class="hljs-attr">"id"</span>: <span class="hljs-string">"string"</span>,
+  <span class="hljs-attr">"version"</span>: <span class="hljs-string">"string"</span>,
+  <span class="hljs-attr">"metadata"</span>: {},
+  <span class="hljs-attr">"responsetime"</span>: <span class="hljs-string">"yyyy-MM-dd'T'HH:mm:ss.SSS'Z'"</span>,
+  <span class="hljs-attr">"errors"</span>: [{
+      <span class="hljs-attr">"errorCode"</span>: <span class="hljs-string">"string"</span>,
+      <span class="hljs-attr">"message"</span>: <span class="hljs-string">"string"</span>
+    }],
+  <span class="hljs-attr">"response"</span>:<span class="hljs-literal">null</span>
+}
+</code></pre>
+<h4><a class="anchor" aria-hidden="true" id="failure-details-1"></a><a href="#failure-details-1" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Failure details</h4>
+<table>
+<thead>
+<tr><th>Error Code</th><th>Error Message</th><th>Error Description</th></tr>
+</thead>
+<tbody>
+<tr><td>KER-MSD-004</td><td>BiometricAttribute not found</td><td>Data Not Found</td></tr>
+<tr><td>KER-MSD-003</td><td>Error occurred while fetching BiometricAttributes</td><td>Fetch Issue</td></tr>
+<tr><td>KER-APP-103</td><td>Error occurred while inserting BiometricAttributes</td><td>Insertion Issues</td></tr>
+</tbody>
+</table>
+</span></div></article></div><div class="docs-prevnext"></div></div></div><nav class="onPageNav"></nav></div><footer class="nav-footer" id="footer"><section class="sitemap"><a href="/" class="nav-home"><img src="/img/favicon.ico" alt="MOSIP Documentation" width="66" height="58"/></a><div><h5>Docs</h5><a href="/docs/en/doc1.html">Getting Started (or other categories)</a><a href="/docs/en/doc2.html">Guides (or other categories)</a><a href="/docs/en/doc3.html">API Reference (or other categories)</a></div><div><h5>Community</h5><a href="/en/users.html">User Showcase</a><a href="https://stackoverflow.com/questions/tagged/" target="_blank" rel="noreferrer noopener">Stack Overflow</a><a href="https://discordapp.com/">Project Chat</a><a href="https://twitter.com/" target="_blank" rel="noreferrer noopener">Twitter</a></div><div><h5>More</h5><a href="/blog">Blog</a><a href="https://github.com/">GitHub</a><a class="github-button" data-icon="octicon-star" data-count-href="/facebook/docusaurus/stargazers" data-show-count="true" data-count-aria-label="# stargazers on GitHub" aria-label="Star this project on GitHub">Star</a></div></section><a href="https://opensource.facebook.com/" target="_blank" rel="noreferrer noopener" class="fbOpenSource"><img src="/img/oss_logo.png" alt="Facebook Open Source" width="170" height="45"/></a><section class="copyright">Copyright © 2019 Your Name or Your Company Name</section></footer></div></body></html>

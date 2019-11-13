@@ -1,0 +1,86 @@
+<!DOCTYPE html><html lang="en"><head><meta charSet="utf-8"/><meta http-equiv="X-UA-Compatible" content="IE=edge"/><title>Steps-to-Install-and-use-PostgreSql-Version-10.2-on-RHEL-7.5 · MOSIP Documentation</title><meta name="viewport" content="width=device-width"/><meta name="generator" content="Docusaurus"/><meta name="description" content="Often simply Postgres, is an object-relational database management system (ORDBMS) with an emphasis on extensibility and standards compliance. It can handle workloads ranging from small single-machine applications to large Internet-facing applications (or for data warehousing) with many concurrent users Postgresql Prerequisites On a Linux or Mac system, you must have superuser privileges to perform a PostgreSQL installation. To perform an installation on a Windows system, you must have administrator privileges."/><meta name="docsearch:language" content="en"/><meta property="og:title" content="Steps-to-Install-and-use-PostgreSql-Version-10.2-on-RHEL-7.5 · MOSIP Documentation"/><meta property="og:type" content="website"/><meta property="og:url" content="https://your-docusaurus-test-site.com/"/><meta property="og:description" content="Often simply Postgres, is an object-relational database management system (ORDBMS) with an emphasis on extensibility and standards compliance. It can handle workloads ranging from small single-machine applications to large Internet-facing applications (or for data warehousing) with many concurrent users Postgresql Prerequisites On a Linux or Mac system, you must have superuser privileges to perform a PostgreSQL installation. To perform an installation on a Windows system, you must have administrator privileges."/><meta property="og:image" content="https://your-docusaurus-test-site.com/img/undraw_online.svg"/><meta name="twitter:card" content="summary"/><meta name="twitter:image" content="https://your-docusaurus-test-site.com/img/undraw_tweetstorm.svg"/><link rel="shortcut icon" href="/img/favicon.ico"/><link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css"/><link rel="alternate" type="application/atom+xml" href="https://your-docusaurus-test-site.com/blog/atom.xml" title="MOSIP Documentation Blog ATOM Feed"/><link rel="alternate" type="application/rss+xml" href="https://your-docusaurus-test-site.com/blog/feed.xml" title="MOSIP Documentation Blog RSS Feed"/><script type="text/javascript" src="https://buttons.github.io/buttons.js"></script><script src="/js/scrollSpy.js"></script><link rel="stylesheet" href="/css/main.css"/><script src="/js/codetabs.js"></script></head><body class="sideNavVisible separateOnPageNav"><div class="fixedHeaderContainer"><div class="headerWrapper wrapper"><header><a href="/"><img class="logo" src="/img/favicon.ico" alt="MOSIP Documentation"/><h2 class="headerTitleWithLogo">MOSIP Documentation</h2></a><div class="navigationWrapper navigationSlider"><nav class="slidingNav"><ul class="nav-site nav-site-internal"><li class=""><a href="/docs/Platform-Documentation" target="_self">Docs</a></li><li class=""><a href="/docs/Getting-Started" target="_self">API</a></li><li class=""><a href="/Contributor-Guide" target="_self">Help</a></li><li class=""><a href="/blog/" target="_self">Blog</a></li></ul></nav></div></header></div></div><div class="navPusher"><div class="docMainWrapper wrapper"><div class="container mainContainer"><div class="wrapper"><div class="post"><header class="postHeader"><h1 class="postHeaderTitle">Steps-to-Install-and-use-PostgreSql-Version-10.2-on-RHEL-7.5</h1></header><article><div><span><p>Often simply Postgres, is an object-relational database management system (ORDBMS) with an emphasis on extensibility and standards compliance. It can handle workloads ranging from small single-machine applications to large Internet-facing applications (or for data warehousing) with many concurrent users Postgresql Prerequisites On a Linux or Mac system, you must have superuser privileges to perform a PostgreSQL installation. To perform an installation on a Windows system, you must have administrator privileges.</p>
+<p><strong>Steps to install Postgresql in RHEL-7.5</strong></p>
+<p>Download and install PostgreSQL.</p>
+<pre><code class="hljs">$ sudo yum install https://download.postgresql.org/pub/repos/yum/10/redhat/rhel-7-x86_64/pgdg-redhat10-10-2.noarch.rpm 
+$ sudo  yum-config-manager --disable pgdg95
+</code></pre>
+<p>checking the postgresql packages</p>
+<pre><code class="hljs">$ sudo yum update 
+$ sudo yum list postgresql*
+</code></pre>
+<p>Installation command</p>
+<pre><code class="hljs">$ sudo yum install postgresql10 postgresql10-server
+$ sudo /usr/pgsql-10/bin/postgresql-10-setup initdb
+$ sudo systemctl enable postgresql-10
+</code></pre>
+<p>Postgresql service stop/start/restart command</p>
+<pre><code class="hljs">$ sudo systemctl start postgresql-10
+$ sudo systemctl status postgresql-10 
+$ sudo systemctl stop postgresql-10
+</code></pre>
+<p>To changing default port 5432 to 9001 and connection + buffer size we need to edit the postgresql.conf file from below path
+PostgreSQL is running on default port 5432.
+you decide to change the default port, please ensure that your new port number does not conflict with any services running on that port.</p>
+<p>Steps to change the default port :</p>
+<p>Open the file  and modify the below changes</p>
+<pre><code class="hljs">$ sudo vi /var/lib/pgsql/10/data/postgresql.conf
+
+listen_addresses = '*'   (changed to * instead of local host )
+port = 9001       ( uncomment port=5432 and change the port number 
+###### Open the port 9001 from the VM 
+</code></pre>
+<p>Use below command to open the port 9001 from RHEL 7.5 VM</p>
+<pre><code class="hljs">$ sudo firewall-cmd --zone=public --add-port=9001/tcp --permanent
+$ sudo firewall-cmd --reload
+</code></pre>
+<p>To increase the buffer size and number of postgreSql connection same fine modify the below changes also</p>
+<pre><code class="hljs">$ sudo vi /var/lib/pgsql/10/data/postgresql.conf 
+
+unix_socket_directories = '/var/run/postgresql, /tmp' max_connections = 1000
+shared_buffers = 2GB
+</code></pre>
+<p>Start the service:</p>
+<pre><code class="hljs">$ sudo systemctl start postgresql-10
+</code></pre>
+<p>To change the default password</p>
+<p>Login to postgrsql</p>
+<pre><code class="hljs">$ sudo su postgres
+bash-4.2$ psql -p 9001
+postgres=# \password postgres
+Enter new password:
+Enter it again:
+postgres=# \q
+</code></pre>
+<p>Restart the service:</p>
+<pre><code class="hljs">$ sudo systemctl restart postgresql-10
+</code></pre>
+<p>It will ask new password to login to postgresql</p>
+<p>####### example for sourcing the sql file form command line</p>
+<pre><code class="hljs">$ psql --username=postgres --host=&lt;server ip&gt; --port=9001 --dbname=postgres 
+</code></pre>
+<p>Open the file</p>
+<pre><code class="hljs">$ sudo vim /var/lib/pgsql/10/data/pg_hba.conf
+</code></pre>
+<h6><a class="anchor" aria-hidden="true" id="default-lines-are-present-in-pg_habconf-file-br"></a><a href="#default-lines-are-present-in-pg_habconf-file-br" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Default lines are present in pg_hab.conf file <br/></h6>
+<p>TYPE  DATABASE        USER            ADDRESS                 METHOD <br/></p>
+<p>local   all             all                                     peer <br/>
+host    all             all             127.0.0.1/32            ident <br/>
+host    all             all             ::1/128                 ident <br/>
+local   replication     all                                     peer  <br/>
+host    replication     all             127.0.0.1/32            ident <br/>
+host    replication     all             ::1/128                 ident <br/></p>
+<h6><a class="anchor" aria-hidden="true" id="modify-with-below-changes-in-file-var-lib-pgsql-10-data-pg_hbaconf"></a><a href="#modify-with-below-changes-in-file-var-lib-pgsql-10-data-pg_hbaconf" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Modify  with below changes in file  /var/lib/pgsql/10/data/pg_hba.conf</h6>
+<p>local   all             all                                     md5 <br/>
+host    all             all             127.0.0.1/32            ident <br/>
+host    all             all             0.0.0.0/0               md5 <br/>
+host    all             all             ::1/128                 ident <br/>
+local   replication     all                                     peer <br/>
+host    replication     all             127.0.0.1/32            ident <br/>
+host    replication     all             ::1/128                 ident <br/></p>
+<pre><code class="hljs">
+$ sudo systemctl status postgresql<span class="hljs-number">-10</span>
+</code></pre>
+<p>Reference link:
+<a href="https://www.tecmint.com/install-postgresql-on-centos-rhel-fedora">https://www.tecmint.com/install-postgresql-on-centos-rhel-fedora</a></div></p>
+<hr>
+</span></div></article></div><div class="docs-prevnext"></div></div></div><nav class="onPageNav"></nav></div><footer class="nav-footer" id="footer"><section class="sitemap"><a href="/" class="nav-home"><img src="/img/favicon.ico" alt="MOSIP Documentation" width="66" height="58"/></a><div><h5>Docs</h5><a href="/docs/en/doc1.html">Getting Started (or other categories)</a><a href="/docs/en/doc2.html">Guides (or other categories)</a><a href="/docs/en/doc3.html">API Reference (or other categories)</a></div><div><h5>Community</h5><a href="/en/users.html">User Showcase</a><a href="https://stackoverflow.com/questions/tagged/" target="_blank" rel="noreferrer noopener">Stack Overflow</a><a href="https://discordapp.com/">Project Chat</a><a href="https://twitter.com/" target="_blank" rel="noreferrer noopener">Twitter</a></div><div><h5>More</h5><a href="/blog">Blog</a><a href="https://github.com/">GitHub</a><a class="github-button" data-icon="octicon-star" data-count-href="/facebook/docusaurus/stargazers" data-show-count="true" data-count-aria-label="# stargazers on GitHub" aria-label="Star this project on GitHub">Star</a></div></section><a href="https://opensource.facebook.com/" target="_blank" rel="noreferrer noopener" class="fbOpenSource"><img src="/img/oss_logo.png" alt="Facebook Open Source" width="170" height="45"/></a><section class="copyright">Copyright © 2019 Your Name or Your Company Name</section></footer></div></body></html>

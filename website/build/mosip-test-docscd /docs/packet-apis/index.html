@@ -1,0 +1,573 @@
+<!DOCTYPE html><html lang="en"><head><meta charSet="utf-8"/><meta http-equiv="X-UA-Compatible" content="IE=edge"/><title>Packet APIs · MOSIP Documentation</title><meta name="viewport" content="width=device-width"/><meta name="generator" content="Docusaurus"/><meta name="description" content="This section details about the service APIs in the Packet modules"/><meta name="docsearch:language" content="en"/><meta property="og:title" content="Packet APIs · MOSIP Documentation"/><meta property="og:type" content="website"/><meta property="og:url" content="https://your-docusaurus-test-site.com/"/><meta property="og:description" content="This section details about the service APIs in the Packet modules"/><meta property="og:image" content="https://your-docusaurus-test-site.com/img/undraw_online.svg"/><meta name="twitter:card" content="summary"/><meta name="twitter:image" content="https://your-docusaurus-test-site.com/img/undraw_tweetstorm.svg"/><link rel="shortcut icon" href="/img/favicon.ico"/><link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css"/><link rel="alternate" type="application/atom+xml" href="https://your-docusaurus-test-site.com/blog/atom.xml" title="MOSIP Documentation Blog ATOM Feed"/><link rel="alternate" type="application/rss+xml" href="https://your-docusaurus-test-site.com/blog/feed.xml" title="MOSIP Documentation Blog RSS Feed"/><script type="text/javascript" src="https://buttons.github.io/buttons.js"></script><script src="/js/scrollSpy.js"></script><link rel="stylesheet" href="/css/main.css"/><script src="/js/codetabs.js"></script></head><body class="sideNavVisible separateOnPageNav"><div class="fixedHeaderContainer"><div class="headerWrapper wrapper"><header><a href="/"><img class="logo" src="/img/favicon.ico" alt="MOSIP Documentation"/><h2 class="headerTitleWithLogo">MOSIP Documentation</h2></a><div class="navigationWrapper navigationSlider"><nav class="slidingNav"><ul class="nav-site nav-site-internal"><li class=""><a href="/docs/Platform-Documentation" target="_self">Docs</a></li><li class=""><a href="/docs/Getting-Started" target="_self">API</a></li><li class=""><a href="/Contributor-Guide" target="_self">Help</a></li><li class=""><a href="/blog/" target="_self">Blog</a></li></ul></nav></div></header></div></div><div class="navPusher"><div class="docMainWrapper wrapper"><div class="container mainContainer"><div class="wrapper"><div class="post"><header class="postHeader"><h1 class="postHeaderTitle">Packet APIs</h1></header><article><div><span><p>This section details about the service APIs in the Packet modules</p>
+<ul>
+<li><p><a href="#packet-rejection-reasons-master-api">Packet Rejection Reasons API</a></p></li>
+<li><p><a href="#packet-on-hold-reasons-master-api">Packet On Hold Reasons API</a></p></li>
+</ul>
+<h1><a class="anchor" aria-hidden="true" id="packet-rejection-reasons-master-api"></a><a href="#packet-rejection-reasons-master-api" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Packet Rejection Reasons Master API</h1>
+<ul>
+<li><a href="#post-packetrejectionreasonsreasoncategory">POST /packetrejectionreasons/reasoncategory</a></li>
+<li><a href="#post-packetrejectionreasonsreasonlist">POST /packetrejectionreasons/reasonlist</a></li>
+<li><a href="#get-packetrejectionreasons">GET /packetrejectionreasons</a></li>
+<li><a href="#get-packetrejectionreasonsreasoncategorycodelanguagecode">GET /packetrejectionreasons/{reasoncategorycode}/{languagecode}</a></li>
+<li><a href="#get-packetrejectionreasonsidlanguagecodelocationcode">GET /packetrejectionreasons/{id}/{languagecode}/{locationcode}</a></li>
+</ul>
+<h1><a class="anchor" aria-hidden="true" id="post-packetrejectionreasons-reasoncategory"></a><a href="#post-packetrejectionreasons-reasoncategory" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>POST /packetrejectionreasons/reasoncategory</h1>
+<p>This service will create the list of Packet Rejection Reasons which are used in the MOSIP platform.</p>
+<h3><a class="anchor" aria-hidden="true" id="resource-url"></a><a href="#resource-url" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Resource URL</h3>
+<h3><a class="anchor" aria-hidden="true" id="post-packetrejectionreasons-reasoncategory-1"></a><a href="#post-packetrejectionreasons-reasoncategory-1" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><code>POST /packetrejectionreasons/reasoncategory</code></h3>
+<h3><a class="anchor" aria-hidden="true" id="resource-details"></a><a href="#resource-details" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Resource details</h3>
+<table>
+<thead>
+<tr><th>Resource Details</th><th>Description</th></tr>
+</thead>
+<tbody>
+<tr><td>Response format</td><td>JSON</td></tr>
+<tr><td>Requires Authentication</td><td>Yes</td></tr>
+</tbody>
+</table>
+<h3><a class="anchor" aria-hidden="true" id="parameters"></a><a href="#parameters" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Parameters</h3>
+<table>
+<thead>
+<tr><th>Name</th><th>Required</th><th>Description</th><th>Default Value</th><th>Example</th></tr>
+</thead>
+<tbody>
+<tr><td>code</td><td>Yes</td><td>Code of the reason category</td><td></td></tr>
+<tr><td>name</td><td>Yes</td><td>Name of the reason category</td><td></td></tr>
+<tr><td>description</td><td>Yes</td><td>description for the reason category</td><td></td></tr>
+<tr><td>isActive</td><td>Yes</td><td>whether the reason cateogry is in use</td><td></td></tr>
+<tr><td>langCode</td><td>Yes</td><td>language code of the reason category</td><td></td></tr>
+</tbody>
+</table>
+<h3><a class="anchor" aria-hidden="true" id="example-request"></a><a href="#example-request" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Example Request</h3>
+<pre><code class="hljs css language-JSON">{
+  <span class="hljs-attr">"id"</span>: <span class="hljs-string">"string"</span>,
+  <span class="hljs-attr">"version"</span>: <span class="hljs-string">"string"</span>,
+  <span class="hljs-attr">"metadata"</span>: {},
+  <span class="hljs-attr">"requesttime"</span>: <span class="hljs-string">"yyyy-MM-dd'T'HH:mm:ss.SSS'Z'"</span>,
+  <span class="hljs-attr">"request"</span>: {
+        <span class="hljs-attr">"code"</span>:<span class="hljs-string">"string"</span>,
+        <span class="hljs-attr">"name"</span>:<span class="hljs-string">"string"</span>,
+        <span class="hljs-attr">"description"</span>:<span class="hljs-string">"string"</span>,
+        <span class="hljs-attr">"lang_code"</span>:<span class="hljs-string">"string"</span>,
+                <span class="hljs-attr">"isActive"</span>:<span class="hljs-literal">true</span>
+            }
+}
+</code></pre>
+<h3><a class="anchor" aria-hidden="true" id="example-response"></a><a href="#example-response" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Example Response</h3>
+<pre><code class="hljs css language-JSON">{
+  <span class="hljs-attr">"id"</span>: <span class="hljs-string">"string"</span>,
+  <span class="hljs-attr">"version"</span>: <span class="hljs-string">"string"</span>,
+  <span class="hljs-attr">"metadata"</span>: {},
+  <span class="hljs-attr">"responsetime"</span>: <span class="hljs-string">"yyyy-MM-dd'T'HH:mm:ss.SSS'Z'"</span>,
+  <span class="hljs-attr">"errors"</span>: <span class="hljs-literal">null</span>,
+  <span class="hljs-attr">"response"</span>:{
+    <span class="hljs-attr">"code"</span>:<span class="hljs-string">"string"</span>,
+    <span class="hljs-attr">"lang_code"</span>:<span class="hljs-string">"string"</span> 
+           }
+}
+            
+    
+</code></pre>
+<h3><a class="anchor" aria-hidden="true" id="response-codes"></a><a href="#response-codes" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Response codes</h3>
+<p>201</p>
+<p>Description : Created</p>
+<p>400</p>
+<p>Description: Bad request</p>
+<p>401</p>
+<p>Description: Unauthorized</p>
+<p>403</p>
+<p>Description: Forbidden</p>
+<h1><a class="anchor" aria-hidden="true" id="post-packetrejectionreasons-reasonlist"></a><a href="#post-packetrejectionreasons-reasonlist" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>POST /packetrejectionreasons/reasonlist</h1>
+<p>This service will create the list of Packet Rejection Reasons which are used in the MOSIP platform.</p>
+<h3><a class="anchor" aria-hidden="true" id="resource-url-1"></a><a href="#resource-url-1" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Resource URL</h3>
+<h3><a class="anchor" aria-hidden="true" id="post-packetrejectionreasons-reasonlist-1"></a><a href="#post-packetrejectionreasons-reasonlist-1" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><code>POST /packetrejectionreasons/reasonlist</code></h3>
+<h3><a class="anchor" aria-hidden="true" id="resource-details-1"></a><a href="#resource-details-1" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Resource details</h3>
+<table>
+<thead>
+<tr><th>Resource Details</th><th>Description</th></tr>
+</thead>
+<tbody>
+<tr><td>Response format</td><td>JSON</td></tr>
+<tr><td>Requires Authentication</td><td>Yes</td></tr>
+</tbody>
+</table>
+<h3><a class="anchor" aria-hidden="true" id="parameters-1"></a><a href="#parameters-1" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Parameters</h3>
+<table>
+<thead>
+<tr><th>Name</th><th>Required</th><th>Description</th><th>Default Value</th><th>Example</th></tr>
+</thead>
+<tbody>
+<tr><td>code</td><td>Yes</td><td>Code of the reason category</td><td></td></tr>
+<tr><td>name</td><td>Yes</td><td>Name of the reason category</td><td></td></tr>
+<tr><td>description</td><td>Yes</td><td>description for the reason category</td><td></td></tr>
+<tr><td>rsnCatCode</td><td>Yes</td><td>foreign key reference from reason category code</td><td></td></tr>
+<tr><td>isActive</td><td>Yes</td><td>whether the reason cateogry is in use</td><td></td></tr>
+<tr><td>langCode</td><td>Yes</td><td>language code of the reason category</td><td></td></tr>
+</tbody>
+</table>
+<h3><a class="anchor" aria-hidden="true" id="example-request-1"></a><a href="#example-request-1" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Example Request</h3>
+<pre><code class="hljs css language-JSON">{
+  "id": "string",
+  "version": "string",
+  "metadata": {},
+  "requesttime": "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'",
+  "request": {
+            {
+                "code":"string",
+                "name":"string",
+                "description":"string",
+                                "rsnCatCode":"string",
+                "lang_code":"string",
+                                "isActive":true
+                
+            }
+            
+             }
+}
+</code></pre>
+<h3><a class="anchor" aria-hidden="true" id="example-response-1"></a><a href="#example-response-1" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Example Response</h3>
+<pre><code class="hljs css language-JSON"> {
+  <span class="hljs-attr">"id"</span>: <span class="hljs-string">"string"</span>,
+  <span class="hljs-attr">"version"</span>: <span class="hljs-string">"string"</span>,
+  <span class="hljs-attr">"metadata"</span>: {},
+  <span class="hljs-attr">"responsetime"</span>: <span class="hljs-string">"yyyy-MM-dd'T'HH:mm:ss.SSS'Z'"</span>,
+  <span class="hljs-attr">"errors"</span>: <span class="hljs-literal">null</span>,
+  <span class="hljs-attr">"response"</span>:  {
+                <span class="hljs-attr">"code"</span>:<span class="hljs-string">"string"</span>,
+                <span class="hljs-attr">"lang_code"</span>:<span class="hljs-string">"string"</span>,
+                <span class="hljs-attr">"rsnCatCode"</span>:<span class="hljs-string">"string"</span>
+              }
+}
+            
+    
+</code></pre>
+<h3><a class="anchor" aria-hidden="true" id="response-codes-1"></a><a href="#response-codes-1" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Response codes</h3>
+<p>201</p>
+<p>Description : Created</p>
+<p>400</p>
+<p>Description: Bad request</p>
+<p>401</p>
+<p>Description: Unauthorized</p>
+<p>403</p>
+<p>Description: Forbidden</p>
+<h1><a class="anchor" aria-hidden="true" id="get-packetrejectionreasons"></a><a href="#get-packetrejectionreasons" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>GET /packetrejectionreasons</h1>
+<p>Master data is required across the platform.</p>
+<p>This service will provides the service for the List of Packet Rejection Reasons.</p>
+<h3><a class="anchor" aria-hidden="true" id="resource-url-2"></a><a href="#resource-url-2" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Resource URL</h3>
+<h3><a class="anchor" aria-hidden="true" id="get-packetrejectionreasons-1"></a><a href="#get-packetrejectionreasons-1" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><code>GET /packetrejectionreasons</code></h3>
+<h3><a class="anchor" aria-hidden="true" id="resource-details-2"></a><a href="#resource-details-2" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Resource details</h3>
+<table>
+<thead>
+<tr><th>Resource Details</th><th>Description</th></tr>
+</thead>
+<tbody>
+<tr><td>Response format</td><td>JSON</td></tr>
+<tr><td>Requires Authentication</td><td>Yes</td></tr>
+</tbody>
+</table>
+<h3><a class="anchor" aria-hidden="true" id="parameters-2"></a><a href="#parameters-2" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Parameters</h3>
+<table>
+<thead>
+<tr><th>Name</th><th>Required</th><th>Description</th><th>Default Value</th><th>Example</th></tr>
+</thead>
+<tbody>
+</tbody>
+</table>
+<p>NA</p>
+<h3><a class="anchor" aria-hidden="true" id="example-response-2"></a><a href="#example-response-2" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Example Response</h3>
+<pre><code class="hljs css language-JSON">{
+  <span class="hljs-attr">"id"</span>: <span class="hljs-string">"string"</span>,
+  <span class="hljs-attr">"version"</span>: <span class="hljs-string">"string"</span>,
+  <span class="hljs-attr">"metadata"</span>: {},
+  <span class="hljs-attr">"responsetime"</span>: <span class="hljs-string">"yyyy-MM-dd'T'HH:mm:ss.SSS'Z'"</span>,
+  <span class="hljs-attr">"errors"</span>: <span class="hljs-literal">null</span>,
+  <span class="hljs-attr">"response"</span>:{
+    <span class="hljs-attr">"reasonCategories"</span> : [
+        {
+            <span class="hljs-attr">"code"</span>:<span class="hljs-string">"string"</span>,
+            <span class="hljs-attr">"name"</span>:<span class="hljs-string">"string"</span>,
+            <span class="hljs-attr">"desc"</span>:<span class="hljs-string">"string"</span>,
+            <span class="hljs-attr">"lang_code"</span>:<span class="hljs-string">"string"</span>, 
+                        <span class="hljs-attr">"isActive"</span>:<span class="hljs-string">"string"</span>,
+            <span class="hljs-attr">"reasonLists"</span> : [
+                {
+                    <span class="hljs-attr">"code"</span>:<span class="hljs-string">"string"</span>,
+                    <span class="hljs-attr">"name"</span>:<span class="hljs-string">"string"</span>,
+                    <span class="hljs-attr">"desc"</span>:<span class="hljs-string">"string"</span>,
+                                        <span class="hljs-attr">"rsnCatCode"</span>:<span class="hljs-string">"string"</span>,
+                                        <span class="hljs-attr">"isActive"</span>:<span class="hljs-literal">true</span>,
+                    <span class="hljs-attr">"lang_code"</span>:<span class="hljs-string">"string"</span>
+                },
+                {
+                    <span class="hljs-attr">"code"</span>:<span class="hljs-string">"string"</span>,
+                    <span class="hljs-attr">"name"</span>:<span class="hljs-string">"string"</span>,
+                    <span class="hljs-attr">"desc"</span>:<span class="hljs-string">"string"</span>,
+                                        <span class="hljs-attr">"rsnCatCode"</span>:<span class="hljs-string">"string"</span>,
+                                        <span class="hljs-attr">"isActive"</span>:<span class="hljs-literal">true</span>,
+                    <span class="hljs-attr">"lang_code"</span>:<span class="hljs-string">"string"</span>
+                }
+            ]
+        }
+    ]   
+   }
+}
+</code></pre>
+<p>200</p>
+<p>Description: Success</p>
+<p>400</p>
+<p>Description: Bad request</p>
+<p>401</p>
+<p>Description: Unauthorized</p>
+<p>404</p>
+<p>Description: Not Found</p>
+<h1><a class="anchor" aria-hidden="true" id="get-packetrejectionreasons-reasoncategorycode-languagecode"></a><a href="#get-packetrejectionreasons-reasoncategorycode-languagecode" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>GET /packetrejectionreasons/{reasoncategorycode}/{languagecode}</h1>
+<p>This service will provides the service for the List of Packet Rejection Reasons.</p>
+<h3><a class="anchor" aria-hidden="true" id="resource-url-3"></a><a href="#resource-url-3" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Resource URL</h3>
+<h3><a class="anchor" aria-hidden="true" id="get-packetrejectionreasons-reasoncategorycode-languagecode-1"></a><a href="#get-packetrejectionreasons-reasoncategorycode-languagecode-1" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><code>GET /packetrejectionreasons/{reasoncategorycode}/{languagecode}</code></h3>
+<h3><a class="anchor" aria-hidden="true" id="resource-details-3"></a><a href="#resource-details-3" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Resource details</h3>
+<table>
+<thead>
+<tr><th>Resource Details</th><th>Description</th></tr>
+</thead>
+<tbody>
+<tr><td>Response format</td><td>JSON</td></tr>
+<tr><td>Requires Authentication</td><td>Yes</td></tr>
+</tbody>
+</table>
+<h3><a class="anchor" aria-hidden="true" id="parameters-3"></a><a href="#parameters-3" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Parameters</h3>
+<table>
+<thead>
+<tr><th>Name</th><th>Required</th><th>Description</th><th>Default Value</th><th>Example</th></tr>
+</thead>
+<tbody>
+</tbody>
+</table>
+<p>NA</p>
+<h3><a class="anchor" aria-hidden="true" id="example-response-3"></a><a href="#example-response-3" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Example Response</h3>
+<pre><code class="hljs css language-JSON">{
+  <span class="hljs-attr">"id"</span>: <span class="hljs-string">"string"</span>,
+  <span class="hljs-attr">"version"</span>: <span class="hljs-string">"string"</span>,
+  <span class="hljs-attr">"metadata"</span>: {},
+  <span class="hljs-attr">"responsetime"</span>: <span class="hljs-string">"yyyy-MM-dd'T'HH:mm:ss.SSS'Z'"</span>,
+  <span class="hljs-attr">"errors"</span>: <span class="hljs-literal">null</span>,
+  <span class="hljs-attr">"response"</span>:{
+    <span class="hljs-attr">"reasonCategories"</span> : {
+        <span class="hljs-attr">"code"</span>:<span class="hljs-string">"string"</span>,
+        <span class="hljs-attr">"name"</span>:<span class="hljs-string">"string"</span>,
+        <span class="hljs-attr">"desc"</span>:<span class="hljs-string">"string"</span>,
+        <span class="hljs-attr">"lang_code"</span>:<span class="hljs-string">"string"</span>, 
+                <span class="hljs-attr">"isActive"</span>:<span class="hljs-literal">true</span>,
+        <span class="hljs-attr">"reason_lists"</span> : [
+            {
+                <span class="hljs-attr">"code"</span>:<span class="hljs-string">"string"</span>,
+                <span class="hljs-attr">"name"</span>:<span class="hljs-string">"string"</span>,
+                <span class="hljs-attr">"desc"</span>:<span class="hljs-string">"string"</span>,
+                                <span class="hljs-attr">"rsnCatCode"</span>:<span class="hljs-string">"string"</span>,
+                                <span class="hljs-attr">"isActive"</span>:<span class="hljs-literal">true</span>,
+                <span class="hljs-attr">"lang_code"</span>:<span class="hljs-string">"string"</span>
+            },
+            {
+                <span class="hljs-attr">"code"</span>:<span class="hljs-string">"string"</span>,
+                <span class="hljs-attr">"name"</span>:<span class="hljs-string">"string"</span>,
+                <span class="hljs-attr">"desc"</span>:<span class="hljs-string">"string"</span>,
+                                <span class="hljs-attr">"rsnCatCode"</span>:<span class="hljs-string">"string"</span>,
+                                <span class="hljs-attr">"isActive"</span>:<span class="hljs-literal">true</span>,
+                <span class="hljs-attr">"lang_code"</span>:<span class="hljs-string">"string"</span>
+            }
+        ]
+    }
+  }
+}
+</code></pre>
+<p>200</p>
+<p>Description: Success</p>
+<p>400</p>
+<p>Description: Bad request</p>
+<p>401</p>
+<p>Description: Unauthorized</p>
+<p>404</p>
+<p>Description: Not Found</p>
+<h1><a class="anchor" aria-hidden="true" id="get-packetrejectionreasons-id-languagecode-locationcode"></a><a href="#get-packetrejectionreasons-id-languagecode-locationcode" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>GET /packetrejectionreasons/{id}/{languagecode}/{locationcode}</h1>
+<p>This service will provides the service for the List of Packet Rejection Reasons based on id, language and location code.</p>
+<h3><a class="anchor" aria-hidden="true" id="resource-url-4"></a><a href="#resource-url-4" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Resource URL</h3>
+<h3><a class="anchor" aria-hidden="true" id="get-packetrejectionreasons-id-languagecode-locationcode-1"></a><a href="#get-packetrejectionreasons-id-languagecode-locationcode-1" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><code>GET /packetrejectionreasons/{id}/{languagecode}/{locationcode}</code></h3>
+<h3><a class="anchor" aria-hidden="true" id="resource-details-4"></a><a href="#resource-details-4" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Resource details</h3>
+<table>
+<thead>
+<tr><th>Resource Details</th><th>Description</th></tr>
+</thead>
+<tbody>
+<tr><td>Response format</td><td>JSON</td></tr>
+<tr><td>Requires Authentication</td><td>Yes</td></tr>
+</tbody>
+</table>
+<h3><a class="anchor" aria-hidden="true" id="parameters-4"></a><a href="#parameters-4" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Parameters</h3>
+<table>
+<thead>
+<tr><th>Name</th><th>Required</th><th>Description</th><th>Default Value</th><th>Example</th></tr>
+</thead>
+<tbody>
+<tr><td>packetrejectionreasonid</td><td>Yes</td><td>Code of the language</td><td></td></tr>
+<tr><td>packetrejectionreasondesc</td><td>Yes</td><td>Name of the language</td><td></td></tr>
+</tbody>
+</table>
+<h3><a class="anchor" aria-hidden="true" id="example-response-4"></a><a href="#example-response-4" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Example Response</h3>
+<pre><code class="hljs css language-JSON">{
+  <span class="hljs-attr">"id"</span>: <span class="hljs-string">"string"</span>,
+  <span class="hljs-attr">"version"</span>: <span class="hljs-string">"string"</span>,
+  <span class="hljs-attr">"metadata"</span>: {},
+  <span class="hljs-attr">"responsetime"</span>: <span class="hljs-string">"yyyy-MM-dd'T'HH:mm:ss.SSS'Z'"</span>,
+  <span class="hljs-attr">"errors"</span>: <span class="hljs-literal">null</span>,
+  <span class="hljs-attr">"response"</span>:  {
+  <span class="hljs-attr">"packetrejectionreasons"</span>: [
+                { 
+                        <span class="hljs-attr">"packetrejectionreasonid"</span>:<span class="hljs-string">"string"</span>,
+                        <span class="hljs-attr">"packetrejectionreasondesc"</span>:<span class="hljs-string">"string"</span>,
+                        <span class="hljs-attr">"languagecode"</span>:<span class="hljs-string">"string"</span>,
+                        <span class="hljs-attr">"locationcode"</span>:<span class="hljs-string">"string"</span>
+                }, 
+                { 
+                        <span class="hljs-attr">"packetrejectionreasonid"</span>:<span class="hljs-string">"string"</span>,
+                        <span class="hljs-attr">"packetrejectionreasondesc"</span>:<span class="hljs-string">"string"</span>,
+                        <span class="hljs-attr">"languagecode"</span>:<span class="hljs-string">"string"</span>
+                        <span class="hljs-string">"locationcode"</span>:<span class="hljs-string">"string"</span>
+                }
+            ]
+      }
+}
+</code></pre>
+<p>200</p>
+<p>Description: Success</p>
+<p>400</p>
+<p>Description: Bad request</p>
+<p>401</p>
+<p>Description: Unauthorized</p>
+<p>404</p>
+<p>Description: Not Found</p>
+<h3><a class="anchor" aria-hidden="true" id="failure-response"></a><a href="#failure-response" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Failure Response</h3>
+<pre><code class="hljs css language-JSON">{
+  <span class="hljs-attr">"id"</span>: <span class="hljs-string">"string"</span>,
+  <span class="hljs-attr">"version"</span>: <span class="hljs-string">"string"</span>,
+  <span class="hljs-attr">"metadata"</span>: {},
+  <span class="hljs-attr">"responsetime"</span>: <span class="hljs-string">"yyyy-MM-dd'T'HH:mm:ss.SSS'Z'"</span>,
+  <span class="hljs-attr">"errors"</span>: [{
+      <span class="hljs-attr">"errorCode"</span>: <span class="hljs-string">"string"</span>,
+      <span class="hljs-attr">"message"</span>: <span class="hljs-string">"string"</span>
+    }],
+  <span class="hljs-attr">"response"</span>:  <span class="hljs-literal">null</span>
+}
+</code></pre>
+<h4><a class="anchor" aria-hidden="true" id="failure-details"></a><a href="#failure-details" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Failure details</h4>
+<table>
+<thead>
+<tr><th>Error Code</th><th>Error Message</th><th>Error Description</th></tr>
+</thead>
+<tbody>
+<tr><td>KER-MSD-035</td><td>Error occurred while fetching Reasons</td><td>Fetch Issue</td></tr>
+<tr><td>KER-MSD-057</td><td>Error occurred while inserting reason details</td><td>Insertion Issue</td></tr>
+<tr><td>KER-MSD-036</td><td>Reason not found</td><td>Data Not Found</td></tr>
+<tr><td>KER-MSD-058</td><td>Error occurred while inserting reason details</td><td>List Insertion Issue</td></tr>
+</tbody>
+</table>
+<h1><a class="anchor" aria-hidden="true" id="packet-on-hold-reasons-master-api"></a><a href="#packet-on-hold-reasons-master-api" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Packet On-hold Reasons Master API</h1>
+<ul>
+<li><a href="#post-packetonholdreasons">POST /packetonholdreasons</a></li>
+<li><a href="#get-packetonholdreasons">GET /packetonholdreasons</a></li>
+<li><a href="#get-packetonholdreasonsidlanguagecode">GET /packetonholdreasons/{id}/{languagecode}</a></li>
+</ul>
+<h1><a class="anchor" aria-hidden="true" id="post-packetonholdreasons"></a><a href="#post-packetonholdreasons" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>POST /packetonholdreasons</h1>
+<p>This service will create the list of Packet On-hold Reasons which are used in the MOSIP platform.</p>
+<h3><a class="anchor" aria-hidden="true" id="resource-url-5"></a><a href="#resource-url-5" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Resource URL</h3>
+<h3><a class="anchor" aria-hidden="true" id="post-packetonholdreasons-1"></a><a href="#post-packetonholdreasons-1" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><code>POST /packetonholdreasons</code></h3>
+<h3><a class="anchor" aria-hidden="true" id="resource-details-5"></a><a href="#resource-details-5" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Resource details</h3>
+<table>
+<thead>
+<tr><th>Resource Details</th><th>Description</th></tr>
+</thead>
+<tbody>
+<tr><td>Response format</td><td>JSON</td></tr>
+<tr><td>Requires Authentication</td><td>Yes</td></tr>
+</tbody>
+</table>
+<h3><a class="anchor" aria-hidden="true" id="parameters-5"></a><a href="#parameters-5" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Parameters</h3>
+<table>
+<thead>
+<tr><th>Name</th><th>Required</th><th>Description</th><th>Default Value</th><th>Example</th></tr>
+</thead>
+<tbody>
+<tr><td>packetonholdreasondesc</td><td>Yes</td><td>Name of the packet rejection reason</td><td></td></tr>
+</tbody>
+</table>
+<h3><a class="anchor" aria-hidden="true" id="example-request-2"></a><a href="#example-request-2" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Example Request</h3>
+<pre><code class="hljs css language-JSON">{
+  <span class="hljs-attr">"id"</span>: <span class="hljs-string">"string"</span>,
+  <span class="hljs-attr">"version"</span>: <span class="hljs-string">"string"</span>,
+  <span class="hljs-attr">"metadata"</span>: {},
+  <span class="hljs-attr">"requesttime"</span>: <span class="hljs-string">"yyyy-MM-dd'T'HH:mm:ss.SSS'Z'"</span>,
+  <span class="hljs-attr">"request"</span>: {
+      <span class="hljs-attr">"packetonholdreasons"</span>: [
+            { 
+                <span class="hljs-attr">"packetonholdreasondesc"</span>:<span class="hljs-string">"string"</span>,
+                <span class="hljs-attr">"languagecode"</span>:<span class="hljs-string">"string"</span>
+            }, 
+            { 
+                <span class="hljs-attr">"packetonholdreasondesc"</span>:<span class="hljs-string">"string"</span>,
+                <span class="hljs-attr">"languagecode"</span>:<span class="hljs-string">"string"</span>
+            }
+      ]
+    }
+}
+</code></pre>
+<h3><a class="anchor" aria-hidden="true" id="example-response-5"></a><a href="#example-response-5" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Example Response</h3>
+<pre><code class="hljs css language-JSON">{
+  <span class="hljs-attr">"id"</span>: <span class="hljs-string">"string"</span>,
+  <span class="hljs-attr">"version"</span>: <span class="hljs-string">"string"</span>,
+  <span class="hljs-attr">"metadata"</span>: {},
+  <span class="hljs-attr">"responsetime"</span>: <span class="hljs-string">"yyyy-MM-dd'T'HH:mm:ss.SSS'Z'"</span>,
+  <span class="hljs-attr">"errors"</span>: <span class="hljs-literal">null</span>,
+  <span class="hljs-attr">"response"</span>: {
+      <span class="hljs-attr">"successfully_created_packetonholdreasons"</span>: [
+            { 
+                <span class="hljs-attr">"packetonholdreasonid"</span>:<span class="hljs-string">"string"</span>
+            }, 
+            { 
+                <span class="hljs-attr">"packetonholdreasonid"</span>:<span class="hljs-string">"string"</span>
+            }
+                 ]
+             }
+  }
+</code></pre>
+<h3><a class="anchor" aria-hidden="true" id="response-codes-2"></a><a href="#response-codes-2" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Response codes</h3>
+<p>202</p>
+<p>Description: Accepted</p>
+<p>400</p>
+<p>Description: Bad request</p>
+<p>401</p>
+<p>Description: Unauthorized</p>
+<p>403</p>
+<p>Description: Forbidden</p>
+<h1><a class="anchor" aria-hidden="true" id="get-packetonholdreasons"></a><a href="#get-packetonholdreasons" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>GET /packetonholdreasons</h1>
+<p>Master data is required across the platform.</p>
+<p>This service will provides the service for the List of Packet On-hold Reasons.</p>
+<h3><a class="anchor" aria-hidden="true" id="resource-url-6"></a><a href="#resource-url-6" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Resource URL</h3>
+<h3><a class="anchor" aria-hidden="true" id="get-packetonholdreasons-1"></a><a href="#get-packetonholdreasons-1" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><code>GET /packetonholdreasons</code></h3>
+<h3><a class="anchor" aria-hidden="true" id="resource-details-6"></a><a href="#resource-details-6" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Resource details</h3>
+<table>
+<thead>
+<tr><th>Resource Details</th><th>Description</th></tr>
+</thead>
+<tbody>
+<tr><td>Response format</td><td>JSON</td></tr>
+<tr><td>Requires Authentication</td><td>Yes</td></tr>
+</tbody>
+</table>
+<h3><a class="anchor" aria-hidden="true" id="parameters-6"></a><a href="#parameters-6" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Parameters</h3>
+<table>
+<thead>
+<tr><th>Name</th><th>Required</th><th>Description</th><th>Default Value</th><th>Example</th></tr>
+</thead>
+<tbody>
+<tr><td>packetonholdreasonid</td><td>Yes</td><td>Code of the language</td><td></td></tr>
+<tr><td>packetonholdreasondesc</td><td>Yes</td><td>Name of the language</td><td></td></tr>
+</tbody>
+</table>
+<h3><a class="anchor" aria-hidden="true" id="example-response-6"></a><a href="#example-response-6" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Example Response</h3>
+<pre><code class="hljs css language-JSON">{
+  <span class="hljs-attr">"id"</span>: <span class="hljs-string">"string"</span>,
+  <span class="hljs-attr">"version"</span>: <span class="hljs-string">"string"</span>,
+  <span class="hljs-attr">"metadata"</span>: {},
+  <span class="hljs-attr">"responsetime"</span>: <span class="hljs-string">"yyyy-MM-dd'T'HH:mm:ss.SSS'Z'"</span>,
+  <span class="hljs-attr">"errors"</span>: <span class="hljs-literal">null</span>,
+  <span class="hljs-attr">"response"</span>:{
+            <span class="hljs-attr">"packetonholdreasons"</span>: [
+                { 
+                    <span class="hljs-attr">"packetonholdreasonid"</span>:<span class="hljs-string">"string"</span>,
+                    <span class="hljs-attr">"packetonholdreasondesc"</span>:<span class="hljs-string">"string"</span>,
+                    <span class="hljs-attr">"languagecode"</span>:<span class="hljs-string">"string"</span>
+                }, 
+                { 
+                    <span class="hljs-attr">"packetonholdreasonid"</span>:<span class="hljs-string">"string"</span>,
+                    <span class="hljs-attr">"packetonholdreasondesc"</span>:<span class="hljs-string">"string"</span>,
+                    <span class="hljs-attr">"languagecode"</span>:<span class="hljs-string">"string"</span>
+                }
+            ]
+         }
+}
+</code></pre>
+<p>200</p>
+<p>Description: Success</p>
+<p>400</p>
+<p>Description: Bad request</p>
+<p>401</p>
+<p>Description: Unauthorized</p>
+<p>404</p>
+<p>Description: Not Found</p>
+<h1><a class="anchor" aria-hidden="true" id="get-packetonholdreasons-id-languagecode"></a><a href="#get-packetonholdreasons-id-languagecode" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>GET /packetonholdreasons/{id}/{languagecode}</h1>
+<p>This service will provides the service for the List of Packet On-hold Reasons.</p>
+<h3><a class="anchor" aria-hidden="true" id="resource-url-7"></a><a href="#resource-url-7" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Resource URL</h3>
+<h3><a class="anchor" aria-hidden="true" id="get-packetonholdreasons-id-languagecode-1"></a><a href="#get-packetonholdreasons-id-languagecode-1" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><code>GET /packetonholdreasons/{id}/{languagecode}</code></h3>
+<h3><a class="anchor" aria-hidden="true" id="resource-details-7"></a><a href="#resource-details-7" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Resource details</h3>
+<table>
+<thead>
+<tr><th>Resource Details</th><th>Description</th></tr>
+</thead>
+<tbody>
+<tr><td>Response format</td><td>JSON</td></tr>
+<tr><td>Requires Authentication</td><td>Yes</td></tr>
+</tbody>
+</table>
+<h3><a class="anchor" aria-hidden="true" id="parameters-7"></a><a href="#parameters-7" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Parameters</h3>
+<table>
+<thead>
+<tr><th>Name</th><th>Required</th><th>Description</th><th>Default Value</th><th>Example</th></tr>
+</thead>
+<tbody>
+<tr><td>packetonholdreasonid</td><td>Yes</td><td>Code of the language</td><td></td></tr>
+<tr><td>packetonholdreasondesc</td><td>Yes</td><td>Name of the language</td><td></td></tr>
+</tbody>
+</table>
+<h3><a class="anchor" aria-hidden="true" id="example-response-7"></a><a href="#example-response-7" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Example Response</h3>
+<pre><code class="hljs css language-JSON">{
+  <span class="hljs-attr">"id"</span>: <span class="hljs-string">"string"</span>,
+  <span class="hljs-attr">"version"</span>: <span class="hljs-string">"string"</span>,
+  <span class="hljs-attr">"metadata"</span>: {},
+  <span class="hljs-attr">"responsetime"</span>: <span class="hljs-string">"yyyy-MM-dd'T'HH:mm:ss.SSS'Z'"</span>,
+  <span class="hljs-attr">"errors"</span>: <span class="hljs-literal">null</span>,
+  <span class="hljs-attr">"response"</span>:    {
+        <span class="hljs-attr">"packetonholdreasons"</span>: [
+                { 
+                        <span class="hljs-attr">"packetonholdreasonid"</span>:<span class="hljs-string">"string"</span>,
+                        <span class="hljs-attr">"packetonholdreasondesc"</span>:<span class="hljs-string">"string"</span>,
+                        <span class="hljs-attr">"languagecode"</span>:<span class="hljs-string">"string"</span>
+                }, 
+                { 
+                        <span class="hljs-attr">"packetonholdreasonid"</span>:<span class="hljs-string">"string"</span>,
+                        <span class="hljs-attr">"packetonholdreasondesc"</span>:<span class="hljs-string">"string"</span>,
+                        <span class="hljs-attr">"languagecode"</span>:<span class="hljs-string">"string"</span>
+                }
+                   ]
+                  }
+  }
+</code></pre>
+<p>200</p>
+<p>Description: Success</p>
+<p>400</p>
+<p>Description: Bad request</p>
+<p>401</p>
+<p>Description: Unauthorized</p>
+<p>404</p>
+<p>Description: Not Found</p>
+<h3><a class="anchor" aria-hidden="true" id="failure-response-1"></a><a href="#failure-response-1" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Failure Response</h3>
+<pre><code class="hljs css language-JSON">{
+  <span class="hljs-attr">"id"</span>: <span class="hljs-string">"string"</span>,
+  <span class="hljs-attr">"version"</span>: <span class="hljs-string">"string"</span>,
+  <span class="hljs-attr">"metadata"</span>: {},
+  <span class="hljs-attr">"responsetime"</span>: <span class="hljs-string">"yyyy-MM-dd'T'HH:mm:ss.SSS'Z'"</span>,
+  <span class="hljs-attr">"errors"</span>: [{
+      <span class="hljs-attr">"errorCode"</span>: <span class="hljs-string">"string"</span>,
+      <span class="hljs-attr">"message"</span>: <span class="hljs-string">"string"</span>
+    }],
+  <span class="hljs-attr">"response"</span>: <span class="hljs-literal">null</span>
+  }
+</code></pre>
+</span></div></article></div><div class="docs-prevnext"></div></div></div><nav class="onPageNav"></nav></div><footer class="nav-footer" id="footer"><section class="sitemap"><a href="/" class="nav-home"><img src="/img/favicon.ico" alt="MOSIP Documentation" width="66" height="58"/></a><div><h5>Docs</h5><a href="/docs/en/doc1.html">Getting Started (or other categories)</a><a href="/docs/en/doc2.html">Guides (or other categories)</a><a href="/docs/en/doc3.html">API Reference (or other categories)</a></div><div><h5>Community</h5><a href="/en/users.html">User Showcase</a><a href="https://stackoverflow.com/questions/tagged/" target="_blank" rel="noreferrer noopener">Stack Overflow</a><a href="https://discordapp.com/">Project Chat</a><a href="https://twitter.com/" target="_blank" rel="noreferrer noopener">Twitter</a></div><div><h5>More</h5><a href="/blog">Blog</a><a href="https://github.com/">GitHub</a><a class="github-button" data-icon="octicon-star" data-count-href="/facebook/docusaurus/stargazers" data-show-count="true" data-count-aria-label="# stargazers on GitHub" aria-label="Star this project on GitHub">Star</a></div></section><a href="https://opensource.facebook.com/" target="_blank" rel="noreferrer noopener" class="fbOpenSource"><img src="/img/oss_logo.png" alt="Facebook Open Source" width="170" height="45"/></a><section class="copyright">Copyright © 2019 Your Name or Your Company Name</section></footer></div></body></html>

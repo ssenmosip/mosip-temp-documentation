@@ -1,0 +1,1317 @@
+<!DOCTYPE html><html lang="en"><head><meta charSet="utf-8"/><meta http-equiv="X-UA-Compatible" content="IE=edge"/><title>Admin-APIs · MOSIP Documentation</title><meta name="viewport" content="width=device-width"/><meta name="generator" content="Docusaurus"/><meta name="description" content="* [Login](#login)"/><meta name="docsearch:language" content="en"/><meta property="og:title" content="Admin-APIs · MOSIP Documentation"/><meta property="og:type" content="website"/><meta property="og:url" content="https://your-docusaurus-test-site.com/"/><meta property="og:description" content="* [Login](#login)"/><meta property="og:image" content="https://your-docusaurus-test-site.com/img/undraw_online.svg"/><meta name="twitter:card" content="summary"/><meta name="twitter:image" content="https://your-docusaurus-test-site.com/img/undraw_tweetstorm.svg"/><link rel="shortcut icon" href="/img/favicon.ico"/><link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css"/><link rel="alternate" type="application/atom+xml" href="https://your-docusaurus-test-site.com/blog/atom.xml" title="MOSIP Documentation Blog ATOM Feed"/><link rel="alternate" type="application/rss+xml" href="https://your-docusaurus-test-site.com/blog/feed.xml" title="MOSIP Documentation Blog RSS Feed"/><script type="text/javascript" src="https://buttons.github.io/buttons.js"></script><script src="/js/scrollSpy.js"></script><link rel="stylesheet" href="/css/main.css"/><script src="/js/codetabs.js"></script></head><body class="sideNavVisible separateOnPageNav"><div class="fixedHeaderContainer"><div class="headerWrapper wrapper"><header><a href="/"><img class="logo" src="/img/favicon.ico" alt="MOSIP Documentation"/><h2 class="headerTitleWithLogo">MOSIP Documentation</h2></a><div class="navigationWrapper navigationSlider"><nav class="slidingNav"><ul class="nav-site nav-site-internal"><li class=""><a href="/docs/Platform-Documentation" target="_self">Docs</a></li><li class=""><a href="/docs/Getting-Started" target="_self">API</a></li><li class=""><a href="/Contributor-Guide" target="_self">Help</a></li><li class=""><a href="/blog/" target="_self">Blog</a></li></ul></nav></div></header></div></div><div class="navPusher"><div class="docMainWrapper wrapper"><div class="container mainContainer"><div class="wrapper"><div class="post"><header class="postHeader"><h1 class="postHeaderTitle">Admin-APIs</h1></header><article><div><span><ul>
+<li><a href="#login">Login</a></li>
+<li><a href="#master-data">Master Data</a></li>
+<li><a href="#account-management">Account Management</a></li>
+<li><a href="#user-management">User Management</a></li>
+<li><a href="#uin-services">UIN Services</a></li>
+</ul>
+<h1><a class="anchor" aria-hidden="true" id="login"></a><a href="#login" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Login</h1>
+<ul>
+<li><a href="#get-securityauthfactors">GET /security/authfactors</a></li>
+<li><a href="#post-login">POST /login</a></li>
+<li><a href="#post-sendotp">POST /sendotp</a></li>
+<li><a href="#post-useridOTP">POST /useridOTP</a></li>
+<li><a href="#post-logout">POST /logout</a></li>
+</ul>
+<h3><a class="anchor" aria-hidden="true" id="get-security-authfactors"></a><a href="#get-security-authfactors" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>GET /security/authfactors</h3>
+<p>This service will give back the authentication factors for the login of the user. It will accept the username and find the user's groups. Based on the groups, the auth factors are decided and send back.</p>
+<h4><a class="anchor" aria-hidden="true" id="resource-url"></a><a href="#resource-url" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Resource URL</h4>
+<div>https://mosip.io/v1/admin/security/authfactors/{userId}</div>
+<h4><a class="anchor" aria-hidden="true" id="resource-details"></a><a href="#resource-details" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Resource details</h4>
+<table>
+<thead>
+<tr><th>Resource Details</th><th>Description</th></tr>
+</thead>
+<tbody>
+<tr><td>Response format</td><td>JSON</td></tr>
+<tr><td>Requires Authentication</td><td>Yes</td></tr>
+</tbody>
+</table>
+<h4><a class="anchor" aria-hidden="true" id="request-part-parameters"></a><a href="#request-part-parameters" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Request Part Parameters</h4>
+<table>
+<thead>
+<tr><th>Name</th><th>Required</th><th>Description</th><th>Example</th></tr>
+</thead>
+<tbody>
+<tr><td>userid</td><td>Yes</td><td>User id of the user</td><td>UDAE423</td></tr>
+<tr><td>timeStamp</td><td>Yes</td><td>Date-time  in UTC ISO-8601</td><td>2007-12-03T10:15:30Z</td></tr>
+</tbody>
+</table>
+<h4><a class="anchor" aria-hidden="true" id="request"></a><a href="#request" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Request</h4>
+<div>https://mosip.io/v1/admin/security/authfactors/UDAE423?timeStamp=2018-12-09T06%3A39%3A03.683Z </div>
+<h4><a class="anchor" aria-hidden="true" id="responses"></a><a href="#responses" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Responses:</h4>
+<h5><a class="anchor" aria-hidden="true" id="success-response"></a><a href="#success-response" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Success Response:</h5>
+<h6><a class="anchor" aria-hidden="true" id="status-code-200"></a><a href="#status-code-200" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Status code: '200'</h6>
+<h6><a class="anchor" aria-hidden="true" id="description-list-of-auth-factors-are-returned"></a><a href="#description-list-of-auth-factors-are-returned" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Description: List of auth factors are returned</h6>
+<pre><code class="hljs css language-JSON">
+{
+    <span class="hljs-attr">"id"</span>: <span class="hljs-string">"mosip.admin.security.authfactors"</span>,
+    <span class="hljs-attr">"version"</span>: <span class="hljs-string">"1.0"</span>,
+    <span class="hljs-attr">"metadata"</span>: {},
+    <span class="hljs-attr">"responsetime"</span>: <span class="hljs-string">"2007-12-03T10:15:30Z"</span>,
+    <span class="hljs-attr">"errors"</span>: [],
+    <span class="hljs-attr">"response"</span>: {
+        <span class="hljs-attr">"authtypes"</span>: [<span class="hljs-string">"PASSWORD"</span>, <span class="hljs-string">"OTP"</span>, <span class="hljs-string">"FINGERPRINT_TYPE-1"</span>]
+    }
+}
+</code></pre>
+<h5><a class="anchor" aria-hidden="true" id="error-response"></a><a href="#error-response" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Error Response:</h5>
+<h6><a class="anchor" aria-hidden="true" id="status-code-200-1"></a><a href="#status-code-200-1" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Status code: '200'</h6>
+<h6><a class="anchor" aria-hidden="true" id="description-if-the-user-is-not-found"></a><a href="#description-if-the-user-is-not-found" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Description: If the user is not found.</h6>
+<pre><code class="hljs css language-JSON">
+{
+  <span class="hljs-attr">"id"</span>: <span class="hljs-string">"mosip.admin.security.authfactors"</span>,
+  <span class="hljs-attr">"version"</span>: <span class="hljs-string">"1.0"</span>,
+  <span class="hljs-attr">"metadata"</span>: {},
+  <span class="hljs-attr">"responsetime"</span>: <span class="hljs-string">"2007-12-03T10:15:30Z"</span>,
+  <span class="hljs-attr">"errors"</span>: [
+    {
+      <span class="hljs-attr">"errorCode"</span>: <span class="hljs-string">"ADMN-AUTH-USR-NOTFOUND"</span>,
+      <span class="hljs-attr">"message"</span>: <span class="hljs-string">"The userid is not found in the system"</span>
+    }
+  ]
+}
+</code></pre>
+<h3><a class="anchor" aria-hidden="true" id="post-login"></a><a href="#post-login" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>POST /login</h3>
+<p>This service will authenticate the username and password. This service will call the login service in the Auth API and will return the token back to the caller.</p>
+<h4><a class="anchor" aria-hidden="true" id="resource-url-1"></a><a href="#resource-url-1" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Resource URL</h4>
+<div>https://mosip.io/v1/admin/login</div>
+<h4><a class="anchor" aria-hidden="true" id="resource-details-1"></a><a href="#resource-details-1" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Resource details</h4>
+<table>
+<thead>
+<tr><th>Resource Details</th><th>Description</th></tr>
+</thead>
+<tbody>
+<tr><td>Response format</td><td>The response will be sent in the Response Header and also a JSON message will be returned.</td></tr>
+<tr><td>Requires Authentication</td><td>no</td></tr>
+</tbody>
+</table>
+<h4><a class="anchor" aria-hidden="true" id="parameters"></a><a href="#parameters" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Parameters</h4>
+<table>
+<thead>
+<tr><th>Name</th><th>Required</th><th>Description</th><th>Default Value</th><th>Example</th></tr>
+</thead>
+<tbody>
+<tr><td>username</td><td>Yes</td><td>This is the username of the user.</td><td>-NA-</td><td>M392380</td></tr>
+<tr><td>password</td><td>Yes</td><td>This is the password of the user</td><td>-NA-</td><td>MOBILENUMBER</td></tr>
+<tr><td>appid</td><td>Yes</td><td>This is the application ID of the caller of this service.</td><td>-NA-</td><td>ADMIN</td></tr>
+</tbody>
+</table>
+<h4><a class="anchor" aria-hidden="true" id="example-request"></a><a href="#example-request" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Example Request</h4>
+<pre><code class="hljs css language-JSON">{
+    <span class="hljs-attr">"id"</span>: <span class="hljs-string">"mosip.admin.authentication.login"</span>,
+    <span class="hljs-attr">"version"</span>:<span class="hljs-string">"1.0"</span>,    
+    <span class="hljs-attr">"requesttime"</span>:<span class="hljs-string">"2007-12-03T10:15:30Z"</span>,
+    <span class="hljs-attr">"request"</span>: {
+        <span class="hljs-attr">"username"</span>: <span class="hljs-string">"M392380"</span>,
+        <span class="hljs-attr">"password"</span>: <span class="hljs-string">"fdkj943lkj32k32ew$8Kf"</span>,
+        <span class="hljs-attr">"appid"</span>: <span class="hljs-string">"ADMIN"</span>
+    }
+}
+</code></pre>
+<h4><a class="anchor" aria-hidden="true" id="example-response"></a><a href="#example-response" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Example Response</h4>
+<p>Success Response</p>
+<pre><code class="hljs">Response Cookie:
+
+Set-Cookie →<span class="hljs-attribute">Authorization</span>=Mosip-TokeneyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJpbmRpdmlkdWFsIiwibW9iaWxlIjoiOTY2MzE3NTkyOCIsIm1haWwiOiJpbmRpdmlkdWFsQGdtYWlsLmNvbSIsInJvbGUiOiJwZXJzb24iLCJpYXQiOjE1NTEzNDU1NjUsImV4cCI6MTU1MTM1MTU2NX0.pCyibViXo31enOgRD60BnKjEpEA-78yzbWnZGChxCIZ5lTpYnhgm-0dtoT3neFebTJ8eAI7-o8jDWMCMqq6uSw; <span class="hljs-attribute">Max-Age</span>=6000000; <span class="hljs-attribute">Expires</span>=Wed, 08-May-2019 19:59:43 GMT; <span class="hljs-attribute">Path</span>=/; Secure; HttpOnly
+
+
+JSON:
+{
+    <span class="hljs-string">"id"</span>: <span class="hljs-string">"mosip.admin.authentication.login"</span>,
+    <span class="hljs-string">"ver"</span>: <span class="hljs-string">"1.0"</span>,
+    <span class="hljs-string">"responsetime"</span>: <span class="hljs-string">"2007-12-03T10:15:30Z"</span>,
+    <span class="hljs-string">"response"</span>: {
+                <span class="hljs-string">"status"</span>: <span class="hljs-string">"success"</span>,
+        <span class="hljs-string">"message"</span>:<span class="hljs-string">"Username and password combination had been validated successfully"</span>
+    }
+}
+
+</code></pre>
+<p>Error Responses</p>
+<ol>
+<li>Invalid credentials: If the passed credentials is not correct.</li>
+</ol>
+<pre><code class="hljs css language-JSON">
+{
+    <span class="hljs-attr">"id"</span>: <span class="hljs-string">"mosip.admin.authentication.login"</span>,
+    <span class="hljs-attr">"ver"</span>: <span class="hljs-string">"1.0"</span>,
+    <span class="hljs-attr">"responsetime"</span>: <span class="hljs-string">"2007-12-03T10:15:30Z"</span>,
+    <span class="hljs-attr">"errors"</span>:[
+            {
+                <span class="hljs-attr">"errorCode"</span>: <span class="hljs-string">"ADMN_AUTH_ERR_INVALIDCREDENTIALS"</span>,
+                <span class="hljs-attr">"message"</span>: <span class="hljs-string">"The passed in credentials is not correct"</span>
+          } 
+        ]
+}
+
+</code></pre>
+<ol start="2">
+<li>Invalid application ID: If the passed in application is not correct.</li>
+</ol>
+<pre><code class="hljs css language-JSON">
+{
+    <span class="hljs-attr">"id"</span>: <span class="hljs-string">"mosip.admin.authentication.login"</span>,
+    <span class="hljs-attr">"ver"</span>: <span class="hljs-string">"1.0"</span>,
+    <span class="hljs-attr">"responsetime"</span>: <span class="hljs-string">"2007-12-03T10:15:30Z"</span>,
+    <span class="hljs-attr">"errors"</span>:[
+            {
+                <span class="hljs-attr">"errorCode"</span>: <span class="hljs-string">"ADMN_AUTH_ERR_INVALIDAPPID"</span>,
+                <span class="hljs-attr">"message"</span>: <span class="hljs-string">"The passed in application ID is not correct"</span>
+          } 
+        ]
+}
+
+</code></pre>
+<h3><a class="anchor" aria-hidden="true" id="post-sendotp"></a><a href="#post-sendotp" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>POST /sendotp</h3>
+<p>This service sends an OTP to the user. The caller of this service have to send the channel in which the OTP will be sent. Based on the application ID, the corresponding channel's recepient address will be found out and the OTP is send accordingly. Note: At this point of time, no Auth Token will be generated.</p>
+<h4><a class="anchor" aria-hidden="true" id="resource-url-2"></a><a href="#resource-url-2" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Resource URL</h4>
+<div>https://mosip.io/v1/admin/sendotp</div>
+<h4><a class="anchor" aria-hidden="true" id="resource-details-2"></a><a href="#resource-details-2" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Resource details</h4>
+<table>
+<thead>
+<tr><th>Resource Details</th><th>Description</th></tr>
+</thead>
+<tbody>
+<tr><td>Response format</td><td>A JSON message will be returned.</td></tr>
+<tr><td>Requires Authentication</td><td>no</td></tr>
+</tbody>
+</table>
+<h4><a class="anchor" aria-hidden="true" id="parameters-1"></a><a href="#parameters-1" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Parameters</h4>
+<table>
+<thead>
+<tr><th>Name</th><th>Required</th><th>Description</th><th>Default Value</th><th>Example</th></tr>
+</thead>
+<tbody>
+<tr><td>userid</td><td>Yes</td><td>This is the userid of the user. Based on the useridtype, this will vary.</td><td>-NA-</td><td>M392380</td></tr>
+<tr><td>otpchannel</td><td>Yes</td><td>This is the channel in which the OTP will be sent. It is an array of the enumeration {&quot;EMAIL&quot;, &quot;MOBILENUMBER&quot;}. If the channel is not found, ChannelNotSupported error will be sent back</td><td>-NA-</td><td>MOBILENUMBER</td></tr>
+<tr><td>useridtype</td><td>Yes</td><td>This field is the user id type. It should be one the {&quot;UIN&quot;, &quot;USERID&quot;}. Based on the combination of &quot;appid&quot; and &quot;useridtype&quot; the system identifies from which system to pickup the channel's recepient address</td><td>-NA-</td><td>USERID</td></tr>
+<tr><td>appid</td><td>Yes</td><td>This is the application ID of the caller of this service. It should be on of the {&quot;PREREGISTRATION&quot;, &quot;REGISTRATIONCLIENT&quot;, &quot;REGISTRATIONPROCESSOR&quot;, &quot;IDA&quot;}</td><td>-NA-</td><td>PREREGISTRATION</td></tr>
+</tbody>
+</table>
+<h4><a class="anchor" aria-hidden="true" id="example-request-1"></a><a href="#example-request-1" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Example Request</h4>
+<pre><code class="hljs css language-JSON">{
+    <span class="hljs-attr">"id"</span>: <span class="hljs-string">"mosip.admin.authentication.sendotp"</span>,
+    <span class="hljs-attr">"version"</span>:<span class="hljs-string">"1.0"</span>,    
+    <span class="hljs-attr">"requesttime"</span>:<span class="hljs-string">"2007-12-03T10:15:30Z"</span>,
+    <span class="hljs-attr">"request"</span>: {
+        <span class="hljs-attr">"userid"</span>: <span class="hljs-string">"M392380"</span>,
+        <span class="hljs-attr">"otpchannel"</span>: [<span class="hljs-string">"MOBILE"</span>, <span class="hljs-string">"EMAIL"</span>],
+        <span class="hljs-attr">"templateParams"</span>: {
+            <span class="hljs-attr">"expiryTime"</span>:<span class="hljs-string">"20 minutes"</span>,
+            <span class="hljs-attr">"purpose"</span>:<span class="hljs-string">"Changing password"</span>,
+        }
+        <span class="hljs-string">"useridtype"</span>: <span class="hljs-string">"USERID"</span>,
+        <span class="hljs-attr">"appid"</span>: <span class="hljs-string">"REGISTRATIONCLIENT"</span>
+    }
+}
+</code></pre>
+<h4><a class="anchor" aria-hidden="true" id="example-response-1"></a><a href="#example-response-1" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Example Response</h4>
+<p>Success Response</p>
+<pre><code class="hljs css language-JSON">{
+    <span class="hljs-attr">"id"</span>: <span class="hljs-string">"mosip.admin.authentication.sendotp"</span>,
+    <span class="hljs-attr">"ver"</span>: <span class="hljs-string">"1.0"</span>,
+    <span class="hljs-attr">"responsetime"</span>: <span class="hljs-string">"2007-12-03T10:15:30Z"</span>,
+    <span class="hljs-attr">"response"</span>: {
+                <span class="hljs-attr">"status"</span>: <span class="hljs-string">"success"</span>,
+        <span class="hljs-attr">"message"</span>:<span class="hljs-string">"OTP had been sent successfully"</span>
+    }
+}
+
+</code></pre>
+<p>Error Response</p>
+<ol>
+<li>Invalid Channel: This is the error response in case if the channel is not valid.</li>
+</ol>
+<pre><code class="hljs css language-JSON">{
+    <span class="hljs-attr">"id"</span>: <span class="hljs-string">"mosip.admin.authentication.sendotp"</span>,
+    <span class="hljs-attr">"ver"</span>: <span class="hljs-string">"1.0"</span>,
+    <span class="hljs-attr">"responsetime"</span>: <span class="hljs-string">"2007-12-03T10:15:30Z"</span>,
+    <span class="hljs-attr">"errors"</span>:[
+            {
+                <span class="hljs-attr">"errorCode"</span>: <span class="hljs-string">"ADMN_AUTH_ERR_CHANNEL_INVALID"</span>,
+                <span class="hljs-attr">"message"</span>: <span class="hljs-string">"The passed channel is invalid."</span>
+          } 
+        ]
+}
+
+</code></pre>
+<ol start="2">
+<li>Multiple channels not supported: In case, if the caller can send only one channel, then this error will be sent. For example, Pre-Registration module cannot have multiple channels.</li>
+</ol>
+<pre><code class="hljs css language-JSON">{
+    <span class="hljs-attr">"id"</span>: <span class="hljs-string">"mosip.admin.authentication.sendotp"</span>,
+    <span class="hljs-attr">"ver"</span>: <span class="hljs-string">"1.0"</span>,
+    <span class="hljs-attr">"responsetime"</span>: <span class="hljs-string">"2007-12-03T10:15:30Z"</span>,
+    <span class="hljs-attr">"errors"</span>:[
+            {
+                <span class="hljs-attr">"errorCode"</span>: <span class="hljs-string">"ADMN_AUTH_ERR_MULTIPLE_CHANNELS"</span>,
+                <span class="hljs-attr">"message"</span>: <span class="hljs-string">"Multiple channels are not supported in your module."</span>
+          } 
+        ]
+}
+
+</code></pre>
+<ol start="3">
+<li>User not found: If the passed is not found in the system.</li>
+</ol>
+<pre><code class="hljs css language-JSON">{
+    <span class="hljs-attr">"id"</span>: <span class="hljs-string">"mosip.admin.authentication.sendotp"</span>,
+    <span class="hljs-attr">"ver"</span>: <span class="hljs-string">"1.0"</span>,
+    <span class="hljs-attr">"responsetime"</span>: <span class="hljs-string">"2007-12-03T10:15:30Z"</span>,
+    <span class="hljs-attr">"errors"</span>:[
+            {
+                <span class="hljs-attr">"errorCode"</span>: <span class="hljs-string">"ADMN_AUTH_ERR_USER_NOT_FOUND"</span>,
+                <span class="hljs-attr">"message"</span>: <span class="hljs-string">"The passed in user is not found"</span>
+          } 
+        ]
+}
+
+</code></pre>
+<ol start="4">
+<li>Channel path not found: If the channel's path is not found. For example, if the channel is email and the email ID is not found for that user.</li>
+</ol>
+<pre><code class="hljs css language-JSON">{
+    <span class="hljs-attr">"id"</span>: <span class="hljs-string">"mosip.admin.authentication.sendotp"</span>,
+    <span class="hljs-attr">"ver"</span>: <span class="hljs-string">"1.0"</span>,
+    <span class="hljs-attr">"responsetime"</span>: <span class="hljs-string">"2007-12-03T10:15:30Z"</span>,
+    <span class="hljs-attr">"errors"</span>:[
+            {
+                <span class="hljs-attr">"errorCode"</span>: <span class="hljs-string">"ADMN_AUTH_ERR_CHANNELPATH_NOT_FOUND"</span>,
+                <span class="hljs-attr">"message"</span>: <span class="hljs-string">"The passed in user is not found"</span>
+          } 
+        ]
+}
+
+</code></pre>
+<h3><a class="anchor" aria-hidden="true" id="post-useridotp"></a><a href="#post-useridotp" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>POST /useridOTP</h3>
+<p>This service authenticates the use ID and the OTP. If the authentication is successfull, an AuthToken will be sent in the Response header.</p>
+<h4><a class="anchor" aria-hidden="true" id="resource-url-3"></a><a href="#resource-url-3" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Resource URL</h4>
+<div>https://mosip.io/v1/admin/useridOTP</div>
+<h4><a class="anchor" aria-hidden="true" id="post-v10-admin-useridotp"></a><a href="#post-v10-admin-useridotp" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><code>POST /v1.0/admin/useridOTP</code></h4>
+<h4><a class="anchor" aria-hidden="true" id="resource-details-3"></a><a href="#resource-details-3" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Resource details</h4>
+<table>
+<thead>
+<tr><th>Resource Details</th><th>Description</th></tr>
+</thead>
+<tbody>
+<tr><td>Response format</td><td>The response will be sent in the Response Header and also a JSON message will be returned.</td></tr>
+<tr><td>Requires Authentication</td><td>no</td></tr>
+</tbody>
+</table>
+<h4><a class="anchor" aria-hidden="true" id="parameters-2"></a><a href="#parameters-2" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Parameters</h4>
+<table>
+<thead>
+<tr><th>Name</th><th>Required</th><th>Description</th><th>Default Value</th><th>Example</th></tr>
+</thead>
+<tbody>
+<tr><td>userid</td><td>Yes</td><td>This is the userid of the user against which the OTP had been sent. Based on the useridtype, this will vary.</td><td>-NA-</td><td>M392380</td></tr>
+<tr><td>otp</td><td>Yes</td><td>This is OTP which is sent to the userid's preferred channel</td><td>-NA-</td><td>6473</td></tr>
+</tbody>
+</table>
+<h4><a class="anchor" aria-hidden="true" id="example-request-2"></a><a href="#example-request-2" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Example Request</h4>
+<pre><code class="hljs css language-JSON">{
+    <span class="hljs-attr">"id"</span>: <span class="hljs-string">"mosip.admin.authentication.useridOTP"</span>,
+    <span class="hljs-attr">"version"</span>:<span class="hljs-string">"1.0"</span>,    
+    <span class="hljs-attr">"requesttime"</span>:<span class="hljs-string">"2007-12-03T10:15:30Z"</span>,
+    <span class="hljs-attr">"request"</span>: {
+        <span class="hljs-attr">"userid"</span>: <span class="hljs-string">"M392380"</span>,
+        <span class="hljs-attr">"otp"</span>: <span class="hljs-string">"6473"</span>
+    }
+}
+</code></pre>
+<h4><a class="anchor" aria-hidden="true" id="example-response-2"></a><a href="#example-response-2" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Example Response</h4>
+<p>Success Response</p>
+<pre><code class="hljs">Response Cookie:
+
+Set-Cookie →<span class="hljs-attribute">Authorization</span>=Mosip-TokeneyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJpbmRpdmlkdWFsIiwibW9iaWxlIjoiOTY2MzE3NTkyOCIsIm1haWwiOiJpbmRpdmlkdWFsQGdtYWlsLmNvbSIsInJvbGUiOiJwZXJzb24iLCJpYXQiOjE1NTEzNDU1NjUsImV4cCI6MTU1MTM1MTU2NX0.pCyibViXo31enOgRD60BnKjEpEA-78yzbWnZGChxCIZ5lTpYnhgm-0dtoT3neFebTJ8eAI7-o8jDWMCMqq6uSw; <span class="hljs-attribute">Max-Age</span>=6000000; <span class="hljs-attribute">Expires</span>=Wed, 08-May-2019 19:59:43 GMT; <span class="hljs-attribute">Path</span>=/; Secure; HttpOnly
+
+
+JSON Response:
+{
+    <span class="hljs-string">"id"</span>: <span class="hljs-string">"mosip.admin.authentication.useridOTP"</span>,
+    <span class="hljs-string">"ver"</span>: <span class="hljs-string">"1.0"</span>,
+    <span class="hljs-string">"responsetime"</span>: <span class="hljs-string">"2007-12-03T10:15:30Z"</span>,
+    <span class="hljs-string">"response"</span>: {
+                <span class="hljs-string">"status"</span>: <span class="hljs-string">"success"</span>,
+        <span class="hljs-string">"message"</span>:<span class="hljs-string">"OTP validation is successfull"</span>
+    }
+}
+
+</code></pre>
+<p>Error Responses</p>
+<ol>
+<li>Invalid OTP: If the passed OTP is not valid.</li>
+</ol>
+<pre><code class="hljs css language-JSON">
+{
+    <span class="hljs-attr">"id"</span>: <span class="hljs-string">"mosip.admin.authentication.useridOTP"</span>,
+    <span class="hljs-attr">"ver"</span>: <span class="hljs-string">"1.0"</span>,
+    <span class="hljs-attr">"responsetime"</span>: <span class="hljs-string">"2007-12-03T10:15:30Z"</span>,
+    <span class="hljs-attr">"errors"</span>:[
+            {
+                <span class="hljs-attr">"errorCode"</span>: <span class="hljs-string">"ADMN_AUTH_ERR_INVALIDOTP"</span>,
+                <span class="hljs-attr">"message"</span>: <span class="hljs-string">"The passed in OTP is invalid"</span>
+          } 
+        ]
+}
+
+</code></pre>
+<ol start="2">
+<li>Expired OTP: If the passed OTP is expired.</li>
+</ol>
+<pre><code class="hljs css language-JSON">
+{
+    <span class="hljs-attr">"id"</span>: <span class="hljs-string">"mosip.admin.authentication.useridOTP"</span>,
+    <span class="hljs-attr">"ver"</span>: <span class="hljs-string">"1.0"</span>,
+    <span class="hljs-attr">"responsetime"</span>: <span class="hljs-string">"2007-12-03T10:15:30Z"</span>,
+    <span class="hljs-attr">"errors"</span>:[
+            {
+                <span class="hljs-attr">"errorCode"</span>: <span class="hljs-string">"ADMN_AUTH_ERR_EXPIREDOTP"</span>,
+                <span class="hljs-attr">"message"</span>: <span class="hljs-string">"The passed OTP is expired"</span>
+          } 
+        ]
+}
+</code></pre>
+<h3><a class="anchor" aria-hidden="true" id="post-logout"></a><a href="#post-logout" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>POST /logout</h3>
+<p>This service will logout the user. This service will call the logout service in the Auth API and will remove the token for the user.</p>
+<h4><a class="anchor" aria-hidden="true" id="resource-url-4"></a><a href="#resource-url-4" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Resource URL</h4>
+<div>https://mosip.io/v1/admin/logout</div>
+<h4><a class="anchor" aria-hidden="true" id="resource-details-4"></a><a href="#resource-details-4" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Resource details</h4>
+<table>
+<thead>
+<tr><th>Resource Details</th><th>Description</th></tr>
+</thead>
+<tbody>
+<tr><td>Response format</td><td>The response will be sent in the Response Header and also a JSON message will be returned.</td></tr>
+<tr><td>Requires Authentication</td><td>yes</td></tr>
+</tbody>
+</table>
+<h3><a class="anchor" aria-hidden="true" id="request-1"></a><a href="#request-1" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Request</h3>
+<p>Cookie : Authorization=Mosip-TokeneyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJpbmRpdmlkdWFsIiwibW9iaWxlIjoiOTY2MzE3NTkyOCIsIm1haWwiOiJpbmRpdmlkdWFsQGdtYWlsLmNvbSIsInJvbGUiOiJwZXJzb24iLCJpYXQiOjE1NTEzNDU1NjUsImV4cCI6MTU1MTM1MTU2NX0.pCyibViXo31enOgRD60BnKjEpEA-78yzbWnZGChxCIZ5lTpYnhgm-0dtoT3neFebTJ8eAI7-o8jDWMCMqq6uSw; Max-Age=6000000; Expires=Wed, 08-May-2019 19:59:43 GMT; Path=/; Secure; HttpOnly</p>
+<h4><a class="anchor" aria-hidden="true" id="example-response-3"></a><a href="#example-response-3" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Example Response</h4>
+<p>Success Response</p>
+<pre><code class="hljs"><span class="hljs-symbol">JSON:</span>
+{
+    <span class="hljs-string">"id"</span>: <span class="hljs-string">"mosip.admin.authentication.logout"</span>,
+    <span class="hljs-string">"ver"</span>: <span class="hljs-string">"1.0"</span>,
+    <span class="hljs-string">"responsetime"</span>: <span class="hljs-string">"2007-12-03T10:15:30Z"</span>,
+    <span class="hljs-string">"response"</span>: {
+                <span class="hljs-string">"status"</span>: <span class="hljs-string">"success"</span>,
+                <span class="hljs-string">"message"</span>:<span class="hljs-string">"Username has been logged out successfully"</span>
+    }
+}
+
+</code></pre>
+<p>Error Responses</p>
+<ol>
+<li>Invalid token: If the passed token is not correct.</li>
+</ol>
+<pre><code class="hljs css language-JSON">
+{
+    <span class="hljs-attr">"id"</span>: <span class="hljs-string">"mosip.admin.authentication.logout"</span>,
+    <span class="hljs-attr">"ver"</span>: <span class="hljs-string">"1.0"</span>,
+    <span class="hljs-attr">"responsetime"</span>: <span class="hljs-string">"2007-12-03T10:15:30Z"</span>,
+    <span class="hljs-attr">"errors"</span>:[
+            {
+                <span class="hljs-attr">"errorCode"</span>: <span class="hljs-string">"ADMN_AUTH_ERR_INVALIDCREDENTIALS"</span>,
+                <span class="hljs-attr">"message"</span>: <span class="hljs-string">"The passed in token is not correct"</span>
+          } 
+        ]
+}
+
+</code></pre>
+<h1><a class="anchor" aria-hidden="true" id="master-data"></a><a href="#master-data" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Master Data</h1>
+<ul>
+<li><a href="#get-mastercards">GET /mastercards</a></li>
+</ul>
+<h3><a class="anchor" aria-hidden="true" id="get-mastercards"></a><a href="#get-mastercards" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>GET /mastercards</h3>
+<p>This service will give back the list of master data which was supposed to be displayed as cards in the master data screen. The list of master data are read from the configuration server and returned as an array based on the requested language.</p>
+<h4><a class="anchor" aria-hidden="true" id="resource-url-5"></a><a href="#resource-url-5" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Resource URL</h4>
+<div>https://mosip.io/v1/admin/mastercards/{languagecode}</div>
+<h4><a class="anchor" aria-hidden="true" id="resource-details-5"></a><a href="#resource-details-5" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Resource details</h4>
+<table>
+<thead>
+<tr><th>Resource Details</th><th>Description</th></tr>
+</thead>
+<tbody>
+<tr><td>Response format</td><td>JSON</td></tr>
+<tr><td>Requires Authentication</td><td>Yes</td></tr>
+</tbody>
+</table>
+<h4><a class="anchor" aria-hidden="true" id="request-part-parameters-1"></a><a href="#request-part-parameters-1" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Request Part Parameters</h4>
+<table>
+<thead>
+<tr><th>Name</th><th>Required</th><th>Description</th><th>Example</th></tr>
+</thead>
+<tbody>
+<tr><td>languagecode</td><td>Yes</td><td>Language code in ISO 639-2 standard</td><td>-NA-</td><td>eng</td></tr>
+</tbody>
+</table>
+<h4><a class="anchor" aria-hidden="true" id="request-2"></a><a href="#request-2" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Request</h4>
+<div>https://mosip.io/v1/admin/mastercards </div>
+<h4><a class="anchor" aria-hidden="true" id="responses-1"></a><a href="#responses-1" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Responses:</h4>
+<h5><a class="anchor" aria-hidden="true" id="success-response-1"></a><a href="#success-response-1" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Success Response:</h5>
+<h6><a class="anchor" aria-hidden="true" id="status-code-200-2"></a><a href="#status-code-200-2" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Status code: '200'</h6>
+<h6><a class="anchor" aria-hidden="true" id="description-list-of-master-data-are-returned-based-on-the-requested-language"></a><a href="#description-list-of-master-data-are-returned-based-on-the-requested-language" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Description: List of master data are returned based on the requested language</h6>
+<pre><code class="hljs css language-JSON">
+{
+    <span class="hljs-attr">"id"</span>: <span class="hljs-string">"mosip.admin.mastercards"</span>,
+    <span class="hljs-attr">"version"</span>: <span class="hljs-string">"1.0"</span>,
+    <span class="hljs-attr">"metadata"</span>: {},
+    <span class="hljs-attr">"responsetime"</span>: <span class="hljs-string">"2007-12-03T10:15:30Z"</span>,
+    <span class="hljs-attr">"errors"</span>: [],
+    <span class="hljs-attr">"response"</span>: {
+        <span class="hljs-attr">"masterdata"</span>: [
+                               {
+                                 <span class="hljs-attr">"dataCode"</span>: <span class="hljs-string">"machines"</span>,
+                                 <span class="hljs-attr">"displayName"</span>: <span class="hljs-string">"Machines"</span>
+                               },
+                               {
+                                 <span class="hljs-attr">"dataCode"</span>: <span class="hljs-string">"devices"</span>,
+                                 <span class="hljs-attr">"displayName"</span>: <span class="hljs-string">"Devices"</span>
+                               },
+                               {
+                                 <span class="hljs-attr">"dataCode"</span>: <span class="hljs-string">"centers"</span>,
+                                 <span class="hljs-attr">"displayName"</span>: <span class="hljs-string">"Registration Centers"</span>
+                               }
+                              ]
+    }
+}
+</code></pre>
+<h5><a class="anchor" aria-hidden="true" id="error-response-1"></a><a href="#error-response-1" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Error Response:</h5>
+<h6><a class="anchor" aria-hidden="true" id="status-code-200-3"></a><a href="#status-code-200-3" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Status code: '200'</h6>
+<h6><a class="anchor" aria-hidden="true" id="description-if-the-user-is-not-found-1"></a><a href="#description-if-the-user-is-not-found-1" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Description: If the user is not found.</h6>
+<pre><code class="hljs css language-JSON">
+{
+  <span class="hljs-attr">"id"</span>: <span class="hljs-string">"mosip.admin.mastercards"</span>,
+  <span class="hljs-attr">"version"</span>: <span class="hljs-string">"1.0"</span>,
+  <span class="hljs-attr">"metadata"</span>: {},
+  <span class="hljs-attr">"responsetime"</span>: <span class="hljs-string">"2007-12-03T10:15:30Z"</span>,
+  <span class="hljs-attr">"errors"</span>: [
+    {
+      <span class="hljs-attr">"errorCode"</span>: <span class="hljs-string">"ADMN-LANG-MISSING"</span>,
+      <span class="hljs-attr">"message"</span>: <span class="hljs-string">"The data is not found for the passed language code"</span>
+    }
+  ]
+}
+</code></pre>
+<h1><a class="anchor" aria-hidden="true" id="account-management"></a><a href="#account-management" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Account Management</h1>
+<ul>
+<li><a href="#get-unblockuser">GET /unblockuser</a></li>
+<li><a href="#post-changepassword">POST /changepassword</a></li>
+<li><a href="#post-resetpassword">POST /resetpassword</a></li>
+<li><a href="#get-usernamemobilenumber">GET /username/{mobilenumber}</a></li>
+</ul>
+<h3><a class="anchor" aria-hidden="true" id="get-unblockuser"></a><a href="#get-unblockuser" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>GET /unblockuser</h3>
+<p>The user can unblock himself using this service. Once authenticated via OTP, the user will be unblocked.</p>
+<h4><a class="anchor" aria-hidden="true" id="resource-url-6"></a><a href="#resource-url-6" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Resource URL</h4>
+<div>https://mosip.io/v1/admin/unblockuser</div>
+<h4><a class="anchor" aria-hidden="true" id="resource-details-6"></a><a href="#resource-details-6" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Resource details</h4>
+<table>
+<thead>
+<tr><th>Resource Details</th><th>Description</th></tr>
+</thead>
+<tbody>
+<tr><td>Response format</td><td>JSON</td></tr>
+<tr><td>Requires Authentication</td><td>Yes</td></tr>
+</tbody>
+</table>
+<h4><a class="anchor" aria-hidden="true" id="request-part-parameters-2"></a><a href="#request-part-parameters-2" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Request Part Parameters</h4>
+<table>
+<thead>
+<tr><th>Name</th><th>Required</th><th>Description</th><th>Example</th></tr>
+</thead>
+<tbody>
+<tr><td>userid</td><td>Yes</td><td>User id of the user</td><td>UDAE423</td></tr>
+<tr><td>timeStamp</td><td>Yes</td><td>Date-time  in UTC ISO-8601</td><td>2007-12-03T10:15:30Z</td></tr>
+</tbody>
+</table>
+<h4><a class="anchor" aria-hidden="true" id="request-3"></a><a href="#request-3" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Request</h4>
+<div>https://mosip.io/v1/admin/unblockuser?userid=UDAE423&timeStamp=2018-12-09T06%3A39%3A03.683Z </div>
+<h4><a class="anchor" aria-hidden="true" id="responses-2"></a><a href="#responses-2" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Responses:</h4>
+<h5><a class="anchor" aria-hidden="true" id="success-response-2"></a><a href="#success-response-2" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Success Response:</h5>
+<h6><a class="anchor" aria-hidden="true" id="status-code-200-4"></a><a href="#status-code-200-4" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Status code: '200'</h6>
+<h6><a class="anchor" aria-hidden="true" id="description-list-of-auth-factors-are-returned-1"></a><a href="#description-list-of-auth-factors-are-returned-1" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Description: List of auth factors are returned</h6>
+<pre><code class="hljs css language-JSON">
+{
+    <span class="hljs-attr">"id"</span>: <span class="hljs-string">"mosip.admin.accountmanagement.unblockuser"</span>,
+    <span class="hljs-attr">"version"</span>: <span class="hljs-string">"1.0"</span>,
+    <span class="hljs-attr">"metadata"</span>: {},
+    <span class="hljs-attr">"responsetime"</span>: <span class="hljs-string">"2007-12-03T10:15:30Z"</span>,
+    <span class="hljs-attr">"errors"</span>: [],
+    <span class="hljs-attr">"response"</span>: {
+        <span class="hljs-attr">"Status"</span>:<span class="hljs-string">"SUCCESS"</span>,
+        <span class="hljs-attr">"Message"</span>:<span class="hljs-string">"The user had been succesfully unblocked"</span>
+    }
+}
+</code></pre>
+<h5><a class="anchor" aria-hidden="true" id="error-response-2"></a><a href="#error-response-2" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Error Response:</h5>
+<h6><a class="anchor" aria-hidden="true" id="status-code-200-5"></a><a href="#status-code-200-5" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Status code: '200'</h6>
+<h6><a class="anchor" aria-hidden="true" id="description-if-the-user-is-not-found-2"></a><a href="#description-if-the-user-is-not-found-2" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Description: If the user is not found.</h6>
+<pre><code class="hljs css language-JSON">
+{
+  <span class="hljs-attr">"id"</span>: <span class="hljs-string">"mosip.admin.accountmanagement.unblockuser"</span>,
+  <span class="hljs-attr">"version"</span>: <span class="hljs-string">"1.0"</span>,
+  <span class="hljs-attr">"metadata"</span>: {},
+  <span class="hljs-attr">"responsetime"</span>: <span class="hljs-string">"2007-12-03T10:15:30Z"</span>,
+  <span class="hljs-attr">"errors"</span>: [
+    {
+      <span class="hljs-attr">"errorCode"</span>: <span class="hljs-string">"ADMN-ACC-USR-NOTFOUND"</span>,
+      <span class="hljs-attr">"message"</span>: <span class="hljs-string">"The userid is not found in the system"</span>
+    }
+  ]
+}
+</code></pre>
+<h3><a class="anchor" aria-hidden="true" id="post-changepassword"></a><a href="#post-changepassword" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>POST /changepassword</h3>
+<p>This service will change the password to new value.</p>
+<h4><a class="anchor" aria-hidden="true" id="resource-url-7"></a><a href="#resource-url-7" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Resource URL</h4>
+<div>https://mosip.io/v1/admin/changepassword</div>
+<h4><a class="anchor" aria-hidden="true" id="resource-details-7"></a><a href="#resource-details-7" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Resource details</h4>
+<table>
+<thead>
+<tr><th>Resource Details</th><th>Description</th></tr>
+</thead>
+<tbody>
+<tr><td>Response format</td><td>The response will be sent in the Response Header and also a JSON message will be returned.</td></tr>
+<tr><td>Requires Authentication</td><td>no</td></tr>
+</tbody>
+</table>
+<h4><a class="anchor" aria-hidden="true" id="parameters-3"></a><a href="#parameters-3" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Parameters</h4>
+<table>
+<thead>
+<tr><th>Name</th><th>Required</th><th>Description</th><th>Default Value</th><th>Example</th></tr>
+</thead>
+<tbody>
+<tr><td>username</td><td>Yes</td><td>This is the username of the user.</td><td>-NA-</td><td>M392380</td></tr>
+<tr><td>oldpassword</td><td>Yes</td><td>This is the old password of the user</td><td>-NA-</td><td>6^S98sG#</td></tr>
+<tr><td>newpassword</td><td>Yes</td><td>This is the new password of the user</td><td>-NA-</td><td>hfsfs32#</td></tr>
+<tr><td>appid</td><td>Yes</td><td>This is the application ID of the caller of this service.</td><td>-NA-</td><td>ADMIN</td></tr>
+</tbody>
+</table>
+<h4><a class="anchor" aria-hidden="true" id="example-request-3"></a><a href="#example-request-3" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Example Request</h4>
+<pre><code class="hljs css language-JSON">{
+    <span class="hljs-attr">"id"</span>: <span class="hljs-string">"mosip.admin.accountmanagement.changepassword"</span>,
+    <span class="hljs-attr">"version"</span>:<span class="hljs-string">"1.0"</span>,    
+    <span class="hljs-attr">"requesttime"</span>:<span class="hljs-string">"2007-12-03T10:15:30Z"</span>,
+    <span class="hljs-attr">"request"</span>: {
+        <span class="hljs-attr">"username"</span>: <span class="hljs-string">"M392380"</span>,
+        <span class="hljs-attr">"oldpassword"</span>: <span class="hljs-string">"6^S98sG#"</span>,
+        <span class="hljs-attr">"newpassword"</span>: <span class="hljs-string">"hfsfs32#"</span>,
+        <span class="hljs-attr">"appid"</span>: <span class="hljs-string">"ADMIN"</span>
+    }
+}
+</code></pre>
+<h4><a class="anchor" aria-hidden="true" id="example-response-4"></a><a href="#example-response-4" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Example Response</h4>
+<p>Success Response</p>
+<pre><code class="hljs">Response Cookie:
+
+Set-Cookie →<span class="hljs-attribute">Authorization</span>=Mosip-TokeneyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJpbmRpdmlkdWFsIiwibW9iaWxlIjoiOTY2MzE3NTkyOCIsIm1haWwiOiJpbmRpdmlkdWFsQGdtYWlsLmNvbSIsInJvbGUiOiJwZXJzb24iLCJpYXQiOjE1NTEzNDU1NjUsImV4cCI6MTU1MTM1MTU2NX0.pCyibViXo31enOgRD60BnKjEpEA-78yzbWnZGChxCIZ5lTpYnhgm-0dtoT3neFebTJ8eAI7-o8jDWMCMqq6uSw; <span class="hljs-attribute">Max-Age</span>=6000000; <span class="hljs-attribute">Expires</span>=Wed, 08-May-2019 19:59:43 GMT; <span class="hljs-attribute">Path</span>=/; Secure; HttpOnly
+
+
+JSON:
+{
+    <span class="hljs-string">"id"</span>: <span class="hljs-string">"mosip.admin.accountmanagement.changepassword"</span>,
+    <span class="hljs-string">"ver"</span>: <span class="hljs-string">"1.0"</span>,
+    <span class="hljs-string">"responsetime"</span>: <span class="hljs-string">"2007-12-03T10:15:30Z"</span>,
+    <span class="hljs-string">"response"</span>: {
+        <span class="hljs-string">"status"</span>: <span class="hljs-string">"success"</span>,
+        <span class="hljs-string">"message"</span>:<span class="hljs-string">"New password been set successfully"</span>
+    }
+}
+
+</code></pre>
+<p>Error Responses</p>
+<ol>
+<li>Invalid credentials: If the passed credentials is not correct.</li>
+</ol>
+<pre><code class="hljs css language-JSON">
+{
+    <span class="hljs-attr">"id"</span>: <span class="hljs-string">"mosip.admin.accountmanagement.changepassword"</span>,
+    <span class="hljs-attr">"ver"</span>: <span class="hljs-string">"1.0"</span>,
+    <span class="hljs-attr">"responsetime"</span>: <span class="hljs-string">"2007-12-03T10:15:30Z"</span>,
+    <span class="hljs-attr">"errors"</span>:[
+            {
+                <span class="hljs-attr">"errorCode"</span>: <span class="hljs-string">"ADMN-ACC-INVLD-CRDNTIALS"</span>,
+                <span class="hljs-attr">"message"</span>: <span class="hljs-string">"The passed in credentials is not correct"</span>
+          } 
+        ]
+}
+
+</code></pre>
+<ol start="2">
+<li>Password policy rule not met: If the new password is not meeting the password policy.</li>
+</ol>
+<pre><code class="hljs css language-JSON">
+{
+    <span class="hljs-attr">"id"</span>: <span class="hljs-string">"mosip.admin.authentication.changepassword"</span>,
+    <span class="hljs-attr">"ver"</span>: <span class="hljs-string">"1.0"</span>,
+    <span class="hljs-attr">"responsetime"</span>: <span class="hljs-string">"2007-12-03T10:15:30Z"</span>,
+    <span class="hljs-attr">"errors"</span>:[
+            {
+                <span class="hljs-attr">"errorCode"</span>: <span class="hljs-string">"ADMN_AUTH_ERR_LNGTH_NOT_STSFIED"</span>,
+                <span class="hljs-attr">"message"</span>: <span class="hljs-string">"The length of the new password is lesser than expected"</span>
+          } 
+        ]
+}
+
+</code></pre>
+<ol start="3">
+<li>Invalid application ID: If the passed in application is not correct.</li>
+</ol>
+<pre><code class="hljs css language-JSON">
+{
+    <span class="hljs-attr">"id"</span>: <span class="hljs-string">"mosip.admin.accountmanagement.changepassword"</span>,
+    <span class="hljs-attr">"ver"</span>: <span class="hljs-string">"1.0"</span>,
+    <span class="hljs-attr">"responsetime"</span>: <span class="hljs-string">"2007-12-03T10:15:30Z"</span>,
+    <span class="hljs-attr">"errors"</span>:[
+            {
+                <span class="hljs-attr">"errorCode"</span>: <span class="hljs-string">"ADMN_AUTH_ERR_INVALIDAPPID"</span>,
+                <span class="hljs-attr">"message"</span>: <span class="hljs-string">"The passed in application ID is not correct"</span>
+          } 
+        ]
+}
+
+
+</code></pre>
+<h3><a class="anchor" aria-hidden="true" id="post-resetpassword"></a><a href="#post-resetpassword" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>POST /resetpassword</h3>
+<p>This service will reset the password to new value.</p>
+<h4><a class="anchor" aria-hidden="true" id="resource-url-8"></a><a href="#resource-url-8" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Resource URL</h4>
+<div>https://mosip.io/v1/admin/resetpassword</div>
+<h4><a class="anchor" aria-hidden="true" id="resource-details-8"></a><a href="#resource-details-8" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Resource details</h4>
+<table>
+<thead>
+<tr><th>Resource Details</th><th>Description</th></tr>
+</thead>
+<tbody>
+<tr><td>Response format</td><td>The response will be sent in the Response Header and also a JSON message will be returned.</td></tr>
+<tr><td>Requires Authentication</td><td>no</td></tr>
+</tbody>
+</table>
+<h4><a class="anchor" aria-hidden="true" id="parameters-4"></a><a href="#parameters-4" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Parameters</h4>
+<table>
+<thead>
+<tr><th>Name</th><th>Required</th><th>Description</th><th>Default Value</th><th>Example</th></tr>
+</thead>
+<tbody>
+<tr><td>username</td><td>Yes</td><td>This is the username of the user.</td><td>-NA-</td><td>M392380</td></tr>
+<tr><td>newpassword</td><td>Yes</td><td>This is the new password of the user</td><td>-NA-</td><td>hfsfs32#</td></tr>
+<tr><td>appid</td><td>Yes</td><td>This is the application ID of the caller of this service.</td><td>-NA-</td><td>ADMIN</td></tr>
+</tbody>
+</table>
+<h4><a class="anchor" aria-hidden="true" id="example-request-4"></a><a href="#example-request-4" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Example Request</h4>
+<pre><code class="hljs css language-JSON">{
+    <span class="hljs-attr">"id"</span>: <span class="hljs-string">"mosip.admin.accountmanagement.resetpassword"</span>,
+    <span class="hljs-attr">"version"</span>:<span class="hljs-string">"1.0"</span>,    
+    <span class="hljs-attr">"requesttime"</span>:<span class="hljs-string">"2007-12-03T10:15:30Z"</span>,
+    <span class="hljs-attr">"request"</span>: {
+        <span class="hljs-attr">"username"</span>: <span class="hljs-string">"M392380"</span>,
+        <span class="hljs-attr">"newpassword"</span>: <span class="hljs-string">"hfsfs32#"</span>,
+        <span class="hljs-attr">"appid"</span>: <span class="hljs-string">"ADMIN"</span>
+    }
+}
+</code></pre>
+<h4><a class="anchor" aria-hidden="true" id="example-response-5"></a><a href="#example-response-5" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Example Response</h4>
+<p>Success Response</p>
+<pre><code class="hljs">Response Cookie:
+
+Set-Cookie →<span class="hljs-attribute">Authorization</span>=Mosip-TokeneyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJpbmRpdmlkdWFsIiwibW9iaWxlIjoiOTY2MzE3NTkyOCIsIm1haWwiOiJpbmRpdmlkdWFsQGdtYWlsLmNvbSIsInJvbGUiOiJwZXJzb24iLCJpYXQiOjE1NTEzNDU1NjUsImV4cCI6MTU1MTM1MTU2NX0.pCyibViXo31enOgRD60BnKjEpEA-78yzbWnZGChxCIZ5lTpYnhgm-0dtoT3neFebTJ8eAI7-o8jDWMCMqq6uSw; <span class="hljs-attribute">Max-Age</span>=6000000; <span class="hljs-attribute">Expires</span>=Wed, 08-May-2019 19:59:43 GMT; <span class="hljs-attribute">Path</span>=/; Secure; HttpOnly
+
+
+JSON:
+{
+    <span class="hljs-string">"id"</span>: <span class="hljs-string">"mosip.admin.accountmanagement.resetpassword"</span>,
+    <span class="hljs-string">"ver"</span>: <span class="hljs-string">"1.0"</span>,
+    <span class="hljs-string">"responsetime"</span>: <span class="hljs-string">"2007-12-03T10:15:30Z"</span>,
+    <span class="hljs-string">"response"</span>: {
+        <span class="hljs-string">"status"</span>: <span class="hljs-string">"success"</span>,
+        <span class="hljs-string">"message"</span>:<span class="hljs-string">"Password reset successfully"</span>
+    }
+}
+
+</code></pre>
+<p>Error Responses</p>
+<ol>
+<li>Invalid credentials: If the passed credentials is not correct.</li>
+</ol>
+<pre><code class="hljs css language-JSON">
+{
+    <span class="hljs-attr">"id"</span>: <span class="hljs-string">"mosip.admin.accountmanagement.resetpassword"</span>,
+    <span class="hljs-attr">"ver"</span>: <span class="hljs-string">"1.0"</span>,
+    <span class="hljs-attr">"responsetime"</span>: <span class="hljs-string">"2007-12-03T10:15:30Z"</span>,
+    <span class="hljs-attr">"errors"</span>:[
+            {
+                <span class="hljs-attr">"errorCode"</span>: <span class="hljs-string">"ADMN-ACC-INVLD-CRDNTIALS"</span>,
+                <span class="hljs-attr">"message"</span>: <span class="hljs-string">"The passed in credentials is not correct"</span>
+          } 
+        ]
+}
+
+</code></pre>
+<ol start="2">
+<li>Password policy rule not met: If the new password is not meeting the password policy.</li>
+</ol>
+<pre><code class="hljs css language-JSON">
+{
+    <span class="hljs-attr">"id"</span>: <span class="hljs-string">"mosip.admin.accountmanagement.resetpassword"</span>,
+    <span class="hljs-attr">"ver"</span>: <span class="hljs-string">"1.0"</span>,
+    <span class="hljs-attr">"responsetime"</span>: <span class="hljs-string">"2007-12-03T10:15:30Z"</span>,
+    <span class="hljs-attr">"errors"</span>:[
+            {
+                <span class="hljs-attr">"errorCode"</span>: <span class="hljs-string">"ADMN_AUTH_ERR_LNGTH_NOT_STSFIED"</span>,
+                <span class="hljs-attr">"message"</span>: <span class="hljs-string">"The length of the new password is lesser than expected"</span>
+          } 
+        ]
+}
+
+</code></pre>
+<ol start="3">
+<li>Invalid application ID: If the passed in application is not correct.</li>
+</ol>
+<pre><code class="hljs css language-JSON">
+{
+    <span class="hljs-attr">"id"</span>: <span class="hljs-string">"mosip.admin.accountmanagement.resetpassword"</span>,
+    <span class="hljs-attr">"ver"</span>: <span class="hljs-string">"1.0"</span>,
+    <span class="hljs-attr">"responsetime"</span>: <span class="hljs-string">"2007-12-03T10:15:30Z"</span>,
+    <span class="hljs-attr">"errors"</span>:[
+            {
+                <span class="hljs-attr">"errorCode"</span>: <span class="hljs-string">"ADMN_AUTH_ERR_INVALIDAPPID"</span>,
+                <span class="hljs-attr">"message"</span>: <span class="hljs-string">"The passed in application ID is not correct"</span>
+          } 
+        ]
+}
+
+</code></pre>
+<h3><a class="anchor" aria-hidden="true" id="get-username-mobilenumber"></a><a href="#get-username-mobilenumber" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>GET /username/{mobilenumber}</h3>
+<p>The user can get user-name from mobile number.</p>
+<h4><a class="anchor" aria-hidden="true" id="resource-url-9"></a><a href="#resource-url-9" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Resource URL</h4>
+<div>https://mosip.io/v1/admin/actmgmt/username/{mobilenumber}</div>
+<h4><a class="anchor" aria-hidden="true" id="resource-details-9"></a><a href="#resource-details-9" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Resource details</h4>
+<table>
+<thead>
+<tr><th>Resource Details</th><th>Description</th></tr>
+</thead>
+<tbody>
+<tr><td>Response format</td><td>JSON</td></tr>
+<tr><td>Requires Authentication</td><td>Yes</td></tr>
+</tbody>
+</table>
+<h4><a class="anchor" aria-hidden="true" id="request-part-parameters-3"></a><a href="#request-part-parameters-3" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Request Part Parameters</h4>
+<table>
+<thead>
+<tr><th>Name</th><th>Required</th><th>Description</th><th>Example</th></tr>
+</thead>
+<tbody>
+<tr><td>mobilenumber</td><td>Yes</td><td>mobile number of the user</td><td>325624646</td></tr>
+<tr><td>timeStamp</td><td>Yes</td><td>Date-time  in UTC ISO-8601</td><td>2007-12-03T10:15:30Z</td></tr>
+</tbody>
+</table>
+<h4><a class="anchor" aria-hidden="true" id="request-4"></a><a href="#request-4" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Request</h4>
+<div>https://mosip.io/v1/admin/actmgmt/username/458575535 </div>
+<h4><a class="anchor" aria-hidden="true" id="responses-3"></a><a href="#responses-3" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Responses:</h4>
+<h5><a class="anchor" aria-hidden="true" id="success-response-3"></a><a href="#success-response-3" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Success Response:</h5>
+<h6><a class="anchor" aria-hidden="true" id="status-code-200-6"></a><a href="#status-code-200-6" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Status code: '200'</h6>
+<h6><a class="anchor" aria-hidden="true" id="description-list-of-auth-factors-are-returned-2"></a><a href="#description-list-of-auth-factors-are-returned-2" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Description: List of auth factors are returned</h6>
+<pre><code class="hljs css language-JSON">
+{
+    <span class="hljs-attr">"id"</span>: <span class="hljs-string">"mosip.admin.accountmanagement.mobilenumber"</span>,
+    <span class="hljs-attr">"version"</span>: <span class="hljs-string">"1.0"</span>,
+    <span class="hljs-attr">"metadata"</span>: {},
+    <span class="hljs-attr">"responsetime"</span>: <span class="hljs-string">"2007-12-03T10:15:30Z"</span>,
+    <span class="hljs-attr">"errors"</span>: [],
+    <span class="hljs-attr">"response"</span>: {
+        <span class="hljs-attr">"Status"</span>:<span class="hljs-string">"SUCCESS"</span>,
+        <span class="hljs-attr">"Message"</span>:<span class="hljs-string">"The user had been succesfully unblocked"</span>
+    }
+}
+</code></pre>
+<h5><a class="anchor" aria-hidden="true" id="error-response-3"></a><a href="#error-response-3" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Error Response:</h5>
+<h6><a class="anchor" aria-hidden="true" id="status-code-200-7"></a><a href="#status-code-200-7" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Status code: '200'</h6>
+<h6><a class="anchor" aria-hidden="true" id="description-if-the-user-is-not-found-3"></a><a href="#description-if-the-user-is-not-found-3" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Description: If the user is not found.</h6>
+<pre><code class="hljs css language-JSON">
+{
+  <span class="hljs-attr">"id"</span>: <span class="hljs-string">"mosip.admin.accountmanagement.mobilenumber"</span>,
+  <span class="hljs-attr">"version"</span>: <span class="hljs-string">"1.0"</span>,
+  <span class="hljs-attr">"metadata"</span>: {},
+  <span class="hljs-attr">"responsetime"</span>: <span class="hljs-string">"2007-12-03T10:15:30Z"</span>,
+  <span class="hljs-attr">"errors"</span>: [
+    {
+      <span class="hljs-attr">"errorCode"</span>: <span class="hljs-string">"ADMN-ACC-USR-NOTFOUND"</span>,
+      <span class="hljs-attr">"message"</span>: <span class="hljs-string">"The userid is not found in the system"</span>
+    }
+  ]
+}
+</code></pre>
+<h1><a class="anchor" aria-hidden="true" id="user-management"></a><a href="#user-management" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>User Management</h1>
+<ul>
+<li><a href="#post-register">POST /register</a></li>
+<li><a href="#post-rid">POST /rid</a></li>
+<li><a href="#post-password">POST /password</a></li>
+</ul>
+<h3><a class="anchor" aria-hidden="true" id="post-register"></a><a href="#post-register" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>POST /register</h3>
+<p>This service will register a new user.</p>
+<h4><a class="anchor" aria-hidden="true" id="resource-url-10"></a><a href="#resource-url-10" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Resource URL</h4>
+<div>https://mosip.io/v1/admin/usermgmt/register</div>
+<h4><a class="anchor" aria-hidden="true" id="resource-details-10"></a><a href="#resource-details-10" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Resource details</h4>
+<table>
+<thead>
+<tr><th>Resource Details</th><th>Description</th></tr>
+</thead>
+<tbody>
+<tr><td>Response format</td><td>The response will be sent in the Response Header and also a JSON message will be returned.</td></tr>
+<tr><td>Requires Authentication</td><td>no</td></tr>
+</tbody>
+</table>
+<h4><a class="anchor" aria-hidden="true" id="parameters-5"></a><a href="#parameters-5" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Parameters</h4>
+<table>
+<thead>
+<tr><th>Name</th><th>Required</th><th>Description</th><th>Default Value</th><th>Example</th></tr>
+</thead>
+<tbody>
+<tr><td>username</td><td>Yes</td><td>This is the username of the user.</td><td>-NA-</td><td>M392380</td></tr>
+<tr><td>firstName</td><td>Yes</td><td>This is the firstname of the user</td><td>-NA-</td><td>test#</td></tr>
+<tr><td>lastName</td><td>Yes</td><td>This is the lastName of the user</td><td>-NA-</td><td>name#</td></tr>
+<tr><td>contactNo</td><td>Yes</td><td>This is the contactNo of the user</td><td>-NA-</td><td>974822990#</td></tr>
+<tr><td>emailID</td><td>Yes</td><td>This is the emailID of the user</td><td>-NA-</td><td><a href="mailto:testname@mosip.io">testname@mosip.io</a>#</td></tr>
+<tr><td>dateOfBirth</td><td>Yes</td><td>This is the dateOfBirth of the user</td><td>-NA-</td><td>1975-11-05#</td></tr>
+<tr><td>gender</td><td>Yes</td><td>This is the gender of the user</td><td>-NA-</td><td><a href="mailto:testname@mosip.io">testname@mosip.io</a>#</td></tr>
+<tr><td>role</td><td>Yes</td><td>This is the role of the user</td><td>-NA-</td><td>SUPER_ADMIN#</td></tr>
+<tr><td>appid</td><td>Yes</td><td>This is the application ID of the caller of this service.</td><td>-NA-</td><td>ADMIN</td></tr>
+</tbody>
+</table>
+<h4><a class="anchor" aria-hidden="true" id="example-request-5"></a><a href="#example-request-5" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Example Request</h4>
+<pre><code class="hljs css language-JSON">{
+    <span class="hljs-attr">"id"</span>: <span class="hljs-string">"mosip.admin.usermanagement.register"</span>,
+    <span class="hljs-attr">"version"</span>:<span class="hljs-string">"1.0"</span>,    
+    <span class="hljs-attr">"requesttime"</span>:<span class="hljs-string">"2007-12-03T10:15:30Z"</span>,
+    <span class="hljs-attr">"request"</span>: {
+        <span class="hljs-attr">"username"</span>: <span class="hljs-string">"M392380"</span>,
+        <span class="hljs-attr">"firstName"</span>: <span class="hljs-string">"test"</span>,
+        <span class="hljs-attr">"lastName"</span>: <span class="hljs-string">"name"</span>,
+        <span class="hljs-attr">"contactNo"</span>: <span class="hljs-string">"974822990"</span>,
+        <span class="hljs-attr">"emailID"</span>: <span class="hljs-string">"testname@mosip.io"</span>,
+        <span class="hljs-attr">"dateOfBirth"</span>: <span class="hljs-string">"1975-11-05"</span>,
+        <span class="hljs-attr">"gender"</span>: <span class="hljs-string">"male"</span>,
+        <span class="hljs-attr">"role"</span>: <span class="hljs-string">"ADMIN"</span>,
+        <span class="hljs-attr">"appid"</span>: <span class="hljs-string">"ADMIN"</span>
+    }
+}
+</code></pre>
+<h4><a class="anchor" aria-hidden="true" id="example-response-6"></a><a href="#example-response-6" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Example Response</h4>
+<p>Success Response</p>
+<pre><code class="hljs">
+<span class="hljs-symbol">JSON:</span>
+{
+    <span class="hljs-string">"id"</span>: <span class="hljs-string">"mosip.admin.usermanagement.register"</span>,
+    <span class="hljs-string">"ver"</span>: <span class="hljs-string">"1.0"</span>,
+    <span class="hljs-string">"responsetime"</span>: <span class="hljs-string">"2007-12-03T10:15:30Z"</span>,
+    <span class="hljs-string">"response"</span>: {
+        <span class="hljs-string">"status"</span>: <span class="hljs-string">"success"</span>,
+        <span class="hljs-string">"message"</span>:<span class="hljs-string">"User created successfully"</span>
+    }
+}
+
+</code></pre>
+<p>Error Responses</p>
+<ol>
+<li>Invalid credentials: If the passed credentials is not correct.</li>
+</ol>
+<pre><code class="hljs css language-JSON">
+{
+    <span class="hljs-attr">"id"</span>: <span class="hljs-string">"mosip.admin.usermanagement.register"</span>,
+    <span class="hljs-attr">"ver"</span>: <span class="hljs-string">"1.0"</span>,
+    <span class="hljs-attr">"responsetime"</span>: <span class="hljs-string">"2007-12-03T10:15:30Z"</span>,
+    <span class="hljs-attr">"errors"</span>:[
+            {
+                <span class="hljs-attr">"errorCode"</span>: <span class="hljs-string">"ADMN-ACC-INVLD-CRDNTIALS"</span>,
+                <span class="hljs-attr">"message"</span>: <span class="hljs-string">"The passed in credentials is not correct"</span>
+          } 
+        ]
+}
+
+</code></pre>
+<ol start="2">
+<li>Invalid application ID: If the passed in application is not correct.</li>
+</ol>
+<pre><code class="hljs css language-JSON">
+{
+    <span class="hljs-attr">"id"</span>: <span class="hljs-string">"mosip.admin.usermanagement.resetpassword"</span>,
+    <span class="hljs-attr">"ver"</span>: <span class="hljs-string">"1.0"</span>,
+    <span class="hljs-attr">"responsetime"</span>: <span class="hljs-string">"2007-12-03T10:15:30Z"</span>,
+    <span class="hljs-attr">"errors"</span>:[
+            {
+                <span class="hljs-attr">"errorCode"</span>: <span class="hljs-string">"ADMN_AUTH_ERR_INVALIDAPPID"</span>,
+                <span class="hljs-attr">"message"</span>: <span class="hljs-string">"The passed in application ID is not correct"</span>
+          } 
+        ]
+}
+
+</code></pre>
+<h3><a class="anchor" aria-hidden="true" id="post-rid"></a><a href="#post-rid" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>POST /rid</h3>
+<p>This service will check for the rid with the user.</p>
+<h4><a class="anchor" aria-hidden="true" id="resource-url-11"></a><a href="#resource-url-11" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Resource URL</h4>
+<div>https://mosip.io/v1/admin/usermgmt/rid</div>
+<h4><a class="anchor" aria-hidden="true" id="resource-details-11"></a><a href="#resource-details-11" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Resource details</h4>
+<table>
+<thead>
+<tr><th>Resource Details</th><th>Description</th></tr>
+</thead>
+<tbody>
+<tr><td>Response format</td><td>The response will be sent in the Response Header and also a JSON message will be returned.</td></tr>
+<tr><td>Requires Authentication</td><td>no</td></tr>
+</tbody>
+</table>
+<h4><a class="anchor" aria-hidden="true" id="parameters-6"></a><a href="#parameters-6" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Parameters</h4>
+<table>
+<thead>
+<tr><th>Name</th><th>Required</th><th>Description</th><th>Default Value</th><th>Example</th></tr>
+</thead>
+<tbody>
+<tr><td>username</td><td>Yes</td><td>This is the username of the user.</td><td>-NA-</td><td>M392380</td></tr>
+<tr><td>rid</td><td>Yes</td><td>This is the registration of the user</td><td>-NA-</td><td>test#</td></tr>
+<tr><td>appid</td><td>Yes</td><td>This is the application ID of the caller of this service.</td><td>-NA-</td><td>ADMIN</td></tr>
+</tbody>
+</table>
+<h4><a class="anchor" aria-hidden="true" id="example-request-6"></a><a href="#example-request-6" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Example Request</h4>
+<pre><code class="hljs css language-JSON">{
+    <span class="hljs-attr">"id"</span>: <span class="hljs-string">"mosip.admin.usermanagement.register"</span>,
+    <span class="hljs-attr">"version"</span>:<span class="hljs-string">"1.0"</span>,    
+    <span class="hljs-attr">"requesttime"</span>:<span class="hljs-string">"2007-12-03T10:15:30Z"</span>,
+    <span class="hljs-attr">"request"</span>: {
+        <span class="hljs-attr">"username"</span>: <span class="hljs-string">"M392380"</span>,
+        <span class="hljs-attr">"rid"</span>: <span class="hljs-string">"41355315155"</span>,
+        <span class="hljs-attr">"appid"</span>: <span class="hljs-string">"ADMIN"</span>
+    }
+}
+</code></pre>
+<h4><a class="anchor" aria-hidden="true" id="example-response-7"></a><a href="#example-response-7" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Example Response</h4>
+<p>Success Response</p>
+<pre><code class="hljs">
+<span class="hljs-symbol">JSON:</span>
+{
+    <span class="hljs-string">"id"</span>: <span class="hljs-string">"mosip.admin.usermanagement.rid"</span>,
+    <span class="hljs-string">"ver"</span>: <span class="hljs-string">"1.0"</span>,
+    <span class="hljs-string">"responsetime"</span>: <span class="hljs-string">"2007-12-03T10:15:30Z"</span>,
+    <span class="hljs-string">"response"</span>: {
+        <span class="hljs-string">"status"</span>: <span class="hljs-string">"success"</span>,
+        <span class="hljs-string">"message"</span>:<span class="hljs-string">"Rid verification mail sent successfully"</span>
+    }
+}
+
+</code></pre>
+<p>Error Responses</p>
+<ol>
+<li>Invalid credentials: If the passed credentials is not correct.</li>
+</ol>
+<pre><code class="hljs css language-JSON">
+{
+    <span class="hljs-attr">"id"</span>: <span class="hljs-string">"mosip.admin.usermanagement.register"</span>,
+    <span class="hljs-attr">"ver"</span>: <span class="hljs-string">"1.0"</span>,
+    <span class="hljs-attr">"responsetime"</span>: <span class="hljs-string">"2007-12-03T10:15:30Z"</span>,
+    <span class="hljs-attr">"errors"</span>:[
+            {
+                <span class="hljs-attr">"errorCode"</span>: <span class="hljs-string">"ADMN-ACC-INVLD-CRDNTIALS"</span>,
+                <span class="hljs-attr">"message"</span>: <span class="hljs-string">"The passed in credentials is not correct"</span>
+          } 
+        ]
+}
+
+</code></pre>
+<ol start="2">
+<li>Invalid application ID: If the passed in application is not correct.</li>
+</ol>
+<pre><code class="hljs css language-JSON">
+{
+    <span class="hljs-attr">"id"</span>: <span class="hljs-string">"mosip.admin.usermanagement.resetpassword"</span>,
+    <span class="hljs-attr">"ver"</span>: <span class="hljs-string">"1.0"</span>,
+    <span class="hljs-attr">"responsetime"</span>: <span class="hljs-string">"2007-12-03T10:15:30Z"</span>,
+    <span class="hljs-attr">"errors"</span>:[
+            {
+                <span class="hljs-attr">"errorCode"</span>: <span class="hljs-string">"ADMN_AUTH_ERR_INVALIDAPPID"</span>,
+                <span class="hljs-attr">"message"</span>: <span class="hljs-string">"The passed in application ID is not correct"</span>
+          } 
+        ]
+}
+
+</code></pre>
+<ol start="3">
+<li>Invalid application ID: If the passed in application is not correct.</li>
+</ol>
+<pre><code class="hljs css language-JSON">
+{
+    <span class="hljs-attr">"id"</span>: <span class="hljs-string">"mosip.admin.usermanagement.resetpassword"</span>,
+    <span class="hljs-attr">"ver"</span>: <span class="hljs-string">"1.0"</span>,
+    <span class="hljs-attr">"responsetime"</span>: <span class="hljs-string">"2007-12-03T10:15:30Z"</span>,
+    <span class="hljs-attr">"errors"</span>:[
+            {
+                <span class="hljs-attr">"errorCode"</span>: <span class="hljs-string">"ADMN_AUTH_ERR_CHANNELNOTPRESENT"</span>,
+                <span class="hljs-attr">"message"</span>: <span class="hljs-string">"The channel passed with username is not present"</span>
+          } 
+        ]
+}
+
+</code></pre>
+<h3><a class="anchor" aria-hidden="true" id="post-password"></a><a href="#post-password" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>POST /password</h3>
+<p>This service will add a new password to the user.</p>
+<h4><a class="anchor" aria-hidden="true" id="resource-url-12"></a><a href="#resource-url-12" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Resource URL</h4>
+<div>https://mosip.io/v1/admin/usermgmt/password</div>
+<h4><a class="anchor" aria-hidden="true" id="resource-details-12"></a><a href="#resource-details-12" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Resource details</h4>
+<table>
+<thead>
+<tr><th>Resource Details</th><th>Description</th></tr>
+</thead>
+<tbody>
+<tr><td>Response format</td><td>The response will be sent in the Response Header and also a JSON message will be returned.</td></tr>
+<tr><td>Requires Authentication</td><td>no</td></tr>
+</tbody>
+</table>
+<h4><a class="anchor" aria-hidden="true" id="parameters-7"></a><a href="#parameters-7" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Parameters</h4>
+<table>
+<thead>
+<tr><th>Name</th><th>Required</th><th>Description</th><th>Default Value</th><th>Example</th></tr>
+</thead>
+<tbody>
+<tr><td>username</td><td>Yes</td><td>This is the username of the user.</td><td>-NA-</td><td>M392380</td></tr>
+<tr><td>rid</td><td>Yes</td><td>This is the registration id of the user</td><td>-NA-</td><td>24331562664#</td></tr>
+<tr><td>password</td><td>Yes</td><td>This is the new password of the user</td><td>-NA-</td><td>ksafuff#</td></tr>
+<tr><td>appid</td><td>Yes</td><td>This is the application ID of the caller of this service.</td><td>-NA-</td><td>ADMIN</td></tr>
+</tbody>
+</table>
+<h4><a class="anchor" aria-hidden="true" id="example-request-7"></a><a href="#example-request-7" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Example Request</h4>
+<pre><code class="hljs css language-JSON">{
+    <span class="hljs-attr">"id"</span>: <span class="hljs-string">"mosip.admin.usermanagement.password"</span>,
+    <span class="hljs-attr">"version"</span>:<span class="hljs-string">"1.0"</span>,    
+    <span class="hljs-attr">"requesttime"</span>:<span class="hljs-string">"2007-12-03T10:15:30Z"</span>,
+    <span class="hljs-attr">"request"</span>: {
+        <span class="hljs-attr">"username"</span>: <span class="hljs-string">"M392380"</span>,
+        <span class="hljs-attr">"rid"</span>: <span class="hljs-string">"41355315155"</span>,
+        <span class="hljs-attr">"password"</span>: <span class="hljs-string">"ksafuff"</span>,
+        <span class="hljs-attr">"appid"</span>: <span class="hljs-string">"ADMIN"</span>
+    }
+}
+</code></pre>
+<h4><a class="anchor" aria-hidden="true" id="example-response-8"></a><a href="#example-response-8" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Example Response</h4>
+<p>Success Response</p>
+<pre><code class="hljs">
+<span class="hljs-symbol">JSON:</span>
+{
+    <span class="hljs-string">"id"</span>: <span class="hljs-string">"mosip.admin.usermanagement.password"</span>,
+    <span class="hljs-string">"ver"</span>: <span class="hljs-string">"1.0"</span>,
+    <span class="hljs-string">"responsetime"</span>: <span class="hljs-string">"2007-12-03T10:15:30Z"</span>,
+    <span class="hljs-string">"response"</span>: {
+        <span class="hljs-string">"status"</span>: <span class="hljs-string">"success"</span>,
+        <span class="hljs-string">"message"</span>:<span class="hljs-string">"Password created successfully for user"</span>
+    }
+}
+
+</code></pre>
+<p>Error Responses</p>
+<ol>
+<li>Invalid credentials: If the passed credentials is not correct.</li>
+</ol>
+<pre><code class="hljs css language-JSON">
+{
+    <span class="hljs-attr">"id"</span>: <span class="hljs-string">"mosip.admin.usermanagement.password"</span>,
+    <span class="hljs-attr">"ver"</span>: <span class="hljs-string">"1.0"</span>,
+    <span class="hljs-attr">"responsetime"</span>: <span class="hljs-string">"2007-12-03T10:15:30Z"</span>,
+    <span class="hljs-attr">"errors"</span>:[
+            {
+                <span class="hljs-attr">"errorCode"</span>: <span class="hljs-string">"ADMN-ACC-INVLD-CRDNTIALS"</span>,
+                <span class="hljs-attr">"message"</span>: <span class="hljs-string">"The passed in credentials is not correct"</span>
+          } 
+        ]
+}
+
+</code></pre>
+<ol start="2">
+<li>Invalid application ID: If the passed in application is not correct.</li>
+</ol>
+<pre><code class="hljs css language-JSON">
+{
+    <span class="hljs-attr">"id"</span>: <span class="hljs-string">"mosip.admin.usermanagement.password"</span>,
+    <span class="hljs-attr">"ver"</span>: <span class="hljs-string">"1.0"</span>,
+    <span class="hljs-attr">"responsetime"</span>: <span class="hljs-string">"2007-12-03T10:15:30Z"</span>,
+    <span class="hljs-attr">"errors"</span>:[
+            {
+                <span class="hljs-attr">"errorCode"</span>: <span class="hljs-string">"ADMN_AUTH_ERR_INVALIDAPPID"</span>,
+                <span class="hljs-attr">"message"</span>: <span class="hljs-string">"The passed in application ID is not correct"</span>
+          } 
+        ]
+}
+
+</code></pre>
+<ol start="3">
+<li>Invalid application ID: If the passed in application is not correct.</li>
+</ol>
+<pre><code class="hljs css language-JSON">
+{
+    <span class="hljs-attr">"id"</span>: <span class="hljs-string">"mosip.admin.usermanagement.password"</span>,
+    <span class="hljs-attr">"ver"</span>: <span class="hljs-string">"1.0"</span>,
+    <span class="hljs-attr">"responsetime"</span>: <span class="hljs-string">"2007-12-03T10:15:30Z"</span>,
+    <span class="hljs-attr">"errors"</span>:[
+            {
+                <span class="hljs-attr">"errorCode"</span>: <span class="hljs-string">"ADMN_AUTH_ERR_CHANNELNOTPRESENT"</span>,
+                <span class="hljs-attr">"message"</span>: <span class="hljs-string">"The channel passed with username is not present"</span>
+          } 
+        ]
+}
+
+</code></pre>
+<ol start="4">
+<li>Password policy rule not met: If the new password is not meeting the password policy.</li>
+</ol>
+<pre><code class="hljs css language-JSON">
+{
+    <span class="hljs-attr">"id"</span>: <span class="hljs-string">"mosip.admin.usermanagement.password"</span>,
+    <span class="hljs-attr">"ver"</span>: <span class="hljs-string">"1.0"</span>,
+    <span class="hljs-attr">"responsetime"</span>: <span class="hljs-string">"2007-12-03T10:15:30Z"</span>,
+    <span class="hljs-attr">"errors"</span>:[
+            {
+                <span class="hljs-attr">"errorCode"</span>: <span class="hljs-string">"ADMN_AUTH_ERR_LNGTH_NOT_STSFIED"</span>,
+                <span class="hljs-attr">"message"</span>: <span class="hljs-string">"The length of the new password is lesser than expected"</span>
+          } 
+        ]
+}
+</code></pre>
+<h1><a class="anchor" aria-hidden="true" id="uin-services"></a><a href="#uin-services" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>UIN Services</h1>
+<ul>
+<li><a href="#get-status">GET /status/{uin}</a></li>
+<li><a href="#get-ridstatus">GET /ridstatus/{rid}</a></li>
+</ul>
+<h3><a class="anchor" aria-hidden="true" id="get-status-uin"></a><a href="#get-status-uin" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>GET /status/{uin}</h3>
+<p>The user can get status of the uin</p>
+<h4><a class="anchor" aria-hidden="true" id="resource-url-13"></a><a href="#resource-url-13" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Resource URL</h4>
+<div>https://mosip.io/v1/admin/uinmgmt/status/{uin}</div>
+<h4><a class="anchor" aria-hidden="true" id="resource-details-13"></a><a href="#resource-details-13" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Resource details</h4>
+<table>
+<thead>
+<tr><th>Resource Details</th><th>Description</th></tr>
+</thead>
+<tbody>
+<tr><td>Response format</td><td>JSON</td></tr>
+<tr><td>Requires Authentication</td><td>Yes</td></tr>
+</tbody>
+</table>
+<h4><a class="anchor" aria-hidden="true" id="request-part-parameters-4"></a><a href="#request-part-parameters-4" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Request Part Parameters</h4>
+<table>
+<thead>
+<tr><th>Name</th><th>Required</th><th>Description</th><th>Example</th></tr>
+</thead>
+<tbody>
+<tr><td>uin</td><td>Yes</td><td>uin number of the user</td><td>325624646</td></tr>
+<tr><td>timeStamp</td><td>Yes</td><td>Date-time  in UTC ISO-8601</td><td>2007-12-03T10:15:30Z</td></tr>
+</tbody>
+</table>
+<h4><a class="anchor" aria-hidden="true" id="request-5"></a><a href="#request-5" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Request</h4>
+<div>https://mosip.io/v1/admin/uinmgmt/status/458575535</div>
+<h4><a class="anchor" aria-hidden="true" id="responses-4"></a><a href="#responses-4" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Responses:</h4>
+<h5><a class="anchor" aria-hidden="true" id="success-response-4"></a><a href="#success-response-4" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Success Response:</h5>
+<h6><a class="anchor" aria-hidden="true" id="status-code-200-8"></a><a href="#status-code-200-8" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Status code: '200'</h6>
+<h6><a class="anchor" aria-hidden="true" id="description-returns-status-of-uin"></a><a href="#description-returns-status-of-uin" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Description: returns status of uin</h6>
+<pre><code class="hljs css language-JSON">
+{
+    <span class="hljs-attr">"id"</span>: <span class="hljs-string">"mosip.admin.uinmgmt.status"</span>,
+    <span class="hljs-attr">"version"</span>: <span class="hljs-string">"1.0"</span>,
+    <span class="hljs-attr">"metadata"</span>: {},
+    <span class="hljs-attr">"responsetime"</span>: <span class="hljs-string">"2007-12-03T10:15:30Z"</span>,
+    <span class="hljs-attr">"errors"</span>: [],
+    <span class="hljs-attr">"response"</span>: {
+        <span class="hljs-attr">"Status"</span>:<span class="hljs-string">"Valid"</span>,
+    }
+}
+</code></pre>
+<p>Error Responses</p>
+<ol>
+<li>Invalid credentials: If the passed credentials is not correct.</li>
+</ol>
+<pre><code class="hljs css language-JSON">
+{
+    <span class="hljs-attr">"id"</span>: <span class="hljs-string">"mosip.admin.uinmgmt.status"</span>,
+    <span class="hljs-attr">"ver"</span>: <span class="hljs-string">"1.0"</span>,
+    <span class="hljs-attr">"responsetime"</span>: <span class="hljs-string">"2007-12-03T10:15:30Z"</span>,
+    <span class="hljs-attr">"errors"</span>:[
+            {
+                <span class="hljs-attr">"errorCode"</span>: <span class="hljs-string">"ADMN-ACC-INVLD-CRDNTIALS"</span>,
+                <span class="hljs-attr">"message"</span>: <span class="hljs-string">"The passed in credentials is not correct"</span>
+          } 
+        ]
+}
+
+</code></pre>
+<ol start="2">
+<li>Invalid application ID: If the passed in application is not correct.</li>
+</ol>
+<pre><code class="hljs css language-JSON">
+{
+    <span class="hljs-attr">"id"</span>: <span class="hljs-string">"mosip.admin.uinmgmt.status"</span>,
+    <span class="hljs-attr">"ver"</span>: <span class="hljs-string">"1.0"</span>,
+    <span class="hljs-attr">"responsetime"</span>: <span class="hljs-string">"2007-12-03T10:15:30Z"</span>,
+    <span class="hljs-attr">"errors"</span>:[
+            {
+                <span class="hljs-attr">"errorCode"</span>: <span class="hljs-string">"ADMN_AUTH_ERR_INVALIDAPPID"</span>,
+                <span class="hljs-attr">"message"</span>: <span class="hljs-string">"The passed in application ID is not correct"</span>
+          } 
+        ]
+}
+
+</code></pre>
+<h3><a class="anchor" aria-hidden="true" id="get-ridstatus-rid"></a><a href="#get-ridstatus-rid" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>GET /ridstatus/{rid}</h3>
+<p>The user can get packet status of the rid</p>
+<h4><a class="anchor" aria-hidden="true" id="resource-url-14"></a><a href="#resource-url-14" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Resource URL</h4>
+<div>https://mosip.io/v1/admin/uinmgmt/ridstatus/{rid}</div>
+<h4><a class="anchor" aria-hidden="true" id="resource-details-14"></a><a href="#resource-details-14" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Resource details</h4>
+<table>
+<thead>
+<tr><th>Resource Details</th><th>Description</th></tr>
+</thead>
+<tbody>
+<tr><td>Response format</td><td>JSON</td></tr>
+<tr><td>Requires Authentication</td><td>Yes</td></tr>
+</tbody>
+</table>
+<h4><a class="anchor" aria-hidden="true" id="request-part-parameters-5"></a><a href="#request-part-parameters-5" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Request Part Parameters</h4>
+<table>
+<thead>
+<tr><th>Name</th><th>Required</th><th>Description</th><th>Example</th></tr>
+</thead>
+<tbody>
+<tr><td>rid</td><td>Yes</td><td>rid of the user</td><td>12434314315353513</td></tr>
+</tbody>
+</table>
+<h4><a class="anchor" aria-hidden="true" id="request-6"></a><a href="#request-6" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Request</h4>
+<div>https://mosip.io/v1/admin/uinmgmt/ridstatus/12434314315353513</div>
+<h4><a class="anchor" aria-hidden="true" id="responses-5"></a><a href="#responses-5" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Responses:</h4>
+<h5><a class="anchor" aria-hidden="true" id="success-response-5"></a><a href="#success-response-5" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Success Response:</h5>
+<h6><a class="anchor" aria-hidden="true" id="status-code-200-9"></a><a href="#status-code-200-9" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Status code: '200'</h6>
+<h6><a class="anchor" aria-hidden="true" id="description-returns-status-of-uin-1"></a><a href="#description-returns-status-of-uin-1" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Description: returns status of uin</h6>
+<pre><code class="hljs css language-JSON">
+{
+    <span class="hljs-attr">"id"</span>: <span class="hljs-string">"mosip.admin.uinmgmt.ridstatus"</span>,
+    <span class="hljs-attr">"version"</span>: <span class="hljs-string">"1.0"</span>,
+    <span class="hljs-attr">"metadata"</span>: {},
+    <span class="hljs-attr">"responsetime"</span>: <span class="hljs-string">"2007-12-03T10:15:30Z"</span>,
+    <span class="hljs-attr">"errors"</span>: [],
+    <span class="hljs-attr">"response"</span>: {
+        <span class="hljs-attr">"Status"</span>:<span class="hljs-string">"Processed"</span>,
+    }
+}
+</code></pre>
+<p>Error Responses</p>
+<ol>
+<li>Invalid credentials: If the passed credentials is not correct.</li>
+</ol>
+<pre><code class="hljs css language-JSON">
+{
+    <span class="hljs-attr">"id"</span>: <span class="hljs-string">"mosip.admin.uinmgmt.ridstatus"</span>,
+    <span class="hljs-attr">"ver"</span>: <span class="hljs-string">"1.0"</span>,
+    <span class="hljs-attr">"responsetime"</span>: <span class="hljs-string">"2007-12-03T10:15:30Z"</span>,
+    <span class="hljs-attr">"errors"</span>:[
+            {
+                <span class="hljs-attr">"errorCode"</span>: <span class="hljs-string">"ADMN-ACC-INVLD-CRDNTIALS"</span>,
+                <span class="hljs-attr">"message"</span>: <span class="hljs-string">"The passed in credentials is not correct"</span>
+          } 
+        ]
+}
+
+</code></pre>
+</span></div></article></div><div class="docs-prevnext"></div></div></div><nav class="onPageNav"></nav></div><footer class="nav-footer" id="footer"><section class="sitemap"><a href="/" class="nav-home"><img src="/img/favicon.ico" alt="MOSIP Documentation" width="66" height="58"/></a><div><h5>Docs</h5><a href="/docs/en/doc1.html">Getting Started (or other categories)</a><a href="/docs/en/doc2.html">Guides (or other categories)</a><a href="/docs/en/doc3.html">API Reference (or other categories)</a></div><div><h5>Community</h5><a href="/en/users.html">User Showcase</a><a href="https://stackoverflow.com/questions/tagged/" target="_blank" rel="noreferrer noopener">Stack Overflow</a><a href="https://discordapp.com/">Project Chat</a><a href="https://twitter.com/" target="_blank" rel="noreferrer noopener">Twitter</a></div><div><h5>More</h5><a href="/blog">Blog</a><a href="https://github.com/">GitHub</a><a class="github-button" data-icon="octicon-star" data-count-href="/facebook/docusaurus/stargazers" data-show-count="true" data-count-aria-label="# stargazers on GitHub" aria-label="Star this project on GitHub">Star</a></div></section><a href="https://opensource.facebook.com/" target="_blank" rel="noreferrer noopener" class="fbOpenSource"><img src="/img/oss_logo.png" alt="Facebook Open Source" width="170" height="45"/></a><section class="copyright">Copyright © 2019 Your Name or Your Company Name</section></footer></div></body></html>

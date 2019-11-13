@@ -1,0 +1,62 @@
+<!DOCTYPE html><html lang="en"><head><meta charSet="utf-8"/><meta http-equiv="X-UA-Compatible" content="IE=edge"/><title>Interfaces · MOSIP Documentation</title><meta name="viewport" content="width=device-width"/><meta name="generator" content="Docusaurus"/><meta name="description" content="This page puts together all the **interfaces** a running instance MOSIP Platform needs to effectively be a foundational ID system."/><meta name="docsearch:language" content="en"/><meta property="og:title" content="Interfaces · MOSIP Documentation"/><meta property="og:type" content="website"/><meta property="og:url" content="https://your-docusaurus-test-site.com/"/><meta property="og:description" content="This page puts together all the **interfaces** a running instance MOSIP Platform needs to effectively be a foundational ID system."/><meta property="og:image" content="https://your-docusaurus-test-site.com/img/undraw_online.svg"/><meta name="twitter:card" content="summary"/><meta name="twitter:image" content="https://your-docusaurus-test-site.com/img/undraw_tweetstorm.svg"/><link rel="shortcut icon" href="/img/favicon.ico"/><link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css"/><link rel="alternate" type="application/atom+xml" href="https://your-docusaurus-test-site.com/blog/atom.xml" title="MOSIP Documentation Blog ATOM Feed"/><link rel="alternate" type="application/rss+xml" href="https://your-docusaurus-test-site.com/blog/feed.xml" title="MOSIP Documentation Blog RSS Feed"/><script type="text/javascript" src="https://buttons.github.io/buttons.js"></script><script src="/js/scrollSpy.js"></script><link rel="stylesheet" href="/css/main.css"/><script src="/js/codetabs.js"></script></head><body class="sideNavVisible separateOnPageNav"><div class="fixedHeaderContainer"><div class="headerWrapper wrapper"><header><a href="/"><img class="logo" src="/img/favicon.ico" alt="MOSIP Documentation"/><h2 class="headerTitleWithLogo">MOSIP Documentation</h2></a><div class="navigationWrapper navigationSlider"><nav class="slidingNav"><ul class="nav-site nav-site-internal"><li class=""><a href="/docs/Platform-Documentation" target="_self">Docs</a></li><li class=""><a href="/docs/Getting-Started" target="_self">API</a></li><li class=""><a href="/Contributor-Guide" target="_self">Help</a></li><li class=""><a href="/blog/" target="_self">Blog</a></li></ul></nav></div></header></div></div><div class="navPusher"><div class="docMainWrapper wrapper"><div class="container mainContainer"><div class="wrapper"><div class="post"><header class="postHeader"><h1 class="postHeaderTitle">Interfaces</h1></header><article><div><span><p>This page puts together all the <strong>interfaces</strong> a running instance MOSIP Platform needs to effectively be a foundational ID system.</p>
+<h2><a class="anchor" aria-hidden="true" id="biometrics-related-interfaces"></a><a href="#biometrics-related-interfaces" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Biometrics related interfaces</h2>
+<ul>
+<li>ABIS
+<ul>
+<li><a href="Automated-Biometric-Identification-System-(ABIS)-Interface">ABIS Interface</a></li>
+<li><a href="ABIS-APIs">ABIS APIs</a></li>
+</ul></li>
+<li>Biometric SDK
+<ul>
+<li><a href="Biometric-Functions-API-Specification">Biometric Functions API Specification</a></li>
+</ul></li>
+<li>Devices
+<ul>
+<li><a href="MOSIP-Device-Service-Specification">MOSIP Device Service Specification</a></li>
+</ul></li>
+</ul>
+<hr>
+<h2><a class="anchor" aria-hidden="true" id="low-level-design-documents"></a><a href="#low-level-design-documents" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Low Level Design Documents</h2>
+<ol>
+<li><p>Transliteration Interface</p>
+<ul>
+<li><a href="/mosip/mosip-platform/tree/master/design/kernel/kernel-transliteration.md">Design and Background</a></li>
+<li><a href="/mosip/mosip-platform/tree/master/kernel/kernel-transliteration-icu4j">Implementation</a></li>
+</ul></li>
+<li><p>Validator API</p>
+<ul>
+<li><a href="/mosip/mosip-platform/tree/master/design/kernel/kernel-idobjectvalidator.md">Design and Background</a></li>
+<li><a href="/mosip/mosip-platform/tree/master/kernel/kernel-idobjectvalidator">Implementation</a></li>
+</ul></li>
+<li><p>SMS gateway</p>
+<ul>
+<li><a href="/mosip/mosip-platform/tree/master/design/kernel/kernel-smsnotification.md">Design and Background</a></li>
+<li><a href="/mosip/mosip-platform/tree/master/kernel/kernel-smsnotification-service">Implementation</a></li>
+</ul></li>
+<li><p>Email Gateway</p>
+<ul>
+<li><a href="/mosip/mosip-platform/tree/master/design/kernel/kernel-emailnotification.md">Design and Background</a></li>
+<li><a href="/mosip/mosip-platform/tree/master/kernel/kernel-emailnotification-service">Implementation</a></li>
+</ul></li>
+</ol>
+<ol start="5">
+<li><p>HSM</p>
+<ul>
+<li><a href="/mosip/mosip-platform/tree/master/design/kernel/kernel-keymanager-softhsm.md">Design and Background</a></li>
+<li><a href="/mosip/mosip-platform/tree/master/kernel/kernel-keymanager-softhsm">Implementation</a></li>
+</ul></li>
+<li><p>Antivirus</p>
+<ul>
+<li><a href="/mosip/mosip-platform/tree/master/design/kernel/kernel-virusscanner.md">Design and Background</a></li>
+<li><a href="/mosip/mosip-platform/tree/master/kernel/kernel-virusscanner-clamav">Implementation</a></li>
+</ul></li>
+<li><p>File System</p>
+<ul>
+<li><a href="/mosip/mosip-platform/blob/master/design/kernel/kernel-filesystemadapter.md">Design and Background</a></li>
+<li><a href="/mosip/mosip-platform/tree/master/kernel/kernel-fsadapter-hdfs">Implementation</a></li>
+</ul></li>
+<li><p><a href="/mosip/mosip-docs/wiki/Pre-Registration-Services#generate-qr-code-service-public">QR Code scanner</a></p></li>
+<li><p><a href="Kernel-APIs">Kernel services</a></p></li>
+</ol>
+<p><a href="/mosip/mosip-platform/tree/master/design">All Low-level design documents</a></p>
+</span></div></article></div><div class="docs-prevnext"></div></div></div><nav class="onPageNav"><ul class="toc-headings"><li><a href="#biometrics-related-interfaces">Biometrics related interfaces</a></li><li><a href="#low-level-design-documents">Low Level Design Documents</a></li></ul></nav></div><footer class="nav-footer" id="footer"><section class="sitemap"><a href="/" class="nav-home"><img src="/img/favicon.ico" alt="MOSIP Documentation" width="66" height="58"/></a><div><h5>Docs</h5><a href="/docs/en/doc1.html">Getting Started (or other categories)</a><a href="/docs/en/doc2.html">Guides (or other categories)</a><a href="/docs/en/doc3.html">API Reference (or other categories)</a></div><div><h5>Community</h5><a href="/en/users.html">User Showcase</a><a href="https://stackoverflow.com/questions/tagged/" target="_blank" rel="noreferrer noopener">Stack Overflow</a><a href="https://discordapp.com/">Project Chat</a><a href="https://twitter.com/" target="_blank" rel="noreferrer noopener">Twitter</a></div><div><h5>More</h5><a href="/blog">Blog</a><a href="https://github.com/">GitHub</a><a class="github-button" data-icon="octicon-star" data-count-href="/facebook/docusaurus/stargazers" data-show-count="true" data-count-aria-label="# stargazers on GitHub" aria-label="Star this project on GitHub">Star</a></div></section><a href="https://opensource.facebook.com/" target="_blank" rel="noreferrer noopener" class="fbOpenSource"><img src="/img/oss_logo.png" alt="Facebook Open Source" width="170" height="45"/></a><section class="copyright">Copyright © 2019 Your Name or Your Company Name</section></footer></div></body></html>

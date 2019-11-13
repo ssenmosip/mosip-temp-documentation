@@ -1,0 +1,516 @@
+<!DOCTYPE html><html lang="en"><head><meta charSet="utf-8"/><meta http-equiv="X-UA-Compatible" content="IE=edge"/><title>FRS-Authentication-Services · MOSIP Documentation</title><meta name="viewport" content="width=device-width"/><meta name="generator" content="Docusaurus"/><meta name="description" content="## Table Of Contents"/><meta name="docsearch:language" content="en"/><meta property="og:title" content="FRS-Authentication-Services · MOSIP Documentation"/><meta property="og:type" content="website"/><meta property="og:url" content="https://your-docusaurus-test-site.com/"/><meta property="og:description" content="## Table Of Contents"/><meta property="og:image" content="https://your-docusaurus-test-site.com/img/undraw_online.svg"/><meta name="twitter:card" content="summary"/><meta name="twitter:image" content="https://your-docusaurus-test-site.com/img/undraw_tweetstorm.svg"/><link rel="shortcut icon" href="/img/favicon.ico"/><link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css"/><link rel="alternate" type="application/atom+xml" href="https://your-docusaurus-test-site.com/blog/atom.xml" title="MOSIP Documentation Blog ATOM Feed"/><link rel="alternate" type="application/rss+xml" href="https://your-docusaurus-test-site.com/blog/feed.xml" title="MOSIP Documentation Blog RSS Feed"/><script type="text/javascript" src="https://buttons.github.io/buttons.js"></script><script src="/js/scrollSpy.js"></script><link rel="stylesheet" href="/css/main.css"/><script src="/js/codetabs.js"></script></head><body class="sideNavVisible separateOnPageNav"><div class="fixedHeaderContainer"><div class="headerWrapper wrapper"><header><a href="/"><img class="logo" src="/img/favicon.ico" alt="MOSIP Documentation"/><h2 class="headerTitleWithLogo">MOSIP Documentation</h2></a><div class="navigationWrapper navigationSlider"><nav class="slidingNav"><ul class="nav-site nav-site-internal"><li class=""><a href="/docs/Platform-Documentation" target="_self">Docs</a></li><li class=""><a href="/docs/Getting-Started" target="_self">API</a></li><li class=""><a href="/Contributor-Guide" target="_self">Help</a></li><li class=""><a href="/blog/" target="_self">Blog</a></li></ul></nav></div></header></div></div><div class="navPusher"><div class="docMainWrapper wrapper"><div class="container mainContainer"><div class="wrapper"><div class="post"><header class="postHeader"><h1 class="postHeaderTitle">FRS-Authentication-Services</h1></header><article><div><span><h2><a class="anchor" aria-hidden="true" id="table-of-contents"></a><a href="#table-of-contents" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Table Of Contents</h2>
+<ul>
+<li><a href="#1-single-factor-authentication">1. Single factor Authentication</a>
+<ul>
+<li><a href="#11-biometric-authentication-">1.1 Biometric Authentication</a> <em>(IDA_FR_1.1)</em></li>
+<li><a href="#12-demographic-authentication-">1.2 Demographic Authentication</a> <em>(IDA_FR_1.2)</em></li>
+<li><a href="#13-otp-authentication-">1.3 OTP Authentication</a> <em>(IDA_FR_1.3)</em></li>
+<li><a href="#14-common-features-for-all-authentication-types-">1.4 Common Features for all Authentication Types</a> <em>(IDA_FR_1.4)</em></li>
+</ul></li>
+<li><a href="#2-multi-factor-authentication-wip-">2. Multi-factor Authentication (WIP)</a> <em>(IDA_FR_2)</em></li>
+<li><a href="#3-offline-authentication">3. Offline Authentication</a>
+<ul>
+<li><a href="#31-qr-code-based-authentication-wip-">3.1 QR Code based Authentication (WIP)</a> <em>(IDA_FR_3.1)</em></li>
+</ul></li>
+<li><a href="#4-kyc-service">4. KYC Service</a>
+<ul>
+<li><a href="#41-profile-sharing-based-on-policy-">4.1 Profile Sharing based on Policy</a> <em>(IDA_FR_4.1)</em></li>
+</ul></li>
+<li><a href="#5-partners-authentication-and-authorisation">5. Partners Authentication and Authorisation</a>
+<ul>
+<li><a href="#51-misp-license-authentication-">5.1 MISP License Authentication</a> <em>(IDA_FR_5.1)</em></li>
+<li><a href="#52-partner-policy-authentication-">5.2 Partner Policy Authentication</a> <em>(IDA_FR_5.2)</em></li>
+</ul></li>
+<li><a href="#6-lockunlock-authentication-types-">6. Lock/Unlock Authentication Types</a>
+<ul>
+<li><a href="#61-lock-authentication-types">6.1 Lock Authentication Types</a></li>
+<li><a href="#62-unlock-authentication-types">6.2 Unlock Authentication Types</a></li>
+</ul></li>
+<li><a href="#7-authentication-device-support">7. Authentication Device Support</a>
+<ul>
+<li><a href="#71-registered-devices-and-open-devices-tbd-">7.1 Registered Devices and Open Devices TBD</a> <em>(IDA_FR_6.1)</em></li>
+</ul></li>
+<li><a href="#list-of-configurable-parameters-and-processes-">List of Configurable Parameters and Processes</a></li>
+<li><a href="#authentication-services-api-">Authentication Services API</a></li>
+<li><a href="#process-view-">Process View</a></li>
+</ul>
+<h1><a class="anchor" aria-hidden="true" id="1-single-factor-authentication"></a><a href="#1-single-factor-authentication" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>1. Single factor Authentication</h1>
+<h2><a class="anchor" aria-hidden="true" id="11-biometric-authentication-table-of-contents"></a><a href="#11-biometric-authentication-table-of-contents" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>1.1 Biometric Authentication <a href="#table-of-contents"><strong>[↑]</strong></a></h2>
+<p><strong>A. MOSIP system can evaluate the Individual's photo match with the corresponding photo in the Auth server</strong></p>
+<p>Upon receiving an authentication request, the system evaluates the Individual's photo match with the corresponding photo in the Auth server as per the following steps:</p>
+<ol>
+<li>The authentication service request should have a defined set of parameters. Please refer to <a href="_files/requirements/requirements_detailing_references/ID-Authentication/Data%20Definition.zip"><strong>data definition</strong></a> in Git for more details on required parameters.</li>
+<li>The biometric data is sent in <a href="//en.wikipedia.org/wiki/Base64"><strong>Base-64 encoded format</strong></a></li>
+<li>System validates if the time period between the current time stamp and the request time stamp is &lt;= time period. Refer to the features related to <a href="#a-validate-the-timestamp-of-the-authentication-request"><strong>time stamp validation</strong></a>.</li>
+<li>System validates that total number of face record(s) should not exceed 1</li>
+<li>The face record in the input parameter against the mapped UIN/VID of the individual in the auth database is matched. Refer to the features related to <a href="#c-map-vid-to-uin-of-the-individual-in-the-auth-database-so-that-the-individual-can-be-authenticated-"><strong>Map VID to UIN</strong></a>.</li>
+<li>The system then generates a match score based on the level of the match of the face</li>
+<li>1:1 mapping is performed by the SDK and match score is provided. The system then proceeds to execute compare against the face threshold.
+<ul>
+<li>NOTE: Biometric Authentication match score generation is stubbed. The actual integration with SDK will be covered in forthcoming implementation.</li>
+</ul></li>
+<li>The system proceeds to send Notification SMS and Notification E-mail. Refer to features related to <a href="#e-trigger-sms-to-the-individuals-mobile-for-every-authentication-request"><strong>Trigger SMS</strong></a> and <a href="#f-trigger-e-mail-to-the-individuals-e-mail-id-for-every-authentication-request-"><strong>Trigger E-mail</strong></a>.</li>
+<li>Alerts and warning messages for data type violation are sent as per data definition. Please refer Git for more details on the type of <a href="_files/requirements/requirements_detailing_references/ID-Authentication/Sprint%2010/Consolidated%20error%20messages%20V2.2.xlsx"><strong>error messages</strong></a>.</li>
+</ol>
+<p>Please refer to the <a href="ID-Authentication-APIs#authentication-service-public"><strong>Biometric Authentication API</strong></a>
+for more details.</p>
+<p><strong>B. Authenticate the face of the Individual by comparing the match score of the photo against the threshold</strong></p>
+<p>Upon receiving an authentication service request, the system authenticates the face of the Individual by comparing the match score of the photo against the threshold as per the following steps:</p>
+<ol>
+<li>The authentication service request should have a defined set of parameters. Please refer to <a href="_files/requirements/requirements_detailing_references/ID-Authentication/Data%20Definition.zip"><strong>data definition</strong></a> in Git for more details on required parameters.</li>
+<li>The biometric data is sent in <a href="//en.wikipedia.org/wiki/Base64"><strong>Base-64 encoded format</strong></a>.</li>
+<li>Validates if the time period between the current time stamp and the request time stamp is &lt;= time period (n - admin config). Refer to the features related to <a href="#a-validate-the-timestamp-of-the-authentication-request"><strong>time stamp validation</strong></a>.</li>
+<li>The system retrieves the threshold level configured which is acceptable for a match and then validates if the match score is equal to greater than the threshold level and sets the status as 'Y' for authentication</li>
+<li>Constructs the authentication response based on validation results</li>
+<li>Integrates the response with the static token generated for the authentication request. Refer to features related to generate a <a href="#d-generate-a-static-token-id-for-each-mosip-authentication-request-to-facilitate-authentication-"><strong>Static Token</strong></a>.</li>
+<li>The system proceeds to send Notification SMS and Notification E-mail. Refer to features related to <a href="#e-trigger-sms-to-the-individuals-mobile-for-every-authentication-request"><strong>Trigger SMS</strong></a> and <a href="#f-trigger-e-mail-to-the-individuals-e-mail-id-for-every-authentication-request-"><strong>Trigger E-mail</strong></a>.</li>
+<li>Alerts and warning messages for data type violation are sent as per data definition. Please refer Git for more details on the type of <a href="_files/requirements/requirements_detailing_references/ID-Authentication/Sprint%2010/Consolidated%20error%20messages%20V2.2.xlsx"><strong>error messages</strong></a>.</li>
+</ol>
+<p>Please refer to the <a href="ID-Authentication-APIs#authentication-service-public"><strong>Biometric Authentication API</strong></a>
+for more details.</p>
+<p><strong>C. Evaluate the Individual's fingerprints with the corresponding fingerprint in the Auth server</strong> <a href="#table-of-contents"><strong>[↑]</strong></a></p>
+<p>Upon receiving an authentication request, the system evaluates the Individual's fingerprints with the corresponding fingerprint in the Auth server as per the following steps:</p>
+<ol>
+<li>The authentication service request should have a defined set of parameters. Please refer to <a href="_files/requirements/requirements_detailing_references/ID-Authentication/Data%20Definition.zip"><strong>data definition</strong></a> in Git for more details on required parameters.</li>
+<li>The biometric is sent in <a href="//en.wikipedia.org/wiki/Base64"><strong>Base-64 encoded format</strong></a>.</li>
+<li>The system then validated the following:
+<ul>
+<li>Validates if the time period between the current time stamp and the request time stamp is &lt;= time period (n is an admin configuration). Refer to the features related to <a href="#a-validate-the-timestamp-of-the-authentication-request"><strong>time stamp validation</strong></a>.</li>
+<li>Validates if duplicate fingers are used in input</li>
+<li>Validates if total number of finger print records exceed 2</li>
+</ul></li>
+<li>The system then matches finger print records in the input parameter against the mapped UIN/VID of the individual in the auth database. Refer to the features related to <a href="#c-map-vid-to-uin-of-the-individual-in-the-auth-database-so-that-the-individual-can-be-authenticated-"><strong>Map VID to UIN</strong></a>.</li>
+<li>The system then generates a match score based on the level of the match of the fingerprints and proceeds to execute compare against fingerprint threshold</li>
+<li>The system proceeds to send Notification SMS and Notification E-mail. Refer to features related to <a href="#e-trigger-sms-to-the-individuals-mobile-for-every-authentication-request"><strong>Trigger SMS</strong></a> and <a href="#f-trigger-e-mail-to-the-individuals-e-mail-id-for-every-authentication-request-"><strong>Trigger E-mail</strong></a>.</li>
+<li>Alerts and warning messages for data type violation are sent as per data definition. Please refer Git for more details on the type of <a href="_files/requirements/requirements_detailing_references/ID-Authentication/Sprint%2010/Consolidated%20error%20messages%20V2.2.xlsx"><strong>error messages</strong></a>.</li>
+</ol>
+<p>Please refer to the <a href="ID-Authentication-APIs#authentication-service-public"><strong>Biometric Authentication API</strong></a>
+for more details.</p>
+<p><strong>D. Authenticate the fingerprints of the Individual by comparing the match score of the fingerprint against the threshold (BioAuthService)</strong></p>
+<p>Upon receiving an authentication request, the system authenticates the fingerprints of the Individual by comparing the match score of the fingerprint against the threshold. The system can integrate with Fingerprint scanner and generate match score as per the following steps:</p>
+<ol>
+<li>The authentication service request should have a defined set of parameters. Please refer to <a href="_files/requirements/requirements_detailing_references/ID-Authentication/Data%20Definition.zip"><strong>data definition</strong></a> in Git for more details on required parameters.</li>
+<li>The biometric is sent in <a href="//en.wikipedia.org/wiki/Base64"><strong>Base-64 encoded format</strong></a>.</li>
+<li>Validates if the time period between the current time stamp and the request time stamp is &lt;= time period (n - admin config). Refer to the features related to <a href="#a-validate-the-timestamp-of-the-authentication-request"><strong>time stamp validation</strong></a>.</li>
+<li>The system retrieves the threshold level configured which is acceptable for a match</li>
+<li>The system then validates  if the match score is equal to greater than the threshold level and sends a response</li>
+<li>Integrates the response with the static token generated for the authentication request. Refer to features related to generate a <a href="#d-generate-a-static-token-id-for-each-mosip-authentication-request-to-facilitate-authentication-"><strong>Static Token</strong></a>.</li>
+<li>The system proceeds to send Notification SMS and Notification E-mail. Refer to features related to <a href="#e-trigger-sms-to-the-individuals-mobile-for-every-authentication-request"><strong>Trigger SMS</strong></a> and <a href="#f-trigger-e-mail-to-the-individuals-e-mail-id-for-every-authentication-request-"><strong>Trigger E-mail</strong></a>.</li>
+<li>Alerts and warning messages for data type violation are sent as per data definition. Please refer Git for more details on the type of <a href="_files/requirements/requirements_detailing_references/ID-Authentication/Sprint%2010/Consolidated%20error%20messages%20V2.2.xlsx"><strong>error messages</strong></a>.</li>
+</ol>
+<p>Please refer to the <a href="ID-Authentication-APIs#authentication-service-public"><strong>Biometric Authentication API</strong></a>
+for more details.</p>
+<p><strong>E. Support two-finger authentication so that the quality of incoming fingerprints is better</strong> <a href="#table-of-contents"><strong>[↑]</strong></a></p>
+<p>Upon receiving an authentication request, the system supports two-finger authentication so that the quality of incoming fingerprints gets better as per the below process:</p>
+<ol>
+<li>The authentication service request should have a defined set of parameters. Please refer to <a href="_files/requirements/requirements_detailing_references/ID-Authentication/Data%20Definition.zip"><strong>data definition</strong></a> in Git for more details on required parameters.</li>
+<li>The biometric is sent in <a href="//en.wikipedia.org/wiki/Base64"><strong>Base-64 encoded format</strong></a></li>
+<li>The system validated the following:
+<ul>
+<li>Validates if the time period between the current time stamp and the request time stamp is &lt;= time period (n is an admin configuration). Refer to the features related to <a href="#a-validate-the-timestamp-of-the-authentication-request"><strong>time stamp validation</strong></a>.</li>
+<li>Validates if duplicate fingers are used in input, if duplicate encoded value is used in the input for fingers - updated logic</li>
+<li>Validates if single finger print record contains more than one finger</li>
+<li>Validates if total number of finger print records exceed 2</li>
+</ul></li>
+<li>The system then matches first finger print record in the input parameter against the mapped UIN/VID of the individual in the auth database. Refer to the features related to <a href="#c-map-vid-to-uin-of-the-individual-in-the-auth-database-so-that-the-individual-can-be-authenticated-"><strong>Map VID to UIN</strong></a>.</li>
+<li>The system will integrate with BioAPI compositeMatch function logic which returns composite match score.
+<ul>
+<li>NOTE: The logic of average or sum, etc. will be part of BioAPI implementation. The current stubbed implementation of BioAPI performs an average.</li>
+</ul></li>
+<li>The system retrieves the composite finger threshold configured which is acceptable for a match</li>
+<li>The system validates if the composite match score is equal to greater than the composite finger threshold</li>
+<li>Constructs the authentication response based on validation results</li>
+<li>Integrates the response with the static token generated for the authentication request. Refer to features related to generate a <a href="#d-generate-a-static-token-id-for-each-mosip-authentication-request-to-facilitate-authentication-"><strong>Static Token</strong></a>.</li>
+<li>The system proceeds to send Notification SMS and Notification E-mail. Refer to features related to <a href="#e-trigger-sms-to-the-individuals-mobile-for-every-authentication-request"><strong>Trigger SMS</strong></a> and <a href="#f-trigger-e-mail-to-the-individuals-e-mail-id-for-every-authentication-request-"><strong>Trigger E-mail</strong></a>.</li>
+<li>Alerts and warning messages for data type violation are sent as per data definition. Please refer Git for more details on the type of <a href="_files/requirements/requirements_detailing_references/ID-Authentication/Sprint%2010/Consolidated%20error%20messages%20V2.2.xlsx"><strong>error messages</strong></a>.</li>
+</ol>
+<p>Please refer to the <a href="ID-Authentication-APIs#authentication-service-public"><strong>Biometric Authentication API</strong></a> for more details.</p>
+<p><strong>F. Evaluate the Individual's IRIS match with the corresponding IRIS in the Auth server</strong> <a href="#table-of-contents"><strong>[↑]</strong></a></p>
+<p>Upon receiving an authentication request, the system evaluates the Individual's IRIS match with the corresponding IRIS in the Auth server as per the following steps:</p>
+<ol>
+<li>The authentication service request should have a defined set of parameters. Please refer to <a href="_files/requirements/requirements_detailing_references/ID-Authentication/Data%20Definition.zip"><strong>data definition</strong></a> in Git for more details on required parameters.</li>
+<li>The biometric is sent in <a href="//en.wikipedia.org/wiki/Base64"><strong>Base-64 encoded format</strong></a></li>
+<li>The system validated the following:
+<ul>
+<li>Validates if the time period between the current time stamp and the request time stamp is &lt;= time period (n is an admin configuration). Refer to the features related to <a href="#a-validate-the-timestamp-of-the-authentication-request"><strong>time stamp validation</strong></a>.</li>
+<li>Validates if duplicate irises are used in input</li>
+<li>Validates if total number of Iris records exceeds 2</li>
+<li>Validates if single iris record is present in the input</li>
+<li>The system matches iris record in the input parameter against the mapped UIN/VID of the individual in the auth database. Refer to the features related to <a href="#c-map-vid-to-uin-of-the-individual-in-the-auth-database-so-that-the-individual-can-be-authenticated-"><strong>Map VID to UIN</strong></a>.</li>
+</ul></li>
+<li>The system then generates a match score based on the level of the match of the Irises. The SDK will provide the match score.
+<ul>
+<li>NOTE: Biometric Authentication match score generation is stubbed. The actual integration with SDK will be covered in forthcoming implementation.</li>
+</ul></li>
+<li>The system validates if two iris records are present in the input</li>
+<li>The system matches each of the iris records in the input parameter against the corresponding records of the mapped UIN/VID of the individual in the auth database and then generates a match score based on the level of the match of the Irises. Refer to the features related to <a href="#c-map-vid-to-uin-of-the-individual-in-the-auth-database-so-that-the-individual-can-be-authenticated-"><strong>Map VID to UIN</strong></a>.</li>
+<li>Match score 1 and Match score 2 are generated for each images. The SDK provides the match score
+<ul>
+<li>NOTE: Biometric Authentication match score generation is stubbed. The actual integration with SDK will be covered in forthcoming implementation.</li>
+</ul></li>
+<li>The system generates a composite match score by summing up the match scores for the first and the second iris Images</li>
+<li>The system proceeds to execute compare against Iris threshold</li>
+<li>The system proceeds to send Notification SMS and Notification E-mail. Refer to features related to <a href="#e-trigger-sms-to-the-individuals-mobile-for-every-authentication-request"><strong>Trigger SMS</strong></a> and <a href="#f-trigger-e-mail-to-the-individuals-e-mail-id-for-every-authentication-request-"><strong>Trigger E-mail</strong></a>.</li>
+<li>Alerts and warning messages for data type violation are sent as per data definition. Please refer Git for more details on the type of <a href="_files/requirements/requirements_detailing_references/ID-Authentication/Sprint%2010/Consolidated%20error%20messages%20V2.2.xlsx"><strong>error messages</strong></a>.</li>
+</ol>
+<p>Please refer to the <a href="ID-Authentication-APIs#authentication-service-public"><strong>Biometric Authentication API</strong></a> for more details.</p>
+<p><strong>G. Authenticate the IRIS of the Individual by comparing the match score of the IRIS against the threshold</strong> <a href="#table-of-contents"><strong>[↑]</strong></a></p>
+<ol>
+<li>The authentication service request should have a defined set of parameters. Please refer to <a href="_files/requirements/requirements_detailing_references/ID-Authentication/Data%20Definition.zip"><strong>data definition</strong></a> in Git for more details on required parameters.</li>
+<li>The system retrieves generated score match</li>
+<li>The biometric is sent in <a href="//en.wikipedia.org/wiki/Base64"><strong>Base-64 encoded format</strong></a>.</li>
+<li>Validates if the time period between the current time stamp and the request time stamp is &lt;= time period (n - admin config). Refer to the features related to <a href="#a-validate-the-timestamp-of-the-authentication-request"><strong>time stamp validation</strong></a>.</li>
+<li>The system then validated the following:
+<ul>
+<li>Validates if single iris records are present in the input</li>
+<li>Retrieves the threshold level configured which is acceptable for a match</li>
+<li>Validates if the match score is equal to greater than the threshold level</li>
+<li>Validates if two iris records are present in the input</li>
+<li>Retrieves the composite threshold level configured which is acceptable for a match</li>
+<li>Validates if the composite match score is equal to greater than the composite threshold</li>
+</ul></li>
+<li>Constructs the authentication response based on validation results</li>
+<li>The system proceeds to execute compare against Iris threshold</li>
+<li>Integrates the response with the static token generated for the authentication request. Refer to features related to generate a <a href="#d-generate-a-static-token-id-for-each-mosip-authentication-request-to-facilitate-authentication-"><strong>Static Token</strong></a>.</li>
+<li>The system proceeds to send Notification SMS and Notification E-mail. Refer to features related to <a href="#e-trigger-sms-to-the-individuals-mobile-for-every-authentication-request"><strong>Trigger SMS</strong></a> and <a href="#f-trigger-e-mail-to-the-individuals-e-mail-id-for-every-authentication-request-"><strong>Trigger E-mail</strong></a>.</li>
+<li>Alerts and Warning messages for data type violation are sent as per data definition. Please refer Git for more details on the type of <a href="_files/requirements/requirements_detailing_references/ID-Authentication/Sprint%2010/Consolidated%20error%20messages%20V2.2.xlsx"><strong>error messages</strong></a></li>
+</ol>
+<p>Please refer to the <a href="ID-Authentication-APIs#authentication-service-public"><strong>Biometric Authentication API</strong></a> for more details.</p>
+<p><a href="/mosip/mosip-platform/blob/master/design/authentication/Bio_Auth_Request_REST_Service.md"><strong>Link to design</strong></a></p>
+<h2><a class="anchor" aria-hidden="true" id="12-demographic-authentication-table-of-contents"></a><a href="#12-demographic-authentication-table-of-contents" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>1.2 Demographic Authentication <a href="#table-of-contents"><strong>[↑]</strong></a></h2>
+<p><strong>A. Strategy for Authentication</strong></p>
+<p>MOSIP supports only exact match for the demographic authentication of the individual and does not perform any validations related to partial match and phonetics match. No error messages related to partial match and phonetics match are triggered.</p>
+<p><strong>B. Demographic (Address) Authentication</strong></p>
+<p>No weightage is provided to any field\s but exact match strategy is adopted for demographic address</p>
+<ol>
+<li>The authentication service request should have a defined set of parameters. Please refer to <a href="_files/requirements/requirements_detailing_references/ID-Authentication/Data%20Definition.zip"><strong>data definition</strong></a>
+in Git for more details on required parameters.</li>
+<li>Upon receiving an authentication request the system validates if the time period between the current time stamp and the request time stamp is &lt;= time period (n - admin config). Refer to the features related to <a href="#a-validate-the-timestamp-of-the-authentication-request"><strong>time stamp validation</strong></a>.</li>
+<li>The system validates if each of the address line items  in the input parameter is same as the address line items against the mapped UIN/VID of the individual in the auth database in the respective language for each address element. Refer to the features related to <a href="#c-map-vid-to-uin-of-the-individual-in-the-auth-database-so-that-the-individual-can-be-authenticated-"><strong>Map VID to UIN</strong></a>.</li>
+<li>Constructs the authentication response based on validation results</li>
+<li>Integrates the response with the static token generated for the authentication request. Refer to features related to generate a <a href="#d-generate-a-static-token-id-for-each-mosip-authentication-request-to-facilitate-authentication-"><strong>Static Token</strong></a>.</li>
+<li>The system proceeds to send Notification SMS and Notification E-mail. Refer to features related to <a href="#e-trigger-sms-to-the-individuals-mobile-for-every-authentication-request"><strong>Trigger SMS</strong></a> and <a href="#f-trigger-e-mail-to-the-individuals-e-mail-id-for-every-authentication-request-"><strong>Trigger E-mail</strong></a>.
+Please refer Git for more details on the type of <a href="_files/requirements/requirements_detailing_references/ID-Authentication/Sprint%2010/Consolidated%20error%20messages%20V2.2.xlsx"><strong>error messages</strong></a>.</li>
+</ol>
+<p>Please refer to the <a href="ID-Authentication-APIs#authentication-service-public"><strong>Demographic Authentication API</strong></a> for more details.</p>
+<p>NOTE:</p>
+<ol>
+<li>The address attributes are generalized as location 1, location 2 and location 3</li>
+<li>The SI has to define and map the address specific attributes against addressLine2, addressLine3,  and location specific attributes against location1, location2, location3 of a country. For example: addrLine1 means House No, addrLine2 means Street No, and addrLine3 means Locality; similarly loc1 means Local Administrative Authority, loc2 means Province and loc3 means Region.</li>
+</ol>
+<p>Please refer Git for the address based <a href="_files/requirements/requirements_detailing_references/ID-Authentication/Sprint%20FIT-4/Address%20Normalization%20BR.docx"><strong>Normalization Rules</strong></a></p>
+<p><strong>C. Verify the Age of the individual so that the individual is authenticated</strong></p>
+<ol>
+<li>The authentication service request should have a defined set of parameters. Please refer to <a href="_files/requirements/requirements_detailing_references/ID-Authentication/Data%20Definition.zip"><strong>data definition</strong></a> in Git for more details on required parameters.</li>
+<li>Upon receiving an authentication request the system validates if the time period between the current time stamp and the request time stamp is &lt;= time period (n - admin config). Refer to the features related to <a href="#a-validate-the-timestamp-of-the-authentication-request"><strong>time stamp validation</strong></a>.</li>
+<li>The system retrieves the DOB of the individual in the auth database based on the mapped UIN/VID. Refer to the features related to <a href="#c-map-vid-to-uin-of-the-individual-in-the-auth-database-so-that-the-individual-can-be-authenticated-"><strong>Map VID to UIN</strong></a>.</li>
+<li>The system calculates the age of the individual based on the DOB.</li>
+<li>Validates if the Age of the individual is greater than or equal to the Age in the input parameter</li>
+<li>Constructs the authentication response based on validation results</li>
+<li>Integrates the response with the static token generated for the authentication request. Refer to features related to generate a <a href="#d-generate-a-static-token-id-for-each-mosip-authentication-request-to-facilitate-authentication-"><strong>Static Token</strong></a>.</li>
+<li>The system proceeds to send Notification SMS and Notification E-mail. Refer to features related to <a href="#e-trigger-sms-to-the-individuals-mobile-for-every-authentication-request"><strong>Trigger SMS</strong></a> and <a href="#f-trigger-e-mail-to-the-individuals-e-mail-id-for-every-authentication-request-"><strong>Trigger E-mail</strong></a>.
+Please refer Git for more details on the type of <a href="_files/requirements/requirements_detailing_references/ID-Authentication/Sprint%2010/Consolidated%20error%20messages%20V2.2.xlsx"><strong>error messages</strong></a>.</li>
+</ol>
+<p>Please refer to the <a href="ID-Authentication-APIs#authentication-service-public"><strong>Demographic Authentication API</strong></a> for more details.</p>
+<p><strong>D. Match Name of the individual in the database so that the individual is authenticated</strong></p>
+<ol>
+<li>The authentication service request should have a defined set of parameters. Please refer to <a href="_files/requirements/requirements_detailing_references/ID-Authentication/Data%20Definition.zip"><strong>data definition</strong></a> in Git for more details on required parameters.</li>
+<li>Upon receiving an authentication request the system validates if the time period between the current time stamp and the request time stamp is &lt;= time period (n - admin config). Refer to the features related to <a href="#a-validate-the-timestamp-of-the-authentication-request"><strong>time stamp validation</strong></a>.</li>
+<li>The system compares the name in the input parameter with the Name saved in the respective language in the auth database</li>
+<li>Constructs the authentication response based on validation results</li>
+<li>Integrates the response with the static token generated for the authentication request. Refer to features related to generate a <a href="#d-generate-a-static-token-id-for-each-mosip-authentication-request-to-facilitate-authentication-"><strong>Static Token</strong></a>.</li>
+<li>The system proceeds to send Notification SMS and Notification E-mail. Refer to features related to <a href="#e-trigger-sms-to-the-individuals-mobile-for-every-authentication-request"><strong>Trigger SMS</strong></a> and <a href="#f-trigger-e-mail-to-the-individuals-e-mail-id-for-every-authentication-request-"><strong>Trigger E-mail</strong></a>.
+Please refer Git for more details on the type of <a href="_files/requirements/requirements_detailing_references/ID-Authentication/Sprint%2010/Consolidated%20error%20messages%20V2.2.xlsx"><strong>error messages</strong></a></li>
+</ol>
+<p>Please refer to the <a href="ID-Authentication-APIs#authentication-service-public"><strong>Demographic Authentication API</strong></a> for more details.</p>
+<p><strong>E. Match phone number of the individual in the database so that the individual is authenticated</strong> <a href="#table-of-contents"><strong>[↑]</strong></a></p>
+<ol>
+<li>The authentication service request should have a defined set of parameters. Please refer to  <a href="_files/requirements/requirements_detailing_references/ID-Authentication/Data%20Definition.zip"><strong>data definition</strong></a> in Git for more details on required parameters.</li>
+<li>Upon receiving an authentication request the system validates if the time period between the current time stamp and the request time stamp is &lt;= time period (n - admin config). Refer to the features related to <a href="#a-validate-the-timestamp-of-the-authentication-request"><strong>time stamp validation</strong></a>.</li>
+<li>The system matches the phone number in the input parameter with the phone number of the individual in the auth database based on the mapped UIN/VID. Refer to the features related to <a href="#c-map-vid-to-uin-of-the-individual-in-the-auth-database-so-that-the-individual-can-be-authenticated-"><strong>Map VID to UIN</strong></a>.</li>
+<li>Constructs the authentication response based on validation results</li>
+<li>Integrates the response with the static token generated for the authentication request. Refer to features related to generate a <a href="#d-generate-a-static-token-id-for-each-mosip-authentication-request-to-facilitate-authentication-"><strong>Static Token</strong></a>.</li>
+<li>The system proceeds to send Notification SMS and Notification E-mail. Refer to features related to <a href="#e-trigger-sms-to-the-individuals-mobile-for-every-authentication-request"><strong>Trigger SMS</strong></a> and <a href="#f-trigger-e-mail-to-the-individuals-e-mail-id-for-every-authentication-request-"><strong>Trigger E-mail</strong></a>.
+Please refer Git for more details on the type of <a href="_files/requirements/requirements_detailing_references/ID-Authentication/Sprint%2010/Consolidated%20error%20messages%20V2.2.xlsx"><strong>error messages</strong></a></li>
+</ol>
+<p>Please refer to the <a href="ID-Authentication-APIs#authentication-service-public"><strong>Demographic Authentication API</strong></a> for more details.</p>
+<p><strong>F. Match e-mail ID of the individual in the database so that the individual is authenticated</strong> <a href="#table-of-contents"><strong>[↑]</strong></a></p>
+<ol>
+<li>The authentication service request should have a defined set of parameters. Please refer to  <a href="_files/requirements/requirements_detailing_references/ID-Authentication/Data%20Definition.zip"><strong>data definition</strong></a> in Git for more details on required parameters.</li>
+<li>Upon receiving an authentication request the system validates if the time period between the current time stamp and the request time stamp is &lt;= time period (n - admin config). Refer to the features related to <a href="#a-validate-the-timestamp-of-the-authentication-request"><strong>time stamp validation</strong></a>.</li>
+<li>The system matches the e-mail id in the input parameter with the phone number of the individual in the auth database based on the mapped UIN/VID. Refer to the features related to <a href="#c-map-vid-to-uin-of-the-individual-in-the-auth-database-so-that-the-individual-can-be-authenticated-"><strong>Map VID to UIN</strong></a>.</li>
+<li>Constructs the authentication response based on validation results</li>
+<li>Integrates the response with the static token generated for the authentication request. Refer to features related to generate a <a href="#d-generate-a-static-token-id-for-each-mosip-authentication-request-to-facilitate-authentication-"><strong>Static Token</strong></a>.</li>
+<li>The system proceeds to send Notification SMS and Notification E-mail. Refer to features related to <a href="#e-trigger-sms-to-the-individuals-mobile-for-every-authentication-request"><strong>Trigger SMS</strong></a> and <a href="#f-trigger-e-mail-to-the-individuals-e-mail-id-for-every-authentication-request-"><strong>Trigger E-mail</strong></a>.
+Please refer Git for more details on the type of <a href="_files/requirements/requirements_detailing_references/ID-Authentication/Sprint%2010/Consolidated%20error%20messages%20V2.2.xlsx"><strong>error messages</strong></a>.</li>
+</ol>
+<p>Please refer to the <a href="ID-Authentication-APIs#authentication-service-public"><strong>Demographic Authentication API</strong></a> for more details.</p>
+<p><strong>G. Match gender of the individual in the database so that the individual is authenticated</strong> <a href="#table-of-contents"><strong>[↑]</strong></a></p>
+<ol>
+<li>The authentication service request should have a defined set of parameters. Please refer to  <a href="_files/requirements/requirements_detailing_references/ID-Authentication/Data%20Definition.zip"><strong>data definition</strong></a> in Git for more details on required parameters.</li>
+<li>Upon receiving an authentication request the system validates if the time period between the current time stamp and the request time stamp is &lt;= time period (n - admin config). Refer to the features related to <a href="#a-validate-the-timestamp-of-the-authentication-request"><strong>time stamp validation</strong></a>.</li>
+<li>The system matches the Gender in the input parameter with the Gender of the individual in the auth database based on the mapped UIN/VID. Refer to the features related to <a href="#c-map-vid-to-uin-of-the-individual-in-the-auth-database-so-that-the-individual-can-be-authenticated-"><strong>Map VID to UIN</strong></a>.</li>
+<li>Constructs the authentication response based on validation results</li>
+<li>Integrates the response with the static token generated for the authentication request. Refer to features related to generate a <a href="#d-generate-a-static-token-id-for-each-mosip-authentication-request-to-facilitate-authentication-"><strong>Static Token</strong></a>.</li>
+<li>The system proceeds to send Notification SMS and Notification E-mail. Refer to features related to <a href="#e-trigger-sms-to-the-individuals-mobile-for-every-authentication-request"><strong>Trigger SMS</strong></a> and <a href="#f-trigger-e-mail-to-the-individuals-e-mail-id-for-every-authentication-request-"><strong>Trigger E-mail</strong></a>.
+Please refer Git for more details on the type of <a href="_files/requirements/requirements_detailing_references/ID-Authentication/Sprint%2010/Consolidated%20error%20messages%20V2.2.xlsx"><strong>error messages</strong></a>.</li>
+</ol>
+<p>Please refer to the <a href="ID-Authentication-APIs#authentication-service-public"><strong>Demographic Authentication API</strong></a> for more details.</p>
+<p><strong>H. Match DOB of the individual in the database so that the individual is authenticated</strong></p>
+<ol>
+<li>The authentication service request should have a defined set of parameters. Please refer to  <a href="_files/requirements/requirements_detailing_references/ID-Authentication/Data%20Definition.zip"><strong>data definition</strong></a> in Git for more details on required parameters.</li>
+<li>Upon receiving an authentication request the system validates if the time period between the current time stamp and the request time stamp is &lt;= time period (n - admin config). Refer to the features related to <a href="#a-validate-the-timestamp-of-the-authentication-request"><strong>time stamp validation</strong></a>.</li>
+<li>The system matches the DOB in the input parameter with the DOB of the individual in the auth database based on the mapped UIN/VID. Refer to the features related to <a href="#c-map-vid-to-uin-of-the-individual-in-the-auth-database-so-that-the-individual-can-be-authenticated-"><strong>Map VID to UIN</strong></a>.</li>
+<li>Constructs the authentication response based on validation results</li>
+<li>Integrates the response with the static token generated for the authentication request. Refer to features related to generate a <a href="#d-generate-a-static-token-id-for-each-mosip-authentication-request-to-facilitate-authentication-"><strong>Static Token</strong></a>.</li>
+<li>The system proceeds to send Notification SMS and Notification E-mail. Refer to features related to <a href="#e-trigger-sms-to-the-individuals-mobile-for-every-authentication-request"><strong>Trigger SMS</strong></a> and <a href="#f-trigger-e-mail-to-the-individuals-e-mail-id-for-every-authentication-request-"><strong>Trigger E-mail</strong></a>.
+Please refer Git for more details on the type of <a href="_files/requirements/requirements_detailing_references/ID-Authentication/Sprint%2010/Consolidated%20error%20messages%20V2.2.xlsx"><strong>error messages</strong></a>.</li>
+</ol>
+<p>Please refer to the <a href="ID-Authentication-APIs#authentication-service-public"><strong>Demographic Authentication API</strong></a> for more details.</p>
+<p><a href="/mosip/mosip-platform/blob/master/design/authentication/Demo_Auth_Request_REST_Service.md"><strong>Link to design</strong></a></p>
+<h2><a class="anchor" aria-hidden="true" id="13-otp-authentication-table-of-contents"></a><a href="#13-otp-authentication-table-of-contents" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>1.3 OTP Authentication <a href="#table-of-contents"><strong>[↑]</strong></a></h2>
+<p><strong>A. Trigger OTP to an individual so that the individual can be authenticated based on OTP</strong></p>
+<ol>
+<li>The authentication service request should have a defined set of parameters. Please refer to  <a href="_files/requirements/requirements_detailing_references/ID-Authentication/Data%20Definition.zip"><strong>data definition</strong></a> in Git for more details on required parameters.</li>
+<li>Upon receiving an authentication request the system validates if the Timestamp of OTP generation request is older than 20 min. Refer to the features related to <a href="#a-validate-the-timestamp-of-the-authentication-request"><strong>time stamp validation</strong></a>.</li>
+<li>The system generates the OTP for the request</li>
+<li>Retrieves the mode of communication (i.e) e-mail or phone number configured for sending the OTP</li>
+<li>The system validates if the configured mode of communication is also registered and triggers and OTP</li>
+<li>Constructs the authentication response based on validation results with masked mobile and masked e-mail</li>
+<li>The system proceeds to validate OTP as per the defined standards</li>
+<li>The system proceeds to send Notification SMS and Notification E-mail. Refer to features related to <a href="#e-trigger-sms-to-the-individuals-mobile-for-every-authentication-request"><strong>Trigger SMS</strong></a> and <a href="#f-trigger-e-mail-to-the-individuals-e-mail-id-for-every-authentication-request-"><strong>Trigger E-mail</strong></a>.
+Please refer Git for more details on the type of <a href="_files/requirements/requirements_detailing_references/ID-Authentication/Sprint%2010/Consolidated%20error%20messages%20V2.2.xlsx"><strong>error messages</strong></a>.</li>
+</ol>
+<p>Please refer to the <a href="ID-Authentication-APIs#otp-request-service-public"><strong>OTP Authentication API</strong></a> for more details.</p>
+<p><strong>B. Trigger SMS to the Individual's mobile for OTP Trigger request</strong> <a href="#table-of-contents"><strong>[↑]</strong></a></p>
+<ol>
+<li>The authentication service request should have a defined set of parameters. Please refer to <a href="_files/requirements/requirements_detailing_references/ID-Authentication/Data%20Definition.zip"><strong>data definition</strong></a> in Git for more details on required parameters.</li>
+<li>The system retrieves the mode of communication (i.e) e-mail or phone number configured for sending the notification</li>
+<li>Validates if the configured mode of communication is also registered</li>
+<li>The system fetches the notification template as per admin configuration</li>
+<li>Triggers notification as per the defined and configured template and in the default language English. Please refer Git for more details on the type of <a href="_files/requirements/requirements_detailing_references/ID-Authentication/Sprint%2010/Consolidated%20error%20messages%20V2.2.xlsx"><strong>error messages</strong></a>.</li>
+</ol>
+<p>Please refer to the <a href="ID-Authentication-APIs#otp-request-service-public"><strong>OTP Authentication API</strong></a> for more details.</p>
+<p><strong>C. Respond with masked e-mail and masked phone number for OTP trigger request</strong></p>
+<p>The system follows the following steps to include masked e-mail and phone in the OTP request response</p>
+<ol>
+<li>Retrieves the mode to which OTP will be sent as per the below logic
+<ul>
+<li>If the configured mode of communication is also registered sends OTP to the configured and registered mode</li>
+<li>If the configured mode = e-mail and Registered Mode is Mobile; then sends OTP to Mobile</li>
+<li>If the configured mode = phone and Registered Mode is e-mail; then sends OTP to e-mail</li>
+<li>If registered mode is none, then send error code.</li>
+</ul></li>
+</ol>
+<p>Please refer Git for more details on the type of <a href="_files/requirements/requirements_detailing_references/ID-Authentication/Sprint%2010/Consolidated%20error%20messages%20V2.2.xlsx"><strong>error messages</strong></a>.</p>
+<ol start="2">
+<li>If the communication mode = mobile</li>
+<li>Mask the mobile no of the individual as per logic below and include the masked mobile in the OTP request response</li>
+<li>If the communication mode = e-mail</li>
+<li>Mask the e-mail of the individual as per the logic below and include the masked e-mail in the OTP request response</li>
+<li>If the communication mode = mobile and e-mail</li>
+<li>Mask both the mobile no and the email as per the logic below and include the both in the OTP request response</li>
+</ol>
+<p><strong>Logic for masking mobile</strong> <a href="#table-of-contents"><strong>[↑]</strong></a></p>
+<ol>
+<li><p>No of digits in the mobile number to be retrieved – say n</p></li>
+<li><p>Mask first {(50% of the n digits) + 1} digits of the mobile number</p>
+<ul>
+<li>Note: 50% in case of decimal means rounded to the greatest whole number</li>
+</ul></li>
+</ol>
+<p>Eg:</p>
+<p>Original phone number: 8347899201</p>
+<p>Masked phone number: XXXXXX9201</p>
+<p><strong>Logic for masking e-mail</strong></p>
+<ol>
+<li>Consider the characters prior to the symbol ‘@’</li>
+<li>Assign a position to each character</li>
+<li>Mask every alternate 2 characters starting from position 1</li>
+</ol>
+<p>Eg:</p>
+<p><code>Original e-mail: umamahesh@gmail.com</code></p>
+<p><code>Masked e-mail: XXaXXhXXh@gmail.com</code></p>
+<p><strong>D. Trigger e-mail to the Individual's mail-ID for OTP Trigger request</strong></p>
+<ol>
+<li>The authentication service request should have a defined set of parameters. Please refer to <a href="_files/requirements/requirements_detailing_references/ID-Authentication/Data%20Definition.zip"><strong>data definition</strong></a> in Git for more details on required parameters.</li>
+<li>The system then retrieves the mode of communication (i.e) e-mail or phone number configured for sending the notification</li>
+<li>Validates if the configured mode of communication is also registered</li>
+<li>Fetches the notification template as per admin configuration</li>
+<li>Triggers notification as per the defined and configured template and in the default language English</li>
+<li>Please refer Git for more details on the type of <a href="_files/requirements/requirements_detailing_references/ID-Authentication/Sprint%2010/Consolidated%20error%20messages%20V2.2.xlsx"><strong>error messages</strong></a>.</li>
+</ol>
+<p>Please refer to the <a href="ID-Authentication-APIs#otp-request-service-public"><strong>OTP Authentication API</strong></a> for more details.</p>
+<p><strong>E. Validate OTP provided by an Individual so that the individual can be authenticated based on OTP</strong></p>
+<ol>
+<li>The authentication service request should have a defined set of parameters. Please refer to <a href="_files/requirements/requirements_detailing_references/ID-Authentication/Data%20Definition.zip"><strong>data definition</strong></a> in Git for more details on required parameters.</li>
+<li>Upon receiving an authentication request with required parameters a the system validates if the transaction id matches with transaction id value of OTP Generation Request</li>
+<li>Validates if the time period between the current time stamp and the request time stamp is &lt;= time period (n - admin config). Refer to the features related to <a href="#a-validate-the-timestamp-of-the-authentication-request"><strong>time stamp validation</strong></a>.</li>
+<li>Validates if the OTP in the input parameter is same as the OTP triggered for the individual to the registered phone number and/or e-mail</li>
+<li>The system checks the validity of the OTP</li>
+<li>Constructs the authentication response based on validation results</li>
+<li>The system proceeds to send Notification SMS and Notification E-mail. Refer to features related to <a href="#e-trigger-sms-to-the-individuals-mobile-for-every-authentication-request"><strong>Trigger SMS</strong></a> and <a href="#f-trigger-e-mail-to-the-individuals-e-mail-id-for-every-authentication-request-"><strong>Trigger E-mail</strong></a>.
+Please refer Git for more details on the type of <a href="_files/requirements/requirements_detailing_references/ID-Authentication/Sprint%2010/Consolidated%20error%20messages%20V2.2.xlsx"><strong>error messages</strong></a>.</li>
+</ol>
+<p>Please refer to the <a href="ID-Authentication-APIs#otp-request-service-public"><strong>OTP Authentication API</strong></a> for more details.</p>
+<h2><a class="anchor" aria-hidden="true" id="14-common-features-for-all-authentication-types-table-of-contents"></a><a href="#14-common-features-for-all-authentication-types-table-of-contents" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>1.4 Common Features for all Authentication Types <a href="#table-of-contents"><strong>[↑]</strong></a></h2>
+<h4><a class="anchor" aria-hidden="true" id="a-validate-the-timestamp-of-the-authentication-request"></a><a href="#a-validate-the-timestamp-of-the-authentication-request" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>A. Validate the timestamp of the authentication request</h4>
+<ol>
+<li>The authentication service request should have a defined set of parameters. Please refer to <a href="_files/requirements/requirements_detailing_references/ID-Authentication/Data%20Definition.zip"><strong>data definition</strong></a> in Git for more details on required parameters.</li>
+<li>The system then validates the following:
+<ul>
+<li>Validates if the time period between the current time stamp and the request time stamp is &lt;= 20 min</li>
+<li>Validates if the time period between the current time stamp and the request time stamp is &lt;= time period (n - admin config)---&gt; Default value-24 hrs</li>
+<li>The system validates the mode of authentication as per the defined standards</li>
+<li>Then triggers error messages as configured.</li>
+</ul></li>
+<li>MOSIP supports standard time for timestamps of authentication requests and responses
+<ul>
+<li>The timestamp of the Authentication, e-KYC, OTP trigger requests and responses will support IS0-8601 standard.</li>
+<li>The partners in a country are expected to send the timestamp  in the request in UTC with time zone</li>
+<li>MOSIP returns the timestamp in the response in UTC with Time zone</li>
+</ul></li>
+</ol>
+<h4><a class="anchor" aria-hidden="true" id="b-locate-the-uin-of-the-individual-in-the-auth-database-so-that-the-individual-can-be-authenticated"></a><a href="#b-locate-the-uin-of-the-individual-in-the-auth-database-so-that-the-individual-can-be-authenticated" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>B. Locate the UIN of the individual in the Auth database so that the individual can be authenticated</h4>
+<p>The authentication service request should have a defined set of parameters. Please refer to <a href="_files/requirements/requirements_detailing_references/ID-Authentication/Data%20Definition.zip"><strong>data definition</strong></a> in Git for more details on required parameters.</p>
+<ol>
+<li>The system matches the input UIN from the individual with the UIN in the auth database (Complete match) and sends an error message in case of any mismatch</li>
+<li>Please refer Git for more details on the type of <a href="_files/requirements/requirements_detailing_references/ID-Authentication/Sprint%2010/Consolidated%20error%20messages%20V2.2.xlsx"><strong>error messages</strong></a>.</li>
+</ol>
+<h4><a class="anchor" aria-hidden="true" id="c-map-vid-to-uin-of-the-individual-in-the-auth-database-so-that-the-individual-can-be-authenticated-table-of-contents"></a><a href="#c-map-vid-to-uin-of-the-individual-in-the-auth-database-so-that-the-individual-can-be-authenticated-table-of-contents" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>C. Map VID to UIN of the individual in the Auth database so that the individual can be authenticated <a href="#table-of-contents"><strong>[↑]</strong></a></h4>
+<p>The authentication service request should have a defined set of parameters. Please refer to <a href="_files/requirements/requirements_detailing_references/ID-Authentication/Data%20Definition.zip"><strong>data definition</strong></a> in Git for more details on required parameters.</p>
+<ol>
+<li>The system then validates if the VID is mapped to an UIN in the database and retrieve the UIN</li>
+<li>The system proceeds to Match UIN as per defined standards</li>
+<li>Please refer Git for more details on the type of <a href="_files/requirements/requirements_detailing_references/ID-Authentication/Sprint%2010/Consolidated%20error%20messages%20V2.2.xlsx"><strong>error messages</strong></a>.</li>
+</ol>
+<h4><a class="anchor" aria-hidden="true" id="d-generate-a-static-token-id-for-each-mosip-authentication-request-to-facilitate-authentication-table-of-contents"></a><a href="#d-generate-a-static-token-id-for-each-mosip-authentication-request-to-facilitate-authentication-table-of-contents" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>D. Generate a static token ID for each MOSIP authentication request, to facilitate authentication <a href="#table-of-contents"><strong>[↑]</strong></a></h4>
+<p>The authentication service request should have a defined set of parameters. Please refer to <a href="_files/requirements/requirements_detailing_references/ID-Authentication/Data%20Definition.zip"><strong>data definition</strong></a> in Git for more details on required parameters.</p>
+<p>The system then performs the following steps to generate a static token ID</p>
+<p>The system retrieves the UIN and Partnerid   for token Id generation</p>
+<ol>
+<li><p>Generates tokenID based on the defined standards</p></li>
+<li><p>The tokenID is unique for a UIN and partnerId combination. The same id should be returned if any auth request is received from the same UIN and partnerId combination</p></li>
+<li><p>The tokenID is generated for every authentication request</p></li>
+<li><p>The length of tokenID is configurable by the ADMIN (the default length of 36 digits)</p></li>
+<li><p>The UIN and partnerid are not be derivable from the tokenId</p></li>
+<li><p>The tokenID is a random number generated</p></li>
+<li><p>The tokenId does not contain any alphanumeric characters and should contain only numeric characters</p></li>
+<li><p>The number does not contain the restricted numbers defined by the ADMIN</p></li>
+<li><p>The generated tokenid is integrated to the authentication response along with other parameters.</p>
+<ul>
+<li>Note: The Authentication is integrated for both successful and failure authentications (i.e) in all cases where authentication notifications are triggered.</li>
+</ul></li>
+<li><p>The system then captures and stores the transaction details for audit purpose.</p></li>
+</ol>
+<h4><a class="anchor" aria-hidden="true" id="e-trigger-sms-to-the-individuals-mobile-for-every-authentication-request"></a><a href="#e-trigger-sms-to-the-individuals-mobile-for-every-authentication-request" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>E. Trigger SMS to the Individual's mobile for every authentication request</h4>
+<p>The authentication service request should have a defined set of parameters. Please refer to <a href="_files/requirements/requirements_detailing_references/ID-Authentication/Data%20Definition.zip"><strong>data definition</strong></a> in Git for more details on required parameters.</p>
+<p>The system then performs the following steps to Trigger SMS to the Individual's mobile for every authentication request</p>
+<ol>
+<li>Retrieves the mode of communication (i.e) mobile configured for sending the notification</li>
+<li>Validates if the configured mode of communication is also registered</li>
+<li>Fetches the notification template as per admin configuration and triggers notification as per the defined and configured template and in the default language English</li>
+<li>Please refer Git for more details on the type of <a href="_files/requirements/requirements_detailing_references/ID-Authentication/Sprint%2010/Consolidated%20error%20messages%20V2.2.xlsx"><strong>error messages</strong></a>.</li>
+</ol>
+<h4><a class="anchor" aria-hidden="true" id="f-trigger-e-mail-to-the-individuals-e-mail-id-for-every-authentication-request-table-of-contents"></a><a href="#f-trigger-e-mail-to-the-individuals-e-mail-id-for-every-authentication-request-table-of-contents" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>F. Trigger e-mail to the Individual's e-mail ID for every authentication request <a href="#table-of-contents"><strong>[↑]</strong></a></h4>
+<p>The authentication service request should have a defined set of parameters. Please refer to <a href="_files/requirements/requirements_detailing_references/ID-Authentication/Data%20Definition.zip"><strong>data definition</strong></a> in Git for more details on required parameters.</p>
+<ol>
+<li>The system retrieves the mode of communication (i.e) e-mail configured for sending the notification</li>
+<li>The system validates if the configured mode of communication is also registered</li>
+<li>Fetches the notification template as per admin configuration and triggers notification as per the defined and configured template and in the default language English</li>
+<li>Please refer Git for more details on the type of <a href="_files/requirements/requirements_detailing_references/ID-Authentication/Sprint%2010/Consolidated%20error%20messages%20V2.2.xlsx"><strong>error messages</strong></a>.</li>
+</ol>
+<p><a href="/mosip/mosip-platform/blob/master/design/authentication/OTP_Auth_Request_REST_Service.md"><strong>Link to design</strong></a></p>
+<p><a href="/mosip/mosip-platform/blob/master/design/authentication/OTP_Request_REST_service.md"><strong>Link to design</strong></a></p>
+<h1><a class="anchor" aria-hidden="true" id="2-multi-factor-authentication-wip-table-of-contents"></a><a href="#2-multi-factor-authentication-wip-table-of-contents" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>2. Multi-factor Authentication (WIP) <a href="#table-of-contents"><strong>[↑]</strong></a></h1>
+<h1><a class="anchor" aria-hidden="true" id="3-offline-authentication"></a><a href="#3-offline-authentication" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>3. Offline Authentication</h1>
+<h2><a class="anchor" aria-hidden="true" id="31-qr-code-based-authentication-wip-table-of-contents"></a><a href="#31-qr-code-based-authentication-wip-table-of-contents" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>3.1 QR Code based Authentication (WIP) <a href="#table-of-contents"><strong>[↑]</strong></a></h2>
+<h1><a class="anchor" aria-hidden="true" id="4-kyc-service"></a><a href="#4-kyc-service" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>4. KYC Service</h1>
+<h2><a class="anchor" aria-hidden="true" id="41-profile-sharing-based-on-policy-table-of-contents"></a><a href="#41-profile-sharing-based-on-policy-table-of-contents" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>4.1 Profile Sharing based on Policy <a href="#table-of-contents"><strong>[↑]</strong></a></h2>
+<p><strong>KYC Service is offered based on the individual’s consent using OTP or Biometric (Fingerprint/IRIS/Face) Authentication in the authentication request.</strong></p>
+<p>The authentication service request should have a defined set of parameters. Please refer to <a href="_files/requirements/requirements_detailing_references/ID-Authentication/Data%20Definition.zip"><strong>data definition</strong></a> in Git for more details on required parameters.</p>
+<p>The system then validates the following:</p>
+<ol>
+<li>Validates digital signature in the certificate</li>
+<li>Validates the certificate</li>
+<li>Validates if the partnerID belongs to a registered partner</li>
+<li>Validates if the partner status is active</li>
+<li>Retrieves the policy constituting for the partnerID and partner api key
+<ul>
+<li>NOTE: (For points 3, 4 and 5) <strong>Partners Authentication and Authorisation</strong> is only a proxy implementation due to pending integration with Partner Management services.</li>
+</ul></li>
+<li>Validates if the auth type specified in the request is one of the policies retrieved.</li>
+<li>Validates if the auth type specified in the request is one of the permissible auth types for e-KYC for the country as per the set configuration</li>
+<li>Validates if the retrieved policy contains one e-KYC policy (the policy containing demographic attributes to be returned)</li>
+<li>The system performs all the validation of the &quot;auth&quot; as per standards and encodes the auth response</li>
+<li>Validate the status of the auth response and proceed only if the status is successful</li>
+<li>The system proceeds to construct the e-KYC response element, which will be encoded and encrypted.</li>
+<li>The system integrates the response with the static token generated for the authentication request</li>
+<li>Constructs the authentication response based on validation results</li>
+<li>Validate e-KYC permissions for e-KYC partner as per the e-KYC policies retrieved and identify the demo fields configured to be part of the response</li>
+<li>Appends the response with the demographic and id fields as per the policy</li>
+<li>The system validates the sec_language attribute in the request and appends the response with the demographic fields in language requested.</li>
+<li>The system proceeds to send Notification SMS</li>
+<li>Alerts and Warning messages for data type violation are sent as per <a href="_files/requirements/requirements_detailing_references/ID-Authentication/Data%20Definition.zip"><strong>data definition</strong></a></li>
+</ol>
+<p>Please refer to the <a href="ID-Authentication-APIs#ekyc-service-public"><strong>eKYC API</strong></a> for more details.</p>
+<p><a href="/mosip/mosip-platform/blob/master/design/authentication/eKYC_Auth_Request_REST_service.md"><strong>Link to design</strong></a></p>
+<h1><a class="anchor" aria-hidden="true" id="5-partners-authentication-and-authorisation"></a><a href="#5-partners-authentication-and-authorisation" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>5. Partners Authentication and Authorisation</h1>
+<ul>
+<li>NOTE: <strong>Partners Authentication and Authorisation</strong> is only a proxy implementation due to pending integration with Partner Management services</li>
+</ul>
+<h2><a class="anchor" aria-hidden="true" id="51-misp-license-authentication-table-of-contents"></a><a href="#51-misp-license-authentication-table-of-contents" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>5.1 MISP License Authentication <a href="#table-of-contents"><strong>[↑]</strong></a></h2>
+<p><strong>Authenticate and authorise the MOSIP Infrastructure Service Provider (MISP)</strong></p>
+<p>MOSIP can authenticate and authorise the MOSIP Infrastructure Service Provider (MISP) as per the following steps listed below:</p>
+<ol>
+<li>The authentication service request should have a defined set of parameters. Please refer to <a href="_files/requirements/requirements_detailing_references/ID-Authentication/Data%20Definition.zip"><strong>data definition</strong></a> in Git for more details on required parameters.</li>
+<li>Validates if the MISP-license key has not expired</li>
+<li>Validates if the MISP-license key belongs to a registered MISP (Note: All the MISPs will be registered through MOSIP admin portal and the MISP-license key should belong to one of the registered MISP entities)</li>
+<li>Validates if the MISP-license key status is active</li>
+<li>Proceeds to execute e-KYC/Auth partner authentication and authorisation as per defined standards</li>
+<li>Captures and stores the transaction details for audit purpose.</li>
+<li>Alerts and warning messages for data type violation are sent as per <a href="_files/requirements/requirements_detailing_references/ID-Authentication/Data%20Definition.zip"><strong>data definition</strong></a>.</li>
+</ol>
+<p>Please refer to the <a href="ID-Authentication-APIs#users-of-authentication-service--"><strong>Authentication Service API</strong></a> for more details.</p>
+<h2><a class="anchor" aria-hidden="true" id="52-partner-policy-authentication-table-of-contents"></a><a href="#52-partner-policy-authentication-table-of-contents" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>5.2 Partner Policy Authentication <a href="#table-of-contents"><strong>[↑]</strong></a></h2>
+<p><strong>Authenticate and authorise Auth Partner- proxy implementation</strong></p>
+<p>The authentication service request should have a defined set of parameters. Please refer to <a href="_files/requirements/requirements_detailing_references/ID-Authentication/Data%20Definition.zip"><strong>data definition</strong></a> in Git for more details on required parameters.</p>
+<p>The system then validates the following:</p>
+<ol>
+<li>Validates the digital signature in the certificate</li>
+<li>Validates the certificate</li>
+<li>Validates if the partnerID belongs to a registered partner</li>
+<li>The system also validates if the partner status is active</li>
+<li>Retrieves all the policies constituting the partnerID and partner api key</li>
+<li>Validates if the auth type specified in the request is one of the policies retrieved for the partner</li>
+<li>Validates if the time period between the current time stamp and the request time stamp is &lt;= time period (n - admin config)</li>
+<li>Validates if the &quot;authvalue&quot; in the input parameter is same &quot;authval&quot; stored in the database for the mapped UIN and VID</li>
+<li>The system constructs the authentication response based on validation results and sets the authentication status as 'Y' only if the pinval matches.</li>
+<li>The system then integrates the response with the static token generated for the authentication request</li>
+<li>Constructs the authentication response based on validation results</li>
+<li>The system proceeds to send Notification SMS</li>
+<li>Alerts and Warning messages for data type violation are sent as per <a href="_files/requirements/requirements_detailing_references/ID-Authentication/Data%20Definition.zip"><strong>data definition</strong></a></li>
+</ol>
+<p>Please refer to the <a href="ID-Authentication-APIs#users-of-authentication-service--"><strong>Authentication Service API</strong></a> for more details.</p>
+<h1><a class="anchor" aria-hidden="true" id="6-lock-unlock-authentication-types-table-of-contents"></a><a href="#6-lock-unlock-authentication-types-table-of-contents" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>6. Lock/Unlock Authentication Types <a href="#table-of-contents"><strong>[↑]</strong></a></h1>
+<h2><a class="anchor" aria-hidden="true" id="61-lock-authentication-types"></a><a href="#61-lock-authentication-types" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>6.1 Lock Authentication Types</h2>
+<p>When an individual wants to lock a particular authentication type using resident services, for example, locking demographic and/or biometric authentication, the system locks the requested authentication type after certain validations. After the requested authentication type is locked for the individual, then he/she will not be able to authenticate himself/herself by using locked authentication type.</p>
+<h2><a class="anchor" aria-hidden="true" id="62-unlock-authentication-types"></a><a href="#62-unlock-authentication-types" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>6.2 Unlock Authentication Types</h2>
+<p>When an individual’s particular authentication type is locked and wants to unlock using resident services, for example, unlocking demographic and/or biometric authentication, the system unlocks the requested authentication type after certain validations. After the requested authentication type is unlocked for the individual, then he/she will be able to authenticate himself/herself by using unlocked authentication type.</p>
+<h1><a class="anchor" aria-hidden="true" id="7-authentication-device-support"></a><a href="#7-authentication-device-support" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>7. Authentication Device Support</h1>
+<h2><a class="anchor" aria-hidden="true" id="71-registered-devices-and-open-devices-tbd-table-of-contents"></a><a href="#71-registered-devices-and-open-devices-tbd-table-of-contents" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>7.1 Registered Devices and Open Devices TBD <a href="#table-of-contents"><strong>[↑]</strong></a></h2>
+<p>Technical story (Architects to contribute)</p>
+<h3><a class="anchor" aria-hidden="true" id="list-of-configurable-parameters-and-processes-table-of-contents"></a><a href="#list-of-configurable-parameters-and-processes-table-of-contents" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>List of Configurable Parameters and Processes <a href="#table-of-contents"><strong>[↑]</strong></a></h3>
+<ol>
+<li><p>Configurable Parameters</p>
+<p><a href="/mosip/mosip-config/blob/master/config/id-authentication.properties"><strong>Link to Configurable Parameters of Authentication Services</strong></a></p></li>
+<li><p>Configurable Processes</p></li>
+</ol>
+<ul>
+<li>(Work in Progress)</li>
+</ul>
+<h3><a class="anchor" aria-hidden="true" id="authentication-services-api-table-of-contents"></a><a href="#authentication-services-api-table-of-contents" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Authentication Services API <a href="#table-of-contents"><strong>[↑]</strong></a></h3>
+<p><a href="ID-Authentication-APIs"><strong>Refer to Wiki for more details on Authentication Services API</strong></a></p>
+<h3><a class="anchor" aria-hidden="true" id="process-view-table-of-contents"></a><a href="#process-view-table-of-contents" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Process View <a href="#table-of-contents"><strong>[↑]</strong></a></h3>
+<p><a href="Process-view#4-id-authentication-"><strong>Link to Process View of Authentication Services</strong></a></p>
+</span></div></article></div><div class="docs-prevnext"></div></div></div><nav class="onPageNav"><ul class="toc-headings"><li><a href="#table-of-contents">Table Of Contents</a></li><li><a href="#11-biometric-authentication">1.1 Biometric Authentication <a href="#table-of-contents"><strong>[↑]</strong></a></a></li><li><a href="#12-demographic-authentication">1.2 Demographic Authentication <a href="#table-of-contents"><strong>[↑]</strong></a></a></li><li><a href="#13-otp-authentication">1.3 OTP Authentication <a href="#table-of-contents"><strong>[↑]</strong></a></a></li><li><a href="#14-common-features-for-all-authentication-types">1.4 Common Features for all Authentication Types <a href="#table-of-contents"><strong>[↑]</strong></a></a></li><li><a href="#31-qr-code-based-authentication-wip">3.1 QR Code based Authentication (WIP) <a href="#table-of-contents"><strong>[↑]</strong></a></a></li><li><a href="#41-profile-sharing-based-on-policy">4.1 Profile Sharing based on Policy <a href="#table-of-contents"><strong>[↑]</strong></a></a></li><li><a href="#51-misp-license-authentication">5.1 MISP License Authentication <a href="#table-of-contents"><strong>[↑]</strong></a></a></li><li><a href="#52-partner-policy-authentication">5.2 Partner Policy Authentication <a href="#table-of-contents"><strong>[↑]</strong></a></a></li><li><a href="#61-lock-authentication-types">6.1 Lock Authentication Types</a></li><li><a href="#62-unlock-authentication-types">6.2 Unlock Authentication Types</a></li><li><a href="#71-registered-devices-and-open-devices-tbd">7.1 Registered Devices and Open Devices TBD <a href="#table-of-contents"><strong>[↑]</strong></a></a><ul class="toc-headings"><li><a href="#list-of-configurable-parameters-and-processes">List of Configurable Parameters and Processes <a href="#table-of-contents"><strong>[↑]</strong></a></a></li><li><a href="#authentication-services-api">Authentication Services API <a href="#table-of-contents"><strong>[↑]</strong></a></a></li><li><a href="#process-view">Process View <a href="#table-of-contents"><strong>[↑]</strong></a></a></li></ul></li></ul></nav></div><footer class="nav-footer" id="footer"><section class="sitemap"><a href="/" class="nav-home"><img src="/img/favicon.ico" alt="MOSIP Documentation" width="66" height="58"/></a><div><h5>Docs</h5><a href="/docs/en/doc1.html">Getting Started (or other categories)</a><a href="/docs/en/doc2.html">Guides (or other categories)</a><a href="/docs/en/doc3.html">API Reference (or other categories)</a></div><div><h5>Community</h5><a href="/en/users.html">User Showcase</a><a href="https://stackoverflow.com/questions/tagged/" target="_blank" rel="noreferrer noopener">Stack Overflow</a><a href="https://discordapp.com/">Project Chat</a><a href="https://twitter.com/" target="_blank" rel="noreferrer noopener">Twitter</a></div><div><h5>More</h5><a href="/blog">Blog</a><a href="https://github.com/">GitHub</a><a class="github-button" data-icon="octicon-star" data-count-href="/facebook/docusaurus/stargazers" data-show-count="true" data-count-aria-label="# stargazers on GitHub" aria-label="Star this project on GitHub">Star</a></div></section><a href="https://opensource.facebook.com/" target="_blank" rel="noreferrer noopener" class="fbOpenSource"><img src="/img/oss_logo.png" alt="Facebook Open Source" width="170" height="45"/></a><section class="copyright">Copyright © 2019 Your Name or Your Company Name</section></footer></div></body></html>

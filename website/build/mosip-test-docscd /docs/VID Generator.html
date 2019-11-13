@@ -1,0 +1,72 @@
+<!DOCTYPE html><html lang="en"><head><meta charSet="utf-8"/><meta http-equiv="X-UA-Compatible" content="IE=edge"/><title>VID Generator · MOSIP Documentation</title><meta name="viewport" content="width=device-width"/><meta name="generator" content="Docusaurus"/><meta name="description" content="# VID Generator"/><meta name="docsearch:language" content="en"/><meta property="og:title" content="VID Generator · MOSIP Documentation"/><meta property="og:type" content="website"/><meta property="og:url" content="https://your-docusaurus-test-site.com/"/><meta property="og:description" content="# VID Generator"/><meta property="og:image" content="https://your-docusaurus-test-site.com/img/undraw_online.svg"/><meta name="twitter:card" content="summary"/><meta name="twitter:image" content="https://your-docusaurus-test-site.com/img/undraw_tweetstorm.svg"/><link rel="shortcut icon" href="/img/favicon.ico"/><link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css"/><link rel="alternate" type="application/atom+xml" href="https://your-docusaurus-test-site.com/blog/atom.xml" title="MOSIP Documentation Blog ATOM Feed"/><link rel="alternate" type="application/rss+xml" href="https://your-docusaurus-test-site.com/blog/feed.xml" title="MOSIP Documentation Blog RSS Feed"/><script type="text/javascript" src="https://buttons.github.io/buttons.js"></script><script src="/js/scrollSpy.js"></script><link rel="stylesheet" href="/css/main.css"/><script src="/js/codetabs.js"></script></head><body class="sideNavVisible separateOnPageNav"><div class="fixedHeaderContainer"><div class="headerWrapper wrapper"><header><a href="/"><img class="logo" src="/img/favicon.ico" alt="MOSIP Documentation"/><h2 class="headerTitleWithLogo">MOSIP Documentation</h2></a><div class="navigationWrapper navigationSlider"><nav class="slidingNav"><ul class="nav-site nav-site-internal"><li class=""><a href="/docs/Platform-Documentation" target="_self">Docs</a></li><li class=""><a href="/docs/Getting-Started" target="_self">API</a></li><li class=""><a href="/Contributor-Guide" target="_self">Help</a></li><li class=""><a href="/blog/" target="_self">Blog</a></li></ul></nav></div></header></div></div><div class="navPusher"><div class="docMainWrapper wrapper"><div class="container mainContainer"><div class="wrapper"><div class="post"><header class="postHeader"><h1 class="postHeaderTitle">VID Generator</h1></header><article><div><span><p># VID Generator</p>
+<h4><a class="anchor" aria-hidden="true" id="background"></a><a href="#background" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Background</h4>
+<p>A virtual ID can be requested by an Indivudual against his UIN. The request is received to fetch a VID, which is unallocated yet at the time of request. There are many types of VIDs such as Perpetual VIDs, Transactional, Long term, short term.</p>
+<h4><a class="anchor" aria-hidden="true" id="solution"></a><a href="#solution" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Solution</h4>
+<p><strong>The key solution considerations are</strong></p>
+<p>A pool of the VIDs are maintained for the faster dispatch of the VIDs to the requestor.</p>
+<ul>
+<li>Vert.x REST Services:
+Following are the services which are available for the VID generator component,</li>
+</ul>
+<ol>
+<li>VID Fetcher Service
+<ul>
+<li>This service requests for an unassigned VIDs.</li>
+<li>Expiry days is passed as a parameter to this service. So, the VID pool knows when to expire this VID.</li>
+<li>In case of perpetual VIDs, the expiry days is not passed. So that, the expiry of the VIDs have to be called back specifically.</li>
+<li>Each time when this service is called, a call is triggered to the &quot;VID pool size checker&quot;</li>
+<li>Once the VID assigned, the status is changed to ASSIGNED</li>
+</ul></li>
+</ol>
+<p><strong>Flowchart diagram for fetcher</strong></p>
+<p><img src="_images/kernel/VIDGenerator_flowchart_fetcher.jpg" alt="Flowchart diagram for fetcher"></p>
+<ol start="2">
+<li>VID Revoke Service
+<ul>
+<li>This service revokes the VID and allocates the VID in the free pool.</li>
+<li>This service accepts the VID as input.</li>
+<li>The requested VID status is changed to EXPIRED</li>
+<li>The expired VID can be reallocated after the configured cool-off period</li>
+</ul></li>
+</ol>
+<p><strong>Flowchart diagram for revoker</strong></p>
+<p><img src="_images/kernel/VIDGenerator_flowchart_revoker.jpg" alt="Flowchart diagram for revoker"></p>
+<ul>
+<li>Vert.x Verticles:
+Following are the various verticles which are available,</li>
+</ul>
+<ol>
+<li><p>VID pool size checker</p>
+<ul>
+<li>This vertical checks whether the pool has the available sufficient VIDs.</li>
+<li>The configuration for the Shrink pool size, number of VIDs to be generated etc., are retrieved from the config server.</li>
+<li>If the pool had shrunk below the configured size, the next &quot;VID Pool Populator&quot; vertical is notified.</li>
+<li>The &quot;VID pool size checker&quot; vertical is called whenever a request is received for the VID generator.</li>
+</ul></li>
+<li><p>VID Pool Populator</p>
+<ul>
+<li>When the notification is received from the &quot;VID pool size checker&quot;, this vertical is notified to generate the next set of VIDs are generated and placed in the pool.</li>
+<li>When this vertical runs, it creates a lock. So that no multiple populator runs.</li>
+<li>The worker verticle size is double as &quot;VID Genertor Service&quot;.</li>
+<li>The status of the new generated VIDs is AVAILABLE</li>
+</ul></li>
+</ol>
+<ul>
+<li>Vert.x expirer:
+<ul>
+<li>The expired VIDs status' have to be changed back to available. This scheduler runs at night when the traffic is minimal. The entire database have to be scanned for the expired VIDs.</li>
+<li>The VID's status is changed back to AVAILABLE, if the VID is expired and crossed the cool-off period.</li>
+</ul></li>
+</ul>
+<p><strong>Flowchart diagram for expirer</strong></p>
+<p><img src="_images/kernel/VIDGenerator_flowchart_expirer.jpg" alt="Flowchart Diagram"></p>
+<ul>
+<li>Database:</li>
+</ul>
+<ol>
+<li>A separate schema is needed for the VID.</li>
+<li>VID Statuses are maintained in the database.</li>
+</ol>
+<p><strong>Module diagram</strong></p>
+<p><img src="_images/kernel/VID_generator.jpg" alt="Module Diagram"></p>
+</span></div></article></div><div class="docs-prevnext"></div></div></div><nav class="onPageNav"></nav></div><footer class="nav-footer" id="footer"><section class="sitemap"><a href="/" class="nav-home"><img src="/img/favicon.ico" alt="MOSIP Documentation" width="66" height="58"/></a><div><h5>Docs</h5><a href="/docs/en/doc1.html">Getting Started (or other categories)</a><a href="/docs/en/doc2.html">Guides (or other categories)</a><a href="/docs/en/doc3.html">API Reference (or other categories)</a></div><div><h5>Community</h5><a href="/en/users.html">User Showcase</a><a href="https://stackoverflow.com/questions/tagged/" target="_blank" rel="noreferrer noopener">Stack Overflow</a><a href="https://discordapp.com/">Project Chat</a><a href="https://twitter.com/" target="_blank" rel="noreferrer noopener">Twitter</a></div><div><h5>More</h5><a href="/blog">Blog</a><a href="https://github.com/">GitHub</a><a class="github-button" data-icon="octicon-star" data-count-href="/facebook/docusaurus/stargazers" data-show-count="true" data-count-aria-label="# stargazers on GitHub" aria-label="Star this project on GitHub">Star</a></div></section><a href="https://opensource.facebook.com/" target="_blank" rel="noreferrer noopener" class="fbOpenSource"><img src="/img/oss_logo.png" alt="Facebook Open Source" width="170" height="45"/></a><section class="copyright">Copyright © 2019 Your Name or Your Company Name</section></footer></div></body></html>

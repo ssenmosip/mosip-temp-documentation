@@ -1,0 +1,320 @@
+<!DOCTYPE html><html lang="en"><head><meta charSet="utf-8"/><meta http-equiv="X-UA-Compatible" content="IE=edge"/><title>FRS-Data-Services · MOSIP Documentation</title><meta name="viewport" content="width=device-width"/><meta name="generator" content="Docusaurus"/><meta name="description" content="## Table Of Contents"/><meta name="docsearch:language" content="en"/><meta property="og:title" content="FRS-Data-Services · MOSIP Documentation"/><meta property="og:type" content="website"/><meta property="og:url" content="https://your-docusaurus-test-site.com/"/><meta property="og:description" content="## Table Of Contents"/><meta property="og:image" content="https://your-docusaurus-test-site.com/img/undraw_online.svg"/><meta name="twitter:card" content="summary"/><meta name="twitter:image" content="https://your-docusaurus-test-site.com/img/undraw_tweetstorm.svg"/><link rel="shortcut icon" href="/img/favicon.ico"/><link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css"/><link rel="alternate" type="application/atom+xml" href="https://your-docusaurus-test-site.com/blog/atom.xml" title="MOSIP Documentation Blog ATOM Feed"/><link rel="alternate" type="application/rss+xml" href="https://your-docusaurus-test-site.com/blog/feed.xml" title="MOSIP Documentation Blog RSS Feed"/><script type="text/javascript" src="https://buttons.github.io/buttons.js"></script><script src="/js/scrollSpy.js"></script><link rel="stylesheet" href="/css/main.css"/><script src="/js/codetabs.js"></script></head><body class="sideNavVisible separateOnPageNav"><div class="fixedHeaderContainer"><div class="headerWrapper wrapper"><header><a href="/"><img class="logo" src="/img/favicon.ico" alt="MOSIP Documentation"/><h2 class="headerTitleWithLogo">MOSIP Documentation</h2></a><div class="navigationWrapper navigationSlider"><nav class="slidingNav"><ul class="nav-site nav-site-internal"><li class=""><a href="/docs/Platform-Documentation" target="_self">Docs</a></li><li class=""><a href="/docs/Getting-Started" target="_self">API</a></li><li class=""><a href="/Contributor-Guide" target="_self">Help</a></li><li class=""><a href="/blog/" target="_self">Blog</a></li></ul></nav></div></header></div></div><div class="navPusher"><div class="docMainWrapper wrapper"><div class="container mainContainer"><div class="wrapper"><div class="post"><header class="postHeader"><h1 class="postHeaderTitle">FRS-Data-Services</h1></header><article><div><span><h2><a class="anchor" aria-hidden="true" id="table-of-contents"></a><a href="#table-of-contents" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Table Of Contents</h2>
+<ul>
+<li><a href="#data-services">Data Services</a>
+<ul>
+<li><a href="#1-data-mapper-">1. Data mapper</a> <em>(DAT_FR_1)</em></li>
+<li><a href="#2-data-access-manager-">2. Data Access Manager</a> <em>(DAT_FR_2)</em></li>
+<li><a href="#3-sync-handler-">3. Sync Handler</a> <em>(DAT_FR_3)</em></li>
+<li><a href="#4-id-generator-and-validator">4. ID Generator and Validator</a>
+<ul>
+<li><a href="#41-id-generator-">4.1 ID Generator</a>
+<ul>
+<li><a href="#411-machine-id-generator-">4.1.1 Machine ID Generator</a> <em>(DAT_FR_4.1)</em></li>
+<li><a href="#412-registration-center-id-generator-">4.1.2 Registration Center ID Generator</a> <em>(DAT_FR_4.2)</em></li>
+<li><a href="#413-rid-generator-">4.1.3 RID Generator</a> <em>(DAT_FR_4.3)</em></li>
+<li><a href="#414-misp-id-generator-">4.1.4 MISP ID Generator</a> <em>(DAT_FR_4.4)</em></li>
+<li><a href="#415-prid-generator-">4.1.5 PRID Generator</a> <em>(DAT_FR_4.5)</em></li>
+<li><a href="#416-vid-generator-">4.1.6 VID Generator</a> <em>(DAT_FR_4.6)</em></li>
+<li><a href="#417-token-id-generator-">4.1.7 Token ID Generator</a> <em>(DAT_FR_4.7)</em></li>
+<li><a href="#418-partner-id-generator-">4.1.8 Partner ID Generator</a> <em>(DAT_FR_4.8)</em></li>
+<li><a href="#419-misp-license-key-generator-">4.1.9 MISP License Key Generator</a> <em>(DAT_FR_4.9)</em></li>
+</ul></li>
+<li><a href="#42-id-validator-">4.2 ID Validator</a>
+<ul>
+<li><a href="#421--uin-validator-">4.2.1 UIN Validator</a> <em>(DAT_FR_4.10)</em></li>
+<li><a href="#422-prid-validator-">4.2.2 PRID Validator</a> <em>(DAT_FR_4.11)</em></li>
+<li><a href="#423-vid-validator-">4.2.3 VID Validator</a> <em>(DAT_FR_4.12)</em></li>
+<li><a href="#424-rid-validator-">4.2.4 RID Validator</a> <em>(DAT_FR_4.13)</em></li>
+<li><a href="#425-partner-id-validator-">4.2.5 Partner ID Validator</a> <em>(DAT_FR_4.14)</em></li>
+<li><a href="#426-license-key-status-validator-">4.2.6 License Key Status Validator</a> <em>(DAT_FR_4.15)</em></li>
+</ul></li>
+</ul></li>
+</ul></li>
+<li><a href="#list-of-configurable-parameters-and-processes-">List of Configurable Parameters and Processes</a></li>
+<li><a href="#kernel-api-">Kernel API</a></li>
+</ul>
+<h1><a class="anchor" aria-hidden="true" id="data-services"></a><a href="#data-services" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Data services</h1>
+<h2><a class="anchor" aria-hidden="true" id="1-data-mapper-table-of-contents"></a><a href="#1-data-mapper-table-of-contents" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>1. Data mapper <a href="#table-of-contents"><strong>[↑]</strong></a></h2>
+<p>Data mapper is used across MOSIP to facilitate mapping between DTO (Data Transfer Object) and entity.</p>
+<p><a href="/mosip/mosip-platform/blob/master/design/kernel/kernel-datamapper.md"><strong>Link to design</strong></a></p>
+<h2><a class="anchor" aria-hidden="true" id="2-data-access-manager-table-of-contents"></a><a href="#2-data-access-manager-table-of-contents" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>2. Data Access Manager <a href="#table-of-contents"><strong>[↑]</strong></a></h2>
+<p>Data Access Manager provides a DAO (Data Access Object) interface to do the following</p>
+<ol>
+<li>Provide an interface for connection to a Database</li>
+<li>Provide an interface to support Database CRUD (Create, Read, Update, Delete) operation</li>
+<li>Provide an interface to support a custom SQL</li>
+<li>Provide an interface to call Database functions.</li>
+</ol>
+<p><a href="/mosip/mosip-platform/blob/master/design/kernel/kernel-dataaccess.md"><strong>Link to design</strong></a></p>
+<h2><a class="anchor" aria-hidden="true" id="3-sync-handler-table-of-contents"></a><a href="#3-sync-handler-table-of-contents" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>3. Sync Handler <a href="#table-of-contents"><strong>[↑]</strong></a></h2>
+<ol>
+<li>Sync Handler allows registration client to sync Master data, List of User, Roles and Respective Mappings and Configurations (Registration Client specific and Global Configs).</li>
+<li>Sync Handler also allows Registration Client to push data from Client local database to Master Database.</li>
+<li>As part of Masterdata Sync, the service receives a Machine ID and Timestamp, looks for a mapped Center ID to that Machine ID and responds to the Registration Client with the Center specific Master data for the following tables.
+<ul>
+<li>Registration Center Type</li>
+<li>List of Registration Center</li>
+<li>Template File Format</li>
+<li>Template Type</li>
+<li>Templates</li>
+<li>Reason Category</li>
+<li>List of Reasons</li>
+<li>Document Category</li>
+<li>Document Type</li>
+<li>Mapping of Applicant Type-Document Category-Document Type (refer table &quot;Valid Documents&quot;)</li>
+<li>Machine Type</li>
+<li>Machine Specifications</li>
+<li>List of Machines</li>
+<li>Device Types</li>
+<li>Device Specifications</li>
+<li>List of Devices</li>
+<li>Location Hierarchy</li>
+<li>List of Languages</li>
+<li>List of Genders</li>
+<li>Biometric Authentication Type</li>
+<li>Biometric Attribute</li>
+<li>Center-Machine Mapping</li>
+<li>Center-Device Mapping</li>
+<li>Center-Machine-Device Mapping</li>
+<li>Center-Machine-User Mapping</li>
+<li>Center-User Mapping</li>
+<li>Sync Job Definition</li>
+</ul></li>
+<li>The Sync Handler service only sends incremental changes based on the Timestamp received by the service.</li>
+<li>For configuration, sync handler receives a request to sync configurations and will respond back with Registration Client specific and Global Configurations.</li>
+<li>For User, Roles and Respective User-Role mappings, Sync handler receives Center ID and Timestamp and will respond to the Registration Client with Center specific incremental changes.</li>
+</ol>
+<p><a href="/mosip/mosip-platform/blob/master/design/kernel/kernel-syncservices.md"><strong>Link to design</strong></a></p>
+<h2><a class="anchor" aria-hidden="true" id="4-id-generator-and-validator"></a><a href="#4-id-generator-and-validator" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>4. ID Generator and Validator</h2>
+<h3><a class="anchor" aria-hidden="true" id="41-id-generator-table-of-contents"></a><a href="#41-id-generator-table-of-contents" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>4.1 ID Generator <a href="#table-of-contents"><strong>[↑]</strong></a></h3>
+<h4><a class="anchor" aria-hidden="true" id="411-machine-id-generator-table-of-contents"></a><a href="#411-machine-id-generator-table-of-contents" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>4.1.1 Machine ID Generator <a href="#table-of-contents"><strong>[↑]</strong></a></h4>
+<p>Upon receiving a request to generate Machine ID, the system generates Machine ID as per default Machine ID generation logic as mentioned below:</p>
+<ol>
+<li>Machine ID should only be numeric</li>
+<li>Machine ID generated should be of length of 5 digits</li>
+<li>Each new Machine ID should be incremented by 1 for each new request</li>
+<li>Machine ID generation should start from 10000</li>
+<li>The number should not contain the restricted numbers defined by the ADMINs.</li>
+</ol>
+<p>Responds with the Machine ID to the source.</p>
+<p>Raises an alert in case of exceptions.</p>
+<p><a href="/mosip/mosip-platform/blob/master/design/kernel/kernel-idgenerator-machineid.md"><strong>Link to design</strong></a></p>
+<h4><a class="anchor" aria-hidden="true" id="412-registration-center-id-generator-table-of-contents"></a><a href="#412-registration-center-id-generator-table-of-contents" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>4.1.2 Registration Center ID Generator <a href="#table-of-contents"><strong>[↑]</strong></a></h4>
+<p>Upon receiving a request to generate Registration Center ID, the system generates it as per default Registration Center ID generation logic</p>
+<p>Refer below for the process:</p>
+<ol>
+<li>Registration Center ID is generated as per the defined logic mentioned below:
+<ul>
+<li>Registration Center ID should only be numeric</li>
+<li>Registration Center ID generated should be of length of 5 digits</li>
+<li>Each new Registration Center ID should be incremented by 1 for each new request</li>
+<li>Registration Center ID generation should start from 10000</li>
+<li>The number should not contain the restricted numbers defined by the ADMIN</li>
+</ul></li>
+<li>In case of exceptions, system triggers relevant error messages</li>
+<li>Responds with the Registration Center ID to the source</li>
+<li>Raises an alert in case of exceptions.</li>
+</ol>
+<p><a href="/mosip/mosip-platform/blob/master/design/kernel/kernel-idgenerator-regcenterid.md"><strong>Link to design</strong></a></p>
+<h4><a class="anchor" aria-hidden="true" id="413-rid-generator-table-of-contents"></a><a href="#413-rid-generator-table-of-contents" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>4.1.3 RID Generator <a href="#table-of-contents"><strong>[↑]</strong></a></h4>
+<p>Upon receiving a request to generate RID with Machine ID and Center ID as input, the system generates it as per default RID generation logic.</p>
+<p>Refer below for the process:</p>
+<ol>
+<li>RID should be generated as per the defined logic mentioned below:</li>
+<li>RID should only be numeric</li>
+<li>First 5 Digit should be Registration Center ID</li>
+<li>Next 5 Digits should be Machine ID</li>
+<li>Next 5 Digits should be Running sequence</li>
+<li>Last 14 Digits should be Timestamp</li>
+<li>Total: 29 Digits</li>
+<li>Responds with the RID to the source</li>
+<li>Raises an alert in case of exceptions and triggers the messages.</li>
+</ol>
+<p><a href="/mosip/mosip-platform/blob/master/design/kernel/kernel-ridgenerator.md"><strong>Link to design</strong></a></p>
+<h4><a class="anchor" aria-hidden="true" id="414-misp-id-generator-table-of-contents"></a><a href="#414-misp-id-generator-table-of-contents" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>4.1.4 MISP ID Generator <a href="#table-of-contents"><strong>[↑]</strong></a></h4>
+<p>Upon receiving a request to generate MISP ID, the system generates it as per default MISP ID generation logic.</p>
+<p>Refer below for the process:</p>
+<ol>
+<li>MISP ID should be generated as per the defined logic mentioned below:
+<ul>
+<li>MISP ID should only be numeric</li>
+<li>MISP ID generated should be of length of 3 digits (Configurable)</li>
+</ul></li>
+<li>MISP ID generation should start from 100</li>
+<li>Each new MISP ID should be incremented by one for each new request</li>
+<li>The number should not contain the restricted numbers defined by the ADMIN</li>
+<li>Responds with the MISP ID to the source</li>
+<li>Raises an alert in case of exceptions and triggers the messages.</li>
+</ol>
+<p><a href="/mosip/mosip-platform/blob/master/design/kernel/kernel-idgenerator-mispid.md"><strong>Link to design</strong></a></p>
+<h4><a class="anchor" aria-hidden="true" id="415-prid-generator-table-of-contents"></a><a href="#415-prid-generator-table-of-contents" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>4.1.5 PRID Generator <a href="#table-of-contents"><strong>[↑]</strong></a></h4>
+<p>Upon receiving a request to generate PRID with input parameters, the system generates PRID as per default PRID generation logic.</p>
+<p>Refer below for the process:</p>
+<ol>
+<li>PRID generated should contain number of digits as configured by the ADMIN</li>
+<li>PRID is generated as per the defined logic mentioned below:
+<ul>
+<li>The number should not contain any alphanumeric characters</li>
+<li>The number should not contain any repeating numbers for 2 or more than 2 digits</li>
+<li>The number should not contain any sequential number for 3 or more than 3 digits</li>
+<li>The numbers should not be generated sequentially</li>
+<li>The number should not have repeated block of numbers for 2 or more than 2 digits</li>
+<li>The number should not contain the restricted numbers defined by the ADMIN</li>
+<li>The last digit in the number should be reserved for a checksum</li>
+<li>The number should not contain '0' or '1' as the first digit</li>
+</ul></li>
+<li>Responds with the PRID to the source</li>
+<li>Raises an alert in case of exceptions.</li>
+</ol>
+<p><a href="/mosip/mosip-platform/blob/master/design/kernel/kernel-idgenerator-prid.md"><strong>Link to design</strong></a></p>
+<h4><a class="anchor" aria-hidden="true" id="416-vid-generator-table-of-contents"></a><a href="#416-vid-generator-table-of-contents" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>4.1.6 VID Generator <a href="#table-of-contents"><strong>[↑]</strong></a></h4>
+<p>Upon receiving a request to generate VID, the system generates PRID as per default PRID generation logic</p>
+<p>Refer below for the process:</p>
+<ol>
+<li>VID should be generated as per the defined logic mentioned below:</li>
+<li>Responds with the VID to the source</li>
+<li>Raises an alert in case of exceptions.</li>
+</ol>
+<p><strong>VID generation policy</strong></p>
+<ol>
+<li>VID generated should contain the number of digits as configured.</li>
+<li>Validates if the VID is generated as per the defined logic mentioned below:
+<ul>
+<li>The number should not contain any alphanumeric characters</li>
+<li>The number should not contain any repeating numbers for 2 or more than 2 digits</li>
+<li>The number should not contain any sequential number for 3 or more than 3 digits</li>
+<li>The numbers should not be generated sequentially</li>
+<li>The number should not have repeated block of numbers for 2 or more than 2 digits</li>
+<li>The number should not contain the restricted numbers defined by the ADMIN</li>
+<li>The last digit in the number should be reserved for a checksum</li>
+<li>The number should not contain '0' or '1' as the first digit.</li>
+</ul></li>
+<li>Expired VID should not be sent in response.</li>
+</ol>
+<p><a href="/mosip/mosip-platform/blob/master/design/kernel/Kernel-idgenerator-vid.md"><strong>Link to design</strong></a></p>
+<h4><a class="anchor" aria-hidden="true" id="417-token-id-generator-table-of-contents"></a><a href="#417-token-id-generator-table-of-contents" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>4.1.7 Token ID Generator <a href="#table-of-contents"><strong>[↑]</strong></a></h4>
+<p>Upon receiving a request to generate Token ID (with input para meters (TSP ID, UIN), the system generates token ID as per default Token ID generation logic</p>
+<p>Refer below for the process:</p>
+<ol>
+<li>Token ID should be generated based on the below logic using received UIN and Partner ID</li>
+<li>Token ID = SHA256( SHA256(UIN + SALT) + Partner ID + SALT</li>
+<li>Validate if all mandatory input parameters have been received as listed below for each specific request
+<ul>
+<li>UIN - Mandatory</li>
+<li>Partner ID - Mandatory</li>
+</ul></li>
+<li>Raise an exception if input parameter is missing. Refer messages section</li>
+<li>Token ID length should be of 36 digits</li>
+</ol>
+<p><a href="/mosip/mosip-platform/blob/master/design/kernel/kernel-idgenerator-tokenid.md"><strong>Link to design</strong></a></p>
+<h4><a class="anchor" aria-hidden="true" id="418-partner-id-generator-table-of-contents"></a><a href="#418-partner-id-generator-table-of-contents" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>4.1.8 Partner ID Generator <a href="#table-of-contents"><strong>[↑]</strong></a></h4>
+<p>Upon receiving a request to generate partner ID, the system generates it as per default partner ID generation logic.</p>
+<p>Refer below for the process:</p>
+<ol>
+<li>Partner ID is only be numeric</li>
+<li>Partner ID generated is be of length of 4 digits</li>
+<li>Partner ID length is be configurable</li>
+<li>Each new Partner ID should be incremented by 1 for each new request</li>
+<li>Partner ID generation is start from 1000</li>
+<li>In case of exceptions, system triggers relevant error messages.</li>
+</ol>
+<h4><a class="anchor" aria-hidden="true" id="419-misp-license-key-generator-table-of-contents"></a><a href="#419-misp-license-key-generator-table-of-contents" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>4.1.9 MISP License Key Generator <a href="#table-of-contents"><strong>[↑]</strong></a></h4>
+<p>Upon receiving a request to generate License Key, the system generates it as per default License Key generation logic and responds with the License Key to the source</p>
+<ol>
+<li>License Key is generated as per the defined logic mentioned below:
+<ul>
+<li>License Key Generation follows a random generation pattern</li>
+<li>License Key is alphanumeric</li>
+<li>License Key generated is of length of 8 digits</li>
+<li>License Key is mapped to expiry (Expiry to be configured by admin).</li>
+</ul></li>
+<li>In case of exceptions, system triggers relevant error messages</li>
+</ol>
+<h3><a class="anchor" aria-hidden="true" id="42-id-validator-table-of-contents"></a><a href="#42-id-validator-table-of-contents" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>4.2 ID Validator <a href="#table-of-contents"><strong>[↑]</strong></a></h3>
+<h4><a class="anchor" aria-hidden="true" id="421-uin-validator-table-of-contents"></a><a href="#421-uin-validator-table-of-contents" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>4.2.1  UIN Validator <a href="#table-of-contents"><strong>[↑]</strong></a></h4>
+<p>Upon receiving a request to validate the UIN, the system validates the UIN against the defined policy</p>
+<p>Refer below for the process:</p>
+<ol>
+<li>Validates if the UIN is of configured length.</li>
+<li>Validates the UIN by verifying the checksum</li>
+<li>Validates if the UIN received as per the UIN generation logic</li>
+<li>Responds to the source with an appropriate message</li>
+<li>Raises an alert in case of exceptions.</li>
+</ol>
+<h4><a class="anchor" aria-hidden="true" id="422-prid-validator-table-of-contents"></a><a href="#422-prid-validator-table-of-contents" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>4.2.2 PRID Validator <a href="#table-of-contents"><strong>[↑]</strong></a></h4>
+<p>Upon receiving a request to validate the PRID, the system validates the PRID against the defined policy</p>
+<p>Refer below for the process:</p>
+<ol>
+<li>Validates if the received PRID contains number of digits as configured by the ADMIN</li>
+<li>Validates the PRID received as per the PRID generation logic</li>
+<li>Responds to the source with an appropriate message</li>
+<li>Raises an alert in case of exceptions.</li>
+</ol>
+<h4><a class="anchor" aria-hidden="true" id="423-vid-validator-table-of-contents"></a><a href="#423-vid-validator-table-of-contents" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>4.2.3 VID Validator <a href="#table-of-contents"><strong>[↑]</strong></a></h4>
+<p>Upon receiving a request to validate the VID with input parameters (UIN), the system validates the VID against the defined VID policy</p>
+<p>Refer below for the process:</p>
+<ol>
+<li>Validates if the VID is of configured length.</li>
+<li>Validates the VID by verifying the checksum</li>
+<li>Validates if the VID received as per the VID generation logic</li>
+<li>Responds to the source with an appropriate message and raises an alert in case of exceptions.</li>
+</ol>
+<h4><a class="anchor" aria-hidden="true" id="424-rid-validator-table-of-contents"></a><a href="#424-rid-validator-table-of-contents" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>4.2.4 RID Validator <a href="#table-of-contents"><strong>[↑]</strong></a></h4>
+<p>RID is generated in the following manner:</p>
+<ul>
+<li>First 5 Digit: Registration Center ID</li>
+<li>Next 5 Digits: Machine ID</li>
+<li>Next 5 Digits: Running sequence</li>
+<li>Last 14 Digits: Timestamp</li>
+<li>Total: 29 Digits</li>
+</ul>
+<p>RID Validation performs pattern validation on RID and provides three methods to validate RID.</p>
+<ol>
+<li>Receive a RID, check whether RID is of configured length or not and respond with whether RID is valid or invalid</li>
+<li>Receive a RID along with Registration Center ID and Machine ID. Check whether RID is of configured length or not and whether Registration Center ID and Machine ID are attached to the RID or not. Respond with whether RID is valid or invalid</li>
+<li>Receive a RID along with Registration Center ID, Machine ID, Sequence Length and Timestamp Length. Check whether RID is proper or not as per the input received. Respond with whether RID is valid or invalid.</li>
+</ol>
+<h4><a class="anchor" aria-hidden="true" id="425-partner-id-validator-table-of-contents"></a><a href="#425-partner-id-validator-table-of-contents" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>4.2.5 Partner ID Validator <a href="#table-of-contents"><strong>[↑]</strong></a></h4>
+<ol>
+<li>The system receives a request to check status of a Partner with an input parameter (Partner ID)</li>
+<li>Checks the length of the Partner ID</li>
+<li>Checks the status of the Partner ID</li>
+<li>Responds to the source according to the conditions mentioned below:
+<ul>
+<li>If the length of Partner ID is not of the configured length, respond with message &quot;INVALID&quot;</li>
+<li>If the Partner ID is Inactive, respond with message &quot;INACTIVE&quot;</li>
+<li>If the Partner ID is of configured length and is Active, respond with &quot;ACTIVE&quot;</li>
+</ul></li>
+<li>Throws an error if an input parameter is empty</li>
+<li>In case of exceptions, system triggers relevant error messages.</li>
+</ol>
+<h4><a class="anchor" aria-hidden="true" id="426-license-key-status-validator-table-of-contents"></a><a href="#426-license-key-status-validator-table-of-contents" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>4.2.6 License Key Status Validator <a href="#table-of-contents"><strong>[↑]</strong></a></h4>
+<p>The system receives a request to check status of the License Key with an input parameter (License Key)</p>
+<ol>
+<li>Checks the length of the License Key</li>
+<li>Fetches the status of the License Key</li>
+<li>Throw an error if an input parameter in empty</li>
+<li>Responds to the source according to the conditions mentioned below:
+<ul>
+<li>If the length of License Key is not 8 digits, respond with message &quot;INVALID&quot;</li>
+<li>If the License Key is expired as per the expiry period configured, respond with message &quot;EXPIRED&quot;</li>
+<li>If the status of License Key is &quot;SUSPENDED&quot;, respond with message &quot;SUSPENDED&quot;</li>
+<li>If the status of License Key is &quot;BLOCKED&quot;, respond with message &quot;BLOCKED&quot;</li>
+<li>If the status of License Key is &quot;ACTIVE&quot;, respond with message &quot;ACTIVE&quot;</li>
+<li>License Key should be mapped to expiry (Expiry to be configured by admin).</li>
+</ul></li>
+<li>In case of exceptions, system triggers relevant error messages.</li>
+</ol>
+<h3><a class="anchor" aria-hidden="true" id="list-of-configurable-parameters-and-processes-table-of-contents"></a><a href="#list-of-configurable-parameters-and-processes-table-of-contents" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>List of Configurable Parameters and Processes <a href="#table-of-contents"><strong>[↑]</strong></a></h3>
+<ol>
+<li><p>Configurable Parameters</p>
+<p><a href="/mosip/mosip-config/blob/master/config/kernel.properties"><strong>Link to Configurable Parameters of Kernel</strong></a></p>
+<p><a href="/mosip/mosip-config/blob/master/config/application.properties"><strong>Link to Kernel Application Properties</strong></a></p></li>
+<li><p>Configurable Processes</p></li>
+</ol>
+<ul>
+<li>(Work in Progress)</li>
+</ul>
+<h3><a class="anchor" aria-hidden="true" id="kernel-api-table-of-contents"></a><a href="#kernel-api-table-of-contents" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Kernel API <a href="#table-of-contents"><strong>[↑]</strong></a></h3>
+<p><a href="Kernel-APIs"><strong>Refer to Wiki for more details on Kernel API</strong></a></p>
+</span></div></article></div><div class="docs-prevnext"></div></div></div><nav class="onPageNav"><ul class="toc-headings"><li><a href="#table-of-contents">Table Of Contents</a></li><li><a href="#1-data-mapper">1. Data mapper <a href="#table-of-contents"><strong>[↑]</strong></a></a></li><li><a href="#2-data-access-manager">2. Data Access Manager <a href="#table-of-contents"><strong>[↑]</strong></a></a></li><li><a href="#3-sync-handler">3. Sync Handler <a href="#table-of-contents"><strong>[↑]</strong></a></a></li><li><a href="#4-id-generator-and-validator">4. ID Generator and Validator</a><ul class="toc-headings"><li><a href="#41-id-generator">4.1 ID Generator <a href="#table-of-contents"><strong>[↑]</strong></a></a></li><li><a href="#42-id-validator">4.2 ID Validator <a href="#table-of-contents"><strong>[↑]</strong></a></a></li><li><a href="#list-of-configurable-parameters-and-processes">List of Configurable Parameters and Processes <a href="#table-of-contents"><strong>[↑]</strong></a></a></li><li><a href="#kernel-api">Kernel API <a href="#table-of-contents"><strong>[↑]</strong></a></a></li></ul></li></ul></nav></div><footer class="nav-footer" id="footer"><section class="sitemap"><a href="/" class="nav-home"><img src="/img/favicon.ico" alt="MOSIP Documentation" width="66" height="58"/></a><div><h5>Docs</h5><a href="/docs/en/doc1.html">Getting Started (or other categories)</a><a href="/docs/en/doc2.html">Guides (or other categories)</a><a href="/docs/en/doc3.html">API Reference (or other categories)</a></div><div><h5>Community</h5><a href="/en/users.html">User Showcase</a><a href="https://stackoverflow.com/questions/tagged/" target="_blank" rel="noreferrer noopener">Stack Overflow</a><a href="https://discordapp.com/">Project Chat</a><a href="https://twitter.com/" target="_blank" rel="noreferrer noopener">Twitter</a></div><div><h5>More</h5><a href="/blog">Blog</a><a href="https://github.com/">GitHub</a><a class="github-button" data-icon="octicon-star" data-count-href="/facebook/docusaurus/stargazers" data-show-count="true" data-count-aria-label="# stargazers on GitHub" aria-label="Star this project on GitHub">Star</a></div></section><a href="https://opensource.facebook.com/" target="_blank" rel="noreferrer noopener" class="fbOpenSource"><img src="/img/oss_logo.png" alt="Facebook Open Source" width="170" height="45"/></a><section class="copyright">Copyright © 2019 Your Name or Your Company Name</section></footer></div></body></html>

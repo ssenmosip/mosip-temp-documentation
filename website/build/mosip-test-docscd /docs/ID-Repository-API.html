@@ -1,0 +1,993 @@
+<!DOCTYPE html><html lang="en"><head><meta charSet="utf-8"/><meta http-equiv="X-UA-Compatible" content="IE=edge"/><title>ID-Repository-API · MOSIP Documentation</title><meta name="viewport" content="width=device-width"/><meta name="generator" content="Docusaurus"/><meta name="description" content="This section details about the REST services in ID Repository module."/><meta name="docsearch:language" content="en"/><meta property="og:title" content="ID-Repository-API · MOSIP Documentation"/><meta property="og:type" content="website"/><meta property="og:url" content="https://your-docusaurus-test-site.com/"/><meta property="og:description" content="This section details about the REST services in ID Repository module."/><meta property="og:image" content="https://your-docusaurus-test-site.com/img/undraw_online.svg"/><meta name="twitter:card" content="summary"/><meta name="twitter:image" content="https://your-docusaurus-test-site.com/img/undraw_tweetstorm.svg"/><link rel="shortcut icon" href="/img/favicon.ico"/><link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css"/><link rel="alternate" type="application/atom+xml" href="https://your-docusaurus-test-site.com/blog/atom.xml" title="MOSIP Documentation Blog ATOM Feed"/><link rel="alternate" type="application/rss+xml" href="https://your-docusaurus-test-site.com/blog/feed.xml" title="MOSIP Documentation Blog RSS Feed"/><script type="text/javascript" src="https://buttons.github.io/buttons.js"></script><script src="/js/scrollSpy.js"></script><link rel="stylesheet" href="/css/main.css"/><script src="/js/codetabs.js"></script></head><body class="sideNavVisible separateOnPageNav"><div class="fixedHeaderContainer"><div class="headerWrapper wrapper"><header><a href="/"><img class="logo" src="/img/favicon.ico" alt="MOSIP Documentation"/><h2 class="headerTitleWithLogo">MOSIP Documentation</h2></a><div class="navigationWrapper navigationSlider"><nav class="slidingNav"><ul class="nav-site nav-site-internal"><li class=""><a href="/docs/Platform-Documentation" target="_self">Docs</a></li><li class=""><a href="/docs/Getting-Started" target="_self">API</a></li><li class=""><a href="/Contributor-Guide" target="_self">Help</a></li><li class=""><a href="/blog/" target="_self">Blog</a></li></ul></nav></div></header></div></div><div class="navPusher"><div class="docMainWrapper wrapper"><div class="container mainContainer"><div class="wrapper"><div class="post"><header class="postHeader"><h1 class="postHeaderTitle">ID-Repository-API</h1></header><article><div><span><p>This section details about the REST services in ID Repository module.</p>
+<ul>
+<li><a href="#identity-services-private">ID Services</a></li>
+<li><a href="#vid-services-private">VID Services</a></li>
+</ul>
+<h2><a class="anchor" aria-hidden="true" id="identity-services-private"></a><a href="#identity-services-private" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Identity Services (Private)</h2>
+<p>These services is used by Registration Processor to store/update during registration process and ID Authentication to retrieve Identity of an Individual for their authentication.</p>
+<ul>
+<li><a href="#post-idrepositoryv1identity">POST /idrepository/v1/identity</a></li>
+<li><a href="#get-idrepositoryv1identityuinuintypebio">GET /idrepository/v1/identity/UIN/{UIN}?type=bio</a></li>
+<li><a href="#get-idrepositoryv1identityridridtypebio">GET /idrepository/v1/identity/RID/{RID}?type=bio</a></li>
+<li><a href="#patch-idrepositoryv1identity">PATCH /idrepository/v1/identity</a></li>
+</ul>
+<h4><a class="anchor" aria-hidden="true" id="users-of-identity-service"></a><a href="#users-of-identity-service" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Users of Identity service -</h4>
+<ol>
+<li><code>Registration Processor</code> - <em>Registration Processor</em> will create a new ID record or update an existing ID record in ID repository and store corresponding demographic and bio-metric documents. <em>Registration Processor</em> can also retrieve Identity details of an Individual using RID.</li>
+<li><code>ID Authentication</code> - <em>ID Authentication</em> can retrieve Identity details of an Individual using UIN for authentication purpose.</li>
+</ol>
+<p><strong>Note</strong> - Identity Services does not support search based on attributes of an ID.</p>
+<h3><a class="anchor" aria-hidden="true" id="post-idrepository-v1-identity"></a><a href="#post-idrepository-v1-identity" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>POST /idrepository/v1/identity</h3>
+<p>This service will create a new ID record in ID repository and store corresponding demographic and bio-metric documents.</p>
+<h4><a class="anchor" aria-hidden="true" id="resource-url"></a><a href="#resource-url" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Resource URL</h4>
+<div>https://mosip.io/idrepository/v1/identity</div>
+<h4><a class="anchor" aria-hidden="true" id="resource-details"></a><a href="#resource-details" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Resource details</h4>
+<table>
+<thead>
+<tr><th>Resource Details</th><th>Description</th></tr>
+</thead>
+<tbody>
+<tr><td>Response format</td><td>JSON</td></tr>
+<tr><td>Requires Authentication</td><td>Yes</td></tr>
+</tbody>
+</table>
+<h4><a class="anchor" aria-hidden="true" id="request-body-parameters"></a><a href="#request-body-parameters" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Request Body Parameters</h4>
+<table>
+<thead>
+<tr><th>Name</th><th>Required</th><th>Description</th><th>Default Value</th><th>Example</th></tr>
+</thead>
+<tbody>
+<tr><td>id</td><td>yes</td><td>Id of the API</td><td>mosip.id.create</td></tr>
+<tr><td>version</td><td>yes</td><td>version of the API</td><td></td><td>v1</td></tr>
+<tr><td>requesttime</td><td>yes</td><td>timestamp of the request</td><td></td><td>2018-12-11T06:12:25.288Z</td></tr>
+<tr><td>request</td><td>yes</td><td>Request Body attributes</td><td></td></tr>
+<tr><td>request: registrationId</td><td>yes</td><td>registration id</td><td></td></tr>
+<tr><td>request: biometricReferenceId</td><td>yes</td><td>ABIS Reference ID</td><td></td></tr>
+<tr><td>request: identity</td><td>yes</td><td>JSON body as per ID object schema</td><td></td></tr>
+<tr><td>request: documents</td><td>yes</td><td>Documents that are to be uploaded for any ID attribute</td><td></td></tr>
+</tbody>
+</table>
+<h4><a class="anchor" aria-hidden="true" id="request"></a><a href="#request" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Request:</h4>
+<pre><code class="hljs css language-JSON">{
+  <span class="hljs-attr">"id"</span>: <span class="hljs-string">"mosip.id.create"</span>,
+  <span class="hljs-attr">"version"</span>: <span class="hljs-string">"v1"</span>,
+  <span class="hljs-attr">"requesttime"</span>: <span class="hljs-string">"2018-12-11T06:12:25.288Z"</span>,
+  <span class="hljs-attr">"request"</span>: {
+    <span class="hljs-attr">"registrationId"</span>: <span class="hljs-string">"12342343200065201812120100555"</span>,
+    <span class="hljs-attr">"biometricReferenceId"</span>: <span class="hljs-string">"&lt;ABIS Reference ID&gt;"</span>,
+    <span class="hljs-attr">"identity"</span>: {
+      <span class="hljs-attr">"IDSchemaVersion"</span>: <span class="hljs-number">1</span>,
+      <span class="hljs-attr">"UIN"</span>: <span class="hljs-number">981576026435</span>,
+      <span class="hljs-attr">"fullName"</span>: [
+        {
+          <span class="hljs-attr">"language"</span>: <span class="hljs-string">"ara"</span>,
+          <span class="hljs-attr">"value"</span>: <span class="hljs-string">"ابراهيم بن علي"</span>
+        },
+        {
+          <span class="hljs-attr">"language"</span>: <span class="hljs-string">"fra"</span>,
+          <span class="hljs-attr">"value"</span>: <span class="hljs-string">"Ibrahim Ibn Ali"</span>
+        }
+      ],
+      <span class="hljs-attr">"dateOfBirth"</span>: <span class="hljs-string">"1955/04/15"</span>,
+      <span class="hljs-attr">"age"</span>: <span class="hljs-number">45</span>,
+      <span class="hljs-attr">"gender"</span>: [
+        {
+          <span class="hljs-attr">"language"</span>: <span class="hljs-string">"ara"</span>,
+          <span class="hljs-attr">"value"</span>: <span class="hljs-string">"الذكر"</span>
+        },
+        {
+          <span class="hljs-attr">"language"</span>: <span class="hljs-string">"fra"</span>,
+          <span class="hljs-attr">"value"</span>: <span class="hljs-string">"mâle"</span>
+        }
+      ],
+      <span class="hljs-attr">"addressLine1"</span>: [
+        {
+          <span class="hljs-attr">"language"</span>: <span class="hljs-string">"ara"</span>,
+          <span class="hljs-attr">"value"</span>: <span class="hljs-string">"عنوان العينة سطر 1"</span>
+        },
+        {
+          <span class="hljs-attr">"language"</span>: <span class="hljs-string">"fra"</span>,
+          <span class="hljs-attr">"value"</span>: <span class="hljs-string">"exemple d'adresse ligne 1"</span>
+        }
+      ],
+      <span class="hljs-attr">"addressLine2"</span>: [
+        {
+          <span class="hljs-attr">"language"</span>: <span class="hljs-string">"ara"</span>,
+          <span class="hljs-attr">"value"</span>: <span class="hljs-string">"عنوان العينة سطر 2"</span>
+        },
+        {
+          <span class="hljs-attr">"language"</span>: <span class="hljs-string">"fra"</span>,
+          <span class="hljs-attr">"value"</span>: <span class="hljs-string">"exemple d'adresse ligne 2"</span>
+        }
+      ],
+      <span class="hljs-attr">"addressLine3"</span>: [
+        {
+          <span class="hljs-attr">"language"</span>: <span class="hljs-string">"ara"</span>,
+          <span class="hljs-attr">"value"</span>: <span class="hljs-string">"عنوان العينة سطر 3"</span>
+        },
+        {
+          <span class="hljs-attr">"language"</span>: <span class="hljs-string">"fra"</span>,
+          <span class="hljs-attr">"value"</span>: <span class="hljs-string">"exemple d'adresse ligne 3"</span>
+        }
+      ],
+      <span class="hljs-attr">"region"</span>: [
+        {
+          <span class="hljs-attr">"language"</span>: <span class="hljs-string">"ara"</span>,
+          <span class="hljs-attr">"value"</span>: <span class="hljs-string">"طنجة - تطوان - الحسيمة"</span>
+        },
+        {
+          <span class="hljs-attr">"language"</span>: <span class="hljs-string">"fra"</span>,
+          <span class="hljs-attr">"value"</span>: <span class="hljs-string">"Tanger-Tétouan-Al Hoceima"</span>
+        }
+      ],
+      <span class="hljs-attr">"province"</span>: [
+        {
+          <span class="hljs-attr">"language"</span>: <span class="hljs-string">"ara"</span>,
+          <span class="hljs-attr">"value"</span>: <span class="hljs-string">"فاس-مكناس"</span>
+        },
+        {
+          <span class="hljs-attr">"language"</span>: <span class="hljs-string">"fra"</span>,
+          <span class="hljs-attr">"value"</span>: <span class="hljs-string">"Fès-Meknès"</span>
+        }
+      ],
+      <span class="hljs-attr">"city"</span>: [
+        {
+          <span class="hljs-attr">"language"</span>: <span class="hljs-string">"ara"</span>,
+          <span class="hljs-attr">"value"</span>: <span class="hljs-string">"الدار البيضاء"</span>
+        },
+        {
+          <span class="hljs-attr">"language"</span>: <span class="hljs-string">"fra"</span>,
+          <span class="hljs-attr">"value"</span>: <span class="hljs-string">"Casablanca"</span>
+        }
+      ],
+      <span class="hljs-attr">"postalCode"</span>: <span class="hljs-string">"570004"</span>,
+      <span class="hljs-attr">"phone"</span>: <span class="hljs-string">"9876543210"</span>,
+      <span class="hljs-attr">"email"</span>: <span class="hljs-string">"abc@xyz.com"</span>,
+      <span class="hljs-attr">"parentOrGuardianRIDOrUIN"</span>: <span class="hljs-number">212124324784912</span>,
+      <span class="hljs-attr">"parentOrGuardianName"</span>: [
+        {
+          <span class="hljs-attr">"language"</span>: <span class="hljs-string">"ara"</span>,
+          <span class="hljs-attr">"value"</span>: <span class="hljs-string">"سلمى"</span>
+        },
+        {
+          <span class="hljs-attr">"language"</span>: <span class="hljs-string">"fra"</span>,
+          <span class="hljs-attr">"value"</span>: <span class="hljs-string">"salma"</span>
+        }
+      ],
+      <span class="hljs-attr">"proofOfAddress"</span>: {
+        <span class="hljs-attr">"format"</span>: <span class="hljs-string">"pdf"</span>,
+        <span class="hljs-attr">"type"</span>: <span class="hljs-string">"drivingLicense"</span>,
+        <span class="hljs-attr">"value"</span>: <span class="hljs-string">"fileReferenceID"</span>
+      },
+      <span class="hljs-attr">"proofOfIdentity"</span>: {
+        <span class="hljs-attr">"format"</span>: <span class="hljs-string">"txt"</span>,
+        <span class="hljs-attr">"type"</span>: <span class="hljs-string">"passport"</span>,
+        <span class="hljs-attr">"value"</span>: <span class="hljs-string">"fileReferenceID"</span>
+      },
+      <span class="hljs-attr">"proofOfRelationship"</span>: {
+        <span class="hljs-attr">"format"</span>: <span class="hljs-string">"pdf"</span>,
+        <span class="hljs-attr">"type"</span>: <span class="hljs-string">"passport"</span>,
+        <span class="hljs-attr">"value"</span>: <span class="hljs-string">"fileReferenceID"</span>
+      },
+      <span class="hljs-attr">"proofOfDateOfBirth"</span>: {
+        <span class="hljs-attr">"format"</span>: <span class="hljs-string">"pdf"</span>,
+        <span class="hljs-attr">"type"</span>: <span class="hljs-string">"passport"</span>,
+        <span class="hljs-attr">"value"</span>: <span class="hljs-string">"fileReferenceID"</span>
+      },
+      <span class="hljs-attr">"individualBiometrics"</span>: {
+        <span class="hljs-attr">"format"</span>: <span class="hljs-string">"cbeff"</span>,
+        <span class="hljs-attr">"version"</span>: <span class="hljs-number">1</span>,
+        <span class="hljs-attr">"value"</span>: <span class="hljs-string">"fileReferenceID"</span>
+      },
+      <span class="hljs-attr">"parentOrGuardianBiometrics"</span>: {
+        <span class="hljs-attr">"format"</span>: <span class="hljs-string">"cbeff"</span>,
+        <span class="hljs-attr">"version"</span>: <span class="hljs-number">1</span>,
+        <span class="hljs-attr">"value"</span>: <span class="hljs-string">"fileReferenceID"</span>
+      }
+    },
+    <span class="hljs-attr">"documents"</span>: [
+      {
+        <span class="hljs-attr">"category"</span>: <span class="hljs-string">"proofOfAddress"</span>,
+        <span class="hljs-attr">"value"</span>: <span class="hljs-string">"&lt;Base 64 encoded byte array of PoA document&gt;"</span>
+      },
+      {
+        <span class="hljs-attr">"category"</span>: <span class="hljs-string">"proofOfIdentity"</span>,
+        <span class="hljs-attr">"value"</span>: <span class="hljs-string">"&lt;Base 64 encoded byte array of PoI document&gt;"</span>
+      },
+      {
+        <span class="hljs-attr">"category"</span>: <span class="hljs-string">"proofOfRelationship"</span>,
+        <span class="hljs-attr">"value"</span>: <span class="hljs-string">"&lt;Base 64 encoded byte array of PoR document&gt;"</span>
+      },
+      {
+        <span class="hljs-attr">"category"</span>: <span class="hljs-string">"individualBiometrics"</span>,
+        <span class="hljs-attr">"value"</span>: <span class="hljs-string">"&lt;Base 64 encoded byte array of CBEFF document&gt;"</span>
+      },
+      {
+        <span class="hljs-attr">"category"</span>: <span class="hljs-string">"parentOrGuardianBiometrics"</span>,
+        <span class="hljs-attr">"value"</span>: <span class="hljs-string">"&lt;Base 64 encoded byte array of CBEFF document&gt;"</span>
+      }
+    ]
+  }
+}
+</code></pre>
+<h4><a class="anchor" aria-hidden="true" id="responses"></a><a href="#responses" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Responses:</h4>
+<h5><a class="anchor" aria-hidden="true" id="success-response"></a><a href="#success-response" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Success Response:</h5>
+<h6><a class="anchor" aria-hidden="true" id="status-code-200"></a><a href="#status-code-200" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Status code: '200'</h6>
+<h6><a class="anchor" aria-hidden="true" id="description-identity-stored-successfully"></a><a href="#description-identity-stored-successfully" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Description: Identity stored successfully</h6>
+<pre><code class="hljs css language-JSON">{
+  <span class="hljs-attr">"id"</span>: <span class="hljs-string">"mosip.id.create"</span>,
+  <span class="hljs-attr">"version"</span>: <span class="hljs-string">"v1"</span>,
+  <span class="hljs-attr">"responsetime"</span>: <span class="hljs-string">"2018-12-11T06:13:05.218Z"</span>,
+  <span class="hljs-attr">"response"</span>: {
+    <span class="hljs-attr">"status"</span>: <span class="hljs-string">"ACTIVATED"</span>,
+    <span class="hljs-attr">"entity"</span>: <span class="hljs-string">"http://mosip.io/idrepository/v1/identity/UIN/{UIN}"</span>
+  }
+}
+</code></pre>
+<h5><a class="anchor" aria-hidden="true" id="failure-details"></a><a href="#failure-details" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Failure details</h5>
+<table>
+<thead>
+<tr><th>Error Code</th><th>Error Message</th><th>Error Description</th></tr>
+</thead>
+<tbody>
+<tr><td>IDR-IDC-001</td><td>Missing Input Parameter - %s</td><td>Input Parameter Missing</td></tr>
+<tr><td>IDR-IDC-002</td><td>Invalid Input Parameter - %s</td><td>Invalid Input Parameter</td></tr>
+<tr><td>IDR-IDC-003</td><td>Invalid Request</td><td>Invalid Request attribute</td></tr>
+<tr><td>IDR-IDC-004</td><td>Unknown error occured</td><td>An unknown error occurred</td></tr>
+<tr><td>IDR-IDC-005</td><td>Input Data Validation Failed</td><td>Validation on input fails</td></tr>
+<tr><td>IDR-IDC-006</td><td>Error occured while performing DB operations</td><td>DB connectivity error</td></tr>
+<tr><td>IDR-IDC-008</td><td>4XX - Client Error occured</td><td>4XX error from Kernel APIs</td></tr>
+<tr><td>IDR-IDC-009</td><td>5XX - Server Error occured</td><td>5XX error from Kernel APIs</td></tr>
+<tr><td>IDR-IDC-010</td><td>Connection timed out</td><td>Connection timed out while invoking REST APIs</td></tr>
+<tr><td>IDR-IDC-011</td><td>Authorization Failed</td><td>Input role is not authorized to access the service</td></tr>
+<tr><td>IDR-IDC-012</td><td>Record already exists in DB</td><td>Identity with input UIN or RID already exists in DB</td></tr>
+<tr><td>IDR-IDS-003</td><td>Failed to encrypt/decrypt message using Kernel Crypto Manager</td><td>Error thrown from Kernel Crypto Manager</td></tr>
+<tr><td>IDR-IDS-004</td><td>Failed to store/retrieve files in DFS</td><td>Error while storing file in DFS</td></tr>
+<tr><td>IDR-IDS-005</td><td>Failed to process Id Object using kernel Id Object validator</td><td>Error while validating ID Object against Id ObjectValidator</td></tr>
+<tr><td>IDR-IDS-007</td><td>Failed to retrieve data from kernel Masterdata</td><td>Error while retrieving data from Kernel MasterData</td></tr>
+</tbody>
+</table>
+<h3><a class="anchor" aria-hidden="true" id="get-idrepository-v1-identity-uin-uin-type-bio"></a><a href="#get-idrepository-v1-identity-uin-uin-type-bio" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>GET /idrepository/v1/identity/UIN/{UIN}?type=bio</h3>
+<p>This service will retrieve an ID record from ID repository for a given UIN (Unique Identification Number) and identity type as bio/demo/all.</p>
+<ol>
+<li>When type=bio is selected, individualBiometrics along with Identity details of the Individual are returned</li>
+<li>When type=demo is selected, Demographic documents along with Identity details of the Individual are returned</li>
+<li>When type=all is selected, both individualBiometrics and demographic documents are returned along with Identity details of the Individual</li>
+</ol>
+<p>If no identity type is provided, stored Identity details of the Individual will be returned as a default response.</p>
+<h4><a class="anchor" aria-hidden="true" id="resource-url-1"></a><a href="#resource-url-1" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Resource URL</h4>
+<div>https://mosip.io/idrepository/v1/identity/UIN/{UIN}?type=bio</div>
+<h4><a class="anchor" aria-hidden="true" id="resource-details-1"></a><a href="#resource-details-1" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Resource details</h4>
+<table>
+<thead>
+<tr><th>Resource Details</th><th>Description</th></tr>
+</thead>
+<tbody>
+<tr><td>Response format</td><td>JSON</td></tr>
+<tr><td>Requires Authentication</td><td>Yes</td></tr>
+</tbody>
+</table>
+<h4><a class="anchor" aria-hidden="true" id="responses-1"></a><a href="#responses-1" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Responses:</h4>
+<h5><a class="anchor" aria-hidden="true" id="success-response-1"></a><a href="#success-response-1" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Success Response:</h5>
+<h6><a class="anchor" aria-hidden="true" id="status-code-200-1"></a><a href="#status-code-200-1" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Status code: '200'</h6>
+<h6><a class="anchor" aria-hidden="true" id="description-identity-retrieved-successfully"></a><a href="#description-identity-retrieved-successfully" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Description: Identity retrieved successfully</h6>
+<pre><code class="hljs css language-JSON">{
+  <span class="hljs-attr">"id"</span>: <span class="hljs-string">"mosip.id.read"</span>,
+  <span class="hljs-attr">"version"</span>: <span class="hljs-string">"v1"</span>,
+  <span class="hljs-attr">"responsetime"</span>: <span class="hljs-string">"2018-12-11T06:13:05.218Z"</span>,
+  <span class="hljs-attr">"response"</span>: {
+    <span class="hljs-comment">//JSON object as per the ID Object Schema defined by the system owner</span>
+    <span class="hljs-attr">"status"</span>: <span class="hljs-string">"ACTIVATED"</span>,
+    <span class="hljs-attr">"identity"</span>: {
+      <span class="hljs-attr">"IDSchemaVersion"</span>: <span class="hljs-number">1.0</span>,
+      <span class="hljs-attr">"UIN"</span>: <span class="hljs-number">981576026435</span>,
+      <span class="hljs-attr">"fullName"</span>: [
+        {
+          <span class="hljs-attr">"language"</span>: <span class="hljs-string">"ara"</span>,
+          <span class="hljs-attr">"value"</span>: <span class="hljs-string">"ابراهيم بن علي"</span>
+        },
+        {
+          <span class="hljs-attr">"language"</span>: <span class="hljs-string">"fra"</span>,
+          <span class="hljs-attr">"value"</span>: <span class="hljs-string">"Ibrahim Ibn Ali"</span>
+        }
+      ],
+      <span class="hljs-attr">"dateOfBirth"</span>: <span class="hljs-string">"1955/04/15"</span>,
+      <span class="hljs-attr">"age"</span>: <span class="hljs-number">45</span>,
+      <span class="hljs-attr">"gender"</span>: [
+        {
+          <span class="hljs-attr">"language"</span>: <span class="hljs-string">"ara"</span>,
+          <span class="hljs-attr">"value"</span>: <span class="hljs-string">"الذكر"</span>
+        },
+        {
+          <span class="hljs-attr">"language"</span>: <span class="hljs-string">"fra"</span>,
+          <span class="hljs-attr">"value"</span>: <span class="hljs-string">"mâle"</span>
+        }
+      ],
+      <span class="hljs-attr">"addressLine1"</span>: [
+        {
+          <span class="hljs-attr">"language"</span>: <span class="hljs-string">"ara"</span>,
+          <span class="hljs-attr">"value"</span>: <span class="hljs-string">"عنوان العينة سطر 1"</span>
+        },
+        {
+          <span class="hljs-attr">"language"</span>: <span class="hljs-string">"fra"</span>,
+          <span class="hljs-attr">"value"</span>: <span class="hljs-string">"exemple d'adresse ligne 1"</span>
+        }
+      ],
+      <span class="hljs-attr">"addressLine2"</span>: [
+        {
+          <span class="hljs-attr">"language"</span>: <span class="hljs-string">"ara"</span>,
+          <span class="hljs-attr">"value"</span>: <span class="hljs-string">"عنوان العينة سطر 2"</span>
+        },
+        {
+          <span class="hljs-attr">"language"</span>: <span class="hljs-string">"fra"</span>,
+          <span class="hljs-attr">"value"</span>: <span class="hljs-string">"exemple d'adresse ligne 2"</span>
+        }
+      ],
+      <span class="hljs-attr">"addressLine3"</span>: [
+        {
+          <span class="hljs-attr">"language"</span>: <span class="hljs-string">"ara"</span>,
+          <span class="hljs-attr">"value"</span>: <span class="hljs-string">"عنوان العينة سطر 3"</span>
+        },
+        {
+          <span class="hljs-attr">"language"</span>: <span class="hljs-string">"fra"</span>,
+          <span class="hljs-attr">"value"</span>: <span class="hljs-string">"exemple d'adresse ligne 3"</span>
+        }
+      ],
+      <span class="hljs-attr">"region"</span>: [
+        {
+          <span class="hljs-attr">"language"</span>: <span class="hljs-string">"ara"</span>,
+          <span class="hljs-attr">"value"</span>: <span class="hljs-string">"طنجة - تطوان - الحسيمة"</span>
+        },
+        {
+          <span class="hljs-attr">"language"</span>: <span class="hljs-string">"fra"</span>,
+          <span class="hljs-attr">"value"</span>: <span class="hljs-string">"Tanger-Tétouan-Al Hoceima"</span>
+        }
+      ],
+      <span class="hljs-attr">"province"</span>: [
+        {
+          <span class="hljs-attr">"language"</span>: <span class="hljs-string">"ara"</span>,
+          <span class="hljs-attr">"value"</span>: <span class="hljs-string">"فاس-مكناس"</span>
+        },
+        {
+          <span class="hljs-attr">"language"</span>: <span class="hljs-string">"fra"</span>,
+          <span class="hljs-attr">"value"</span>: <span class="hljs-string">"Fès-Meknès"</span>
+        }
+      ],
+      <span class="hljs-attr">"city"</span>: [
+        {
+          <span class="hljs-attr">"language"</span>: <span class="hljs-string">"ara"</span>,
+          <span class="hljs-attr">"value"</span>: <span class="hljs-string">"الدار البيضاء"</span>
+        },
+        {
+          <span class="hljs-attr">"language"</span>: <span class="hljs-string">"fra"</span>,
+          <span class="hljs-attr">"value"</span>: <span class="hljs-string">"Casablanca"</span>
+        }
+      ],
+      <span class="hljs-attr">"postalCode"</span>: <span class="hljs-string">"570004"</span>,
+      <span class="hljs-attr">"phone"</span>: <span class="hljs-string">"9876543210"</span>,
+      <span class="hljs-attr">"email"</span>: <span class="hljs-string">"abc@xyz.com"</span>,
+      <span class="hljs-attr">"parentOrGuardianRIDOrUIN"</span>: <span class="hljs-number">212124324784912</span>,
+      <span class="hljs-attr">"parentOrGuardianName"</span>: [
+        {
+          <span class="hljs-attr">"language"</span>: <span class="hljs-string">"ara"</span>,
+          <span class="hljs-attr">"value"</span>: <span class="hljs-string">"سلمى"</span>
+        },
+        {
+          <span class="hljs-attr">"language"</span>: <span class="hljs-string">"fra"</span>,
+          <span class="hljs-attr">"value"</span>: <span class="hljs-string">"salma"</span>
+        }
+      ],
+      <span class="hljs-attr">"proofOfAddress"</span>: {
+        <span class="hljs-attr">"format"</span>: <span class="hljs-string">"pdf"</span>,
+        <span class="hljs-attr">"type"</span>: <span class="hljs-string">"drivingLicense"</span>,
+        <span class="hljs-attr">"value"</span>: <span class="hljs-string">"fileReferenceID"</span>
+      },
+      <span class="hljs-attr">"proofOfIdentity"</span>: {
+        <span class="hljs-attr">"format"</span>: <span class="hljs-string">"txt"</span>,
+        <span class="hljs-attr">"type"</span>: <span class="hljs-string">"passport"</span>,
+        <span class="hljs-attr">"value"</span>: <span class="hljs-string">"fileReferenceID"</span>
+      },
+      <span class="hljs-attr">"proofOfRelationship"</span>: {
+        <span class="hljs-attr">"format"</span>: <span class="hljs-string">"pdf"</span>,
+        <span class="hljs-attr">"type"</span>: <span class="hljs-string">"passport"</span>,
+        <span class="hljs-attr">"value"</span>: <span class="hljs-string">"fileReferenceID"</span>
+      },
+      <span class="hljs-attr">"proofOfDateOfBirth"</span>: {
+        <span class="hljs-attr">"format"</span>: <span class="hljs-string">"pdf"</span>,
+        <span class="hljs-attr">"type"</span>: <span class="hljs-string">"passport"</span>,
+        <span class="hljs-attr">"value"</span>: <span class="hljs-string">"fileReferenceID"</span>
+      },
+      <span class="hljs-attr">"individualBiometrics"</span>: {
+        <span class="hljs-attr">"format"</span>: <span class="hljs-string">"cbeff"</span>,
+        <span class="hljs-attr">"version"</span>: <span class="hljs-number">1.0</span>,
+        <span class="hljs-attr">"value"</span>: <span class="hljs-string">"fileReferenceID"</span>
+      },
+      <span class="hljs-attr">"parentOrGuardianBiometrics"</span>: {
+        <span class="hljs-attr">"format"</span>: <span class="hljs-string">"cbeff"</span>,
+        <span class="hljs-attr">"version"</span>: <span class="hljs-number">1.0</span>,
+        <span class="hljs-attr">"value"</span>: <span class="hljs-string">"fileReferenceID"</span>
+      }
+    },
+    <span class="hljs-attr">"documents"</span>: [
+      {
+        <span class="hljs-attr">"category"</span>: <span class="hljs-string">"individualBiometrics"</span>,
+        <span class="hljs-attr">"value"</span>: <span class="hljs-string">"&lt;Base 64 encoded byte array of CBEFF document&gt;"</span>
+      }
+    ]
+  }
+}
+</code></pre>
+<h5><a class="anchor" aria-hidden="true" id="failure-details-1"></a><a href="#failure-details-1" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Failure details</h5>
+<table>
+<thead>
+<tr><th>Error Code</th><th>Error Message</th><th>Error Description</th></tr>
+</thead>
+<tbody>
+<tr><td>IDR-IDC-004</td><td>Unknown error occured</td><td>An unknown error occurred</td></tr>
+<tr><td>IDR-IDC-006</td><td>Error occured while performing DB operations</td><td>DB connectivity error</td></tr>
+<tr><td>IDR-IDC-007</td><td>No Record(s) found</td><td>Identity with input UIN does not exist</td></tr>
+<tr><td>IDR-IDC-008</td><td>4XX - Client Error occured</td><td>4XX error from Kernel APIs</td></tr>
+<tr><td>IDR-IDC-009</td><td>5XX - Server Error occured</td><td>5XX error from Kernel APIs</td></tr>
+<tr><td>IDR-IDC-010</td><td>Connection timed out</td><td>Connection timed out while invoking REST APIs</td></tr>
+<tr><td>IDR-IDC-011</td><td>Authorization Failed</td><td>Input role is not authorized to access the service</td></tr>
+<tr><td>IDR-IDS-001</td><td>Identity Element hash does not match</td><td>Error while matching Identity hash with hash of decrypted Identity</td></tr>
+<tr><td>IDR-IDS-002</td><td>Biometric/Document hash does not match</td><td>Error while matching hash of Biometric/Document with hash of decrypted Biometric/Document</td></tr>
+<tr><td>IDR-IDS-003</td><td>Failed to encrypt/decrypt message using Kernel Crypto Manager</td><td>Error thrown from Kernel Crypto Manager</td></tr>
+<tr><td>IDR-IDS-004</td><td>Failed to store/retrieve files in DFS</td><td>Error while storing file in DFS</td></tr>
+<tr><td>IDR-IDS-006</td><td>File(s) not found in DFS</td><td>Requested Biometric/Demographic documents not found in DFS</td></tr>
+<tr><td>IDR-IDS-007</td><td>Failed to retrieve data from kernel Masterdata</td><td>Error while retrieving data from Kernel MasterData</td></tr>
+</tbody>
+</table>
+<h3><a class="anchor" aria-hidden="true" id="get-idrepository-v1-identity-rid-rid-type-bio"></a><a href="#get-idrepository-v1-identity-rid-rid-type-bio" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>GET /idrepository/v1/identity/RID/{RID}?type=bio</h3>
+<p>This operation will retrieve an ID record from ID repository for a given RID (Registration ID) and identity type as bio/demo/all.</p>
+<ol>
+<li>When type=bio is selected, individualBiometrics along with Identity details of Individual are returned</li>
+<li>When type=demo is selected, Demographic documents along with Identity details of Individual are returned</li>
+<li>When type=all is selected, both individualBiometrics and demographic documents are returned along with Identity details of Individual</li>
+</ol>
+<p>If no identity type is provided, stored latest Identity details of Individual mapped to the UIN of input RID will be returned as a default response.</p>
+<h4><a class="anchor" aria-hidden="true" id="resource-url-2"></a><a href="#resource-url-2" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Resource URL</h4>
+<div>https://mosip.io/idrepository/v1/identity/RID/{RID}?type=bio</div>
+<h4><a class="anchor" aria-hidden="true" id="resource-details-2"></a><a href="#resource-details-2" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Resource details</h4>
+<table>
+<thead>
+<tr><th>Resource Details</th><th>Description</th></tr>
+</thead>
+<tbody>
+<tr><td>Response format</td><td>JSON</td></tr>
+<tr><td>Requires Authentication</td><td>Yes</td></tr>
+</tbody>
+</table>
+<h4><a class="anchor" aria-hidden="true" id="responses-2"></a><a href="#responses-2" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Responses:</h4>
+<h5><a class="anchor" aria-hidden="true" id="success-response-2"></a><a href="#success-response-2" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Success Response:</h5>
+<h6><a class="anchor" aria-hidden="true" id="status-code-200-2"></a><a href="#status-code-200-2" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Status code: '200'</h6>
+<h6><a class="anchor" aria-hidden="true" id="description-identity-retrieved-successfully-1"></a><a href="#description-identity-retrieved-successfully-1" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Description: Identity retrieved successfully</h6>
+<pre><code class="hljs css language-JSON">{
+  <span class="hljs-attr">"id"</span>: <span class="hljs-string">"mosip.id.read"</span>,
+  <span class="hljs-attr">"version"</span>: <span class="hljs-string">"v1"</span>,
+  <span class="hljs-attr">"responsetime"</span>: <span class="hljs-string">"2018-12-11T06:13:05.218Z"</span>,
+  <span class="hljs-attr">"response"</span>: {
+    <span class="hljs-comment">//JSON object as per the ID Object Schema defined by the system owner</span>
+    <span class="hljs-attr">"status"</span>: <span class="hljs-string">"ACTIVATED"</span>,
+    <span class="hljs-attr">"identity"</span>: {
+      <span class="hljs-attr">"IDSchemaVersion"</span>: <span class="hljs-number">1.0</span>,
+      <span class="hljs-attr">"UIN"</span>: <span class="hljs-number">981576026435</span>,
+      <span class="hljs-attr">"fullName"</span>: [
+        {
+          <span class="hljs-attr">"language"</span>: <span class="hljs-string">"ara"</span>,
+          <span class="hljs-attr">"value"</span>: <span class="hljs-string">"ابراهيم بن علي"</span>
+        },
+        {
+          <span class="hljs-attr">"language"</span>: <span class="hljs-string">"fra"</span>,
+          <span class="hljs-attr">"value"</span>: <span class="hljs-string">"Ibrahim Ibn Ali"</span>
+        }
+      ],
+      <span class="hljs-attr">"dateOfBirth"</span>: <span class="hljs-string">"1955/04/15"</span>,
+      <span class="hljs-attr">"age"</span>: <span class="hljs-number">45</span>,
+      <span class="hljs-attr">"gender"</span>: [
+        {
+          <span class="hljs-attr">"language"</span>: <span class="hljs-string">"ara"</span>,
+          <span class="hljs-attr">"value"</span>: <span class="hljs-string">"الذكر"</span>
+        },
+        {
+          <span class="hljs-attr">"language"</span>: <span class="hljs-string">"fra"</span>,
+          <span class="hljs-attr">"value"</span>: <span class="hljs-string">"mâle"</span>
+        }
+      ],
+      <span class="hljs-attr">"addressLine1"</span>: [
+        {
+          <span class="hljs-attr">"language"</span>: <span class="hljs-string">"ara"</span>,
+          <span class="hljs-attr">"value"</span>: <span class="hljs-string">"عنوان العينة سطر 1"</span>
+        },
+        {
+          <span class="hljs-attr">"language"</span>: <span class="hljs-string">"fra"</span>,
+          <span class="hljs-attr">"value"</span>: <span class="hljs-string">"exemple d'adresse ligne 1"</span>
+        }
+      ],
+      <span class="hljs-attr">"addressLine2"</span>: [
+        {
+          <span class="hljs-attr">"language"</span>: <span class="hljs-string">"ara"</span>,
+          <span class="hljs-attr">"value"</span>: <span class="hljs-string">"عنوان العينة سطر 2"</span>
+        },
+        {
+          <span class="hljs-attr">"language"</span>: <span class="hljs-string">"fra"</span>,
+          <span class="hljs-attr">"value"</span>: <span class="hljs-string">"exemple d'adresse ligne 2"</span>
+        }
+      ],
+      <span class="hljs-attr">"addressLine3"</span>: [
+        {
+          <span class="hljs-attr">"language"</span>: <span class="hljs-string">"ara"</span>,
+          <span class="hljs-attr">"value"</span>: <span class="hljs-string">"عنوان العينة سطر 3"</span>
+        },
+        {
+          <span class="hljs-attr">"language"</span>: <span class="hljs-string">"fra"</span>,
+          <span class="hljs-attr">"value"</span>: <span class="hljs-string">"exemple d'adresse ligne 3"</span>
+        }
+      ],
+      <span class="hljs-attr">"region"</span>: [
+        {
+          <span class="hljs-attr">"language"</span>: <span class="hljs-string">"ara"</span>,
+          <span class="hljs-attr">"value"</span>: <span class="hljs-string">"طنجة - تطوان - الحسيمة"</span>
+        },
+        {
+          <span class="hljs-attr">"language"</span>: <span class="hljs-string">"fra"</span>,
+          <span class="hljs-attr">"value"</span>: <span class="hljs-string">"Tanger-Tétouan-Al Hoceima"</span>
+        }
+      ],
+      <span class="hljs-attr">"province"</span>: [
+        {
+          <span class="hljs-attr">"language"</span>: <span class="hljs-string">"ara"</span>,
+          <span class="hljs-attr">"value"</span>: <span class="hljs-string">"فاس-مكناس"</span>
+        },
+        {
+          <span class="hljs-attr">"language"</span>: <span class="hljs-string">"fra"</span>,
+          <span class="hljs-attr">"value"</span>: <span class="hljs-string">"Fès-Meknès"</span>
+        }
+      ],
+      <span class="hljs-attr">"city"</span>: [
+        {
+          <span class="hljs-attr">"language"</span>: <span class="hljs-string">"ara"</span>,
+          <span class="hljs-attr">"value"</span>: <span class="hljs-string">"الدار البيضاء"</span>
+        },
+        {
+          <span class="hljs-attr">"language"</span>: <span class="hljs-string">"fra"</span>,
+          <span class="hljs-attr">"value"</span>: <span class="hljs-string">"Casablanca"</span>
+        }
+      ],
+      <span class="hljs-attr">"postalCode"</span>: <span class="hljs-string">"570004"</span>,
+      <span class="hljs-attr">"phone"</span>: <span class="hljs-string">"9876543210"</span>,
+      <span class="hljs-attr">"email"</span>: <span class="hljs-string">"abc@xyz.com"</span>,
+      <span class="hljs-attr">"parentOrGuardianRIDOrUIN"</span>: <span class="hljs-number">212124324784912</span>,
+      <span class="hljs-attr">"parentOrGuardianName"</span>: [
+        {
+          <span class="hljs-attr">"language"</span>: <span class="hljs-string">"ara"</span>,
+          <span class="hljs-attr">"value"</span>: <span class="hljs-string">"سلمى"</span>
+        },
+        {
+          <span class="hljs-attr">"language"</span>: <span class="hljs-string">"fra"</span>,
+          <span class="hljs-attr">"value"</span>: <span class="hljs-string">"salma"</span>
+        }
+      ],
+      <span class="hljs-attr">"proofOfAddress"</span>: {
+        <span class="hljs-attr">"format"</span>: <span class="hljs-string">"pdf"</span>,
+        <span class="hljs-attr">"type"</span>: <span class="hljs-string">"drivingLicense"</span>,
+        <span class="hljs-attr">"value"</span>: <span class="hljs-string">"fileReferenceID"</span>
+      },
+      <span class="hljs-attr">"proofOfIdentity"</span>: {
+        <span class="hljs-attr">"format"</span>: <span class="hljs-string">"txt"</span>,
+        <span class="hljs-attr">"type"</span>: <span class="hljs-string">"passport"</span>,
+        <span class="hljs-attr">"value"</span>: <span class="hljs-string">"fileReferenceID"</span>
+      },
+      <span class="hljs-attr">"proofOfRelationship"</span>: {
+        <span class="hljs-attr">"format"</span>: <span class="hljs-string">"pdf"</span>,
+        <span class="hljs-attr">"type"</span>: <span class="hljs-string">"passport"</span>,
+        <span class="hljs-attr">"value"</span>: <span class="hljs-string">"fileReferenceID"</span>
+      },
+      <span class="hljs-attr">"proofOfDateOfBirth"</span>: {
+        <span class="hljs-attr">"format"</span>: <span class="hljs-string">"pdf"</span>,
+        <span class="hljs-attr">"type"</span>: <span class="hljs-string">"passport"</span>,
+        <span class="hljs-attr">"value"</span>: <span class="hljs-string">"fileReferenceID"</span>
+      },
+      <span class="hljs-attr">"individualBiometrics"</span>: {
+        <span class="hljs-attr">"format"</span>: <span class="hljs-string">"cbeff"</span>,
+        <span class="hljs-attr">"version"</span>: <span class="hljs-number">1.0</span>,
+        <span class="hljs-attr">"value"</span>: <span class="hljs-string">"fileReferenceID"</span>
+      },
+      <span class="hljs-attr">"parentOrGuardianBiometrics"</span>: {
+        <span class="hljs-attr">"format"</span>: <span class="hljs-string">"cbeff"</span>,
+        <span class="hljs-attr">"version"</span>: <span class="hljs-number">1.0</span>,
+        <span class="hljs-attr">"value"</span>: <span class="hljs-string">"fileReferenceID"</span>
+      }
+    },
+    <span class="hljs-attr">"documents"</span>: [
+      {
+        <span class="hljs-attr">"category"</span>: <span class="hljs-string">"individualBiometrics"</span>,
+        <span class="hljs-attr">"value"</span>: <span class="hljs-string">"&lt;Base 64 encoded byte array of CBEFF document&gt;"</span>
+      }
+    ]
+  }
+}
+</code></pre>
+<h5><a class="anchor" aria-hidden="true" id="failure-details-2"></a><a href="#failure-details-2" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Failure details</h5>
+<table>
+<thead>
+<tr><th>Error Code</th><th>Error Message</th><th>Error Description</th></tr>
+</thead>
+<tbody>
+<tr><td>IDR-IDC-004</td><td>Unknown error occured</td><td>An unknown error occurred</td></tr>
+<tr><td>IDR-IDC-006</td><td>Error occured while performing DB operations</td><td>DB connectivity error</td></tr>
+<tr><td>IDR-IDC-007</td><td>No Record(s) found</td><td>Identity with input RID does not exist</td></tr>
+<tr><td>IDR-IDC-008</td><td>4XX - Client Error occured</td><td>4XX error from Kernel APIs</td></tr>
+<tr><td>IDR-IDC-009</td><td>5XX - Server Error occured</td><td>5XX error from Kernel APIs</td></tr>
+<tr><td>IDR-IDC-010</td><td>Connection timed out</td><td>Connection timed out while invoking REST APIs</td></tr>
+<tr><td>IDR-IDC-011</td><td>Authorization Failed</td><td>Input role is not authorized to access the service</td></tr>
+<tr><td>IDR-IDS-001</td><td>Identity Element hash does not match</td><td>Error while matching Identity hash with hash of decrypted Identity</td></tr>
+<tr><td>IDR-IDS-002</td><td>Biometric/Document hash does not match</td><td>Error while matching hash of Biometric/Document with hash of decrypted Biometric/Document</td></tr>
+<tr><td>IDR-IDS-003</td><td>Failed to encrypt/decrypt message using Kernel Crypto Manager</td><td>Error thrown from Kernel Crypto Manager</td></tr>
+<tr><td>IDR-IDS-004</td><td>Failed to store/retrieve files in DFS</td><td>Error while storing file in DFS</td></tr>
+<tr><td>IDR-IDS-006</td><td>File(s) not found in DFS</td><td>Requested Biometric/Demographic documents not found in DFS</td></tr>
+<tr><td>IDR-IDS-007</td><td>Failed to retrieve data from kernel Masterdata</td><td>Error while retrieving data from Kernel MasterData</td></tr>
+</tbody>
+</table>
+<h3><a class="anchor" aria-hidden="true" id="patch-idrepository-v1-identity"></a><a href="#patch-idrepository-v1-identity" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>PATCH /idrepository/v1/identity</h3>
+<p>This operation will update an existing ID record in the ID repository for a given UIN (Unique Identification Number)</p>
+<h4><a class="anchor" aria-hidden="true" id="resource-url-3"></a><a href="#resource-url-3" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Resource URL</h4>
+<div>https://mosip.io/idrepository/v1/identity</div>
+<h4><a class="anchor" aria-hidden="true" id="resource-details-3"></a><a href="#resource-details-3" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Resource details</h4>
+<table>
+<thead>
+<tr><th>Resource Details</th><th>Description</th></tr>
+</thead>
+<tbody>
+<tr><td>Response format</td><td>JSON</td></tr>
+<tr><td>Requires Authentication</td><td>Yes</td></tr>
+</tbody>
+</table>
+<h4><a class="anchor" aria-hidden="true" id="request-body-parameters-1"></a><a href="#request-body-parameters-1" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Request Body Parameters</h4>
+<table>
+<thead>
+<tr><th>Name</th><th>Required</th><th>Description</th><th>Default Value</th><th>Example</th></tr>
+</thead>
+<tbody>
+<tr><td>id</td><td>Y</td><td>Id of the API</td><td>mosip.id.update</td></tr>
+<tr><td>version</td><td>Y</td><td>version of the API</td><td></td><td>v1</td></tr>
+<tr><td>requesttime</td><td>Y</td><td>timestamp of the request</td><td></td><td>2018-12-11T06:12:25.288Z</td></tr>
+<tr><td>request</td><td>Y</td><td>Request body attributes</td><td></td></tr>
+<tr><td>request: status</td><td>N</td><td>status of ID</td><td></td></tr>
+<tr><td>request: registrationId</td><td>Y</td><td>Registration id</td><td></td></tr>
+<tr><td>request: biometricReferenceId</td><td>N</td><td>ABIS Reference Id</td><td></td></tr>
+<tr><td>request: identity</td><td>M</td><td>JSON body as per the ID object schema</td><td></td></tr>
+<tr><td>request: identity: UIN</td><td>M</td><td>UIN for which Identity is updated</td><td></td></tr>
+<tr><td>request: documents</td><td>N</td><td>Documents that are to be uploaded for any ID attribute</td><td></td></tr>
+</tbody>
+</table>
+<h4><a class="anchor" aria-hidden="true" id="request-1"></a><a href="#request-1" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Request:</h4>
+<pre><code class="hljs css language-JSON">{
+  <span class="hljs-attr">"id"</span>: <span class="hljs-string">"mosip.id.update"</span>,
+  <span class="hljs-attr">"version"</span>: <span class="hljs-string">"v1"</span>,
+  <span class="hljs-attr">"requesttime"</span>: <span class="hljs-string">"2018-12-11T06:12:25.288Z"</span>,
+  <span class="hljs-attr">"request"</span>: {
+    <span class="hljs-comment">//JSON object as per the ID Object Schema defined by the system owner</span>
+    <span class="hljs-attr">"registrationId"</span>: <span class="hljs-string">"12342343200065201812120100556"</span>,
+    <span class="hljs-attr">"biometricReferenceId"</span>: <span class="hljs-string">"&lt;ABIS Reference ID&gt;"</span>,
+    <span class="hljs-attr">"status"</span>: <span class="hljs-string">"DEACTIVATED"</span>,
+    <span class="hljs-attr">"identity"</span>: {
+      <span class="hljs-attr">"UIN"</span>: <span class="hljs-number">981576026435</span>,
+      <span class="hljs-attr">"email"</span>: <span class="hljs-string">"sample123@email.com"</span>,
+      <span class="hljs-attr">"individualBiometrics"</span>: {
+        <span class="hljs-attr">"format"</span>: <span class="hljs-string">"cbeff"</span>,
+        <span class="hljs-attr">"version"</span>: <span class="hljs-number">1.0</span>,
+        <span class="hljs-attr">"value"</span>: <span class="hljs-string">"updated_bio_doc_name"</span>
+      }
+    },
+    <span class="hljs-attr">"documents"</span>: [
+      {
+        <span class="hljs-attr">"category"</span>: <span class="hljs-string">"individualBiometrics"</span>,
+        <span class="hljs-attr">"value"</span>: <span class="hljs-string">"&lt;Base 64 encoded byte array of updated CBEFF document&gt;"</span>
+      }
+    ]
+  }
+}
+</code></pre>
+<h4><a class="anchor" aria-hidden="true" id="responses-3"></a><a href="#responses-3" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Responses:</h4>
+<h5><a class="anchor" aria-hidden="true" id="success-response-3"></a><a href="#success-response-3" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Success Response:</h5>
+<h6><a class="anchor" aria-hidden="true" id="status-code-200-3"></a><a href="#status-code-200-3" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Status code: '200'</h6>
+<h6><a class="anchor" aria-hidden="true" id="description-identity-updated-successfully"></a><a href="#description-identity-updated-successfully" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Description: Identity updated successfully</h6>
+<pre><code class="hljs css language-JSON">{
+  <span class="hljs-attr">"id"</span>: <span class="hljs-string">"mosip.id.update"</span>,
+  <span class="hljs-attr">"version"</span>: <span class="hljs-string">"v1"</span>,
+  <span class="hljs-attr">"responsetime"</span>: <span class="hljs-string">"2018-12-11T06:13:05.218Z"</span>,
+  <span class="hljs-attr">"response"</span>: {
+    <span class="hljs-attr">"status"</span>: <span class="hljs-string">"DEACTIVATED"</span>,
+    <span class="hljs-attr">"entity"</span>: <span class="hljs-string">"http://mosip.io/identity/568469473107"</span>
+  }
+}
+</code></pre>
+<h5><a class="anchor" aria-hidden="true" id="failure-details-3"></a><a href="#failure-details-3" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Failure details</h5>
+<table>
+<thead>
+<tr><th>Error Code</th><th>Error Message</th><th>Error Description</th></tr>
+</thead>
+<tbody>
+<tr><td>IDR-IDC-001</td><td>Missing Input Parameter - %s</td><td>Input Parameter Missing</td></tr>
+<tr><td>IDR-IDC-002</td><td>Invalid Input Parameter - %s</td><td>Invalid Input Parameter</td></tr>
+<tr><td>IDR-IDC-003</td><td>Invalid Request</td><td>Invalid Request attribute</td></tr>
+<tr><td>IDR-IDC-004</td><td>Unknown error occured</td><td>An unknown error occurred</td></tr>
+<tr><td>IDR-IDC-005</td><td>Input Data Validation Failed</td><td>Validation on input fails</td></tr>
+<tr><td>IDR-IDC-006</td><td>Error occured while performing DB operations</td><td>DB connectivity error</td></tr>
+<tr><td>IDR-IDC-008</td><td>4XX - Client Error occured</td><td>4XX error from Kernel APIs</td></tr>
+<tr><td>IDR-IDC-009</td><td>5XX - Server Error occured</td><td>5XX error from Kernel APIs</td></tr>
+<tr><td>IDR-IDC-010</td><td>Connection timed out</td><td>Connection timed out while invoking REST APIs</td></tr>
+<tr><td>IDR-IDC-011</td><td>Authorization Failed</td><td>Input role is not authorized to access the service</td></tr>
+<tr><td>IDR-IDC-012</td><td>Record already exists in DB</td><td>Identity with input RID already exists in DB</td></tr>
+<tr><td>IDR-IDS-001</td><td>Identity Element hash does not match</td><td>Error while matching Identity hash with hash of decrypted Identity</td></tr>
+<tr><td>IDR-IDS-002</td><td>Biometric/Document hash does not match</td><td>Error while matching hash of Biometric/Document with hash of decrypted Biometric/Document</td></tr>
+<tr><td>IDR-IDS-003</td><td>Failed to encrypt/decrypt message using Kernel Crypto Manager</td><td>Error thrown from Kernel Crypto Manager</td></tr>
+<tr><td>IDR-IDS-004</td><td>Failed to store/retrieve files in DFS</td><td>Error while storing file in DFS</td></tr>
+<tr><td>IDR-IDS-006</td><td>File(s) not found in DFS</td><td>Requested Biometric/Demographic documents not found in DFS</td></tr>
+<tr><td>IDR-IDS-005</td><td>Failed to process Id Object using kernel Id Object validator</td><td>Error while validating ID Object against Id ObjectValidator</td></tr>
+<tr><td>IDR-IDS-007</td><td>Failed to retrieve data from kernel Masterdata</td><td>Error while retrieving data from Kernel MasterData</td></tr>
+</tbody>
+</table>
+<h2><a class="anchor" aria-hidden="true" id="vid-services-private"></a><a href="#vid-services-private" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>VID Services (Private)</h2>
+<p>These services can be used to perform various operations on VID like generate or re-generate VID, update VID status, etc.</p>
+<ul>
+<li><a href="#post-idrepositoryv1vid">POST /idrepository/v1/vid</a></li>
+<li><a href="#get-idrepositoryv1vidvid">GET /idrepository/v1/vid/{VID}</a></li>
+<li><a href="#patch-idrepositoryv1vidvid">PATCH /idrepository/v1/vid/{VID}</a></li>
+<li><a href="#post-idrepositoryv1vidvidregenerate">POST /idrepository/v1/vid/{VID}/regenerate</a></li>
+</ul>
+<h4><a class="anchor" aria-hidden="true" id="users-of-vid-services"></a><a href="#users-of-vid-services" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Users of VID services -</h4>
+<ol>
+<li><code>Registration Processor</code> - <em>Registration Processor</em> will create a new perpetual VID once UIN is generated successfully.</li>
+<li><code>Resident Services</code> - Individual can use <em>Resident Services</em> to generate or re-generate a new temporary VID.</li>
+<li><code>ID Authentication</code> - <em>ID Authentication</em> can retrieve UIN for a given VID for authenticating Individual using VID.</li>
+</ol>
+<h3><a class="anchor" aria-hidden="true" id="post-idrepository-v1-vid"></a><a href="#post-idrepository-v1-vid" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>POST /idrepository/v1/vid</h3>
+<p>This service will generate a new VID based on VID type provided.</p>
+<h4><a class="anchor" aria-hidden="true" id="resource-url-4"></a><a href="#resource-url-4" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Resource URL</h4>
+<div>https://mosip.io/idrepository/v1/vid</div>
+<h4><a class="anchor" aria-hidden="true" id="resource-details-4"></a><a href="#resource-details-4" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Resource details</h4>
+<table>
+<thead>
+<tr><th>Resource Details</th><th>Description</th></tr>
+</thead>
+<tbody>
+<tr><td>Response format</td><td>JSON</td></tr>
+<tr><td>Requires Authentication</td><td>Yes</td></tr>
+</tbody>
+</table>
+<h4><a class="anchor" aria-hidden="true" id="request-body-parameters-2"></a><a href="#request-body-parameters-2" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Request Body Parameters</h4>
+<table>
+<thead>
+<tr><th>Name</th><th>Required</th><th>Description</th><th>Default Value</th><th>Example</th></tr>
+</thead>
+<tbody>
+<tr><td>id</td><td>yes</td><td>Id of the API</td><td>mosip.vid.create</td></tr>
+<tr><td>version</td><td>yes</td><td>version of the API</td><td></td><td>v1</td></tr>
+<tr><td>requesttime</td><td>yes</td><td>timestamp of the request</td><td></td><td>2019-04-30T06:12:25.288Z</td></tr>
+<tr><td>request</td><td>yes</td><td>Request Body attributes</td><td></td></tr>
+<tr><td>request: vidType</td><td>yes</td><td>VID Type</td><td></td><td>Perpetual or Temporary</td></tr>
+<tr><td>request: UIN</td><td>yes</td><td>Individual's UIN</td><td></td><td>981576026435</td></tr>
+</tbody>
+</table>
+<h4><a class="anchor" aria-hidden="true" id="request-2"></a><a href="#request-2" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Request:</h4>
+<pre><code class="hljs css language-JSON">{
+  <span class="hljs-attr">"id"</span>: <span class="hljs-string">"mosip.vid.create"</span>,
+  <span class="hljs-attr">"version"</span>: <span class="hljs-string">"v1"</span>,
+  <span class="hljs-attr">"requesttime"</span>: <span class="hljs-string">"2019-04-30T06:12:25.288Z"</span>,
+  <span class="hljs-attr">"request"</span>: {
+    <span class="hljs-attr">"vidType"</span>: <span class="hljs-string">"Perpetual"</span>,
+    <span class="hljs-attr">"UIN"</span>: <span class="hljs-number">981576026435</span>
+  }
+}
+</code></pre>
+<h4><a class="anchor" aria-hidden="true" id="responses-4"></a><a href="#responses-4" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Responses:</h4>
+<h5><a class="anchor" aria-hidden="true" id="success-response-4"></a><a href="#success-response-4" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Success Response:</h5>
+<h6><a class="anchor" aria-hidden="true" id="status-code-200-4"></a><a href="#status-code-200-4" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Status code: '200'</h6>
+<h6><a class="anchor" aria-hidden="true" id="description-vid-created-successfully"></a><a href="#description-vid-created-successfully" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Description: VID created successfully</h6>
+<pre><code class="hljs">{
+  <span class="hljs-attr">"id"</span>: <span class="hljs-string">"mosip.vid.create"</span>,
+  <span class="hljs-attr">"version"</span>: <span class="hljs-string">"v1"</span>,
+  <span class="hljs-attr">"responsetime"</span>: <span class="hljs-string">"2019-04-30T06:13:05.218Z"</span>,
+  <span class="hljs-attr">"response"</span>: {
+    <span class="hljs-attr">"vidStatus"</span>: <span class="hljs-string">"ACTIVE"</span>,
+    <span class="hljs-attr">"VID"</span>: <span class="hljs-number">1234512345</span>
+  }
+}
+</code></pre>
+<h5><a class="anchor" aria-hidden="true" id="failure-details-4"></a><a href="#failure-details-4" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Failure details</h5>
+<table>
+<thead>
+<tr><th>Error Code</th><th>Error Message</th><th>Error Description</th></tr>
+</thead>
+<tbody>
+<tr><td>IDR-VID-002</td><td>Failed to generate VID</td><td>Error while generating VID</td></tr>
+<tr><td>IDR-VID-003</td><td>Could not generate/regenerate VID as per policy</td><td>Error while generating VID based on policy</td></tr>
+<tr><td>IDR-VID-004</td><td>Deactivate UIN or Blocked UIN</td><td>UIN is either de-activated or blocked</td></tr>
+<tr><td>IDR-VID-005</td><td>Failed to retrieve uin data using Identity Service</td><td>Error while retrieving UIN details from Identity Service</td></tr>
+<tr><td>IDR-IDC-001</td><td>Missing Input Parameter - %s</td><td>Input Parameter Missing</td></tr>
+<tr><td>IDR-IDC-002</td><td>Invalid Input Parameter - %s</td><td>Invalid Input Parameter</td></tr>
+<tr><td>IDR-IDC-003</td><td>Invalid Request</td><td>Invalid Request attribute</td></tr>
+<tr><td>IDR-IDC-004</td><td>Unknown error occured</td><td>An unknown error occurred</td></tr>
+<tr><td>IDR-IDC-005</td><td>Input Data Validation Failed</td><td>Validation on input fails</td></tr>
+<tr><td>IDR-IDC-006</td><td>Error occured while performing DB operations</td><td>DB connectivity error</td></tr>
+<tr><td>IDR-IDC-008</td><td>4XX - Client Error occured</td><td>4XX error from Kernel APIs</td></tr>
+<tr><td>IDR-IDC-009</td><td>5XX - Server Error occured</td><td>5XX error from Kernel APIs</td></tr>
+<tr><td>IDR-IDC-010</td><td>Connection timed out</td><td>Connection timed out while invoking REST APIs</td></tr>
+<tr><td>IDR-IDC-011</td><td>Authorization Failed</td><td>Input role is not authorized to access the service</td></tr>
+</tbody>
+</table>
+<h3><a class="anchor" aria-hidden="true" id="get-idrepository-v1-vid-vid"></a><a href="#get-idrepository-v1-vid-vid" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>GET /idrepository/v1/vid/{VID}</h3>
+<p>This service will retrieve associated decrypted UIN for a given VID, once VID is successfully validated.</p>
+<h4><a class="anchor" aria-hidden="true" id="resource-url-5"></a><a href="#resource-url-5" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Resource URL</h4>
+<div>https://mosip.io/idrepository/v1/vid/{VID}</div>
+<h4><a class="anchor" aria-hidden="true" id="resource-details-5"></a><a href="#resource-details-5" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Resource details</h4>
+<table>
+<thead>
+<tr><th>Resource Details</th><th>Description</th></tr>
+</thead>
+<tbody>
+<tr><td>Response format</td><td>JSON</td></tr>
+<tr><td>Requires Authentication</td><td>Yes</td></tr>
+</tbody>
+</table>
+<h4><a class="anchor" aria-hidden="true" id="responses-5"></a><a href="#responses-5" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Responses:</h4>
+<h5><a class="anchor" aria-hidden="true" id="success-response-5"></a><a href="#success-response-5" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Success Response:</h5>
+<h6><a class="anchor" aria-hidden="true" id="status-code-200-5"></a><a href="#status-code-200-5" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Status code: '200'</h6>
+<h6><a class="anchor" aria-hidden="true" id="description-uin-for-a-given-vid-retrieved-successfully"></a><a href="#description-uin-for-a-given-vid-retrieved-successfully" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Description: UIN for a given VID retrieved successfully</h6>
+<pre><code class="hljs">{
+  <span class="hljs-attr">"id"</span>: <span class="hljs-string">"mosip.vid.read"</span>,
+  <span class="hljs-attr">"version"</span>: <span class="hljs-string">"v1"</span>,
+  <span class="hljs-attr">"responsetime"</span>: <span class="hljs-string">"2019-04-30T06:13:05.218Z"</span>,
+  <span class="hljs-attr">"response"</span>: {
+    <span class="hljs-attr">"UIN"</span>: <span class="hljs-number">981576026435</span>
+  }
+}
+</code></pre>
+<h5><a class="anchor" aria-hidden="true" id="failure-details-5"></a><a href="#failure-details-5" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Failure details</h5>
+<table>
+<thead>
+<tr><th>Error Code</th><th>Error Message</th><th>Error Description</th></tr>
+</thead>
+<tbody>
+<tr><td>IDR-VID-001</td><td>VID is &lt;vid-status&gt;</td><td>Here status could be REVOKED, EXPIRED, USED, INVALIDATED or DEACTIVATED</td></tr>
+<tr><td>IDR-VID-004</td><td>&lt;uin-status&gt; UIN</td><td>Here, uin-status could be either de-activated or blocked</td></tr>
+<tr><td>IDR-VID-005</td><td>Failed to retrieve uin data using Identity Service</td><td>Error while retrieving UIN details from Identity Service</td></tr>
+<tr><td>IDR-VID-006</td><td>Uin hash does not match</td><td>Error while matching hash of UIN against decrypted UIN</td></tr>
+<tr><td>IDR-IDC-004</td><td>Unknown error occured</td><td>An unknown error occurred</td></tr>
+<tr><td>IDR-IDC-006</td><td>Error occured while performing DB operations</td><td>DB connectivity error</td></tr>
+<tr><td>IDR-IDC-007</td><td>No Record(s) found</td><td>Input VID does not exist in DB</td></tr>
+<tr><td>IDR-IDC-008</td><td>4XX - Client Error occured</td><td>4XX error from Kernel APIs</td></tr>
+<tr><td>IDR-IDC-009</td><td>5XX - Server Error occured</td><td>5XX error from Kernel APIs</td></tr>
+<tr><td>IDR-IDC-010</td><td>Connection timed out</td><td>Connection timed out while invoking REST APIs</td></tr>
+<tr><td>IDR-IDC-011</td><td>Authorization Failed</td><td>Input role is not authorized to access the service</td></tr>
+</tbody>
+</table>
+<h3><a class="anchor" aria-hidden="true" id="patch-idrepository-v1-vid-vid"></a><a href="#patch-idrepository-v1-vid-vid" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>PATCH /idrepository/v1/vid/{VID}</h3>
+<p>This service will update status associated with a given VID, if the current status of VID is 'ACTIVE'.</p>
+<h4><a class="anchor" aria-hidden="true" id="resource-url-6"></a><a href="#resource-url-6" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Resource URL</h4>
+<div>https://mosip.io/idrepository/v1/vid/{VID}</div>
+<h4><a class="anchor" aria-hidden="true" id="resource-details-6"></a><a href="#resource-details-6" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Resource details</h4>
+<table>
+<thead>
+<tr><th>Resource Details</th><th>Description</th></tr>
+</thead>
+<tbody>
+<tr><td>Response format</td><td>JSON</td></tr>
+<tr><td>Requires Authentication</td><td>Yes</td></tr>
+</tbody>
+</table>
+<h4><a class="anchor" aria-hidden="true" id="request-body-parameters-3"></a><a href="#request-body-parameters-3" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Request Body Parameters</h4>
+<table>
+<thead>
+<tr><th>Name</th><th>Required</th><th>Description</th><th>Default Value</th><th>Example</th></tr>
+</thead>
+<tbody>
+<tr><td>id</td><td>yes</td><td>Id of the API</td><td>mosip.vid.update</td></tr>
+<tr><td>version</td><td>yes</td><td>version of the API</td><td></td><td>v1</td></tr>
+<tr><td>requesttime</td><td>yes</td><td>timestamp of the request</td><td></td><td>2019-04-30T06:12:25.288Z</td></tr>
+<tr><td>request</td><td>yes</td><td>Request Body attributes</td><td></td></tr>
+<tr><td>request: vidStatus</td><td>yes</td><td>status of VID</td><td></td><td>USED or REVOKED or EXPIRED</td></tr>
+</tbody>
+</table>
+<h4><a class="anchor" aria-hidden="true" id="request-3"></a><a href="#request-3" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Request:</h4>
+<pre><code class="hljs css language-JSON">{
+  <span class="hljs-attr">"id"</span>: <span class="hljs-string">"mosip.vid.update"</span>,
+  <span class="hljs-attr">"version"</span>: <span class="hljs-string">"v1"</span>,
+  <span class="hljs-attr">"requesttime"</span>: <span class="hljs-string">"2019-04-30T06:12:25.288Z"</span>,
+  <span class="hljs-attr">"request"</span>: {
+    <span class="hljs-attr">"vidStatus"</span>: 'REVOKED'
+  }
+}
+</code></pre>
+<h4><a class="anchor" aria-hidden="true" id="responses-6"></a><a href="#responses-6" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Responses:</h4>
+<h5><a class="anchor" aria-hidden="true" id="success-response-6"></a><a href="#success-response-6" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Success Response:</h5>
+<h6><a class="anchor" aria-hidden="true" id="status-code-200-6"></a><a href="#status-code-200-6" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Status code: '200'</h6>
+<h6><a class="anchor" aria-hidden="true" id="description-vid-status-updated-successfully"></a><a href="#description-vid-status-updated-successfully" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Description: VID status updated successfully</h6>
+<pre><code class="hljs css language-JSON">{
+  <span class="hljs-attr">"id"</span>: <span class="hljs-string">"mosip.vid.update"</span>,
+  <span class="hljs-attr">"version"</span>: <span class="hljs-string">"v1"</span>,
+  <span class="hljs-attr">"responsetime"</span>: <span class="hljs-string">"2019-04-30T06:13:05.218Z"</span>,
+  <span class="hljs-attr">"response"</span>: {
+    <span class="hljs-attr">"vidStatus"</span>: <span class="hljs-string">"REVOKED"</span>,
+    <span class="hljs-attr">"UIN"</span>: <span class="hljs-literal">null</span>,
+    <span class="hljs-attr">"VID"</span>: <span class="hljs-literal">null</span>,
+    <span class="hljs-attr">"restoredVidDetails"</span>: {
+      <span class="hljs-attr">"vidStatus"</span>: <span class="hljs-string">"ACTIVE"</span>,
+      <span class="hljs-attr">"UIN"</span>: <span class="hljs-literal">null</span>,
+      <span class="hljs-attr">"VID"</span>: <span class="hljs-number">4290754956350965</span>
+    }
+  }
+}
+</code></pre>
+<h5><a class="anchor" aria-hidden="true" id="failure-details-6"></a><a href="#failure-details-6" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Failure details</h5>
+<table>
+<thead>
+<tr><th>Error Code</th><th>Error Message</th><th>Error Description</th></tr>
+</thead>
+<tbody>
+<tr><td>IDR-VID-001</td><td>VID is DEACTIVATED or VID is REVOKED</td><td>VID is REVOKED,EXPIRED,USED,INVALIDATED or DEACTIVATED</td></tr>
+<tr><td>IDR-VID-004</td><td>Deactivate UIN or Blocked UIN</td><td>UIN is either de-activated or blocked</td></tr>
+<tr><td>IDR-VID-005</td><td>Failed to retrieve uin data using Identity Service</td><td>Error while retrieving UIN details from Identity Service</td></tr>
+<tr><td>IDR-VID-006</td><td>Uin hash does not match</td><td>Error while matching hash of UIN against decrypted UIN</td></tr>
+<tr><td>IDR-IDC-004</td><td>Unknown error occured</td><td>An unknown error occurred</td></tr>
+<tr><td>IDR-IDC-006</td><td>Error occured while performing DB operations</td><td>DB connectivity error</td></tr>
+<tr><td>IDR-IDC-007</td><td>No Record(s) found</td><td>Input VID does not exist in DB</td></tr>
+<tr><td>IDR-IDC-008</td><td>4XX - Client Error occured</td><td>4XX error from Kernel APIs</td></tr>
+<tr><td>IDR-IDC-009</td><td>5XX - Server Error occured</td><td>5XX error from Kernel APIs</td></tr>
+<tr><td>IDR-IDC-010</td><td>Connection timed out</td><td>Connection timed out while invoking REST APIs</td></tr>
+<tr><td>IDR-IDC-011</td><td>Authorization Failed</td><td>Input role is not authorized to access the service</td></tr>
+</tbody>
+</table>
+<h3><a class="anchor" aria-hidden="true" id="post-idrepository-v1-vid-vid-regenerate"></a><a href="#post-idrepository-v1-vid-vid-regenerate" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>POST /idrepository/v1/vid/{VID}/regenerate</h3>
+<p>This service will re-generate VID for a given VID, only if the current status of VID is 'ACTIVE', 'USED', or 'EXPIRED'.</p>
+<h4><a class="anchor" aria-hidden="true" id="resource-url-7"></a><a href="#resource-url-7" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Resource URL</h4>
+<div>https://mosip.io/idrepository/v1/vid/{VID}/regenerate</div>
+<h4><a class="anchor" aria-hidden="true" id="resource-details-7"></a><a href="#resource-details-7" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Resource details</h4>
+<table>
+<thead>
+<tr><th>Resource Details</th><th>Description</th></tr>
+</thead>
+<tbody>
+<tr><td>Response format</td><td>JSON</td></tr>
+<tr><td>Requires Authentication</td><td>Yes</td></tr>
+</tbody>
+</table>
+<h4><a class="anchor" aria-hidden="true" id="responses-7"></a><a href="#responses-7" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Responses:</h4>
+<h5><a class="anchor" aria-hidden="true" id="success-response-7"></a><a href="#success-response-7" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Success Response:</h5>
+<h6><a class="anchor" aria-hidden="true" id="status-code-200-7"></a><a href="#status-code-200-7" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Status code: '200'</h6>
+<h6><a class="anchor" aria-hidden="true" id="description-vid-re-generated-successfully"></a><a href="#description-vid-re-generated-successfully" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Description: VID re-generated successfully</h6>
+<pre><code class="hljs css language-JSON">{
+  <span class="hljs-attr">"id"</span>: <span class="hljs-string">"mosip.vid.regenerate"</span>,
+  <span class="hljs-attr">"version"</span>: <span class="hljs-string">"v1"</span>,
+  <span class="hljs-attr">"responsetime"</span>: <span class="hljs-string">"2019-05-21T06:13:05.218Z"</span>,
+  <span class="hljs-attr">"response"</span>: {
+    <span class="hljs-attr">"vidStatus"</span>: 'ACTIVE',
+    <span class="hljs-attr">"VID"</span>: <span class="hljs-number">1234512345</span>
+  }
+}
+</code></pre>
+<h5><a class="anchor" aria-hidden="true" id="failure-details-7"></a><a href="#failure-details-7" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Failure details</h5>
+<table>
+<thead>
+<tr><th>Error Code</th><th>Error Message</th><th>Error Description</th></tr>
+</thead>
+<tbody>
+<tr><td>IDR-VID-002</td><td>Failed to generate VID</td><td>Error while generating VID</td></tr>
+<tr><td>IDR-VID-003</td><td>Could not generate/regenerate VID as per policy</td><td>Error while generating VID based on policy</td></tr>
+<tr><td>IDR-VID-004</td><td>Deactivate UIN or Blocked UIN</td><td>UIN is either de-activated or blocked</td></tr>
+<tr><td>IDR-VID-005</td><td>Failed to retrieve uin data using Identity Service</td><td>Error while retrieving UIN details from Identity Service</td></tr>
+<tr><td>IDR-IDC-001</td><td>Missing Input Parameter - %s</td><td>Input Parameter Missing</td></tr>
+<tr><td>IDR-IDC-002</td><td>Invalid Input Parameter - %s</td><td>Invalid Input Parameter</td></tr>
+<tr><td>IDR-IDC-003</td><td>Invalid Request</td><td>Invalid Request attribute</td></tr>
+<tr><td>IDR-IDC-004</td><td>Unknown error occured</td><td>An unknown error occurred</td></tr>
+<tr><td>IDR-IDC-005</td><td>Input Data Validation Failed</td><td>Validation on input fails</td></tr>
+<tr><td>IDR-IDC-006</td><td>Error occured while performing DB operations</td><td>DB connectivity error</td></tr>
+<tr><td>IDR-IDC-008</td><td>4XX - Client Error occured</td><td>4XX error from Kernel APIs</td></tr>
+<tr><td>IDR-IDC-009</td><td>5XX - Server Error occured</td><td>5XX error from Kernel APIs</td></tr>
+<tr><td>IDR-IDC-010</td><td>Connection timed out</td><td>Connection timed out while invoking REST APIs</td></tr>
+<tr><td>IDR-IDC-011</td><td>Authorization Failed</td><td>Input role is not authorized to access the service</td></tr>
+</tbody>
+</table>
+</span></div></article></div><div class="docs-prevnext"></div></div></div><nav class="onPageNav"><ul class="toc-headings"><li><a href="#identity-services-private">Identity Services (Private)</a><ul class="toc-headings"><li><a href="#post-idrepository-v1-identity">POST /idrepository/v1/identity</a></li><li><a href="#get-idrepository-v1-identity-uin-uin-type-bio">GET /idrepository/v1/identity/UIN/{UIN}?type=bio</a></li><li><a href="#get-idrepository-v1-identity-rid-rid-type-bio">GET /idrepository/v1/identity/RID/{RID}?type=bio</a></li><li><a href="#patch-idrepository-v1-identity">PATCH /idrepository/v1/identity</a></li></ul></li><li><a href="#vid-services-private">VID Services (Private)</a><ul class="toc-headings"><li><a href="#post-idrepository-v1-vid">POST /idrepository/v1/vid</a></li><li><a href="#get-idrepository-v1-vid-vid">GET /idrepository/v1/vid/{VID}</a></li><li><a href="#patch-idrepository-v1-vid-vid">PATCH /idrepository/v1/vid/{VID}</a></li><li><a href="#post-idrepository-v1-vid-vid-regenerate">POST /idrepository/v1/vid/{VID}/regenerate</a></li></ul></li></ul></nav></div><footer class="nav-footer" id="footer"><section class="sitemap"><a href="/" class="nav-home"><img src="/img/favicon.ico" alt="MOSIP Documentation" width="66" height="58"/></a><div><h5>Docs</h5><a href="/docs/en/doc1.html">Getting Started (or other categories)</a><a href="/docs/en/doc2.html">Guides (or other categories)</a><a href="/docs/en/doc3.html">API Reference (or other categories)</a></div><div><h5>Community</h5><a href="/en/users.html">User Showcase</a><a href="https://stackoverflow.com/questions/tagged/" target="_blank" rel="noreferrer noopener">Stack Overflow</a><a href="https://discordapp.com/">Project Chat</a><a href="https://twitter.com/" target="_blank" rel="noreferrer noopener">Twitter</a></div><div><h5>More</h5><a href="/blog">Blog</a><a href="https://github.com/">GitHub</a><a class="github-button" data-icon="octicon-star" data-count-href="/facebook/docusaurus/stargazers" data-show-count="true" data-count-aria-label="# stargazers on GitHub" aria-label="Star this project on GitHub">Star</a></div></section><a href="https://opensource.facebook.com/" target="_blank" rel="noreferrer noopener" class="fbOpenSource"><img src="/img/oss_logo.png" alt="Facebook Open Source" width="170" height="45"/></a><section class="copyright">Copyright © 2019 Your Name or Your Company Name</section></footer></div></body></html>

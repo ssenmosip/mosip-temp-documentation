@@ -1,0 +1,332 @@
+<!DOCTYPE html><html lang="en"><head><meta charSet="utf-8"/><meta http-equiv="X-UA-Compatible" content="IE=edge"/><title>Reg-client-implementation · MOSIP Documentation</title><meta name="viewport" content="width=device-width"/><meta name="generator" content="Docusaurus"/><meta name="description" content="# Registration Client Developer Documentation"/><meta name="docsearch:language" content="en"/><meta property="og:title" content="Reg-client-implementation · MOSIP Documentation"/><meta property="og:type" content="website"/><meta property="og:url" content="https://your-docusaurus-test-site.com/"/><meta property="og:description" content="# Registration Client Developer Documentation"/><meta property="og:image" content="https://your-docusaurus-test-site.com/img/undraw_online.svg"/><meta name="twitter:card" content="summary"/><meta name="twitter:image" content="https://your-docusaurus-test-site.com/img/undraw_tweetstorm.svg"/><link rel="shortcut icon" href="/img/favicon.ico"/><link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css"/><link rel="alternate" type="application/atom+xml" href="https://your-docusaurus-test-site.com/blog/atom.xml" title="MOSIP Documentation Blog ATOM Feed"/><link rel="alternate" type="application/rss+xml" href="https://your-docusaurus-test-site.com/blog/feed.xml" title="MOSIP Documentation Blog RSS Feed"/><script type="text/javascript" src="https://buttons.github.io/buttons.js"></script><script src="/js/scrollSpy.js"></script><link rel="stylesheet" href="/css/main.css"/><script src="/js/codetabs.js"></script></head><body class="sideNavVisible separateOnPageNav"><div class="fixedHeaderContainer"><div class="headerWrapper wrapper"><header><a href="/"><img class="logo" src="/img/favicon.ico" alt="MOSIP Documentation"/><h2 class="headerTitleWithLogo">MOSIP Documentation</h2></a><div class="navigationWrapper navigationSlider"><nav class="slidingNav"><ul class="nav-site nav-site-internal"><li class=""><a href="/docs/Platform-Documentation" target="_self">Docs</a></li><li class=""><a href="/docs/Getting-Started" target="_self">API</a></li><li class=""><a href="/Contributor-Guide" target="_self">Help</a></li><li class=""><a href="/blog/" target="_self">Blog</a></li></ul></nav></div></header></div></div><div class="navPusher"><div class="docMainWrapper wrapper"><div class="container mainContainer"><div class="wrapper"><div class="post"><header class="postHeader"><h1 class="postHeaderTitle">Reg-client-implementation</h1></header><article><div><span><h1><a class="anchor" aria-hidden="true" id="registration-client-developer-documentation"></a><a href="#registration-client-developer-documentation" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Registration Client Developer Documentation</h1>
+<hr>
+<p>This document guide the developer to find the traceability between functionality and the respective technical component.  The provided technical classes are available in the package of 'registration-service' module. In this module the required functions are exposed as public method and that can be used to obtain the required features.</p>
+<p>It doesn't detail about each methods level information since that are covered in Javadoc of each component.</p>
+<h2><a class="anchor" aria-hidden="true" id="functionality-vs-technical-component-mapping"></a><a href="#functionality-vs-technical-component-mapping" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Functionality Vs Technical Component mapping:</h2>
+<table>
+<thead>
+<tr><th style="text-align:center"><strong>Functionality:</strong></th><th>Login with UserName and Password/ OTP/ BIO</th></tr>
+</thead>
+<tbody>
+<tr><td style="text-align:center"><strong>Technical Detail:</strong></td><td>Post successful login, session context would be created. That will be used throughout the application at the required places. The user detail and the respective roles are encapsulated inside the context. Without creation of this context object, the packet can't be created.</td></tr>
+<tr><td style="text-align:center"><strong>Main Service class and method:</strong></td><td>SessionContext.create(UserDTO userDTO, String loginMethod, boolean isInitialSetUp, boolean isUserNewToMachine, AuthenticationValidatorDTO authenticationValidatorDTO)</td></tr>
+<tr><td style="text-align:center"><strong>Input parameter:</strong></td><td>UserDTO – It should contain info of id, name, roles, center-id. loginMethod – possible values are PWD, OTP, FINGERPRINT, FACE, IRIS. isInitialSetUp – true/false, isUserNewToMachine – true/false,  AuthenticationValidatorDTO – should contain id, password, otp</td></tr>
+<tr><td style="text-align:center"><strong>Auth:</strong></td><td>Not required.</td></tr>
+<tr><td style="text-align:center"><strong>External Connectivity:</strong></td><td>Service and DB</td></tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr><th style="text-align:center"><strong>Functionality:</strong></th><th>Packet Creation - New Registation / Update UIN/ Lost UIN</th></tr>
+</thead>
+<tbody>
+<tr><td style="text-align:center"><strong>Technical Detail:</strong></td><td>Based on the business need [New Registation / Update UIN/ Lost UIN] this 'RegistrationDTO' object should be populated with the relevant  data and also pass the 'RegistrationMetaDataDTO.RegistrationCategory' as [New/ Update/ Lost].</td></tr>
+<tr><td style="text-align:center"><strong>Main Service class and methods</strong></td><td>PacketHandlerService.handle(RegistrationDTO registrationDTO)</td></tr>
+<tr><td style="text-align:center"><strong>Input Parameter:</strong></td><td>The RegistrationDTO object contains the RID, PRID, registration details of the individual and also contains the officer and supervisor details. This object has the following sub-classes: a. DemographicDTO - Details of the Demographic and Documents, b. BiometricDTO - Biometrics (Fingerprints, Irises, Face and Exception Face) of the individual, parent (or guardian), officer and supervisor, c.  RegistrationMetaDataDTO - Metadata related to registration and d. OSIDataDTO - Details of the officer and supervisor who had authenticated the registration.</td></tr>
+<tr><td style="text-align:center"><strong>Auth:</strong></td><td>SessionContext is required for creating the packet</td></tr>
+<tr><td style="text-align:center"><strong>External Connectivity</strong></td><td>DB, File system</td></tr>
+<tr><td style="text-align:center"><strong>New Registration - Adult</strong></td><td>As part of New registration, individual's Demographic, documents[POI and POA] and bio-metric [fingerprint, iris and face] will be captured. If an exception of the bio-metrics is marked, then exception photo will be captured.</td></tr>
+<tr><td style="text-align:center"><strong>New Registration - Child</strong></td><td>As part of New registration, individual's Demographic, documents [POI, POA and POR] and anyone of parent's bio-metric [fingerprint/iris/face(if all fingerprint and iris are marked as exception)] along with that Parent's/Guardian's RID/UIN will be captured. If an exception is marked for the parent bio-metrics, an exception photo will be captured for the parent</td></tr>
+<tr><td style="text-align:center"><strong>UIN Update - Adult</strong></td><td>As part of UIN Update, individual's will have the option to select the field that would like to update. For Demographic update --&gt; UIN number, Name, Document[only if Name/Address is selected then POI for name and POA for address is mandate], and anyone of the bio-metric will be captured as a mandatory values. For Bio-metric update --&gt; UIN number, Name and Bio-metrics [fingerprint, iris and face] will be captured, if an exception marked then exception photo will be captured</td></tr>
+<tr><td style="text-align:center"><strong>UIN Update-Child</strong></td><td>As part of UIN Update, individual's will have the option to select which one they are going to be update. For Demographic update --&gt; UIN Number, Name,POR document along with that Parent/Guardian Name and UIN along with anyone parent bio-metric should be captured; if any exception marked then the exception photo of the Parent/Guardian will be captured.</td></tr>
+<tr><td style="text-align:center"><strong>Lost UIN-Adult</strong></td><td>As part of Lost UIN, an individual's all Bio-metrics[fingerprints, iris, and face] will be mandatory to find the lost UIN.</td></tr>
+<tr><td style="text-align:center"><strong>Lost UIN-Child</strong></td><td>As part of Lost UIN, Parent/Guardian  Bio-metric will be mandatory to find the lost UIN of the child. if an exception marked then the exception photo of the parent/Guardian will be captured.</td></tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr><th style="text-align:center"><strong>Functionality:</strong></th><th>PACKET SYNC– Sync all the Approved/ Rejected/ Re-Register Approved packets before Uploading to server</th></tr>
+</thead>
+<tbody>
+<tr><td style="text-align:center"><strong>Main Service class and method:</strong></td><td>PacketSyncServiceImpl.java - packetSync(List<PacketStatusDTO> packetsToBeSynched)</td></tr>
+<tr><td style="text-align:center"><strong>Input Parameter:</strong></td><td>packetsToBeSynched – The packet details which needs to be Synched.</td></tr>
+<tr><td style="text-align:center"><strong>Auth:</strong></td><td>Authentication token required.</td></tr>
+<tr><td style="text-align:center"><strong>External Connectivity:</strong></td><td>Packet Sync service REST call</td></tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr><th style="text-align:center"><strong>Functionality:</strong></th><th>Packet Upload</th></tr>
+</thead>
+<tbody>
+<tr><td style="text-align:center"><strong>Main Service class and method:</strong></td><td>PacketUploadService.pushPacket(File packet)</td></tr>
+<tr><td style="text-align:center"><strong>Input Parameter:</strong></td><td>File object, which contains the packet to be uploaded.</td></tr>
+<tr><td style="text-align:center"><strong>Auth:</strong></td><td>Authentication token required while doing file upload. Based on the SessionContext object the advice would attach the token and invoke the required service call.</td></tr>
+<tr><td style="text-align:center"><strong>External Connectivity:</strong></td><td>Service, DB, File system</td></tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr><th style="text-align:center"><strong>Functionality:</strong></th><th>Packet Export</th></tr>
+</thead>
+<tbody>
+<tr><td style="text-align:center"><strong>Main Service class and method:</strong></td><td>PacketExportService.getSynchedRecords() - to fetch the packet to be exported. updateRegistrationStatus(List<PacketStatusDTO> exportedPackets) - update the status once exported.</td></tr>
+<tr><td style="text-align:center"><strong>Input Parameter:</strong></td><td>List of packet object.</td></tr>
+<tr><td style="text-align:center"><strong>Auth:</strong></td><td>No.</td></tr>
+<tr><td style="text-align:center"><strong>External Connectivity:</strong></td><td>DB, File system</td></tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr><th style="text-align:center"><strong>Functionality:</strong></th><th>Download Pre-Registration data during New Registration</th></tr>
+</thead>
+<tbody>
+<tr><td style="text-align:center"><strong>Technical Detail:</strong></td><td>The user provided pre-registration packet id related [demo/ doc] detail would be downloaded from Pre-registration DB using the respective REST service. After downloading the packet, the data would be mapped to the UI object and render the same to UI to display in the screen.</td></tr>
+<tr><td style="text-align:center"><strong>Main Service class and method:</strong></td><td>PreRegistrationDataSyncServiceImpl.java - getPreRegistration(String preRegistrationId)</td></tr>
+<tr><td style="text-align:center"><strong>Input Parameter:</strong></td><td>preRegistrationId- The pre reg id</td></tr>
+<tr><td style="text-align:center"><strong>Auth:</strong></td><td>Authentication token required while downloading the packets. Based on the SessionContext object the advice would attach the token and invoke the required service call.</td></tr>
+<tr><td style="text-align:center"><strong>External Connectivity:</strong></td><td>Pre Reg service REST call</td></tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr><th style="text-align:center"><strong>Functionality:</strong></th><th>EOD APPROVAL – Approve/Reject all the created packets</th></tr>
+</thead>
+<tbody>
+<tr><td style="text-align:center"><strong>Main Service class and method:</strong></td><td>RegistrationApprovalServiceImpl.java - updateRegistration(String registrationID, String statusComments, String clientStatusCode)</td></tr>
+<tr><td style="text-align:center"><strong>Input Parameter:</strong></td><td>registrationID – The registration id of the packet that needs to be updated, statusComments - The comment status that needs to be updated for the given registration id of the packet, clientStatusCode - The status code that needs to be updated for the given registration id of the packet.</td></tr>
+<tr><td style="text-align:center"><strong>Auth:</strong></td><td>NA</td></tr>
+<tr><td style="text-align:center"><strong>External Connectivity:</strong></td><td>DB</td></tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr><th style="text-align:center"><strong>Functionality:</strong></th><th>Sync Data from Server to Client and Vice Versa.</th></tr>
+</thead>
+<tbody>
+<tr><td style="text-align:center"><strong>Technical Detail:</strong></td><td>This functionality will be executed as specified as sync-frequency in local DB. During start of the application, the scheduler would be loaded with the jobs configured in db and trigger the job. The scheduler would trigger the jobs at the configured frequency. While running the jobs, based on the functionality it would invoke the respective services and invoke the required external services to sync the data from server to client and vice versa. Post completion or every state of the job execution, the status would be updated in local db.</td></tr>
+<tr><td style="text-align:center"><strong>Main Service class and methods</strong></td><td>JobConfigurationServiceImpl.executeAllJobs() - This would load all the active jobs <a href="#List-of-Jobs-">List of Jobs</a> from the local db and trigger the jobs.</td></tr>
+<tr><td style="text-align:center"><strong>Input Parameter:</strong></td><td>-</td></tr>
+<tr><td style="text-align:center"><strong>Auth:</strong></td><td>Auth token required for external services. This would be automatically taken care within this method. Nothing explicitly to be passed.</td></tr>
+<tr><td style="text-align:center"><strong>External Connectivity:</strong></td><td>REST API calls, DB</td></tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr><th style="text-align:center"><strong>Functionality:</strong></th><th>MDM Integration – Register Device</th></tr>
+</thead>
+<tbody>
+<tr><td style="text-align:center"><strong>Technical Detail:</strong></td><td>This method automatically scans all devices by connecting to the MDM service, which is running in a particular port and stores it in device registry.</td></tr>
+<tr><td style="text-align:center"><strong>Main Service class and method:</strong></td><td>MosipBioDeviceManager - init()</td></tr>
+<tr><td style="text-align:center"><strong>Input Parameter:</strong></td><td>No parameter needed.</td></tr>
+<tr><td style="text-align:center"><strong>Auth:</strong></td><td>Not required</td></tr>
+<tr><td style="text-align:center"><strong>External Connectivity:</strong></td><td>deviceInfo - MDM service REST call</td></tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr><th style="text-align:center"><strong>Functionality:</strong></th><th>MDM Integration -Capture bio-metric</th></tr>
+</thead>
+<tbody>
+<tr><td style="text-align:center"><strong>Main Service class and method:</strong></td><td>BioServiceImpl  - getFingerPrintImageAsDTOWithMdm(FingerprintDetailsDTO fpDetailsDTO, String fingerType)</td></tr>
+<tr><td style="text-align:center"><strong>Input Parameter:</strong></td><td>FingerprintDetailsDTO – dto contains the finger print related details, fingerType – Type of the device like Fingerprint/ Iris/Face etc</td></tr>
+<tr><td style="text-align:center"><strong>Auth:</strong></td><td>Not required</td></tr>
+<tr><td style="text-align:center"><strong>External Connectivity:</strong></td><td>Capture - MDM service REST call</td></tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr><th style="text-align:center"><strong>Functionality:</strong></th><th>MDM Integration  - Validate bio-metric against the bio value already captured and stored in Database.</th></tr>
+</thead>
+<tbody>
+<tr><td style="text-align:center"><strong>Main Service class and method:</strong></td><td>BioServiceImpl  - validateFingerPrint(String userId) - based on provided user Id the relevant bio information would be fetched from database and same would be validated against the bio data received from MDM service.</td></tr>
+<tr><td style="text-align:center"><strong>Input Parameter:</strong></td><td>mosipBioDeviceManager – scan(String deviceType)</td></tr>
+<tr><td style="text-align:center"><strong>Auth:</strong></td><td>Not required</td></tr>
+<tr><td style="text-align:center"><strong>External Connectivity:</strong></td><td>DB, Capture - MDM service REST call</td></tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr><th style="text-align:center"><strong>Functionality:</strong></th><th>MDM Integration  - Display video stream</th></tr>
+</thead>
+<tbody>
+<tr><td style="text-align:center"><strong>Main Service class and method:</strong></td><td>Yet to be implemented</td></tr>
+<tr><td style="text-align:center"><strong>Input Parameter:</strong></td><td></td></tr>
+<tr><td style="text-align:center"><strong>Auth:</strong></td><td>Not required</td></tr>
+<tr><td style="text-align:center"><strong>External Connectivity:</strong></td><td></td></tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr><th style="text-align:center"><strong>Functionality:</strong></th><th>TPM Public Key Sync</th></tr>
+</thead>
+<tbody>
+<tr><td style="text-align:center"><strong>Technical Detail:</strong></td><td>This service will be executed during initial set-up of registration client application. This service gets the Public Part of the Key used for signing from the TPM. Uploads this public key along with the machine name to the server. This service returns the key index which will be used for Master Sync Service</td></tr>
+<tr><td style="text-align:center"><strong>Main Service class and method:</strong></td><td>TPMPublicKeySyncService.syncTPMPublicKey()</td></tr>
+<tr><td style="text-align:center"><strong>Input Parameter:</strong></td><td>NA</td></tr>
+<tr><td style="text-align:center"><strong>Auth:</strong></td><td>TPM 2.0 is required for this service</td></tr>
+<tr><td style="text-align:center"><strong>External Connectivity:</strong></td><td>TPM, Web Service</td></tr>
+</tbody>
+</table>
+<h2><a class="anchor" aria-hidden="true" id="packet-structure"></a><a href="#packet-structure" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Packet Structure :</h2>
+<p>The packets are created during individual registration process are structured and secured. The detail of the same can be found in this link.</p>
+<p><a href="https://github.com/mosip/mosip-docs/wiki/Registration-Packet">Packet Structure</a></p>
+<h2><a class="anchor" aria-hidden="true" id="packet-status"></a><a href="#packet-status" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Packet Status :</h2>
+<p>List of packet status maintained in client db while moving the packet to the different state before and after pushing to the server.</p>
+<table>
+<thead>
+<tr><th style="text-align:center"><strong>Packet Status Desc</strong></th><th><strong>Status in Client</strong></th></tr>
+</thead>
+<tbody>
+<tr><td style="text-align:center">Once Packet Created</td><td>REGISTERED</td></tr>
+<tr><td style="text-align:center">Packet Approved</td><td>APPROVED</td></tr>
+<tr><td style="text-align:center">'Re-Register' packet approved</td><td>RE_REGISTER_APPROVED</td></tr>
+<tr><td style="text-align:center">Packet Rejected</td><td>REJECTED</td></tr>
+<tr><td style="text-align:center">Packet IDs synched with Server</td><td>SYNCED</td></tr>
+<tr><td style="text-align:center">Packet pushed to Server</td><td>PUSHED</td></tr>
+<tr><td style="text-align:center">Packet exported to device</td><td>EXPORTED</td></tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr><th style="text-align:center"><strong>Packet Status Desc</strong></th><th><strong>Status from Server</strong></th></tr>
+</thead>
+<tbody>
+<tr><td style="text-align:center">Packet in processing state</td><td>PROCESSING</td></tr>
+<tr><td style="text-align:center">UIN generated for the packet</td><td>PROCESSED</td></tr>
+<tr><td style="text-align:center">Unable to process the packet.</td><td>REREGISTER</td></tr>
+<tr><td style="text-align:center">Failed while processing packet due to internal issue</td><td>RESEND</td></tr>
+<tr><td style="text-align:center">Packet is received but not uploaded in LANDING_ZONE</td><td>RECEIVED</td></tr>
+<tr><td style="text-align:center">Duplicate found in abis</td><td>REJECTED</td></tr>
+</tbody>
+</table>
+<h2><a class="anchor" aria-hidden="true" id="list-of-jobs"></a><a href="#list-of-jobs" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>List of Jobs :</h2>
+<p>Below provided jobs are executed in batch mode through spring batch. The job execution frequencies are mentioned in the DB job related table. These jobs can also be triggered through manual process using 'Sync' option in the Menu, During initial login after successful online authentication and While starting the application if initial sync already completed.</p>
+<table>
+<thead>
+<tr><th><strong>Sl.No:</strong></th><th><strong>Service Desc.</strong></th><th><strong>Dependent Module</strong></th><th><strong>Under 'Sync' Menu</strong></th><th><strong>Initial Login</strong></th><th><strong>Application Launch</strong></th></tr>
+</thead>
+<tbody>
+<tr><td>1.</td><td>Pre-registration Data Sync</td><td>Pre-reg</td><td>Y</td><td>N</td><td>N</td></tr>
+<tr><td>2.</td><td>Policy Sync</td><td>Kernel</td><td>Y</td><td>N</td><td>N</td></tr>
+<tr><td>3.</td><td>Registration Client Config Sync</td><td>Kernel</td><td>Y</td><td>Y</td><td>Y</td></tr>
+<tr><td>4.</td><td>Registration Packet Status Reader</td><td>Reg-Proc</td><td>Y</td><td>N</td><td>N</td></tr>
+<tr><td>5.</td><td>User Detail/Role Setup Sync</td><td>Kernel</td><td>Y</td><td>Y</td><td>Y</td></tr>
+<tr><td>6.</td><td>Pre Registration Packet Deletion Job</td><td>local job</td><td>N</td><td>N</td><td>N</td></tr>
+<tr><td>7.</td><td>Registration Packet Deletion Job</td><td>Local Job</td><td>N</td><td>N</td><td>N</td></tr>
+<tr><td>8.</td><td>User Machine Mapping Sync  Job</td><td>Kernel</td><td>Y</td><td>N</td><td>N</td></tr>
+<tr><td>9.</td><td>Audit Log Deletion Job</td><td>Local Job</td><td>N</td><td>N</td><td>N</td></tr>
+<tr><td>10.</td><td>Registration Packet Sync</td><td>Reg-Proc</td><td>Y</td><td>N</td><td>N</td></tr>
+<tr><td>11.</td><td>Registration Packet Virus Scan</td><td>Reg-Proc</td><td>N</td><td>N</td><td>N</td></tr>
+<tr><td>12.</td><td>Public key Sync service</td><td>Kernel</td><td>Y</td><td>Y</td><td>Y</td></tr>
+<tr><td>13.</td><td>User Salt Sync service</td><td>Kernel</td><td>Y</td><td>Y</td><td>Y</td></tr>
+</tbody>
+</table>
+<h2><a class="anchor" aria-hidden="true" id="configuration-rule"></a><a href="#configuration-rule" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Configuration Rule:</h2>
+<p>As 'configurability' is the one of the major NFR being considered while designing the application, here listed out the required files where the configurations can be modified that will get reflected in application during runtime.</p>
+<ul>
+<li>'registration-qa.properties' - Registration application specific configuration.</li>
+<li>'application-qa.properties' - Overall application level common configuration.</li>
+</ul>
+<p>These configuration would be downloaded to the client machine through the 'config' sync service.  If there is any change with respect to 'kernel' properties then after downloading the properties the application will ask for 'restart'.</p>
+<p><strong>Age configuration:</strong></p>
+<ul>
+<li>Age limit is configurable in the application. User should modify the max age limit in both 'application' and 'registration' properties file.</li>
+<li>{application property key : 'mosip.id.validation.identity.age'}</li>
+<li>{registration property key : 'mosip.registration.max_age'}</li>
+</ul>
+<h2><a class="anchor" aria-hidden="true" id="table-detail"></a><a href="#table-detail" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Table Detail :</h2>
+<p>Below find the list of tables used in Registration client application. Based on use cases, the table data gets updated during either sync process or transaction in local machine.<br>
+There are few jobs are configured to clean the transactions histories from local tables and also pushing the audit data to server.</p>
+<table>
+<thead>
+<tr><th style="text-align:center"><strong>Sl. No</strong></th><th style="text-align:center"><strong>Table Name</strong></th><th><strong>Description</strong></th><th><strong>Source</strong></th></tr>
+</thead>
+<tbody>
+<tr><td style="text-align:center">1.</td><td style="text-align:center">biometric_attribute</td><td>It contains the list of biometric attribute description[left slap, right iris..] for each biometric type [Fingerprint, Iris, Photo] with respect to language code</td><td>sync from server master table</td></tr>
+<tr><td style="text-align:center">2.</td><td style="text-align:center">biometric_type</td><td>It contains the  list of biometric type[Fingerprint, Iris, Photo] while respect to language code</td><td>Sync from server master table</td></tr>
+<tr><td style="text-align:center">3.</td><td style="text-align:center">blacklisted_words</td><td>It contains the list of words which were not allowed during Registration process with respect to language code</td><td>Sync from server master table</td></tr>
+<tr><td style="text-align:center">4.</td><td style="text-align:center">device_master</td><td>It contains master information related to device with respect to language code</td><td>Sync from server master table</td></tr>
+<tr><td style="text-align:center">5.</td><td style="text-align:center">device_spec</td><td>It contains device specifications like brand, model with respect to language code</td><td>Sync from server master table</td></tr>
+<tr><td style="text-align:center">6.</td><td style="text-align:center">device_type</td><td>It contains types of devices[Fingerprint scanner, camera] and their description with respect to language code</td><td>Sync from server master table</td></tr>
+<tr><td style="text-align:center">7.</td><td style="text-align:center">doc_category</td><td>It contains list of document categories[Proof Of Address, Proof Of Identity...] which will be displayed in UI with respect to language code</td><td>Sync from server master table</td></tr>
+<tr><td style="text-align:center">8.</td><td style="text-align:center">doc_type</td><td>It contains list of document types that are allowed for uploading documents in Registration with respect to language code</td><td>Sync from server master table</td></tr>
+<tr><td style="text-align:center">9.</td><td style="text-align:center">gender</td><td>It contains list of gender types that are being used in Registration with respect to language code</td><td>Sync from server master table</td></tr>
+<tr><td style="text-align:center">10.</td><td style="text-align:center">id_type</td><td>It contains list of Id types [Registration Id, Pre Registration Id] that are being used in Registration with respect to language code</td><td>Sync from server master table</td></tr>
+<tr><td style="text-align:center">11.</td><td style="text-align:center">language</td><td>It contains list of languages that are being used in Registration</td><td>Sync from server master table</td></tr>
+<tr><td style="text-align:center">12.</td><td style="text-align:center">location</td><td>It contains list of locations that are being used in Registration with respect to language code</td><td>Sync from server master table</td></tr>
+<tr><td style="text-align:center">13.</td><td style="text-align:center">machine_master</td><td>It conatins list of machine related data[mac address, serial number, machine name...] with respect to language code</td><td>Sync from server master table</td></tr>
+<tr><td style="text-align:center">14.</td><td style="text-align:center">machine_spec</td><td>It conatins list of machine specifications[brand, model...] with respect to language code</td><td>Sync from server master table</td></tr>
+<tr><td style="text-align:center">15.</td><td style="text-align:center">machine_type</td><td>It contains list of machine types[Desktop,Laptop...] with respect to language code</td><td>Sync from server master table</td></tr>
+<tr><td style="text-align:center">16.</td><td style="text-align:center">reason_category</td><td>It contains list of reason categories[Client Rejection, Manual Adjudication...] with respect to language code</td><td>Sync from server master table</td></tr>
+<tr><td style="text-align:center">17.</td><td style="text-align:center">reason_list</td><td>It contains list of reasons [Invalid Address, Gender-Photo Mismatch...] that are listed during Registration Approval/Rejection with respect to language code</td><td>Sync from server master table</td></tr>
+<tr><td style="text-align:center">18.</td><td style="text-align:center">registration_center</td><td>It contains list of Registration center ids with respect to language code</td><td>Sync from server master table</td></tr>
+<tr><td style="text-align:center">19.</td><td style="text-align:center">reg_center_device</td><td>It contains list of Registration center ids with respect to language code</td><td>Sync from server master table</td></tr>
+<tr><td style="text-align:center">20.</td><td style="text-align:center">reg_center_machine</td><td>It contains list of machine ids which are mapped to corresponding center id</td><td>Sync from server master table</td></tr>
+<tr><td style="text-align:center">21.</td><td style="text-align:center">reg_center_machine_device</td><td>It is mapping table of center, machine and device</td><td>Sync from server master table.</td></tr>
+<tr><td style="text-align:center">22.</td><td style="text-align:center">reg_center_type</td><td>It contains list of center types with respect to language code</td><td>Sync from server master table</td></tr>
+<tr><td style="text-align:center">23.</td><td style="text-align:center">reg_center_user</td><td>It contains list of user ids that are mapped to corresponding center id</td><td>Sync from server master table</td></tr>
+<tr><td style="text-align:center">24.</td><td style="text-align:center">reg_center_user_machine</td><td>It is a mapping table for center, user and machine</td><td>During Onboarding process</td></tr>
+<tr><td style="text-align:center">25.</td><td style="text-align:center">template</td><td>It contains list of Templates that will be displayed during Registration with respect to language code</td><td>Sync from server master table</td></tr>
+<tr><td style="text-align:center">26.</td><td style="text-align:center">template_type</td><td>It contains list of template types[email template, sms template..] with respect to language code</td><td>Sync from server master table</td></tr>
+<tr><td style="text-align:center">27.</td><td style="text-align:center">title</td><td>It contains list of Titles[Mr, Mrs..] with respect to language code</td><td>Sync from server master table</td></tr>
+<tr><td style="text-align:center">28.</td><td style="text-align:center">valid_document</td><td>It contains list of valid documents allowed for Registration with respect to language code</td><td>Sync from server master table</td></tr>
+<tr><td style="text-align:center">29.</td><td style="text-align:center">sync_job_def</td><td>It contains list of Job details[Master Sync, User Detail Sync..] that are required for sync</td><td>Sync from server master table</td></tr>
+<tr><td style="text-align:center">30.</td><td style="text-align:center">screen_authorization</td><td>It contains list of Screen Ids which are required for accessing features[New Registration, EOD..] with respect to roles</td><td>Sync from server master table</td></tr>
+<tr><td style="text-align:center">31.</td><td style="text-align:center">role_list</td><td>It contains list of roles[Registration Officer, Registration Supervisor..] referred in Registration</td><td>Sync from server master table</td></tr>
+<tr><td style="text-align:center">32.</td><td style="text-align:center">process_list</td><td>It contains list of process[login, eod..] happen during registration</td><td>Sync from server master table</td></tr>
+<tr><td style="text-align:center">33.</td><td style="text-align:center">app_authentication_method</td><td>It contains list if authentication methods[PWD, OTP..] with respect to roles and process[login, eod..]</td><td>Sync from server master table</td></tr>
+<tr><td style="text-align:center">34.</td><td style="text-align:center">app_detail</td><td>It contains list of application details[Pre-Registration, Registration Client] with respect to language code</td><td>Sync from server master table</td></tr>
+<tr><td style="text-align:center">35.</td><td style="text-align:center">app_role_priority</td><td>It contains list of role priority details with respect to Process[login, eod..] and roles</td><td>Sync from server master table</td></tr>
+<tr><td style="text-align:center">36.</td><td style="text-align:center">GLOBAL_PARAM</td><td>It contains list of Configuration related  details used in Registration application.</td><td>Sync from server configuration [registration.properties, application.properties]</td></tr>
+<tr><td style="text-align:center">37.</td><td style="text-align:center">user_detail</td><td>It contains list of User details[id,name, email..]</td><td>Sync from server master table</td></tr>
+<tr><td style="text-align:center">38.</td><td style="text-align:center">user_pwd</td><td>It contains User Password details</td><td>Sync from server master table</td></tr>
+<tr><td style="text-align:center">39.</td><td style="text-align:center">user_role</td><td>It conatins data of roles which were mapped to the user</td><td>Sync from server master table</td></tr>
+<tr><td style="text-align:center">40.</td><td style="text-align:center">user_biometric</td><td>It contains User biometrics[Fingerprint, Iris..] details[minutia, biometric type..]</td><td>During Onboarding Process</td></tr>
+<tr><td style="text-align:center">41.</td><td style="text-align:center">key_store</td><td>It conatins Mosip Public key , Packet creation key</td><td>During Public key Sync and Policy sync</td></tr>
+<tr><td style="text-align:center">42.</td><td style="text-align:center">sync_control</td><td>It contains information about the jobs which are executed successfully along with its last time stamp</td><td>During Manual Sync and Scheduled Jobs</td></tr>
+<tr><td style="text-align:center">43.</td><td style="text-align:center">sync_transaction</td><td>It contains data about all sync transactions</td><td>During Manual Sync and Scheduled Jobs</td></tr>
+<tr><td style="text-align:center">44.</td><td style="text-align:center">registration</td><td>It contains data about Registration Packet[Registration Id, Status..]</td><td>During Registration process</td></tr>
+<tr><td style="text-align:center">45.</td><td style="text-align:center">registration_transaction</td><td>It contains data of all transactions during registration process</td><td>During Registration process</td></tr>
+<tr><td style="text-align:center">46.</td><td style="text-align:center">pre_registration_list</td><td>It contains list of Pre Registration details[Pre Registration Id, Status..]</td><td>During Pre Registration Sync</td></tr>
+<tr><td style="text-align:center">47.</td><td style="text-align:center">audit_log_control</td><td>It contains data of Audit logging[From Time, To Time..]</td><td>During local transaction.</td></tr>
+</tbody>
+</table>
+<h2><a class="anchor" aria-hidden="true" id="ui-labels-and-messages"></a><a href="#ui-labels-and-messages" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>UI - Labels and messages :</h2>
+<p>The UI specific labels and messages are maintained in the language specific property file. Based on the primary and secondary language the respective bundle would be loaded during runtime and displayed in the screen.</p>
+<p>messages_en.properties   - Messages are in English language.<br>
+messages_ar.properties   - Messages are in Arabic language.<br>
+messages_fr.properties   - Messages are in French language.<br>
+labels_en.properties     - Labels are in English language.<br>
+labels_ar.properties     - Labels are in Arabic language.<br>
+labels_fn.properties     - Labels are in French language.</p>
+<h2><a class="anchor" aria-hidden="true" id="error-code-and-description"></a><a href="#error-code-and-description" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Error code and Description :</h2>
+<p>Below find the list of error code and description which are thrown from application during the process.</p>
+<table>
+<thead>
+<tr><th style="text-align:center"><strong>Class Name</strong></th><th><strong>Error Codes</strong></th><th><strong>Description</strong></th></tr>
+</thead>
+<tbody>
+<tr><td style="text-align:center">GPSFacade</td><td>REG-LGE-002</td><td>GPS signal is weak please capture again</td></tr>
+<tr><td style="text-align:center">SyncStatusValidatorService</td><td>REG-ICS-006</td><td>GPS signal is weak please capture again</td></tr>
+<tr><td style="text-align:center">SyncStatusValidatorService</td><td>REG-ICS-005</td><td>GPS device not found. Please connect an on-boarded GPS device.</td></tr>
+<tr><td style="text-align:center">SyncStatusValidatorService</td><td>REG-ICS-005</td><td>Please connect the GPS Device</td></tr>
+<tr><td style="text-align:center">SyncStatusValidatorService</td><td>REG-ICS-004</td><td>Please insert the GPS device in the Specified Port</td></tr>
+<tr><td style="text-align:center">RegistrationApprovalController</td><td>LGN-UI-SHE</td><td>IO Exception</td></tr>
+<tr><td style="text-align:center">PacketSynchService</td><td>REG-PSS</td><td>Unable to Sync Packets to the server</td></tr>
+<tr><td style="text-align:center">PacketUploadService</td><td>REG-PUS</td><td>Unable to Push Packets to the server</td></tr>
+<tr><td style="text-align:center">BioService</td><td>IRC-IFC</td><td>Exception while scanning iris of the individual</td></tr>
+<tr><td style="text-align:center">BioService</td><td>FPC-FCS</td><td>Exception while scanning fingerprints of the individual</td></tr>
+<tr><td style="text-align:center">RestClientAuthAdvice</td><td>REG-RCA</td><td>Exception while adding authorization token to web-service request</td></tr>
+<tr><td style="text-align:center">TPMUtil</td><td>TPM-UTL-001</td><td>Exception while signing the data using TPM</td></tr>
+<tr><td style="text-align:center">TPMUtil</td><td>TPM-UTL-002</td><td>Exception while validating the signature provided by TPM</td></tr>
+<tr><td style="text-align:center">TPMUtil</td><td>TPM-UTL-003</td><td>Exception while encrypting the data using asymmetric crypto-algorithm through TPM</td></tr>
+<tr><td style="text-align:center">TPMUtil</td><td>TPM-UTL-004</td><td>Exception while encrypting the data using asymmetric crypto-algorithm through TPM</td></tr>
+<tr><td style="text-align:center">TPMUtil</td><td>TPM-UTL-005</td><td>Exception while getting the public part of the TPM signing key</td></tr>
+<tr><td style="text-align:center">TPMUtil</td><td>TPM-UTL-006</td><td>Exception while getting the TPM instance</td></tr>
+<tr><td style="text-align:center">TPMUtil</td><td>TPM-UTL-007</td><td>Exception while closing the TPM instance</td></tr>
+<tr><td style="text-align:center">TPMUtil</td><td>TPM-INT-001</td><td>Exception while closing the TPM instance</td></tr>
+<tr><td style="text-align:center">RegIdObjectValidator</td><td>REG-IOS-001</td><td>Invalid ID Object Schema</td></tr>
+<tr><td style="text-align:center">RegIdObjectValidator</td><td>REG-IOS-002</td><td>Invalid ID Object Pattern</td></tr>
+<tr><td style="text-align:center">RegIdObjectValidator</td><td>REG-IOS-003</td><td>Invalid Master Data Object Pattern</td></tr>
+<tr><td style="text-align:center">RestClientAuthAdvice</td><td>REG-RCA-001</td><td>Generic Exception reported by server, while invoking web-service.</td></tr>
+<tr><td style="text-align:center">RestClientAuthAdvice</td><td>REG-RCA-002</td><td>Exception while generating the signature of resquest body</td></tr>
+<tr><td style="text-align:center">RestClientAuthAdvice</td><td>REG-SDU-004</td><td>Response header received from the web-service is not as expected</td></tr>
+<tr><td style="text-align:center">DemographicDetailController</td><td>KER-IDV-102</td><td>PRID should not contain any sequential and repeated block of number for 2 or more than two digits</td></tr>
+<tr><td style="text-align:center">UpdateUINController</td><td>KER-IDV-203</td><td>UIN length should be as per configured digit.</td></tr>
+<tr><td style="text-align:center">RegistrationController</td><td>KER-TRL-002</td><td>Language code not supported</td></tr>
+<tr><td style="text-align:center">DemographicDetailController</td><td>KER-IDV-103</td><td>PRID length should be as configured digit</td></tr>
+<tr><td style="text-align:center">RestClientUtil</td><td>RPR-PKR-009</td><td>Packet HashSequence did not match</td></tr>
+</tbody>
+</table>
+</span></div></article></div><div class="docs-prevnext"></div></div></div><nav class="onPageNav"><ul class="toc-headings"><li><a href="#functionality-vs-technical-component-mapping">Functionality Vs Technical Component mapping:</a></li><li><a href="#packet-structure">Packet Structure :</a></li><li><a href="#packet-status">Packet Status :</a></li><li><a href="#list-of-jobs">List of Jobs :</a></li><li><a href="#configuration-rule">Configuration Rule:</a></li><li><a href="#table-detail">Table Detail :</a></li><li><a href="#ui-labels-and-messages">UI - Labels and messages :</a></li><li><a href="#error-code-and-description">Error code and Description :</a></li></ul></nav></div><footer class="nav-footer" id="footer"><section class="sitemap"><a href="/" class="nav-home"><img src="/img/favicon.ico" alt="MOSIP Documentation" width="66" height="58"/></a><div><h5>Docs</h5><a href="/docs/en/doc1.html">Getting Started (or other categories)</a><a href="/docs/en/doc2.html">Guides (or other categories)</a><a href="/docs/en/doc3.html">API Reference (or other categories)</a></div><div><h5>Community</h5><a href="/en/users.html">User Showcase</a><a href="https://stackoverflow.com/questions/tagged/" target="_blank" rel="noreferrer noopener">Stack Overflow</a><a href="https://discordapp.com/">Project Chat</a><a href="https://twitter.com/" target="_blank" rel="noreferrer noopener">Twitter</a></div><div><h5>More</h5><a href="/blog">Blog</a><a href="https://github.com/">GitHub</a><a class="github-button" data-icon="octicon-star" data-count-href="/facebook/docusaurus/stargazers" data-show-count="true" data-count-aria-label="# stargazers on GitHub" aria-label="Star this project on GitHub">Star</a></div></section><a href="https://opensource.facebook.com/" target="_blank" rel="noreferrer noopener" class="fbOpenSource"><img src="/img/oss_logo.png" alt="Facebook Open Source" width="170" height="45"/></a><section class="copyright">Copyright © 2019 Your Name or Your Company Name</section></footer></div></body></html>

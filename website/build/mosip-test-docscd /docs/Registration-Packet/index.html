@@ -1,0 +1,437 @@
+<!DOCTYPE html><html lang="en"><head><meta charSet="utf-8"/><meta http-equiv="X-UA-Compatible" content="IE=edge"/><title>Registration-Packet · MOSIP Documentation</title><meta name="viewport" content="width=device-width"/><meta name="generator" content="Docusaurus"/><meta name="description" content="The below diagram depicts the packet creation flow along with the encryption process."/><meta name="docsearch:language" content="en"/><meta property="og:title" content="Registration-Packet · MOSIP Documentation"/><meta property="og:type" content="website"/><meta property="og:url" content="https://your-docusaurus-test-site.com/"/><meta property="og:description" content="The below diagram depicts the packet creation flow along with the encryption process."/><meta property="og:image" content="https://your-docusaurus-test-site.com/img/undraw_online.svg"/><meta name="twitter:card" content="summary"/><meta name="twitter:image" content="https://your-docusaurus-test-site.com/img/undraw_tweetstorm.svg"/><link rel="shortcut icon" href="/img/favicon.ico"/><link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css"/><link rel="alternate" type="application/atom+xml" href="https://your-docusaurus-test-site.com/blog/atom.xml" title="MOSIP Documentation Blog ATOM Feed"/><link rel="alternate" type="application/rss+xml" href="https://your-docusaurus-test-site.com/blog/feed.xml" title="MOSIP Documentation Blog RSS Feed"/><script type="text/javascript" src="https://buttons.github.io/buttons.js"></script><script src="/js/scrollSpy.js"></script><link rel="stylesheet" href="/css/main.css"/><script src="/js/codetabs.js"></script></head><body class="sideNavVisible separateOnPageNav"><div class="fixedHeaderContainer"><div class="headerWrapper wrapper"><header><a href="/"><img class="logo" src="/img/favicon.ico" alt="MOSIP Documentation"/><h2 class="headerTitleWithLogo">MOSIP Documentation</h2></a><div class="navigationWrapper navigationSlider"><nav class="slidingNav"><ul class="nav-site nav-site-internal"><li class=""><a href="/docs/Platform-Documentation" target="_self">Docs</a></li><li class=""><a href="/docs/Getting-Started" target="_self">API</a></li><li class=""><a href="/Contributor-Guide" target="_self">Help</a></li><li class=""><a href="/blog/" target="_self">Blog</a></li></ul></nav></div></header></div></div><div class="navPusher"><div class="docMainWrapper wrapper"><div class="container mainContainer"><div class="wrapper"><div class="post"><header class="postHeader"><h1 class="postHeaderTitle">Registration-Packet</h1></header><article><div><span><p>The below diagram depicts the packet creation flow along with the encryption process.</p>
+<p><img src="_images/registration/packet-creation-flow.png" alt="Packet Creation Flow"></p>
+<p>This document describes the following aspects</p>
+<ul>
+<li>Registration packet structure</li>
+<li>Packet encryption procedure</li>
+</ul>
+<p><strong>Registration Packet Structure</strong>
+<img src="_images/registration/packet_creation_overview.png" alt="Packet Design view"></p>
+<p>Create the Registration packet in the below format.
+<img src="_images/registration/packet_zip_format.png" alt="Packet Design view"></p>
+<ol>
+<li><p><strong>Folder structure inside the packet zip.</strong>
+<img src="_images/registration/packet_struct_inside_zip.png" alt="Inside Packet Design view"></p></li>
+<li><p><strong>Biometric and Demographic folders should have the below sub folder structure.</strong></p>
+<ul>
+<li>Applicant</li>
+<li>Introducer [Either HOF/Parent/Introducer  data will be captured for the packet]</li>
+</ul>
+<p><strong>Biometric Folder:</strong></p>
+<p>Each folder contains the respective biometric detail in <a href="MOSIP-Biometric-Data-Specifications"><strong>CBEFF XML</strong></a> format.
+It contains the applicant's IRIS, Finger Print and Face bio in XML format.</p>
+<p><strong>Demographic Folder:</strong></p>
+<p>This folder contains the Applicant document image and demographic data.</p>
+<p><strong>a. Applicant</strong>  <br>
+- POI_drivinglicense.jpg<br>
+- POR_Relation.jpg<br>
+- POA_passport.jpg<br>
+- POB_date_Of_birth.jpg<br>
+- ApplicantPhoto.jpg<br>
+- ExceptionPhoto.jpg [If Exceptional cases]</p></li>
+</ol>
+<pre><code class="hljs"> **b.  Demographic\_info.json**  
+    - Follwed the Mosip [**ID Spec**](MOSIP-ID-Object-definition) and generated this JSON structure. It contains the entire text data captured in the UI application. 
+</code></pre>
+<ol start="3">
+<li><p><strong>registration_id.txt</strong></p>
+<ul>
+<li>It contains the generated Registration id which is having the length of 29 digit.<br>
+[Eg: 10001782130002201811011002010]<br>
+[Eg: Center ID + Machine ID + Packet Random Seq Number + Timestamp[14]]</li>
+</ul></li>
+<li><p><strong>packet_data_hash.txt</strong></p>
+<ul>
+<li>Generate the Hash for the Biometric, Demographic and RID of
+Resident Information.</li>
+<li>Store the generated Hash in a file and append to the created Zip
+object.</li>
+</ul></li>
+<li><p><strong>packet_osi_hash.txt</strong></p>
+<ul>
+<li>Generate Hash for the Biometric of Officer and Supervisor who provided authentication to the registration.</li>
+<li>Store the generated Hash in a file and append to the created Zip object.</li>
+</ul></li>
+<li><p><strong>packet_meta_info.json</strong>  <br>
+It contains the following attributes.</p></li>
+</ol>
+<hr>
+<pre><code class="hljs css language-{">  <span class="hljs-string">"identity"</span> : {
+    <span class="hljs-string">"biometric"</span> : {
+      <span class="hljs-string">"applicant"</span> : {
+        <span class="hljs-string">"leftEye"</span> : {
+          <span class="hljs-string">"language"</span> : <span class="hljs-string">"en"</span>,
+          <span class="hljs-string">"label"</span> : <span class="hljs-string">"label"</span>,
+          <span class="hljs-string">"imageName"</span> : <span class="hljs-string">"LeftEye"</span>,
+          <span class="hljs-string">"type"</span> : <span class="hljs-string">"iris"</span>,
+          <span class="hljs-string">"qualityScore"</span> : <span class="hljs-number">79.0</span>,
+          <span class="hljs-string">"numRetry"</span> : <span class="hljs-number">2</span>,
+          <span class="hljs-string">"forceCaptured"</span> : <span class="hljs-literal">false</span>
+        },
+        <span class="hljs-string">"rightEye"</span> : <span class="hljs-literal">null</span>,
+        <span class="hljs-string">"leftIndex"</span> : {
+          <span class="hljs-string">"language"</span> : <span class="hljs-string">"en"</span>,
+          <span class="hljs-string">"label"</span> : <span class="hljs-string">"label"</span>,
+          <span class="hljs-string">"imageName"</span> : <span class="hljs-string">"LeftIndex"</span>,
+          <span class="hljs-string">"type"</span> : <span class="hljs-string">"fingerprint"</span>,
+          <span class="hljs-string">"qualityScore"</span> : <span class="hljs-number">80.0</span>,
+          <span class="hljs-string">"numRetry"</span> : <span class="hljs-number">3</span>,
+          <span class="hljs-string">"forceCaptured"</span> : <span class="hljs-literal">false</span>
+        },
+        <span class="hljs-string">"leftMiddle"</span> : {
+          <span class="hljs-string">"language"</span> : <span class="hljs-string">"en"</span>,
+          <span class="hljs-string">"label"</span> : <span class="hljs-string">"label"</span>,
+          <span class="hljs-string">"imageName"</span> : <span class="hljs-string">"LeftMiddle"</span>,
+          <span class="hljs-string">"type"</span> : <span class="hljs-string">"fingerprint"</span>,
+          <span class="hljs-string">"qualityScore"</span> : <span class="hljs-number">80.0</span>,
+          <span class="hljs-string">"numRetry"</span> : <span class="hljs-number">3</span>,
+          <span class="hljs-string">"forceCaptured"</span> : <span class="hljs-literal">false</span>
+        },
+        <span class="hljs-string">"leftRing"</span> : {
+          <span class="hljs-string">"language"</span> : <span class="hljs-string">"en"</span>,
+          <span class="hljs-string">"label"</span> : <span class="hljs-string">"label"</span>,
+          <span class="hljs-string">"imageName"</span> : <span class="hljs-string">"LeftRing"</span>,
+          <span class="hljs-string">"type"</span> : <span class="hljs-string">"fingerprint"</span>,
+          <span class="hljs-string">"qualityScore"</span> : <span class="hljs-number">80.0</span>,
+          <span class="hljs-string">"numRetry"</span> : <span class="hljs-number">3</span>,
+          <span class="hljs-string">"forceCaptured"</span> : <span class="hljs-literal">false</span>
+        },
+        <span class="hljs-string">"leftLittle"</span> : {
+          <span class="hljs-string">"language"</span> : <span class="hljs-string">"en"</span>,
+          <span class="hljs-string">"label"</span> : <span class="hljs-string">"label"</span>,
+          <span class="hljs-string">"imageName"</span> : <span class="hljs-string">"LeftLitle"</span>,
+          <span class="hljs-string">"type"</span> : <span class="hljs-string">"fingerprint"</span>,
+          <span class="hljs-string">"qualityScore"</span> : <span class="hljs-number">80.0</span>,
+          <span class="hljs-string">"numRetry"</span> : <span class="hljs-number">3</span>,
+          <span class="hljs-string">"forceCaptured"</span> : <span class="hljs-literal">false</span>
+        },
+        <span class="hljs-string">"leftThumb"</span> : {
+          <span class="hljs-string">"language"</span> : <span class="hljs-string">"en"</span>,
+          <span class="hljs-string">"label"</span> : <span class="hljs-string">"label"</span>,
+          <span class="hljs-string">"imageName"</span> : <span class="hljs-string">"LeftThumb"</span>,
+          <span class="hljs-string">"type"</span> : <span class="hljs-string">"fingerprint"</span>,
+          <span class="hljs-string">"qualityScore"</span> : <span class="hljs-number">80.0</span>,
+          <span class="hljs-string">"numRetry"</span> : <span class="hljs-number">3</span>,
+          <span class="hljs-string">"forceCaptured"</span> : <span class="hljs-literal">false</span>
+        },
+        <span class="hljs-string">"rightIndex"</span> : {
+          <span class="hljs-string">"language"</span> : <span class="hljs-string">"en"</span>,
+          <span class="hljs-string">"label"</span> : <span class="hljs-string">"label"</span>,
+          <span class="hljs-string">"imageName"</span> : <span class="hljs-string">"RightIndex"</span>,
+          <span class="hljs-string">"type"</span> : <span class="hljs-string">"fingerprint"</span>,
+          <span class="hljs-string">"qualityScore"</span> : <span class="hljs-number">95.0</span>,
+          <span class="hljs-string">"numRetry"</span> : <span class="hljs-number">2</span>,
+          <span class="hljs-string">"forceCaptured"</span> : <span class="hljs-literal">false</span>
+        },
+        <span class="hljs-string">"rightMiddle"</span> : {
+          <span class="hljs-string">"language"</span> : <span class="hljs-string">"en"</span>,
+          <span class="hljs-string">"label"</span> : <span class="hljs-string">"label"</span>,
+          <span class="hljs-string">"imageName"</span> : <span class="hljs-string">"RightMiddle"</span>,
+          <span class="hljs-string">"type"</span> : <span class="hljs-string">"fingerprint"</span>,
+          <span class="hljs-string">"qualityScore"</span> : <span class="hljs-number">95.0</span>,
+          <span class="hljs-string">"numRetry"</span> : <span class="hljs-number">2</span>,
+          <span class="hljs-string">"forceCaptured"</span> : <span class="hljs-literal">false</span>
+        },
+        <span class="hljs-string">"rightRing"</span> : {
+          <span class="hljs-string">"language"</span> : <span class="hljs-string">"en"</span>,
+          <span class="hljs-string">"label"</span> : <span class="hljs-string">"label"</span>,
+          <span class="hljs-string">"imageName"</span> : <span class="hljs-string">"RightRing"</span>,
+          <span class="hljs-string">"type"</span> : <span class="hljs-string">"fingerprint"</span>,
+          <span class="hljs-string">"qualityScore"</span> : <span class="hljs-number">95.0</span>,
+          <span class="hljs-string">"numRetry"</span> : <span class="hljs-number">2</span>,
+          <span class="hljs-string">"forceCaptured"</span> : <span class="hljs-literal">false</span>
+        },
+        <span class="hljs-string">"rightLittle"</span> : {
+          <span class="hljs-string">"language"</span> : <span class="hljs-string">"en"</span>,
+          <span class="hljs-string">"label"</span> : <span class="hljs-string">"label"</span>,
+          <span class="hljs-string">"imageName"</span> : <span class="hljs-string">"RightLittle"</span>,
+          <span class="hljs-string">"type"</span> : <span class="hljs-string">"fingerprint"</span>,
+          <span class="hljs-string">"qualityScore"</span> : <span class="hljs-number">95.0</span>,
+          <span class="hljs-string">"numRetry"</span> : <span class="hljs-number">2</span>,
+          <span class="hljs-string">"forceCaptured"</span> : <span class="hljs-literal">false</span>
+        },
+        <span class="hljs-string">"rightThumb"</span> : {
+          <span class="hljs-string">"language"</span> : <span class="hljs-string">"en"</span>,
+          <span class="hljs-string">"label"</span> : <span class="hljs-string">"label"</span>,
+          <span class="hljs-string">"imageName"</span> : <span class="hljs-string">"rightThumb"</span>,
+          <span class="hljs-string">"type"</span> : <span class="hljs-string">"fingerprint"</span>,
+          <span class="hljs-string">"qualityScore"</span> : <span class="hljs-number">85.0</span>,
+          <span class="hljs-string">"numRetry"</span> : <span class="hljs-number">0</span>,
+          <span class="hljs-string">"forceCaptured"</span> : <span class="hljs-literal">false</span>
+        }
+      },
+      <span class="hljs-string">"introducer"</span> : {
+        <span class="hljs-string">"introducerFingerprint"</span> : {
+          <span class="hljs-string">"language"</span> : <span class="hljs-string">"en"</span>,
+          <span class="hljs-string">"label"</span> : <span class="hljs-string">"label"</span>,
+          <span class="hljs-string">"imageName"</span> : <span class="hljs-string">"introducerLeftThumb"</span>,
+          <span class="hljs-string">"type"</span> : <span class="hljs-string">"fingerprint"</span>,
+          <span class="hljs-string">"qualityScore"</span> : <span class="hljs-number">0.0</span>,
+          <span class="hljs-string">"numRetry"</span> : <span class="hljs-number">0</span>,
+          <span class="hljs-string">"forceCaptured"</span> : <span class="hljs-literal">false</span>
+        },
+        <span class="hljs-string">"introducerIris"</span> : <span class="hljs-literal">null</span>,
+        <span class="hljs-string">"introducerImage"</span> : <span class="hljs-literal">null</span>
+      }
+    },
+    <span class="hljs-string">"exceptionBiometrics"</span> : [ {
+      <span class="hljs-string">"language"</span> : <span class="hljs-string">"en"</span>,
+      <span class="hljs-string">"type"</span> : <span class="hljs-string">"fingerprint"</span>,
+      <span class="hljs-string">"missingBiometric"</span> : <span class="hljs-string">"LeftThumb"</span>,
+      <span class="hljs-string">"exceptionDescription"</span> : <span class="hljs-string">"Due to accident"</span>,
+      <span class="hljs-string">"exceptionType"</span> : <span class="hljs-string">"Permananent"</span>
+    }, {
+      <span class="hljs-string">"language"</span> : <span class="hljs-string">"en"</span>,
+      <span class="hljs-string">"type"</span> : <span class="hljs-string">"fingerprint"</span>,
+      <span class="hljs-string">"missingBiometric"</span> : <span class="hljs-string">"LeftForefinger"</span>,
+      <span class="hljs-string">"exceptionDescription"</span> : <span class="hljs-string">"Due to accident"</span>,
+      <span class="hljs-string">"exceptionType"</span> : <span class="hljs-string">"Permananent"</span>
+    }, {
+      <span class="hljs-string">"language"</span> : <span class="hljs-string">"en"</span>,
+      <span class="hljs-string">"type"</span> : <span class="hljs-string">"iris"</span>,
+      <span class="hljs-string">"missingBiometric"</span> : <span class="hljs-string">"RightEye"</span>,
+      <span class="hljs-string">"exceptionDescription"</span> : <span class="hljs-string">"By birth"</span>,
+      <span class="hljs-string">"exceptionType"</span> : <span class="hljs-string">"Permananent"</span>
+    } ],
+    <span class="hljs-string">"applicantPhotograph"</span> : {
+      <span class="hljs-string">"language"</span> : <span class="hljs-string">"en"</span>,
+      <span class="hljs-string">"label"</span> : <span class="hljs-string">"label"</span>,
+      <span class="hljs-string">"photographName"</span> : <span class="hljs-string">"ApplicantPhoto"</span>,
+      <span class="hljs-string">"numRetry"</span> : <span class="hljs-number">1</span>,
+      <span class="hljs-string">"qualityScore"</span> : <span class="hljs-number">89.0</span>
+    },
+    <span class="hljs-string">"exceptionPhotograph"</span> : {
+      <span class="hljs-string">"language"</span> : <span class="hljs-string">"en"</span>,
+      <span class="hljs-string">"label"</span> : <span class="hljs-string">"label"</span>,
+      <span class="hljs-string">"photographName"</span> : <span class="hljs-string">"ExceptionPhoto"</span>,
+      <span class="hljs-string">"numRetry"</span> : <span class="hljs-number">0</span>,
+      <span class="hljs-string">"qualityScore"</span> : <span class="hljs-number">0.0</span>
+    },
+    <span class="hljs-string">"documents"</span> : [ {
+      <span class="hljs-string">"documentName"</span> : <span class="hljs-string">"ProofOfIdentity"</span>,
+      <span class="hljs-string">"documentCategory"</span> : <span class="hljs-string">"PoI"</span>,
+      <span class="hljs-string">"documentOwner"</span> : <span class="hljs-string">"Self"</span>,
+      <span class="hljs-string">"documentType"</span> : <span class="hljs-string">"PAN"</span>
+    }, {
+      <span class="hljs-string">"documentName"</span> : <span class="hljs-string">"ProofOfAddress"</span>,
+      <span class="hljs-string">"documentCategory"</span> : <span class="hljs-string">"PoA"</span>,
+      <span class="hljs-string">"documentOwner"</span> : <span class="hljs-string">"hof"</span>,
+      <span class="hljs-string">"documentType"</span> : <span class="hljs-string">"passport"</span>
+    }, {
+      <span class="hljs-string">"documentName"</span> : <span class="hljs-string">"RegistrationAcknowledgement"</span>,
+      <span class="hljs-string">"documentCategory"</span> : <span class="hljs-string">"RegistrationAcknowledgement"</span>,
+      <span class="hljs-string">"documentOwner"</span> : <span class="hljs-string">"Self"</span>,
+      <span class="hljs-string">"documentType"</span> : <span class="hljs-string">"RegistrationAcknowledgement"</span>
+    } ],
+    <span class="hljs-string">"metaData"</span> : [ {
+      <span class="hljs-string">"label"</span> : <span class="hljs-string">"geoLocLatitude"</span>,
+      <span class="hljs-string">"value"</span> : <span class="hljs-string">"13.0049"</span>
+    }, {
+      <span class="hljs-string">"label"</span> : <span class="hljs-string">"geoLoclongitude"</span>,
+      <span class="hljs-string">"value"</span> : <span class="hljs-string">"80.24492"</span>
+    }, {
+      <span class="hljs-string">"label"</span> : <span class="hljs-string">"registrationType"</span>,
+      <span class="hljs-string">"value"</span> : <span class="hljs-string">"Child"</span>
+    }, {
+      <span class="hljs-string">"label"</span> : <span class="hljs-string">"applicantType"</span>,
+      <span class="hljs-string">"value"</span> : <span class="hljs-string">"New"</span>
+    }, {
+      <span class="hljs-string">"label"</span> : <span class="hljs-string">"preRegistrationId"</span>,
+      <span class="hljs-string">"value"</span> : <span class="hljs-string">"PEN1345T"</span>
+    }, {
+      <span class="hljs-string">"label"</span> : <span class="hljs-string">"registrationId"</span>,
+      <span class="hljs-string">"value"</span> : <span class="hljs-string">"20187821300001211120181030160"</span>
+    }, {
+      <span class="hljs-string">"label"</span> : <span class="hljs-string">"machineId"</span>,
+      <span class="hljs-string">"value"</span> : <span class="hljs-string">"yyeqy26356"</span>
+    },
+    {
+      <span class="hljs-string">"label"</span> : <span class="hljs-string">"dongleId"</span>,
+      <span class="hljs-string">"value"</span> : <span class="hljs-string">"yyeqy26356"</span>
+    },
+    {
+      <span class="hljs-string">"label"</span> : <span class="hljs-string">"macID"</span>,
+      <span class="hljs-string">"value"</span> : <span class="hljs-string">"8F-23-12-45-FG-56"</span>
+    },
+    {
+      <span class="hljs-string">"label"</span> : <span class="hljs-string">"centerId"</span>,
+      <span class="hljs-string">"value"</span> : <span class="hljs-string">"12245"</span>
+    }, {
+      <span class="hljs-string">"label"</span> : <span class="hljs-string">"uin"</span>,
+      <span class="hljs-string">"value"</span> : <span class="hljs-literal">null</span>
+    }, {
+      <span class="hljs-string">"label"</span> : <span class="hljs-string">"previousRID"</span>,
+      <span class="hljs-string">"value"</span> : <span class="hljs-literal">null</span>
+    }, {
+      <span class="hljs-string">"label"</span> : <span class="hljs-string">"introducerType"</span>,
+      <span class="hljs-string">"value"</span> : <span class="hljs-string">"Parent"</span>
+    }, {
+      <span class="hljs-string">"label"</span> : <span class="hljs-string">"introducerRID"</span>,
+      <span class="hljs-string">"value"</span> : <span class="hljs-string">"2018234500321157812"</span>
+    }, {
+      <span class="hljs-string">"label"</span> : <span class="hljs-string">"introducerUIN"</span>,
+      <span class="hljs-string">"value"</span> : <span class="hljs-literal">null</span>
+    }, {
+      <span class="hljs-string">"label"</span> : <span class="hljs-string">"officerFingerprintType"</span>,
+      <span class="hljs-string">"value"</span> : <span class="hljs-string">"leftThumb"</span>
+    }, {
+      <span class="hljs-string">"label"</span> : <span class="hljs-string">"officerIrisType"</span>,
+      <span class="hljs-string">"value"</span> : <span class="hljs-literal">null</span>
+    }, {
+      <span class="hljs-string">"label"</span> : <span class="hljs-string">"supervisorFingerprintType"</span>,
+      <span class="hljs-string">"value"</span> : <span class="hljs-string">"leftThumb"</span>
+    }, {
+      <span class="hljs-string">"label"</span> : <span class="hljs-string">"supervisorIrisType"</span>,
+      <span class="hljs-string">"value"</span> : <span class="hljs-literal">null</span>
+    }, {
+      <span class="hljs-string">"label"</span> : <span class="hljs-string">"introducerFingerprintType"</span>,
+      <span class="hljs-string">"value"</span> : <span class="hljs-string">"leftThumb"</span>
+    }, {
+      <span class="hljs-string">"label"</span> : <span class="hljs-string">"introducerIrisType"</span>,
+      <span class="hljs-string">"value"</span> : <span class="hljs-literal">null</span>
+    }],
+    <span class="hljs-string">"osiData"</span> : [ {
+      <span class="hljs-string">"label"</span> : <span class="hljs-string">"officerId"</span>,
+      <span class="hljs-string">"value"</span> : <span class="hljs-string">"op0r0s12"</span>
+    }, {
+      <span class="hljs-string">"label"</span> : <span class="hljs-string">"officerFingerprintImage"</span>,
+      <span class="hljs-string">"value"</span> : <span class="hljs-string">"officerLeftThumb"</span>
+    }, {
+      <span class="hljs-string">"label"</span> : <span class="hljs-string">"officerIrisImage"</span>,
+      <span class="hljs-string">"value"</span> : <span class="hljs-literal">null</span>
+    }, {
+      <span class="hljs-string">"label"</span> : <span class="hljs-string">"supervisorId"</span>,
+      <span class="hljs-string">"value"</span> : <span class="hljs-string">"s9ju2jhu"</span>
+    }, {
+      <span class="hljs-string">"label"</span> : <span class="hljs-string">"supervisorFingerprintImage"</span>,
+      <span class="hljs-string">"value"</span> : <span class="hljs-string">"supervisorLeftThumb"</span>
+    }, {
+      <span class="hljs-string">"label"</span> : <span class="hljs-string">"supervisorIrisImage"</span>,
+      <span class="hljs-string">"value"</span> : <span class="hljs-literal">null</span>
+    }, {
+      <span class="hljs-string">"label"</span> : <span class="hljs-string">"supervisorPassword"</span>,
+      <span class="hljs-string">"value"</span> : <span class="hljs-literal">null</span>
+    }, {
+      <span class="hljs-string">"label"</span> : <span class="hljs-string">"officerPassword"</span>,
+      <span class="hljs-string">"value"</span> : <span class="hljs-literal">null</span>
+    }, {
+      <span class="hljs-string">"label"</span> : <span class="hljs-string">"supervisorPIN"</span>,
+      <span class="hljs-string">"value"</span> : <span class="hljs-literal">null</span>
+    }, {
+      <span class="hljs-string">"label"</span> : <span class="hljs-string">"officerPIN"</span>,
+      <span class="hljs-string">"value"</span> : <span class="hljs-literal">null</span>
+    }, {
+      <span class="hljs-string">"label"</span> : <span class="hljs-string">"supervisorFaceImage"</span>,
+      <span class="hljs-string">"value"</span> : <span class="hljs-literal">null</span>
+    }, 
+    {
+      <span class="hljs-string">"label"</span> : <span class="hljs-string">"officerFaceImage"</span>,
+      <span class="hljs-string">"value"</span> : <span class="hljs-literal">null</span>
+    }, 
+    {
+      <span class="hljs-string">"label"</span> : <span class="hljs-string">"officerOTPAuthentication"</span>,
+      <span class="hljs-string">"value"</span> : <span class="hljs-literal">true</span>/<span class="hljs-literal">false</span>
+    },
+    {
+      <span class="hljs-string">"label"</span> : <span class="hljs-string">"supervisiorOTPAuthentication"</span>,
+      <span class="hljs-string">"value"</span> : <span class="hljs-literal">true</span>/<span class="hljs-literal">false</span>
+    }
+    ],
+    <span class="hljs-string">"hashSequence1"</span> : [ {
+      <span class="hljs-string">"label"</span> : <span class="hljs-string">"applicantBiometricSequence"</span>,
+      <span class="hljs-string">"value"</span> : [ <span class="hljs-string">"applicant_bio_CBEFF.xml"</span> ]
+    }, {
+      <span class="hljs-string">"label"</span> : <span class="hljs-string">"introducerBiometricSequence"</span>,
+      <span class="hljs-string">"value"</span> : [ <span class="hljs-string">"introducer_bio_CBEFF.xml"</span> ]
+    }, {
+      <span class="hljs-string">"label"</span> : <span class="hljs-string">"applicantDemographicSequence"</span>,
+      <span class="hljs-string">"value"</span> : [ <span class="hljs-string">"DemographicInfo"</span>, <span class="hljs-string">"ProofOfIdentity"</span>, <span class="hljs-string">"ProofOfAddress"</span>, <span class="hljs-string">"ApplicantPhoto"</span>, <span class="hljs-string">"ExceptionPhoto"</span>, <span class="hljs-string">"ProofOfBirth"</span>, <span class="hljs-string">"ProofOfRelation"</span> ]
+    } ],
+    <span class="hljs-string">"hashSequence2"</span> : [ {
+      <span class="hljs-string">"label"</span> : <span class="hljs-string">"otherFiles"</span>,
+      <span class="hljs-string">"value"</span> : [ <span class="hljs-string">"officerCBEFF"</span>, <span class="hljs-string">"supervisiorCBEFF"</span>, <span class="hljs-string">"Audit"</span>]
+    } ],
+    <span class="hljs-string">"capturedRegiseredDevices"</span> : [ {
+      <span class="hljs-string">"label"</span> : <span class="hljs-string">"fingerprint"</span>,
+      <span class="hljs-string">"value"</span> : <span class="hljs-string">"123455YRHTIFHKJI8U90U2334"</span>
+    },
+    <span class="hljs-string">"label"</span> : <span class="hljs-string">"iris"</span>,
+      <span class="hljs-string">"value"</span> : <span class="hljs-string">"123455YRHTIFHKJI8U90U5476"</span>
+    },
+    <span class="hljs-string">"label"</span> : <span class="hljs-string">"photo"</span>,
+      <span class="hljs-string">"value"</span> : <span class="hljs-string">"123455YRHTIFHKJI8U90U4648"</span>
+    }   
+    ],
+    <span class="hljs-string">"capturedNonRegisteredDevices"</span> : [ {
+      <span class="hljs-string">"label"</span> : <span class="hljs-string">"GPS"</span>,
+      <span class="hljs-string">"value"</span> : <span class="hljs-string">"123455YRHTIFHKJI8U90U2334"</span>
+    },
+    <span class="hljs-string">"label"</span> : <span class="hljs-string">"scanner"</span>,
+      <span class="hljs-string">"value"</span> : <span class="hljs-string">"123455YRHTIFHKJI8U90U5476"</span>
+    },
+    <span class="hljs-string">"label"</span> : <span class="hljs-string">"printer"</span>,
+      <span class="hljs-string">"value"</span> : <span class="hljs-string">"123455YRHTIFHKJI8U90U6786"</span>
+    }   
+    ],
+    <span class="hljs-string">"checkSum"</span> : [ {
+      <span class="hljs-string">"label"</span> : <span class="hljs-string">"registration-service.jar"</span>,
+      <span class="hljs-string">"value"</span> : <span class="hljs-string">"65gfhab67586cjhsabcjk78"</span>
+    }, {
+      <span class="hljs-string">"label"</span> : <span class="hljs-string">"registration-ui.jar"</span>,
+      <span class="hljs-string">"value"</span> : <span class="hljs-string">"uygdfajkdjkHHD56TJHASDJKA"</span>
+    } ]
+  }
+}
+</code></pre>
+<pre><code class="hljs">-   Biometric image detail  
+-   Exceptional Biometric detail
+-   Geo Location detail
+-   Applicant Type [New/ UIN Update/ Lost UIN]
+-   Pre Registration Id
+-   osiData {Operator and Supervisor authentication info.}
+-   HashSequence for both applicant and OSI detail.{It provides the hash created sequence}
+</code></pre>
+<ol start="7">
+<li><strong>Registration Officer authentication Bio [officer_bio_cbeff.xml]</strong>
+<ul>
+<li>Officer bio should be captured in standard <a href="MOSIP-Biometric-Data-Specifications"><strong>CBEFF xml</strong></a> format.</li>
+</ul></li>
+<li><strong>Registration Supervisor authentication Bio [supervisor_bio_cbeff.xml]</strong>
+<ul>
+<li>Supervisor bio should be captured in standard <a href="MOSIP-Biometric-Data-Specifications"><strong>CBEFF xml</strong></a> format.</li>
+</ul></li>
+</ol>
+<ul>
+<li><p>Capture the Registration Officer/Supervisor Authentication finger
+image and append to the Zip object.</p></li>
+<li><p>Create the Packet Info JSON file, which contains the <strong>Meta data</strong>
+information about packet and appended to the existing Zip object.</p></li>
+</ul>
+<p><strong>Packet Encryption Procedure</strong></p>
+<p>Before writing the packet into the local disk, the zipped content should be encrypted using Session and RSA public key [center specific] to secure the data. The same data can only be decrypted at server end where the private key is available.</p>
+<ul>
+<li><p>Session Key Encryption:</p>
+<ul>
+<li><p>Session key generation is [MAC of machine + RO Id + Timestamp]
+should not exceed 32 characters.</p></li>
+<li><p>Pass the created Zip object [in-memory] through the AES-256
+bit encryption.</p></li>
+<li><p>Pass the Random Session Key as a seed to this AES encryption.</p></li>
+<li><p>Get the Registration Officer Id from user context object.</p></li>
+</ul></li>
+<li><p>RSA Public Key Encryption:</p>
+<ul>
+<li>AES Session key bytes pass through the RSA public key
+encryption.</li>
+</ul></li>
+<li><p>Use the &quot;#KEY_SPLITTER#&quot; as a key separator for the AES encrypted
+bytes and the RSA Public key encrypted Session key seed.</p></li>
+<li><p>Append the RSA Public key Encrypted Session Key, Key Separator to
+the AES encrypted bytes.</p></li>
+<li><p>Append the EO and machine information as a META-INFO JSON file and
+create another ZIP out of it. [Packet Zip + META-INFO JSON]</p></li>
+<li><p>Save the encrypted data as a ZIP in local file system under the
+defined location in configuration file.</p></li>
+</ul>
+<hr>
+</span></div></article></div><div class="docs-prevnext"></div></div></div><nav class="onPageNav"></nav></div><footer class="nav-footer" id="footer"><section class="sitemap"><a href="/" class="nav-home"><img src="/img/favicon.ico" alt="MOSIP Documentation" width="66" height="58"/></a><div><h5>Docs</h5><a href="/docs/en/doc1.html">Getting Started (or other categories)</a><a href="/docs/en/doc2.html">Guides (or other categories)</a><a href="/docs/en/doc3.html">API Reference (or other categories)</a></div><div><h5>Community</h5><a href="/en/users.html">User Showcase</a><a href="https://stackoverflow.com/questions/tagged/" target="_blank" rel="noreferrer noopener">Stack Overflow</a><a href="https://discordapp.com/">Project Chat</a><a href="https://twitter.com/" target="_blank" rel="noreferrer noopener">Twitter</a></div><div><h5>More</h5><a href="/blog">Blog</a><a href="https://github.com/">GitHub</a><a class="github-button" data-icon="octicon-star" data-count-href="/facebook/docusaurus/stargazers" data-show-count="true" data-count-aria-label="# stargazers on GitHub" aria-label="Star this project on GitHub">Star</a></div></section><a href="https://opensource.facebook.com/" target="_blank" rel="noreferrer noopener" class="fbOpenSource"><img src="/img/oss_logo.png" alt="Facebook Open Source" width="170" height="45"/></a><section class="copyright">Copyright © 2019 Your Name or Your Company Name</section></footer></div></body></html>

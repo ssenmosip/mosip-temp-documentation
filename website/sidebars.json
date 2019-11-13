@@ -1,0 +1,10 @@
+{
+  "docs": {
+    "Overview": ["Platform-Documentation"],
+    "Building and Deploying MOSIP": ["Getting-Started", "Hardware-Software-requirements"],
+    "Open Source Contributions": ["Contributor-Guide"]
+  },
+  "docs-other": {
+    "First Category": ["Home", "Packet-APIs"]
+  }
+}

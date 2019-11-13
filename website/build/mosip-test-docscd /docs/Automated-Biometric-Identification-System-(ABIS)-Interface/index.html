@@ -1,0 +1,85 @@
+<!DOCTYPE html><html lang="en"><head><meta charSet="utf-8"/><meta http-equiv="X-UA-Compatible" content="IE=edge"/><title>Automated-Biometric-Identification-System-(ABIS)-Interface · MOSIP Documentation</title><meta name="viewport" content="width=device-width"/><meta name="generator" content="Docusaurus"/><meta name="description" content="Providing unique identity for an individual is one of key features of MOSIP platform. To do this MOSIP will "/><meta name="docsearch:language" content="en"/><meta property="og:title" content="Automated-Biometric-Identification-System-(ABIS)-Interface · MOSIP Documentation"/><meta property="og:type" content="website"/><meta property="og:url" content="https://your-docusaurus-test-site.com/"/><meta property="og:description" content="Providing unique identity for an individual is one of key features of MOSIP platform. To do this MOSIP will "/><meta property="og:image" content="https://your-docusaurus-test-site.com/img/undraw_online.svg"/><meta name="twitter:card" content="summary"/><meta name="twitter:image" content="https://your-docusaurus-test-site.com/img/undraw_tweetstorm.svg"/><link rel="shortcut icon" href="/img/favicon.ico"/><link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css"/><link rel="alternate" type="application/atom+xml" href="https://your-docusaurus-test-site.com/blog/atom.xml" title="MOSIP Documentation Blog ATOM Feed"/><link rel="alternate" type="application/rss+xml" href="https://your-docusaurus-test-site.com/blog/feed.xml" title="MOSIP Documentation Blog RSS Feed"/><script type="text/javascript" src="https://buttons.github.io/buttons.js"></script><script src="/js/scrollSpy.js"></script><link rel="stylesheet" href="/css/main.css"/><script src="/js/codetabs.js"></script></head><body class="sideNavVisible separateOnPageNav"><div class="fixedHeaderContainer"><div class="headerWrapper wrapper"><header><a href="/"><img class="logo" src="/img/favicon.ico" alt="MOSIP Documentation"/><h2 class="headerTitleWithLogo">MOSIP Documentation</h2></a><div class="navigationWrapper navigationSlider"><nav class="slidingNav"><ul class="nav-site nav-site-internal"><li class=""><a href="/docs/Platform-Documentation" target="_self">Docs</a></li><li class=""><a href="/docs/Getting-Started" target="_self">API</a></li><li class=""><a href="/Contributor-Guide" target="_self">Help</a></li><li class=""><a href="/blog/" target="_self">Blog</a></li></ul></nav></div></header></div></div><div class="navPusher"><div class="docMainWrapper wrapper"><div class="container mainContainer"><div class="wrapper"><div class="post"><header class="postHeader"><h1 class="postHeaderTitle">Automated-Biometric-Identification-System-(ABIS)-Interface</h1></header><article><div><span><p>Providing unique identity for an individual is one of key features of MOSIP platform. To do this MOSIP will</p>
+<ul>
+<li>Use multi modal biometric information of an individual</li>
+<li>Leverage Automated Biometric Identification System (ABIS) to de-duplicate Individual's biometric data</li>
+<li>Design for integrating with multiple ABIS providers to leverage expertise of different ABIS providers</li>
+<li>Not use ABIS for authentication (deduplication only)</li>
+</ul>
+<p>This document will provide the specification an ABIS provider must implement to meet MOSIP's requirements.</p>
+<h1><a class="anchor" aria-hidden="true" id="overview"></a><a href="#overview" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Overview</h1>
+<p><img src="_images/arch_diagrams/ABIS_middleware.png" alt=""></p>
+<ul>
+<li>MOSIP will interact with ABIS only via message queues</li>
+<li>JSON format will be used for all control messages like INSERT, IDENTIFY etc... to interact with ABIS</li>
+<li>CBEFF XML format will be used to send biometrics data to ABIS
+(Please refer to <a href="MOSIP-Biometric-Data-Specifications"><strong>MOSIP Biometric Data Specifications</strong></a> for cbeff data sample)</li>
+<li>Inside the CBEFF XML individual biometrics data must be in respective ISO format</li>
+</ul>
+<p>Biometric data sent to ABIS will follow the below standards.</p>
+<ul>
+<li><p>CBEFF: ISO/IEC 19785-3 (Please refer to <a href="MOSIP-Biometric-Data-Specifications"><strong>MOSIP Biometric Data Specifications</strong></a> for
+details)</p></li>
+<li><p>Fingerprints</p>
+<ul>
+<li>Finger Print Minutiae Record (FMR) - ISO/IEC 19794-2</li>
+<li>Finger Print Image Record (FIR) - ISO/IEC 19794-4</li>
+</ul></li>
+<li><p>IRIS</p>
+<ul>
+<li>Iris Image Record (IIR) - ISO/IEC 19794-6</li>
+</ul></li>
+<li><p>Face</p>
+<ul>
+<li>Face Image Data (FID) - ISO/IEC 19794-5</li>
+</ul></li>
+</ul>
+<p>ABIS should support the following types of biometric images</p>
+<ul>
+<li>Unsegmented fingerprint images (4-4-2), or</li>
+<li>Unsegmented fingerprint images (4-1-4-1), or</li>
+<li>Unsegmented fingerprint images (2-2-2-2-2), or</li>
+<li>Individual fingerprint images (segmented)</li>
+<li>IRIS images (Left, and Right)</li>
+<li>Face photograph</li>
+</ul>
+<p>ABIS should support the following requests</p>
+<table>
+<thead>
+<tr><th>Management</th><th>Registration</th></tr>
+</thead>
+<tbody>
+<tr><td>Ping</td><td>Insert</td></tr>
+<tr><td>GetPendingRequests</td><td>Identify</td></tr>
+<tr><td>GetReferenceCounts</td><td>Delete</td></tr>
+<tr><td>Configure</td><td>Ping</td></tr>
+</tbody>
+</table>
+<h2><a class="anchor" aria-hidden="true" id="key-terminologies"></a><a href="#key-terminologies" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Key terminologies</h2>
+<h3><a class="anchor" aria-hidden="true" id="abis"></a><a href="#abis" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>ABIS</h3>
+<p>Automated Biometric Identification System whose primary responsibility is de-duplication of biometric data (finger print &amp; Iris).</p>
+<h3><a class="anchor" aria-hidden="true" id="candidate-list"></a><a href="#candidate-list" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Candidate list</h3>
+<p>Each Identify request to ABIS can return zero or more records that match the provided biometric data. The returned records is referred to as the candidate list</p>
+<h3><a class="anchor" aria-hidden="true" id="reference-database"></a><a href="#reference-database" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Reference Database</h3>
+<p>The database maintained with the ABIS system which stores the biometrics data of an individual</p>
+<h3><a class="anchor" aria-hidden="true" id="gallery"></a><a href="#gallery" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Gallery</h3>
+<p>A subset of the population in the Reference Database used as a target to search for a specific entry. ABIS should have a provision to take an Identify or Verify request with a target gallery parameter</p>
+<h3><a class="anchor" aria-hidden="true" id="id-repository"></a><a href="#id-repository" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>ID Repository</h3>
+<p>The database within MOSIP which contains the ID details (demographic &amp; biometric) of an Individual. This database is not related to Reference Database.</p>
+<h3><a class="anchor" aria-hidden="true" id="targetfpir"></a><a href="#targetfpir" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>TargetFPIR</h3>
+<p>FPIR is False Positive Identification Rate. This metric tells how many false positive identification an ABIS achieved. An ABIS should be able to send the FMR as defined below.</p>
+<pre><code class="hljs"><span class="hljs-built_in">round</span> (-<span class="hljs-number">10</span> * <span class="hljs-built_in">log10</span> (achieved targetFPIR))
+</code></pre>
+<p>The acceptable values are</p>
+<table>
+<thead>
+<tr><th>Target FPIR</th><th>score</th></tr>
+</thead>
+<tbody>
+<tr><td>1 in 1,000</td><td>30</td></tr>
+<tr><td>1 in 10,000</td><td>40</td></tr>
+<tr><td>1 in 100,000</td><td>50</td></tr>
+</tbody>
+</table>
+<h2><a class="anchor" aria-hidden="true" id="apis-to-interact-with-an-abis-system"></a><a href="#apis-to-interact-with-an-abis-system" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>API's to interact with an ABIS system</h2>
+<p><a href="ABIS-APIs"><strong>ABIS APIs</strong></a> details the API's that an ABIS system must support</p>
+</span></div></article></div><div class="docs-prevnext"></div></div></div><nav class="onPageNav"><ul class="toc-headings"><li><a href="#key-terminologies">Key terminologies</a><ul class="toc-headings"><li><a href="#abis">ABIS</a></li><li><a href="#candidate-list">Candidate list</a></li><li><a href="#reference-database">Reference Database</a></li><li><a href="#gallery">Gallery</a></li><li><a href="#id-repository">ID Repository</a></li><li><a href="#targetfpir">TargetFPIR</a></li></ul></li><li><a href="#apis-to-interact-with-an-abis-system">API's to interact with an ABIS system</a></li></ul></nav></div><footer class="nav-footer" id="footer"><section class="sitemap"><a href="/" class="nav-home"><img src="/img/favicon.ico" alt="MOSIP Documentation" width="66" height="58"/></a><div><h5>Docs</h5><a href="/docs/en/doc1.html">Getting Started (or other categories)</a><a href="/docs/en/doc2.html">Guides (or other categories)</a><a href="/docs/en/doc3.html">API Reference (or other categories)</a></div><div><h5>Community</h5><a href="/en/users.html">User Showcase</a><a href="https://stackoverflow.com/questions/tagged/" target="_blank" rel="noreferrer noopener">Stack Overflow</a><a href="https://discordapp.com/">Project Chat</a><a href="https://twitter.com/" target="_blank" rel="noreferrer noopener">Twitter</a></div><div><h5>More</h5><a href="/blog">Blog</a><a href="https://github.com/">GitHub</a><a class="github-button" data-icon="octicon-star" data-count-href="/facebook/docusaurus/stargazers" data-show-count="true" data-count-aria-label="# stargazers on GitHub" aria-label="Star this project on GitHub">Star</a></div></section><a href="https://opensource.facebook.com/" target="_blank" rel="noreferrer noopener" class="fbOpenSource"><img src="/img/oss_logo.png" alt="Facebook Open Source" width="170" height="45"/></a><section class="copyright">Copyright © 2019 Your Name or Your Company Name</section></footer></div></body></html>
