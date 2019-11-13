@@ -7,10 +7,10 @@ Welcome to MOSIP's documentation!
    :maxdepth: 3
    :caption: Contents:
 
-   Platform-Documentation.md
-   Interfaces.md
-   Privacy-and-Security.md
-   Getting-Started.md     
+   Platform-Documentation
+   Interfaces
+   Privacy-and-Security
+   Getting-Started   
 
    ## 1. INTRODUCTION
    This document describes the objectives and explicit functional requirements of MOSIP. It also gives an overview of architecturally significant features, APIs and standards followed in MOSIP. Lastly, it provides necessary information on implementation, customization and set up.
