@@ -4,13 +4,10 @@ Welcome to MOSIP's documentation!
 =================================
 
 .. toctree::
-   :maxdepth: 3
+   :maxdepth: 2
    :caption: Contents:
 
-   Platform-Documentation
-   Interfaces
-   Privacy-and-Security
-   Getting-Started   
+   Sidebar 
 
    ## 1. INTRODUCTION
    This document describes the objectives and explicit functional requirements of MOSIP. It also gives an overview of architecturally significant features, APIs and standards followed in MOSIP. Lastly, it provides necessary information on implementation, customization and set up.
