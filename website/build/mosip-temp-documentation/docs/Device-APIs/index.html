@@ -1,0 +1,1216 @@
+<!DOCTYPE html><html lang="en"><head><meta charSet="utf-8"/><meta http-equiv="X-UA-Compatible" content="IE=edge"/><title>Device-APIs · MOSIP Documentation</title><meta name="viewport" content="width=device-width"/><meta name="generator" content="Docusaurus"/><meta name="description" content="This section details about the service APIs in the Document modules"/><meta name="docsearch:language" content="en"/><meta property="og:title" content="Device-APIs · MOSIP Documentation"/><meta property="og:type" content="website"/><meta property="og:url" content="https://ssenmosip.github.io/mosip-temp-documentationindex"/><meta property="og:description" content="This section details about the service APIs in the Document modules"/><meta property="og:image" content="https://ssenmosip.github.io/mosip-temp-documentation/img/undraw_online.svg"/><meta name="twitter:card" content="summary"/><meta name="twitter:image" content="https://ssenmosip.github.io/mosip-temp-documentation/img/undraw_tweetstorm.svg"/><link rel="shortcut icon" href="/mosip-temp-documentationimg/favicon.ico"/><link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css"/><link rel="alternate" type="application/atom+xml" href="https://ssenmosip.github.io/mosip-temp-documentation/blog/atom.xml" title="MOSIP Documentation Blog ATOM Feed"/><link rel="alternate" type="application/rss+xml" href="https://ssenmosip.github.io/mosip-temp-documentation/blog/feed.xml" title="MOSIP Documentation Blog RSS Feed"/><script type="text/javascript" src="https://buttons.github.io/buttons.js"></script><script src="/mosip-temp-documentationjs/scrollSpy.js"></script><link rel="stylesheet" href="/mosip-temp-documentationcss/main.css"/><script src="/mosip-temp-documentationjs/codetabs.js"></script></head><body class="sideNavVisible separateOnPageNav"><div class="fixedHeaderContainer"><div class="headerWrapper wrapper"><header><a href="/mosip-temp-documentation"><img class="logo" src="/mosip-temp-documentationimg/favicon.ico" alt="MOSIP Documentation"/><h2 class="headerTitleWithLogo">MOSIP Documentation</h2></a><div class="navigationWrapper navigationSlider"><nav class="slidingNav"><ul class="nav-site nav-site-internal"><li class=""><a href="/mosip-temp-documentationdocs/Platform-Documentation" target="_self">Docs</a></li><li class=""><a href="/mosip-temp-documentationdocs/Getting-Started" target="_self">API</a></li><li class=""><a href="/mosip-temp-documentationContributor-Guide" target="_self">Help</a></li><li class=""><a href="/mosip-temp-documentationblog/" target="_self">Blog</a></li></ul></nav></div></header></div></div><div class="navPusher"><div class="docMainWrapper wrapper"><div class="container mainContainer"><div class="wrapper"><div class="post"><header class="postHeader"><h1 class="postHeaderTitle">Device-APIs</h1></header><article><div><span><p>This section details about the service APIs in the Document modules</p>
+<ul>
+<li><p><a href="#devices-master-api">Devices API</a></p></li>
+<li><p><a href="#device-types-master-api">Device Types API</a></p></li>
+<li><p><a href="#device-specifications">Device Specifications API</a></p></li>
+<li><p><a href="#post-devicessearch">Device Search API</a></p></li>
+<li><p><a href="#post-devicetypessearch">Device Types Search API</a></p></li>
+<li><p><a href="#post-devicespecificationssearch">Device Spec Search API</a></p></li>
+<li><p><a href="#post-devicesfiltervalues">Device - Filter values API</a></p></li>
+<li><p><a href="#post-devicetypesfiltervalues">Device Types - Filter values API</a></p></li>
+<li><p><a href="#post-devicespecificationsfiltervalues">Device Spec - Filter values API</a></p></li>
+</ul>
+<h1><a class="anchor" aria-hidden="true" id="devices-master-api"></a><a href="#devices-master-api" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Devices Master API</h1>
+<ul>
+<li><a href="#post-devices">POST /devices</a></li>
+<li><a href="#get-deviceslanguagecode">GET /devices/{languagecode}</a></li>
+<li><a href="#get-deviceslanguagecodedevicetype">GET /devices/{languagecode}/{deviceType}</a></li>
+<li><a href="#put-devices-1">PUT /devices</a></li>
+<li><a href="#delete-devicesid">DELETE /devices/{id}</a></li>
+</ul>
+<h1><a class="anchor" aria-hidden="true" id="post-devices"></a><a href="#post-devices" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>POST /devices</h1>
+<p>This service will create the list of Devices which are used in the MOSIP platform.</p>
+<h3><a class="anchor" aria-hidden="true" id="resource-url"></a><a href="#resource-url" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Resource URL</h3>
+<h3><a class="anchor" aria-hidden="true" id="post-devices-1"></a><a href="#post-devices-1" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><code>POST /devices</code></h3>
+<h3><a class="anchor" aria-hidden="true" id="resource-details"></a><a href="#resource-details" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Resource details</h3>
+<table>
+<thead>
+<tr><th>Resource Details</th><th>Description</th></tr>
+</thead>
+<tbody>
+<tr><td>Response format</td><td>JSON</td></tr>
+<tr><td>Requires Authentication</td><td>Yes</td></tr>
+</tbody>
+</table>
+<h3><a class="anchor" aria-hidden="true" id="parameters"></a><a href="#parameters" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Parameters</h3>
+<table>
+<thead>
+<tr><th>Name</th><th>Required</th><th>Description</th><th>Default Value</th><th>Example</th></tr>
+</thead>
+<tbody>
+<tr><td>devicetype</td><td>Yes</td><td>Name of the device</td><td></td></tr>
+<tr><td>devicemodel</td><td>Yes</td><td>Mac ID of the device</td><td></td></tr>
+</tbody>
+</table>
+<h3><a class="anchor" aria-hidden="true" id="example-request"></a><a href="#example-request" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Example Request</h3>
+<pre><code class="hljs css language-JSON">{
+  <span class="hljs-attr">"id"</span>: <span class="hljs-string">"string"</span>,
+  <span class="hljs-attr">"version"</span>: <span class="hljs-string">"string"</span>,
+  <span class="hljs-attr">"metadata"</span>: {},
+  <span class="hljs-attr">"requesttime"</span>: <span class="hljs-string">"yyyy-MM-dd'T'HH:mm:ss.SSS'Z'"</span>,
+  <span class="hljs-attr">"request"</span> : {
+        <span class="hljs-attr">"devices"</span>: {
+                <span class="hljs-attr">"deviceSpecId"</span>: <span class="hljs-string">"string"</span>,
+                                <span class="hljs-attr">"id"</span>: <span class="hljs-string">"string"</span>,
+                                <span class="hljs-attr">"ipAddress"</span>: <span class="hljs-string">"string"</span>,
+                                <span class="hljs-attr">"isActive"</span>: <span class="hljs-literal">true</span>,
+                                <span class="hljs-attr">"langCode"</span>: <span class="hljs-string">"string"</span>,
+                                <span class="hljs-attr">"macAddress"</span>: <span class="hljs-string">"string"</span>,
+                                <span class="hljs-attr">"name"</span>: <span class="hljs-string">"string"</span>,
+                                <span class="hljs-attr">"serialNum"</span>: <span class="hljs-string">"string"</span>,
+                                <span class="hljs-attr">"validityDateTime"</span>: <span class="hljs-string">"yyyy-MM-dd'T'HH:mm:ss.SSS'Z'"</span>              
+               }
+          }
+}
+</code></pre>
+<h3><a class="anchor" aria-hidden="true" id="example-response"></a><a href="#example-response" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Example Response</h3>
+<pre><code class="hljs css language-JSON">{
+  <span class="hljs-attr">"id"</span>: <span class="hljs-string">"string"</span>,
+  <span class="hljs-attr">"version"</span>: <span class="hljs-string">"string"</span>,
+  <span class="hljs-attr">"metadata"</span>: {},
+  <span class="hljs-attr">"responsetime"</span>: <span class="hljs-string">"yyyy-MM-dd'T'HH:mm:ss.SSS'Z'"</span>,
+  <span class="hljs-attr">"errors"</span>: <span class="hljs-literal">null</span>,
+ <span class="hljs-attr">"response"</span>: {
+         <span class="hljs-attr">"successfully_created_devices"</span>: {
+                                 <span class="hljs-attr">"deviceid"</span>: <span class="hljs-string">"string"</span>
+                                     }  
+}
+</code></pre>
+<h3><a class="anchor" aria-hidden="true" id="response-codes"></a><a href="#response-codes" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Response codes</h3>
+<p>202</p>
+<p>Description: Accepted</p>
+<p>400</p>
+<p>Description: Bad request</p>
+<p>401</p>
+<p>Description: Unauthorized</p>
+<p>403</p>
+<p>Description: Forbidden</p>
+<h1><a class="anchor" aria-hidden="true" id="get-devices-languagecode"></a><a href="#get-devices-languagecode" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>GET /devices/{languagecode}</h1>
+<p>This service will provides the service for the List of devices.</p>
+<h3><a class="anchor" aria-hidden="true" id="resource-url-1"></a><a href="#resource-url-1" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Resource URL</h3>
+<h3><a class="anchor" aria-hidden="true" id="get-devices"></a><a href="#get-devices" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><code>GET /devices</code></h3>
+<h3><a class="anchor" aria-hidden="true" id="resource-details-1"></a><a href="#resource-details-1" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Resource details</h3>
+<table>
+<thead>
+<tr><th>Resource Details</th><th>Description</th></tr>
+</thead>
+<tbody>
+<tr><td>Response format</td><td>JSON</td></tr>
+<tr><td>Requires Authentication</td><td>Yes</td></tr>
+</tbody>
+</table>
+<h3><a class="anchor" aria-hidden="true" id="parameters-1"></a><a href="#parameters-1" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Parameters</h3>
+<table>
+<thead>
+<tr><th>Name</th><th>Required</th><th>Description</th><th>Default Value</th><th>Example</th></tr>
+</thead>
+<tbody>
+</tbody>
+</table>
+<p>-NA-</p>
+<h3><a class="anchor" aria-hidden="true" id="example-response-1"></a><a href="#example-response-1" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Example Response</h3>
+<pre><code class="hljs css language-JSON">{
+  <span class="hljs-attr">"id"</span>: <span class="hljs-string">"string"</span>,
+  <span class="hljs-attr">"version"</span>: <span class="hljs-string">"string"</span>,
+  <span class="hljs-attr">"metadata"</span>: {},
+  <span class="hljs-attr">"responsetime"</span>: <span class="hljs-string">"yyyy-MM-dd'T'HH:mm:ss.SSS'Z'"</span>,
+  <span class="hljs-attr">"errors"</span>: <span class="hljs-literal">null</span>,
+  <span class="hljs-attr">"response"</span>: {
+    <span class="hljs-attr">"devices"</span>: [{
+            <span class="hljs-attr">"deviceSpecId"</span>: <span class="hljs-string">"string"</span>,
+                        <span class="hljs-attr">"id"</span>: <span class="hljs-string">"string"</span>,
+                        <span class="hljs-attr">"ipAddress"</span>: <span class="hljs-string">"string"</span>,
+                        <span class="hljs-attr">"isActive"</span>: <span class="hljs-literal">true</span>,
+                        <span class="hljs-attr">"langCode"</span>: <span class="hljs-string">"string"</span>,
+                        <span class="hljs-attr">"macAddress"</span>: <span class="hljs-string">"string"</span>,
+                        <span class="hljs-attr">"name"</span>: <span class="hljs-string">"string"</span>,
+                        <span class="hljs-attr">"serialNum"</span>: <span class="hljs-string">"string"</span>,
+                        <span class="hljs-attr">"validityDateTime"</span>: <span class="hljs-string">"yyyy-MM-dd'T'HH:mm:ss.SSS'Z'"</span>
+              }] 
+             }
+}
+</code></pre>
+<p>200</p>
+<p>Description: Success</p>
+<p>400</p>
+<p>Description: Bad request</p>
+<p>401</p>
+<p>Description: Unauthorized</p>
+<p>404</p>
+<p>Description: Not Found</p>
+<h1><a class="anchor" aria-hidden="true" id="get-devices-languagecode-devicetype"></a><a href="#get-devices-languagecode-devicetype" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>GET /devices/{languagecode}/{deviceType}</h1>
+<p>This service will provides the service for the List of devices.</p>
+<h3><a class="anchor" aria-hidden="true" id="resource-url-2"></a><a href="#resource-url-2" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Resource URL</h3>
+<h3><a class="anchor" aria-hidden="true" id="get-devices-languagecode-devicetype-1"></a><a href="#get-devices-languagecode-devicetype-1" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><code>GET /devices/{languagecode}/{deviceType}</code></h3>
+<h3><a class="anchor" aria-hidden="true" id="resource-details-2"></a><a href="#resource-details-2" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Resource details</h3>
+<table>
+<thead>
+<tr><th>Resource Details</th><th>Description</th></tr>
+</thead>
+<tbody>
+<tr><td>Response format</td><td>JSON</td></tr>
+<tr><td>Requires Authentication</td><td>Yes</td></tr>
+</tbody>
+</table>
+<h3><a class="anchor" aria-hidden="true" id="parameters-2"></a><a href="#parameters-2" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Parameters</h3>
+<table>
+<thead>
+<tr><th>Name</th><th>Required</th><th>Description</th><th>Default Value</th><th>Example</th></tr>
+</thead>
+<tbody>
+</tbody>
+</table>
+<p>-NA-</p>
+<h3><a class="anchor" aria-hidden="true" id="example-response-2"></a><a href="#example-response-2" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Example Response</h3>
+<pre><code class="hljs css language-JSON"> {
+  <span class="hljs-attr">"id"</span>: <span class="hljs-string">"string"</span>,
+  <span class="hljs-attr">"version"</span>: <span class="hljs-string">"string"</span>,
+  <span class="hljs-attr">"metadata"</span>: {},
+  <span class="hljs-attr">"responsetime"</span>: <span class="hljs-string">"yyyy-MM-dd'T'HH:mm:ss.SSS'Z'"</span>,
+  <span class="hljs-attr">"errors"</span>: <span class="hljs-literal">null</span>,
+  <span class="hljs-attr">"response"</span>: {
+    <span class="hljs-attr">"devices"</span>: [{
+             <span class="hljs-attr">"deviceSpecId"</span>: <span class="hljs-string">"string"</span>,
+                         <span class="hljs-attr">"deviceTypeCode"</span>: <span class="hljs-string">"string"</span>,
+                         <span class="hljs-attr">"id"</span>: <span class="hljs-string">"string"</span>,
+                         <span class="hljs-attr">"ipAddress"</span>: <span class="hljs-string">"string"</span>,
+                         <span class="hljs-attr">"isActive"</span>: <span class="hljs-literal">true</span>,
+                         <span class="hljs-attr">"langCode"</span>: <span class="hljs-string">"string"</span>,
+                         <span class="hljs-attr">"macAddress"</span>: <span class="hljs-string">"string"</span>,
+                         <span class="hljs-attr">"name"</span>: <span class="hljs-string">"string"</span>,
+                         <span class="hljs-attr">"serialNum"</span>: <span class="hljs-string">"string"</span>,
+                         <span class="hljs-attr">"validityEndDateTime"</span>: <span class="hljs-string">"2019-04-05T09:30:13.608Z"</span>
+             }]
+    }
+}
+</code></pre>
+<p>200</p>
+<p>Description: Success</p>
+<p>400</p>
+<p>Description: Bad request</p>
+<p>401</p>
+<p>Description: Unauthorized</p>
+<p>404</p>
+<p>Description: Not Found</p>
+<h1><a class="anchor" aria-hidden="true" id="put-devices"></a><a href="#put-devices" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>PUT /devices</h1>
+<p>This service will update existing device.</p>
+<h3><a class="anchor" aria-hidden="true" id="resource-url-3"></a><a href="#resource-url-3" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Resource URL</h3>
+<h3><a class="anchor" aria-hidden="true" id="put-devices-1"></a><a href="#put-devices-1" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><code>PUT /devices</code></h3>
+<h3><a class="anchor" aria-hidden="true" id="resource-details-3"></a><a href="#resource-details-3" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Resource details</h3>
+<table>
+<thead>
+<tr><th>Resource Details</th><th>Description</th></tr>
+</thead>
+<tbody>
+<tr><td>Response format</td><td>JSON</td></tr>
+<tr><td>Requires Authentication</td><td>Yes</td></tr>
+</tbody>
+</table>
+<h3><a class="anchor" aria-hidden="true" id="parameters-3"></a><a href="#parameters-3" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Parameters</h3>
+<table>
+<thead>
+<tr><th>Name</th><th>Required</th><th>Description</th><th>Default Value</th><th>Example</th></tr>
+</thead>
+<tbody>
+</tbody>
+</table>
+<p>-NA-</p>
+<h3><a class="anchor" aria-hidden="true" id="example-request-1"></a><a href="#example-request-1" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Example Request</h3>
+<pre><code class="hljs css language-JSON">{
+  <span class="hljs-attr">"id"</span>: <span class="hljs-string">"string"</span>,
+  <span class="hljs-attr">"version"</span>: <span class="hljs-string">"string"</span>,
+  <span class="hljs-attr">"metadata"</span>: {},
+  <span class="hljs-attr">"requesttime"</span>: <span class="hljs-string">"yyyy-MM-dd'T'HH:mm:ss.SSS'Z'"</span>,
+  <span class="hljs-attr">"request"</span>: {
+               <span class="hljs-attr">"deviceSpecId"</span>: <span class="hljs-string">"string"</span>,
+               <span class="hljs-attr">"id"</span>: <span class="hljs-string">"string"</span>,
+               <span class="hljs-attr">"ipAddress"</span>: <span class="hljs-string">"string"</span>,
+               <span class="hljs-attr">"isActive"</span>: <span class="hljs-literal">true</span>,
+               <span class="hljs-attr">"langCode"</span>: <span class="hljs-string">"string"</span>,
+               <span class="hljs-attr">"macAddress"</span>: <span class="hljs-string">"string"</span>,
+               <span class="hljs-attr">"name"</span>: <span class="hljs-string">"string"</span>,
+               <span class="hljs-attr">"serialNum"</span>: <span class="hljs-string">"string"</span>,
+               <span class="hljs-attr">"validityDateTime"</span>: <span class="hljs-string">"yyyy-MM-dd'T'HH:mm:ss.SSS'Z'"</span>
+  }
+}
+</code></pre>
+<h3><a class="anchor" aria-hidden="true" id="example-response-3"></a><a href="#example-response-3" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Example Response</h3>
+<pre><code class="hljs css language-JSON">{
+  <span class="hljs-attr">"id"</span>: <span class="hljs-string">"string"</span>,
+  <span class="hljs-attr">"version"</span>: <span class="hljs-string">"string"</span>,
+  <span class="hljs-attr">"metadata"</span>: {},
+  <span class="hljs-attr">"responsetime"</span>: <span class="hljs-string">"yyyy-MM-dd'T'HH:mm:ss.SSS'Z'"</span>,
+  <span class="hljs-attr">"errors"</span>: <span class="hljs-literal">null</span>,
+  <span class="hljs-attr">"response"</span>:{
+                 <span class="hljs-attr">"id"</span>: <span class="hljs-string">"string"</span>
+             }
+}
+</code></pre>
+<h3><a class="anchor" aria-hidden="true" id="response-codes-1"></a><a href="#response-codes-1" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Response codes</h3>
+<p>200</p>
+<p>Description: When Device updated successfully</p>
+<p>201</p>
+<p>Description: Created</p>
+<p>400</p>
+<p>Description: When Request body passed is null or invalid</p>
+<p>401</p>
+<p>Description: Unauthorized</p>
+<p>403</p>
+<p>Description: Forbidden</p>
+<p>404</p>
+<p>Description: When Device is not found</p>
+<p>500</p>
+<p>Description: While updating device any error occurred</p>
+<h1><a class="anchor" aria-hidden="true" id="delete-devices-id"></a><a href="#delete-devices-id" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>DELETE /devices/{id}</h1>
+<p>This service will delete the devices.</p>
+<h3><a class="anchor" aria-hidden="true" id="resource-url-4"></a><a href="#resource-url-4" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Resource URL</h3>
+<h3><a class="anchor" aria-hidden="true" id="delete-devices-id-1"></a><a href="#delete-devices-id-1" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><code>DELETE /devices/{id}</code></h3>
+<h3><a class="anchor" aria-hidden="true" id="resource-details-4"></a><a href="#resource-details-4" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Resource details</h3>
+<table>
+<thead>
+<tr><th>Resource Details</th><th>Description</th></tr>
+</thead>
+<tbody>
+<tr><td>Response format</td><td>JSON</td></tr>
+<tr><td>Requires Authentication</td><td>Yes</td></tr>
+</tbody>
+</table>
+<h3><a class="anchor" aria-hidden="true" id="parameters-4"></a><a href="#parameters-4" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Parameters</h3>
+<table>
+<thead>
+<tr><th>Name</th><th>Required</th><th>Description</th><th>Default Value</th><th>Example</th></tr>
+</thead>
+<tbody>
+<tr><td>deviceId</td><td>Yes</td><td>The device Id</td><td></td></tr>
+</tbody>
+</table>
+<h3><a class="anchor" aria-hidden="true" id="example-response-4"></a><a href="#example-response-4" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Example Response</h3>
+<pre><code class="hljs css language-JSON">{
+  <span class="hljs-attr">"id"</span>: <span class="hljs-string">"string"</span>,
+  <span class="hljs-attr">"version"</span>: <span class="hljs-string">"string"</span>,
+  <span class="hljs-attr">"metadata"</span>: {},
+  <span class="hljs-attr">"responsetime"</span>: <span class="hljs-string">"yyyy-MM-dd'T'HH:mm:ss.SSS'Z'"</span>,
+  <span class="hljs-attr">"errors"</span>: <span class="hljs-literal">null</span>,
+  <span class="hljs-attr">"response"</span>:{
+               <span class="hljs-attr">"id"</span>: <span class="hljs-string">"string"</span>
+            }
+}
+</code></pre>
+<p>200</p>
+<p>Description: When Device deleted successfully</p>
+<p>204</p>
+<p>Description: No Content</p>
+<p>401</p>
+<p>Description: Unauthorized</p>
+<p>403</p>
+<p>Description: Forbidden</p>
+<p>404</p>
+<p>Description: When Device not found</p>
+<p>500</p>
+<p>Description: Error occurred while deleting Device</p>
+<h3><a class="anchor" aria-hidden="true" id="failure-response"></a><a href="#failure-response" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Failure Response:</h3>
+<pre><code class="hljs css language-JSON">{
+  <span class="hljs-attr">"id"</span>: <span class="hljs-string">"string"</span>,
+  <span class="hljs-attr">"version"</span>: <span class="hljs-string">"string"</span>,
+  <span class="hljs-attr">"metadata"</span>: {},
+  <span class="hljs-attr">"responsetime"</span>: <span class="hljs-string">"yyyy-MM-dd'T'HH:mm:ss.SSS'Z'"</span>,
+  <span class="hljs-attr">"errors"</span>: [{
+      <span class="hljs-attr">"errorCode"</span>: <span class="hljs-string">"string"</span>,
+      <span class="hljs-attr">"message"</span>: <span class="hljs-string">"string"</span>
+    }],
+  <span class="hljs-attr">"response"</span>:<span class="hljs-literal">null</span>
+}
+</code></pre>
+<h4><a class="anchor" aria-hidden="true" id="failure-details"></a><a href="#failure-details" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Failure details</h4>
+<table>
+<thead>
+<tr><th>Error Code</th><th>Error Message</th><th>Error Description</th></tr>
+</thead>
+<tbody>
+<tr><td>KER-MSD-009</td><td>Error occured while fetching Devices</td><td>Fetch Issue</td></tr>
+<tr><td>KER-MSD-069</td><td>Error occurred while inserting Device details</td><td>Insertion Issue</td></tr>
+<tr><td>KER-MSD-010</td><td>Device not Found</td><td>Data Not Found</td></tr>
+<tr><td>KER-MSD-083</td><td>Error while updating</td><td>Update Issue</td></tr>
+<tr><td>KER-MSD-084</td><td>Error while deleting</td><td>Deletion Issue</td></tr>
+<tr><td>KER-MSD-147</td><td>Cannot delete as dependency found</td><td>Deletion Issue because of dependency</td></tr>
+</tbody>
+</table>
+<h1><a class="anchor" aria-hidden="true" id="device-types-master-api"></a><a href="#device-types-master-api" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Device Types Master API</h1>
+<ul>
+<li><a href="#post-devicetypes">POST /devicetypes</a></li>
+</ul>
+<h2><a class="anchor" aria-hidden="true" id="post-devicetypes"></a><a href="#post-devicetypes" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>POST /devicetypes</h2>
+<p>This service will create the list of Device types which are used in the MOSIP platform.</p>
+<h3><a class="anchor" aria-hidden="true" id="resource-url-5"></a><a href="#resource-url-5" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Resource URL</h3>
+<h3><a class="anchor" aria-hidden="true" id="post-devicetypes-1"></a><a href="#post-devicetypes-1" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><code>POST /devicetypes</code></h3>
+<h3><a class="anchor" aria-hidden="true" id="resource-details-5"></a><a href="#resource-details-5" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Resource details</h3>
+<table>
+<thead>
+<tr><th>Resource Details</th><th>Description</th></tr>
+</thead>
+<tbody>
+<tr><td>Response format</td><td>JSON</td></tr>
+<tr><td>Requires Authentication</td><td>Yes</td></tr>
+</tbody>
+</table>
+<h3><a class="anchor" aria-hidden="true" id="parameters-5"></a><a href="#parameters-5" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Parameters</h3>
+<table>
+<thead>
+<tr><th>Name</th><th>Required</th><th>Description</th><th>Default Value</th><th>Example</th></tr>
+</thead>
+<tbody>
+<tr><td>devicetypecode</td><td>Yes</td><td>Code of the device type</td><td></td></tr>
+<tr><td>devicename</td><td>Yes</td><td>Name of the device type</td><td></td></tr>
+<tr><td>description</td><td>Yes</td><td>Description of the device type</td><td></td></tr>
+<tr><td>languagecode</td><td>Yes</td><td>Language code of the device type</td><td></td></tr>
+<tr><td>isactive</td><td>Yes</td><td>Is the device type active?</td><td></td></tr>
+</tbody>
+</table>
+<h3><a class="anchor" aria-hidden="true" id="example-request-2"></a><a href="#example-request-2" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Example Request</h3>
+<pre><code class="hljs css language-JSON">{
+  <span class="hljs-attr">"id"</span>: <span class="hljs-string">"string"</span>,
+  <span class="hljs-attr">"version"</span>: <span class="hljs-string">"string"</span>,
+  <span class="hljs-attr">"metadata"</span>: {},
+  <span class="hljs-attr">"requesttime"</span>: <span class="hljs-string">"yyyy-MM-dd'T'HH:mm:ss.SSS'Z'"</span>,
+  <span class="hljs-attr">"request"</span>:  {
+    <span class="hljs-attr">"code"</span>: <span class="hljs-string">"string"</span>,
+    <span class="hljs-attr">"description"</span>: <span class="hljs-string">"string"</span>,
+    <span class="hljs-attr">"isActive"</span>: <span class="hljs-literal">true</span>,
+    <span class="hljs-attr">"langCode"</span>: <span class="hljs-string">"string"</span>,
+    <span class="hljs-attr">"name"</span>: <span class="hljs-string">"string"</span>
+  }
+}
+</code></pre>
+<h3><a class="anchor" aria-hidden="true" id="example-response-5"></a><a href="#example-response-5" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Example Response</h3>
+<pre><code class="hljs css language-JSON">{
+  <span class="hljs-attr">"id"</span>: <span class="hljs-string">"string"</span>,
+  <span class="hljs-attr">"version"</span>: <span class="hljs-string">"string"</span>,
+  <span class="hljs-attr">"metadata"</span>: {},
+  <span class="hljs-attr">"responsetime"</span>: <span class="hljs-string">"yyyy-MM-dd'T'HH:mm:ss.SSS'Z'"</span>,
+  <span class="hljs-attr">"errors"</span>: <span class="hljs-literal">null</span>,
+  <span class="hljs-attr">"response"</span>:{
+      <span class="hljs-attr">"code"</span>: <span class="hljs-string">"string"</span>,
+      <span class="hljs-attr">"langCode"</span>: <span class="hljs-string">"string"</span>
+  }
+}
+</code></pre>
+<h3><a class="anchor" aria-hidden="true" id="response-codes-2"></a><a href="#response-codes-2" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Response codes</h3>
+<p>202</p>
+<p>Description: Accepted</p>
+<p>400</p>
+<p>Description: Bad request</p>
+<p>401</p>
+<p>Description: Unauthorized</p>
+<p>403</p>
+<p>Description: Forbidden</p>
+<h4><a class="anchor" aria-hidden="true" id="failure-details-1"></a><a href="#failure-details-1" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Failure details</h4>
+<table>
+<thead>
+<tr><th>Error Code</th><th>Error Message</th><th>Error Description</th></tr>
+</thead>
+<tbody>
+<tr><td>KER-MSD-053</td><td>Error occurred while inserting Device Type details</td><td>Insertion Issue</td></tr>
+<tr><td>KER-MSD-003</td><td>Required Device Type detail Not Found</td><td>Data Not Found</td></tr>
+<tr><td>KER-MSD-002</td><td>Error occurred while mapping Device Type details</td><td>Mapping Issue</td></tr>
+</tbody>
+</table>
+<h1><a class="anchor" aria-hidden="true" id="device-specifications"></a><a href="#device-specifications" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Device Specifications</h1>
+<ul>
+<li><a href="#post-devicespecifications">POST /devicespecifications</a></li>
+<li><a href="#put-devicespecifications">PUT /devicespecifications</a></li>
+<li><a href="#delete-devicespecificationsid">DELETE /devicespecifications/{id}</a></li>
+<li><a href="#get-devicespecificationslangcodedevicetypecode">GET /devicespecifications/{langcode}/{devicetypecode}</a></li>
+<li><a href="#get-devicespecificationslang_code">GET /devicespecifications/{lang_code}</a></li>
+</ul>
+<h1><a class="anchor" aria-hidden="true" id="post-devicespecifications"></a><a href="#post-devicespecifications" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>POST /devicespecifications</h1>
+<p>This service will create a Device Specification which are used in the MOSIP platform.</p>
+<h3><a class="anchor" aria-hidden="true" id="resource-url-6"></a><a href="#resource-url-6" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Resource URL</h3>
+<h3><a class="anchor" aria-hidden="true" id="post-devicespecifications-1"></a><a href="#post-devicespecifications-1" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><code>POST /devicespecifications</code></h3>
+<h3><a class="anchor" aria-hidden="true" id="resource-details-6"></a><a href="#resource-details-6" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Resource details</h3>
+<table>
+<thead>
+<tr><th>Resource Details</th><th>Description</th></tr>
+</thead>
+<tbody>
+<tr><td>Response format</td><td>JSON</td></tr>
+<tr><td>Requires Authentication</td><td>Yes</td></tr>
+</tbody>
+</table>
+<h3><a class="anchor" aria-hidden="true" id="parameters-6"></a><a href="#parameters-6" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Parameters</h3>
+<table>
+<thead>
+<tr><th>Name</th><th>Required</th><th>Description</th><th>Default Value</th><th>Example</th></tr>
+</thead>
+<tbody>
+<tr><td>id</td><td>Yes</td><td>ID of the Device Specification</td><td></td></tr>
+<tr><td>name</td><td>Yes</td><td>Name of the Device Specification</td><td></td></tr>
+<tr><td>brand</td><td>Yes</td><td>Brand of the Device specification</td><td></td></tr>
+<tr><td>model</td><td>Yes</td><td>Model of the Device specification</td><td></td></tr>
+<tr><td>dtyp_code</td><td>Yes</td><td>device type code of the Device specification</td><td></td></tr>
+<tr><td>min_driver_ver</td><td>Yes</td><td>Minimum driver version required for the Device specification</td><td></td></tr>
+<tr><td>descr</td><td>Yes</td><td>Description of the Device specification</td><td></td></tr>
+<tr><td>lang_code</td><td>Yes</td><td>Language of the Device specification</td><td></td></tr>
+<tr><td>is_active</td><td>Yes</td><td>Is the Device Specification active</td><td></td></tr>
+</tbody>
+</table>
+<h3><a class="anchor" aria-hidden="true" id="example-request-3"></a><a href="#example-request-3" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Example Request</h3>
+<pre><code class="hljs css language-JSON">{
+  <span class="hljs-attr">"id"</span>: <span class="hljs-string">"string"</span>,
+  <span class="hljs-attr">"version"</span>: <span class="hljs-string">"string"</span>,
+  <span class="hljs-attr">"metadata"</span>: {},
+  <span class="hljs-attr">"requesttime"</span>: <span class="hljs-string">"yyyy-MM-dd'T'HH:mm:ss.SSS'Z'"</span>,
+  <span class="hljs-attr">"request"</span>: {
+    <span class="hljs-attr">"brand"</span>: <span class="hljs-string">"string"</span>,
+    <span class="hljs-attr">"description"</span>: <span class="hljs-string">"string"</span>,
+    <span class="hljs-attr">"id"</span>: <span class="hljs-string">"string"</span>,
+    <span class="hljs-attr">"isActive"</span>: <span class="hljs-literal">true</span>,
+    <span class="hljs-attr">"langCode"</span>: <span class="hljs-string">"string"</span>,
+    <span class="hljs-attr">"DeviceTypeCode"</span>: <span class="hljs-string">"string"</span>,
+    <span class="hljs-attr">"minDriverversion"</span>: <span class="hljs-string">"string"</span>,
+    <span class="hljs-attr">"model"</span>: <span class="hljs-string">"string"</span>,
+    <span class="hljs-attr">"name"</span>: <span class="hljs-string">"string"</span>
+  }
+}
+</code></pre>
+<h3><a class="anchor" aria-hidden="true" id="example-response-6"></a><a href="#example-response-6" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Example Response</h3>
+<pre><code class="hljs css language-JSON">{
+  <span class="hljs-attr">"id"</span>: <span class="hljs-string">"string"</span>
+}
+</code></pre>
+<h1><a class="anchor" aria-hidden="true" id="put-devicespecifications"></a><a href="#put-devicespecifications" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>PUT /devicespecifications</h1>
+<p>This service will update a Device Specification which are used in the MOSIP platform.</p>
+<h3><a class="anchor" aria-hidden="true" id="resource-url-7"></a><a href="#resource-url-7" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Resource URL</h3>
+<h3><a class="anchor" aria-hidden="true" id="put-devicespecifications-1"></a><a href="#put-devicespecifications-1" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><code>PUT /devicespecifications</code></h3>
+<h3><a class="anchor" aria-hidden="true" id="resource-details-7"></a><a href="#resource-details-7" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Resource details</h3>
+<table>
+<thead>
+<tr><th>Resource Details</th><th>Description</th></tr>
+</thead>
+<tbody>
+<tr><td>Response format</td><td>JSON</td></tr>
+<tr><td>Requires Authentication</td><td>Yes</td></tr>
+</tbody>
+</table>
+<h3><a class="anchor" aria-hidden="true" id="parameters-7"></a><a href="#parameters-7" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Parameters</h3>
+<table>
+<thead>
+<tr><th>Name</th><th>Required</th><th>Description</th><th>Default Value</th><th>Example</th></tr>
+</thead>
+<tbody>
+<tr><td>id</td><td>Yes</td><td>ID of the Device Specification</td><td></td></tr>
+<tr><td>lang_code</td><td>Yes</td><td>Language code of the Device Specification</td><td></td></tr>
+</tbody>
+</table>
+<h3><a class="anchor" aria-hidden="true" id="example-request-4"></a><a href="#example-request-4" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Example Request</h3>
+<pre><code class="hljs css language-JSON">{
+  <span class="hljs-attr">"id"</span>: <span class="hljs-string">"string"</span>,
+  <span class="hljs-attr">"version"</span>: <span class="hljs-string">"string"</span>,
+  <span class="hljs-attr">"metadata"</span>: {},
+  <span class="hljs-attr">"requesttime"</span>: <span class="hljs-string">"yyyy-MM-dd'T'HH:mm:ss.SSS'Z'"</span>,
+  <span class="hljs-attr">"request"</span>: {
+    <span class="hljs-attr">"brand"</span>: <span class="hljs-string">"string"</span>,
+    <span class="hljs-attr">"description"</span>: <span class="hljs-string">"string"</span>,
+    <span class="hljs-attr">"id"</span>: <span class="hljs-string">"string"</span>,
+    <span class="hljs-attr">"isActive"</span>: <span class="hljs-literal">true</span>,
+    <span class="hljs-attr">"langCode"</span>: <span class="hljs-string">"string"</span>,
+    <span class="hljs-attr">"deviceTypeCode"</span>: <span class="hljs-string">"string"</span>,
+    <span class="hljs-attr">"minDriverversion"</span>: <span class="hljs-string">"string"</span>,
+    <span class="hljs-attr">"model"</span>: <span class="hljs-string">"string"</span>,
+    <span class="hljs-attr">"name"</span>: <span class="hljs-string">"string"</span>
+  }
+}
+</code></pre>
+<h3><a class="anchor" aria-hidden="true" id="example-response-7"></a><a href="#example-response-7" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Example Response</h3>
+<pre><code class="hljs css language-JSON">{
+  <span class="hljs-attr">"id"</span>: <span class="hljs-string">"string"</span>
+}
+</code></pre>
+<h1><a class="anchor" aria-hidden="true" id="delete-devicespecifications-id"></a><a href="#delete-devicespecifications-id" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>DELETE /devicespecifications/{id}</h1>
+<p>This service deletes a Device Specification from the Device Specifications master module.</p>
+<h3><a class="anchor" aria-hidden="true" id="resource-url-8"></a><a href="#resource-url-8" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Resource URL</h3>
+<h3><a class="anchor" aria-hidden="true" id="delete-devicespecifications-id-1"></a><a href="#delete-devicespecifications-id-1" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><code>DELETE /devicespecifications/{id}</code></h3>
+<h3><a class="anchor" aria-hidden="true" id="resource-details-8"></a><a href="#resource-details-8" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Resource details</h3>
+<table>
+<thead>
+<tr><th>Resource Details</th><th>Description</th></tr>
+</thead>
+<tbody>
+<tr><td>Response format</td><td>JSON</td></tr>
+<tr><td>Requires Authentication</td><td>Yes</td></tr>
+</tbody>
+</table>
+<h3><a class="anchor" aria-hidden="true" id="parameters-8"></a><a href="#parameters-8" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Parameters</h3>
+<table>
+<thead>
+<tr><th>Name</th><th>Required</th><th>Description</th><th>Default Value</th><th>Example</th></tr>
+</thead>
+<tbody>
+<tr><td>id</td><td>Yes</td><td>ID of the Device Specification</td><td></td></tr>
+</tbody>
+</table>
+<h3><a class="anchor" aria-hidden="true" id="example-response-8"></a><a href="#example-response-8" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Example Response</h3>
+<pre><code class="hljs css language-JSON">{
+  <span class="hljs-attr">"id"</span>: <span class="hljs-string">"string"</span>,
+  <span class="hljs-attr">"version"</span>: <span class="hljs-string">"string"</span>,
+  <span class="hljs-attr">"metadata"</span>: {},
+  <span class="hljs-attr">"responsetime"</span>: <span class="hljs-string">"yyyy-MM-dd'T'HH:mm:ss.SSS'Z'"</span>,
+  <span class="hljs-attr">"errors"</span>: <span class="hljs-literal">null</span>,
+  <span class="hljs-attr">"response"</span>:  {
+          <span class="hljs-attr">"id"</span>: <span class="hljs-string">"string"</span>
+   }
+}
+</code></pre>
+<h1><a class="anchor" aria-hidden="true" id="get-devicespecifications-langcode-devicetypecode"></a><a href="#get-devicespecifications-langcode-devicetypecode" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>GET /devicespecifications/{langcode}/{devicetypecode}</h1>
+<p>This service will provides the list of all Device Specifications for specified language code and device type code .</p>
+<h3><a class="anchor" aria-hidden="true" id="resource-url-9"></a><a href="#resource-url-9" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Resource URL</h3>
+<h3><a class="anchor" aria-hidden="true" id="get-devicespecifications-langcode-devicetypecode-1"></a><a href="#get-devicespecifications-langcode-devicetypecode-1" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><code>GET /devicespecifications/{langcode}/{devicetypecode}</code></h3>
+<h3><a class="anchor" aria-hidden="true" id="resource-details-9"></a><a href="#resource-details-9" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Resource details</h3>
+<table>
+<thead>
+<tr><th>Resource Details</th><th>Description</th></tr>
+</thead>
+<tbody>
+<tr><td>Response format</td><td>JSON</td></tr>
+<tr><td>Requires Authentication</td><td>Yes</td></tr>
+</tbody>
+</table>
+<h3><a class="anchor" aria-hidden="true" id="parameters-9"></a><a href="#parameters-9" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Parameters</h3>
+<table>
+<thead>
+<tr><th>Name</th><th>Required</th><th>Description</th><th>Default Value</th><th>Example</th></tr>
+</thead>
+<tbody>
+<tr><td>lang_code</td><td>Yes</td><td>Language code of the Device Specification</td><td></td></tr>
+<tr><td>dtyp_code</td><td>Yes</td><td>device type code of the Device specification</td><td></td></tr>
+</tbody>
+</table>
+<h3><a class="anchor" aria-hidden="true" id="example-request-5"></a><a href="#example-request-5" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Example Request</h3>
+<pre><code class="hljs css language-JSON">-NA-
+</code></pre>
+<h3><a class="anchor" aria-hidden="true" id="example-response-9"></a><a href="#example-response-9" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Example Response</h3>
+<pre><code class="hljs css language-JSON">{
+  <span class="hljs-attr">"id"</span>: <span class="hljs-string">"string"</span>,
+  <span class="hljs-attr">"version"</span>: <span class="hljs-string">"string"</span>,
+  <span class="hljs-attr">"metadata"</span>: {},
+  <span class="hljs-attr">"responsetime"</span>: <span class="hljs-string">"yyyy-MM-dd'T'HH:mm:ss.SSS'Z'"</span>,
+  <span class="hljs-attr">"errors"</span>: <span class="hljs-literal">null</span>,
+  <span class="hljs-attr">"response"</span>:   {
+  <span class="hljs-attr">"devicespecifications"</span>: [
+    {
+      <span class="hljs-attr">"brand"</span>: <span class="hljs-string">"string"</span>,
+      <span class="hljs-attr">"description"</span>: <span class="hljs-string">"string"</span>,
+      <span class="hljs-attr">"deviceTypeCode"</span>: <span class="hljs-string">"string"</span>,
+      <span class="hljs-attr">"id"</span>: <span class="hljs-string">"string"</span>,
+      <span class="hljs-attr">"isActive"</span>: <span class="hljs-literal">true</span>,
+      <span class="hljs-attr">"langCode"</span>: <span class="hljs-string">"string"</span>,
+      <span class="hljs-attr">"minDriverversion"</span>: <span class="hljs-string">"string"</span>,
+      <span class="hljs-attr">"model"</span>: <span class="hljs-string">"string"</span>,
+      <span class="hljs-attr">"name"</span>: <span class="hljs-string">"string"</span>
+    }
+  ]
+}
+}
+
+</code></pre>
+<h1><a class="anchor" aria-hidden="true" id="get-devicespecifications-lang_code"></a><a href="#get-devicespecifications-lang_code" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>GET /devicespecifications/{lang_code}</h1>
+<p>This service will provides the list of all Device Specifications in a specific language.</p>
+<h3><a class="anchor" aria-hidden="true" id="resource-url-10"></a><a href="#resource-url-10" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Resource URL</h3>
+<h3><a class="anchor" aria-hidden="true" id="get-devicespecifications-lang_code-1"></a><a href="#get-devicespecifications-lang_code-1" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><code>GET /devicespecifications/{lang_code}</code></h3>
+<h3><a class="anchor" aria-hidden="true" id="resource-details-10"></a><a href="#resource-details-10" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Resource details</h3>
+<table>
+<thead>
+<tr><th>Resource Details</th><th>Description</th></tr>
+</thead>
+<tbody>
+<tr><td>Response format</td><td>JSON</td></tr>
+<tr><td>Requires Authentication</td><td>Yes</td></tr>
+</tbody>
+</table>
+<h3><a class="anchor" aria-hidden="true" id="parameters-10"></a><a href="#parameters-10" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Parameters</h3>
+<table>
+<thead>
+<tr><th>Name</th><th>Required</th><th>Description</th><th>Default Value</th><th>Example</th></tr>
+</thead>
+<tbody>
+<tr><td>lang_code</td><td>Yes</td><td>Language code of the Device Specification</td><td></td></tr>
+</tbody>
+</table>
+<h3><a class="anchor" aria-hidden="true" id="example-request-6"></a><a href="#example-request-6" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Example Request</h3>
+<pre><code class="hljs css language-JSON">-NA-
+</code></pre>
+<h3><a class="anchor" aria-hidden="true" id="example-response-10"></a><a href="#example-response-10" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Example Response</h3>
+<pre><code class="hljs css language-JSON">{
+  <span class="hljs-attr">"id"</span>: <span class="hljs-string">"string"</span>,
+  <span class="hljs-attr">"version"</span>: <span class="hljs-string">"string"</span>,
+  <span class="hljs-attr">"metadata"</span>: {},
+  <span class="hljs-attr">"responsetime"</span>: <span class="hljs-string">"yyyy-MM-dd'T'HH:mm:ss.SSS'Z'"</span>,
+  <span class="hljs-attr">"errors"</span>: <span class="hljs-literal">null</span>,
+  <span class="hljs-attr">"response"</span> : {
+  <span class="hljs-attr">"devicespecifications"</span>: [
+    {
+      <span class="hljs-attr">"brand"</span>: <span class="hljs-string">"string"</span>,
+      <span class="hljs-attr">"description"</span>: <span class="hljs-string">"string"</span>,
+      <span class="hljs-attr">"deviceTypeCode"</span>: <span class="hljs-string">"string"</span>,
+      <span class="hljs-attr">"id"</span>: <span class="hljs-string">"string"</span>,
+      <span class="hljs-attr">"isActive"</span>: <span class="hljs-literal">true</span>,
+      <span class="hljs-attr">"langCode"</span>: <span class="hljs-string">"string"</span>,
+      <span class="hljs-attr">"minDriverversion"</span>: <span class="hljs-string">"string"</span>,
+      <span class="hljs-attr">"model"</span>: <span class="hljs-string">"string"</span>,
+      <span class="hljs-attr">"name"</span>: <span class="hljs-string">"string"</span>
+    }
+  ]
+ }
+}
+</code></pre>
+<h3><a class="anchor" aria-hidden="true" id="response-codes-3"></a><a href="#response-codes-3" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Response codes</h3>
+<p>202</p>
+<p>Description: Accepted</p>
+<p>400</p>
+<p>Description: Bad request</p>
+<p>401</p>
+<p>Description: Unauthorized</p>
+<p>403</p>
+<p>Description: Forbidden</p>
+<h3><a class="anchor" aria-hidden="true" id="failure-response-1"></a><a href="#failure-response-1" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Failure Response:</h3>
+<pre><code class="hljs css language-JSON">{
+  <span class="hljs-attr">"id"</span>: <span class="hljs-string">"string"</span>,
+  <span class="hljs-attr">"version"</span>: <span class="hljs-string">"string"</span>,
+  <span class="hljs-attr">"metadata"</span>: {},
+  <span class="hljs-attr">"responsetime"</span>: <span class="hljs-string">"yyyy-MM-dd'T'HH:mm:ss.SSS'Z'"</span>,
+  <span class="hljs-attr">"errors"</span>: [{
+      <span class="hljs-attr">"errorCode"</span>: <span class="hljs-string">"string"</span>,
+      <span class="hljs-attr">"message"</span>: <span class="hljs-string">"string"</span>
+    }],
+  <span class="hljs-attr">"response"</span> : <span class="hljs-literal">null</span>
+}
+</code></pre>
+<h4><a class="anchor" aria-hidden="true" id="failure-details-2"></a><a href="#failure-details-2" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Failure details</h4>
+<table>
+<thead>
+<tr><th>Error Code</th><th>Error Message</th><th>Error Description</th></tr>
+</thead>
+<tbody>
+<tr><td>KER-MSD-011</td><td>Error occurred while fetching Device Specifications</td><td>Fetch Issue</td></tr>
+<tr><td>KER-MSD-054</td><td>Error occurred while inserting Device Specification details</td><td>Insertion Issue</td></tr>
+<tr><td>KER-MSD-012</td><td>Device Specification not found</td><td>Data Not Found</td></tr>
+<tr><td>KER-MSD-081</td><td>Error occurred while updating Device Specification</td><td>Update Issue</td></tr>
+<tr><td>KER-MSD-082</td><td>Error occurred while deleting Device Specification</td><td>Deletion Issue</td></tr>
+<tr><td>KER-MSD-121</td><td>Cannot delete dependency found</td><td>Deletion Issue because of dependency</td></tr>
+</tbody>
+</table>
+<h1><a class="anchor" aria-hidden="true" id="device-search-apis"></a><a href="#device-search-apis" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Device search APIs</h1>
+<ul>
+<li><a href="#post-devicessearch">POST /devices/search</a></li>
+</ul>
+<h1><a class="anchor" aria-hidden="true" id="post-devices-search"></a><a href="#post-devices-search" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>POST /devices/search</h1>
+<p>This service is for the devices search functionality. All the filter parameters are passed and the devices are searched and the matching results are returned.</p>
+<h3><a class="anchor" aria-hidden="true" id="resource-url-11"></a><a href="#resource-url-11" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Resource URL</h3>
+<h3><a class="anchor" aria-hidden="true" id="post-devices-search-1"></a><a href="#post-devices-search-1" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><code>POST /devices/search</code></h3>
+<h3><a class="anchor" aria-hidden="true" id="resource-details-11"></a><a href="#resource-details-11" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Resource details</h3>
+<table>
+<thead>
+<tr><th>Resource Details</th><th>Description</th></tr>
+</thead>
+<tbody>
+<tr><td>Response format</td><td>JSON</td></tr>
+<tr><td>Requires Authentication</td><td>Yes</td></tr>
+</tbody>
+</table>
+<h3><a class="anchor" aria-hidden="true" id="parameters-11"></a><a href="#parameters-11" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Parameters</h3>
+<table>
+<thead>
+<tr><th>Name</th><th>Required</th><th>Description</th><th>Default Value</th><th>Example</th></tr>
+</thead>
+<tbody>
+<tr><td>filters</td><td>No</td><td>Array of the filter applied. In case of &quot;list&quot; screen, this array will be empty</td><td>-NA-</td></tr>
+<tr><td>columnName</td><td>No</td><td>The column name in the JSON response</td><td>-NA-</td></tr>
+<tr><td>type</td><td>No</td><td>The value have to be in [&quot;contains&quot;,&quot;equals&quot;,&quot;startsWith&quot;,&quot;between&quot;]</td><td>-NA-</td></tr>
+<tr><td>value</td><td>No</td><td>Value or id selected in the filter by the end user</td><td>-NA-</td></tr>
+<tr><td>fromValue</td><td>No</td><td>If the type is &quot;between&quot;, this field is the value of the fromName</td><td>-NA-</td></tr>
+<tr><td>toValue</td><td>No</td><td>If the type is &quot;between&quot;, this field is the value of the toName</td><td>-NA-</td></tr>
+<tr><td>languagecode</td><td>Yes</td><td>Language code in Language code in ISO 639-2 format</td><td></td></tr>
+<tr><td>sort</td><td>No</td><td>This is an array of the sort field and type</td><td></td></tr>
+<tr><td>sortfield</td><td>The field on which the sort is applied</td><td></td><td>modifiedDate</td></tr>
+<tr><td>sorttype</td><td>This should be either of ['ASC','DESC']</td><td></td><td>ASC</td></tr>
+<tr><td>pagination</td><td>The pagination parameter object</td><td></td></tr>
+<tr><td>pageStart</td><td>This is the start index</td><td>0</td><td>10</td></tr>
+<tr><td>pageFetch</td><td>This is the amount of records to be fetched</td><td>10</td><td>10</td></tr>
+</tbody>
+</table>
+<h3><a class="anchor" aria-hidden="true" id="filter-values"></a><a href="#filter-values" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Filter Values</h3>
+<table>
+<thead>
+<tr><th>Filter Name</th><th>Search Values</th></tr>
+</thead>
+<tbody>
+<tr><td>Device Name</td><td>[&quot;contains&quot;,&quot;equals&quot;,&quot;startsWith&quot;]</td></tr>
+<tr><td>Status</td><td>[&quot;contains&quot;,&quot;equals&quot;,&quot;startsWith&quot;]</td></tr>
+<tr><td>MAC Address</td><td>[&quot;contains&quot;,&quot;equals&quot;,&quot;startsWith&quot;]</td></tr>
+<tr><td>Serial Number</td><td>[&quot;contains&quot;,&quot;equals&quot;,&quot;startsWith&quot;]</td></tr>
+<tr><td>Map Status</td><td>[&quot;contains&quot;,&quot;equals&quot;,&quot;startsWith&quot;]</td></tr>
+<tr><td>Device Type</td><td>[&quot;contains&quot;,&quot;equals&quot;,&quot;startsWith&quot;]</td></tr>
+<tr><td>Device Specification ID</td><td>[&quot;contains&quot;,&quot;equals&quot;,&quot;startsWith&quot;]</td></tr>
+</tbody>
+</table>
+<h3><a class="anchor" aria-hidden="true" id="example-request-7"></a><a href="#example-request-7" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Example Request</h3>
+<pre><code class="hljs css language-JSON">{
+    <span class="hljs-attr">"id"</span>: <span class="hljs-string">"string"</span>,
+    <span class="hljs-attr">"metadata"</span>: {},
+    <span class="hljs-attr">"requesttime"</span>: <span class="hljs-string">"2018-12-10T06:12:52.994Z"</span>,
+    <span class="hljs-attr">"version"</span>: <span class="hljs-string">"string"</span>,
+    <span class="hljs-attr">"request"</span>: {
+        <span class="hljs-attr">"filters"</span> : [
+            {
+                <span class="hljs-attr">"columnName"</span>: <span class="hljs-string">""</span>,
+                <span class="hljs-attr">"type"</span>: <span class="hljs-string">"in"</span>,
+                <span class="hljs-attr">"value"</span>: <span class="hljs-string">""</span>,
+                <span class="hljs-attr">"fromValue"</span>: <span class="hljs-string">""</span>,
+                <span class="hljs-attr">"toValue"</span>: <span class="hljs-string">""</span>
+            }
+        ],
+        <span class="hljs-attr">"sort"</span>:[
+            {
+                <span class="hljs-attr">"sortfield"</span>:<span class="hljs-string">"string"</span>,
+                <span class="hljs-attr">"sorttype"</span>:<span class="hljs-string">"ASC"</span>
+            }
+        ],
+        <span class="hljs-attr">"pagination"</span>:{
+            <span class="hljs-attr">"pageStart"</span>:<span class="hljs-string">"number"</span>,
+            <span class="hljs-attr">"pageFetch"</span>:<span class="hljs-string">"number"</span>
+        },
+        <span class="hljs-attr">"languageCode"</span>:<span class="hljs-string">""</span>
+    }
+}
+</code></pre>
+<h3><a class="anchor" aria-hidden="true" id="example-response-11"></a><a href="#example-response-11" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Example Response</h3>
+<pre><code class="hljs css language-JSON">{
+  <span class="hljs-attr">"id"</span>: <span class="hljs-string">"string"</span>,
+  <span class="hljs-attr">"version"</span>: <span class="hljs-string">"string"</span>,
+  <span class="hljs-attr">"metadata"</span>: {},
+  <span class="hljs-attr">"responsetime"</span>: <span class="hljs-string">"yyyy-MM-dd'T'HH:mm:ss.SSS'Z'"</span>,
+  <span class="hljs-attr">"errors"</span>: <span class="hljs-literal">null</span>,
+  <span class="hljs-attr">"response"</span>: {
+    <span class="hljs-attr">"devices"</span>: [
+      {
+        <span class="hljs-attr">"deviceSpecId"</span>: <span class="hljs-string">"string"</span>,
+        <span class="hljs-attr">"id"</span>: <span class="hljs-string">"string"</span>,
+        <span class="hljs-attr">"ipAddress"</span>: <span class="hljs-string">"string"</span>,
+        <span class="hljs-attr">"isActive"</span>: <span class="hljs-literal">true</span>,
+        <span class="hljs-attr">"langCode"</span>: <span class="hljs-string">"string"</span>,
+        <span class="hljs-attr">"macAddress"</span>: <span class="hljs-string">"string"</span>,
+        <span class="hljs-attr">"name"</span>: <span class="hljs-string">"string"</span>,
+        <span class="hljs-attr">"serialNum"</span>: <span class="hljs-string">"string"</span>,
+        <span class="hljs-attr">"validityDateTime"</span>: <span class="hljs-string">"yyyy-MM-dd'T'HH:mm:ss.SSS'Z'"</span>
+      }
+    ],
+    <span class="hljs-attr">"fromRecord"</span> : <span class="hljs-string">"number"</span>,
+    <span class="hljs-attr">"toRecord"</span>:<span class="hljs-string">"number"</span>,
+    <span class="hljs-attr">"totalRecord"</span>:<span class="hljs-string">"number"</span>
+  }
+}
+</code></pre>
+<h1><a class="anchor" aria-hidden="true" id="device-types-search-apis"></a><a href="#device-types-search-apis" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Device Types search APIs</h1>
+<ul>
+<li><a href="#post-devicetypessearch">POST /devicetypes/search</a></li>
+</ul>
+<h1><a class="anchor" aria-hidden="true" id="post-devicetypes-search"></a><a href="#post-devicetypes-search" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>POST /devicetypes/search</h1>
+<p>This service is for the devices types search functionality. All the filter parameters are passed and the devices types are searched and the matching results are returned.</p>
+<h3><a class="anchor" aria-hidden="true" id="resource-url-12"></a><a href="#resource-url-12" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Resource URL</h3>
+<h3><a class="anchor" aria-hidden="true" id="post-devicetypes-search-1"></a><a href="#post-devicetypes-search-1" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><code>POST /devicetypes/search</code></h3>
+<h3><a class="anchor" aria-hidden="true" id="resource-details-12"></a><a href="#resource-details-12" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Resource details</h3>
+<table>
+<thead>
+<tr><th>Resource Details</th><th>Description</th></tr>
+</thead>
+<tbody>
+<tr><td>Response format</td><td>JSON</td></tr>
+<tr><td>Requires Authentication</td><td>Yes</td></tr>
+</tbody>
+</table>
+<h3><a class="anchor" aria-hidden="true" id="parameters-12"></a><a href="#parameters-12" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Parameters</h3>
+<table>
+<thead>
+<tr><th>Name</th><th>Required</th><th>Description</th><th>Default Value</th><th>Example</th></tr>
+</thead>
+<tbody>
+<tr><td>filters</td><td>No</td><td>Array of the filter applied. In case of &quot;list&quot; screen, this array will be empty</td><td>-NA-</td></tr>
+<tr><td>columnName</td><td>No</td><td>The column name in the JSON response</td><td>-NA-</td></tr>
+<tr><td>type</td><td>No</td><td>The value have to be in [&quot;contains&quot;,&quot;equals&quot;,&quot;startsWith&quot;,&quot;between&quot;]</td><td>-NA-</td></tr>
+<tr><td>value</td><td>No</td><td>Value or id selected in the filter by the end user</td><td>-NA-</td></tr>
+<tr><td>fromValue</td><td>No</td><td>If the type is &quot;between&quot;, this field is the value of the fromName</td><td>-NA-</td></tr>
+<tr><td>toValue</td><td>No</td><td>If the type is &quot;between&quot;, this field is the value of the toName</td><td>-NA-</td></tr>
+<tr><td>languagecode</td><td>Yes</td><td>Language code in Language code in ISO 639-2 format</td><td></td></tr>
+<tr><td>sort</td><td>No</td><td>This is an array of the sort field and type</td><td></td></tr>
+<tr><td>sortfield</td><td>The field on which the sort is applied</td><td></td><td>modifiedDate</td></tr>
+<tr><td>sorttype</td><td>This should be either of ['ASC','DESC']</td><td></td><td>ASC</td></tr>
+<tr><td>pagination</td><td>The pagination parameter object</td><td></td></tr>
+<tr><td>pageStart</td><td>This is the start index</td><td>0</td><td>10</td></tr>
+<tr><td>pageFetch</td><td>This is the amount of records to be fetched</td><td>10</td><td>10</td></tr>
+</tbody>
+</table>
+<h3><a class="anchor" aria-hidden="true" id="filter-values-1"></a><a href="#filter-values-1" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Filter Values</h3>
+<table>
+<thead>
+<tr><th>Filter Name</th><th>Search Values</th></tr>
+</thead>
+<tbody>
+<tr><td>name</td><td>[&quot;contains&quot;,&quot;equals&quot;,&quot;startsWith&quot;]</td></tr>
+<tr><td>status</td><td>[&quot;contains&quot;,&quot;equals&quot;,&quot;startsWith&quot;]</td></tr>
+</tbody>
+</table>
+<h3><a class="anchor" aria-hidden="true" id="example-request-8"></a><a href="#example-request-8" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Example Request</h3>
+<pre><code class="hljs css language-JSON">{
+    <span class="hljs-attr">"id"</span>: <span class="hljs-string">"string"</span>,
+    <span class="hljs-attr">"metadata"</span>: {},
+    <span class="hljs-attr">"requesttime"</span>: <span class="hljs-string">"2018-12-10T06:12:52.994Z"</span>,
+    <span class="hljs-attr">"version"</span>: <span class="hljs-string">"string"</span>,
+    <span class="hljs-attr">"request"</span>: {
+        <span class="hljs-attr">"filters"</span> : [
+            {
+                <span class="hljs-attr">"columnName"</span>: <span class="hljs-string">""</span>,
+                <span class="hljs-attr">"type"</span>: <span class="hljs-string">"in"</span>,
+                <span class="hljs-attr">"value"</span>: <span class="hljs-string">""</span>,
+                <span class="hljs-attr">"fromValue"</span>: <span class="hljs-string">""</span>,
+                <span class="hljs-attr">"toValue"</span>: <span class="hljs-string">""</span>
+            }
+        ],
+        <span class="hljs-attr">"sort"</span>:[
+            {
+                <span class="hljs-attr">"sortfield"</span>:<span class="hljs-string">"string"</span>,
+                <span class="hljs-attr">"sorttype"</span>:<span class="hljs-string">"ASC"</span>
+            }
+        ],
+        <span class="hljs-attr">"pagination"</span>:{
+            <span class="hljs-attr">"pageStart"</span>:<span class="hljs-string">"number"</span>,
+            <span class="hljs-attr">"pageFetch"</span>:<span class="hljs-string">"number"</span>
+        },
+        <span class="hljs-attr">"languageCode"</span>:<span class="hljs-string">""</span>
+    }
+}
+</code></pre>
+<h3><a class="anchor" aria-hidden="true" id="example-response-12"></a><a href="#example-response-12" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Example Response</h3>
+<pre><code class="hljs css language-JSON">{
+  <span class="hljs-attr">"id"</span>: <span class="hljs-string">"string"</span>,
+  <span class="hljs-attr">"version"</span>: <span class="hljs-string">"string"</span>,
+  <span class="hljs-attr">"metadata"</span>: {},
+  <span class="hljs-attr">"responsetime"</span>: <span class="hljs-string">"yyyy-MM-dd'T'HH:mm:ss.SSS'Z'"</span>,
+  <span class="hljs-attr">"errors"</span>: <span class="hljs-literal">null</span>,
+  <span class="hljs-attr">"response"</span>: {
+    <span class="hljs-attr">"deviceTypes"</span>: [
+      {
+        <span class="hljs-attr">"code"</span>: <span class="hljs-string">"string"</span>,
+    <span class="hljs-attr">"langCode"</span>: <span class="hljs-string">"string"</span>,
+    <span class="hljs-attr">"name"</span>: <span class="hljs-string">"string"</span>,
+        <span class="hljs-attr">"description"</span>: <span class="hljs-string">"string"</span>,
+        <span class="hljs-attr">"isActive"</span>: <span class="hljs-literal">true</span>
+      }
+    ],
+    <span class="hljs-attr">"fromRecord"</span> : <span class="hljs-string">"number"</span>,
+    <span class="hljs-attr">"toRecord"</span>:<span class="hljs-string">"number"</span>,
+    <span class="hljs-attr">"totalRecord"</span>:<span class="hljs-string">"number"</span>
+  }
+}
+</code></pre>
+<h1><a class="anchor" aria-hidden="true" id="device-spec-search-apis"></a><a href="#device-spec-search-apis" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Device Spec Search APIs</h1>
+<ul>
+<li><a href="#post-devicespecificationssearch">POST /devicespecifications/search</a></li>
+</ul>
+<h1><a class="anchor" aria-hidden="true" id="post-devicespecifications-search"></a><a href="#post-devicespecifications-search" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>POST /devicespecifications/search</h1>
+<p>This service is for the devices specifications search functionality. All the filter parameters are passed and the device specifications are searched and the matching results are returned.</p>
+<h3><a class="anchor" aria-hidden="true" id="resource-url-13"></a><a href="#resource-url-13" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Resource URL</h3>
+<h3><a class="anchor" aria-hidden="true" id="post-devicespecifications-search-1"></a><a href="#post-devicespecifications-search-1" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><code>POST /devicespecifications/search</code></h3>
+<h3><a class="anchor" aria-hidden="true" id="resource-details-13"></a><a href="#resource-details-13" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Resource details</h3>
+<table>
+<thead>
+<tr><th>Resource Details</th><th>Description</th></tr>
+</thead>
+<tbody>
+<tr><td>Response format</td><td>JSON</td></tr>
+<tr><td>Requires Authentication</td><td>Yes</td></tr>
+</tbody>
+</table>
+<h3><a class="anchor" aria-hidden="true" id="parameters-13"></a><a href="#parameters-13" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Parameters</h3>
+<table>
+<thead>
+<tr><th>Name</th><th>Required</th><th>Description</th><th>Default Value</th><th>Example</th></tr>
+</thead>
+<tbody>
+<tr><td>filters</td><td>No</td><td>Array of the filter applied. In case of &quot;list&quot; screen, this array will be empty</td><td>-NA-</td></tr>
+<tr><td>columnName</td><td>No</td><td>The column name in the JSON response</td><td>-NA-</td></tr>
+<tr><td>type</td><td>No</td><td>The value have to be in [&quot;contains&quot;,&quot;equals&quot;,&quot;startsWith&quot;,&quot;between&quot;]</td><td>-NA-</td></tr>
+<tr><td>value</td><td>No</td><td>Value or id selected in the filter by the end user</td><td>-NA-</td></tr>
+<tr><td>fromValue</td><td>No</td><td>If the type is &quot;between&quot;, this field is the value of the start range</td><td>-NA-</td></tr>
+<tr><td>toValue</td><td>No</td><td>If the type is &quot;between&quot;, this field is the value of the end range</td><td>-NA-</td></tr>
+<tr><td>languagecode</td><td>Yes</td><td>Language code in Language code in ISO 639-2 format</td><td></td></tr>
+<tr><td>sort</td><td>No</td><td>This is an array of the sort field and type</td><td></td></tr>
+<tr><td>sortfield</td><td>The field on which the sort is applied</td><td></td><td>modifiedDate</td></tr>
+<tr><td>sorttype</td><td>This should be either of ['ASC','DESC']</td><td></td><td>ASC</td></tr>
+<tr><td>pagination</td><td>The pagination parameter object</td><td></td></tr>
+<tr><td>pageStart</td><td>This is the start index</td><td>0</td><td>10</td></tr>
+<tr><td>pageFetch</td><td>This is the amount of records to be fetched</td><td>10</td><td>10</td></tr>
+</tbody>
+</table>
+<h3><a class="anchor" aria-hidden="true" id="filter-values-2"></a><a href="#filter-values-2" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Filter Values</h3>
+<table>
+<thead>
+<tr><th>Filter Name</th><th>Search Values</th></tr>
+</thead>
+<tbody>
+<tr><td>name</td><td>[&quot;contains&quot;,&quot;equals&quot;,&quot;startsWith&quot;]</td></tr>
+<tr><td>brand</td><td>[&quot;contains&quot;,&quot;equals&quot;,&quot;startsWith&quot;]</td></tr>
+<tr><td>model</td><td>[&quot;contains&quot;,&quot;equals&quot;,&quot;startsWith&quot;]</td></tr>
+<tr><td>device type name</td><td>[&quot;contains&quot;,&quot;equals&quot;,&quot;startsWith&quot;]</td></tr>
+<tr><td>status</td><td>[&quot;contains&quot;,&quot;equals&quot;,&quot;startsWith&quot;]</td></tr>
+</tbody>
+</table>
+<h3><a class="anchor" aria-hidden="true" id="example-request-9"></a><a href="#example-request-9" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Example Request</h3>
+<pre><code class="hljs css language-JSON">{
+    <span class="hljs-attr">"id"</span>: <span class="hljs-string">"string"</span>,
+    <span class="hljs-attr">"metadata"</span>: {},
+    <span class="hljs-attr">"requesttime"</span>: <span class="hljs-string">"2018-12-10T06:12:52.994Z"</span>,
+    <span class="hljs-attr">"version"</span>: <span class="hljs-string">"string"</span>,
+    <span class="hljs-attr">"request"</span>: {
+        <span class="hljs-attr">"filters"</span> : [
+            {
+                <span class="hljs-attr">"columnName"</span>: <span class="hljs-string">""</span>,
+                <span class="hljs-attr">"type"</span>: <span class="hljs-string">"in"</span>,
+                <span class="hljs-attr">"value"</span>: <span class="hljs-string">""</span>, 
+                <span class="hljs-attr">"fromValue"</span>: <span class="hljs-string">""</span>,  
+                <span class="hljs-attr">"toValue"</span>: <span class="hljs-string">""</span>
+            }
+        ],
+        <span class="hljs-attr">"sort"</span>:[
+            {
+                <span class="hljs-attr">"sortfield"</span>:<span class="hljs-string">"string"</span>,
+                <span class="hljs-attr">"sorttype"</span>:<span class="hljs-string">"ASC"</span>
+            }
+        ],
+        <span class="hljs-attr">"pagination"</span>:{
+            <span class="hljs-attr">"pageStart"</span>:<span class="hljs-string">"number"</span>,
+            <span class="hljs-attr">"pageFetch"</span>:<span class="hljs-string">"number"</span>
+        },
+           <span class="hljs-attr">"languageCode"</span>:<span class="hljs-string">""</span>
+        
+    }
+}
+</code></pre>
+<h3><a class="anchor" aria-hidden="true" id="example-response-13"></a><a href="#example-response-13" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Example Response</h3>
+<pre><code class="hljs css language-JSON">{
+  <span class="hljs-attr">"id"</span>: <span class="hljs-string">"string"</span>,
+  <span class="hljs-attr">"version"</span>: <span class="hljs-string">"string"</span>,
+  <span class="hljs-attr">"metadata"</span>: {},
+  <span class="hljs-attr">"responsetime"</span>: <span class="hljs-string">"yyyy-MM-dd'T'HH:mm:ss.SSS'Z'"</span>,
+  <span class="hljs-attr">"errors"</span>: <span class="hljs-literal">null</span>,
+  <span class="hljs-attr">"response"</span>: {
+    <span class="hljs-attr">"devicespecifications"</span>: [
+      {
+        <span class="hljs-attr">"brand"</span>: <span class="hljs-string">"string"</span>,
+        <span class="hljs-attr">"description"</span>: <span class="hljs-string">"string"</span>,
+        <span class="hljs-attr">"deviceTypeCode"</span>: <span class="hljs-string">"string"</span>,
+        <span class="hljs-attr">"id"</span>: <span class="hljs-string">"string"</span>,
+        <span class="hljs-attr">"isActive"</span>: <span class="hljs-literal">true</span>,
+        <span class="hljs-attr">"langCode"</span>: <span class="hljs-string">"string"</span>,
+        <span class="hljs-attr">"minDriverversion"</span>: <span class="hljs-string">"string"</span>,
+        <span class="hljs-attr">"model"</span>: <span class="hljs-string">"string"</span>,
+        <span class="hljs-attr">"name"</span>: <span class="hljs-string">"string"</span>
+      }
+    ],
+    <span class="hljs-attr">"fromRecord"</span> : <span class="hljs-string">"number"</span>,
+    <span class="hljs-attr">"toRecord"</span>:<span class="hljs-string">"number"</span>,
+    <span class="hljs-attr">"totalRecord"</span>:<span class="hljs-string">"number"</span>
+  }
+}
+</code></pre>
+<h1><a class="anchor" aria-hidden="true" id="device-filter-values"></a><a href="#device-filter-values" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Device filter values</h1>
+<ul>
+<li><a href="#post-devicesfiltervalues">POST /devices/filtervalues</a></li>
+</ul>
+<h1><a class="anchor" aria-hidden="true" id="post-devices-filtervalues"></a><a href="#post-devices-filtervalues" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>POST /devices/filtervalues</h1>
+<p>This service returns the filter values which are required in the dropdown entries of the filter screen.</p>
+<h3><a class="anchor" aria-hidden="true" id="resource-url-14"></a><a href="#resource-url-14" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Resource URL</h3>
+<h3><a class="anchor" aria-hidden="true" id="post-devices-filtervalues-1"></a><a href="#post-devices-filtervalues-1" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><code>POST /devices/filtervalues</code></h3>
+<h3><a class="anchor" aria-hidden="true" id="resource-details-14"></a><a href="#resource-details-14" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Resource details</h3>
+<table>
+<thead>
+<tr><th>Resource Details</th><th>Description</th></tr>
+</thead>
+<tbody>
+<tr><td>Response format</td><td>JSON</td></tr>
+<tr><td>Requires Authentication</td><td>Yes</td></tr>
+</tbody>
+</table>
+<h3><a class="anchor" aria-hidden="true" id="parameters-14"></a><a href="#parameters-14" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Parameters</h3>
+<table>
+<thead>
+<tr><th>Name</th><th>Required</th><th>Description</th><th>Default Value</th><th>Example</th></tr>
+</thead>
+<tbody>
+<tr><td>filters</td><td>No</td><td>Array of the filter applied. In case of &quot;list&quot; screen, this array will be empty</td><td>-NA-</td></tr>
+<tr><td>columnName</td><td>No</td><td>The column name in the JSON response</td><td>-NA-</td></tr>
+<tr><td>type</td><td>No</td><td>The value have to be in [&quot;unique&quot;,&quot;all&quot;]</td><td>unique</td><td>unique</td></tr>
+<tr><td>languagecode</td><td>Yes</td><td>Language code in Language code in ISO 639-2 format</td><td></td></tr>
+</tbody>
+</table>
+<h3><a class="anchor" aria-hidden="true" id="example-request-10"></a><a href="#example-request-10" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Example Request</h3>
+<pre><code class="hljs css language-JSON">{
+    <span class="hljs-attr">"id"</span>: <span class="hljs-string">"string"</span>,
+    <span class="hljs-attr">"metadata"</span>: {},
+    <span class="hljs-attr">"requesttime"</span>: <span class="hljs-string">"2018-12-10T06:12:52.994Z"</span>,
+    <span class="hljs-attr">"version"</span>: <span class="hljs-string">"string"</span>
+    <span class="hljs-string">"request"</span>: {
+        <span class="hljs-attr">"filters"</span> : [
+            {
+                <span class="hljs-attr">"columnName"</span>: <span class="hljs-string">""</span>
+                <span class="hljs-string">"type"</span>: <span class="hljs-string">"unique"</span>
+            }
+        ],
+        <span class="hljs-attr">"languageCode"</span>: <span class="hljs-string">"string"</span>,
+    }
+}
+</code></pre>
+<h3><a class="anchor" aria-hidden="true" id="example-response-14"></a><a href="#example-response-14" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Example Response</h3>
+<pre><code class="hljs css language-JSON">{
+  <span class="hljs-attr">"id"</span>: <span class="hljs-string">"string"</span>,
+  <span class="hljs-attr">"version"</span>: <span class="hljs-string">"string"</span>,
+  <span class="hljs-attr">"metadata"</span>: {},
+  <span class="hljs-attr">"responsetime"</span>: <span class="hljs-string">"yyyy-MM-dd'T'HH:mm:ss.SSS'Z'"</span>,
+  <span class="hljs-attr">"errors"</span>: <span class="hljs-literal">null</span>,
+  <span class="hljs-attr">"response"</span>: {
+  <span class="hljs-attr">"filters"</span>: [
+    {
+        <span class="hljs-attr">"fieldID"</span>: <span class="hljs-string">"string"</span>,
+        <span class="hljs-attr">"fieldValue"</span>: <span class="hljs-string">"string"</span>
+    }
+   ]
+ }
+}
+</code></pre>
+<h1><a class="anchor" aria-hidden="true" id="device-types-filter-values"></a><a href="#device-types-filter-values" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Device Types filter values</h1>
+<ul>
+<li><a href="#post-devicetypesfiltervalues">POST /devicetypes/filtervalues</a></li>
+</ul>
+<h1><a class="anchor" aria-hidden="true" id="post-devicetypes-filtervalues"></a><a href="#post-devicetypes-filtervalues" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>POST /devicetypes/filtervalues</h1>
+<p>This service returns the filter values which are required in the dropdown entries of the filter screen.</p>
+<h3><a class="anchor" aria-hidden="true" id="resource-url-15"></a><a href="#resource-url-15" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Resource URL</h3>
+<h3><a class="anchor" aria-hidden="true" id="post-devicetypes-filtervalues-1"></a><a href="#post-devicetypes-filtervalues-1" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><code>POST /devicetypes/filtervalues</code></h3>
+<h3><a class="anchor" aria-hidden="true" id="resource-details-15"></a><a href="#resource-details-15" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Resource details</h3>
+<table>
+<thead>
+<tr><th>Resource Details</th><th>Description</th></tr>
+</thead>
+<tbody>
+<tr><td>Response format</td><td>JSON</td></tr>
+<tr><td>Requires Authentication</td><td>Yes</td></tr>
+</tbody>
+</table>
+<h3><a class="anchor" aria-hidden="true" id="parameters-15"></a><a href="#parameters-15" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Parameters</h3>
+<table>
+<thead>
+<tr><th>Name</th><th>Required</th><th>Description</th><th>Default Value</th><th>Example</th></tr>
+</thead>
+<tbody>
+<tr><td>filters</td><td>No</td><td>Array of the filter applied. In case of &quot;list&quot; screen, this array will be empty</td><td>-NA-</td></tr>
+<tr><td>columnName</td><td>No</td><td>The column name in the JSON response</td><td>-NA-</td></tr>
+<tr><td>type</td><td>No</td><td>The value have to be in [&quot;unique&quot;,&quot;all&quot;]</td><td>unique</td><td>unique</td></tr>
+<tr><td>languagecode</td><td>Yes</td><td>Language code in Language code in ISO 639-2 format</td><td></td></tr>
+</tbody>
+</table>
+<h3><a class="anchor" aria-hidden="true" id="example-request-11"></a><a href="#example-request-11" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Example Request</h3>
+<pre><code class="hljs css language-JSON">{
+    <span class="hljs-attr">"id"</span>: <span class="hljs-string">"string"</span>,
+    <span class="hljs-attr">"metadata"</span>: {},
+    <span class="hljs-attr">"requesttime"</span>: <span class="hljs-string">"2018-12-10T06:12:52.994Z"</span>,
+    <span class="hljs-attr">"version"</span>: <span class="hljs-string">"string"</span>
+    <span class="hljs-string">"request"</span>: {
+        <span class="hljs-attr">"filters"</span> : [
+            {
+                <span class="hljs-attr">"columnName"</span>: <span class="hljs-string">""</span>
+                <span class="hljs-string">"type"</span>: <span class="hljs-string">"unique"</span>
+            }
+        ],
+        <span class="hljs-attr">"languageCode"</span>: <span class="hljs-string">"string"</span>,
+    }
+}
+</code></pre>
+<h3><a class="anchor" aria-hidden="true" id="example-response-15"></a><a href="#example-response-15" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Example Response</h3>
+<pre><code class="hljs css language-JSON">{
+  <span class="hljs-attr">"id"</span>: <span class="hljs-string">"string"</span>,
+  <span class="hljs-attr">"version"</span>: <span class="hljs-string">"string"</span>,
+  <span class="hljs-attr">"metadata"</span>: {},
+  <span class="hljs-attr">"responsetime"</span>: <span class="hljs-string">"yyyy-MM-dd'T'HH:mm:ss.SSS'Z'"</span>,
+  <span class="hljs-attr">"errors"</span>: <span class="hljs-literal">null</span>,
+  <span class="hljs-attr">"response"</span>: {
+  <span class="hljs-attr">"filters"</span>: [
+    {
+        <span class="hljs-attr">"fieldID"</span>: <span class="hljs-string">"string"</span>,
+        <span class="hljs-attr">"fieldValue"</span>: <span class="hljs-string">"string"</span>
+    }
+   ]
+ }
+}
+</code></pre>
+<h1><a class="anchor" aria-hidden="true" id="device-spec-filter-values"></a><a href="#device-spec-filter-values" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Device Spec Filter values</h1>
+<ul>
+<li><a href="#post-devicespecificationsfiltervalues">POST /devicespecifications/filtervalues</a></li>
+</ul>
+<h1><a class="anchor" aria-hidden="true" id="post-devicespecifications-filtervalues"></a><a href="#post-devicespecifications-filtervalues" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>POST /devicespecifications/filtervalues</h1>
+<p>This service returns the filter values which are required in the dropdown entries of the filter screen.</p>
+<h3><a class="anchor" aria-hidden="true" id="resource-url-16"></a><a href="#resource-url-16" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Resource URL</h3>
+<h3><a class="anchor" aria-hidden="true" id="post-devicespecifications-filtervalues-1"></a><a href="#post-devicespecifications-filtervalues-1" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><code>POST /devicespecifications/filtervalues</code></h3>
+<h3><a class="anchor" aria-hidden="true" id="resource-details-16"></a><a href="#resource-details-16" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Resource details</h3>
+<table>
+<thead>
+<tr><th>Resource Details</th><th>Description</th></tr>
+</thead>
+<tbody>
+<tr><td>Response format</td><td>JSON</td></tr>
+<tr><td>Requires Authentication</td><td>Yes</td></tr>
+</tbody>
+</table>
+<h3><a class="anchor" aria-hidden="true" id="parameters-16"></a><a href="#parameters-16" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Parameters</h3>
+<table>
+<thead>
+<tr><th>Name</th><th>Required</th><th>Description</th><th>Default Value</th><th>Example</th></tr>
+</thead>
+<tbody>
+<tr><td>filters</td><td>No</td><td>Array of the filter applied. In case of &quot;list&quot; screen, this array will be empty</td><td>-NA-</td></tr>
+<tr><td>columnName</td><td>No</td><td>The column name in the JSON response</td><td>-NA-</td></tr>
+<tr><td>type</td><td>No</td><td>The value have to be in [&quot;unique&quot;,&quot;all&quot;]</td><td>unique</td><td>unique</td></tr>
+<tr><td>languagecode</td><td>Yes</td><td>Language code in Language code in ISO 639-2 format</td><td></td></tr>
+</tbody>
+</table>
+<h3><a class="anchor" aria-hidden="true" id="example-request-12"></a><a href="#example-request-12" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Example Request</h3>
+<pre><code class="hljs css language-JSON">{
+    <span class="hljs-attr">"id"</span>: <span class="hljs-string">"string"</span>,
+    <span class="hljs-attr">"metadata"</span>: {},
+    <span class="hljs-attr">"requesttime"</span>: <span class="hljs-string">"2018-12-10T06:12:52.994Z"</span>,
+    <span class="hljs-attr">"version"</span>: <span class="hljs-string">"string"</span>
+    <span class="hljs-string">"request"</span>: {
+        <span class="hljs-attr">"filters"</span> : [
+            {
+                <span class="hljs-attr">"columnName"</span>: <span class="hljs-string">""</span>
+                <span class="hljs-string">"type"</span>: <span class="hljs-string">"unique"</span>
+            }
+        ],
+        <span class="hljs-attr">"languageCode"</span>: <span class="hljs-string">"string"</span>,
+    }
+}
+</code></pre>
+<h3><a class="anchor" aria-hidden="true" id="example-response-16"></a><a href="#example-response-16" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Example Response</h3>
+<pre><code class="hljs css language-JSON">{
+  <span class="hljs-attr">"id"</span>: <span class="hljs-string">"string"</span>,
+  <span class="hljs-attr">"version"</span>: <span class="hljs-string">"string"</span>,
+  <span class="hljs-attr">"metadata"</span>: {},
+  <span class="hljs-attr">"responsetime"</span>: <span class="hljs-string">"yyyy-MM-dd'T'HH:mm:ss.SSS'Z'"</span>,
+  <span class="hljs-attr">"errors"</span>: <span class="hljs-literal">null</span>,
+  <span class="hljs-attr">"response"</span>: {
+  <span class="hljs-attr">"filters"</span>: [
+    {
+        <span class="hljs-attr">"fieldID"</span>: <span class="hljs-string">"string"</span>,
+        <span class="hljs-attr">"fieldValue"</span>: <span class="hljs-string">"string"</span>
+    }
+   ]
+ }
+}
+</code></pre>
+</span></div></article></div><div class="docs-prevnext"></div></div></div><nav class="onPageNav"><ul class="toc-headings"><li><a href="#post-devicetypes">POST /devicetypes</a><ul class="toc-headings"><li><a href="#resource-url-5">Resource URL</a></li><li><a href="#post-devicetypes-1"><code>POST /devicetypes</code></a></li><li><a href="#resource-details-5">Resource details</a></li><li><a href="#parameters-5">Parameters</a></li><li><a href="#example-request-2">Example Request</a></li><li><a href="#example-response-5">Example Response</a></li><li><a href="#response-codes-2">Response codes</a></li><li><a href="#resource-url-6">Resource URL</a></li><li><a href="#post-devicespecifications-1"><code>POST /devicespecifications</code></a></li><li><a href="#resource-details-6">Resource details</a></li><li><a href="#parameters-6">Parameters</a></li><li><a href="#example-request-3">Example Request</a></li><li><a href="#example-response-6">Example Response</a></li><li><a href="#resource-url-7">Resource URL</a></li><li><a href="#put-devicespecifications-1"><code>PUT /devicespecifications</code></a></li><li><a href="#resource-details-7">Resource details</a></li><li><a href="#parameters-7">Parameters</a></li><li><a href="#example-request-4">Example Request</a></li><li><a href="#example-response-7">Example Response</a></li><li><a href="#resource-url-8">Resource URL</a></li><li><a href="#delete-devicespecifications-id-1"><code>DELETE /devicespecifications/{id}</code></a></li><li><a href="#resource-details-8">Resource details</a></li><li><a href="#parameters-8">Parameters</a></li><li><a href="#example-response-8">Example Response</a></li><li><a href="#resource-url-9">Resource URL</a></li><li><a href="#get-devicespecifications-langcode-devicetypecode-1"><code>GET /devicespecifications/{langcode}/{devicetypecode}</code></a></li><li><a href="#resource-details-9">Resource details</a></li><li><a href="#parameters-9">Parameters</a></li><li><a href="#example-request-5">Example Request</a></li><li><a href="#example-response-9">Example Response</a></li><li><a href="#resource-url-10">Resource URL</a></li><li><a href="#get-devicespecifications-lang_code-1"><code>GET /devicespecifications/{lang_code}</code></a></li><li><a href="#resource-details-10">Resource details</a></li><li><a href="#parameters-10">Parameters</a></li><li><a href="#example-request-6">Example Request</a></li><li><a href="#example-response-10">Example Response</a></li><li><a href="#response-codes-3">Response codes</a></li><li><a href="#failure-response-1">Failure Response:</a></li><li><a href="#resource-url-11">Resource URL</a></li><li><a href="#post-devices-search-1"><code>POST /devices/search</code></a></li><li><a href="#resource-details-11">Resource details</a></li><li><a href="#parameters-11">Parameters</a></li><li><a href="#filter-values">Filter Values</a></li><li><a href="#example-request-7">Example Request</a></li><li><a href="#example-response-11">Example Response</a></li><li><a href="#resource-url-12">Resource URL</a></li><li><a href="#post-devicetypes-search-1"><code>POST /devicetypes/search</code></a></li><li><a href="#resource-details-12">Resource details</a></li><li><a href="#parameters-12">Parameters</a></li><li><a href="#filter-values-1">Filter Values</a></li><li><a href="#example-request-8">Example Request</a></li><li><a href="#example-response-12">Example Response</a></li><li><a href="#resource-url-13">Resource URL</a></li><li><a href="#post-devicespecifications-search-1"><code>POST /devicespecifications/search</code></a></li><li><a href="#resource-details-13">Resource details</a></li><li><a href="#parameters-13">Parameters</a></li><li><a href="#filter-values-2">Filter Values</a></li><li><a href="#example-request-9">Example Request</a></li><li><a href="#example-response-13">Example Response</a></li><li><a href="#resource-url-14">Resource URL</a></li><li><a href="#post-devices-filtervalues-1"><code>POST /devices/filtervalues</code></a></li><li><a href="#resource-details-14">Resource details</a></li><li><a href="#parameters-14">Parameters</a></li><li><a href="#example-request-10">Example Request</a></li><li><a href="#example-response-14">Example Response</a></li><li><a href="#resource-url-15">Resource URL</a></li><li><a href="#post-devicetypes-filtervalues-1"><code>POST /devicetypes/filtervalues</code></a></li><li><a href="#resource-details-15">Resource details</a></li><li><a href="#parameters-15">Parameters</a></li><li><a href="#example-request-11">Example Request</a></li><li><a href="#example-response-15">Example Response</a></li><li><a href="#resource-url-16">Resource URL</a></li><li><a href="#post-devicespecifications-filtervalues-1"><code>POST /devicespecifications/filtervalues</code></a></li><li><a href="#resource-details-16">Resource details</a></li><li><a href="#parameters-16">Parameters</a></li><li><a href="#example-request-12">Example Request</a></li><li><a href="#example-response-16">Example Response</a></li></ul></li></ul></nav></div><footer class="nav-footer" id="footer"><section class="sitemap"><a href="/mosip-temp-documentation" class="nav-home"><img src="/mosip-temp-documentationimg/favicon.ico" alt="MOSIP Documentation" width="66" height="58"/></a><div><h5>Docs</h5><a href="/mosip-temp-documentationdocs/en/doc1.html">Getting Started (or other categories)</a><a href="/mosip-temp-documentationdocs/en/doc2.html">Guides (or other categories)</a><a href="/mosip-temp-documentationdocs/en/doc3.html">API Reference (or other categories)</a></div><div><h5>Community</h5><a href="/mosip-temp-documentationen/users.html">User Showcase</a><a href="https://stackoverflow.com/questions/tagged/" target="_blank" rel="noreferrer noopener">Stack Overflow</a><a href="https://discordapp.com/">Project Chat</a><a href="https://twitter.com/" target="_blank" rel="noreferrer noopener">Twitter</a></div><div><h5>More</h5><a href="/mosip-temp-documentationblog">Blog</a><a href="https://github.com/">GitHub</a><a class="github-button" data-icon="octicon-star" data-count-href="/facebook/docusaurus/stargazers" data-show-count="true" data-count-aria-label="# stargazers on GitHub" aria-label="Star this project on GitHub">Star</a></div></section><a href="https://opensource.facebook.com/" target="_blank" rel="noreferrer noopener" class="fbOpenSource"><img src="/mosip-temp-documentationimg/oss_logo.png" alt="Facebook Open Source" width="170" height="45"/></a><section class="copyright">Copyright © 2019 Your Name or Your Company Name</section></footer></div></body></html>

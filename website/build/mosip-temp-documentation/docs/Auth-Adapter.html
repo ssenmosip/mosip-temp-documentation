@@ -1,0 +1,91 @@
+<!DOCTYPE html><html lang="en"><head><meta charSet="utf-8"/><meta http-equiv="X-UA-Compatible" content="IE=edge"/><title>Auth-Adapter · MOSIP Documentation</title><meta name="viewport" content="width=device-width"/><meta name="generator" content="Docusaurus"/><meta name="description" content="# Implementations"/><meta name="docsearch:language" content="en"/><meta property="og:title" content="Auth-Adapter · MOSIP Documentation"/><meta property="og:type" content="website"/><meta property="og:url" content="https://ssenmosip.github.io/mosip-temp-documentationindex"/><meta property="og:description" content="# Implementations"/><meta property="og:image" content="https://ssenmosip.github.io/mosip-temp-documentation/img/undraw_online.svg"/><meta name="twitter:card" content="summary"/><meta name="twitter:image" content="https://ssenmosip.github.io/mosip-temp-documentation/img/undraw_tweetstorm.svg"/><link rel="shortcut icon" href="/mosip-temp-documentationimg/favicon.ico"/><link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css"/><link rel="alternate" type="application/atom+xml" href="https://ssenmosip.github.io/mosip-temp-documentation/blog/atom.xml" title="MOSIP Documentation Blog ATOM Feed"/><link rel="alternate" type="application/rss+xml" href="https://ssenmosip.github.io/mosip-temp-documentation/blog/feed.xml" title="MOSIP Documentation Blog RSS Feed"/><script type="text/javascript" src="https://buttons.github.io/buttons.js"></script><script src="/mosip-temp-documentationjs/scrollSpy.js"></script><link rel="stylesheet" href="/mosip-temp-documentationcss/main.css"/><script src="/mosip-temp-documentationjs/codetabs.js"></script></head><body class="sideNavVisible separateOnPageNav"><div class="fixedHeaderContainer"><div class="headerWrapper wrapper"><header><a href="/mosip-temp-documentation"><img class="logo" src="/mosip-temp-documentationimg/favicon.ico" alt="MOSIP Documentation"/><h2 class="headerTitleWithLogo">MOSIP Documentation</h2></a><div class="navigationWrapper navigationSlider"><nav class="slidingNav"><ul class="nav-site nav-site-internal"><li class=""><a href="/mosip-temp-documentationdocs/Platform-Documentation" target="_self">Docs</a></li><li class=""><a href="/mosip-temp-documentationdocs/Getting-Started" target="_self">API</a></li><li class=""><a href="/mosip-temp-documentationContributor-Guide" target="_self">Help</a></li><li class=""><a href="/mosip-temp-documentationblog/" target="_self">Blog</a></li></ul></nav></div></header></div></div><div class="navPusher"><div class="docMainWrapper wrapper"><div class="container mainContainer"><div class="wrapper"><div class="post"><header class="postHeader"><h1 class="postHeaderTitle">Auth-Adapter</h1></header><article><div><span><h1><a class="anchor" aria-hidden="true" id="implementations"></a><a href="#implementations" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Implementations</h1>
+<p>Auth adapter is a package that needs to be injected into Mosip's applications exposing REST API's inorder to secure them.</p>
+<p><img src="_images/auth/auth_adapter_flow.png" alt="Auth Adapter Flow"></p>
+<p>Auth Adapter includes following class definitions:</p>
+<ol>
+<li><a href="#SecurityConfig">SecurityConfig</a></li>
+<li><a href="#AuthFilter">AuthFilter</a></li>
+<li><a href="#AuthHeadersFilter">AuthHeadersFilter</a></li>
+<li><a href="#AuthProvider">AuthProvider</a></li>
+<li><a href="#AuthSuccessHandler">AuthSuccessHandler</a></li>
+<li><a href="#AuthEntryPoint">AuthEntryPoint</a></li>
+<li><a href="#AuthToken">AuthToken</a></li>
+<li><a href="#AuthUserDetails">AuthUserDetails</a></li>
+<li><a href="#ClientInterceptor">ClientInterceptor</a></li>
+<li><a href="#MosipUser">MosipUser</a></li>
+<li><a href="#AuthControllerAdvice">AuthControllerAdvice</a></li>
+</ol>
+<h2><a class="anchor" aria-hidden="true" id="securityconfig"></a><a href="#securityconfig" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>SecurityConfig</h2>
+<p>Holds the main configuration for authentication and authorization using spring security.</p>
+<p>Inclusions:</p>
+<ul>
+<li>AuthenticationManager bean configuration:
+<ul>
+<li>This is assigned an <a href="#AuthProvider">AuthProvider</a> that we implemented.</li>
+<li>RETURNS an instance of the ProviderManager.</li>
+</ul></li>
+<li><a href="#AuthFilter">AuthFilter</a> bean configuration:
+<ul>
+<li>This extends <strong>AbstractAuthenticationProcessingFilter</strong>.</li>
+<li>Instance of the <a href="#AuthFilter">AuthFilter</a> is created.</li>
+<li>This filter comes in line after the <a href="#AuthHeadersFilter">AuthHeadersFilter</a>.</li>
+<li>Binds the AuthenticationManager instance created with the filter.</li>
+<li>Binds the <a href="#AuthSuccessHandler">AuthSuccessHandler</a> created with the filter.</li>
+<li>RETURNS an instance of the <a href="#AuthFilter">AuthFilter</a>.</li>
+</ul></li>
+<li>RestTemplate bean configuration:
+<ul>
+<li>Binds the <a href="#ClientInterceptor">ClientInterceptor</a> instance with the RestTemplate instance created.</li>
+<li>RETURNS an instance of the RestTemplate.</li>
+</ul></li>
+<li>Secures endpoints using antMatchers and adds filters in a sequence for execution.</li>
+</ul>
+<h2><a class="anchor" aria-hidden="true" id="authfilter"></a><a href="#authfilter" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>AuthFilter</h2>
+<p>AuthFilter is bound with AuthenticationManager to attempt authentication.</p>
+<p>Attempt Authentication tasks:</p>
+<ul>
+<li>Receives <strong>&quot;Authorization&quot;</strong> Header from request headers.</li>
+<li>Use the assigned Authentication manager to authenticate with the token.</li>
+</ul>
+<h2><a class="anchor" aria-hidden="true" id="authheadersfilter"></a><a href="#authheadersfilter" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>AuthHeadersFilter</h2>
+<p>This filter is going to act as a CORS filter. It is assigned before <a href="#AuthFilter">AuthFilter</a> in the filter chain.</p>
+<p>Tasks:</p>
+<ul>
+<li>Sets headers to allow cross origin requests.</li>
+<li>Sets header to allow and expose <strong>&quot;Authorization&quot;</strong> header.</li>
+</ul>
+<h2><a class="anchor" aria-hidden="true" id="authprovider"></a><a href="#authprovider" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>AuthProvider</h2>
+<p>Contacts auth server to verify token validity.</p>
+<p>Tasks:</p>
+<ul>
+<li>Contacts auth server to verify token validity.</li>
+<li>Stores the response body in an instance of <a href="#MosipUser">MosipUser</a>.</li>
+<li>Updates token into <strong>SecurityContext</strong>.</li>
+<li>Bind <a href="#MosipUser">MosipUser</a> instance details with the <a href="#AuthUserDetails">AuthUserDetails</a> that extends Spring Security's UserDetails.</li>
+</ul>
+<h2><a class="anchor" aria-hidden="true" id="authsuccesshandler"></a><a href="#authsuccesshandler" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>AuthSuccessHandler</h2>
+<p>Handles successful authentication. If any action needs to be done after successful authentication, this is where you have to do it.</p>
+<h2><a class="anchor" aria-hidden="true" id="authentrypoint"></a><a href="#authentrypoint" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>AuthEntryPoint</h2>
+<p>Captures and sends <strong>&quot;UnAuthorized&quot;</strong> error.</p>
+<h2><a class="anchor" aria-hidden="true" id="authtoken"></a><a href="#authtoken" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>AuthToken</h2>
+<ul>
+<li>Used in <a href="#AuthProvider">AuthProvider</a> for token details.</li>
+<li>This extends <strong>UsernamePasswordAuthenticationToken</strong> class.</li>
+</ul>
+<h2><a class="anchor" aria-hidden="true" id="authuserdetails"></a><a href="#authuserdetails" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>AuthUserDetails</h2>
+<p>Used by spring security to store user details like roles and use this across the application for Authorization purpose.</p>
+<h2><a class="anchor" aria-hidden="true" id="clientinterceptor"></a><a href="#clientinterceptor" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>ClientInterceptor</h2>
+<p>It is used to intercept any http calls made using rest template from this application.</p>
+<p>Config:</p>
+<p>This is added to the list of interceptors in the RestTemplate bean created in the <a href="#SecurityConfig">SecurityConfig</a>.</p>
+<p>Tasks:</p>
+<ul>
+<li>Intercept all the requests from the application and do the below tasks.</li>
+<li>Intercept a request to add auth token to the <strong>&quot;Authorization&quot;</strong> header.</li>
+<li>Intercept a response to modify the stored token with the <strong>&quot;Authorization&quot;</strong> header of the response.</li>
+</ul>
+<h2><a class="anchor" aria-hidden="true" id="mosipuser"></a><a href="#mosipuser" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>MosipUser</h2>
+<p>Mosip user is the standard spec that will be tuned based on the details stored in ldap for a user.</p>
+<h2><a class="anchor" aria-hidden="true" id="authcontrolleradvice"></a><a href="#authcontrolleradvice" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>AuthControllerAdvice</h2>
+<p>Adds latest token to the response headers before it is committed.</p>
+</span></div></article></div><div class="docs-prevnext"></div></div></div><nav class="onPageNav"><ul class="toc-headings"><li><a href="#securityconfig">SecurityConfig</a></li><li><a href="#authfilter">AuthFilter</a></li><li><a href="#authheadersfilter">AuthHeadersFilter</a></li><li><a href="#authprovider">AuthProvider</a></li><li><a href="#authsuccesshandler">AuthSuccessHandler</a></li><li><a href="#authentrypoint">AuthEntryPoint</a></li><li><a href="#authtoken">AuthToken</a></li><li><a href="#authuserdetails">AuthUserDetails</a></li><li><a href="#clientinterceptor">ClientInterceptor</a></li><li><a href="#mosipuser">MosipUser</a></li><li><a href="#authcontrolleradvice">AuthControllerAdvice</a></li></ul></nav></div><footer class="nav-footer" id="footer"><section class="sitemap"><a href="/mosip-temp-documentation" class="nav-home"><img src="/mosip-temp-documentationimg/favicon.ico" alt="MOSIP Documentation" width="66" height="58"/></a><div><h5>Docs</h5><a href="/mosip-temp-documentationdocs/en/doc1.html">Getting Started (or other categories)</a><a href="/mosip-temp-documentationdocs/en/doc2.html">Guides (or other categories)</a><a href="/mosip-temp-documentationdocs/en/doc3.html">API Reference (or other categories)</a></div><div><h5>Community</h5><a href="/mosip-temp-documentationen/users.html">User Showcase</a><a href="https://stackoverflow.com/questions/tagged/" target="_blank" rel="noreferrer noopener">Stack Overflow</a><a href="https://discordapp.com/">Project Chat</a><a href="https://twitter.com/" target="_blank" rel="noreferrer noopener">Twitter</a></div><div><h5>More</h5><a href="/mosip-temp-documentationblog">Blog</a><a href="https://github.com/">GitHub</a><a class="github-button" data-icon="octicon-star" data-count-href="/facebook/docusaurus/stargazers" data-show-count="true" data-count-aria-label="# stargazers on GitHub" aria-label="Star this project on GitHub">Star</a></div></section><a href="https://opensource.facebook.com/" target="_blank" rel="noreferrer noopener" class="fbOpenSource"><img src="/mosip-temp-documentationimg/oss_logo.png" alt="Facebook Open Source" width="170" height="45"/></a><section class="copyright">Copyright © 2019 Your Name or Your Company Name</section></footer></div></body></html>

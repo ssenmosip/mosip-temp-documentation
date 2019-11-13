@@ -1,0 +1,304 @@
+<!DOCTYPE html><html lang="en"><head><meta charSet="utf-8"/><meta http-equiv="X-UA-Compatible" content="IE=edge"/><title>MOSIP-ID-Object-Definition · MOSIP Documentation</title><meta name="viewport" content="width=device-width"/><meta name="generator" content="Docusaurus"/><meta name="description" content="ID definition is the key to use MOSIP. ID definition describes the attributes a country or entity will capture from an Individual. Since, MOSIP is a generic Identity platform the attributes of an ID cannot be predefined by MOSIP. One country may capture 5 attributes and another 10 attributes. So, to accommodate this flexibility MOSIP provides a feature where a country defines an ID object definition schema. This will be the first step in using MOSIP. Once an ID object schema is defined, all applications built on top of MOSIP platform to capture data MUST conform to the ID object schema."/><meta name="docsearch:language" content="en"/><meta property="og:title" content="MOSIP-ID-Object-Definition · MOSIP Documentation"/><meta property="og:type" content="website"/><meta property="og:url" content="https://ssenmosip.github.io/mosip-temp-documentationindex"/><meta property="og:description" content="ID definition is the key to use MOSIP. ID definition describes the attributes a country or entity will capture from an Individual. Since, MOSIP is a generic Identity platform the attributes of an ID cannot be predefined by MOSIP. One country may capture 5 attributes and another 10 attributes. So, to accommodate this flexibility MOSIP provides a feature where a country defines an ID object definition schema. This will be the first step in using MOSIP. Once an ID object schema is defined, all applications built on top of MOSIP platform to capture data MUST conform to the ID object schema."/><meta property="og:image" content="https://ssenmosip.github.io/mosip-temp-documentation/img/undraw_online.svg"/><meta name="twitter:card" content="summary"/><meta name="twitter:image" content="https://ssenmosip.github.io/mosip-temp-documentation/img/undraw_tweetstorm.svg"/><link rel="shortcut icon" href="/mosip-temp-documentationimg/favicon.ico"/><link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css"/><link rel="alternate" type="application/atom+xml" href="https://ssenmosip.github.io/mosip-temp-documentation/blog/atom.xml" title="MOSIP Documentation Blog ATOM Feed"/><link rel="alternate" type="application/rss+xml" href="https://ssenmosip.github.io/mosip-temp-documentation/blog/feed.xml" title="MOSIP Documentation Blog RSS Feed"/><script type="text/javascript" src="https://buttons.github.io/buttons.js"></script><script src="/mosip-temp-documentationjs/scrollSpy.js"></script><link rel="stylesheet" href="/mosip-temp-documentationcss/main.css"/><script src="/mosip-temp-documentationjs/codetabs.js"></script></head><body class="sideNavVisible separateOnPageNav"><div class="fixedHeaderContainer"><div class="headerWrapper wrapper"><header><a href="/mosip-temp-documentation"><img class="logo" src="/mosip-temp-documentationimg/favicon.ico" alt="MOSIP Documentation"/><h2 class="headerTitleWithLogo">MOSIP Documentation</h2></a><div class="navigationWrapper navigationSlider"><nav class="slidingNav"><ul class="nav-site nav-site-internal"><li class=""><a href="/mosip-temp-documentationdocs/Platform-Documentation" target="_self">Docs</a></li><li class=""><a href="/mosip-temp-documentationdocs/Getting-Started" target="_self">API</a></li><li class=""><a href="/mosip-temp-documentationContributor-Guide" target="_self">Help</a></li><li class=""><a href="/mosip-temp-documentationblog/" target="_self">Blog</a></li></ul></nav></div></header></div></div><div class="navPusher"><div class="docMainWrapper wrapper"><div class="container mainContainer"><div class="wrapper"><div class="post"><header class="postHeader"><h1 class="postHeaderTitle">MOSIP-ID-Object-Definition</h1></header><article><div><span><p>ID definition is the key to use MOSIP. ID definition describes the attributes a country or entity will capture from an Individual. Since, MOSIP is a generic Identity platform the attributes of an ID cannot be predefined by MOSIP. One country may capture 5 attributes and another 10 attributes. So, to accommodate this flexibility MOSIP provides a feature where a country defines an ID object definition schema. This will be the first step in using MOSIP. Once an ID object schema is defined, all applications built on top of MOSIP platform to capture data MUST conform to the ID object schema.</p>
+<ul>
+<li>As a rule of thumb, only attributes related to an individual (demographic and biometric), his/her parent/guardian attributes (demographic and biometric) should be captured in the ID object</li>
+<li>All other data captured in the field like operator/supervisor data should not be part of the ID object</li>
+<li>Schema can use predefined JSON data types to define attributes</li>
+<li>Schema can also create User Defined Types (UDTs) to specify the format of data to be captured. For example, biometrics data should always be in CBEFF ISO 19795 - 1 format. This helps in specifying the format of the data that is captured</li>
+<li>MOSIP will provide in-built validators for certain data types like CBEFF which can be used for data validation</li>
+</ul>
+<p>Below is a sample ID object definition schema and a sample of a JSON object based on the schema.</p>
+<pre><code class="hljs css language-JSON">{
+  <span class="hljs-attr">"$id"</span>: <span class="hljs-string">"http://mosip.io/id_object/1.0/id_object.json"</span>,
+  <span class="hljs-attr">"$schema"</span>: <span class="hljs-string">"http://json-schema.org/draft-07/schema#"</span>,
+  <span class="hljs-attr">"title"</span>: <span class="hljs-string">"MOSIP ID schema"</span>,
+  <span class="hljs-attr">"description"</span>: <span class="hljs-string">"Sample ID schema"</span>,
+  <span class="hljs-attr">"type"</span>: <span class="hljs-string">"object"</span>,
+  <span class="hljs-attr">"additionalProperties"</span>: <span class="hljs-literal">false</span>,
+  <span class="hljs-attr">"properties"</span>: {
+    <span class="hljs-attr">"identity"</span>: {
+      <span class="hljs-attr">"title"</span>: <span class="hljs-string">"identity"</span>,
+      <span class="hljs-attr">"description"</span>: <span class="hljs-string">"This schema holds all the attributes of an Identity"</span>,
+      <span class="hljs-attr">"type"</span>: <span class="hljs-string">"object"</span>,
+      <span class="hljs-attr">"additionalProperties"</span>: <span class="hljs-literal">true</span>,
+      <span class="hljs-attr">"properties"</span>: {
+        <span class="hljs-attr">"IDSchemaVersion"</span>: {
+          <span class="hljs-attr">"type"</span>: <span class="hljs-string">"number"</span>,
+          <span class="hljs-attr">"minimum"</span>: <span class="hljs-number">0</span>
+        },
+        <span class="hljs-attr">"UIN"</span>: {
+          <span class="hljs-attr">"type"</span>: <span class="hljs-string">"integer"</span>,
+          <span class="hljs-attr">"minimum"</span>: <span class="hljs-number">0</span>
+        },
+        <span class="hljs-attr">"fullName"</span>: {
+          <span class="hljs-attr">"$ref"</span>: <span class="hljs-string">"#/definitions/simpleType"</span>
+        },
+        <span class="hljs-attr">"dateOfBirth"</span>: {
+          <span class="hljs-attr">"type"</span>: <span class="hljs-string">"string"</span>
+        },
+        <span class="hljs-attr">"age"</span>: {
+          <span class="hljs-attr">"type"</span>: <span class="hljs-string">"integer"</span>
+        },
+        <span class="hljs-attr">"gender"</span>: {
+          <span class="hljs-attr">"$ref"</span>: <span class="hljs-string">"#/definitions/simpleType"</span>
+        },
+        <span class="hljs-attr">"addressLine1"</span>: {
+          <span class="hljs-attr">"$ref"</span>: <span class="hljs-string">"#/definitions/simpleType"</span>
+        },
+        <span class="hljs-attr">"addressLine2"</span>: {
+          <span class="hljs-attr">"$ref"</span>: <span class="hljs-string">"#/definitions/simpleType"</span>
+        },
+        <span class="hljs-attr">"addressLine3"</span>: {
+          <span class="hljs-attr">"$ref"</span>: <span class="hljs-string">"#/definitions/simpleType"</span>
+        },
+        <span class="hljs-attr">"region"</span>: {
+          <span class="hljs-attr">"$ref"</span>: <span class="hljs-string">"#/definitions/simpleType"</span>
+        },
+        <span class="hljs-attr">"province"</span>: {
+          <span class="hljs-attr">"$ref"</span>: <span class="hljs-string">"#/definitions/simpleType"</span>
+        },
+        <span class="hljs-attr">"city"</span>: {
+          <span class="hljs-attr">"$ref"</span>: <span class="hljs-string">"#/definitions/simpleType"</span>
+        },
+        <span class="hljs-attr">"postalCode"</span>: {
+          <span class="hljs-attr">"type"</span>: <span class="hljs-string">"string"</span>
+        },
+        <span class="hljs-attr">"phone"</span>: {
+          <span class="hljs-attr">"type"</span>: <span class="hljs-string">"string"</span>
+        },
+        <span class="hljs-attr">"email"</span>: {
+          <span class="hljs-attr">"type"</span>: <span class="hljs-string">"string"</span>
+        },
+        <span class="hljs-attr">"residenceStatus"</span>: {
+          <span class="hljs-attr">"$ref"</span>: <span class="hljs-string">"#/definitions/simpleType"</span>
+        },
+        <span class="hljs-attr">"parentOrGuardianName"</span>: {
+          <span class="hljs-attr">"$ref"</span>: <span class="hljs-string">"#/definitions/simpleType"</span>
+        },
+        <span class="hljs-attr">"parentOrGuardianRID"</span>: {
+          <span class="hljs-attr">"type"</span>: <span class="hljs-string">"integer"</span>,
+          <span class="hljs-attr">"minimum"</span>: <span class="hljs-number">0</span>
+        },
+        <span class="hljs-attr">"parentOrGuardianUIN"</span>: {
+          <span class="hljs-attr">"type"</span>: <span class="hljs-string">"integer"</span>,
+          <span class="hljs-attr">"minimum"</span>: <span class="hljs-number">0</span>
+        },
+        <span class="hljs-attr">"proofOfAddress"</span>: {
+          <span class="hljs-attr">"$ref"</span>: <span class="hljs-string">"#/definitions/documentType"</span>
+        },
+        <span class="hljs-attr">"proofOfIdentity"</span>: {
+          <span class="hljs-attr">"$ref"</span>: <span class="hljs-string">"#/definitions/documentType"</span>
+        },
+        <span class="hljs-attr">"proofOfRelationship"</span>: {
+          <span class="hljs-attr">"$ref"</span>: <span class="hljs-string">"#/definitions/documentType"</span>
+        },
+        <span class="hljs-attr">"proofOfDateOfBirth"</span>: {
+          <span class="hljs-attr">"$ref"</span>: <span class="hljs-string">"#/definitions/documentType"</span>
+        },
+        <span class="hljs-attr">"proofOfException"</span>: {
+          <span class="hljs-attr">"$ref"</span>: <span class="hljs-string">"#/definitions/documentType"</span>
+        },
+        <span class="hljs-attr">"individualBiometrics"</span>: {
+          <span class="hljs-attr">"$ref"</span>: <span class="hljs-string">"#/definitions/biometricsType"</span>
+        },
+        <span class="hljs-attr">"parentOrGuardianBiometrics"</span>: {
+          <span class="hljs-attr">"$ref"</span>: <span class="hljs-string">"#/definitions/biometricsType"</span>
+        }
+      }
+    }
+  },
+  <span class="hljs-attr">"definitions"</span>: {
+    <span class="hljs-attr">"simpleType"</span>: {
+      <span class="hljs-attr">"type"</span>: <span class="hljs-string">"array"</span>,
+      <span class="hljs-attr">"additionalItems"</span>: <span class="hljs-literal">false</span>,
+      <span class="hljs-attr">"uniqueItems"</span>: <span class="hljs-literal">true</span>,
+      <span class="hljs-attr">"items"</span>: {
+        <span class="hljs-attr">"type"</span>: <span class="hljs-string">"object"</span>,
+        <span class="hljs-attr">"required"</span>: [
+          <span class="hljs-string">"language"</span>,
+          <span class="hljs-string">"value"</span>
+        ],
+        <span class="hljs-attr">"additionalProperties"</span>: <span class="hljs-literal">false</span>,
+        <span class="hljs-attr">"properties"</span>: {
+          <span class="hljs-attr">"language"</span>: {
+            <span class="hljs-attr">"type"</span>: <span class="hljs-string">"string"</span>
+          },
+          <span class="hljs-attr">"value"</span>: {
+            <span class="hljs-attr">"type"</span>: <span class="hljs-string">"string"</span>
+          }
+        }
+      }
+    },
+    <span class="hljs-attr">"documentType"</span>: {
+      <span class="hljs-attr">"type"</span>: <span class="hljs-string">"object"</span>,
+      <span class="hljs-attr">"properties"</span>: {
+        <span class="hljs-attr">"format"</span>: {
+          <span class="hljs-attr">"type"</span>: <span class="hljs-string">"string"</span>
+        },
+        <span class="hljs-attr">"type"</span>: {
+          <span class="hljs-attr">"type"</span>: <span class="hljs-string">"string"</span>
+        },
+        <span class="hljs-attr">"value"</span>: {
+          <span class="hljs-attr">"type"</span>: <span class="hljs-string">"string"</span>
+        }
+      },
+      <span class="hljs-attr">"additionalProperties"</span>: <span class="hljs-literal">false</span>
+    },
+    <span class="hljs-attr">"biometricsType"</span>: {
+      <span class="hljs-attr">"type"</span>: <span class="hljs-string">"object"</span>,
+      <span class="hljs-attr">"properties"</span>: {
+        <span class="hljs-attr">"format"</span>: {
+          <span class="hljs-attr">"type"</span>: <span class="hljs-string">"string"</span>
+        },
+        <span class="hljs-attr">"version"</span>: {
+          <span class="hljs-attr">"type"</span>: <span class="hljs-string">"number"</span>,
+          <span class="hljs-attr">"minimum"</span>: <span class="hljs-number">0</span>
+        },
+        <span class="hljs-attr">"value"</span>: {
+          <span class="hljs-attr">"type"</span>: <span class="hljs-string">"string"</span>
+        }
+      },
+      <span class="hljs-attr">"additionalProperties"</span>: <span class="hljs-literal">false</span>
+    }
+  }
+}
+</code></pre>
+<p>Below is a sample JSON as per the schema defined above</p>
+<pre><code class="hljs css language-JSON">{
+  <span class="hljs-attr">"identity"</span>: {
+    <span class="hljs-attr">"IDSchemaVersion"</span>: <span class="hljs-number">1</span>,
+    <span class="hljs-attr">"UIN"</span>: <span class="hljs-number">9687061394</span>,
+    <span class="hljs-attr">"fullName"</span>: [
+      {
+        <span class="hljs-attr">"language"</span>: <span class="hljs-string">"ara"</span>,
+        <span class="hljs-attr">"value"</span>: <span class="hljs-string">"ابراهيم بن علي"</span>
+      },
+      {
+        <span class="hljs-attr">"language"</span>: <span class="hljs-string">"fra"</span>,
+        <span class="hljs-attr">"value"</span>: <span class="hljs-string">"Ibrahim Ibn Ali"</span>
+      }
+    ],
+    <span class="hljs-attr">"dateOfBirth"</span>: <span class="hljs-string">"1955/04/15"</span>,
+    <span class="hljs-attr">"age"</span>: <span class="hljs-number">45</span>,
+    <span class="hljs-attr">"gender"</span>: [
+      {
+        <span class="hljs-attr">"language"</span>: <span class="hljs-string">"fra"</span>,
+        <span class="hljs-attr">"value"</span>: <span class="hljs-string">"Femelle"</span>
+      }
+    ],
+    <span class="hljs-attr">"addressLine1"</span>: [
+      {
+        <span class="hljs-attr">"language"</span>: <span class="hljs-string">"ara"</span>,
+        <span class="hljs-attr">"value"</span>: <span class="hljs-string">"عنوان العينة سطر 1"</span>
+      },
+      {
+        <span class="hljs-attr">"language"</span>: <span class="hljs-string">"fra"</span>,
+        <span class="hljs-attr">"value"</span>: <span class="hljs-string">"exemple d'adresse ligne 1"</span>
+      }
+    ],
+    <span class="hljs-attr">"addressLine2"</span>: [
+      {
+        <span class="hljs-attr">"language"</span>: <span class="hljs-string">"ara"</span>,
+        <span class="hljs-attr">"value"</span>: <span class="hljs-string">"عنوان العينة سطر 2"</span>
+      },
+      {
+        <span class="hljs-attr">"language"</span>: <span class="hljs-string">"fra"</span>,
+        <span class="hljs-attr">"value"</span>: <span class="hljs-string">"exemple d'adresse ligne 2"</span>
+      }
+    ],
+    <span class="hljs-attr">"addressLine3"</span>: [
+      {
+        <span class="hljs-attr">"language"</span>: <span class="hljs-string">"ara"</span>,
+        <span class="hljs-attr">"value"</span>: <span class="hljs-string">"عنوان العينة سطر 2"</span>
+      },
+      {
+        <span class="hljs-attr">"language"</span>: <span class="hljs-string">"fra"</span>,
+        <span class="hljs-attr">"value"</span>: <span class="hljs-string">"exemple d'adresse ligne 2"</span>
+      }
+    ],
+    <span class="hljs-attr">"region"</span>: [
+      {
+        <span class="hljs-attr">"language"</span>: <span class="hljs-string">"fra"</span>,
+        <span class="hljs-attr">"value"</span>: <span class="hljs-string">"RSK"</span>
+      }
+    ],
+    <span class="hljs-attr">"province"</span>: [
+      {
+        <span class="hljs-attr">"language"</span>: <span class="hljs-string">"fra"</span>,
+        <span class="hljs-attr">"value"</span>: <span class="hljs-string">"Kénitra"</span>
+      }
+    ],
+    <span class="hljs-attr">"city"</span>: [
+      {
+        <span class="hljs-attr">"language"</span>: <span class="hljs-string">"fra"</span>,
+        <span class="hljs-attr">"value"</span>: <span class="hljs-string">"Kénitra"</span>
+      }
+    ],
+    <span class="hljs-attr">"postalCode"</span>: <span class="hljs-string">"10111"</span>,
+    <span class="hljs-attr">"phone"</span>: <span class="hljs-string">"9876543210"</span>,
+    <span class="hljs-attr">"email"</span>: <span class="hljs-string">"abc@xyz.com"</span>,
+    <span class="hljs-attr">"localAdministrativeAuthority"</span>: [
+      {
+        <span class="hljs-attr">"language"</span>: <span class="hljs-string">"fra"</span>,
+        <span class="hljs-attr">"value"</span>: <span class="hljs-string">"QRHS"</span>
+      }
+    ],
+    <span class="hljs-attr">"parentOrGuardianRID"</span>: <span class="hljs-number">212124324784912</span>,
+    <span class="hljs-attr">"parentOrGuardianUIN"</span>: <span class="hljs-number">212124324784912</span>,
+    <span class="hljs-attr">"parentOrGuardianName"</span>: [
+      {
+        <span class="hljs-attr">"language"</span>: <span class="hljs-string">"ara"</span>,
+        <span class="hljs-attr">"value"</span>: <span class="hljs-string">"سلمى"</span>
+      },
+      {
+        <span class="hljs-attr">"language"</span>: <span class="hljs-string">"fra"</span>,
+        <span class="hljs-attr">"value"</span>: <span class="hljs-string">"salma"</span>
+      }
+    ],
+    <span class="hljs-attr">"residenceStatus"</span>: <span class="hljs-string">"abc"</span>,
+    <span class="hljs-attr">"proofOfAddress"</span>: {
+      <span class="hljs-attr">"format"</span>: <span class="hljs-string">"pdf"</span>,
+      <span class="hljs-attr">"type"</span>: <span class="hljs-string">"RNC"</span>,
+      <span class="hljs-attr">"value"</span>: <span class="hljs-string">"fileReferenceID"</span>
+    },
+    <span class="hljs-attr">"proofOfIdentity"</span>: {
+      <span class="hljs-attr">"format"</span>: <span class="hljs-string">"txt"</span>,
+      <span class="hljs-attr">"type"</span>: <span class="hljs-string">"PAN card"</span>,
+      <span class="hljs-attr">"value"</span>: <span class="hljs-string">"fileReferenceID"</span>
+    },
+    <span class="hljs-attr">"proofOfRelationship"</span>: {
+      <span class="hljs-attr">"format"</span>: <span class="hljs-string">"pdf"</span>,
+      <span class="hljs-attr">"type"</span>: <span class="hljs-string">"Passeport"</span>,
+      <span class="hljs-attr">"value"</span>: <span class="hljs-string">"fileReferenceID"</span>
+    },
+    <span class="hljs-attr">"proofOfDateOfBirth"</span>: {
+      <span class="hljs-attr">"format"</span>: <span class="hljs-string">"pdf"</span>,
+      <span class="hljs-attr">"type"</span>: <span class="hljs-string">"passport"</span>,
+      <span class="hljs-attr">"value"</span>: <span class="hljs-string">"fileReferenceID"</span>
+    },
+    <span class="hljs-attr">"individualBiometrics"</span>: {
+      <span class="hljs-attr">"format"</span>: <span class="hljs-string">"cbeff"</span>,
+      <span class="hljs-attr">"version"</span>: <span class="hljs-number">1</span>,
+      <span class="hljs-attr">"value"</span>: <span class="hljs-string">"fileReferenceID"</span>
+    },
+    <span class="hljs-attr">"parentOrGuardianBiometrics"</span>: {
+      <span class="hljs-attr">"format"</span>: <span class="hljs-string">"cbeff"</span>,
+      <span class="hljs-attr">"version"</span>: <span class="hljs-number">1.1</span>,
+      <span class="hljs-attr">"value"</span>: <span class="hljs-string">"fileReferenceID"</span>
+    }
+  }
+}
+</code></pre>
+<p>All operations related to ID will have a place holder to receive the ID Object as per the schema, validate it as per the schema and store it AS IS. For example, when an Individual creates a Pre-Registration, the API for Pre-Registration will look as below</p>
+<pre><code class="hljs">//<span class="hljs-keyword">CREATE</span> Pre-Registration
+request <span class="hljs-keyword">body</span>
+{
+    <span class="hljs-string">"id"</span> : <span class="hljs-string">"mosip.pre-registration.create"</span>,
+    <span class="hljs-string">"version"</span> : <span class="hljs-string">"1.0"</span>,  
+    <span class="hljs-string">"request"</span> : 
+    {
+        //<span class="hljs-keyword">JSON</span> request <span class="hljs-keyword">as</span> per the <span class="hljs-keyword">id</span> <span class="hljs-keyword">object</span> <span class="hljs-keyword">schema</span> defined <span class="hljs-keyword">by</span> the country               
+    }
+}
+</code></pre>
+<p>Also, please refer to <a href="ID-Repository-API"><strong>ID Repository API</strong></a> on how an ID Object is managed in MOSIP.</p>
+</span></div></article></div><div class="docs-prevnext"></div></div></div><nav class="onPageNav"></nav></div><footer class="nav-footer" id="footer"><section class="sitemap"><a href="/mosip-temp-documentation" class="nav-home"><img src="/mosip-temp-documentationimg/favicon.ico" alt="MOSIP Documentation" width="66" height="58"/></a><div><h5>Docs</h5><a href="/mosip-temp-documentationdocs/en/doc1.html">Getting Started (or other categories)</a><a href="/mosip-temp-documentationdocs/en/doc2.html">Guides (or other categories)</a><a href="/mosip-temp-documentationdocs/en/doc3.html">API Reference (or other categories)</a></div><div><h5>Community</h5><a href="/mosip-temp-documentationen/users.html">User Showcase</a><a href="https://stackoverflow.com/questions/tagged/" target="_blank" rel="noreferrer noopener">Stack Overflow</a><a href="https://discordapp.com/">Project Chat</a><a href="https://twitter.com/" target="_blank" rel="noreferrer noopener">Twitter</a></div><div><h5>More</h5><a href="/mosip-temp-documentationblog">Blog</a><a href="https://github.com/">GitHub</a><a class="github-button" data-icon="octicon-star" data-count-href="/facebook/docusaurus/stargazers" data-show-count="true" data-count-aria-label="# stargazers on GitHub" aria-label="Star this project on GitHub">Star</a></div></section><a href="https://opensource.facebook.com/" target="_blank" rel="noreferrer noopener" class="fbOpenSource"><img src="/mosip-temp-documentationimg/oss_logo.png" alt="Facebook Open Source" width="170" height="45"/></a><section class="copyright">Copyright © 2019 Your Name or Your Company Name</section></footer></div></body></html>

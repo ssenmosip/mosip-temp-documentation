@@ -1,0 +1,1113 @@
+<!DOCTYPE html><html lang="en"><head><meta charSet="utf-8"/><meta http-equiv="X-UA-Compatible" content="IE=edge"/><title>Tester-Documentation · MOSIP Documentation</title><meta name="viewport" content="width=device-width"/><meta name="generator" content="Docusaurus"/><meta name="description" content="# 1. Introduction"/><meta name="docsearch:language" content="en"/><meta property="og:title" content="Tester-Documentation · MOSIP Documentation"/><meta property="og:type" content="website"/><meta property="og:url" content="https://ssenmosip.github.io/mosip-temp-documentationindex"/><meta property="og:description" content="# 1. Introduction"/><meta property="og:image" content="https://ssenmosip.github.io/mosip-temp-documentation/img/undraw_online.svg"/><meta name="twitter:card" content="summary"/><meta name="twitter:image" content="https://ssenmosip.github.io/mosip-temp-documentation/img/undraw_tweetstorm.svg"/><link rel="shortcut icon" href="/mosip-temp-documentationimg/favicon.ico"/><link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css"/><link rel="alternate" type="application/atom+xml" href="https://ssenmosip.github.io/mosip-temp-documentation/blog/atom.xml" title="MOSIP Documentation Blog ATOM Feed"/><link rel="alternate" type="application/rss+xml" href="https://ssenmosip.github.io/mosip-temp-documentation/blog/feed.xml" title="MOSIP Documentation Blog RSS Feed"/><script type="text/javascript" src="https://buttons.github.io/buttons.js"></script><script src="/mosip-temp-documentationjs/scrollSpy.js"></script><link rel="stylesheet" href="/mosip-temp-documentationcss/main.css"/><script src="/mosip-temp-documentationjs/codetabs.js"></script></head><body class="sideNavVisible separateOnPageNav"><div class="fixedHeaderContainer"><div class="headerWrapper wrapper"><header><a href="/mosip-temp-documentation"><img class="logo" src="/mosip-temp-documentationimg/favicon.ico" alt="MOSIP Documentation"/><h2 class="headerTitleWithLogo">MOSIP Documentation</h2></a><div class="navigationWrapper navigationSlider"><nav class="slidingNav"><ul class="nav-site nav-site-internal"><li class=""><a href="/mosip-temp-documentationdocs/Platform-Documentation" target="_self">Docs</a></li><li class=""><a href="/mosip-temp-documentationdocs/Getting-Started" target="_self">API</a></li><li class=""><a href="/mosip-temp-documentationContributor-Guide" target="_self">Help</a></li><li class=""><a href="/mosip-temp-documentationblog/" target="_self">Blog</a></li></ul></nav></div></header></div></div><div class="navPusher"><div class="docMainWrapper wrapper"><div class="container mainContainer"><div class="wrapper"><div class="post"><header class="postHeader"><h1 class="postHeaderTitle">Tester-Documentation</h1></header><article><div><span><h1><a class="anchor" aria-hidden="true" id="1-introduction"></a><a href="#1-introduction" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>1. Introduction</h1>
+<h2><a class="anchor" aria-hidden="true" id="11-overview"></a><a href="#11-overview" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>1.1 Overview</h2>
+<p>The MOSIP architecture mainly consists of the following functional blocks/modules</p>
+<ul>
+<li>Pre-Registration - Web application designed in Angular JS
+A resident can provide his demographic details in this web application and book an appointment for his future registration at a registration center</li>
+<li>Registration Client - A Desktop thick client application developed in JavaFX.
+A resident is registered through the Registration Client software to generate get a unique identification number. The software captures demographic and biometrics information of the residents. It is connected to scanner devices (finger print, iris), camera and printer to capture resident biometrics information</li>
+<li>Registration Processor - A backend server application developed using SEDA framework
+It processes the client packets and generates UIN based on de-dup information from ABIS (Automated Biometrics Identification System)</li>
+<li>IDA (ID Authentication) - A backend authentication server developed using spring family.
+It authenticates the resident based on registered set of biometric and demographic information</li>
+</ul>
+<p>Test automation is the key to the success of comprehensive test coverage and test data. However in the context of MOSIP testing, where there are external devices and integration with third party software, test automation cannot be exhaustive and comprehensive test coverage can be achieved by testing driven by manual intervention, along with test automation.</p>
+<p>In this document we will also talk about utilities for test data generation, tools for test automation and test strategy in general.</p>
+<!---MOSIP SOAPUI tests are developed as an open source framework project. The tests developed using soapui with the following best practices.--->
+<h2><a class="anchor" aria-hidden="true" id="12-scope"></a><a href="#12-scope" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>1.2 Scope</h2>
+<h3><a class="anchor" aria-hidden="true" id="121-test-coverage"></a><a href="#121-test-coverage" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>1.2.1 Test Coverage</h3>
+<ul>
+<li>Each of the modules has the following building blocks which are the testable entities, at the module level</li>
+<li>System Integration Testing - This involves testing functional workflows across the modules, starting from Pre-Reg and ending in IDA</li>
+<li>Test Automation - tools, approach, test code configuration management process, regular usage</li>
+</ul>
+<table>
+<thead>
+<tr><th>Module</th><th>Testable Entities</th><th>Levels of Testing</th><th>Comments</th></tr>
+</thead>
+<tbody>
+<tr><td>Pre-Registration</td><td>UI <br> REST APIs</td><td>UI Functional Testing <br> Individual API testing <br> API level integration testing</td><td></td></tr>
+<tr><td>Registration Client</td><td>Java APIs</td><td>UI Functional Testing (with simulators and with devices) <br> Individual API testing <br> API level integration testing</td><td></td></tr>
+<tr><td>Registration Processor</td><td>Java APIs <br> SEDA vert.x stages</td><td>Individual API testing <br> Integration workflow testing including the APIs and Vert.x for processing various packet types</td><td></td></tr>
+<tr><td>IDA</td><td>REST APIs</td><td>Individual API testing <br> Integration workflow testing</td><td></td></tr>
+<tr><td>Kernel</td><td>REST APIs</td><td>Individual API testing <br> Integration workflow testing</td><td></td></tr>
+</tbody>
+</table>
+<h3><a class="anchor" aria-hidden="true" id="122-data-coverage"></a><a href="#122-data-coverage" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>1.2.2 Data Coverage</h3>
+<ul>
+<li>Data utility tools - approach, usage</li>
+</ul>
+<h3><a class="anchor" aria-hidden="true" id="123-test-management-tools"></a><a href="#123-test-management-tools" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>1.2.3 Test Management Tools</h3>
+<h3><a class="anchor" aria-hidden="true" id="124-defect-management-lifecycle"></a><a href="#124-defect-management-lifecycle" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>1.2.4 Defect Management &amp; Lifecycle</h3>
+<h1><a class="anchor" aria-hidden="true" id="2-test-approach"></a><a href="#2-test-approach" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>2. Test Approach</h1>
+<p>Each module is tested, both manually and through automation software for effective test coverage.</p>
+<p>A progressively evolving test approach is being adopted in both cases.</p>
+<ol>
+<li>Manual Testing starts with module level functional coverage followed by --&gt; integration across modules --&gt; End to end workflow testing</li>
+<li>Automation Testing starts with the fundamental building blocks like APIs, and grows up the stack.
+<ul>
+<li>Individual API verification is followed by --&gt; API Integration testing --&gt; integration across modules --&gt; End to end workflow testing</li>
+</ul></li>
+</ol>
+<h1><a class="anchor" aria-hidden="true" id="4-test-automation-user-guides"></a><a href="#4-test-automation-user-guides" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>4. Test Automation User Guides</h1>
+<h2><a class="anchor" aria-hidden="true" id="41-kernel-test-automation-suite-user-guide"></a><a href="#41-kernel-test-automation-suite-user-guide" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>4.1 Kernel Test Automation Suite - User Guide</h2>
+<h3><a class="anchor" aria-hidden="true" id="411-about-the-kernel-module"></a><a href="#411-about-the-kernel-module" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>4.1.1 About the Kernel Module</h3>
+<p>A critical interface module of MOSIP, Kernel is the core package on which MOSIP services are built upon and is a platform, which provides higher-level services and functions that shall be reused by other modules of MOSIP.</p>
+<p>Kernel provides a foundation to build and run the services by providing several significant necessary technical functions. Kernel makes it easy to build the higher-level services (domain services, batch services and core services) by taking care of fundamental features so that individual services are concerned with specific business functions. Kernel provides an active framework that ensures structure and rules within which the higher-level services operate.</p>
+<p>Kernel automation works with Restful and Java API’s.</p>
+<p>The test execution module of the Kernel module involving API’s is as depicted below</p>
+<p><img src="_images/test_rig_automation/kernel1.jpg" alt="Test"></p>
+<h3><a class="anchor" aria-hidden="true" id="412-pre-requisites-for-understanding-java-api-automation"></a><a href="#412-pre-requisites-for-understanding-java-api-automation" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>4.1.2 Pre-requisites for understanding Java API automation</h3>
+<ul>
+<li>Knowledge on Java 8</li>
+<li>Basic knowledge on Rest assured tool</li>
+<li>Knowledge on Maven</li>
+<li>Knowledge on TestNg framework</li>
+<li>Knowledge on GitHub</li>
+<li>Good analytical and debugging skill</li>
+</ul>
+<h3><a class="anchor" aria-hidden="true" id="413-procedure-to-check-out-the-test-code-from-the-repository"></a><a href="#413-procedure-to-check-out-the-test-code-from-the-repository" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>4.1.3 Procedure to check out the test code from the repository</h3>
+<ul>
+<li>Create a workspace in the local system</li>
+<li>Open git bash in the workspace</li>
+<li>Enter the command :- git clone <a href="/mosip/mosip-functional-tests">link</a></li>
+<li>MOSIP project shall be cloned</li>
+<li>Import the “automationtests” project into the eclipse.</li>
+</ul>
+<h3><a class="anchor" aria-hidden="true" id="414-pre-configuration-information-prior-to-test-run"></a><a href="#414-pre-configuration-information-prior-to-test-run" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>4.1.4 Pre-configuration information prior to test run</h3>
+<p>None</p>
+<h3><a class="anchor" aria-hidden="true" id="415-procedure-to-add-new-test-cases-into-the-api-test-suite"></a><a href="#415-procedure-to-add-new-test-cases-into-the-api-test-suite" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>4.1.5 Procedure to Add new test cases into the API test suite</h3>
+<ol>
+<li>From the automationtests project, the test suites and cases can be located in the folder [<strong>src/main/resources</strong>]</li>
+<li>Every API tests structure (model, api name and test case) are stored in a folder/sub-folder approach. Let us take an example of “<strong>Email Notification service</strong>” and explain how to add a new test</li>
+</ol>
+<p><img src="_images/test_rig_automation/kernel2.jpg" alt="Test"></p>
+<ol start="3">
+<li>Every test case will have 2 json files named [<strong>request.json</strong> and <strong>response.json</strong>] in its sub-folder as shown below</li>
+</ol>
+<p><img src="_images/test_rig_automation/kernel3.jpg" alt="Test"></p>
+<ol start="4">
+<li>In the request.json file, we need to mention the input that needs to be send to the API and response.json file contains the expected result for that particular input.</li>
+</ol>
+<p>Based on the test cases, we need to add the test case folders with request and response files.</p>
+<p>The <strong>readTestCases</strong> method from <strong>TestCaseReader</strong> class will read the folder names and give the test case names and <strong>readRequestResponseJson</strong> method from <strong>TestCaseReader</strong> class will read the request and response files from the tests.</p>
+<h3><a class="anchor" aria-hidden="true" id="416-procedure-to-execute-or-run-the-tests-on-a-new-environment"></a><a href="#416-procedure-to-execute-or-run-the-tests-on-a-new-environment" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>4.1.6 Procedure to execute or Run the tests on a new environment</h3>
+<ul>
+<li>To run the automation suite of Kernel you will need an xml file named [<strong>testngKernel.xml</strong>], which will be available under [<strong>src/main/resources</strong>].</li>
+<li>Add what are the test need to run in that xml file.</li>
+<li>Add the path of the xml file in <strong>pom.xml</strong> file under maven surefire plugin.</li>
+</ul>
+<h3><a class="anchor" aria-hidden="true" id="417-running-a-test-suite"></a><a href="#417-running-a-test-suite" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>4.1.7 Running a test suite</h3>
+<ol>
+<li><p>Right click project</p></li>
+<li><p>Select “Run as configuration”</p></li>
+<li><p>Under configuration select <strong>Maven build</strong> and create new maven build</p></li>
+<li><p>Select current project as workspace.</p></li>
+<li><p>Pass the below commands in the Goals:-</p>
+<p>Command:-<strong>clean install</strong> -<strong>Denv.user</strong>= required environment</p>
+<p><strong>-Denv.endpoint</strong>=application url <strong>-Denv.testLevel</strong>=testLevel</p>
+<p><strong>Where</strong></p>
+<ul>
+<li>Required environment- In which environment the suite needs to run. (Ex:- qa, dev, int)</li>
+<li>TestLevel- Type of tests like (Ex:-smoke, regression, smokeAndRegression)</li>
+</ul>
+<p><strong>Note: - Here regression means all tests other than smoke tests.</strong></p></li>
+<li><p>Select or Click the button “RUN”</p></li>
+<li><p>Once the execution is completed, Test report will be generated in <strong>target/surefire-reports</strong> folder with the name <strong>MOSIP_ModuleLevelAutoRun_TestNGReport.html</strong>.</p></li>
+</ol>
+<h3><a class="anchor" aria-hidden="true" id="418-analyze-the-test-reports"></a><a href="#418-analyze-the-test-reports" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>4.1.8 Analyze the test reports</h3>
+<ol>
+<li>Open the report in Internet Explorer</li>
+<li>The report will give the module name, total number of test case execution with pass, skipped and fail count</li>
+<li>Report will provide the build version and also execution time</li>
+<li>Report will show API name and corresponding test case names with execution time</li>
+<li>For failed test cases, it will show the cause of failure</li>
+</ol>
+<h2><a class="anchor" aria-hidden="true" id="42-pre-registration-test-automation-suite-user-guide"></a><a href="#42-pre-registration-test-automation-suite-user-guide" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>4.2 Pre-Registration Test Automation Suite - User Guide</h2>
+<h3><a class="anchor" aria-hidden="true" id="421-about-the-pre-registration-module"></a><a href="#421-about-the-pre-registration-module" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>4.2.1 About the Pre-Registration Module</h3>
+<p>This is the web channel of MOSIP, which facilitates capturing individual information, relevant documents and booking an appointment with a registration center. This helps to reduce registration time and optimize the process. The current web application is highly modular by design and with multi language support. This UI can be customized or modified as per the country's requirements. A country can also build a new web/mobile application on top of the back end services that MOSIP provides.</p>
+<p>The test execution work-flow for the module Pre-Registration involving Rest API’s is as depicted below</p>
+<p><img src="_images/test_rig_automation/pre-reg1.jpg" alt="Test"></p>
+<h3><a class="anchor" aria-hidden="true" id="422-pre-requisites-for-understanding-java-api-automation"></a><a href="#422-pre-requisites-for-understanding-java-api-automation" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>4.2.2 Pre-requisites for understanding Java API automation</h3>
+<ul>
+<li>Knowledge on Java 8</li>
+<li>Knowledge on Rest services</li>
+<li>Knowledge on maven</li>
+<li>Good analytical and debugging skill</li>
+</ul>
+<h3><a class="anchor" aria-hidden="true" id="423-procedure-to-checkout-out-the-test-code-from-the-repository"></a><a href="#423-procedure-to-checkout-out-the-test-code-from-the-repository" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>4.2.3 Procedure to checkout-out the test code from the repository</h3>
+<ul>
+<li>Navigate to git repository.</li>
+<li>Copy URI</li>
+<li>Open Git Bash</li>
+<li>Clone repository(git clone  “URI”)</li>
+</ul>
+<h3><a class="anchor" aria-hidden="true" id="424-pre-configuration-information-prior-to-test-run"></a><a href="#424-pre-configuration-information-prior-to-test-run" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>4.2.4 Pre-configuration information prior to test run</h3>
+<p>None</p>
+<h3><a class="anchor" aria-hidden="true" id="425-procedure-to-add-new-test-cases-into-the-api-test-suite"></a><a href="#425-procedure-to-add-new-test-cases-into-the-api-test-suite" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>4.2.5 Procedure to Add new test cases into the API test suite</h3>
+<ol>
+<li>From the code repository of the module, the test suites and cases can be located in the folder [<strong>src/main/resources</strong>]</li>
+<li>Every API tests structure (test suite and test case) are stored in a folder/sub-folder approach. Let us take an example of “Create_PreRegistration” and Here you can see Create_PreRegistration is the suite name and inside that we have list of test cases.</li>
+</ol>
+<p><img src="_images/test_rig_automation/pre-reg2.jpg" alt="Test"></p>
+<ol start="3">
+<li>To add new test case we need to create a folder inside test suite folder. You can give folder name same as test case name</li>
+<li>Every test case name we need to add Create_PreRegistrationRequest.json file</li>
+</ol>
+<p><img src="_images/test_rig_automation/pre-reg3.jpg" alt="Test"></p>
+<ol start="5">
+<li><p>In the Create_PreRegistartionRequest.json file, we need to mention all folder name(Test Case Name).
+When we run any class, then it will pick request body from folder and it will pick expected response. We will take request body, as input and it will give response (Actual Response).
+For Validation, we are doing json to json comparison.</p></li>
+<li><p>In Pre-Registration module, we have created on class called PreRegistrationLibrary, which is present in io.mosip.util package. In this class, we have created all reusable method, which is used, in Pre-Registration module.</p>
+<p>E.g.:-To book an appointment first we need to create an application, upload document, and then book appointment. Here for each operation we have created one method.</p></li>
+</ol>
+<h3><a class="anchor" aria-hidden="true" id="426-procedure-to-execute-or-run-the-tests-on-a-new-environment"></a><a href="#426-procedure-to-execute-or-run-the-tests-on-a-new-environment" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>4.2.6 Procedure to execute or Run the tests on a new environment</h3>
+<p>To run the automation suite of Pre-Registration module you will need an xml file named [<strong>Pre-Registration_TestNG.xml</strong>], which will be available under [<strong>src/main/resources</strong>]. In this xml file we need to add class name which we want to run.</p>
+<p><img src="_images/test_rig_automation/pre-reg4.jpg" alt="Test"></p>
+<h3><a class="anchor" aria-hidden="true" id="427-running-a-test-suite"></a><a href="#427-running-a-test-suite" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>4.2.7 Running a test suite</h3>
+<p>Procedure to execute the [<strong>Reg-automation-service_TestNG.xml</strong>] xml File:</p>
+<ol>
+<li><p>Right click the xml file <strong>Pre-Registration_TestNG.xml</strong></p></li>
+<li><p>Select “Run as configuration”</p></li>
+<li><p>Run as Maven</p></li>
+<li><p>Select workspace(${workspace_loc:/automationtests})</p></li>
+<li><p>In Goal Pass environment name,Base URI and  type of test case you want to run(smoke or regression)</p>
+<p><img src="_images/test_rig_automation/pre-reg5.jpg" alt="Test"></p>
+<p>Here, -Denv.user indicates environment name.
+-Denv.endpoint indicates base URI
+-Denv.testLevel indicates types of test case we want to run</p></li>
+<li><p>Select or Click the button “RUN”</p></li>
+<li><p>Test Suites execution will commence.</p></li>
+<li><p>Test report will be stored in [<strong>surefire-report</strong>] folder under the base directory/project</p>
+<p><img src="_images/test_rig_automation/pre-reg6.jpg" alt="Test"></p></li>
+</ol>
+<h3><a class="anchor" aria-hidden="true" id="428-running-a-single-test-case"></a><a href="#428-running-a-single-test-case" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>4.2.8 Running a single test case</h3>
+<ol>
+<li>Right click on class, which you want to run.</li>
+<li>Click on run as</li>
+<li>Click on testing</li>
+<li>Select class</li>
+<li>In VM argument pass
+-Denv.user=qa -Denv.endpoint=&quot;eg:<a href="https://testenvname.mosip.io">https://testenvname.mosip.io</a>&quot; -Denv.testLevel=smokeAndRegression</li>
+</ol>
+<h3><a class="anchor" aria-hidden="true" id="429-analyze-the-test-reports"></a><a href="#429-analyze-the-test-reports" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>4.2.9 Analyze the test reports</h3>
+<ul>
+<li>Once run is complete, then refresh project and go to target/surefire folder.</li>
+<li>Open MOSIP_ModuleLevelAutoRun_TestNGReport.html report.</li>
+<li>To analyze failure test case check exception message.</li>
+</ul>
+<h2><a class="anchor" aria-hidden="true" id="43-registration-client-test-automation-suite-user-guide"></a><a href="#43-registration-client-test-automation-suite-user-guide" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>4.3 Registration Client Test Automation Suite - User Guide</h2>
+<h3><a class="anchor" aria-hidden="true" id="431-about-the-registration-client-module"></a><a href="#431-about-the-registration-client-module" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>4.3.1 About the Registration Client Module</h3>
+<p>An important client interface module of MOSIP, which captures the Biometric and Demographic information of the Individual resident. This module also stores supporting information such as proof documents and information about the guardian or introducer as per the configuration set by the Admin. The packet creation is finished in this module in a secure way using sophisticated encryption algorithm and later send to the server for online mode of processing. The registration client test suites comprises of tests related to UI and Java API’s.</p>
+<p>The test execution module of the Registration client module involving Java API’s is as depicted below</p>
+<p><img src="_images/test_rig_automation/reg-client1.jpg" alt="Test"></p>
+<h3><a class="anchor" aria-hidden="true" id="432-pre-requisites-for-understanding-java-api-automation"></a><a href="#432-pre-requisites-for-understanding-java-api-automation" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>4.3.2 Pre-requisites for understanding Java API automation</h3>
+<ul>
+<li>Knowledge on Java 8</li>
+<li>Basic knowledge on Spring services and should know annotations</li>
+<li>Knowledge on maven</li>
+<li>Good analytical and debugging skill</li>
+</ul>
+<h3><a class="anchor" aria-hidden="true" id="433-procedure-to-check-out-the-test-code-from-the-repository"></a><a href="#433-procedure-to-check-out-the-test-code-from-the-repository" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>4.3.3 Procedure to check out the test code from the repository</h3>
+<p>Instruction to checkout code from GitHub using Eclipse.</p>
+<ul>
+<li>Open eclipse</li>
+<li>Go to quick access and search “clone git”</li>
+</ul>
+<p><img src="_images/test_rig_automation/reg-client2.jpg" alt="Test"></p>
+<p><strong>Figure 1</strong></p>
+<p><img src="_images/test_rig_automation/reg-client3.jpg" alt="Test"></p>
+<p><strong>Figure 2</strong></p>
+<ul>
+<li><p>A pop up will appear in that enter the URI, Host and Repository path as same as below. Pass your GitHub username and password and click on next.</p>
+<p><img src="_images/test_rig_automation/reg-client4.jpg" alt="Test"></p></li>
+<li><p>Search the branch name, select it, and then click next. Our latest branch name as <a href="/mosip/mosip-functional-tests">link</a>.</p>
+<p><img src="_images/test_rig_automation/reg-client5.jpg" alt="Test"></p></li>
+<li><p>Browse the directory to pull the code.</p>
+<p><img src="_images/test_rig_automation/reg-client6.jpg" alt="Test"></p></li>
+<li><p>Now the code will be in eclipse git repository. Import the required project to the workspace. For registration client automation, we want to import kernel and registration projects.</p>
+<p><img src="_images/test_rig_automation/reg-client7.jpg" alt="Test"></p></li>
+</ul>
+<h3><a class="anchor" aria-hidden="true" id="434-pre-configuration-information-prior-to-test-run"></a><a href="#434-pre-configuration-information-prior-to-test-run" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>4.3.4 Pre-configuration information prior to test run</h3>
+<p>None</p>
+<h3><a class="anchor" aria-hidden="true" id="435-procedure-to-add-new-test-cases-into-the-api-test-suite"></a><a href="#435-procedure-to-add-new-test-cases-into-the-api-test-suite" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>4.3.5 Procedure to Add new test cases into the API test suite</h3>
+<ol>
+<li>From the code repository of the module, the test suites and cases can be located in the folder [<strong>src/test/resources</strong>]</li>
+<li>Every API tests structure (test suite and test case) are stored in a folder/sub-folder approach. Let us take an example of “<strong>Email Notification service</strong>” and explain how to add a new test</li>
+</ol>
+<p><img src="_images/test_rig_automation/reg-client8.jpg" alt="Test"></p>
+<ol start="3">
+<li>Every test case will have a configuration property file named [<strong>condition.properties</strong>] in its sub-folder as shown below</li>
+</ol>
+<p><img src="_images/test_rig_automation/reg-client9.jpg" alt="Test"></p>
+<ol start="4">
+<li>In this condition.properties file, we need to mention the parameter type that needs to be sent to the API. [<strong>valid</strong>] indicates the value passed is a correct/right data and [<strong>invalid</strong>] indicates the data being sent is an incorrect/wrong data.(we can also check the parameter behavior for the empty and space also, for that we can pass the value as <strong>space</strong> and <strong>empty</strong> respectively in condition.properties) This information has to be entered for every field/parameter that the API consists.</li>
+</ol>
+<p><img src="_images/test_rig_automation/reg-client10.jpg" alt="Test"></p>
+<p>Based on values set inside the <strong>condition.properties</strong> file test cases will fetch the data from yaml file and then call a data generator code internally which shall add meaningful right or incorrect values as test data into these variables.
+More information on the Yaml file can be found under appendix</p>
+<h3><a class="anchor" aria-hidden="true" id="436-procedure-to-execute-or-run-the-tests-on-a-new-environment"></a><a href="#436-procedure-to-execute-or-run-the-tests-on-a-new-environment" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>4.3.6 Procedure to execute or Run the tests on a new environment</h3>
+<p>To run the automation suite of Registration Client module you will need an xml file named [<strong>Reg-automation-service_TestNG.xml</strong>], which will be available under [<strong>src/test/resources</strong>].</p>
+<h3><a class="anchor" aria-hidden="true" id="437-running-a-test-suite"></a><a href="#437-running-a-test-suite" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>4.3.7 Running a test suite</h3>
+<p>Procedure to execute the [<strong>Reg-automation-service_TestNG.xml</strong>] xml File:</p>
+<ol>
+<li><p>Right click the xml file Reg-automation-service_TestNG.xml</p></li>
+<li><p>Select “Run as configuration”</p></li>
+<li><p>Under configuration select [TestNG] and pass the VM argument as
+-Dspring.profiles.active=required environment (which could be either of QA or INT or DEV)</p>
+<p>-Dmosip.dbpath=DB path</p>
+<p>*DB path – this is the local DB path where all the sync happens and other data’s get updated while running the code. The empty DB name is available in /registration/registration-libs/src/main/resources/db/reg . We are copying this empty DB in our project and passing as vm argument while running the code.</p>
+<p>-Dmosip.registration.db.key=DB key path</p>
+<p>Sample representation of the VM argument is as below</p>
+<p><code>-Dspring.profiles.active=qa -Dmosip.dbpath=reg -Dmosip.registration.db.key=D:\keys.properties</code></p></li>
+<li><p>Select or Click the button “RUN”
+Test Suites execution will commence.</p></li>
+<li><p>Test report will be stored in [test-output] folder under the base directory/project</p></li>
+</ol>
+<h3><a class="anchor" aria-hidden="true" id="438-appendix"></a><a href="#438-appendix" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>4.3.8 Appendix</h3>
+<p><strong>1. Java API</strong></p>
+<p>Java application programming interface (API) is a list of all classes that are part of the Java development kit (JDK). An application-programming interface (API), in the context of Java, is a collection of prewritten packages, classes, and interfaces with their respective methods, fields and constructors.
+For more detail, refer to the <a href="//resources.saylor.org/wwwresources/archived/site/wp-content/uploads/2013/02/CS101-1.3.5.3-Java-Application-Programming-Interface-API-FINAL.pdf">link</a></p>
+<p><strong>2. Yaml master data file</strong></p>
+<p>Yaml file is the master data set for testing the API, Sample Mater Data set is as below:</p>
+<p><img src="_images/test_rig_automation/reg-client11.jpg" alt="Test"></p>
+<p><strong>3. How to increase the data coverage inside Yaml file?</strong></p>
+<p>To increase the data coverage we can add as many as test data’s into the Yaml file</p>
+<p><strong>4. Any dependencies of values in the Database</strong></p>
+<p>None</p>
+<h2><a class="anchor" aria-hidden="true" id="44-registration-processor-test-automation-suite-user-guide"></a><a href="#44-registration-processor-test-automation-suite-user-guide" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>4.4 Registration Processor Test Automation Suite - User Guide</h2>
+<h3><a class="anchor" aria-hidden="true" id="441-about-the-registration-processor-module"></a><a href="#441-about-the-registration-processor-module" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>4.4.1 About The Registration Processor Module</h3>
+<p>Registration Processor processes the data (demographic and biometric) of an Individual for quality and uniqueness and then issues a Unique Identification Number (UIN). The source of data are primarily from</p>
+<ul>
+<li>MOSIP Registration Client</li>
+<li>Existing ID system(s) of a country</li>
+</ul>
+<p>The workflow of testing or running the test suite of the available API’s And Stages is as depicted below</p>
+<p><img src="_images/test_rig_automation/reg-proc1.jpg" alt="Test"></p>
+<h3><a class="anchor" aria-hidden="true" id="442-pre-requisites-for-understanding-rest-api-automation"></a><a href="#442-pre-requisites-for-understanding-rest-api-automation" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>4.4.2 Pre-requisites for understanding Rest API automation</h3>
+<ul>
+<li>Knowledge on Core Java</li>
+<li>Basic knowledge on Rest assured library</li>
+<li>Knowledge on Maven</li>
+<li>Knowledge on TestNg framework</li>
+<li>Knowledge on Keyword, Data Driven and Hybrid methodology</li>
+<li>Knowledge on GitHub</li>
+<li>Good analytical and debugging skill</li>
+</ul>
+<h3><a class="anchor" aria-hidden="true" id="443-procedure-to-checkout-out-the-test-code-from-the-repository"></a><a href="#443-procedure-to-checkout-out-the-test-code-from-the-repository" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>4.4.3 Procedure to checkout-out the test code from the repository</h3>
+<ul>
+<li>Launch eclipse with new or existing workspace</li>
+<li>Clone project from <a href="//github.com/mosip/mosip-functional-tests"><strong>link</strong></a></li>
+<li>Import the automationtests project into the eclipse.</li>
+</ul>
+<h3><a class="anchor" aria-hidden="true" id="444-procedure-to-add-new-test-cases-into-the-api-test-suite"></a><a href="#444-procedure-to-add-new-test-cases-into-the-api-test-suite" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>4.4.4 Procedure to Add new test cases into the API test suite</h3>
+<p><strong>Case1 : For Api Level Testing</strong></p>
+<ol>
+<li>From the automationtests project, the testdata can be located in the folder [<strong>src/main/resources</strong>]</li>
+<li>Every API tests structure (model, api name and test case) are stored in a folder/sub-folder approach. Let us take an example of “<strong>Sync Api Service</strong>” and explain how to add a new test</li>
+</ol>
+<p><img src="_images/test_rig_automation/reg-proc2.jpg" alt="Test"></p>
+<p><strong>Case2 : For Stage Level Testing</strong></p>
+<ol>
+<li>From the automationtests project, the testdata can be located in the folder [<strong>src/main/resources</strong>]</li>
+<li>Every stage can be tested by feeding negative packets to the system and expecting them to fail for the particular stage. Let us take the example of “<strong>OSI Validation Stage</strong>”</li>
+</ol>
+<p><img src="_images/test_rig_automation/reg-proc3.jpg" alt="Test"></p>
+<ol start="3">
+<li>A sample property file looks like as follows :</li>
+</ol>
+<p><img src="_images/test_rig_automation/reg-proc4.jpg" alt="Test"></p>
+<ol start="4">
+<li>The reg proc automation suite will tweak the values in a valid packet and will generate packets for the above attributes sequentially.</li>
+<li>There is one more file “<strong>StageBits.properties</strong>” which has a stage string. The string is used to construct the status string for a packet. For eg if stage string is “<strong>111110000</strong>” it means that packet should go through first five stage and should fail for last 4 stages.</li>
+</ol>
+<h3><a class="anchor" aria-hidden="true" id="445-procedure-to-execute-or-run-the-tests-on-a-new-environment"></a><a href="#445-procedure-to-execute-or-run-the-tests-on-a-new-environment" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>4.4.5 Procedure to execute or Run the tests on a new environment</h3>
+<ol>
+<li><p>To run the automation suite of Reg-Proc, build the project and get the uber jar generated under target.</p></li>
+<li><p>Run the jar using the command line “java -Denv.user=<env> -Denv.endpoint=<endpointurl> -Denv.testLevel=<testtype> -jar <jarname>”</p>
+<p>Example: java -Denv.user=qa -Denv.endpoint=&quot;eg:<a href="https://testenvname.mosip.io">https://testenvname.mosip.io</a>&quot; -Denv.testLevel=smokeandregression -jar automationtests-refactor-0.9.1-jar-with-dependencies.jar</p>
+<p>Note: env = qa,dev,int | testLevel=smoke,regression,smokeandregression</p></li>
+<li><p>Report will be generated under “&lt; wokspace &gt;/testing-report.</p></li>
+</ol>
+<h3><a class="anchor" aria-hidden="true" id="446-analyze-the-test-reports"></a><a href="#446-analyze-the-test-reports" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>4.4.6 Analyze the test reports</h3>
+<ol>
+<li>Report can be opened in any Web browser (i.e. Internet Explorer)</li>
+<li>The report will consist of module name, total number of test case executed with status as either pass, skipped and fail and their count.</li>
+<li>Report will also display API name and corresponding test case names with execution time along with build version and execution time.</li>
+<li>For detailed analysis, refer logs or default testing-report and for failed test cases, the related cause of failure will be highlighted.</li>
+</ol>
+<h2><a class="anchor" aria-hidden="true" id="45-id-authentication-ida-test-automation-suite-user-guide"></a><a href="#45-id-authentication-ida-test-automation-suite-user-guide" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>4.5 ID Authentication (IDA) Test Automation Suite - User Guide</h2>
+<h3><a class="anchor" aria-hidden="true" id="451-about-the-id-authentication"></a><a href="#451-about-the-id-authentication" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>4.5.1 About the ID-Authentication</h3>
+<p>MOSIP ID Authentication provides an API based authentication mechanism for entities to validate Individuals. ID Authentication is the primary mode for entities to validate an Individual before providing any service.</p>
+<p>An example of how this service will work is as depicted below
+<img src="_images/test_rig_automation/IDA1.jpg" alt="Test"></p>
+<p>The workflow of testing or running the test suite of the available API’s is as depicted below</p>
+<p><img src="_images/test_rig_automation/IDA2.jpg" alt="Test"></p>
+<h3><a class="anchor" aria-hidden="true" id="452-pre-requisites-for-understanding-rest-api-automation"></a><a href="#452-pre-requisites-for-understanding-rest-api-automation" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>4.5.2 Pre-requisites for understanding Rest API automation</h3>
+<ul>
+<li>Knowledge on Core Java</li>
+<li>Basic knowledge on Rest assured library</li>
+<li>Knowledge on Maven</li>
+<li>Knowledge on TestNg framework</li>
+<li>Knowledge on Keyword, Data Driven and Hybrid methodology</li>
+<li>Knowledge on GitHub</li>
+<li>Good analytical and debugging skill</li>
+</ul>
+<h3><a class="anchor" aria-hidden="true" id="453-procedure-to-checkout-out-the-test-code-from-the-repository"></a><a href="#453-procedure-to-checkout-out-the-test-code-from-the-repository" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>4.5.3 Procedure to checkout-out the test code from the repository</h3>
+<ul>
+<li>Launch eclipse with new or existing workspace</li>
+<li>Clone project from <a href="//github.com/mosip/mosip-functional-tests">link</a></li>
+<li>Import the automationtests project into the eclipse.</li>
+</ul>
+<h3><a class="anchor" aria-hidden="true" id="454-procedure-to-add-new-test-cases-into-the-api-test-suite"></a><a href="#454-procedure-to-add-new-test-cases-into-the-api-test-suite" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>4.5.4 Procedure to Add new test cases into the API test suite</h3>
+<ol>
+<li>From the automationtests project, the testdata can be located in the folder [<strong>src/main/resources</strong>]</li>
+<li>Every API tests structure (model, api name and test case) are stored in a folder/sub-folder approach. Let us take an example of “<strong>Demo-Address Authentication service</strong>” and explain how to add a new test</li>
+</ol>
+<p><img src="_images/test_rig_automation/IDA3.jpg" alt="Test"></p>
+<ol start="3">
+<li><p><strong>Pre-requisites</strong>:
+open runConfiguration.properties file</p>
+<p>Add the following two lines which represents your test case; one for the folder location and another on the test data as below, the array [X], where “X” represents the number of times this tests shall be repeated with different test data</p>
+<p>An example:
+DemographicAuthentication.testDataPath[6]=ida/TestData/Demo/Name/</p>
+<p>DemographicAuthentication.testDataFileName[6]=testdata.ida.Demo.Name.mapping.yml</p>
+<p>If you want to remove a test, kindly comment the relevant line in this file before the execution of TestNG runner class</p></li>
+<li><p><strong>Configuration Setup for creating the request Json file</strong>:</p>
+<p><img src="_images/test_rig_automation/IDA4.jpg" alt="Test"></p></li>
+<li><p>Please use the TestData keyword defined under in appendix for creating your request.json file. The provided keywords are sufficient for testing the ID Authentication module, however If you ever need you can add an additional attribute to the end of this list</p>
+<p><strong>Sample structure of the request.JSON file</strong>, which is being created at run time using the attributes defined in the TestData, which reads from the Yaml data file:</p>
+<p><img src="_images/test_rig_automation/IDA5.jpg" alt="Test"></p></li>
+</ol>
+<h3><a class="anchor" aria-hidden="true" id="455-procedure-to-execute-or-run-the-tests-on-a-new-environment"></a><a href="#455-procedure-to-execute-or-run-the-tests-on-a-new-environment" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>4.5.5 Procedure to execute or Run the tests on a new environment</h3>
+<ol>
+<li><p>To run the automation suite of ID-Authentication, build the project and get the uber jar generated under target.</p></li>
+<li><p>Run the jar using the command line “java -Denv.user=<env> -Denv.endpoint=<endpointurl> -Denv.testLevel=<testtype> -jar <jarname>”</p>
+<p>Example: java -Denv.user=qa -Denv.endpoint=&quot;eg:<a href="https://testenvname.mosip.io">https://testenvname.mosip.io</a>)&quot; -Denv.testLevel=smokeandregression -jar automationtests-refactor-0.9.1-jar-with-dependencies.jar</p>
+<p>Note: env = qa,dev,int | testLevel=smoke,regression,smokeandregression</p></li>
+<li><p>Report will be generated under “<wokspace>/testing-report</p></li>
+</ol>
+<h3><a class="anchor" aria-hidden="true" id="456-analyze-the-test-reports"></a><a href="#456-analyze-the-test-reports" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>4.5.6 Analyze the test reports</h3>
+<ol>
+<li>Report can be opened in any Web browser (i.e. Internet Explorer)</li>
+<li>The report will consist of module name, total number of test case executed with status as either pass, skipped and fail and their count.</li>
+<li>Report will also display API name and corresponding test case names with execution time along with build version and execution time.</li>
+<li>For detailed analysis, refer logs or default testing-report and for failed test cases, the related cause of failure will be highlighted.</li>
+</ol>
+<h3><a class="anchor" aria-hidden="true" id="457-annexure"></a><a href="#457-annexure" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>4.5.7 Annexure</h3>
+<p><strong>Yaml Test Data Format</strong>:</p>
+<p>The sample structure should be like below:</p>
+<p><img src="_images/test_rig_automation/IDA6.jpg" alt="Test"></p>
+<p><strong>TestData Keyword repository</strong>:</p>
+<table>
+<thead>
+<tr><th>Keywords</th><th>KeywordName/Purpose</th><th>Example</th></tr>
+</thead>
+<tbody>
+<tr><td>$TIMESTAMPZ$</td><td>To generate current timestamp with UTC format</td><td>2019-06-20T16:18:08.008Z</td></tr>
+<tr><td>$TIMESTAMP$</td><td>To generate current timestamp with timezone format</td><td>2019-06-20T16:18:08.008+05:30</td></tr>
+<tr><td><li> $TIMESTAMP$HOUR+24 <li> $TIMESTAMP$HOUR-24 <li> $TIMESTAMP$MINUTE+23 <li> $TIMESTAMP$MINUTW-56 <li> $TIMESTAMP$SECOND+145 <li> $TIMESTAMP$SECOND-123</td><td>To generate future or current timestamp</td></tr>
+<tr><td>$RANDOM:N:10$</td><td>To generate random digit for the given number</td><td><li> $RANDOM:N:10$ <li> $RANDOM:N:3$ <li> $RANDOM:N:14$</td></tr>
+<tr><td>$UIN$</td><td>To get random UIN number from uin.property file</td></tr>
+<tr><td>$UIN$:WITH:Deactivated#</td><td>To get uin number from uin.property file where value contains Deactivated</td></tr>
+<tr><td>$VID$</td><td>To get random VID from vid.property file where type as perpetual and status as ACTIVE</td></tr>
+<tr><td><li> $VID:WITH:Temporary$ <li> $VID:WITH:REVOKE$</td><td>To get random VID from vid.property file where value contains Temporary or Revoke</td></tr>
+<tr><td>$VID:WHERE:UIN:WITH:VALID$</td><td>To get the VID from vid.property where uin.property value contains specified keyword after “WITH:”</td></tr>
+<tr><td><li> $TestData: indvId_Vid_valid$ <li> $TestData: bio_finger_LeftIndex_subType$ <li> $TestData:bio_face_deviceCode$</td><td>To get the random value form the list in the authenticationTestData.yml file.</td></tr>
+<tr><td>$input.bio-auth-request : AuthReq.transactionID$</td><td>To get the already assigned for the files</td><td><li> input.filename1:   mappingName1: value1  mappingName2: value2 <li> ouput.filename2:  mappingName3: <li> $ input.filename: mappingName2$  <li> where mappingName3 has set as value2</td></tr>
+<tr><td><li>  $errors:RevokedVID:errorCode$ <li> $errors:InactiveVID:errorCode$</td><td>Get error code for the mentioned key “RevokedVID” from the errorCodeMsg.yml file.</td></tr>
+<tr><td><li> $errors:InactiveVID:errorMessage$ <li> $errors:RevokedVID:errorMessage$</td><td>Get error message for the mentioned key “RevokedVID” from the errorCodeMsg.yml file.</td></tr>
+<tr><td><li> $idrepo ~ $input.bio-auth-request : AuthReq.individualId$ ~ DECODEFILE: individualBiometricsValue ~ //BIR/BDBInfo[Type = 'Finger'][Subtype = 'Left IndexFinger']//following::BDB$ <li> $idrepo ~ $input.bio-auth-request : AuthReq.individualId$ ~ DECODEFILE: individualBiometricsValue ~ //BIR/BDBInfo [Type= 'Face']//following::BDB$</td><td>To get biometric value for the UIN using cbeff File. It is combination of above listed keyword. <li> <strong>Where</strong> $idrepo -&gt; keyword mandatory at start. <li> $input.bio-auth-request : AuthReq.individualId$ -&gt; get the value from the previously mentioned field <li> individualBiometricsValue -&gt; Mapping name in UINMapping/mapping.property <li> //BIR/BDBInfo[Type = 'Finger'][Subtype = 'Left IndexFinger']//following::BDB  -&gt; cbeff xpath, where in this location biovalue will be saved for Left IndexFinger</td></tr>
+<tr><td><li> $idrepo~$input.demo-auth-request: AuthReq.individualId$ ~ valueaddressLine1: langcode: TestData: primary_lang_code$ <li>  $idrepo~$input.demo-auth-request: AuthReq.individualId$ ~ valuecity: langcode: TestData: secondary_lang_code$</td><td><li> To get demographic data for the UIN and language. <li> <strong>Where</strong> $idrepo -&gt; keyword mandatory at start. <li>  $input.demo-auth-request: AuthReq.individualId$ -&gt;  get the value from the previously mentioned field <li> valueaddressLine1 -&gt; Mapping name in UINMapping/mapping.property <li> TestData: primary_lang_code -&gt; keyword to get language code from the authenticationTestData.yml</td></tr>
+</tbody>
+</table>
+<h2><a class="anchor" aria-hidden="true" id="46-e2e-test-automation-suite-user-guide"></a><a href="#46-e2e-test-automation-suite-user-guide" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>4.6 E2E Test Automation Suite - User Guide</h2>
+<h3><a class="anchor" aria-hidden="true" id="461-about-the-end-to-end-test-rig"></a><a href="#461-about-the-end-to-end-test-rig" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>4.6.1 About The End To End Test Rig</h3>
+<p>End to end system level Test Rig covers the functionality across the modules starting with Pre-Registration and ending in Registration Processor or IDA.</p>
+<p>The below diagram depicts the overall design of the end to end suite.</p>
+<p><img src="_images/test_rig_automation/e2e1.jpg" alt="Test"></p>
+<h3><a class="anchor" aria-hidden="true" id="462-pre-requisite-to-understand-the-flow-of-e2e-test-rig"></a><a href="#462-pre-requisite-to-understand-the-flow-of-e2e-test-rig" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>4.6.2 Pre Requisite To Understand The Flow Of E2E Test Rig</h3>
+<ul>
+<li>Knowledge on Core Java</li>
+<li>Basic knowledge on Rest assured library</li>
+<li>Knowledge on Maven</li>
+<li>Knowledge on TestNg framework</li>
+<li>Knowledge on Keyword, Data Driven and Hybrid methodology</li>
+<li>Knowledge on GitHub</li>
+<li>Good analytical and debugging skill</li>
+</ul>
+<h3><a class="anchor" aria-hidden="true" id="463-procedure-to-checkout-out-the-test-code-from-the-repository"></a><a href="#463-procedure-to-checkout-out-the-test-code-from-the-repository" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>4.6.3 Procedure to checkout-out the test code from the repository</h3>
+<ul>
+<li>Launch eclipse with new or existing workspace</li>
+<li>Clone project from <a href="//github.com/mosip/mosip-functional-tests"><strong>link</strong></a></li>
+<li>Import the e2etestrig project into the eclipse.</li>
+</ul>
+<h3><a class="anchor" aria-hidden="true" id="464-basic-code-structure-of-the-e2e-rig"></a><a href="#464-basic-code-structure-of-the-e2e-rig" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>4.6.4 Basic Code Structure Of The E2E Rig</h3>
+<ol>
+<li>The E2E rig is a basic parent child maven project</li>
+<li>It contains 5 child project which are as follows:
+<ul>
+<li>Pre Registration which will generate list of Pre-IDs</li>
+<li>Registration Client which will generate list of packets.</li>
+<li>Registration Processor which will generate UIN for the packets.</li>
+<li>IDA to perform authentication.</li>
+<li>E2E to consume the above projects</li>
+</ul></li>
+<li>A basic code structure looks as follows:
+<img src="_images/test_rig_automation/e2e2.jpg" alt="Test"></li>
+</ol>
+<h4><a class="anchor" aria-hidden="true" id="4641-a-code-structure-for-e2e-run"></a><a href="#4641-a-code-structure-for-e2e-run" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>4.6.4.1 A Code Structure For E2E run</h4>
+<p>The E2E code has the following prerequisite</p>
+<ul>
+<li>Under src/test/resources we should have an input.json which contains a data to generate the list of preIDs.</li>
+<li>All the module level suites should be up and running.</li>
+<li>A sample pom for e2e looks like the following:</li>
+</ul>
+<p><img src="_images/test_rig_automation/e2e2.jpg" alt="Test"></p>
+<ul>
+<li>The pre Reg Automation has the following pre Requisite :
+<ol>
+<li>It should have an input.json file which will conation info about the adults and children against whom the preIDs are being generated.</li>
+</ol></li>
+<li>The Reg Client Automation has the following pre Requisite:
+<ol>
+<li>The pre Reg Automation Should have run.</li>
+<li>A json file with a list of preIds must have been generated.</li>
+</ol></li>
+<li>The reg Proc Automation has the following pre Requisite:
+<ol>
+<li>The reg Client and pre Reg automation should have run.</li>
+<li>A list of packets must have been generated.</li>
+</ol></li>
+<li>The IDA automation has the following pre Requisite :
+<ol>
+<li>The regProc,reg Client,Pre Reg automation should have run.</li>
+<li>A list of uin should be present as a property file under src/main/resources which is generated by regProc.</li>
+</ol></li>
+</ul>
+<h3><a class="anchor" aria-hidden="true" id="465-procedure-to-execute-or-run-the-tests-on-a-new-environment"></a><a href="#465-procedure-to-execute-or-run-the-tests-on-a-new-environment" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>4.6.5 Procedure to execute or Run the tests on a new environment</h3>
+<ul>
+<li>To run the automation suite simply select the “EndToEndRun.java” class under the package “io.mosip.e2e.runner”.</li>
+<li>Report will be generated under “&lt; wokspace &gt;/testing-report.</li>
+</ul>
+<h3><a class="anchor" aria-hidden="true" id="466-analyze-the-test-reports"></a><a href="#466-analyze-the-test-reports" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>4.6.6 Analyze the test reports</h3>
+<ol>
+<li>Report can be opened in any Web browser (i.e. Internet Explorer)</li>
+<li>The report will consist of total number of test case executed with status as either pass, skipped and fail and their count.</li>
+<li>Report will also display applicant type and corresponding test case names with execution time along with build version and execution time.</li>
+<li>For detailed analysis, refer logs or default testing-report and for failed test cases, the related cause of failure will be highlighted.</li>
+</ol>
+<h3><a class="anchor" aria-hidden="true" id="467-limitations-for-the-test-rig"></a><a href="#467-limitations-for-the-test-rig" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>4.6.7 Limitations for the test rig</h3>
+<ol>
+<li>The rig is designed to run for only 5 packets.</li>
+<li>The rig should run on a particular version of each module.</li>
+</ol>
+<!---
+<h2><a class="anchor" aria-hidden="true" id="21-api-testing"></a><a href="#21-api-testing" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>2.1 API Testing</h2>
+<p>API testing will be carried out in 2 stages, both via Test Automation.</p>
+<ol>
+<li>Soap UI automation - This approach is mainly to catch up with the backlog and disclose bugs soon, however this approach has disadvantages when the APIs undergo changes</li>
+<li>Restassured API test framework development and test automation - This will be a more generic framework, that is both modular and comes with less cost of maintenance</li>
+</ol>
+<h3><a class="anchor" aria-hidden="true" id="211-restassured-api-test-framework"></a><a href="#211-restassured-api-test-framework" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>2.1.1 Restassured API Test Framework</h3>
+<p>In this approach the request and response APIs will be templatized. The input request API template will be parameterised via a data utility, which also prepares the expected response JSON file. The request is then posted to get the actual response. The actual and expected response JSONs are compared to verify the result.
+Data utility also handles the transliteration of input values.</p>
+<p>API Automation will be done using Rest Assured IO DSL using Java. The tools/Libraries used are as below:</p>
+<ul>
+<li>IO Rest Assured DSL</li>
+<li>TestNG</li>
+<li>Java/J2EE</li>
+<li>Eclipse Editor</li>
+</ul>
+<p>The framework consists majorly 3 Elements/parts as below:</p>
+<ul>
+<li>Test Data</li>
+<li>Test Scenario</li>
+<li>Test Execution and Assert</li>
+<li>Results/Reporting</li>
+</ul>
+<p>Directory Structure:</p>
+<h4><a class="anchor" aria-hidden="true" id="2111-test-data"></a><a href="#2111-test-data" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>2.1.1.1 Test Data</h4>
+<p>Test Data is maintained under the path src/test/resources. Every module's data is saved separately from other module with folder name as module name(say Kernel).</p>
+<p>Every API under specific module is saved as folder name. All test cases belonging to an API are saved with separate folders; the name of folder being the name of the test case. Each test case folder has 2 jsons; one for request.json and another refering expected response.json.</p>
+<p>It looks as below:</p>
+<p>src/test/resources/moduleName/apiName/testCaseName/Request.json
+src/test/resources/moduleName/apiName/testCaseName/Response.json</p>
+<p>Example:</p>
+<p>src/test/resources/Kernel/FetchDevice/invalid_deviceType_blank/Request.json
+src/test/resources/Kernel/FetchDevice/invalid_deviceType_blank/Response.json</p>
+<h4><a class="anchor" aria-hidden="true" id="2112-test-scenario"></a><a href="#2112-test-scenario" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>2.1.1.2 Test  Scenario</h4>
+<p>Test Cases are formed around api's behavior and its attributes. Every api will have valid and invalid scenarios with varying combination of attributes of the api. First success scenario test cases are formed by keeping all attributes as valid. Then error scenarios are formed by updating a field as invalid one at at time.
+Each folder name under specific api represents an individual test case.</p>
+<h4><a class="anchor" aria-hidden="true" id="2113-test-execution-and-assert"></a><a href="#2113-test-execution-and-assert" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>2.1.1.3 Test Execution and assert</h4>
+<p>IO Rest Assured methods (POST, GET, PUT, and DELETE) used to run the requests. These methods saved under Common Library so that same methods are re-used.Test are executed using io rest assured DSL libraries. All methods are implemented under CommonLibrary.java and ApplicationLibrary.java file contains generic methods to accept input body and resource uri. These files can be located under io.mosip.util package.</p>
+<p>All tests are maintained module wise; each class under tests represent an api specific to the module. The name of the java class is same as api name. The same java class is having test methods to run multiple test data combination for an api.</p>
+<p>The directory structure is:</p>
+<p>io.mosip.kernel.tests</p>
+<p>io.mosip.preregistration.tests</p>
+<p>io.mosip.authenticatiion.tests</p>
+<p>io.mosip.registrationprocessor.tests</p>
+<p>Example test class file: io.mosip.kernel.test.AuditLog.java</p>
+<p>After getting actual response from the service, the actual response body is compared with expected response body by using hashcode and then json to json comparison by removing dynamic elements from both response json.  Response files are converted to Json Object using Json Mappers and then Object to Object is compared. The code for assert is present under: io.mosip.service.AssertResponse java file.</p>
+<h4><a class="anchor" aria-hidden="true" id="2114-test-results-reportig"></a><a href="#2114-test-results-reportig" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>2.1.1.4 Test Results/Reportig</h4>
+<p>Based on the assert function output a test is decided as PASS or FAIL and then written to TestNG default report emailable.html report. This report can be found under test-output/emailable-report.html. The same is circulated to other audience after pipeline QA build.</p>
+<h2><a class="anchor" aria-hidden="true" id="22-api-testing-strategy"></a><a href="#22-api-testing-strategy" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>2.2 API Testing Strategy</h2>
+<p>API Testing is broadly classified as Component and integration(Scenario) testing.</p>
+<h3><a class="anchor" aria-hidden="true" id="221-component-tests"></a><a href="#221-component-tests" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>2.2.1 Component Tests</h3>
+<p>Component tests are like unit tests for the API - It checks individual methods available in the API in isolation. We create these tests by making a test step for each method or resource that is available in the service contract.</p>
+<p>The easiest way to create component tests is to consume the service contract and let it create the clients. We will then data-drive each individual test case with positive and negative data to validate that the responses that come back have the following characteristics:</p>
+<ul>
+<li>The request json payload is well-formed (schema validation)</li>
+<li>The response json payload is well-formed (schema validation)</li>
+<li>The response status is as expected (200 OK, SQL result set returned)</li>
+<li>The response error payloads contain the correct error messages and error codes</li>
+<li>Assertion - the individual elements in the response match our expectations (presence of specific element, datatype of element etc).</li>
+<li>The service responds within an expected time frame</li>
+<li>Validate how the system behaves when some request headers are missing, e.g., Content-Type, Authorization, etc.</li>
+<li>Checking what happens if provide query parameters for a method that should accept only form parameters in a body</li>
+<li>Verifying whether a protected resource is not available over HTTP when it should be only on HTTPS</li>
+<li>Business logic testing. Say while Fetching application (PreId) presence of valid Preregistration ID is mandatory in the request.</li>
+<li>Positive and Negative testing. Making sure that if you make a bad request, it responds as expected.</li>
+</ul>
+<p>These individual API tests are the most important tests that we build because they will be leveraged in all of the subsequent testing techniques.  These tests simplify the process of approaching API testing.</p>
+<h3><a class="anchor" aria-hidden="true" id="222-integration-scenario-tests"></a><a href="#222-integration-scenario-tests" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>2.2.2 Integration/Scenario Tests</h3>
+<p>Under this type of testing, we assemble the individual component tests into a sequence, much like the example described as below.</p>
+<p>Ex: Create Application, Upload Document, Book appointment and Fetch Application data.</p>
+<p>There are two great techniques for obtaining the sequence:</p>
+<ol>
+<li>Review the user story to identify the individual API calls that are being made.</li>
+<li>Exercise the UI and capture the traffic being made to the underlying APIs.</li>
+</ol>
+<p><strong>Approach:</strong></p>
+<p>An individual method is created for all of the preregistration apis with method name as api name. Inputs for the method will be refered from specific module/api/valid or invalid scenarios (Ex: src/test/resource/prereg/CreateApplication/createPreRegistration_smoke) which is already maintained as part of component testing. All these methods are written under io.mosip.util.PreRegistrationLibrary.java class file.
+Scenario is designed by calling the methods in the same order as transaction happens in real life as illustrated below.</p>
+<p>Scenario to delete a document for the Booked appointment. Sequence of actions accomplished using api specific methods are:</p>
+<p>CreateApplication()</p>
+<p>DocumentUpload()</p>
+<p>BookingAppointment()</p>
+<p>DeleteDocumentByPreId()</p>
+<p>Integration tests allow us to understand if defects might be introduced by combining different data points together.</p>
+<h2><a class="anchor" aria-hidden="true" id="23-module-level-testing"></a><a href="#23-module-level-testing" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>2.3 Module level testing</h2>
+<p>MOSIP module level testing cannot be completely automated due to the use of scanner devices and others that involve manual intervention. Therefore the following approach will be adopted for creating a controlled end to end regression test suite that considers no devices, but simulators. This also includes the simulation of ABIS responses via a ABIS Simulator.</p>
+<h1><a class="anchor" aria-hidden="true" id="3-registration-client-approach"></a><a href="#3-registration-client-approach" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>3. Registration Client Approach</h1>
+<p>Please ensure the following prerequisites is available in the machine from where we are going to launch and test the application:</p>
+<ol>
+<li>Updated derby DB</li>
+<li>Registration-UI jar</li>
+<li>Java version (build 1.8.0_181-b13)</li>
+</ol>
+<p>First in order to launch the application, we must configure our machine to the center and it can be achieved by inserting a query in Derby DB where user will insert / update the MAC address of the particular machine from where user launches the application.</p>
+<h1><a class="anchor" aria-hidden="true" id="4-login-functionality"></a><a href="#4-login-functionality" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>4. Login Functionality:</h1>
+<p>To create a packet, the user must have a valid user name and password and more importantly on-boarded to the machine. The User can create one using insert query in &quot;User details&quot; table in Derby DB.Once logged in to the application, the user will be routed to &quot;Home screen&quot; where the user has option to start a New Registration, UIN Update and Lost UIN. If the credentials are not valid or the user is not on-boarded then the application will display appropriate error message and restricts the user to proceed further</p>
+<h1><a class="anchor" aria-hidden="true" id="5-packet-creation"></a><a href="#5-packet-creation" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>5. Packet Creation:</h1>
+<h2><a class="anchor" aria-hidden="true" id="51-pre-registration-sync"></a><a href="#51-pre-registration-sync" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>5.1 Pre-Registration Sync:</h2>
+<p>The resident's are allowed to provide their Demographic and basic proof documents via online. Upon completion of those information, they will be provided with a PRID. Post that the resident are supposed to make an appointment to the registration center and complete the registration. Once the PRID is generated, the pre-registration team will provide a service through which they will put all PRID available for the registration client and in turn RC team will get those in to their DB by Pre-Registration sync.</p>
+<h2><a class="anchor" aria-hidden="true" id="52-demo-data-capture"></a><a href="#52-demo-data-capture" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>5.2 Demo Data Capture:</h2>
+<p>Using New Registration tab on home screen, the user can either enter the resident's detail manually or the user can fetch the details using PRID(Pre-registration ID). When user fetches the details using PRID, the RC will check whether the information is available in DB and if not it will check online and based on availability it will display the details. If in case, the details are available in both places, then it will fetch it from online considering the online is the recent and updated one. All mandatory fields needs to be captured and the configured secondary language will display the same on the right hand side of the application. If user wants to transliterate the information, then using virtual keyboard the user can enter the data.</p>
+<h2><a class="anchor" aria-hidden="true" id="53-document-upload"></a><a href="#53-document-upload" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>5.3 Document Upload</h2>
+<p>Once demographic information are captured, the user has to upload the necessary documents through document upload screen and the document category will come from Master data. The user will not be allowed to upload more than one document type for a single category. The RC should not have an option to store or export it to external devices but must have access to view and delete it.</p>
+<h2><a class="anchor" aria-hidden="true" id="54-biometric-capture"></a><a href="#54-biometric-capture" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>5.4 Biometric capture:</h2>
+<p>Since due to non-availability of external devices, biometric details are stubbed while creating a packet. Biometric details like Fingerprint (4+4+2), IRIS (1+1) and Face photo. Except applicant photo, all other details are stubbed.Also the biometric details are placed as CBEFF file format in the packets.</p>
+<h2><a class="anchor" aria-hidden="true" id="55-preview"></a><a href="#55-preview" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>5.5 Preview</h2>
+<p>After user has captured all the information, the application will display the preview screen where the user and resident will re-verify for correctness of information. If something needs to be changed, using Edit option the user will change the value and complete the registration capture process</p>
+<h2><a class="anchor" aria-hidden="true" id="56-registration-authentication"></a><a href="#56-registration-authentication" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>5.6 Registration Authentication</h2>
+<p>The final step to create a packet is by authenticating it with RO credentials. The packets which have biometric exception information will need supervisor credentials for authenticating it. Upon successful authentication, the packet will get created and stored in the default configured path.</p>
+<h1><a class="anchor" aria-hidden="true" id="6-eod-process"></a><a href="#6-eod-process" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>6. EOD Process:</h1>
+<p>In EOD process, the user can either approve a packet or reject with reasons. The list of reason to reject will come from master data and this can be achieved by sync job. Only supervisor will have access to EOD process. Once supervisor logged in and start to approve the packet. Before approving, all pending approval packets are available in &quot;Pending approval&quot; queue. Select a packet / group of packets and user can approve / reject based on necessity.</p>
+<h1><a class="anchor" aria-hidden="true" id="7-upload-packets"></a><a href="#7-upload-packets" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>7. Upload Packets:</h1>
+<p>Click the upload button and all the internal approved packets will get uploaded and moved to the server. The UI will display the uploaded status whether it is uploaded successfully or not.</p>
+<h1><a class="anchor" aria-hidden="true" id="8-packet-validation"></a><a href="#8-packet-validation" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>8. Packet Validation:</h1>
+<h2><a class="anchor" aria-hidden="true" id="81-basic-checks"></a><a href="#81-basic-checks" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>8.1  Basic Checks:</h2>
+<ol>
+<li>Packet store folder and packet availability</li>
+<li>Acknowledgement</li>
+<li>Packet is encrypted or not</li>
+</ol>
+<h2><a class="anchor" aria-hidden="true" id="82-advanced-checks"></a><a href="#82-advanced-checks" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>8.2  Advanced checks:</h2>
+<ol>
+<li>Decrypt the packet using the utility and verify the packet structure like availability of Demo, Bio, HMAC, Documents uploaded, Exception info, Supervisor and RO info</li>
+</ol>
+<p><strong>&lt;GITA - context setting and high level approach continues here&gt;</strong></p>
+<p>Reg Client Automation Approach</p>
+<p>Registration Client is thick Desktop application built using JavaFX accessible in Windows and Linux machines. The Enrollment Client expects inputs from user in the form of Demographic and Biometric and generates Registration ID by exposing several Java and Restful apis.</p>
+<p>Tools/Technology Used: TestFX, Java, Maven, Junit 5, Eclipse, derby db</p>
+<p>Page Object Model
+The framework customized is Page Object Model (POM), each screen/Object view is treated as an individual page. Input Data, Page locators and test logic are segregated from each other. They are loosely connected to accommodate the future changes with lesser maintenance effort.
+The below diagram depicts the high level view.
+<img src="/mosip/mosip/blob/fd53c0f8343d3d23fb01630b7655a28421e57a39/testing/automation/RegClientAutoFrmwrk.JPG" alt="Diagram"></p>
+<ul>
+<li>Core framework – which holds common code for functions, Input Data, the controller script and generic services like logging, exception handling</li>
+<li>Page Object – These are the pages, which hold info about the pages/object view relative to their locators, values and respective page assertions</li>
+</ul>
+<p>Following is the description of each package/module under the framework</p>
+<ol>
+<li><p>Input Data Handling
+DataUtil is the provider of Demographic and Biometric input provider. It generates multiple samples of simulated Biometric data for fingerprints, Iris and photo. The util in turn uses sample simulators to generate unique set of data dynamically at runtime.</p></li>
+<li><p>Base Package
+It holds the entire configuration to initialize and trigger the Runner class to start the execution. It instantiates stage robot elements of TestFX.</p></li>
+<li><p>Page Handling
+Each screen of JavaFX represents a Page and it is implemented using Enum classes of Java. Constants under the enum class (separate enum for each screen/page) holds locator, values and behavior/method to interact with the screen. It also encapsulates the assertion messages specifically for any behavior.
+Ex: Login Page, Registration Page etc</p></li>
+<li><p>Test Scripts
+Test Scripts are implemented using TestFX and Java code. TestFX provides Robot api with rich collection of keyword mouse movement/interaction libraries. It also provides Hamcrest matchers to assert tests.
+Every script starts calling Datautil for input data based on the scenario. Relevant page/enum values are used to customize the behavior. Test is asserted for its result referring static data mainted under pages.</p></li>
+<li><p>Exception Handling
+Every behavior is associated with success and parallel failure scenario. All the failures are caught with systematic error handling using try/catch block and user will be prompted with meaningful messages on the action to be taken further.
+Exceptions might also arrive at the integration (say SDK devices while capturing images), they are also handled based on the scope (Device or Enrollment Client). Device connectivity is checked at the code.</p></li>
+<li><p>Reporting and Screenshot
+All execution are captured in a report along with attached screenshot of failed test cases in case of failure. Report listener is added at test script level to get detailed logging and report on execution status.</p></li>
+</ol>
+<p><strong>Test Scripts Types:</strong>
+<strong>Health Checks</strong>
+Need to come up with Health check tests for:</p>
+<ol>
+<li>All Interfaces (Integration Points)</li>
+<li>All Connectivity points</li>
+</ol>
+<p><strong>Exception Handling</strong>
+Tests should be robust enough to handle error scenarios like</p>
+<ol>
+<li>Exception while capturing images</li>
+<li>Exception while processing data</li>
+</ol>
+<p><strong>Functional Validation</strong>
+Tests to validate the functionality of each screen either with Successful or Error scenario coverage</p>
+<p><strong>Sample directory structure from the current framework</strong></p>
+<p><img src="/mosip/mosip/blob/add180c7590ac0d97ae941008a22fc01e0a01de3/testing/automation/RegClientAutoFrmwrk-DirStr.JPG" alt="Diagram"></p>
+<h1><a class="anchor" aria-hidden="true" id="9-data-coverage"></a><a href="#9-data-coverage" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>9. Data Coverage</h1>
+<p>The approach includes creating data generation utilities for specific purposes in testing
+There are 5 data generation utilities with the following purposes</p>
+<ol>
+<li>for testing Pre-Reg and Reg Client UIs</li>
+<li>for testing Pre-Reg APIs</li>
+<li>for testing Kernal APIs</li>
+<li>for testing Reg-Proc APIs</li>
+<li>for testing IDA APIs</li>
+</ol>
+<p>The utilities are flexible and easy to use</p>
+<ul>
+<li><p>Manual test team uses the utility for testing UI and Rest API testing
+Manual Testing team can run the test data util jar in local machine and generate test data any time.</p></li>
+<li><p>Automation test team uses them for test automation of API and E2E scenario
+The test data util is integrated with the automation code to generate data at run time and carry out the automation tests.</p></li>
+</ul>
+<p>Design:
+The utility is designed to take input data from a configuration file generates varied combinations of data dynamically and it is different for each run of the utility there by generating random but specific combinations that can be used.</p>
+<p>Test Data Util uses 2 files as input:
+Config property file - where user can configure below things:</p>
+<ul>
+<li>number of test data output jsons need to be generated</li>
+<li>fields for which the test data is required</li>
+<li>output json file name to be generated</li>
+<li>valid/invalid data to be generated for each field</li>
+</ul>
+<p>Master yml file - is basically a dictionary that contains all valid and invalid data for each field as separate tags.
+Test data util when run picks the random data from respective tags in master yml file based on the configuration provided by the user in config property file.</p>
+<!---This document covers the automation testing standards, for the RESTful webservice testers.--->
+<!---
+# 10. Structuring Tests for API testing
+## 10.1 Naming Convention
+<p>Project Name as Mosip</p>
+<p>Every module as Test Suite</p>
+<p>Test Suites are as below:</p>
+<ul>
+<li>Pre-Registration</li>
+<li>Reg-Proc</li>
+<li>IDA</li>
+<li>Kernel</li>
+</ul>
+<p>Note: As Registration module doe not have any Restful apis, not considered for automation.</p>
+<p><strong>Test Case</strong></p>
+<p>Naming convention followed as:</p>
+<p>ModuleName SprintCycle_Type of Test_Fetaure_JIRA ID_Description</p>
+<p><strong>ModuleName:</strong></p>
+<ul>
+<li>Pre-Registration - 1</li>
+<li>Reg-Proc -2</li>
+<li>IDA -3</li>
+<li>Kernel -4</li>
+</ul>
+<p>Sprint Cycle: 1 , 2 ,3 etc</p>
+<p>Type of Test as below:</p>
+<ol>
+<li>Sanity</li>
+<li>Progression</li>
+<li>Regression</li>
+<li>Progression and Regression both</li>
+</ol>
+<p>JIRA ID – Relevant story under test</p>
+<p>Description: Test Scenario explanation</p>
+<p>Ex: 14_3_OTP_MOS-27_Verify OTP triggered successfully</p>
+<p>The above test case is interpreted as this test case belongs to Pre-Registration module of  4th sprint, regression test case, testing OTP feature addressed using JIRA no as MOS-27 for test scenario “verify otp is triggered successfully”.</p>
+<h2><a class="anchor" aria-hidden="true" id="102-header"></a><a href="#102-header" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>10.2 Header</h2>
+<p>Every test is to be preceded with Header script addressing below elements</p>
+<p>Name: Name of the tests</p>
+<p>Module: Module going to test</p>
+<p>Author: Individual who is writing tests</p>
+<p>Date: Date of development of tests</p>
+<h2><a class="anchor" aria-hidden="true" id="103-functional-testing-of-individual-methods-or-operations"></a><a href="#103-functional-testing-of-individual-methods-or-operations" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>10.3 Functional testing of individual methods or operations</h2>
+<p>This testing ensures whether a method or operation performs the task correctly, which it is intended to do actually.
+Example: Say if a POST method/operation ‘register’ used to create a user then a new user creation is completed with an entry into database.</p>
+<h2><a class="anchor" aria-hidden="true" id="104-syntax-checking-of-individual-methods-operations"></a><a href="#104-syntax-checking-of-individual-methods-operations" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>10.4 Syntax checking of individual methods/operations</h2>
+<p>This type of testing is done to validate if it accepts only valid inputs and all invalid inputs are rejected with proper error code/messages.</p>
+<h2><a class="anchor" aria-hidden="true" id="105-construct-test-scenarios"></a><a href="#105-construct-test-scenarios" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>10.5 Construct test scenarios</h2>
+<p>By clubbing, multiple methods/operations create End-to-End regression scenarios.</p>
+<p>Example: Simulate Input Data -&gt; Trigger OTP -&gt; Generate OTP -&gt; Get OTP -&gt; Authenticate OTP</p>
+<h2><a class="anchor" aria-hidden="true" id="106-exceptional-behavior-checking"></a><a href="#106-exceptional-behavior-checking" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>10.6 Exceptional behavior checking</h2>
+<p>This type of testing is performed to check if apis fail gracefully with proper error code and error messages. Need to simulate error scenarios and validate the 4xx and 5xx series of status codes.</p>
+<p>Sending incorrect or invalid parameters to the API triggers a negative outcome, which is commonly an error message or other indication of a problem</p>
+<h2><a class="anchor" aria-hidden="true" id="107-database-validation"></a><a href="#107-database-validation" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>10.7 Database Validation</h2>
+<p>The data created/Updated/Deleted should be validated against DB entry with JDBC step using the tool.</p>
+<h1><a class="anchor" aria-hidden="true" id="11-input-data-handling"></a><a href="#11-input-data-handling" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>11 Input Data Handling</h1>
+<h2><a class="anchor" aria-hidden="true" id="111-parsing-generating-input-data"></a><a href="#111-parsing-generating-input-data" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>11.1 Parsing/generating input data</h2>
+<p>Input data should be handled as master json file and then it is parsed across the soapui project to refer input elements.
+Groovy scripting is used to generate data dynamically (Ex: email address).</p>
+<p>All input json files are saved in git and accessed accordingly.</p>
+<h2><a class="anchor" aria-hidden="true" id="112-use-realistic-data"></a><a href="#112-use-realistic-data" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>11.2 Use realistic data</h2>
+<p>Make it a priority to understand the rationale behind the API, along with the information being sent to it, both in design and in practice.</p>
+<h2><a class="anchor" aria-hidden="true" id="113-mock-services"></a><a href="#113-mock-services" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>11.3 Mock Services</h2>
+<p>As part of End-to-End testing if feature is not available (out of scope for feature under test and not yet implemented), create Mock services using SOAP UI tool. Also, can create stubs using Groovy scripting.</p>
+<h2><a class="anchor" aria-hidden="true" id="114-capturing-logs"></a><a href="#114-capturing-logs" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>11.4 Capturing Logs</h2>
+<p>As part of proof of validation, save logs of execution; which can then be transferred to git repository as a reference point.</p>
+<h1><a class="anchor" aria-hidden="true" id="12-assertions"></a><a href="#12-assertions" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>12 Assertions</h1>
+<h2><a class="anchor" aria-hidden="true" id="121-add-as-many-as-assertions"></a><a href="#121-add-as-many-as-assertions" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>12.1 Add as many as assertions</h2>
+<p>Cultivate habit of adding assertions as many as possible which would uniquely validates whether a test is pass or fail. Use tool assertions, which would be quicker and reuse script assertions wherever required.</p>
+<h2><a class="anchor" aria-hidden="true" id="122-dynamic-assertions"></a><a href="#122-dynamic-assertions" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>12.2 Dynamic assertions</h2>
+<p>Tightly couple assertions with dynamic data, which is generated as part of test execution. This will ensure the expected result exactly matches the requirement along with changing data.</p>
+<p>Example: txn_id in the response should match with txn_id in request, which is dynamically generated each time test is run. Add Json path assertion to check txn_id in response is same as txn_id in the request.</p>
+<h1><a class="anchor" aria-hidden="true" id="13-scope-of-apis"></a><a href="#13-scope-of-apis" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>13 Scope of apis</h1>
+<p>Get the clarity of feature under scope of testing. Testing the features which are not under current scope and 3rd party operations should be avoided.  3rd party apis are tested only to check if it is prompting expected element/status. This strategy helps us to arrive with quality tests.</p>
+<h1><a class="anchor" aria-hidden="true" id="14-test-strategy"></a><a href="#14-test-strategy" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>14 Test Strategy</h1>
+<h2><a class="anchor" aria-hidden="true" id="141-registration-processor"></a><a href="#141-registration-processor" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>14.1 Registration Processor</h2>
+<p>Registration Processor is the core part of MOSIP where the Identity and Validation of resident’s enrolled data happens, and on a successful verification UIN will be generated and delivered to the residents. Functional verification and security aspects plays a critical role in evaluation of Registration Processor. Unlike the regular black box testing, this will be more of a Grey box testing that involves verification of the stages for the Registration Processor Module of the MOSIP Software.</p>
+<h2><a class="anchor" aria-hidden="true" id="142-module-level-testing"></a><a href="#142-module-level-testing" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>14.2 Module Level Testing</h2>
+<p>This testing ensures Registration Processor Module level operation performed correctly (intended) without any issues. Example: Registration Processor starts with uploading packets leading to virus scan, then to Packet store and finally creating the UIN.</p>
+<h2><a class="anchor" aria-hidden="true" id="143-registration-processor-workflow"></a><a href="#143-registration-processor-workflow" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>14.3 Registration Processor Workflow</h2>
+<p>Following are the high level positive and negative scenarios covering the below shown workflow diagram of the reg proc module</p>
+<table>
+<thead>
+<tr><th>Number</th><th>Test Scenarios</th><th>Category</th></tr>
+</thead>
+<tbody>
+<tr><td>1</td><td>Verify Packet is Unique/Duplicate</td><td>Functionality</td></tr>
+<tr><td>2</td><td>Verify Packet sync for which packet generated from Registration client</td><td>Functionality</td></tr>
+<tr><td>3</td><td>Verify whether Virus scan is success/Failure for RID Packet</td><td>Functionality</td></tr>
+<tr><td>4</td><td>Verify Packet Archival location</td><td>Functionality</td></tr>
+<tr><td>5</td><td>Verify Packet Decryption with the valid key store</td><td>Functionality</td></tr>
+<tr><td>6</td><td>Verify Packet Decryption with the invalid key store</td><td>Functionality</td></tr>
+<tr><td>7</td><td>Verify Packet Integrity with valid check sum value</td><td>Functionality</td></tr>
+<tr><td>8</td><td>Verify Packet Integrity with invalid check sum value</td><td>Functionality</td></tr>
+<tr><td>9</td><td>Verify structural validation with valid packet structure</td><td>Functionality</td></tr>
+<tr><td>10</td><td>Verify structural validation with invalid packet structure</td><td>Functionality</td></tr>
+<tr><td>11</td><td>Verify  Demographic Dedupe for valid Packet</td><td>Functionality</td></tr>
+<tr><td>12</td><td>Verify  Demographic Dedupe for Packet having Duplicate Demographic info</td><td>Functionality</td></tr>
+<tr><td>13</td><td>Verify   Biometric Dedupe for valid Packet</td><td>Functionality</td></tr>
+<tr><td>14</td><td>Verify  Biometric Dedupe for Packet having Duplicate in biometric info</td><td>Functionality</td></tr>
+<tr><td>15</td><td>Verify Manual adjudication when demo dedup is Failure</td><td>Functionality</td></tr>
+<tr><td>16</td><td>Verify Email Notification</td><td>Functionality</td></tr>
+<tr><td>17</td><td>Verify UIN generation</td><td>Functionality</td></tr>
+<tr><td>18</td><td>Verify Invalid Packet naming convention</td><td>Functionality</td></tr>
+<tr><td>19</td><td>Verify Packet name exceeding less than 29 digits</td><td>Functionality</td></tr>
+<tr><td>20</td><td>Verify Packet name exceeding more than 29 digits</td><td>Functionality</td></tr>
+<tr><td>21</td><td>Verify Invalid Fotrmat</td><td>Functionality</td></tr>
+<tr><td>22</td><td>Verify SMS Notification</td><td>Functionality</td></tr>
+<tr><td>23</td><td>Verify RegistrationProcessorIdentity json file</td><td>Configuration</td></tr>
+<tr><td>24</td><td>Verify Camel route XML</td><td>Configuration</td></tr>
+<tr><td>25</td><td>Verify bio-dedupe-service max result</td><td>Configuration</td></tr>
+<tr><td>26</td><td>Verify packet-receiver max file size in mb</td><td>Configuration</td></tr>
+<tr><td>26</td><td>Verify bio-dedupe-service threshold</td><td>Configuration</td></tr>
+<tr><td>27</td><td>verify packet-manager virus scan location when empty</td><td>Configuration</td></tr>
+</tbody>
+</table>
+<p><img src="/mosip/mosip-test/blob/master/Registration-Processor-Workflow1.JPG" alt="Diagram"></p>
+<h2><a class="anchor" aria-hidden="true" id="144-pre-requisite-for-reg-proc-testing"></a><a href="#144-pre-requisite-for-reg-proc-testing" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>14.4 Pre-requisite for Reg Proc testing</h2>
+<ol>
+<li>Create resident test packet from reg client</li>
+<li>Ensure Reg Proc and all its associated job are up and running</li>
+</ol>
+<table>
+<thead>
+<tr><th>Jobs</th></tr>
+</thead>
+<tbody>
+<tr><td>packet-receiver-stage-1.0.0-SNAPSHOT.jar</td></tr>
+<tr><td>virus-scanner-stage-1.0.0-SNAPSHOT.jar</td></tr>
+<tr><td>packet-uploader-stage-1.0.0-SNAPSHOT.jar</td></tr>
+<tr><td>osi-validator-stage-1.0.0-SNAPSHOT.jar</td></tr>
+<tr><td>demo-dedupe-stage-1.0.0-SNAPSHOT.jar</td></tr>
+<tr><td>packet-bio-dedupe-api-1.0.0-SNAPSHOT.jar</td></tr>
+<tr><td>registration-processor-abis-1.0.0-SNAPSHOT.jar</td></tr>
+<tr><td>bio-dedupe-stage-1.0.0-SNAPSHOT.jar</td></tr>
+<tr><td>ui-generator-stage-1.0.0-SNAPSHOT.jar</td></tr>
+<tr><td>manual-verification-stage-1.0.0-SNAPSHOT.jar</td></tr>
+<tr><td>packet-validator-stage-1.0.0-SNAPSHOT.jar</td></tr>
+</tbody>
+</table>
+<ol start="3">
+<li>Ensure DB is up and running fine.</li>
+<li>Ensure the required DB scripts (Master Data / Schema) are executed.</li>
+<li>Required Privileges to DB for Testdata updates to create positive / negative flow.</li>
+<li>Ensure all the depended services are deployed.</li>
+</ol>
+<h2><a class="anchor" aria-hidden="true" id="145-test-step"></a><a href="#145-test-step" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>14.5 Test Step</h2>
+<p>Registration packets created by the registration clients will be periodically uploaded to the server for processing. The packets will be stored in Virus scan folder initially and status will be updated in registration status table.</p>
+<p>In case of successful Virus Scan, packets move to DFS. In case of Virus Scan failure, packets move to Retry Folder. The statuses of these packets is in the Enrollment Status Table.</p>
+<p>Packets are successfully uploaded to file system and ready for decryption. Decrypt the encrypted zip file and receives a Zip file. Unpack the Zip file. Store the unpacked files in file system. Using  RSA PKI Algorithm we create Public keys/private Keys through which will do packet decryption. After Packet decryption, Packet will go and check Packet integrity HMAC Algorithm used to validate the (Check sum value) and structure.
+After successful packet structure validation, the packet Meta info is stored in DB. The user, machine and center information will be further validated at Master Data in DB to check if authorized person creates the packet.
+After successful Bio dedupe, the UIN Generator will be called to allocate an unique identification number to the applicant by using 'kernel-idgenerator-uin' Rest API to generate UIN. It will return the unique id which will be allotted to the applicant.it will call kernel-idrepo-service create API to add a new applicant to id repository. After successful response from the idrepo-service, store the uin information in registration processor db. Update individual_demo_dedupe table with uin information against the registration id.</p>
+<h3><a class="anchor" aria-hidden="true" id="1451-osi-validation"></a><a href="#1451-osi-validation" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>14.5.1 OSI Validation</h3>
+<p>Testing an OSI validation we populate the MASTER DB with User,machine,center details in a combination set with valid / Invalid Details. We create packets using Utils by passing valid/Invalid details of User/Machine/Center Details .The validation of OSI stage DB record for each condition will be verified.</p>
+<h3><a class="anchor" aria-hidden="true" id="1452-demo-dedupe"></a><a href="#1452-demo-dedupe" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>14.5.2 Demo Dedupe:</h3>
+<p>Demo dedupe records matching GENDER,NAME and DOB  .Perform demo dedupe on all potential 'demo dedupe records' with 'applicant demographic information' using levenshtein distance algorithm. However for Testing we modify the DB with UIN with pre populated data . We use the same of set data while creating the packet to validate the condition.</p>
+<h3><a class="anchor" aria-hidden="true" id="1453-configuration"></a><a href="#1453-configuration" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>14.5.3 Configuration:</h3>
+<p>Camel route xml is implemented in the private network where the stages are running on loosely coupled.By Modifying the route in-out of the vertx end point we validate the stages behaviors .</p>
+<h3><a class="anchor" aria-hidden="true" id="1454-bio-dedupe"></a><a href="#1454-bio-dedupe" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>14.5.4 Bio-Dedupe:</h3>
+<p>We create packet with dummy tag as unique / duplicate in CBEF which passed on Mock ABIS service to validate the Bio-Dedupe. Based on the tag ABIS decide the uniqueness of the packet .</p>
+<h2><a class="anchor" aria-hidden="true" id="146-test-data"></a><a href="#146-test-data" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>14.6 Test Data</h2>
+<p>Registration processor takes input as packet , the validation of stages involves data carried inside the packet. To validate positive and negative conditions we need to create the different combination of packet as mentioned below.</p>
+<table>
+<thead>
+<tr><th>Packet with different Conditions</th></tr>
+</thead>
+<tbody>
+<tr><td>Registration Packet size &lt; 5 MB</td></tr>
+<tr><td>Registration Packet size &gt;5 MB (Max size Config)</td></tr>
+<tr><td>Half info Packet / Missing info</td></tr>
+<tr><td>Existing RID in DB</td></tr>
+<tr><td>packet name with Valid Centre ID</td></tr>
+<tr><td>packet name with valid Machine ID</td></tr>
+<tr><td>packet name with valid Centre ID and valid Machine ID</td></tr>
+<tr><td>packet name with  Invalid Centre ID</td></tr>
+<tr><td>packet name with Invalid Machine ID</td></tr>
+<tr><td>packet name with Ivalid Centre ID and invalid Machine ID</td></tr>
+<tr><td>packet name with invalid Centre ID and invalid Machine ID</td></tr>
+<tr><td>packet name with invalid Centre ID and valid Machine ID</td></tr>
+<tr><td>packet name with Invalid Packet naming convention - Date</td></tr>
+<tr><td>packet name with Invalid Packet naming convention - Month</td></tr>
+<tr><td>packet name with Invalid Packet naming convention - Year</td></tr>
+<tr><td>packet name with Invalid Packet naming convention - Time (H)</td></tr>
+<tr><td>packet name with Invalid Packet naming convention - Time (M)</td></tr>
+<tr><td>Invalid Packet naming convention - Time (S)</td></tr>
+<tr><td>Valid Packet naming convention - Date</td></tr>
+<tr><td>Valid Packet naming convention - Month</td></tr>
+<tr><td>Valid Packet naming convention - Year</td></tr>
+<tr><td>Valid Packet naming convention - Time (H)</td></tr>
+<tr><td>Valid Packet naming convention - Time (M)</td></tr>
+<tr><td>Valid Packet naming convention - Time (S)</td></tr>
+<tr><td>Packet name combination - Text + Symbol</td></tr>
+<tr><td>Packet name combination - Text + Number</td></tr>
+<tr><td>Packet name combination - Symbol + Number</td></tr>
+<tr><td>Packet name combination - Invalid Date + Invalid Month</td></tr>
+<tr><td>Packet name combination - Invalid Date + Invalid Year</td></tr>
+<tr><td>Packet name combination - Invalid Date + Invalid Time (H)</td></tr>
+<tr><td>Packet name combination - Invalid Date + Invalid Time (M)</td></tr>
+<tr><td>Packet name combination - Invalid Date + Invalid Time (S)</td></tr>
+<tr><td>Packet name combination - Invalid Year + Invalid Month</td></tr>
+<tr><td>Packet name combination - Invalid Time (H)+ Invalid Month</td></tr>
+<tr><td>Packet name combination - Invalid Time (M)+ Invalid Month</td></tr>
+<tr><td>Packet name combination - Invalid Time (S)+ Invalid Month</td></tr>
+<tr><td>Packet name combination - Invalid Year + Invalid Time (H)</td></tr>
+<tr><td>Packet name combination - Invalid Year + Invalid Time (M)</td></tr>
+<tr><td>Packet name combination - Invalid Year + Invalid Time (S)</td></tr>
+<tr><td>Packet name exceeding less than 28 digits</td></tr>
+<tr><td>Packet name exceeding more than 28 digits</td></tr>
+<tr><td>Virus scan success</td></tr>
+<tr><td>Corrupted file - Virus scan failure</td></tr>
+<tr><td>Invalid Applicant - BothThumbs</td></tr>
+<tr><td>Invalid Applicant - Left Finger</td></tr>
+<tr><td>Invalid Applicant - Right Finger</td></tr>
+<tr><td>Invalid Applicant - Both Left and Right Eye</td></tr>
+<tr><td>Invalid Applicant - Left Eye</td></tr>
+<tr><td>Invalid Applicant - Right Eye</td></tr>
+<tr><td>Valid Applicant - BothThumbs</td></tr>
+<tr><td>Valid Applicant - Left Finger</td></tr>
+<tr><td>Valid Applicant - Right Finger</td></tr>
+<tr><td>Valid Applicant - Both Left and Right Eye</td></tr>
+<tr><td>Valid Applicant - Left Eye</td></tr>
+<tr><td>Valid Applicant - Right Eye</td></tr>
+<tr><td>Invalid Introducer - BothThumbs</td></tr>
+<tr><td>Invalid Introducer - Left Finger</td></tr>
+<tr><td>Invalid Introducer - Right Finger</td></tr>
+<tr><td>Invalid Introducer - Both Left and Right Eye</td></tr>
+<tr><td>Invalid Introducer - Left Eye</td></tr>
+<tr><td>Invalid Introducer - Right Eye</td></tr>
+<tr><td>Valid Introducer - BothThumbs</td></tr>
+<tr><td>Valid Introducer - Left Finger</td></tr>
+<tr><td>Valid Introducer - Right Finger</td></tr>
+<tr><td>Valid Introducer - Both Left and Right Eye</td></tr>
+<tr><td>Valid Introducer - Left Eye</td></tr>
+<tr><td>Valid Introducer - Right Eye</td></tr>
+<tr><td>Demographic  - Invalid ApplicantPhoto</td></tr>
+<tr><td>Demographic  - Invalid ExceptionPhoto</td></tr>
+<tr><td>Demographic  - Invalid ProofOfAddress</td></tr>
+<tr><td>Demographic  - Invalid ProofOfIdentity</td></tr>
+<tr><td>Demographic  - Invalid RegistrationAcknowledgement</td></tr>
+<tr><td>Demographic  - Valid ApplicantPhoto</td></tr>
+<tr><td>Demographic  - Valid ExceptionPhoto</td></tr>
+<tr><td>Demographic  - Valid ProofOfAddress</td></tr>
+<tr><td>Demographic  - Valid ProofOfIdentity</td></tr>
+<tr><td>Demographic  - Valid RegistrationAcknowledgement</td></tr>
+<tr><td>Valid DemographicInfo JSON file</td></tr>
+<tr><td>Invalid DemographicInfo JSON file</td></tr>
+<tr><td>Valid audit JSON file</td></tr>
+<tr><td>Invalid audit JSON file</td></tr>
+<tr><td>Valid PacketMetaInfo JSON file</td></tr>
+<tr><td>Invalid PacketMetaInfo  JSON file</td></tr>
+<tr><td>Valid EnrollmentOfficerBioImage</td></tr>
+<tr><td>Invalid EnrollmentOfficerBioImage</td></tr>
+<tr><td>Valid EnrollmentSupervisorBioImage</td></tr>
+<tr><td>Invalid EnrollmentSupervisorBioImage</td></tr>
+<tr><td>Valid HMACFile</td></tr>
+<tr><td>Invalid HMACFile</td></tr>
+<tr><td>Invalid EnrollmentOfficerBioImage and EnrollmentSupervisorBioImage</td></tr>
+<tr><td>Invalid EnrollmentOfficerBioImage and HMACFile</td></tr>
+<tr><td>Invalid EnrollmentOfficerBioImage and PacketMetaInfo JSON file</td></tr>
+<tr><td>Invalid EnrollmentOfficerBioImage and DemographicInfo JSON file</td></tr>
+<tr><td>Invalid EnrollmentSupervisorBioImage and HMACFile</td></tr>
+<tr><td>Invalid EnrollmentSupervisorBioImage and PacketMetaInfo JSON file</td></tr>
+<tr><td>Invalid EnrollmentSupervisorBioImage and audit JSON file</td></tr>
+<tr><td>Invalid EnrollmentSupervisorBioImage and DemographicInfo JSON file</td></tr>
+<tr><td>Invalid HMACFile and PacketMetaInfo JSON file</td></tr>
+<tr><td>Invalid HMACFile and audit JSON file</td></tr>
+<tr><td>Invalid HMACFile and DemographicInfo JSON file</td></tr>
+<tr><td>Invalid PacketMetaInfo JSON file and audit JSON file</td></tr>
+<tr><td>Invalid PacketMetaInfo JSON file and DemographicInfo JSON file</td></tr>
+<tr><td>Invalid audit JSON file and EnrollmentOfficerBioImage</td></tr>
+<tr><td>Invalid audit JSON file and DemographicInfo JSON file</td></tr>
+<tr><td>Unique Packet</td></tr>
+<tr><td>Duplicate Packet</td></tr>
+<tr><td>Duplicate request - Packet is up for retry- success</td></tr>
+<tr><td>Duplicate request - Packet is up for retry- Failure</td></tr>
+<tr><td>Packet integrity validation - successful</td></tr>
+<tr><td>Packet integrity validation - Failure</td></tr>
+<tr><td>Virus scan - successful</td></tr>
+<tr><td>Virus scan - Failure</td></tr>
+<tr><td>Decrypt packets - successful</td></tr>
+<tr><td>Decrypt packets - Failure</td></tr>
+<tr><td>Metadata validation - success</td></tr>
+<tr><td>Metadata validation - failure</td></tr>
+<tr><td>File validation - Successful</td></tr>
+<tr><td>File validation - failure</td></tr>
+<tr><td>Insert packet data in DB - successful</td></tr>
+<tr><td>Insert packet data in DB - successful</td></tr>
+<tr><td>Data validation - success</td></tr>
+<tr><td>Data validation - failure</td></tr>
+<tr><td>Active officer Authentication Success Using finger</td></tr>
+<tr><td>Active officer Authentication Failure Using finger</td></tr>
+<tr><td>Active officer Authentication Success Using Iris</td></tr>
+<tr><td>Active officer Authentication Failure Using Iris</td></tr>
+<tr><td>Active officer Authentication Success Using pin</td></tr>
+<tr><td>Active officer Authentication Failure Using pin</td></tr>
+<tr><td>Active officer Authentication Success Using Password</td></tr>
+<tr><td>Active officer Authentication Failure Using Password</td></tr>
+<tr><td>supervisor Authentication Success Using finger</td></tr>
+<tr><td>supervisor Authentication Failure Using finger</td></tr>
+<tr><td>supervisor Authentication Success Using Iris</td></tr>
+<tr><td>supervisor Authentication Failure Using Iris</td></tr>
+<tr><td>supervisor Authentication Success Using pin</td></tr>
+<tr><td>supervisor Authentication Failure Using pin</td></tr>
+<tr><td>supervisor Authentication Success Using Password</td></tr>
+<tr><td>supervisor Authentication Failure Using Password</td></tr>
+<tr><td>Packet on hold by supervisor -&gt; Yes</td></tr>
+<tr><td>Packet on hold by supervisor -&gt; No</td></tr>
+<tr><td>On hold for manual Adjudication- Yes</td></tr>
+<tr><td>On hold for manual Adjudication- No</td></tr>
+<tr><td>Notify the Resident that Registration is under processing - Yes</td></tr>
+<tr><td>Notify the Resident that Registration is under processing - No</td></tr>
+<tr><td>Create a packet with unknown Operator ID</td></tr>
+<tr><td>Create a packet with unknown supervisor ID not available</td></tr>
+<tr><td>Create a packet with unknown Machine</td></tr>
+<tr><td>Create a packet with unknown Center ID</td></tr>
+<tr><td>Create a packet for which operator-center-machine-mapping-not available</td></tr>
+<tr><td>Create a packet for which supervisor-center-machine-mapping-not available</td></tr>
+<tr><td>Create a packet with Geo data not Available</td></tr>
+<tr><td>Create a packet with Office supervisor is missing</td></tr>
+<tr><td>Create a packet  with unknown Geo data in master DB</td></tr>
+</tbody>
+</table>
+<h2><a class="anchor" aria-hidden="true" id="147-output-verification"></a><a href="#147-output-verification" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>14.7 Output verification</h2>
+<ol>
+<li>Packet Handler request and response for JSON format/ structure/contents validation and verification according to the API specs.</li>
+<li>Status and error code verification according to the API spec.</li>
+<li>Biometric accuracy for Biometric dedupe</li>
+<li>Audit log verification</li>
+<li>DB status check for the packet processing across various stages in Registration Processor.</li>
+<li>Application log - ensure no errors logged .</li>
+</ol>
+<h2><a class="anchor" aria-hidden="true" id="148-test-execution-process"></a><a href="#148-test-execution-process" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>14.8 Test Execution Process:</h2>
+<p>QA Analyst is responsible for the sanity testing.  QA Analyst will be executing the sanity testing of the Registration Processor as specified below.  Test cases will be executed &amp; Defects are logged in JIRA.</p>
+<h3><a class="anchor" aria-hidden="true" id="1481-entrance-criteria"></a><a href="#1481-entrance-criteria" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>14.8.1 Entrance Criteria:</h3>
+<ol>
+<li>Unit testing and Integration Testing are completed.</li>
+<li>Sanity test cases are identified.</li>
+<li>QA environment is available.</li>
+</ol>
+<h3><a class="anchor" aria-hidden="true" id="1482-exit-criteria"></a><a href="#1482-exit-criteria" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>14.8.2 Exit Criteria:</h3>
+<ol>
+<li>All Sanity test cases are executed and results documented.</li>
+<li>Defects are documented and severity is designated.</li>
+</ol>
+<h2><a class="anchor" aria-hidden="true" id="149-test-setup"></a><a href="#149-test-setup" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>14.9 Test Setup</h2>
+<p>Below is the Block diagram / network diagram depicting all the connections and hardware devices.</p>
+<![Diagram](/mosip/mosip-test/blob/master/rptopo.png)
+<h2><a class="anchor" aria-hidden="true" id="1410-hardware-server-configuration"></a><a href="#1410-hardware-server-configuration" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>14.10 Hardware – Server configuration</h2>
+<table>
+<thead>
+<tr><th>Item</th><th>Setup</th></tr>
+</thead>
+<tbody>
+<tr><td>Microsoft Azure</td><td>Azure Virtual Machine Application server</td></tr>
+<tr><td>Microsoft Azure</td><td>Azure DB Instance</td></tr>
+</tbody>
+</table>
+<h2><a class="anchor" aria-hidden="true" id="1411-hardware-registration-client-machine"></a><a href="#1411-hardware-registration-client-machine" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>14.11 Hardware – Registration Client Machine</h2>
+<table>
+<thead>
+<tr><th>Item</th><th>Configuration</th></tr>
+</thead>
+<tbody>
+<tr><td>Intel</td><td>Core i5</td></tr>
+</tbody>
+</table>
+<h2><a class="anchor" aria-hidden="true" id="1412-software-server"></a><a href="#1412-software-server" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>14.12 Software – Server</h2>
+<table>
+<thead>
+<tr><th>Item</th><th>Configuration</th></tr>
+</thead>
+<tbody>
+<tr><td>Microsoft Azure</td><td>apache-maven-3.5.4 maven</td></tr>
+<tr><td>Microsoft Azure</td><td>jdk1.8.0_181-amd64</td></tr>
+</tbody>
+</table>
+<h2><a class="anchor" aria-hidden="true" id="1413-software-client"></a><a href="#1413-software-client" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>14.13 Software – Client</h2>
+<table>
+<thead>
+<tr><th>Item</th><th>Configuration</th></tr>
+</thead>
+<tbody>
+<tr><td>Microsoft</td><td>Windows 10</td></tr>
+</tbody>
+</table>
+<h2><a class="anchor" aria-hidden="true" id="1414-test-tools-software"></a><a href="#1414-test-tools-software" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>14.14 Test Tools (software)</h2>
+<p>This section should contain a table that documents the testing tools that will be needed to plan, script, and perform functional testing. Tools are required for test scripting, test defect tracking, test results logging, performance testing, automated testing and test management.</p>
+<table>
+<thead>
+<tr><th>Item</th><th>Area</th></tr>
+</thead>
+<tbody>
+<tr><td>Jira</td><td>Defect Tracking</td></tr>
+<tr><td>PostgreSQL</td><td>DB</td></tr>
+<tr><td>Swager UI</td><td>API Manual Testing</td></tr>
+</tbody>
+</table>
+<h2><a class="anchor" aria-hidden="true" id="1415-integration-testing"></a><a href="#1415-integration-testing" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>14.15 Integration Testing</h2>
+<p>The purpose of System Integration testing is to test a set of logically related components in a business like scenario. Integrating the Registration Processor with other modules in MOSIP for example Kernel for Cryptography , Registration packet from Registration client etc. To ensure Registration Processor able to work as intended.</p>
+<h2><a class="anchor" aria-hidden="true" id="1416-end-to-end-testing"></a><a href="#1416-end-to-end-testing" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>14.16 End to End Testing</h2>
+<p>The process of this to Test the MOSIP as a system like by considering the real deployment, we create test scenarios  which starts by Pre-registration demo data will consumed by Registration client and then create a packet to upload in registration processor. Registration Processor will do Virus Scan,Integrity check,structural validation,OSI Validation,Demo Dedupe and finally do bio Dedupe post successful of the before stages the UIN will be created . Our Test Scenarios will be cover with positive and negative on the end to end flow .</p>
+<p>Doc_Version: 1.0</p>
+<p>Point of Contact/Author: <code>jyoti.kori@mindtree.com, gita.phutane@mindtree.com</code></p>
+<p>Reviewed by:        <code>Avinash.Chandrashekar@mindtree.com, gita.phutane@mindtree.com</code></p>
+<hr>
+<p>---&gt;</p>
+</span></div></article></div><div class="docs-prevnext"></div></div></div><nav class="onPageNav"><ul class="toc-headings"><li><a href="#11-overview">1.1 Overview</a></li><li><a href="#12-scope">1.2 Scope</a><ul class="toc-headings"><li><a href="#121-test-coverage">1.2.1 Test Coverage</a></li><li><a href="#122-data-coverage">1.2.2 Data Coverage</a></li><li><a href="#123-test-management-tools">1.2.3 Test Management Tools</a></li><li><a href="#124-defect-management-amp-lifecycle">1.2.4 Defect Management &amp; Lifecycle</a></li></ul></li><li><a href="#41-kernel-test-automation-suite-user-guide">4.1 Kernel Test Automation Suite - User Guide</a><ul class="toc-headings"><li><a href="#411-about-the-kernel-module">4.1.1 About the Kernel Module</a></li><li><a href="#412-pre-requisites-for-understanding-java-api-automation">4.1.2 Pre-requisites for understanding Java API automation</a></li><li><a href="#413-procedure-to-check-out-the-test-code-from-the-repository">4.1.3 Procedure to check out the test code from the repository</a></li><li><a href="#414-pre-configuration-information-prior-to-test-run">4.1.4 Pre-configuration information prior to test run</a></li><li><a href="#415-procedure-to-add-new-test-cases-into-the-api-test-suite">4.1.5 Procedure to Add new test cases into the API test suite</a></li><li><a href="#416-procedure-to-execute-or-run-the-tests-on-a-new-environment">4.1.6 Procedure to execute or Run the tests on a new environment</a></li><li><a href="#417-running-a-test-suite">4.1.7 Running a test suite</a></li><li><a href="#418-analyze-the-test-reports">4.1.8 Analyze the test reports</a></li></ul></li><li><a href="#42-pre-registration-test-automation-suite-user-guide">4.2 Pre-Registration Test Automation Suite - User Guide</a><ul class="toc-headings"><li><a href="#421-about-the-pre-registration-module">4.2.1 About the Pre-Registration Module</a></li><li><a href="#422-pre-requisites-for-understanding-java-api-automation">4.2.2 Pre-requisites for understanding Java API automation</a></li><li><a href="#423-procedure-to-checkout-out-the-test-code-from-the-repository">4.2.3 Procedure to checkout-out the test code from the repository</a></li><li><a href="#424-pre-configuration-information-prior-to-test-run">4.2.4 Pre-configuration information prior to test run</a></li><li><a href="#425-procedure-to-add-new-test-cases-into-the-api-test-suite">4.2.5 Procedure to Add new test cases into the API test suite</a></li><li><a href="#426-procedure-to-execute-or-run-the-tests-on-a-new-environment">4.2.6 Procedure to execute or Run the tests on a new environment</a></li><li><a href="#427-running-a-test-suite">4.2.7 Running a test suite</a></li><li><a href="#428-running-a-single-test-case">4.2.8 Running a single test case</a></li><li><a href="#429-analyze-the-test-reports">4.2.9 Analyze the test reports</a></li></ul></li><li><a href="#43-registration-client-test-automation-suite-user-guide">4.3 Registration Client Test Automation Suite - User Guide</a><ul class="toc-headings"><li><a href="#431-about-the-registration-client-module">4.3.1 About the Registration Client Module</a></li><li><a href="#432-pre-requisites-for-understanding-java-api-automation">4.3.2 Pre-requisites for understanding Java API automation</a></li><li><a href="#433-procedure-to-check-out-the-test-code-from-the-repository">4.3.3 Procedure to check out the test code from the repository</a></li><li><a href="#434-pre-configuration-information-prior-to-test-run">4.3.4 Pre-configuration information prior to test run</a></li><li><a href="#435-procedure-to-add-new-test-cases-into-the-api-test-suite">4.3.5 Procedure to Add new test cases into the API test suite</a></li><li><a href="#436-procedure-to-execute-or-run-the-tests-on-a-new-environment">4.3.6 Procedure to execute or Run the tests on a new environment</a></li><li><a href="#437-running-a-test-suite">4.3.7 Running a test suite</a></li><li><a href="#438-appendix">4.3.8 Appendix</a></li></ul></li><li><a href="#44-registration-processor-test-automation-suite-user-guide">4.4 Registration Processor Test Automation Suite - User Guide</a><ul class="toc-headings"><li><a href="#441-about-the-registration-processor-module">4.4.1 About The Registration Processor Module</a></li><li><a href="#442-pre-requisites-for-understanding-rest-api-automation">4.4.2 Pre-requisites for understanding Rest API automation</a></li><li><a href="#443-procedure-to-checkout-out-the-test-code-from-the-repository">4.4.3 Procedure to checkout-out the test code from the repository</a></li><li><a href="#444-procedure-to-add-new-test-cases-into-the-api-test-suite">4.4.4 Procedure to Add new test cases into the API test suite</a></li><li><a href="#445-procedure-to-execute-or-run-the-tests-on-a-new-environment">4.4.5 Procedure to execute or Run the tests on a new environment</a></li><li><a href="#446-analyze-the-test-reports">4.4.6 Analyze the test reports</a></li></ul></li><li><a href="#45-id-authentication-ida-test-automation-suite-user-guide">4.5 ID Authentication (IDA) Test Automation Suite - User Guide</a><ul class="toc-headings"><li><a href="#451-about-the-id-authentication">4.5.1 About the ID-Authentication</a></li><li><a href="#452-pre-requisites-for-understanding-rest-api-automation">4.5.2 Pre-requisites for understanding Rest API automation</a></li><li><a href="#453-procedure-to-checkout-out-the-test-code-from-the-repository">4.5.3 Procedure to checkout-out the test code from the repository</a></li><li><a href="#454-procedure-to-add-new-test-cases-into-the-api-test-suite">4.5.4 Procedure to Add new test cases into the API test suite</a></li><li><a href="#455-procedure-to-execute-or-run-the-tests-on-a-new-environment">4.5.5 Procedure to execute or Run the tests on a new environment</a></li><li><a href="#456-analyze-the-test-reports">4.5.6 Analyze the test reports</a></li><li><a href="#457-annexure">4.5.7 Annexure</a></li></ul></li><li><a href="#46-e2e-test-automation-suite-user-guide">4.6 E2E Test Automation Suite - User Guide</a><ul class="toc-headings"><li><a href="#461-about-the-end-to-end-test-rig">4.6.1 About The End To End Test Rig</a></li><li><a href="#462-pre-requisite-to-understand-the-flow-of-e2e-test-rig">4.6.2 Pre Requisite To Understand The Flow Of E2E Test Rig</a></li><li><a href="#463-procedure-to-checkout-out-the-test-code-from-the-repository">4.6.3 Procedure to checkout-out the test code from the repository</a></li><li><a href="#464-basic-code-structure-of-the-e2e-rig">4.6.4 Basic Code Structure Of The E2E Rig</a></li><li><a href="#465-procedure-to-execute-or-run-the-tests-on-a-new-environment">4.6.5 Procedure to execute or Run the tests on a new environment</a></li><li><a href="#466-analyze-the-test-reports">4.6.6 Analyze the test reports</a></li><li><a href="#467-limitations-for-the-test-rig">4.6.7 Limitations for the test rig</a></li></ul></li><li><a href="#21-api-testing">2.1 API Testing</a><ul class="toc-headings"><li><a href="#211-restassured-api-test-framework">2.1.1 Restassured API Test Framework</a></li></ul></li><li><a href="#22-api-testing-strategy">2.2 API Testing Strategy</a><ul class="toc-headings"><li><a href="#221-component-tests">2.2.1 Component Tests</a></li><li><a href="#222-integration-scenario-tests">2.2.2 Integration/Scenario Tests</a></li></ul></li><li><a href="#23-module-level-testing">2.3 Module level testing</a></li><li><a href="#51-pre-registration-sync">5.1 Pre-Registration Sync:</a></li><li><a href="#52-demo-data-capture">5.2 Demo Data Capture:</a></li><li><a href="#53-document-upload">5.3 Document Upload</a></li><li><a href="#54-biometric-capture">5.4 Biometric capture:</a></li><li><a href="#55-preview">5.5 Preview</a></li><li><a href="#56-registration-authentication">5.6 Registration Authentication</a></li><li><a href="#81-basic-checks">8.1  Basic Checks:</a></li><li><a href="#82-advanced-checks">8.2  Advanced checks:</a></li><li><a href="#101-naming-convention">10.1 Naming Convention</a></li><li><a href="#102-header">10.2 Header</a></li><li><a href="#103-functional-testing-of-individual-methods-or-operations">10.3 Functional testing of individual methods or operations</a></li><li><a href="#104-syntax-checking-of-individual-methods-operations">10.4 Syntax checking of individual methods/operations</a></li><li><a href="#105-construct-test-scenarios">10.5 Construct test scenarios</a></li><li><a href="#106-exceptional-behavior-checking">10.6 Exceptional behavior checking</a></li><li><a href="#107-database-validation">10.7 Database Validation</a></li><li><a href="#111-parsing-generating-input-data">11.1 Parsing/generating input data</a></li><li><a href="#112-use-realistic-data">11.2 Use realistic data</a></li><li><a href="#113-mock-services">11.3 Mock Services</a></li><li><a href="#114-capturing-logs">11.4 Capturing Logs</a></li><li><a href="#121-add-as-many-as-assertions">12.1 Add as many as assertions</a></li><li><a href="#122-dynamic-assertions">12.2 Dynamic assertions</a></li><li><a href="#141-registration-processor">14.1 Registration Processor</a></li><li><a href="#142-module-level-testing">14.2 Module Level Testing</a></li><li><a href="#143-registration-processor-workflow">14.3 Registration Processor Workflow</a></li><li><a href="#144-pre-requisite-for-reg-proc-testing">14.4 Pre-requisite for Reg Proc testing</a></li><li><a href="#145-test-step">14.5 Test Step</a><ul class="toc-headings"><li><a href="#1451-osi-validation">14.5.1 OSI Validation</a></li><li><a href="#1452-demo-dedupe">14.5.2 Demo Dedupe:</a></li><li><a href="#1453-configuration">14.5.3 Configuration:</a></li><li><a href="#1454-bio-dedupe">14.5.4 Bio-Dedupe:</a></li></ul></li><li><a href="#146-test-data">14.6 Test Data</a></li><li><a href="#147-output-verification">14.7 Output verification</a></li><li><a href="#148-test-execution-process">14.8 Test Execution Process:</a><ul class="toc-headings"><li><a href="#1481-entrance-criteria">14.8.1 Entrance Criteria:</a></li><li><a href="#1482-exit-criteria">14.8.2 Exit Criteria:</a></li></ul></li><li><a href="#149-test-setup">14.9 Test Setup</a></li><li><a href="#1410-hardware-server-configuration">14.10 Hardware – Server configuration</a></li><li><a href="#1411-hardware-registration-client-machine">14.11 Hardware – Registration Client Machine</a></li><li><a href="#1412-software-server">14.12 Software – Server</a></li><li><a href="#1413-software-client">14.13 Software – Client</a></li><li><a href="#1414-test-tools-software">14.14 Test Tools (software)</a></li><li><a href="#1415-integration-testing">14.15 Integration Testing</a></li><li><a href="#1416-end-to-end-testing">14.16 End to End Testing</a></li></ul></nav></div><footer class="nav-footer" id="footer"><section class="sitemap"><a href="/mosip-temp-documentation" class="nav-home"><img src="/mosip-temp-documentationimg/favicon.ico" alt="MOSIP Documentation" width="66" height="58"/></a><div><h5>Docs</h5><a href="/mosip-temp-documentationdocs/en/doc1.html">Getting Started (or other categories)</a><a href="/mosip-temp-documentationdocs/en/doc2.html">Guides (or other categories)</a><a href="/mosip-temp-documentationdocs/en/doc3.html">API Reference (or other categories)</a></div><div><h5>Community</h5><a href="/mosip-temp-documentationen/users.html">User Showcase</a><a href="https://stackoverflow.com/questions/tagged/" target="_blank" rel="noreferrer noopener">Stack Overflow</a><a href="https://discordapp.com/">Project Chat</a><a href="https://twitter.com/" target="_blank" rel="noreferrer noopener">Twitter</a></div><div><h5>More</h5><a href="/mosip-temp-documentationblog">Blog</a><a href="https://github.com/">GitHub</a><a class="github-button" data-icon="octicon-star" data-count-href="/facebook/docusaurus/stargazers" data-show-count="true" data-count-aria-label="# stargazers on GitHub" aria-label="Star this project on GitHub">Star</a></div></section><a href="https://opensource.facebook.com/" target="_blank" rel="noreferrer noopener" class="fbOpenSource"><img src="/mosip-temp-documentationimg/oss_logo.png" alt="Facebook Open Source" width="170" height="45"/></a><section class="copyright">Copyright © 2019 Your Name or Your Company Name</section></footer></div></body></html>

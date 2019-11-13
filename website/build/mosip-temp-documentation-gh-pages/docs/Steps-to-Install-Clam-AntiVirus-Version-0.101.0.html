@@ -1,0 +1,114 @@
+<!DOCTYPE html><html lang="en"><head><meta charSet="utf-8"/><meta http-equiv="X-UA-Compatible" content="IE=edge"/><title>Steps-to-Install-Clam-AntiVirus-Version-0.101.0 · MOSIP Documentation</title><meta name="viewport" content="width=device-width"/><meta name="generator" content="Docusaurus"/><meta name="description" content="ClamAV is a free, cross-platform and open-source antivirus software toolkit able to detect many types of malicious software, including viruses."/><meta name="docsearch:language" content="en"/><meta property="og:title" content="Steps-to-Install-Clam-AntiVirus-Version-0.101.0 · MOSIP Documentation"/><meta property="og:type" content="website"/><meta property="og:url" content="https://ssenmosip.github.io/mosip-temp-documentationindex"/><meta property="og:description" content="ClamAV is a free, cross-platform and open-source antivirus software toolkit able to detect many types of malicious software, including viruses."/><meta property="og:image" content="https://ssenmosip.github.io/mosip-temp-documentation/img/undraw_online.svg"/><meta name="twitter:card" content="summary"/><meta name="twitter:image" content="https://ssenmosip.github.io/mosip-temp-documentation/img/undraw_tweetstorm.svg"/><link rel="shortcut icon" href="/mosip-temp-documentationimg/favicon.ico"/><link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css"/><link rel="alternate" type="application/atom+xml" href="https://ssenmosip.github.io/mosip-temp-documentation/blog/atom.xml" title="MOSIP Documentation Blog ATOM Feed"/><link rel="alternate" type="application/rss+xml" href="https://ssenmosip.github.io/mosip-temp-documentation/blog/feed.xml" title="MOSIP Documentation Blog RSS Feed"/><script type="text/javascript" src="https://buttons.github.io/buttons.js"></script><script src="/mosip-temp-documentationjs/scrollSpy.js"></script><link rel="stylesheet" href="/mosip-temp-documentationcss/main.css"/><script src="/mosip-temp-documentationjs/codetabs.js"></script></head><body class="sideNavVisible separateOnPageNav"><div class="fixedHeaderContainer"><div class="headerWrapper wrapper"><header><a href="/mosip-temp-documentation"><img class="logo" src="/mosip-temp-documentationimg/favicon.ico" alt="MOSIP Documentation"/><h2 class="headerTitleWithLogo">MOSIP Documentation</h2></a><div class="navigationWrapper navigationSlider"><nav class="slidingNav"><ul class="nav-site nav-site-internal"><li class=""><a href="/mosip-temp-documentationdocs/Platform-Documentation" target="_self">Docs</a></li><li class=""><a href="/mosip-temp-documentationdocs/Getting-Started" target="_self">API</a></li><li class=""><a href="/mosip-temp-documentationContributor-Guide" target="_self">Help</a></li><li class=""><a href="/mosip-temp-documentationblog/" target="_self">Blog</a></li></ul></nav></div></header></div></div><div class="navPusher"><div class="docMainWrapper wrapper"><div class="container mainContainer"><div class="wrapper"><div class="post"><header class="postHeader"><h1 class="postHeaderTitle">Steps-to-Install-Clam-AntiVirus-Version-0.101.0</h1></header><article><div><span><p>ClamAV is a free, cross-platform and open-source antivirus software toolkit able to detect many types of malicious software, including viruses.</p>
+<p><strong>Steps to install ClamAV in RHEL-7.5</strong></p>
+<p>To install clamAV first we need to install EPEL Repository:</p>
+<pre><code class="hljs">$ sudo yum install -y https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm
+</code></pre>
+<p>After that we need to install ClamAV and its related tools.</p>
+<pre><code class="hljs">$ yum -y install clamav-server clamav-data clamav-update clamav-filesystem clamav clamav-scanner-systemd clamav-devel clamav-lib clamav-server-systemd
+</code></pre>
+<p>After completion of above steps, we need to configure installed ClamAV. This can be done via editing /etc/clamd.d/scan.conf. In this file we have to remove Example lines. So that ClamAV can use this file's configurations. We can easily do it via running following command -</p>
+<pre><code class="hljs">$ sed -i '/^Example/d' /etc/clamd.d/scan.conf
+</code></pre>
+<p>Another thing we need to do in this file is to define our TCP server type. Open this file using -</p>
+<pre><code class="hljs">$ vim /etc/clamd.d/scan.conf
+</code></pre>
+<p>here this we need to uncomment line with #LocalSocket /var/run/clamd.scan/clamd.sock. Just remove # symbol from the beginning of the line.</p>
+<p>Now we need to configure FreshClam so that it can update ClamAV db automatically. For doing that follow below steps -</p>
+<p>First create a backup of original FreshClam Configuration file -</p>
+<pre><code class="hljs">$ cp /etc/freshclam.conf /etc/freshclam.conf.bak
+</code></pre>
+<p>In this freshclam.conf file, Here also we need to remove Example line from the file. Run following command to delete all Example lines-</p>
+<pre><code class="hljs">$ sed -i '/^Example/d' /etc/freshclam.conf
+</code></pre>
+<p>Test freshclam via running-</p>
+<pre><code class="hljs">$ freshclam
+</code></pre>
+<p>After running above command you should see an output similar to this -</p>
+<pre><code class="hljs">ClamAV update process started at Thu May 23 07:25:44 2019
+.
+.
+.
+.
+main.cvd is up to date (version: 58, sigs: 4566249, f-level: 60, builder: sigmgr)
+Downloading daily-25584.cdiff [100%]
+daily.cld updated (version: 25584, sigs: 1779512, f-level: 63, builder: raynman)
+bytecode.cld is up to date (version: 331, sigs: 94, f-level: 63, builder: anvilleg)
+Database updated (6345855 signatures) from database.clamav.net (IP: 104.16.218.84)
+</code></pre>
+<p>We will create a service of freshclam so that freshclam will run in the daemon mode and periodically check for updates throughout the day. To do that we will create a service file for freshclam -</p>
+<pre><code class="hljs">$ vim /usr/lib/systemd/system/clam-freshclam.service
+</code></pre>
+<p>And add below content -</p>
+<pre><code class="hljs"><span class="hljs-section">[Unit]</span>
+<span class="hljs-attr">Description</span> = freshclam scanner
+<span class="hljs-attr">After</span> = network.target
+<span class="hljs-section">
+[Service]</span>
+<span class="hljs-attr">Type</span> = forking
+<span class="hljs-attr">ExecStart</span> = /usr/bin/freshclam -d -c <span class="hljs-number">4</span>
+<span class="hljs-attr">Restart</span> = <span class="hljs-literal">on</span>-failure
+<span class="hljs-attr">PrivateTmp</span> = <span class="hljs-literal">true</span>
+<span class="hljs-attr">RestartSec</span> = <span class="hljs-number">20</span>sec
+<span class="hljs-section">
+[Install]</span>
+<span class="hljs-attr">WantedBy</span>=multi-user.target
+</code></pre>
+<p>Now save and quit. Also reload the systemd daemon to refresh the changes -</p>
+<pre><code class="hljs">$ systemctl daemon-reload
+</code></pre>
+<p>Next start and enable the freshclam service -</p>
+<pre><code class="hljs">$ systemctl start clam-freshclam.service
+
+$ systemctl enable clam-freshclam.service
+</code></pre>
+<p>Now freshclam setup is complete and our ClamAV db is upto date. We can continue setting up ClamAV. Now we will copy ClamAV service file to system service folder.</p>
+<pre><code class="hljs">$ mv /usr/lib/systemd/system/clamd@.service /usr/lib/systemd/system/clamd.service
+</code></pre>
+<p>Since we have changed the name, we need to change it at the file that uses this service as well -</p>
+<pre><code class="hljs">$ vim /usr/lib/systemd/system/clamd@scan.service
+</code></pre>
+<p>Remove @ symbol from .include /lib/systemd/system/clamd@.service line and save the file.</p>
+<p>We will edit Clamd service file now -</p>
+<pre><code class="hljs">$ vim /usr/lib/systemd/system/clamd.service
+</code></pre>
+<p>Add following lines at the end of clamd.service file.</p>
+<pre><code class="hljs">[Install]
+WantedBy=multi-user.target
+</code></pre>
+<p>And also remove %i symbol from various locations (ex: Description and ExecStart options). Note that at the end of the editing the service file should look something like this -</p>
+<pre><code class="hljs">[Unit]
+Description = clamd scanner daemon
+Documentation=man:clamd(8) man:clamd.conf(5) https://www.clamav.net/documents/
+# Check for database existence
+# ConditionPathExistsGlob=@DBDIR@/main.{c[vl]d,inc}
+# ConditionPathExistsGlob=@DBDIR@/daily.{c[vl]d,inc}
+After = syslog.target nss-lookup.target network.target
+
+[Service]
+Type = forking
+ExecStart = /usr/sbin/clamd -c /etc/clamd.d/scan.conf
+Restart = on-failure
+
+[Install]
+WantedBy=multi-user.target
+</code></pre>
+<p>Now finally start the ClamAV service.</p>
+<pre><code class="hljs">$ systemctl start clamd.service
+</code></pre>
+<p>If it works fine, then enable this service and test the status of ClamAV service -</p>
+<pre><code class="hljs">$ systemctl enable clamd.service
+
+$ systemctl status clamd.service
+</code></pre>
+<p>Now in MOSIP we require ClamAV to be available on Port 3310. To expose ClamAV service on Port 3310, edit scan.conf</p>
+<pre><code class="hljs">$ vi /etc/clamd.d/scan.conf
+</code></pre>
+<p>and Uncomment #TCPSocket 3310 by removing #. After that restart the clamd@scan service -</p>
+<pre><code class="hljs">$ systemctl restart clamd@scan.service
+</code></pre>
+<p>Since we are exposing ClamAV on 3310 port, we need to allow incoming traffic through this port. In RHEL 7 run below command to add firewall rule -</p>
+<pre><code class="hljs">$ sudo firewall-cmd --zone=public --add-port=3310/tcp --permanent 
+$ sudo firewall-cmd --reload
+</code></pre>
+<p>Reference link: <a href="https://www.golinuxcloud.com/steps-install-configure-clamav-antivirus-centos-linux&lt;/div&gt;">link</a></p>
+</span></div></article></div><div class="docs-prevnext"></div></div></div><nav class="onPageNav"></nav></div><footer class="nav-footer" id="footer"><section class="sitemap"><a href="/mosip-temp-documentation" class="nav-home"><img src="/mosip-temp-documentationimg/favicon.ico" alt="MOSIP Documentation" width="66" height="58"/></a><div><h5>Docs</h5><a href="/mosip-temp-documentationdocs/en/doc1.html">Getting Started (or other categories)</a><a href="/mosip-temp-documentationdocs/en/doc2.html">Guides (or other categories)</a><a href="/mosip-temp-documentationdocs/en/doc3.html">API Reference (or other categories)</a></div><div><h5>Community</h5><a href="/mosip-temp-documentationen/users.html">User Showcase</a><a href="https://stackoverflow.com/questions/tagged/" target="_blank" rel="noreferrer noopener">Stack Overflow</a><a href="https://discordapp.com/">Project Chat</a><a href="https://twitter.com/" target="_blank" rel="noreferrer noopener">Twitter</a></div><div><h5>More</h5><a href="/mosip-temp-documentationblog">Blog</a><a href="https://github.com/">GitHub</a><a class="github-button" data-icon="octicon-star" data-count-href="/facebook/docusaurus/stargazers" data-show-count="true" data-count-aria-label="# stargazers on GitHub" aria-label="Star this project on GitHub">Star</a></div></section><a href="https://opensource.facebook.com/" target="_blank" rel="noreferrer noopener" class="fbOpenSource"><img src="/mosip-temp-documentationimg/oss_logo.png" alt="Facebook Open Source" width="170" height="45"/></a><section class="copyright">Copyright © 2019 Your Name or Your Company Name</section></footer></div></body></html>

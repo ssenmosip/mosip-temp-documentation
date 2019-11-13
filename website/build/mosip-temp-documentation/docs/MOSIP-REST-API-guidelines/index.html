@@ -1,0 +1,155 @@
+<!DOCTYPE html><html lang="en"><head><meta charSet="utf-8"/><meta http-equiv="X-UA-Compatible" content="IE=edge"/><title>MOSIP-REST-API-guidelines · MOSIP Documentation</title><meta name="viewport" content="width=device-width"/><meta name="generator" content="Docusaurus"/><meta name="description" content="# 1	Introduction"/><meta name="docsearch:language" content="en"/><meta property="og:title" content="MOSIP-REST-API-guidelines · MOSIP Documentation"/><meta property="og:type" content="website"/><meta property="og:url" content="https://ssenmosip.github.io/mosip-temp-documentationindex"/><meta property="og:description" content="# 1	Introduction"/><meta property="og:image" content="https://ssenmosip.github.io/mosip-temp-documentation/img/undraw_online.svg"/><meta name="twitter:card" content="summary"/><meta name="twitter:image" content="https://ssenmosip.github.io/mosip-temp-documentation/img/undraw_tweetstorm.svg"/><link rel="shortcut icon" href="/mosip-temp-documentationimg/favicon.ico"/><link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css"/><link rel="alternate" type="application/atom+xml" href="https://ssenmosip.github.io/mosip-temp-documentation/blog/atom.xml" title="MOSIP Documentation Blog ATOM Feed"/><link rel="alternate" type="application/rss+xml" href="https://ssenmosip.github.io/mosip-temp-documentation/blog/feed.xml" title="MOSIP Documentation Blog RSS Feed"/><script type="text/javascript" src="https://buttons.github.io/buttons.js"></script><script src="/mosip-temp-documentationjs/scrollSpy.js"></script><link rel="stylesheet" href="/mosip-temp-documentationcss/main.css"/><script src="/mosip-temp-documentationjs/codetabs.js"></script></head><body class="sideNavVisible separateOnPageNav"><div class="fixedHeaderContainer"><div class="headerWrapper wrapper"><header><a href="/mosip-temp-documentation"><img class="logo" src="/mosip-temp-documentationimg/favicon.ico" alt="MOSIP Documentation"/><h2 class="headerTitleWithLogo">MOSIP Documentation</h2></a><div class="navigationWrapper navigationSlider"><nav class="slidingNav"><ul class="nav-site nav-site-internal"><li class=""><a href="/mosip-temp-documentationdocs/Platform-Documentation" target="_self">Docs</a></li><li class=""><a href="/mosip-temp-documentationdocs/Getting-Started" target="_self">API</a></li><li class=""><a href="/mosip-temp-documentationContributor-Guide" target="_self">Help</a></li><li class=""><a href="/mosip-temp-documentationblog/" target="_self">Blog</a></li></ul></nav></div></header></div></div><div class="navPusher"><div class="docMainWrapper wrapper"><div class="container mainContainer"><div class="wrapper"><div class="post"><header class="postHeader"><h1 class="postHeaderTitle">MOSIP-REST-API-guidelines</h1></header><article><div><span><h1><a class="anchor" aria-hidden="true" id="1-introduction"></a><a href="#1-introduction" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>1 Introduction</h1>
+<h2><a class="anchor" aria-hidden="true" id="11-context"></a><a href="#11-context" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>1.1  Context</h2>
+<p>MOSIP is developed as an open source framework project. The code developed complies with the Java standards and best practices.</p>
+<h2><a class="anchor" aria-hidden="true" id="12-purpose-of-this-document"></a><a href="#12-purpose-of-this-document" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>1.2  Purpose of this document</h2>
+<p>This document gives various RESTful webservice standards which have to be followed during the MOSIP development.</p>
+<h2><a class="anchor" aria-hidden="true" id="13-scope-of-this-document"></a><a href="#13-scope-of-this-document" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>1.3  Scope of this document</h2>
+<p>This document covers the coding standards, which are followed by the RESTful webservice developers.</p>
+<h1><a class="anchor" aria-hidden="true" id="2-url-structure"></a><a href="#2-url-structure" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>2 URL structure</h1>
+<h2><a class="anchor" aria-hidden="true" id="21-general-structure"></a><a href="#21-general-structure" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>2.1  General structure</h2>
+<p>The syntax of the URL of the RESTful webservice should be as follows for all the modules except Kernel,</p>
+<p><code>https://&lt;IP_ADDRESS&gt;:&lt;PORT&gt;/&lt;MODULE_NAME&gt;/&lt;VERSION&gt;/&lt;RESOURCE_NAME&gt;/&lt;PARAMETERS_AND_VALUES_IF_ANY&gt;</code></p>
+<p>For example,</p>
+<p><code>https://mosip.io/pre-registration/v1/document</code></p>
+<p>Only in case of Kernel modules, the &lt;MODULE_NAME&gt; is not included. The format is as follows,</p>
+<p><code>https://&lt;IP_ADDRESS&gt;:&lt;PORT&gt;/&lt;VERSION&gt;/&lt;RESOURCE_NAME&gt;/&lt;PARAMETERS_AND_VALUES_IF_ANY&gt;</code></p>
+<p>Following URL is an example for Kernel,</p>
+<p><code>https://mosip.io/v1/emailnotifier</code></p>
+<p>The convention is, before &lt;RESOURCE_NAME&gt;, we should have the version number.</p>
+<p>The URL is the sentence, the resources are nouns and the HTTP methods are verbs.
+The URL, before the parameters, should contain only spinal case ( - ). The URL, before the parameters, should not contain snake case ( _ ) or camel case.
+NOTE: The parameters can contain snake case or camel case.</p>
+<h1><a class="anchor" aria-hidden="true" id="3-resources-usage-of-nouns-and-verbs"></a><a href="#3-resources-usage-of-nouns-and-verbs" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>3 Resources - Usage of nouns and verbs</h1>
+<p>Use nouns for CRUD operations.<br>
+Resource    GET
+read    POST
+create  PUT
+update  DELETE
+delete
+/preenrolments  Returns list of pre enrolments  Creates a new pre enrolment Bulk updates    Delete all preenrolments
+/preenrolments/123  Returns a particular pre enrolment  Updates a specific car  Deletes a specific car</p>
+<p>For operations, wherever applicable the operations can be added as part of the URL itself. For example,<br>
+/getAllPreenrolments
+/createNewEnrolment
+/deleteAllPreenrolments</p>
+<h1><a class="anchor" aria-hidden="true" id="4-resources-usage-of-plurals-in-nouns"></a><a href="#4-resources-usage-of-plurals-in-nouns" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>4 Resources – Usage of plurals in nouns</h1>
+<p>Use the plural nouns in the resource names if there is CRUD operations. For example,</p>
+<p><code>https://mosip.io/pre-registration/v1/individuals</code>       Prefer</p>
+<p><code>https://mosip.io/pre-registration/v1/individual</code>        Avoid</p>
+<p>In other cases, use singulars in the nouns. For example,</p>
+<p><code>https://mosip.io/pre-registration/v1/OTP</code></p>
+<h1><a class="anchor" aria-hidden="true" id="5-resources-actions-in-the-url"></a><a href="#5-resources-actions-in-the-url" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>5 Resources – actions in the URL</h1>
+<p>The actions are added in the URL, wherever applicable. For example,</p>
+<p><code>https://mosip.io/pre-registration/v1/OTP/generator</code></p>
+<p><code>https://mosip.io/pre-registration/v1/OTP/validator</code></p>
+<h1><a class="anchor" aria-hidden="true" id="6-appropriate-usage-of-the-http-methods"></a><a href="#6-appropriate-usage-of-the-http-methods" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>6 Appropriate usage of the HTTP methods</h1>
+<p>Use only the intended purpose of the HTTP methods. For example, do not use POST to update a resource or PUT to create a resource.</p>
+<h1><a class="anchor" aria-hidden="true" id="7-http-status-codes"></a><a href="#7-http-status-codes" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>7 HTTP Status codes</h1>
+<p>In all the success cases and failure cases, 200 HTTP Status code is returned. Based on the &quot;errors&quot; JSON element in the response, the caller can decide whether the call is success or failure.</p>
+<h1><a class="anchor" aria-hidden="true" id="8-identifying-a-resource"></a><a href="#8-identifying-a-resource" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>8 Identifying a resource</h1>
+<p>When the caller want to identify the resource, the path param is used. For example,</p>
+<p><code>https://mosip.io/pre-registration/v1/individuals/id1234</code></p>
+<h1><a class="anchor" aria-hidden="true" id="9-filtering"></a><a href="#9-filtering" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>9 Filtering</h1>
+<p>The filter has to be applied via the URL parameters. For example,</p>
+<p><code>https://mosip.io/pre-registration/v1/individuals/id1234?city=someCityName&amp;pincode=473822</code></p>
+<h1><a class="anchor" aria-hidden="true" id="10-sorting"></a><a href="#10-sorting" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>10    Sorting</h1>
+<p>In case if the results have to be sorted, it can be mentioned in the URL parameter named sort. For example,</p>
+<p><code>https://mosip.io/pre-registration/v1/individuals/1234?sort=firstName</code></p>
+<h1><a class="anchor" aria-hidden="true" id="11-pagination"></a><a href="#11-pagination" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>11    Pagination</h1>
+<p>In case of pagination, the page number can be mentioned in the parameter by the name “page”. For example,</p>
+<p><code>https://mosip.io/pre-registration/v1/individuals/1234?page=15</code></p>
+<h1><a class="anchor" aria-hidden="true" id="12-always-use-ssl"></a><a href="#12-always-use-ssl" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>12    Always use SSL</h1>
+<p>Always use SSL for the services. No services should be exposed without SSL.</p>
+<h1><a class="anchor" aria-hidden="true" id="13-versioning"></a><a href="#13-versioning" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>13    Versioning</h1>
+<p>Always version the service. The version have to be mentioned in the URL of the service after the hostname (and port number, if any). For example,</p>
+<p><code>https://mosip.io/pre-registration/v1/individuals/1234</code> --&gt; Except Kernel module</p>
+<p><code>https://mosip.io/v1/individuals/1234</code> --&gt; Kernel module</p>
+<h1><a class="anchor" aria-hidden="true" id="14-design-first-approach"></a><a href="#14-design-first-approach" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>14    Design first approach</h1>
+<p>Always go with the design first approach. First, define the Swagger specification and publish to the Swagger UI after getting it reviewed. The coding should be started after the design is completed and the specification is completed in Swagger.</p>
+<h1><a class="anchor" aria-hidden="true" id="15-request-format"></a><a href="#15-request-format" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>15    Request format</h1>
+<p>There are 3 sections in the Request.</p>
+<p>15.1. Request headers:
+This will contain 3 mandatory fields. They are &quot;id&quot;, &quot;version&quot; and &quot;requesttime&quot;. The &quot;requesttime&quot; have to be in UTC standard ISO8601 format</p>
+<p>15.2. Request meta data:
+This is an optional field. If the service is expecting any metadata, they can be passed here.</p>
+<p>15.3. Request payload:
+This is an optional field. The request payload goes here.</p>
+<p>For example,</p>
+<p>Request:</p>
+<pre><code class="hljs css language-JSON">{
+    <span class="hljs-comment">/***** Following is the header information *****/</span>
+    <span class="hljs-attr">"id"</span>:<span class="hljs-string">"mosip.kernel.otpservice"</span>,         
+    <span class="hljs-attr">"version"</span>:<span class="hljs-string">"1.0"</span>,    
+    <span class="hljs-attr">"requesttime"</span>:<span class="hljs-string">"2007-12-03T10:15:30Z"</span>,
+    
+    <span class="hljs-comment">/***** Following is the metadata information *****/</span>
+    <span class="hljs-attr">"metadata"</span> : {
+    },
+    
+    <span class="hljs-comment">/***** Following is the request payload *****/</span>
+    <span class="hljs-attr">"request"</span> : {
+        <span class="hljs-comment">// payload</span>
+    }
+}
+</code></pre>
+<h1><a class="anchor" aria-hidden="true" id="16-response-format"></a><a href="#16-response-format" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>16    Response format</h1>
+<p>There are 4 sections in the Response.</p>
+<p>16.1. Response headers:
+This will contain 3 mandatory fields. They are &quot;id&quot;, &quot;version&quot; and &quot;requesttime&quot;. The &quot;requesttime&quot; have to be in UTC standard ISO8601 format</p>
+<p>16.2. Response meta data:
+This is an optional field. If the service is expecting any metadata, they can be passed here.</p>
+<p>16.3. Response payload:
+The response payload goes here.</p>
+<p>16.4. Errors:
+The Errors array goes here. Even, in case of single error, the error have to be in an array. This is an optional field. In case if the service doesn't contains error, this element will not be there in the response.</p>
+<p>For example,</p>
+<p>Response:</p>
+<pre><code class="hljs css language-JSON">{
+
+    <span class="hljs-comment">/***** Following is the header information *****/</span>
+    <span class="hljs-attr">"id"</span>:<span class="hljs-string">"mosip.kernel.otpservice"</span>,         
+    <span class="hljs-attr">"version"</span>:<span class="hljs-string">"1.0"</span>,    
+    <span class="hljs-attr">"responsetime"</span>:<span class="hljs-string">"2007-12-03T10:15:30Z"</span>,  
+
+    <span class="hljs-comment">/***** Following is the metadata information *****/</span>
+    <span class="hljs-attr">"metadata"</span> : {
+        <span class="hljs-attr">"status"</span> : <span class="hljs-string">"error"</span>
+    },
+    
+    <span class="hljs-comment">/***** Following is the response payload *****/</span>
+    <span class="hljs-attr">"response"</span> : {
+        <span class="hljs-comment">// payload</span>
+    }
+
+    <span class="hljs-comment">/***** Errors wrapped in an array *****/</span>
+    <span class="hljs-string">"errors"</span>:[
+        <span class="hljs-string">"errorCode"</span>: <span class="hljs-string">"PRG_PAM_APP_001"</span>,
+        <span class="hljs-string">"message"</span>: <span class="hljs-string">"Mobile or email not available"</span>
+      },
+      {
+        <span class="hljs-attr">"errorCode"</span>: <span class="hljs-string">"PRG_PAM_APP_001"</span>,
+        <span class="hljs-attr">"message"</span>: <span class="hljs-string">"Service vendor is not responding"</span>
+      }     
+    ]
+}
+</code></pre>
+<p>In case, there is no request payload or path params or URL params, only the version will be present in the URL.</p>
+<h1><a class="anchor" aria-hidden="true" id="references"></a><a href="#references" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>References</h1>
+<pre><code class="hljs"><span class="hljs-symbol">https:</span><span class="hljs-comment">//en.wikipedia.org/wiki/List_of_HTTP_status_codes</span>
+<span class="hljs-symbol">
+https:</span><span class="hljs-comment">//blog.mwaysolutions.com/2014/06/05/10-best-practices-for-better-restful-api/</span>
+<span class="hljs-symbol">
+https:</span><span class="hljs-comment">//hackernoon.com/restful-api-designing-guidelines-the-best-practices-60e1d954e7c9</span>
+<span class="hljs-symbol">
+https:</span><span class="hljs-comment">//restfulapi.net/resource-naming/</span>
+</code></pre>
+<h1><a class="anchor" aria-hidden="true" id="contact"></a><a href="#contact" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Contact</h1>
+<pre><code class="hljs"><span class="hljs-selector-tag">Shravan</span> <span class="hljs-selector-tag">Poorigali</span> (shravan.poorigali<span class="hljs-variable">@mindtree</span>.com)
+
+<span class="hljs-selector-tag">Karthik</span> <span class="hljs-selector-tag">Ramanan</span> (Karthik.Ramanan<span class="hljs-variable">@mindtree</span>.com)
+
+<span class="hljs-selector-tag">Rudra</span> <span class="hljs-selector-tag">Prasad</span> <span class="hljs-selector-tag">Tripathy</span> (Rudra.Tripathy<span class="hljs-variable">@mindtree</span>.com)
+
+<span class="hljs-selector-tag">John</span> <span class="hljs-selector-tag">David</span> (John.Panneerselvam<span class="hljs-variable">@mindtree</span>.com)
+</code></pre>
+</span></div></article></div><div class="docs-prevnext"></div></div></div><nav class="onPageNav"><ul class="toc-headings"><li><a href="#11-context">1.1  Context</a></li><li><a href="#12-purpose-of-this-document">1.2  Purpose of this document</a></li><li><a href="#13-scope-of-this-document">1.3  Scope of this document</a></li><li><a href="#21-general-structure">2.1  General structure</a></li></ul></nav></div><footer class="nav-footer" id="footer"><section class="sitemap"><a href="/mosip-temp-documentation" class="nav-home"><img src="/mosip-temp-documentationimg/favicon.ico" alt="MOSIP Documentation" width="66" height="58"/></a><div><h5>Docs</h5><a href="/mosip-temp-documentationdocs/en/doc1.html">Getting Started (or other categories)</a><a href="/mosip-temp-documentationdocs/en/doc2.html">Guides (or other categories)</a><a href="/mosip-temp-documentationdocs/en/doc3.html">API Reference (or other categories)</a></div><div><h5>Community</h5><a href="/mosip-temp-documentationen/users.html">User Showcase</a><a href="https://stackoverflow.com/questions/tagged/" target="_blank" rel="noreferrer noopener">Stack Overflow</a><a href="https://discordapp.com/">Project Chat</a><a href="https://twitter.com/" target="_blank" rel="noreferrer noopener">Twitter</a></div><div><h5>More</h5><a href="/mosip-temp-documentationblog">Blog</a><a href="https://github.com/">GitHub</a><a class="github-button" data-icon="octicon-star" data-count-href="/facebook/docusaurus/stargazers" data-show-count="true" data-count-aria-label="# stargazers on GitHub" aria-label="Star this project on GitHub">Star</a></div></section><a href="https://opensource.facebook.com/" target="_blank" rel="noreferrer noopener" class="fbOpenSource"><img src="/mosip-temp-documentationimg/oss_logo.png" alt="Facebook Open Source" width="170" height="45"/></a><section class="copyright">Copyright © 2019 Your Name or Your Company Name</section></footer></div></body></html>

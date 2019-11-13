@@ -1,0 +1,1118 @@
+<!DOCTYPE html><html lang="en"><head><meta charSet="utf-8"/><meta http-equiv="X-UA-Compatible" content="IE=edge"/><title>Registration-Processor-APIs · MOSIP Documentation</title><meta name="viewport" content="width=device-width"/><meta name="generator" content="Docusaurus"/><meta name="description" content="This section details about the service APIs in the Registration-Processor modules"/><meta name="docsearch:language" content="en"/><meta property="og:title" content="Registration-Processor-APIs · MOSIP Documentation"/><meta property="og:type" content="website"/><meta property="og:url" content="https://ssenmosip.github.io/mosip-temp-documentationindex"/><meta property="og:description" content="This section details about the service APIs in the Registration-Processor modules"/><meta property="og:image" content="https://ssenmosip.github.io/mosip-temp-documentation/img/undraw_online.svg"/><meta name="twitter:card" content="summary"/><meta name="twitter:image" content="https://ssenmosip.github.io/mosip-temp-documentation/img/undraw_tweetstorm.svg"/><link rel="shortcut icon" href="/mosip-temp-documentationimg/favicon.ico"/><link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css"/><link rel="alternate" type="application/atom+xml" href="https://ssenmosip.github.io/mosip-temp-documentation/blog/atom.xml" title="MOSIP Documentation Blog ATOM Feed"/><link rel="alternate" type="application/rss+xml" href="https://ssenmosip.github.io/mosip-temp-documentation/blog/feed.xml" title="MOSIP Documentation Blog RSS Feed"/><script type="text/javascript" src="https://buttons.github.io/buttons.js"></script><script src="/mosip-temp-documentationjs/scrollSpy.js"></script><link rel="stylesheet" href="/mosip-temp-documentationcss/main.css"/><script src="/mosip-temp-documentationjs/codetabs.js"></script></head><body class="sideNavVisible separateOnPageNav"><div class="fixedHeaderContainer"><div class="headerWrapper wrapper"><header><a href="/mosip-temp-documentation"><img class="logo" src="/mosip-temp-documentationimg/favicon.ico" alt="MOSIP Documentation"/><h2 class="headerTitleWithLogo">MOSIP Documentation</h2></a><div class="navigationWrapper navigationSlider"><nav class="slidingNav"><ul class="nav-site nav-site-internal"><li class=""><a href="/mosip-temp-documentationdocs/Platform-Documentation" target="_self">Docs</a></li><li class=""><a href="/mosip-temp-documentationdocs/Getting-Started" target="_self">API</a></li><li class=""><a href="/mosip-temp-documentationContributor-Guide" target="_self">Help</a></li><li class=""><a href="/mosip-temp-documentationblog/" target="_self">Blog</a></li></ul></nav></div></header></div></div><div class="navPusher"><div class="docMainWrapper wrapper"><div class="container mainContainer"><div class="wrapper"><div class="post"><header class="postHeader"><h1 class="postHeaderTitle">Registration-Processor-APIs</h1></header><article><div><span><p>This section details about the service APIs in the Registration-Processor modules</p>
+<p><a href="#1-packet-receiver-service">1. Packet receiver Service</a></p>
+<p><a href="#2-registration-status-service">2. Registration status Service</a></p>
+<p><a href="#3-sync-registration-service">3. Sync Registration Service</a></p>
+<p><a href="#4-manual-adjudication-service">4. Manual Adjudication Service</a></p>
+<p><a href="#5-bio-dedupe-service">5. Bio Dedupe Service</a></p>
+<p><a href="#6-packet-generator-service">6. Packet Generator Service</a></p>
+<p><a href="#7-packet-uploader-service">7. Packet Uploader Service</a></p>
+<p><a href="#8-registration-process-request-handler-service">8. Registration Process Request Handler Service</a></p>
+<p><a href="#9-registration-transaction-service">9. Registration Transaction Service</a></p>
+<p><a href="#10-uincard-service">10. Uincard Service</a></p>
+<h1><a class="anchor" aria-hidden="true" id="1-packet-receiver-service"></a><a href="#1-packet-receiver-service" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>1 Packet Receiver Service</h1>
+<h2><a class="anchor" aria-hidden="true" id="11-packet-receiver-service"></a><a href="#11-packet-receiver-service" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>1.1 Packet-receiver service</h2>
+<ul>
+<li><h4><a class="anchor" aria-hidden="true" id="post-registrationprocessor-v1-packetreceiver-registrationpackets"></a><a href="#post-registrationprocessor-v1-packetreceiver-registrationpackets" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><code>POST /registrationprocessor/v1/packetreceiver/registrationpackets</code></h4>
+</li>
+</ul>
+<p>This service receives registration packet from client. Before moving packet to landing zone it is sent for virus scan and then trustworthiness of the packet is validated using hash value and size.</p>
+<h4><a class="anchor" aria-hidden="true" id="resource-url"></a><a href="#resource-url" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Resource URL</h4>
+<p><a href="https://mosip.io/registrationprocessor/v1/packetreceiver/registrationpackets">https://mosip.io/registrationprocessor/v1/packetreceiver/registrationpackets</a></p>
+<h4><a class="anchor" aria-hidden="true" id="resource-details"></a><a href="#resource-details" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Resource details</h4>
+<table>
+<thead>
+<tr><th>Resource Details</th><th>Description</th></tr>
+</thead>
+<tbody>
+<tr><td>Request format</td><td>MULTIPART</td></tr>
+<tr><td>Response format</td><td>JSON</td></tr>
+<tr><td>Requires Authentication</td><td>Yes</td></tr>
+</tbody>
+</table>
+<h4><a class="anchor" aria-hidden="true" id="request-path-parameters"></a><a href="#request-path-parameters" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Request Path Parameters</h4>
+<table>
+<thead>
+<tr><th>Name</th><th>Required</th><th>Description</th><th>Comment</th></tr>
+</thead>
+<tbody>
+<tr><td>MultipartFile</td><td>Yes</td><td>The encrypted zip file</td></tr>
+</tbody>
+</table>
+<h4><a class="anchor" aria-hidden="true" id="request"></a><a href="#request" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Request</h4>
+<p><img src="_images/reg_processor/packet_receiver_sample_input.PNG" alt="Request"></p>
+<h4><a class="anchor" aria-hidden="true" id="response"></a><a href="#response" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Response</h4>
+<h5><a class="anchor" aria-hidden="true" id="success-response"></a><a href="#success-response" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Success response</h5>
+<h6><a class="anchor" aria-hidden="true" id="status-code-200"></a><a href="#status-code-200" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Status Code: 200</h6>
+<h6><a class="anchor" aria-hidden="true" id="description-packet-is-in-packet_received-status"></a><a href="#description-packet-is-in-packet_received-status" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Description: Packet is in PACKET_RECEIVED status</h6>
+<pre><code class="hljs css language-JSON">{
+    <span class="hljs-attr">"id"</span> : <span class="hljs-string">"mosip.registration.packet"</span>,
+    <span class="hljs-attr">"version"</span> : <span class="hljs-string">"1.0"</span>,
+    <span class="hljs-attr">"responsetime"</span> : <span class="hljs-string">"2019-02-02T06:12:25.288Z"</span>,
+    <span class="hljs-attr">"response"</span> : {
+        <span class="hljs-attr">"status"</span> : <span class="hljs-string">"Packet is in PACKET_RECEIVED status"</span>
+    },
+    <span class="hljs-attr">"errors"</span>: <span class="hljs-literal">null</span>
+}
+</code></pre>
+<h4><a class="anchor" aria-hidden="true" id="failure-response"></a><a href="#failure-response" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Failure response</h4>
+<h6><a class="anchor" aria-hidden="true" id="status-code-200-1"></a><a href="#status-code-200-1" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Status Code: 200</h6>
+<h6><a class="anchor" aria-hidden="true" id="description-the-request-received-is-a-duplicate-request-to-upload-a-packet"></a><a href="#description-the-request-received-is-a-duplicate-request-to-upload-a-packet" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Description: The request received is a duplicate request to upload a Packet</h6>
+<pre><code class="hljs css language-JSON">{
+  <span class="hljs-attr">"id"</span> : <span class="hljs-string">"mosip.registration.packet"</span>,
+  <span class="hljs-attr">"version"</span> : <span class="hljs-string">"1.0"</span>,
+  <span class="hljs-attr">"responsetime"</span>: <span class="hljs-string">"2019-02-02T06:12:25.288Z"</span>,
+  <span class="hljs-attr">"response"</span>: <span class="hljs-literal">null</span>,
+  <span class="hljs-attr">"errors"</span> : [{
+        <span class="hljs-attr">"errorcode"</span>: <span class="hljs-string">"RPR-PKR-005"</span>,
+        <span class="hljs-attr">"message"</span>: <span class="hljs-string">"The request received is a duplicate request to upload a Packet"</span>
+    }]
+}
+</code></pre>
+<h1><a class="anchor" aria-hidden="true" id="2-registration-status-service"></a><a href="#2-registration-status-service" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>2 Registration Status Service</h1>
+<ul>
+<li><h3><a class="anchor" aria-hidden="true" id="post-registrationprocessor-v1-registrationstatus-search"></a><a href="#post-registrationprocessor-v1-registrationstatus-search" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><code>POST /registrationprocessor/v1/registrationstatus/search</code></h3>
+</li>
+</ul>
+<p>This service return the registration current status for list of input registration ids.</p>
+<h4><a class="anchor" aria-hidden="true" id="resource-url-1"></a><a href="#resource-url-1" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Resource URL</h4>
+<p><a href="https://mosip.io/registrationprocessor/v1/registrationstatus/search">https://mosip.io/registrationprocessor/v1/registrationstatus/search</a></p>
+<h4><a class="anchor" aria-hidden="true" id="resource-details-1"></a><a href="#resource-details-1" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Resource details</h4>
+<table>
+<thead>
+<tr><th>Resource Details</th><th>Description</th></tr>
+</thead>
+<tbody>
+<tr><td>Request format</td><td>JSON</td></tr>
+<tr><td>Response format</td><td>JSON</td></tr>
+<tr><td>Requires Authentication</td><td>Yes</td></tr>
+</tbody>
+</table>
+<h4><a class="anchor" aria-hidden="true" id="parameters"></a><a href="#parameters" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Parameters</h4>
+<table>
+<thead>
+<tr><th>Name</th><th>Required</th><th>Description</th><th>Comment</th></tr>
+</thead>
+<tbody>
+<tr><td>registrationIds</td><td>Yes</td><td>List of registration ids</td></tr>
+</tbody>
+</table>
+<h4><a class="anchor" aria-hidden="true" id="request-1"></a><a href="#request-1" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Request</h4>
+<pre><code class="hljs css language-JSON">{
+  <span class="hljs-attr">"id"</span> : <span class="hljs-string">"mosip.registration.status"</span>,
+  <span class="hljs-attr">"version"</span> : <span class="hljs-string">"1.0"</span>,
+  <span class="hljs-attr">"requesttime"</span>: <span class="hljs-string">"2019-02-14T12:40:59.768Z"</span>,
+  <span class="hljs-attr">"request"</span> : [
+    {
+        <span class="hljs-attr">"registrationId"</span> : <span class="hljs-string">"2018701130000410092012345678"</span>
+    },
+    {
+        <span class="hljs-attr">"registrationId"</span> : <span class="hljs-string">"2018701130000410092012345678"</span>
+    }
+  ]
+}
+</code></pre>
+<h4><a class="anchor" aria-hidden="true" id="response-1"></a><a href="#response-1" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Response</h4>
+<p>Record found :</p>
+<h6><a class="anchor" aria-hidden="true" id="status-code-200-2"></a><a href="#status-code-200-2" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Status Code: 200</h6>
+<h6><a class="anchor" aria-hidden="true" id="description-successfully-retrieved-information"></a><a href="#description-successfully-retrieved-information" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Description: Successfully retrieved information</h6>
+<pre><code class="hljs css language-JSON">{
+  <span class="hljs-attr">"id"</span> : <span class="hljs-string">"mosip.registration.status"</span>,
+  <span class="hljs-attr">"version"</span> : <span class="hljs-string">"1.0"</span>,
+  <span class="hljs-attr">"responsetime"</span>: <span class="hljs-string">"2019-02-14T12:40:59.768Z"</span>,
+  <span class="hljs-attr">"response"</span> : [
+  {
+    <span class="hljs-attr">"registrationId"</span>: <span class="hljs-string">"2018701130000410092012345678"</span>,
+    <span class="hljs-attr">"statusCode"</span>: <span class="hljs-string">"PROCESSING"</span>
+  },
+  {
+    <span class="hljs-attr">"registrationId"</span>: <span class="hljs-string">"2018701130000410092018110735"</span>,
+    <span class="hljs-attr">"statusCode"</span>: <span class="hljs-string">"PROCESSED"</span>
+  }
+],
+<span class="hljs-attr">"errors"</span>: <span class="hljs-literal">null</span>
+}
+</code></pre>
+<p>Record not found :</p>
+<h6><a class="anchor" aria-hidden="true" id="status-code-200-3"></a><a href="#status-code-200-3" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Status Code: 200</h6>
+<h6><a class="anchor" aria-hidden="true" id="description-successfully-retrieved-information-1"></a><a href="#description-successfully-retrieved-information-1" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Description: Successfully retrieved information</h6>
+<pre><code class="hljs css language-JSON">{
+  <span class="hljs-attr">"id"</span> : <span class="hljs-string">"mosip.registration.status"</span>,
+  <span class="hljs-attr">"version"</span> : <span class="hljs-string">"1.0"</span>,
+  <span class="hljs-attr">"responsetime"</span>: <span class="hljs-string">"2019-02-14T12:40:59.768Z"</span>,
+  <span class="hljs-attr">"response"</span> : [],
+  <span class="hljs-attr">"errors"</span>: <span class="hljs-literal">null</span>
+}
+
+</code></pre>
+<h1><a class="anchor" aria-hidden="true" id="3-sync-registration-service"></a><a href="#3-sync-registration-service" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>3 Sync registration Service</h1>
+<p>The registration ids has to be synced with server before uploading packet to landing zone. This service is used to syncs registration ids.</p>
+<ul>
+<li><h4><a class="anchor" aria-hidden="true" id="post-registrationprocessor-v1-registrationstatus-sync"></a><a href="#post-registrationprocessor-v1-registrationstatus-sync" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><code>POST /registrationprocessor/v1/registrationstatus/sync</code></h4>
+</li>
+</ul>
+<h4><a class="anchor" aria-hidden="true" id="resource-url-2"></a><a href="#resource-url-2" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Resource URL</h4>
+<p><a href="https://mosip.io/registrationprocessor/v1/registrationstatus/sync">https://mosip.io/registrationprocessor/v1/registrationstatus/sync</a></p>
+<h4><a class="anchor" aria-hidden="true" id="resource-details-2"></a><a href="#resource-details-2" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Resource details</h4>
+<table>
+<thead>
+<tr><th>Resource Details</th><th>Description</th></tr>
+</thead>
+<tbody>
+<tr><td>Request format</td><td>JSON</td></tr>
+<tr><td>Response format</td><td>JSON</td></tr>
+<tr><td>Requires Authentication</td><td>Yes</td></tr>
+</tbody>
+</table>
+<h3><a class="anchor" aria-hidden="true" id="parameters-1"></a><a href="#parameters-1" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Parameters</h3>
+<table>
+<thead>
+<tr><th>Name</th><th>Required</th><th>Description</th><th>Comment</th></tr>
+</thead>
+<tbody>
+<tr><td>id</td><td>Yes</td><td>the id for sync</td><td>mosip.registration.sync</td></tr>
+<tr><td>version</td><td>Yes</td><td>the version for sync</td><td>1.0</td></tr>
+<tr><td>requesttime</td><td>Yes</td><td>the requesttime for sync</td><td>2019-02-14T12:40:59.768Z</td></tr>
+<tr><td>request</td><td>Yes</td><td>the request object</td><td>1.0</td></tr>
+<tr><td>registrationId</td><td>Yes</td><td>the registration id</td><td>80006444440002520181208094000</td></tr>
+<tr><td>registrationType</td><td>Yes</td><td>the type of the registration</td><td>NEW, UPDATE, LOST, ACTIVATE, DEACTIVATE, RES_UPDATE</td></tr>
+<tr><td>packetHashValue</td><td>Yes</td><td>the hash value of the encrypted packet</td><td>D7C87DC5D3A759D77433B02B80435CFAB5087F1A942543F51A5075BC441BF7EB</td></tr>
+<tr><td>packetSize</td><td>Yes</td><td>size of encrypted packet in bytes</td><td>5242880</td></tr>
+<tr><td>supervisorStatus</td><td>Yes</td><td>supervisor decision</td><td>APPROVED, REJECTED</td></tr>
+<tr><td>supervisorComment</td><td>No</td><td>supervisor comments</td><td>rejected because of error</td></tr>
+<tr><td>optionalValues</td><td>No</td><td>additional values to be passed during sync</td><td>key, value pair</td></tr>
+<tr><td>langCode</td><td>Yes</td><td>language code used</td><td>eng or ara</td></tr>
+</tbody>
+</table>
+<h4><a class="anchor" aria-hidden="true" id="request-header"></a><a href="#request-header" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Request Header</h4>
+<h5><a class="anchor" aria-hidden="true" id="center-machine-refid-10011_10011"></a><a href="#center-machine-refid-10011_10011" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Center-Machine-RefId = <code>10011_10011</code></h5>
+<h5><a class="anchor" aria-hidden="true" id="timestamp-2019-02-14t12-40-59768z"></a><a href="#timestamp-2019-02-14t12-40-59768z" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>timestamp = <code>2019-02-14T12:40:59.768Z</code></h5>
+<h4><a class="anchor" aria-hidden="true" id="request-2"></a><a href="#request-2" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Request</h4>
+<pre><code class="hljs css language-JSON"><span class="hljs-comment">// NOTE : the actual request will be an encrypted json. This is an example of decrypted request json.</span>
+{
+    <span class="hljs-attr">"id"</span>: <span class="hljs-string">"mosip.registration.sync"</span>,
+    <span class="hljs-attr">"version"</span>: <span class="hljs-string">"1.0"</span>,
+    <span class="hljs-attr">"requesttime"</span>: <span class="hljs-string">"2019-02-14T12:40:59.768Z"</span>,
+    <span class="hljs-attr">"request"</span>: [{
+            <span class="hljs-attr">"registrationId"</span>: <span class="hljs-string">"80006444440002520181208094000"</span>,
+            <span class="hljs-attr">"registrationType"</span>: <span class="hljs-string">"NEW"</span>,
+            <span class="hljs-attr">"packetHashValue"</span>: <span class="hljs-string">"D7C87DC5D3A759D77433B02B80435CFAB5087F1A942543F51A5075BC441BF7EB"</span>,
+            <span class="hljs-attr">"packetSize"</span>: <span class="hljs-number">5242880</span>,
+            <span class="hljs-attr">"supervisorStatus"</span>: <span class="hljs-string">"APPROVED"</span>,
+            <span class="hljs-attr">"supervisorComment"</span>: <span class="hljs-string">"Approved, all good"</span>,
+            <span class="hljs-attr">"langCode"</span>: <span class="hljs-string">"eng"</span>,
+            <span class="hljs-attr">"optionalValues"</span>: [{
+                <span class="hljs-attr">"key"</span>: <span class="hljs-string">"CNIE"</span>,
+                <span class="hljs-attr">"value"</span>: <span class="hljs-string">"122223456"</span>
+            }]
+        },
+        {
+            <span class="hljs-attr">"registrationId"</span>: <span class="hljs-string">"10011100110002520181208094000"</span>,
+            <span class="hljs-attr">"registrationType"</span>: <span class="hljs-string">"UPDATE"</span>,
+            <span class="hljs-attr">"packetHashValue"</span>: <span class="hljs-string">"D7C87DC5D3A759D77433B02B80435CFAB5087F1A942543F51A5075BC441BF7EB"</span>,
+            <span class="hljs-attr">"packetSize"</span>: <span class="hljs-number">4242880</span>,
+            <span class="hljs-attr">"supervisorStatus"</span>: <span class="hljs-string">"REJECTED"</span>,
+            <span class="hljs-attr">"supervisorComment"</span>: <span class="hljs-string">"Rejected due to error"</span>,
+            <span class="hljs-attr">"langCode"</span>: <span class="hljs-string">"eng"</span>,
+            <span class="hljs-attr">"optionalValues"</span>: [{
+                <span class="hljs-attr">"key"</span>: <span class="hljs-string">"CNIE"</span>,
+                <span class="hljs-attr">"value"</span>: <span class="hljs-string">"3456789o"</span>
+            }]
+        }
+    ]
+}
+</code></pre>
+<h4><a class="anchor" aria-hidden="true" id="response-2"></a><a href="#response-2" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Response</h4>
+<h6><a class="anchor" aria-hidden="true" id="response-code-200"></a><a href="#response-code-200" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Response Code: 200</h6>
+<h6><a class="anchor" aria-hidden="true" id="description-successfully-synced"></a><a href="#description-successfully-synced" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Description: Successfully synced</h6>
+<p>Success response :</p>
+<pre><code class="hljs css language-JSON">{
+  <span class="hljs-attr">"id"</span> : <span class="hljs-string">"mosip.registration.sync"</span>,
+  <span class="hljs-attr">"version"</span> : <span class="hljs-string">"1.0"</span>,
+  <span class="hljs-attr">"responsetime"</span>: <span class="hljs-string">"2019-02-14T12:40:59.768Z"</span>,
+  <span class="hljs-attr">"errors"</span>: <span class="hljs-literal">null</span>,
+  <span class="hljs-attr">"response"</span> : [
+      {
+        <span class="hljs-attr">"registrationId"</span>: <span class="hljs-string">"1234575"</span>,
+        <span class="hljs-attr">"status"</span>: <span class="hljs-string">"SUCCESS"</span>
+      },
+      {
+        <span class="hljs-attr">"registrationId"</span>: <span class="hljs-string">"12345678901234567890123456789"</span>,
+        <span class="hljs-attr">"status"</span>: <span class="hljs-string">"SUCCESS"</span>
+      },
+      {
+        <span class="hljs-attr">"registrationId"</span>: <span class="hljs-string">"27847657360002520181208183052"</span>,
+        <span class="hljs-attr">"status"</span>: <span class="hljs-string">"SUCCESS"</span>
+      }
+    ]
+}
+</code></pre>
+<p>Failure response</p>
+<pre><code class="hljs css language-JSON"><span class="hljs-comment">// response 1 : decryption failed</span>
+{
+  <span class="hljs-attr">"id"</span> : <span class="hljs-string">"mosip.registration.sync"</span>,
+  <span class="hljs-attr">"version"</span> : <span class="hljs-string">"1.0"</span>,
+  <span class="hljs-attr">"responsetime"</span>: <span class="hljs-string">"2019-02-14T12:40:59.768Z"</span>,
+  <span class="hljs-attr">"response"</span>: <span class="hljs-literal">null</span>,
+  <span class="hljs-attr">"errors"</span> : [
+      {
+        <span class="hljs-attr">"status"</span>: <span class="hljs-string">"FAILURE"</span>,
+                <span class="hljs-attr">"errorCode"</span>: <span class="hljs-string">"RPR-RGS-001"</span>,
+        <span class="hljs-attr">"errorMessage"</span>: <span class="hljs-string">"Decryption failed"</span>
+      }
+    ]
+}
+
+<span class="hljs-comment">// response 2 : validation failed</span>
+
+{
+  <span class="hljs-attr">"id"</span> : <span class="hljs-string">"mosip.registration.sync"</span>,
+  <span class="hljs-attr">"version"</span> : <span class="hljs-string">"1.0"</span>,
+  <span class="hljs-attr">"responsetime"</span>: <span class="hljs-string">"2019-02-14T12:40:59.768Z"</span>,
+  <span class="hljs-attr">"response"</span>: <span class="hljs-literal">null</span>,
+  <span class="hljs-attr">"errors"</span> : [
+      {
+        <span class="hljs-attr">"registrationId"</span>: <span class="hljs-string">"1234575"</span>,
+        <span class="hljs-attr">"status"</span>: <span class="hljs-string">"FAILURE"</span>,
+                <span class="hljs-attr">"errorCode"</span>: <span class="hljs-string">"RPR-RGS-009"</span>,
+        <span class="hljs-attr">"errorMessage"</span>: <span class="hljs-string">"RegistrationId Length Must Be 29"</span>
+      },
+      {
+        <span class="hljs-attr">"registrationId"</span>: <span class="hljs-string">"12345678901234567890123456789"</span>,
+        <span class="hljs-attr">"status"</span>: <span class="hljs-string">"FAILURE"</span>,
+        <span class="hljs-attr">"errorCode"</span>: <span class="hljs-string">"RPR-RGS-007"</span>,
+                <span class="hljs-attr">"errorMessage"</span>: <span class="hljs-string">"Invalid Time Stamp Found in RegistrationId"</span>
+      },
+      {
+        <span class="hljs-attr">"registrationId"</span>: <span class="hljs-string">"27847657360002520181208183052"</span>,
+        <span class="hljs-attr">"status"</span>: <span class="hljs-string">"FAILURE"</span>,
+        <span class="hljs-attr">"errorCode"</span>: <span class="hljs-string">"RPR-RGS-012"</span>,
+        <span class="hljs-attr">"errorMessage"</span>: <span class="hljs-string">"Parent RegistrationId Length Must Be 29"</span>
+      }
+    ]
+}
+</code></pre>
+<h1><a class="anchor" aria-hidden="true" id="4-manual-adjudication-service"></a><a href="#4-manual-adjudication-service" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>4 Manual Adjudication Service</h1>
+<h2><a class="anchor" aria-hidden="true" id="41-manual-adjudication-assignment-service"></a><a href="#41-manual-adjudication-assignment-service" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>4.1 manual-adjudication-assignment service</h2>
+<ul>
+<li><h4><a class="anchor" aria-hidden="true" id="post-registrationprocessor-v1-manualverification-assignment"></a><a href="#post-registrationprocessor-v1-manualverification-assignment" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><code>POST /registrationprocessor/v1/manualverification/assignment</code></h4>
+</li>
+</ul>
+<p>This service is used to assign one single unassigned applicant record to the input user.</p>
+<h4><a class="anchor" aria-hidden="true" id="resource-url-3"></a><a href="#resource-url-3" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Resource URL</h4>
+<p><a href="https://mosip.io/registrationprocessor/v1/manualverification/assignment">https://mosip.io/registrationprocessor/v1/manualverification/assignment</a></p>
+<h4><a class="anchor" aria-hidden="true" id="resource-details-3"></a><a href="#resource-details-3" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Resource details</h4>
+<table>
+<thead>
+<tr><th>Resource Details</th><th>Description</th></tr>
+</thead>
+<tbody>
+<tr><td>Request format</td><td>JSON</td></tr>
+<tr><td>Response format</td><td>JSON</td></tr>
+<tr><td>Requires Authentication</td><td>Yes</td></tr>
+</tbody>
+</table>
+<h4><a class="anchor" aria-hidden="true" id="parameters-2"></a><a href="#parameters-2" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Parameters</h4>
+<table>
+<thead>
+<tr><th>Name</th><th>Required</th><th>Description</th><th>Comment</th></tr>
+</thead>
+<tbody>
+<tr><td>String</td><td>Yes</td><td>The user id</td></tr>
+</tbody>
+</table>
+<h4><a class="anchor" aria-hidden="true" id="request-3"></a><a href="#request-3" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Request</h4>
+<pre><code class="hljs css language-JSON">{
+  <span class="hljs-attr">"id"</span> : <span class="hljs-string">"mosip.manual.verification.assignment"</span>,
+  <span class="hljs-attr">"version"</span> : <span class="hljs-string">"1.0"</span>,
+  <span class="hljs-attr">"requesttime"</span>: <span class="hljs-string">"2019-02-14T12:40:59.768Z"</span>,
+  <span class="hljs-attr">"request"</span> : {
+    <span class="hljs-attr">"userId"</span>: <span class="hljs-string">"mono29"</span>,
+        <span class="hljs-attr">"matchType"</span> : <span class="hljs-string">"all"</span>
+  }
+}
+</code></pre>
+<h4><a class="anchor" aria-hidden="true" id="response-3"></a><a href="#response-3" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Response</h4>
+<h6><a class="anchor" aria-hidden="true" id="status-code-200-4"></a><a href="#status-code-200-4" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Status Code: 200</h6>
+<h6><a class="anchor" aria-hidden="true" id="description-response-code-is-always-200-if-server-receives-the-request"></a><a href="#description-response-code-is-always-200-if-server-receives-the-request" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Description : response code is always 200 if server receives the request.</h6>
+<p>Success response</p>
+<pre><code class="hljs css language-JSON">{
+  <span class="hljs-attr">"id"</span> : <span class="hljs-string">"mosip.manual.verification.assignment"</span>,
+  <span class="hljs-attr">"version"</span> : <span class="hljs-string">"1.0"</span>,
+  <span class="hljs-attr">"responsetime"</span>: <span class="hljs-string">"2019-02-14T12:40:59.768Z"</span>,
+  <span class="hljs-attr">"response"</span> : {
+      <span class="hljs-attr">"regId"</span>: <span class="hljs-string">"27847657360002520181208123456"</span>,
+      <span class="hljs-attr">"mvUsrId"</span>: <span class="hljs-string">"mono29"</span>,
+      <span class="hljs-attr">"statusCode"</span>: <span class="hljs-string">"ASSIGNED"</span>,
+      <span class="hljs-attr">"matchedRefId"</span>: <span class="hljs-string">"27847657360002520181208123456"</span>,
+      <span class="hljs-attr">"matchedRefType"</span>: <span class="hljs-string">"UIN"</span>,
+      <span class="hljs-attr">"reasonCode"</span>: <span class="hljs-literal">null</span>
+    },
+    <span class="hljs-attr">"errors"</span>: <span class="hljs-literal">null</span>
+}
+</code></pre>
+<p>Failure response</p>
+<pre><code class="hljs css language-JSON">{
+  <span class="hljs-attr">"id"</span> : <span class="hljs-string">"mosip.manual.verification.assignment"</span>,
+  <span class="hljs-attr">"version"</span> : <span class="hljs-string">"1.0"</span>,
+  <span class="hljs-attr">"responsetime"</span>: <span class="hljs-string">"2019-02-14T12:40:59.768Z"</span>,
+  <span class="hljs-attr">"response"</span>: <span class="hljs-literal">null</span>,
+    <span class="hljs-attr">"errors"</span> : [{
+        <span class="hljs-attr">"errorCode"</span> : <span class="hljs-string">"RPR-FAC-003"</span>,
+        <span class="hljs-attr">"message"</span> : <span class="hljs-string">"Cannot find the Registration Packet"</span>
+    }]
+}
+</code></pre>
+<h2><a class="anchor" aria-hidden="true" id="42-manual-adjudication-decision-service"></a><a href="#42-manual-adjudication-decision-service" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>4.2 manual-adjudication-decision service</h2>
+<ul>
+<li><h4><a class="anchor" aria-hidden="true" id="post-registrationprocessor-v1-manualverification-decision"></a><a href="#post-registrationprocessor-v1-manualverification-decision" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><code>POST /registrationprocessor/v1/manualverification/decision</code></h4>
+</li>
+</ul>
+<p>This service is used to get the decision from manual adjudicator for an applicant and update the decision in table.</p>
+<h4><a class="anchor" aria-hidden="true" id="resource-url-4"></a><a href="#resource-url-4" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Resource URL</h4>
+<p><a href="https://mosip.io/registrationprocessor/v1/manualverification/decision">https://mosip.io/registrationprocessor/v1/manualverification/decision</a></p>
+<h4><a class="anchor" aria-hidden="true" id="resource-details-4"></a><a href="#resource-details-4" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Resource details</h4>
+<table>
+<thead>
+<tr><th>Resource Details</th><th>Description</th></tr>
+</thead>
+<tbody>
+<tr><td>Request format</td><td>JSON</td></tr>
+<tr><td>Response format</td><td>JSON</td></tr>
+<tr><td>Requires Authentication</td><td>Yes</td></tr>
+</tbody>
+</table>
+<h4><a class="anchor" aria-hidden="true" id="parameters-3"></a><a href="#parameters-3" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Parameters</h4>
+<table>
+<thead>
+<tr><th>Name</th><th>Required</th><th>Description</th><th>Comment</th></tr>
+</thead>
+<tbody>
+<tr><td>ManualVerificationDTO</td><td>Yes</td><td>Dto containing manual adjudication info</td></tr>
+</tbody>
+</table>
+<h4><a class="anchor" aria-hidden="true" id="request-4"></a><a href="#request-4" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Request</h4>
+<pre><code class="hljs css language-JSON">{
+  <span class="hljs-attr">"id"</span> : <span class="hljs-string">"mosip.manual.verification.decision"</span>,
+  <span class="hljs-attr">"version"</span> : <span class="hljs-string">"1.0"</span>,
+  <span class="hljs-attr">"requesttime"</span>: <span class="hljs-string">"2019-02-14T12:40:59.768Z"</span>,
+  <span class="hljs-attr">"request"</span> : {
+      <span class="hljs-attr">"matchedRefId"</span>: <span class="hljs-string">"27847657360002520181208123987"</span>,
+      <span class="hljs-attr">"matchedRefType"</span>: <span class="hljs-string">"RID"</span>,
+      <span class="hljs-attr">"mvUsrId"</span>: <span class="hljs-string">"mono"</span>,
+      <span class="hljs-attr">"reasonCode"</span>: <span class="hljs-string">"Problem with biometrics"</span>,
+      <span class="hljs-attr">"regId"</span>: <span class="hljs-string">"27847657360002520181208123456"</span>,
+      <span class="hljs-attr">"statusCode"</span>: <span class="hljs-string">"APPROVED"</span>
+    }
+}
+</code></pre>
+<h4><a class="anchor" aria-hidden="true" id="response-4"></a><a href="#response-4" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Response</h4>
+<h6><a class="anchor" aria-hidden="true" id="status-code-200-5"></a><a href="#status-code-200-5" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Status Code: 200</h6>
+<h6><a class="anchor" aria-hidden="true" id="description-response-code-is-always-200-if-server-receives-the-request-1"></a><a href="#description-response-code-is-always-200-if-server-receives-the-request-1" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Description : response code is always 200 if server receives the request.</h6>
+<p>Success response</p>
+<pre><code class="hljs css language-JSON">{
+  <span class="hljs-attr">"id"</span> : <span class="hljs-string">"mosip.manual.verification.decision"</span>,
+  <span class="hljs-attr">"version"</span> : <span class="hljs-string">"1.0"</span>,
+  <span class="hljs-attr">"responsetime"</span>: <span class="hljs-string">"2019-02-14T12:40:59.768Z"</span>,
+  <span class="hljs-attr">"response"</span> : {
+      <span class="hljs-attr">"regId"</span>: <span class="hljs-string">"27847657360002520181208123456"</span>,
+      <span class="hljs-attr">"mvUsrId"</span>: <span class="hljs-string">"mono"</span>,
+      <span class="hljs-attr">"statusCode"</span>: <span class="hljs-string">"APPROVED"</span>,
+      <span class="hljs-attr">"matchedRefId"</span>: <span class="hljs-string">"27847657360002520181208123987"</span>,
+      <span class="hljs-attr">"matchedRefType"</span>: <span class="hljs-string">"RID"</span>,
+      <span class="hljs-attr">"reasonCode"</span>: <span class="hljs-string">"Problem with biometrics"</span>
+    },
+    <span class="hljs-attr">"errors"</span>: <span class="hljs-literal">null</span>
+}
+</code></pre>
+<p>Failure response</p>
+<pre><code class="hljs css language-JSON">{
+  <span class="hljs-attr">"id"</span> : <span class="hljs-string">"mosip.manual.verification.decision"</span>,
+  <span class="hljs-attr">"version"</span> : <span class="hljs-string">"1.0"</span>,
+  <span class="hljs-attr">"responsetime"</span>: <span class="hljs-string">"2019-02-14T12:40:59.768Z"</span>,
+  <span class="hljs-attr">"response"</span>: <span class="hljs-literal">null</span>,
+    <span class="hljs-attr">"errors"</span> : [{
+        <span class="hljs-attr">"errorCode"</span> : <span class="hljs-string">"RPR-MVS-003"</span>,
+        <span class="hljs-attr">"message"</span> : <span class="hljs-string">"Invalid status update"</span>
+    }]
+}
+</code></pre>
+<h2><a class="anchor" aria-hidden="true" id="43-manual-adjudication-applicant-biometric-service"></a><a href="#43-manual-adjudication-applicant-biometric-service" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>4.3 manual-adjudication-applicant-biometric service</h2>
+<ul>
+<li><h4><a class="anchor" aria-hidden="true" id="post-registrationprocessor-v1-manualverification-applicantbiometric"></a><a href="#post-registrationprocessor-v1-manualverification-applicantbiometric" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><code>POST /registrationprocessor/v1/manualverification/applicantBiometric</code></h4>
+</li>
+</ul>
+<p>The manual adjudicator would need to verify the applicant biometric and demographic records. This service is used to get the applicant biometric from packet store by registration id.</p>
+<h4><a class="anchor" aria-hidden="true" id="resource-url-5"></a><a href="#resource-url-5" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Resource URL</h4>
+<p><a href="https://mosip.io/registrationprocessor/v1/manualverification/applicantBiometric">https://mosip.io/registrationprocessor/v1/manualverification/applicantBiometric</a></p>
+<h4><a class="anchor" aria-hidden="true" id="resource-details-5"></a><a href="#resource-details-5" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Resource details</h4>
+<table>
+<thead>
+<tr><th>Resource Details</th><th>Description</th></tr>
+</thead>
+<tbody>
+<tr><td>Request format</td><td>JSON</td></tr>
+<tr><td>Response format</td><td>byte[]</td></tr>
+<tr><td>Requires Authentication</td><td>Yes</td></tr>
+</tbody>
+</table>
+<h4><a class="anchor" aria-hidden="true" id="parameters-4"></a><a href="#parameters-4" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Parameters</h4>
+<table>
+<thead>
+<tr><th>Name</th><th>Required</th><th>Description</th><th>Comment</th></tr>
+</thead>
+<tbody>
+<tr><td>FileRequestDto</td><td>Yes</td><td>Dto containing registration id and file name</td></tr>
+</tbody>
+</table>
+<h4><a class="anchor" aria-hidden="true" id="request-5"></a><a href="#request-5" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Request</h4>
+<pre><code class="hljs css language-JSON">{
+  <span class="hljs-attr">"id"</span> : <span class="hljs-string">"mosip.manual.verification.biometric"</span>,
+  <span class="hljs-attr">"version"</span> : <span class="hljs-string">"1.0"</span>,
+  <span class="hljs-attr">"requesttime"</span>: <span class="hljs-string">"2019-02-14T12:40:59.768Z"</span>,
+  <span class="hljs-attr">"request"</span> : {
+      <span class="hljs-attr">"regId"</span>: <span class="hljs-string">"27847657360002520181208123456"</span>
+    }
+}
+</code></pre>
+<h4><a class="anchor" aria-hidden="true" id="response-5"></a><a href="#response-5" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Response</h4>
+<h6><a class="anchor" aria-hidden="true" id="status-code-200-6"></a><a href="#status-code-200-6" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Status Code: 200</h6>
+<h6><a class="anchor" aria-hidden="true" id="description-response-code-is-always-200-if-server-receives-the-request-2"></a><a href="#description-response-code-is-always-200-if-server-receives-the-request-2" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Description : response code is always 200 if server receives the request.</h6>
+<p>Success :</p>
+<pre><code class="hljs css language-JSON">{
+  <span class="hljs-attr">"id"</span> : <span class="hljs-string">"mosip.manual.verification.biometric"</span>,
+  <span class="hljs-attr">"version"</span> : <span class="hljs-string">"1.0"</span>,
+  <span class="hljs-attr">"responsetime"</span>: <span class="hljs-string">"2019-02-14T12:40:59.768Z"</span>,
+  <span class="hljs-attr">"response"</span> : {
+      <span class="hljs-attr">"file"</span>: <span class="hljs-string">"&lt;?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"yes\"?&gt;\n&lt;BIR xmlns=\"http://standards.iso.org/iso-iec/19785/-3/ed-2/\"&gt;\n    &lt;BIRInfo&gt;\n        &lt;Integrity&gt;false&lt;/Integrity&gt;\n    &lt;/BIRInfo&gt;\n    &lt;BIR&gt;\n        &lt;Version&gt;\n            &lt;Major&gt;1&lt;/Major&gt;\n            &lt;Minor&gt;1&lt;/Minor&gt;\n        &lt;/Version&gt;\n        &lt;CBEFFVersion&gt;\n            &lt;Major&gt;1&lt;/Major&gt;\n            &lt;Minor&gt;1&lt;/Minor&gt;\n        &lt;/CBEFFVersion&gt;\n        &lt;ns2:TestFinger xmlns:ns2=\"testschema\"&gt;Duplicate&lt;/ns2:TestFinger&gt;\n        &lt;BIRInfo&gt;\n            &lt;Integrity&gt;false&lt;/Integrity&gt;\n        &lt;/BIRInfo&gt;\n        &lt;BDBInfo&gt;\n            &lt;Index&gt;9317b2fd-d022-4bdf-8edb-24078e63a673&lt;/Index&gt;\n            &lt;Format&gt;\n                &lt;Organization&gt;Mosip&lt;/Organization&gt;\n                &lt;Type&gt;7&lt;/Type&gt;\n            &lt;/Format&gt;\n            &lt;CreationDate&gt;2019-09-05T05:45:26.385Z&lt;/CreationDate&gt;\n            &lt;Type&gt;Finger&lt;/Type&gt;\n            &lt;Subtype&gt;Left IndexFinger&lt;/Subtype&gt;\n            &lt;Level&gt;Raw&lt;/Level&gt;\n            &lt;Purpose&gt;Enroll&lt;/Purpose&gt;\n            &lt;Quality&gt;\n                &lt;Algorithm&gt;\n                    &lt;Organization&gt;HMAC&lt;/Organization&gt;\n                    &lt;Type&gt;SHA-256&lt;/Type&gt;\n                &lt;/Algorithm&gt;\n                &lt;Score&gt;90&lt;/Score&gt;\n            &lt;/Quality&gt;\n        &lt;/BDBInfo&gt;\n        &lt;BDB&gt;Rk1SACAyMAAAAAEaAAABPAFiAMUAxQEAAAAoKoCKAMcjUIB3ANAuZEB9AOkiZICKAIEOZIDNAIvjZIBsARIVZECMAST8ZEBGAQ8jIUA7ARCUIUBBAGkcXUDlAFfuZICvAVx3FEC+ACr2ZIBfACATXYCYAK6tUICaAJz/V0C/APhXZICuAH6LZEB9ARcMZEDKAHfsZIDrAHxsZIEOANlZZICBAFKcZIDPAUH6ZEDYATx7ZEA4AToIV0AxAUjfQ0DzACnuZICDAK4hXYC3AKLeXYBkAOUvZEDXAPBUZIC2ARl1ZEBeAQ4dZECDATXzZEBNAR0SXUBbATb8XUEiAM3XQ0D1ATdpZIDjADp0ZICkABsGZIDFABaDZAAA&lt;/BDB&gt;\n    &lt;/BIR&gt;\n    &lt;BIR&gt;\n        &lt;Version&gt;\n            &lt;Major&gt;1&lt;/Major&gt;\n            &lt;Minor&gt;1&lt;/Minor&gt;\n        &lt;/Version&gt;\n        &lt;CBEFFVersion&gt;\n            &lt;Major&gt;1&lt;/Major&gt;\n            &lt;Minor&gt;1&lt;/Minor&gt;\n        &lt;/CBEFFVersion&gt;\n        &lt;ns2:TestFinger xmlns:ns2=\"testschema\"&gt;Duplicate&lt;/ns2:TestFinger&gt;\n        &lt;BIRInfo&gt;\n            &lt;Integrity&gt;false&lt;/Integrity&gt;\n        &lt;/BIRInfo&gt;\n        &lt;BDBInfo&gt;\n            &lt;Index&gt;8272d67e-879b-4e5b-8993-6919c1f4ec53&lt;/Index&gt;\n            &lt;Format&gt;\n                &lt;Organization&gt;Mosip&lt;/Organization&gt;\n                &lt;Type&gt;7&lt;/Type&gt;\n            &lt;/Format&gt;\n            &lt;CreationDate&gt;2019-09-05T05:45:26.386Z&lt;/CreationDate&gt;\n            &lt;Type&gt;Finger&lt;/Type&gt;\n            &lt;Subtype&gt;Left LittleFinger&lt;/Subtype&gt;\n            &lt;Level&gt;Raw&lt;/Level&gt;\n            &lt;Purpose&gt;Enroll&lt;/Purpose&gt;\n            &lt;Quality&gt;\n                &lt;Algorithm&gt;\n                    &lt;Organization&gt;HMAC&lt;/Organization&gt;\n                    &lt;Type&gt;SHA-256&lt;/Type&gt;\n                &lt;/Algorithm&gt;\n                &lt;Score&gt;90&lt;/Score&gt;\n            &lt;/Quality&gt;\n        &lt;/BDBInfo&gt;\n        &lt;BDB&gt;Rk1SACAyMAAAAAD8AAABPAFiAMUAxQEAAAAoJUB5ANY3ZICRALXPZICNARUmZICSAJ7tZICyAJ5pZIC5AJbZZEC7ATsYKIBlAH4ZZIAhAQ8kXUCuAGjpZEBeAV8EUIAsAU4VNYCtAE7tZICoAOGzZECeALnNZEB4AR6cZICnAR4pZIDJAK1ZXUA+AL+zZIBGASscZECxAUUASYCGAVcAUIBdAVYSUEDhAVL0DYBYAFiiXUCVAMC4ZEB2AQ0nZEBMAOYyZIDUAOK9ZEDhANDKUEBjATkcXUCVAUsNUEDlAKHRZEDMAUp/B0DPAHBqZEBLAGMgV4B+AE0CZAAA&lt;/BDB&gt;\n    &lt;/BIR&gt;\n    &lt;BIR&gt;\n        &lt;Version&gt;\n            &lt;Major&gt;1&lt;/Major&gt;\n            &lt;Minor&gt;1&lt;/Minor&gt;\n        &lt;/Version&gt;\n        &lt;CBEFFVersion&gt;\n            &lt;Major&gt;1&lt;/Major&gt;\n            &lt;Minor&gt;1&lt;/Minor&gt;\n        &lt;/CBEFFVersion&gt;\n        &lt;ns2:TestFinger xmlns:ns2=\"testschema\"&gt;Unique&lt;/ns2:TestFinger&gt;\n        &lt;BIRInfo&gt;\n            &lt;Integrity&gt;false&lt;/Integrity&gt;\n        &lt;/BIRInfo&gt;\n        &lt;BDBInfo&gt;\n            &lt;Index&gt;82dba636-f294-47d0-b3d6-88a02069c189&lt;/Index&gt;\n            &lt;Format&gt;\n                &lt;Organization&gt;Mosip&lt;/Organization&gt;\n                &lt;Type&gt;7&lt;/Type&gt;\n            &lt;/Format&gt;\n            &lt;CreationDate&gt;2019-09-05T05:45:26.386Z&lt;/CreationDate&gt;\n            &lt;Type&gt;Finger&lt;/Type&gt;\n            &lt;Subtype&gt;Left MiddleFinger&lt;/Subtype&gt;\n            &lt;Level&gt;Raw&lt;/Level&gt;\n            &lt;Purpose&gt;Enroll&lt;/Purpose&gt;\n            &lt;Quality&gt;\n                &lt;Algorithm&gt;\n                    &lt;Organization&gt;HMAC&lt;/Organization&gt;\n                    &lt;Type&gt;SHA-256&lt;/Type&gt;\n                &lt;/Algorithm&gt;\n                &lt;Score&gt;90&lt;/Score&gt;\n            &lt;/Quality&gt;\n        &lt;/BDBInfo&gt;\n        &lt;BDB&gt;Rk1SACAyMAAAAAD8AAABPAFiAMUAxQEAAAAoJYCKALVpV4B8AHv1ZEC/AI1PZEBhAGsWZEDPAPJQZEBEAPslZICpASeHXYBOARoXZIC3ADl8Q0CKATwHZICWABb8ZEB4AVD+SUA+AVIFQ4BsAKn3Q4BdAJUXZEA+AJgoZIC+APVYZEDOAGPSZEDJAEdoXYB5AScPZEB5ADQGZEAQAMMnZEDeADvQQ4BGACAbXYBYABObXUCzANNKZIB4AOiSQ0CqAPxjZICIAQWSZECcAReFXUCoADz1ZIDEAR5pXUDaAEtLXYDmARBbSUDrADtASYC2ABZ7L0AdAS4YZAAA&lt;/BDB&gt;\n    &lt;/BIR&gt;\n    &lt;BIR&gt;\n        &lt;Version&gt;\n            &lt;Major&gt;1&lt;/Major&gt;\n            &lt;Minor&gt;1&lt;/Minor&gt;\n        &lt;/Version&gt;\n        &lt;CBEFFVersion&gt;\n            &lt;Major&gt;1&lt;/Major&gt;\n            &lt;Minor&gt;1&lt;/Minor&gt;\n        &lt;/CBEFFVersion&gt;\n        &lt;ns2:TestFinger xmlns:ns2=\"testschema\"&gt;Duplicate&lt;/ns2:TestFinger&gt;\n        &lt;BIRInfo&gt;\n            &lt;Integrity&gt;false&lt;/Integrity&gt;\n        &lt;/BIRInfo&gt;\n        &lt;BDBInfo&gt;\n            &lt;Index&gt;a4fe79e2-11f8-4a09-b5e4-8519bd7e098f&lt;/Index&gt;\n            &lt;Format&gt;\n                &lt;Organization&gt;Mosip&lt;/Organization&gt;\n                &lt;Type&gt;7&lt;/Type&gt;\n            &lt;/Format&gt;\n            &lt;CreationDate&gt;2019-09-05T05:45:26.386Z&lt;/CreationDate&gt;\n            &lt;Type&gt;Finger&lt;/Type&gt;\n            &lt;Subtype&gt;Left RingFinger&lt;/Subtype&gt;\n            &lt;Level&gt;Raw&lt;/Level&gt;\n            &lt;Purpose&gt;Enroll&lt;/Purpose&gt;\n            &lt;Quality&gt;\n                &lt;Algorithm&gt;\n                    &lt;Organization&gt;HMAC&lt;/Organization&gt;\n                    &lt;Type&gt;SHA-256&lt;/Type&gt;\n                &lt;/Algorithm&gt;\n                &lt;Score&gt;90&lt;/Score&gt;\n            &lt;/Quality&gt;\n        &lt;/BDBInfo&gt;\n        &lt;BDB&gt;Rk1SACAyMAAAAAFcAAABPAFiAMUAxQEAAAAoNYCJAMS4Q4B7ALUBQ4BnAMK2ZICmAKrLZIBvAPAwXUBUAOa2ZIBbAPg5XYDOAOzCZEDSAJnOXYBfARghZICWAF31ZEBbAFIfZIDuARrEXUBCAE0eZEBsADygZICDAVkNG4DXAU+4L4AcAUEtB0B/AMmzPEB4AN4zXYCQAO+tXYC4ALVTXYBiAKQnZIBoAPguXYCUAQ6kZEB4AQ8oZEA8AOe0ZIBGAQszZIBPASEhZID3AIPVZIDkASq6ZEDKAEhpZEDtAFzdZEC1AVUlSUD0AFJgZEB0AAwHZICBAL/GQ4CoANBHZICJAJ7sZIB9APWmXUCGAIj7ZIDJAKzHXYBeAI+sZICLAHX9ZIDlANDKZEC1AGl0ZIDHAGNoZEA2ASQqUEB/AD8QZICHADeXZECfAVYQPEAxAT4cQ0A+AVIOQwAA&lt;/BDB&gt;\n    &lt;/BIR&gt;\n    &lt;BIR&gt;\n        &lt;Ve........................................................................."</span>
+  },
+  <span class="hljs-attr">"errors"</span>: <span class="hljs-literal">null</span>
+}
+</code></pre>
+<p>Failure :</p>
+<pre><code class="hljs css language-JSON">{
+  <span class="hljs-attr">"id"</span> : <span class="hljs-string">"mosip.manual.verification.biometric"</span>,
+  <span class="hljs-attr">"version"</span> : <span class="hljs-string">"1.0"</span>,
+  <span class="hljs-attr">"responsetime"</span>: <span class="hljs-string">"2019-02-14T12:40:59.768Z"</span>,
+  <span class="hljs-attr">"response"</span>: <span class="hljs-literal">null</span>,
+  <span class="hljs-attr">"errors"</span> : [{
+    <span class="hljs-attr">"errorCode"</span> : <span class="hljs-string">"RPR-MVS-002"</span>,
+    <span class="hljs-attr">"message"</span> : <span class="hljs-string">"Requested file is not present"</span>
+  }]
+}
+</code></pre>
+<h2><a class="anchor" aria-hidden="true" id="44-manual-adjudication-applicant-demographic-service"></a><a href="#44-manual-adjudication-applicant-demographic-service" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>4.4 manual-adjudication-applicant-demographic service</h2>
+<ul>
+<li><h4><a class="anchor" aria-hidden="true" id="post-registrationprocessor-v1-manualverification-applicantdemographic"></a><a href="#post-registrationprocessor-v1-manualverification-applicantdemographic" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><code>POST /registrationprocessor/v1/manualverification/applicantDemographic</code></h4>
+</li>
+</ul>
+<p>The manual adjudicator would need to verify the applicant biometric and demographic records. This service is used to get the applicant demographic from packet store by registration id.</p>
+<h4><a class="anchor" aria-hidden="true" id="resource-url-6"></a><a href="#resource-url-6" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Resource URL</h4>
+<p><a href="https://mosip.io/registrationprocessor/v1/manualverification/applicantDemographic">https://mosip.io/registrationprocessor/v1/manualverification/applicantDemographic</a></p>
+<h4><a class="anchor" aria-hidden="true" id="resource-details-6"></a><a href="#resource-details-6" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Resource details</h4>
+<table>
+<thead>
+<tr><th>Resource Details</th><th>Description</th></tr>
+</thead>
+<tbody>
+<tr><td>Request format</td><td>JSON</td></tr>
+<tr><td>Response format</td><td>byte[]</td></tr>
+<tr><td>Requires Authentication</td><td>Yes</td></tr>
+</tbody>
+</table>
+<h4><a class="anchor" aria-hidden="true" id="parameters-5"></a><a href="#parameters-5" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Parameters</h4>
+<table>
+<thead>
+<tr><th>Name</th><th>Required</th><th>Description</th><th>Comment</th></tr>
+</thead>
+<tbody>
+<tr><td>FileRequestDto</td><td>Yes</td><td>Dto containing registration id and file name</td></tr>
+</tbody>
+</table>
+<h4><a class="anchor" aria-hidden="true" id="request-6"></a><a href="#request-6" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Request</h4>
+<pre><code class="hljs css language-JSON">{
+  <span class="hljs-attr">"id"</span> : <span class="hljs-string">"mosip.manual.verification.demographic"</span>,
+  <span class="hljs-attr">"version"</span> : <span class="hljs-string">"1.0"</span>,
+  <span class="hljs-attr">"requesttime"</span>: <span class="hljs-string">"2019-02-14T12:40:59.768Z"</span>,
+  <span class="hljs-attr">"request"</span> : {
+      <span class="hljs-attr">"regId"</span>: <span class="hljs-string">"27847657360002520181208123456"</span>
+    }
+}
+</code></pre>
+<h4><a class="anchor" aria-hidden="true" id="response-6"></a><a href="#response-6" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Response</h4>
+<h6><a class="anchor" aria-hidden="true" id="status-code-200-7"></a><a href="#status-code-200-7" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Status Code: 200</h6>
+<h6><a class="anchor" aria-hidden="true" id="description-response-code-is-always-200-if-server-receives-the-request-3"></a><a href="#description-response-code-is-always-200-if-server-receives-the-request-3" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Description : response code is always 200 if server receives the request.</h6>
+<pre><code class="hljs css language-JSON">{
+  <span class="hljs-attr">"id"</span> : <span class="hljs-string">"mosip.manual.verification.demographic"</span>,
+  <span class="hljs-attr">"version"</span> : <span class="hljs-string">"1.0"</span>,
+  <span class="hljs-attr">"responsetime"</span>: <span class="hljs-string">"2019-02-14T12:40:59.768Z"</span>,
+  <span class="hljs-attr">"response"</span> : {
+      <span class="hljs-attr">"file"</span>: <span class="hljs-string">"{\r\n  \"identity\" : {\r\n    \"fullName\" : [ {\r\n      \"language\" : \"eng\",\r\n      \"value\" : \"Rounak Adult\"\r\n    }, {\r\n      \"language\" : \"ara\",\r\n      \"value\" : \"قخعىشن شيعمف\"\r\n    } ],\r\n    \"dateOfBirth\" : \"1991/04/29\",\r\n    \"age\" : 28,\r\n    \"gender\" : [ {\r\n      \"language\" : \"eng\",\r\n      \"value\" : \"Male\"\r\n    }, {\r\n      \"language\" : \"ara\",\r\n      \"value\" : \"الذكر\"\r\n    } ],\r\n    \"residenceStatus\" : [ {\r\n      \"language\" : \"eng\",\r\n      \"value\" : \"Non-Foreigner\"\r\n    }, {\r\n      \"language\" : \"ara\",\r\n      \"value\" : \"غير أجنبي\"\r\n    } ],\r\n    \"addressLine1\" : [ {\r\n      \"language\" : \"eng\",\r\n      \"value\" : \"Address 1\"\r\n    }, {\r\n      \"language\" : \"ara\",\r\n      \"value\" : \"شييقثسس ١\"\r\n    } ],\r\n    \"addressLine2\" : [ {\r\n      \"language\" : \"eng\",\r\n      \"value\" : \"Address 2\"\r\n    }, {\r\n      \"language\" : \"ara\",\r\n      \"value\" : \"شييقثسس ٢\"\r\n    } ],\r\n    \"region\" : [ {\r\n      \"language\" : \"eng\",\r\n      \"value\" : \"Rabat Sale Kenitra\"\r\n    }, {\r\n      \"language\" : \"ara\",\r\n      \"value\" : \"جهة الرباط سلا القنيطرة\"\r\n    } ],\r\n    \"province\" : [ {\r\n      \"language\" : \"eng\",\r\n      \"value\" : \"Kenitra\"\r\n    }, {\r\n      \"language\" : \"ara\",\r\n      \"value\" : \"القنيطرة\"\r\n    } ],\r\n    \"city\" : [ {\r\n      \"language\" : \"eng\",\r\n      \"value\" : \"Kenitra\"\r\n    }, {\r\n      \"language\" : \"ara\",\r\n      \"value\" : \"القنيطرة\"\r\n    } ],\r\n    \"postalCode\" : \"14080\",\r\n    \"phone\" : \"8763740607\",\r\n    \"email\" : \"rounak.nayak@mindtree.com\",\r\n    \"referenceIdentityNumber\" : \"8763740607\",\r\n    \"zone\" : [ {\r\n      \"language\" : \"eng\",\r\n      \"value\" : \"Ouled Oujih\"\r\n    }, {\r\n      \"language\" : \"ara\",\r\n      \"value\" : \"اولاد اوجيه\"\r\n    } ],\r\n    \"proofOfAddress\" : {\r\n      \"value\" : \"POA_Rental contract\",\r\n      \"type\" : \"RNC\",\r\n      \"format\" : \"jpg\"\r\n    },\r\n    \"proofOfIdentity\" : {\r\n      \"value\" : \"POI_Voter Identification card\",\r\n      \"type\" : \"DOC004\",\r\n      \"format\" : \"jpg\"\r\n    },\r\n    \"individualBiometrics\" : {\r\n      \"format\" : \"cbeff\",\r\n      \"version\" : 1.0,\r\n      \"value\" : \"applicant_bio_CBEFF\"\r\n    },\r\n    \"IDSchemaVersion\" : 1.0\r\n  }\r\n}"</span>
+  },
+  <span class="hljs-attr">"errors"</span>: <span class="hljs-literal">null</span>
+}
+</code></pre>
+<p>Failure :</p>
+<pre><code class="hljs css language-JSON">{
+  <span class="hljs-attr">"id"</span> : <span class="hljs-string">"mosip.manual.verification.demographic"</span>,
+  <span class="hljs-attr">"version"</span> : <span class="hljs-string">"1.0"</span>,
+  <span class="hljs-attr">"responsetime"</span>: <span class="hljs-string">"2019-02-14T12:40:59.768Z"</span>,
+  <span class="hljs-attr">"response"</span>: <span class="hljs-literal">null</span>,
+  <span class="hljs-attr">"errors"</span> : [{
+    <span class="hljs-attr">"errorCode"</span> : <span class="hljs-string">"RPR-MVS-002"</span>,
+    <span class="hljs-attr">"message"</span> : <span class="hljs-string">"Requested file is not present"</span>
+  }]
+}
+</code></pre>
+<h2><a class="anchor" aria-hidden="true" id="45-manual-adjudication-packet-metainfo-service"></a><a href="#45-manual-adjudication-packet-metainfo-service" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>4.5 manual-adjudication-packet-metainfo service</h2>
+<ul>
+<li><h4><a class="anchor" aria-hidden="true" id="post-registrationprocessor-v1-manualverification-packetinfo"></a><a href="#post-registrationprocessor-v1-manualverification-packetinfo" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><code>POST /registrationprocessor/v1/manualverification/packetInfo</code></h4>
+</li>
+</ul>
+<p>The manual adjudicator would need to verify the operator/supervisor/introducer information present inside packet meta info file. This service fetches the file from inside the packet by registration id.</p>
+<h4><a class="anchor" aria-hidden="true" id="resource-url-7"></a><a href="#resource-url-7" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Resource URL</h4>
+<p><a href="https://mosip.io/registrationprocessor/v1/manualverification/packetInfo">https://mosip.io/registrationprocessor/v1/manualverification/packetInfo</a></p>
+<h4><a class="anchor" aria-hidden="true" id="resource-details-7"></a><a href="#resource-details-7" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Resource details</h4>
+<table>
+<thead>
+<tr><th>Resource Details</th><th>Description</th></tr>
+</thead>
+<tbody>
+<tr><td>Request format</td><td>JSON</td></tr>
+<tr><td>Response format</td><td>byte[]</td></tr>
+<tr><td>Requires Authentication</td><td>Yes</td></tr>
+</tbody>
+</table>
+<h4><a class="anchor" aria-hidden="true" id="parameters-6"></a><a href="#parameters-6" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Parameters</h4>
+<table>
+<thead>
+<tr><th>Name</th><th>Required</th><th>Description</th><th>Comment</th></tr>
+</thead>
+<tbody>
+<tr><td>FileRequestDto</td><td>Yes</td><td>Dto containing registration id and file name</td></tr>
+</tbody>
+</table>
+<h4><a class="anchor" aria-hidden="true" id="request-7"></a><a href="#request-7" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Request</h4>
+<pre><code class="hljs css language-JSON">{
+  <span class="hljs-attr">"id"</span> : <span class="hljs-string">"mosip.manual.verification.packetinfo"</span>,
+  <span class="hljs-attr">"version"</span> : <span class="hljs-string">"1.0"</span>,
+  <span class="hljs-attr">"requesttime"</span>: <span class="hljs-string">"2019-02-14T12:40:59.768Z"</span>,
+  <span class="hljs-attr">"request"</span> : {
+      <span class="hljs-attr">"regId"</span>: <span class="hljs-string">"27847657360002520181208123456"</span>
+    }
+}
+</code></pre>
+<h4><a class="anchor" aria-hidden="true" id="response-7"></a><a href="#response-7" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Response</h4>
+<h6><a class="anchor" aria-hidden="true" id="status-code-200-8"></a><a href="#status-code-200-8" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Status Code: 200</h6>
+<h6><a class="anchor" aria-hidden="true" id="description-response-code-is-always-200-if-server-receives-the-request-4"></a><a href="#description-response-code-is-always-200-if-server-receives-the-request-4" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Description : response code is always 200 if server receives the request.</h6>
+<pre><code class="hljs css language-JSON">{
+  <span class="hljs-attr">"id"</span> : <span class="hljs-string">"mosip.manual.verification.packetinfo"</span>,
+  <span class="hljs-attr">"version"</span> : <span class="hljs-string">"1.0"</span>,
+  <span class="hljs-attr">"responsetime"</span>: <span class="hljs-string">"2019-02-14T12:40:59.768Z"</span>,
+  <span class="hljs-attr">"response"</span> : {
+      <span class="hljs-attr">"file"</span>: <span class="hljs-string">"{\r\n    \"response\": {\r\n        \"identity\": {\r\n            \"biometric\": {\r\n                \"applicant\": {\r\n                    \"leftEye\": {\r\n                        \"language\": null,\r\n                        \"label\": null,\r\n                        \"imageName\": null,\r\n                        \"type\": null,\r\n                        \"qualityScore\": 0,\r\n                        \"numRetry\": 1,\r\n                        \"forceCaptured\": false\r\n                    },\r\n                    \"rightEye\": {\r\n                        \"language\": null,\r\n                        \"label\": null,\r\n                        \"imageName\": null,\r\n                        \"type\": null,\r\n                        \"qualityScore\": 0,\r\n                        \"numRetry\": 1,\r\n                        \"forceCaptured\": false\r\n                    },\r\n                    \"leftThumb\": {\r\n                        \"language\": null,\r\n                        \"label\": null,\r\n                        \"imageName\": null,\r\n                        \"type\": null,\r\n                        \"qualityScore\": 0,\r\n                        \"numRetry\": 1,\r\n                        \"forceCaptured\": false\r\n                    },\r\n                    \"rightThumb\": {\r\n                        \"language\": null,\r\n                        \"label\": null,\r\n                        \"imageName\": null,\r\n                        \"type\": null,\r\n                        \"qualityScore\": 0,\r\n                        \"numRetry\": 1,\r\n                        \"forceCaptured\": false\r\n                    },\r\n                    \"leftIndex\": {\r\n                        \"language\": null,\r\n                        \"label\": null,\r\n                        \"imageName\": null,\r\n                        \"type\": null,\r\n                        \"qualityScore\": 0,\r\n                        \"numRetry\": 1,\r\n                        \"forceCaptured\": false\r\n                    },\r\n                    \"leftMiddle\": {\r\n                        \"language\": null,\r\n                        \"label\": null,\r\n                        \"imageName\": null,\r\n                        \"type\": null,\r\n                        \"qualityScore\": 0,\r\n                        \"numRetry\": 1,\r\n                        \"forceCaptured\": false\r\n                    },\r\n                    \"leftRing\": {\r\n                        \"language\": null,\r\n                        \"label\": null,\r\n                        \"imageName\": null,\r\n                        \"type\": null,\r\n                        \"qualityScore\": 0,\r\n                        \"numRetry\": 1,\r\n                        \"forceCaptured\": false\r\n                    },\r\n                    \"leftLittle\": {\r\n                        \"language\": null,\r\n                        \"label\": null,\r\n                        \"imageName\": null,\r\n                        \"type\": null,\r\n                        \"qualityScore\": 0,\r\n                        \"numRetry\": 1,\r\n                        \"forceCaptured\": false\r\n                    },\r\n                    \"rightIndex\": {\r\n                        \"language\": null,\r\n                        \"label\": null,\r\n                        \"imageName\": null,\r\n                        \"type\": null,\r\n                        \"qualityScore\": 0,\r\n                        \"numRetry\": 1,\r\n                        \"forceCaptured\": false\r\n                    },\r\n                    \"rightMiddle\": {\r\n                        \"language\": null,\r\n                        \"label\": null,\r\n                        \"imageName\": null,\r\n                        \"type\": null,\r\n                        \"qualityScore\": 0,\r\n                        \"numRetry\": 1,\r\n                        \"forceCaptured\": false\r\n                    },\r\n                    \"rightRing\": {\r\n                        \"language\": null,\r\n                        \"label\": null,\r\n                        \"imageName\": null,\r\n                        \"type\": null,\r\n                        \"qualityScore\": 0,\r\n                        \"numRetry\": 1,\r\n                        \"forceCaptured\": false\r\n                    },\r\n                    \"rightLittle\": {\r\n                        \"language\": null,\r\n                        \"label\": null,\r\n                        \"imageName\": null,\r\n                        \"type\": null,\r\n                        \"qualityScore\": 0,\r\n                        \"numRetry\": 1,\r\n                        \"forceCaptured\": false\r\n                    }\r\n                },\r\n                \"introducer\": null\r\n            },\r\n            \"exceptionBiometrics\": [],\r\n            \"applicantPhotograph\": {\r\n                \"language\": null,\r\n                \"label\": null,\r\n                \"photographName\": null,\r\n                \"numRetry\": 0,\r\n                \"qualityScore\": 0\r\n            },\r\n            \"exceptionPhotograph\": null,\r\n            \"documents\": [],\r\n            \"metaData\": null,\r\n            \"osiData\": null,\r\n            \"hashSequence1\": null,\r\n            \"hashSequence2\": [\r\n                {\r\n                    \"label\": \"otherFiles\",\r\n                    \"value\": [\r\n                        \"audit\"\r\n                    ]\r\n                }\r\n            ],\r\n            \"capturedRegisteredDevices\": [\r\n                {\r\n                    \"label\": \"Finger Print Scanner\",\r\n                    \"value\": \"3000026\"\r\n                },\r\n                {\r\n                    \"label\": \"Iris Scanner\",\r\n                    \"value\": \"3000046\"\r\n                },\r\n                {\r\n                    \"label\": \"Camera\",\r\n                    \"value\": \"3000066\"\r\n                },\r\n                {\r\n                    \"label\": \"Document Scanner\",\r\n                    \"value\": \"3000086\"\r\n                },\r\n                {\r\n                    \"label\": \"Printer\",\r\n                    \"value\": \"3000106\"\r\n                },\r\n                {\r\n                    \"label\": \"Finger Print Scanner\",\r\n                    \"value\": \"3000125\"\r\n                },\r\n                {\r\n                    \"label\": \"Iris Scanner\",\r\n                    \"value\": \"3000134\"\r\n                },\r\n                {\r\n                    \"label\": \"Camera\",\r\n                    \"value\": \"3000143\"\r\n                },\r\n                {\r\n                    \"label\": \"Document Scanner\",\r\n                    \"value\": \"3000152\"\r\n                },\r\n                {\r\n                    \"label\": \"Printer\",\r\n                    \"value\": \"3000161\"\r\n                },\r\n                {\r\n                    \"label\": \"Finger Print Scanner\",\r\n                    \"value\": \"3000181\"\r\n                },\r\n                {\r\n                    \"label\": \"Iris Scanner\",\r\n                    \"value\": \"3000182\"\r\n                },\r\n                {\r\n                    \"label\": \"Camera\",\r\n                    \"value\": \"3000183\"\r\n                },\r\n                {\r\n                    \"label\": \"Document Scanner\",\r\n                    \"value\": \"3000184\"\r\n                },\r\n                {\r\n                    \"label\": \"Printer\",\r\n                    \"value\": \"3000185\"\r\n                },\r\n                {\r\n                    \"label\": \"Finger Print Scanner\",\r\n                    \"value\": \"3000186\"\r\n                },\r\n                {\r\n                    \"label\": \"Iris Scanner\",\r\n                    \"value\": \"3000187\"\r\n                },\r\n                {\r\n                    \"label\": \"Camera\",\r\n                    \"value\": \"3000188\"\r\n                },\r\n                {\r\n                    \"label\": \"Document Scanner\",\r\n                    \"value\": \"3000189\"\r\n                },\r\n                {\r\n                    \"label\": \"Printer\",\r\n                    \"value\": \"3000190\"\r\n                },\r\n                {\r\n                    \"label\": \"Finger Print Scanner\",\r\n                    \"value\": \"3000191\"\r\n                },\r\n                {\r\n                    \"label\": \"Iris Scanner\",\r\n                    \"value\": \"3000192\"\r\n                },\r\n                {\r\n                    \"label\": \"Camera\",\r\n                    \"value\": \"3000193\"\r\n                },\r\n                {\r\n                    \"label\": \"Document Scanner\",\r\n                    \"value\": \"3000194\"\r\n                },\r\n                {\r\n                    \"label\": \"Printer\",\r\n                    \"value\": \"3000195\"\r\n                },\r\n                {\r\n                    \"label\": \"Finger Print Scanner\",\r\n                    \"value\": \"3000196\"\r\n                },\r\n                {\r\n                    \"label\": \"Iris Scanner\",\r\n                    \"value\": \"3000197\"\r\n                },\r\n                {\r\n                    \"label\": \"Camera\",\r\n                    \"value\": \"3000198\"\r\n                },\r\n                {\r\n                    \"label\": \"Document Scanner\",\r\n                    \"value\": \"3000199\"\r\n                },\r\n                {\r\n                    \"label\": \"Printer\",\r\n                    \"value\": \"3000200\"\r\n                },\r\n                {\r\n                    \"label\": \"Finger Print Scanner\",\r\n                    \"value\": \"3000201\"\r\n                },\r\n                {\r\n                    \"label\": \"Iris Scanner\",\r\n                    \"value\": \"3000202\"\r\n                },\r\n                {\r\n                    \"label\": \"Camera\",\r\n                    \"value\": \"3000203\"\r\n                },\r\n                {\r\n                    \"label\": \"Document Scanner\",\r\n                    \"value\": \"3000204\"\r\n                },\r\n                {\r\n                    \"label\": \"Printer\",\r\n                    \"value\": \"3000205\"\r\n                },\r\n                {\r\n                    \"label\": \"Finger Print Scanner\",\r\n                    \"value\": \"3000206\"\r\n                },\r\n                {\r\n                    \"label\": \"Iris Scanner\",\r\n                    \"value\": \"3000207\"\r\n                },\r\n                {\r\n                    \"label\": \"Camera\",\r\n                    \"value\": \"3000208\"\r\n                },\r\n                {\r\n                    \"label\": \"Document Scanner\",\r\n                    \"value\": \"3000209\"\r\n                },\r\n                {\r\n                    \"label\": \"Printer\",\r\n                    \"value\": \"3000210\"\r\n                },\r\n                {\r\n                    \"label\": \"Finger Print Scanner\",\r\n                    \"value\": \"3000211\"\r\n                },\r\n                {\r\n                    \"label\": \"Iris Scanner\",\r\n                    \"value\": \"3000212\"\r\n                },\r\n                {\r\n                    \"label\": \"Camera\",\r\n                    \"value\": \"3000213\"\r\n                },\r\n                {\r\n                    \"label\": \"Document Scanner\",\r\n                    \"value\": \"3000214\"\r\n                },\r\n                {\r\n                    \"label\": \"Printer\",\r\n                    \"value\": \"3000215\"\r\n                },\r\n                {\r\n                    \"label\": \"Finger Print Scanner\",\r\n                    \"value\": \"3000216\"\r\n                },\r\n                {\r\n                    \"label\": \"Iris Scanner\",\r\n                    \"value\": \"3000217\"\r\n                },\r\n                {\r\n                    \"label\": \"Camera\",\r\n                    \"value\": \"3000218\"\r\n                },\r\n                {\r\n                    \"label\": \"Document Scanner\",\r\n                    \"value\": \"3000219\"\r\n                },\r\n                {\r\n                    \"label\": \"Printer\",\r\n                    \"value\": \"3000220\"\r\n                },\r\n                {\r\n                    \"label\": \"Finger Print Scanner\",\r\n                    \"value\": \"3000221\"\r\n                },\r\n                {\r\n                    \"label\": \"Iris Scanner\",\r\n                    \"value\": \"3000222\"\r\n                },\r\n                {\r\n                    \"label\": \"Camera\",\r\n                    \"value\": \"3000223\"\r\n                },\r\n                {\r\n                    \"label\": \"Document Scanner\",\r\n                    \"value\": \"3000224\"\r\n                },\r\n                {\r\n                    \"label\": \"Printer\",\r\n                    \"value\": \"3000225\"\r\n                },\r\n                {\r\n                    \"label\": \"Finger Print Scanner\",\r\n                    \"value\": \"3000226\"\r\n                },\r\n                {\r\n                    \"label\": \"Iris Scanner\",\r\n                    \"value\": \"3000227\"\r\n                },\r\n                {\r\n                    \"label\": \"Camera\",\r\n                    \"value\": \"3000228\"\r\n                },\r\n                {\r\n                    \"label\": \"Document Scanner\",\r\n                    \"value\": \"3000229\"\r\n                },\r\n                {\r\n                    \"label\": \"Printer\",\r\n                    \"value\": \"3000230\"\r\n                },\r\n                {\r\n                    \"label\": \"Finger Print Scanner\",\r\n                    \"value\": \"3000231\"\r\n                },\r\n                {\r\n                    \"label\": \"Iris Scanner\",\r\n                    \"value\": \"3000232\"\r\n                },\r\n                {\r\n                    \"label\": \"Camera\",\r\n                    \"value\": \"3000233\"\r\n                },\r\n                {\r\n                    \"label\": \"Document Scanner\",\r\n                    \"value\": \"3000234\"\r\n                },\r\n                {\r\n                    \"label\": \"Printer\",\r\n                    \"value\": \"3000235\"\r\n                },\r\n                {\r\n                    \"label\": \"Finger Print Scanner\",\r\n                    \"value\": \"3000236\"\r\n                },\r\n                {\r\n                    \"label\": \"Iris Scanner\",\r\n                    \"value\": \"3000237\"\r\n                },\r\n                {\r\n                    \"label\": \"Camera\",\r\n                    \"value\": \"3000238\"\r\n                },\r\n                {\r\n                    \"label\": \"Document Scanner\",\r\n                    \"value\": \"3000239\"\r\n                },\r\n                {\r\n                    \"label\": \"Printer\",\r\n                    \"value\": \"3000240\"\r\n                },\r\n                {\r\n                    \"label\": \"Finger Print Scanner\",\r\n                    \"value\": \"3000241\"\r\n                },\r\n                {\r\n                    \"label\": \"Iris Scanner\",\r\n                    \"value\": \"3000242\"\r\n                },\r\n                {\r\n                    \"label\": \"Camera\",\r\n                    \"value\": \"3000243\"\r\n                },\r\n                {\r\n                    \"label\": \"Document Scanner\",\r\n                    \"value\": \"3000244\"\r\n                },\r\n                {\r\n                    \"label\": \"Printer\",\r\n                    \"value\": \"3000245\"\r\n                },\r\n                {\r\n                    \"label\": \"Finger Print Scanner\",\r\n                    \"value\": \"3000246\"\r\n                },\r\n                {\r\n                    \"label\": \"Iris Scanner\",\r\n                    \"value\": \"3000247\"\r\n                },\r\n                {\r\n                    \"label\": \"Camera\",\r\n                    \"value\": \"3000248\"\r\n                },\r\n                {\r\n                    \"label\": \"Document Scanner\",\r\n                    \"value\": \"3000249\"\r\n                },\r\n                {\r\n                    \"label\": \"Printer\",\r\n                    \"value\": \"3000250\"\r\n                },\r\n                {\r\n                    \"label\": \"Finger Print Scanner\",\r\n                    \"value\": \"3000251\"\r\n                },\r\n                {\r\n                    \"label\": \"Iris Scanner\",\r\n                    \"value\": \"3000252\"\r\n                },\r\n                {\r\n                    \"label\": \"Camera\",\r\n                    \"value\": \"3000253\"\r\n                },\r\n                {\r\n                    \"label\": \"Document Scanner\",\r\n                    \"value\": \"3000254\"\r\n                },\r\n                {\r\n                    \"label\": \"Printer\",\r\n                    \"value\": \"3000255\"\r\n                },\r\n                {\r\n                    \"label\": \"Finger Print Scanner\",\r\n                    \"value\": \"3000256\"\r\n                },\r\n                {\r\n                    \"label\": \"Iris Scanner\",\r\n                    \"value\": \"3000257\"\r\n                },\r\n                {\r\n                    \"label\": \"Camera\",\r\n                    \"value\": \"3000258\"\r\n                },\r\n                {\r\n                    \"label\": \"Document Scanner\",\r\n                    \"value\": \"3000259\"\r\n                },\r\n                {\r\n                    \"label\": \"Printer\",\r\n                    \"value\": \"3000260\"\r\n                },\r\n                {\r\n                    \"label\": \"Finger Print Scanner\",\r\n                    \"value\": \"3000261\"\r\n                },\r\n                {\r\n                    \"label\": \"Iris Scanner\",\r\n                    \"value\": \"3000262\"\r\n                },\r\n                {\r\n                    \"label\": \"Camera\",\r\n                    \"value\": \"3000263\"\r\n                },\r\n                {\r\n                    \"label\": \"Document Scanner\",\r\n                    \"value\": \"3000264\"\r\n                },\r\n                {\r\n                    \"label\": \"Printer\",\r\n                    \"value\": \"3000265\"\r\n                },\r\n                {\r\n                    \"label\": \"Finger Print Scanner\",\r\n                    \"value\": \"3000266\"\r\n                },\r\n                {\r\n                    \"label\": \"Iris Scanner\",\r\n                    \"value\": \"3000267\"\r\n                },\r\n                {\r\n                    \"label\": \"Camera\",\r\n                    \"value\": \"3000268\"\r\n                },\r\n                {\r\n                    \"label\": \"Document Scanner\",\r\n                    \"value\": \"3000269\"\r\n                },\r\n                {\r\n                    \"label\": \"Printer\",\r\n                    \"value\": \"3000270\"\r\n                },\r\n                {\r\n                    \"label\": \"Finger Print Scanner\",\r\n                    \"value\": \"3000271\"\r\n                },\r\n                {\r\n                    \"label\": \"Iris Scanner\",\r\n                    \"value\": \"3000272\"\r\n                },\r\n                {\r\n                    \"label\": \"Camera\",\r\n                    \"value\": \"3000273\"\r\n                },\r\n                {\r\n                    \"label\": \"Document Scanner\",\r\n                    \"value\": \"3000274\"\r\n                },\r\n                {\r\n                    \"label\": \"Printer\",\r\n                    \"value\": \"3000275\"\r\n                },\r\n                {\r\n                    \"label\": \"Finger Print Scanner\",\r\n                    \"value\": \"3000276\"\r\n                },\r\n                {\r\n                    \"label\": \"Iris Scanner\",\r\n                    \"value\": \"3000277\"\r\n                },\r\n                {\r\n                    \"label\": \"Camera\",\r\n                    \"value\": \"3000278\"\r\n                },\r\n                {\r\n                    \"label\": \"Document Scanner\",\r\n                    \"value\": \"3000279\"\r\n                },\r\n                {\r\n                    \"label\": \"Printer\",\r\n                    \"value\": \"3000280\"\r\n                },\r\n                {\r\n                    \"label\": \"Finger Print Scanner\",\r\n                    \"value\": \"3000281\"\r\n                },\r\n                {\r\n                    \"label\": \"Iris Scanner\",\r\n                    \"value\": \"3000282\"\r\n                },\r\n                {\r\n                    \"label\": \"Camera\",\r\n                    \"value\": \"3000283\"\r\n                },\r\n                {\r\n                    \"label\": \"Document Scanner\",\r\n                    \"value\": \"3000284\"\r\n                },\r\n                {\r\n                    \"label\": \"Printer\",\r\n                    \"value\": \"3000285\"\r\n                },\r\n                {\r\n                    \"label\": \"Finger Print Scanner\",\r\n                    \"value\": \"3000286\"\r\n                },\r\n                {\r\n                    \"label\": \"Iris Scanner\",\r\n                    \"value\": \"3000287\"\r\n                },\r\n                {\r\n                    \"label\": \"Camera\",\r\n                    \"value\": \"3000288\"\r\n                },\r\n                {\r\n                    \"label\": \"Document Scanner\",\r\n                    \"value\": \"3000289\"\r\n                },\r\n                {\r\n                    \"label\": \"Printer\",\r\n                    \"value\": \"3000290\"\r\n                }\r\n            ],\r\n            \"capturedNonRegisteredDevices\": null,\r\n            \"checkSum\": null,\r\n            \"uinUpdatedFields\": null\r\n        }\r\n    },\r\n    \"errors\": null,\r\n    \"id\": \"mosip.manual.verification.packetinfo\",\r\n    \"version\": \"1.0\",\r\n    \"responsetime\": \"2019-09-27T06:57:57.882Z\"\r\n}"</span>
+  },
+  <span class="hljs-attr">"errors"</span>: <span class="hljs-literal">null</span>
+}
+</code></pre>
+<p>Failure :</p>
+<pre><code class="hljs css language-JSON">{
+  <span class="hljs-attr">"id"</span> : <span class="hljs-string">"mosip.manual.verification.packetInfo"</span>,
+  <span class="hljs-attr">"version"</span> : <span class="hljs-string">"1.0"</span>,
+  <span class="hljs-attr">"responsetime"</span>: <span class="hljs-string">"2019-02-14T12:40:59.768Z"</span>,
+  <span class="hljs-attr">"response"</span>: <span class="hljs-literal">null</span>,
+  <span class="hljs-attr">"errors"</span> : [{
+    <span class="hljs-attr">"errorCode"</span> : <span class="hljs-string">"RPR-MVS-002"</span>,
+    <span class="hljs-attr">"message"</span> : <span class="hljs-string">"Requested file is not present"</span>
+  }]
+}
+</code></pre>
+<h1><a class="anchor" aria-hidden="true" id="5-bio-dedupe-service"></a><a href="#5-bio-dedupe-service" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>5 Bio Dedupe Service</h1>
+<ul>
+<li><h4><a class="anchor" aria-hidden="true" id="get-registrationprocessor-v1-bio-dedupe-biometricfile-referenceid"></a><a href="#get-registrationprocessor-v1-bio-dedupe-biometricfile-referenceid" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><code>GET /registrationprocessor/v1/bio-dedupe/biometricfile/{referenceid}</code></h4>
+</li>
+</ul>
+<p>The abis would call bio-dedupe service to get the biometric cbeff file.</p>
+<h4><a class="anchor" aria-hidden="true" id="resource-url-8"></a><a href="#resource-url-8" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Resource URL</h4>
+<p><a href="https://mosip.io/registrationprocessor/v1/bio-dedupe/biometricfile/">https://mosip.io/registrationprocessor/v1/bio-dedupe/biometricfile/</a>{referenceid}</p>
+<h4><a class="anchor" aria-hidden="true" id="resource-details-8"></a><a href="#resource-details-8" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Resource details</h4>
+<table>
+<thead>
+<tr><th>Resource Details</th><th>Description</th></tr>
+</thead>
+<tbody>
+<tr><td>Request format</td><td>JSON</td></tr>
+<tr><td>Response format</td><td>byte[]</td></tr>
+<tr><td>Requires Authentication</td><td>Yes</td></tr>
+</tbody>
+</table>
+<h4><a class="anchor" aria-hidden="true" id="parameters-7"></a><a href="#parameters-7" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Parameters</h4>
+<table>
+<thead>
+<tr><th>Name</th><th>Required</th><th>Description</th><th>Comment</th></tr>
+</thead>
+<tbody>
+<tr><td>byte[]</td><td>Yes</td><td>byte array of CBEFF file</td></tr>
+</tbody>
+</table>
+<h4><a class="anchor" aria-hidden="true" id="response-8"></a><a href="#response-8" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Response</h4>
+<h6><a class="anchor" aria-hidden="true" id="status-codes-200"></a><a href="#status-codes-200" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Status codes: 200</h6>
+<h6><a class="anchor" aria-hidden="true" id="description-response-code-is-always-200-if-server-receives-the-request-5"></a><a href="#description-response-code-is-always-200-if-server-receives-the-request-5" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Description : response code is always 200 if server receives the request.</h6>
+<pre><code class="hljs css language-JSON"><span class="hljs-comment">// byte array of CBEFF xml file</span>
+</code></pre>
+<h1><a class="anchor" aria-hidden="true" id="6-packet-generator-service"></a><a href="#6-packet-generator-service" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>6 Packet Generator Service</h1>
+<ul>
+<li><h4><a class="anchor" aria-hidden="true" id="post-registrationprocessor-v1-requesthandler-packetgenerator"></a><a href="#post-registrationprocessor-v1-requesthandler-packetgenerator" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><code>POST /registrationprocessor/v1/requesthandler/packetgenerator</code></h4>
+</li>
+</ul>
+<p>The residence service portal would call packet generator service to activate or deactivate uin.</p>
+<h4><a class="anchor" aria-hidden="true" id="resource-url-9"></a><a href="#resource-url-9" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Resource URL</h4>
+<p><a href="https://mosip.io/registrationprocessor/v1/requesthandler/packetgenerator">https://mosip.io/registrationprocessor/v1/requesthandler/packetgenerator</a></p>
+<h4><a class="anchor" aria-hidden="true" id="resource-details-9"></a><a href="#resource-details-9" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Resource details</h4>
+<table>
+<thead>
+<tr><th>Resource Details</th><th>Description</th></tr>
+</thead>
+<tbody>
+<tr><td>Request format</td><td>JSON</td></tr>
+<tr><td>Response format</td><td>JSON</td></tr>
+<tr><td>Requires Authentication</td><td>Yes</td></tr>
+</tbody>
+</table>
+<h4><a class="anchor" aria-hidden="true" id="parameters-8"></a><a href="#parameters-8" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Parameters</h4>
+<table>
+<thead>
+<tr><th>Name</th><th>Required</th><th>Description</th><th>Comment</th></tr>
+</thead>
+<tbody>
+<tr><td>PacketGeneratorRequestDto</td><td>Yes</td><td>Dto containing information required for activate or deactivate packet</td></tr>
+</tbody>
+</table>
+<h4><a class="anchor" aria-hidden="true" id="request-8"></a><a href="#request-8" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Request</h4>
+<pre><code class="hljs css language-JSON">{
+  <span class="hljs-attr">"id"</span>: <span class="hljs-string">"mosip.registration.packetgenerator"</span>,
+  <span class="hljs-attr">"version"</span>: <span class="hljs-string">"1.0"</span>,
+  <span class="hljs-attr">"requesttime"</span>: <span class="hljs-string">"2019-02-02T06:12:25.288Z"</span>,
+  <span class="hljs-attr">"request"</span>: {
+    <span class="hljs-attr">"centerId"</span>: <span class="hljs-string">"10031"</span>,
+    <span class="hljs-attr">"machineId"</span>: <span class="hljs-string">"10011"</span>,
+    <span class="hljs-attr">"reason"</span>: <span class="hljs-string">"something"</span>,
+    <span class="hljs-attr">"registrationType"</span>: <span class="hljs-string">"DEACTIVATED"</span>,
+    <span class="hljs-attr">"uin"</span>: <span class="hljs-string">"4215839851"</span>
+  }
+}
+</code></pre>
+<h4><a class="anchor" aria-hidden="true" id="response-9"></a><a href="#response-9" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Response</h4>
+<h6><a class="anchor" aria-hidden="true" id="status-code-200-9"></a><a href="#status-code-200-9" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Status Code:200</h6>
+<h6><a class="anchor" aria-hidden="true" id="description-response-code-is-always-200-if-server-receives-the-request-6"></a><a href="#description-response-code-is-always-200-if-server-receives-the-request-6" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Description : response code is always 200 if server receives the request.</h6>
+<pre><code class="hljs css language-JSON">{
+  <span class="hljs-attr">"id"</span>: <span class="hljs-string">"mosip.registration.packetgenerator"</span>,
+  <span class="hljs-attr">"version"</span>: <span class="hljs-string">"1.0"</span>,
+  <span class="hljs-attr">"responsetime"</span>: <span class="hljs-string">"2019-02-02T06:12:25.288Z"</span>,
+  <span class="hljs-attr">"response"</span>: {
+    <span class="hljs-attr">"registrationId"</span>: <span class="hljs-string">"10031100110005020190313110030"</span>,
+    <span class="hljs-attr">"status"</span>: <span class="hljs-string">"SUCCESS"</span>,
+    <span class="hljs-attr">"message"</span>: <span class="hljs-string">"Packet created and uploaded"</span>
+  },
+  <span class="hljs-attr">"errors"</span>: <span class="hljs-literal">null</span>
+}
+</code></pre>
+<h1><a class="anchor" aria-hidden="true" id="7-packet-uploader-service"></a><a href="#7-packet-uploader-service" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>7 Packet Uploader Service</h1>
+<ul>
+<li><h4><a class="anchor" aria-hidden="true" id="post-registrationprocessor-v1-uploader-securezone"></a><a href="#post-registrationprocessor-v1-uploader-securezone" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><code>POST /registrationprocessor/v1/uploader/securezone</code></h4>
+</li>
+</ul>
+<p>The dmz stage will call packet uploader service to upload the packet in file system(Hdfs, ceph etc). This service is a bridge between dmz and secure network. It accepts json request and connects to dmz VM to get the packet and move it to archive location.</p>
+<h4><a class="anchor" aria-hidden="true" id="resource-url-10"></a><a href="#resource-url-10" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Resource URL</h4>
+<p><a href="https://mosip.io/registrationprocessor/v1/uploader/securezone">https://mosip.io/registrationprocessor/v1/uploader/securezone</a></p>
+<h4><a class="anchor" aria-hidden="true" id="resource-details-10"></a><a href="#resource-details-10" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Resource details</h4>
+<table>
+<thead>
+<tr><th>Resource Details</th><th>Description</th></tr>
+</thead>
+<tbody>
+<tr><td>Request format</td><td>JSON</td></tr>
+<tr><td>Response format</td><td>String</td></tr>
+<tr><td>Requires Authentication</td><td>Yes</td></tr>
+</tbody>
+</table>
+<h4><a class="anchor" aria-hidden="true" id="parameters-9"></a><a href="#parameters-9" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Parameters</h4>
+<table>
+<thead>
+<tr><th>Name</th><th>Required</th><th>Description</th><th>Comment</th></tr>
+</thead>
+<tbody>
+<tr><td>MessageDto</td><td>Yes</td><td>Dto being transferred in each and every stage of reg-proc</td></tr>
+</tbody>
+</table>
+<h4><a class="anchor" aria-hidden="true" id="request-9"></a><a href="#request-9" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Request</h4>
+<pre><code class="hljs css language-JSON">{
+  <span class="hljs-attr">"rid"</span>: <span class="hljs-string">"10003100030000420190625111842"</span>,
+  <span class="hljs-attr">"reg_type"</span> : <span class="hljs-string">"NEW"</span>,
+  <span class="hljs-attr">"isValid"</span>: <span class="hljs-literal">true</span>,
+  <span class="hljs-attr">"internalError"</span>: <span class="hljs-literal">false</span>,
+  <span class="hljs-attr">"messageBusAddress"</span>: <span class="hljs-string">"packet-receiver-bus-out"</span>,
+  <span class="hljs-attr">"retryCount"</span>: <span class="hljs-number">0</span>
+}
+</code></pre>
+<h4><a class="anchor" aria-hidden="true" id="success-response-1"></a><a href="#success-response-1" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Success Response</h4>
+<pre><code class="hljs css language-JSON">Packet with registrationId 10003100030000420190625111842 has been forwarded to next stage
+</code></pre>
+<h4><a class="anchor" aria-hidden="true" id="failure-response-1"></a><a href="#failure-response-1" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Failure Response</h4>
+<pre><code class="hljs css language-JSON">Packet with registrationId 10003100030000420190625111842 has not been uploaded to file System
+</code></pre>
+<h6><a class="anchor" aria-hidden="true" id="status-code-200-10"></a><a href="#status-code-200-10" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Status Code:200</h6>
+<h6><a class="anchor" aria-hidden="true" id="description-response-code-is-always-200-if-server-receives-the-request-7"></a><a href="#description-response-code-is-always-200-if-server-receives-the-request-7" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Description : response code is always 200 if server receives the request.</h6>
+<h1><a class="anchor" aria-hidden="true" id="8-registration-process-request-handler-service"></a><a href="#8-registration-process-request-handler-service" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>8 Registration Process Request Handler Service</h1>
+<ul>
+<li><h4><a class="anchor" aria-hidden="true" id="post-registrationprocessor-v1-requesthandler-reprint"></a><a href="#post-registrationprocessor-v1-requesthandler-reprint" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><code>POST /registrationprocessor/v1/requesthandler/reprint</code></h4>
+</li>
+</ul>
+<p>The residence service portal would call this api to reprint uin card upon receiving request from the applicant.</p>
+<h4><a class="anchor" aria-hidden="true" id="resource-url-11"></a><a href="#resource-url-11" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Resource URL</h4>
+<p><a href="https://mosip.io/registrationprocessor/v1/requesthandler/reprint">https://mosip.io/registrationprocessor/v1/requesthandler/reprint</a></p>
+<h4><a class="anchor" aria-hidden="true" id="resource-details-11"></a><a href="#resource-details-11" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Resource details</h4>
+<table>
+<thead>
+<tr><th>Resource Details</th><th>Description</th></tr>
+</thead>
+<tbody>
+<tr><td>Request format</td><td>JSON</td></tr>
+<tr><td>Response format</td><td>JSON</td></tr>
+<tr><td>Requires Authentication</td><td>Yes</td></tr>
+</tbody>
+</table>
+<h3><a class="anchor" aria-hidden="true" id="parameters-10"></a><a href="#parameters-10" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Parameters</h3>
+<table>
+<thead>
+<tr><th>Name</th><th>Required</th><th>Description</th><th>Comment</th></tr>
+</thead>
+<tbody>
+<tr><td>id</td><td>Yes</td><td>reprint id</td><td>mosip.uincard.reprint</td></tr>
+<tr><td>version</td><td>Yes</td><td>the version for sync</td><td>1.0</td></tr>
+<tr><td>requesttime</td><td>Yes</td><td>the requesttime for sync</td><td>2019-02-14T12:40:59.768Z</td></tr>
+<tr><td>request</td><td>Yes</td><td>the request object</td><td>1.0</td></tr>
+<tr><td>cardType</td><td>Yes</td><td>the type of the card</td><td>'UIN' OR 'MASKED_UIN'</td></tr>
+<tr><td>idType</td><td>Yes</td><td>type of id provided</td><td>'UIN' OR 'VID'</td></tr>
+<tr><td>id</td><td>Yes</td><td>the id provided</td><td>5647294083</td></tr>
+<tr><td>registrationType</td><td>Yes</td><td>This indicates the registration type in registration processor. The camel route is decided based on this</td><td>RES_REPRINT</td></tr>
+<tr><td>centerId</td><td>Yes</td><td>center id required to create packet</td><td>10003</td></tr>
+<tr><td>machineId</td><td>Yes</td><td>machine id required to create packet</td><td>10003</td></tr>
+<tr><td>reason</td><td>No</td><td>The reason for reprint</td><td>Any string</td></tr>
+</tbody>
+</table>
+<h4><a class="anchor" aria-hidden="true" id="request-10"></a><a href="#request-10" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Request</h4>
+<pre><code class="hljs css language-JSON">{
+  <span class="hljs-attr">"id"</span>: <span class="hljs-string">"mosip.uincard.reprint"</span>,
+  <span class="hljs-attr">"request"</span>: {
+    <span class="hljs-attr">"cardType"</span>: <span class="hljs-string">"UIN"</span>,
+    <span class="hljs-attr">"centerId"</span>: <span class="hljs-string">"10003"</span>,
+    <span class="hljs-attr">"id"</span>: <span class="hljs-string">"5647294083"</span>,
+    <span class="hljs-attr">"idType"</span>: <span class="hljs-string">"UIN"</span>,
+    <span class="hljs-attr">"machineId"</span>: <span class="hljs-string">"10003"</span>,
+    <span class="hljs-attr">"reason"</span>: <span class="hljs-string">"testing"</span>,
+    <span class="hljs-attr">"registrationType"</span>: <span class="hljs-string">"RES_REPRINT"</span>
+  },
+  <span class="hljs-attr">"requesttime"</span>: <span class="hljs-string">"2019-09-13T11:34:13.827Z"</span>,
+  <span class="hljs-attr">"version"</span>: <span class="hljs-string">"1.0"</span>
+}
+</code></pre>
+<h4><a class="anchor" aria-hidden="true" id="response-10"></a><a href="#response-10" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Response</h4>
+<h6><a class="anchor" aria-hidden="true" id="status-code-200-11"></a><a href="#status-code-200-11" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Status Code:200</h6>
+<h6><a class="anchor" aria-hidden="true" id="description-response-code-is-always-200-if-server-receives-the-request-8"></a><a href="#description-response-code-is-always-200-if-server-receives-the-request-8" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Description : response code is always 200 if server receives the request.</h6>
+<pre><code class="hljs css language-JSON">{
+    <span class="hljs-attr">"id"</span>: <span class="hljs-string">"mosip.uincard.reprint"</span>,
+    <span class="hljs-attr">"version"</span>: <span class="hljs-string">"1.0"</span>,
+    <span class="hljs-attr">"responsetime"</span>: <span class="hljs-string">"2019-09-13T11:54:55.313Z"</span>,
+    <span class="hljs-attr">"response"</span>: {
+        <span class="hljs-attr">"registrationId"</span>: <span class="hljs-string">"10003100030000120190913115453"</span>,
+        <span class="hljs-attr">"status"</span>: <span class="hljs-string">"Packet has reached Packet Receiver"</span>,
+        <span class="hljs-attr">"message"</span>: <span class="hljs-string">"Packet created and uploaded"</span>
+    },
+    <span class="hljs-attr">"errors"</span>: <span class="hljs-literal">null</span>
+}
+</code></pre>
+<p>Error response</p>
+<pre><code class="hljs">{
+  <span class="hljs-attr">"id"</span>: <span class="hljs-string">"mosip.uincard.reprint"</span>,
+  <span class="hljs-attr">"version"</span>: <span class="hljs-string">"1.0"</span>,
+  <span class="hljs-attr">"responsetime"</span>: <span class="hljs-string">"2019-09-13T11:49:56.180Z"</span>,
+  <span class="hljs-attr">"response"</span>: <span class="hljs-literal">null</span>,
+  <span class="hljs-attr">"errors"</span>: [
+    {
+      <span class="hljs-attr">"errorCode"</span>: <span class="hljs-string">"RPR-PGS-011"</span>,
+      <span class="hljs-attr">"message"</span>: <span class="hljs-string">"Invalid Input Parameter - requesttime"</span>
+    },
+    {
+      <span class="hljs-attr">"errorCode"</span>: <span class="hljs-string">"RPR-RGS-015"</span>,
+      <span class="hljs-attr">"message"</span>: <span class="hljs-string">"Invalid Request Value - Input Data is Incorrect"</span>
+    }
+  ]
+}
+</code></pre>
+<h1><a class="anchor" aria-hidden="true" id="9-registration-transaction-service"></a><a href="#9-registration-transaction-service" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>9 Registration Transaction Service</h1>
+<p>This service is used to find all the transactions for a registration id. This service accepts a registration id and returns all transactions associated with it.</p>
+<h3><a class="anchor" aria-hidden="true" id="resource-url-12"></a><a href="#resource-url-12" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Resource URL</h3>
+<h3><a class="anchor" aria-hidden="true" id="get-registrationprocessor-v1-registrationtransaction-search-langcode-rid"></a><a href="#get-registrationprocessor-v1-registrationtransaction-search-langcode-rid" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><code>GET /registrationprocessor/v1/registrationtransaction/search/{langcode}/{rid}</code></h3>
+<h4><a class="anchor" aria-hidden="true" id="resource-details-12"></a><a href="#resource-details-12" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Resource details</h4>
+<table>
+<thead>
+<tr><th>Resource Details</th><th>Description</th></tr>
+</thead>
+<tbody>
+<tr><td>Response format</td><td>JSON</td></tr>
+<tr><td>Requires Authentication</td><td>Yes</td></tr>
+</tbody>
+</table>
+<h4><a class="anchor" aria-hidden="true" id="parameters-11"></a><a href="#parameters-11" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Parameters</h4>
+<table>
+<thead>
+<tr><th>Name</th><th>Required</th><th>Description</th><th>Comment</th></tr>
+</thead>
+<tbody>
+<tr><td>langcode</td><td>Yes</td><td>The language code</td></tr>
+<tr><td>registrationId</td><td>Yes</td><td>The registration id</td></tr>
+</tbody>
+</table>
+<h4><a class="anchor" aria-hidden="true" id="request-11"></a><a href="#request-11" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Request</h4>
+<pre><code class="hljs css language-JSON">-NA-
+</code></pre>
+<h4><a class="anchor" aria-hidden="true" id="response-11"></a><a href="#response-11" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Response</h4>
+<p>Record found :</p>
+<h6><a class="anchor" aria-hidden="true" id="status-code-200-12"></a><a href="#status-code-200-12" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Status Code: 200</h6>
+<h6><a class="anchor" aria-hidden="true" id="description-successfully-retrieved-information-2"></a><a href="#description-successfully-retrieved-information-2" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Description: Successfully retrieved information</h6>
+<pre><code class="hljs css language-JSON">{
+  <span class="hljs-attr">"id"</span> : <span class="hljs-string">"mosip.registration.transaction"</span>,
+  <span class="hljs-attr">"version"</span> : <span class="hljs-string">"1.0"</span>,
+  <span class="hljs-attr">"responsetime"</span>: <span class="hljs-string">"2019-02-14T12:40:59.768Z"</span>,
+  <span class="hljs-attr">"response"</span> : [
+  {
+    <span class="hljs-attr">"id"</span> : <span class="hljs-string">"810e43c3-cc89-4581-84f0-5ee535bf7e3a"</span>,
+    <span class="hljs-attr">"registrationId"</span>: <span class="hljs-string">"10006100067159820190618081137"</span>,
+    <span class="hljs-attr">"transactionTypeCode"</span> : <span class="hljs-string">"PACKET_RECEIVER"</span>,
+    <span class="hljs-attr">"parentTransactionId"</span> : <span class="hljs-literal">null</span>,
+    <span class="hljs-attr">"statusCode"</span>: <span class="hljs-string">"SUCCESS"</span>,
+    <span class="hljs-attr">"statusCommentCode"</span> : <span class="hljs-string">"RPR-PKR-SUCCESS-001"</span>,
+    <span class="hljs-attr">"statusComment"</span> : <span class="hljs-string">"Packet is in PACKET_RECEIVED status"</span>,
+    <span class="hljs-attr">"createdDateTimes"</span> : <span class="hljs-string">"2019-06-19 10:42:15.04"</span>
+  },
+  {
+    <span class="hljs-attr">"id"</span> : <span class="hljs-string">"76796d41-3c42-40a8-8842-02fe87bf4aab"</span>,
+    <span class="hljs-attr">"registrationId"</span>: <span class="hljs-string">"10006100067159820190618081137"</span>,
+    <span class="hljs-attr">"transactionTypeCode"</span> : <span class="hljs-string">"PACKET_RECEIVER"</span>,
+    <span class="hljs-attr">"parentTransactionId"</span> : <span class="hljs-string">"810e43c3-cc89-4581-84f0-5ee535bf7e3a"</span>,
+    <span class="hljs-attr">"statusCode"</span>: <span class="hljs-string">"SUCCESS"</span>,
+    <span class="hljs-attr">"statusCommentCode"</span> : <span class="hljs-string">"RPR-PKR-SUCCESS-002"</span>,
+    <span class="hljs-attr">"statusComment"</span> : <span class="hljs-string">"Packet is in PACKET_UPLOADED_TO_LANDING_ZONE status"</span>,
+    <span class="hljs-attr">"createdDateTimes"</span> : <span class="hljs-string">"2019-06-19 10:42:16.285"</span>
+  },
+  {
+    <span class="hljs-attr">"id"</span> : <span class="hljs-string">"d04b74cc-7364-407f-aa40-058daa774136"</span>,
+    <span class="hljs-attr">"registrationId"</span>: <span class="hljs-string">"10006100067159820190618081137"</span>,
+    <span class="hljs-attr">"transactionTypeCode"</span> : <span class="hljs-string">"UPLOAD_PACKET"</span>,
+    <span class="hljs-attr">"parentTransactionId"</span> : <span class="hljs-string">"76796d41-3c42-40a8-8842-02fe87bf4aab"</span>,
+    <span class="hljs-attr">"statusCode"</span>: <span class="hljs-string">"SUCCESS"</span>,
+    <span class="hljs-attr">"statusCommentCode"</span> : <span class="hljs-string">"RPR-PKU-SUCCESS-001"</span>,
+    <span class="hljs-attr">"statusComment"</span> : <span class="hljs-string">"Packet 10006100067159820190618081137 is uploaded in file system."</span>,
+    <span class="hljs-attr">"createdDateTimes"</span> : <span class="hljs-string">"2019-06-19 10:42:21.507"</span>
+  },
+  {
+    <span class="hljs-attr">"id"</span> : <span class="hljs-string">"19be9e8f-1740-4b6e-8b07-2ea5628abc12"</span>,
+    <span class="hljs-attr">"registrationId"</span>: <span class="hljs-string">"10006100067159820190618081137"</span>,
+    <span class="hljs-attr">"transactionTypeCode"</span> : <span class="hljs-string">"VALIDATE_PACKET"</span>,
+    <span class="hljs-attr">"parentTransactionId"</span> : <span class="hljs-string">"d04b74cc-7364-407f-aa40-058daa774136"</span>,
+    <span class="hljs-attr">"statusCode"</span>: <span class="hljs-string">"SUCCESS"</span>,
+    <span class="hljs-attr">"statusCommentCode"</span> : <span class="hljs-string">"RPR-PKV-SUCCESS-001"</span>,
+    <span class="hljs-attr">"statusComment"</span> : <span class="hljs-string">"Packet structural validation is successful"</span>,
+    <span class="hljs-attr">"createdDateTimes"</span> : <span class="hljs-string">"2019-06-19 10:42:34.265"</span>
+  },
+  {
+    <span class="hljs-attr">"id"</span> : <span class="hljs-string">"72d8099d-37e1-4bcc-a772-a4c86b441acf"</span>,
+    <span class="hljs-attr">"registrationId"</span>: <span class="hljs-string">"10006100067159820190618081137"</span>,
+    <span class="hljs-attr">"transactionTypeCode"</span> : <span class="hljs-string">"QUALITY_CHECK"</span>,
+    <span class="hljs-attr">"parentTransactionId"</span> : <span class="hljs-string">"19be9e8f-1740-4b6e-8b07-2ea5628abc12"</span>,
+    <span class="hljs-attr">"statusCode"</span>: <span class="hljs-string">"SUCCESS"</span>,
+    <span class="hljs-attr">"statusCommentCode"</span> : <span class="hljs-string">"RPR-QCS-SUCCESS-001"</span>,
+    <span class="hljs-attr">"statusComment"</span> : <span class="hljs-string">"All Quality Scores are more than threshold"</span>,
+    <span class="hljs-attr">"createdDateTimes"</span> : <span class="hljs-string">"2019-06-19 10:42:35.677"</span>
+  },
+  {
+    <span class="hljs-attr">"id"</span> : <span class="hljs-string">"0a7baa01-2d64-4e82-89cd-a6e2bdcebe72"</span>,
+    <span class="hljs-attr">"registrationId"</span>: <span class="hljs-string">"10006100067159820190618081137"</span>,
+    <span class="hljs-attr">"transactionTypeCode"</span> : <span class="hljs-string">"OSI_VALIDATE"</span>,
+    <span class="hljs-attr">"parentTransactionId"</span> : <span class="hljs-string">"72d8099d-37e1-4bcc-a772-a4c86b441acf"</span>,
+    <span class="hljs-attr">"statusCode"</span>: <span class="hljs-string">"SUCCESS"</span>,
+    <span class="hljs-attr">"statusCommentCode"</span> : <span class="hljs-string">"RPR-OSI-SUCCESS-001"</span>,
+    <span class="hljs-attr">"statusComment"</span> : <span class="hljs-string">"OSI Validation is successful"</span>,
+    <span class="hljs-attr">"createdDateTimes"</span> : <span class="hljs-string">"2019-06-19 10:42:35.677"</span>
+  },
+  {
+    <span class="hljs-attr">"id"</span> : <span class="hljs-string">"dd7d8892-1cdd-4af7-99fc-9b2ef59d207c"</span>,
+    <span class="hljs-attr">"registrationId"</span>: <span class="hljs-string">"10006100067159820190618081137"</span>,
+    <span class="hljs-attr">"transactionTypeCode"</span> : <span class="hljs-string">"BIOMETRIC_AUTHENTICATION"</span>,
+    <span class="hljs-attr">"parentTransactionId"</span> : <span class="hljs-string">"0a7baa01-2d64-4e82-89cd-a6e2bdcebe72"</span>,
+    <span class="hljs-attr">"statusCode"</span>: <span class="hljs-string">"SUCCESS"</span>,
+    <span class="hljs-attr">"statusCommentCode"</span> : <span class="hljs-string">"RPR-BAS-SUCCESS-001"</span>,
+    <span class="hljs-attr">"statusComment"</span> : <span class="hljs-string">"Biometric Authentication Success"</span>,
+    <span class="hljs-attr">"createdDateTimes"</span> : <span class="hljs-string">"2019-06-19 10:42:35.677"</span>
+  },
+  {
+    <span class="hljs-attr">"id"</span> : <span class="hljs-string">"247eb4b2-3abc-4f2d-9200-01a4c6b76217"</span>,
+    <span class="hljs-attr">"registrationId"</span>: <span class="hljs-string">"10006100067159820190618081137"</span>,
+    <span class="hljs-attr">"transactionTypeCode"</span> : <span class="hljs-string">"DEMOGRAPHIC_VERIFICATION"</span>,
+    <span class="hljs-attr">"parentTransactionId"</span> : <span class="hljs-string">"dd7d8892-1cdd-4af7-99fc-9b2ef59d207c"</span>,
+    <span class="hljs-attr">"statusCode"</span>: <span class="hljs-string">"SUCCESS"</span>,
+    <span class="hljs-attr">"statusCommentCode"</span> : <span class="hljs-string">"RPR-DDS-SUCCESS-001"</span>,
+    <span class="hljs-attr">"statusComment"</span> : <span class="hljs-string">"Demographic Authentication Success"</span>,
+    <span class="hljs-attr">"createdDateTimes"</span> : <span class="hljs-string">"2019-06-19 10:42:35.677"</span>
+  },
+  {
+    <span class="hljs-attr">"id"</span> : <span class="hljs-string">"c478ba68-64a0-4b8d-8e50-a59c12926de6"</span>,
+    <span class="hljs-attr">"registrationId"</span>: <span class="hljs-string">"10006100067159820190618081137"</span>,
+    <span class="hljs-attr">"transactionTypeCode"</span> : <span class="hljs-string">"BIOGRAPHIC_VERIFICATION"</span>,
+    <span class="hljs-attr">"parentTransactionId"</span> : <span class="hljs-string">"247eb4b2-3abc-4f2d-9200-01a4c6b76217"</span>,
+    <span class="hljs-attr">"statusCode"</span>: <span class="hljs-string">"IN_PROGRESS"</span>,
+    <span class="hljs-attr">"statusCommentCode"</span> : <span class="hljs-string">"RPR-BDS-SUCCESS-001"</span>,
+    <span class="hljs-attr">"statusComment"</span> : <span class="hljs-string">"Packet biodedupe Inprogress"</span>,
+    <span class="hljs-attr">"createdDateTimes"</span> : <span class="hljs-string">"2019-06-19 10:43:22.758"</span>
+  },
+  {
+    <span class="hljs-attr">"id"</span> : <span class="hljs-string">"faaaf60f-a591-40a7-b5fa-b6b7fa5894bd"</span>,
+    <span class="hljs-attr">"registrationId"</span>: <span class="hljs-string">"10006100067159820190618081137"</span>,
+    <span class="hljs-attr">"transactionTypeCode"</span> : <span class="hljs-string">"BIOMETRIC_AUTHENTICATION"</span>,
+    <span class="hljs-attr">"parentTransactionId"</span> : <span class="hljs-string">"c478ba68-64a0-4b8d-8e50-a59c12926de6"</span>,
+    <span class="hljs-attr">"statusCode"</span>: <span class="hljs-string">"SUCCESS"</span>,
+    <span class="hljs-attr">"statusCommentCode"</span> : <span class="hljs-string">"RPR-BDS-SUCCESS-002"</span>,
+    <span class="hljs-attr">"statusComment"</span> : <span class="hljs-string">"Packet biodedupe successful"</span>,
+    <span class="hljs-attr">"createdDateTimes"</span> : <span class="hljs-string">"2019-06-19 10:43:34.845"</span>
+  },
+  {
+    <span class="hljs-attr">"id"</span> : <span class="hljs-string">"66d87a75-a32e-4651-bb64-23a552a8dd69"</span>,
+    <span class="hljs-attr">"registrationId"</span>: <span class="hljs-string">"10006100067159820190618081137"</span>,
+    <span class="hljs-attr">"transactionTypeCode"</span> : <span class="hljs-string">"UIN_GENERATOR"</span>,
+    <span class="hljs-attr">"parentTransactionId"</span> : <span class="hljs-string">"faaaf60f-a591-40a7-b5fa-b6b7fa5894bd"</span>,
+    <span class="hljs-attr">"statusCode"</span>: <span class="hljs-string">"SUCCESS"</span>,
+    <span class="hljs-attr">"statusCommentCode"</span> : <span class="hljs-string">"RPR-UIN-SUCCESS-001"</span>,
+    <span class="hljs-attr">"statusComment"</span> : <span class="hljs-string">"Data updated successfully for regId  for registration Id:  10006100067159820190618081137"</span>,
+    <span class="hljs-attr">"createdDateTimes"</span> : <span class="hljs-string">"2019-06-19 10:43:42.709"</span>
+  },
+  {
+    <span class="hljs-attr">"id"</span> : <span class="hljs-string">"42df348d-6f9f-49c2-830b-4da8e1f6123c"</span>,
+    <span class="hljs-attr">"registrationId"</span>: <span class="hljs-string">"10006100067159820190618081137"</span>,
+    <span class="hljs-attr">"transactionTypeCode"</span> : <span class="hljs-string">"PRINT_POSTAL_SERVICE"</span>,
+    <span class="hljs-attr">"parentTransactionId"</span> : <span class="hljs-string">"66d87a75-a32e-4651-bb64-23a552a8dd69"</span>,
+    <span class="hljs-attr">"statusCode"</span>: <span class="hljs-string">"PROCESSED"</span>,
+    <span class="hljs-attr">"statusCommentCode"</span> : <span class="hljs-string">"RPR-PPS-SUCCESS-001"</span>,
+    <span class="hljs-attr">"statusComment"</span> : <span class="hljs-string">"Pdf added to the mosip queue for printing"</span>,
+    <span class="hljs-attr">"createdDateTimes"</span> : <span class="hljs-string">"2019-06-19 10:42:35.677"</span>
+  },
+ {
+    <span class="hljs-attr">"id"</span> : <span class="hljs-string">"0039b5fd-fe6a-4cb7-9456-5f2f25977bb4"</span>,
+    <span class="hljs-attr">"registrationId"</span>: <span class="hljs-string">"10006100067159820190618081137"</span>,
+    <span class="hljs-attr">"transactionTypeCode"</span> : <span class="hljs-string">"PRINT_POSTAL_SERVICE"</span>,
+    <span class="hljs-attr">"parentTransactionId"</span> : <span class="hljs-string">"66d87a75-a32e-4651-bb64-23a552a8dd69"</span>,
+    <span class="hljs-attr">"statusCode"</span>: <span class="hljs-string">"PROCESSED"</span>,
+    <span class="hljs-attr">"statusCommentCode"</span> : <span class="hljs-string">"RPR-PPS-SUCCESS-002"</span>,
+    <span class="hljs-attr">"statusComment"</span> : <span class="hljs-string">"Print and Post Completed for the regId : 10006100067159820190618081137"</span>,
+    <span class="hljs-attr">"createdDateTimes"</span> : <span class="hljs-string">"2019-06-19 10:42:35.677"</span>
+  },
+ {
+    <span class="hljs-attr">"id"</span> : <span class="hljs-string">"53b573fd-349d-4171-ba7f-29a926345ded"</span>,
+    <span class="hljs-attr">"registrationId"</span>: <span class="hljs-string">"10006100067159820190618081137"</span>,
+    <span class="hljs-attr">"transactionTypeCode"</span> : <span class="hljs-string">"NOTIFICATION"</span>,
+    <span class="hljs-attr">"parentTransactionId"</span> : <span class="hljs-string">"66d87a75-a32e-4651-bb64-23a552a8dd69"</span>,
+    <span class="hljs-attr">"statusCode"</span>: <span class="hljs-string">"SUCCESS"</span>,
+    <span class="hljs-attr">"statusCommentCode"</span> : <span class="hljs-string">"RPR-MSS-SUCCESS-001"</span>,
+    <span class="hljs-attr">"statusComment"</span> : <span class="hljs-string">"Notification sent successfully for registrationId 10006100067159820190618081137"</span>,
+    <span class="hljs-attr">"createdDateTimes"</span> : <span class="hljs-string">"2019-06-19 10:43:56.823"</span>
+  }
+],
+<span class="hljs-attr">"errors"</span>: <span class="hljs-literal">null</span>
+}
+</code></pre>
+<p>Record not found :</p>
+<h6><a class="anchor" aria-hidden="true" id="status-code-200-13"></a><a href="#status-code-200-13" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Status Code: 200</h6>
+<h6><a class="anchor" aria-hidden="true" id="description-successfully-retrieved-information-3"></a><a href="#description-successfully-retrieved-information-3" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Description: Successfully retrieved information</h6>
+<pre><code class="hljs css language-JSON">{
+  "id" : "mosip.registration.transaction",
+  "version" : "1.0",
+  "responsetime": "2019-02-14T12:40:59.768Z",
+  "response" : null,
+  "errors" : [
+      {
+        "status": "FAILURE",
+        "errorCode": "RPR-RTS-001",
+        "errorMessage": "Invalid RID"
+      }
+    ]
+}
+}
+
+</code></pre>
+<h1><a class="anchor" aria-hidden="true" id="10-uincard-service"></a><a href="#10-uincard-service" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>10 Uincard Service</h1>
+<ul>
+<li><h4><a class="anchor" aria-hidden="true" id="post-registrationprocessor-v1-print-uincard"></a><a href="#post-registrationprocessor-v1-print-uincard" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><code>POST /registrationprocessor/v1/print/uincard</code></h4>
+</li>
+</ul>
+<p>The residence service portal would call this api to get uin card upon receiving request from the applicant.</p>
+<h4><a class="anchor" aria-hidden="true" id="resource-url-13"></a><a href="#resource-url-13" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Resource URL</h4>
+<p><a href="https://mosip.io/registrationprocessor/v1/print/uincard">https://mosip.io/registrationprocessor/v1/print/uincard</a></p>
+<h4><a class="anchor" aria-hidden="true" id="resource-details-13"></a><a href="#resource-details-13" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Resource details</h4>
+<table>
+<thead>
+<tr><th>Resource Details</th><th>Description</th></tr>
+</thead>
+<tbody>
+<tr><td>Request format</td><td>JSON</td></tr>
+<tr><td>Response format</td><td>application/pdf</td></tr>
+<tr><td>Error Response format</td><td>JSON</td></tr>
+<tr><td>Requires Authentication</td><td>Yes</td></tr>
+</tbody>
+</table>
+<h3><a class="anchor" aria-hidden="true" id="parameters-12"></a><a href="#parameters-12" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Parameters</h3>
+<table>
+<thead>
+<tr><th>Name</th><th>Required</th><th>Description</th><th>Comment</th></tr>
+</thead>
+<tbody>
+<tr><td>id</td><td>Yes</td><td>reprint id</td><td>mosip.uincard.reprint</td></tr>
+<tr><td>version</td><td>Yes</td><td>the version for sync</td><td>1.0</td></tr>
+<tr><td>requesttime</td><td>Yes</td><td>the requesttime for sync</td><td>2019-02-14T12:40:59.768Z</td></tr>
+<tr><td>request</td><td>Yes</td><td>the request object</td><td>1.0</td></tr>
+<tr><td>cardType</td><td>Yes</td><td>the type of the card</td><td>'UIN' OR 'MASKED_UIN'</td></tr>
+<tr><td>idType</td><td>Yes</td><td>type of id provided</td><td>'UIN' OR 'VID' OR 'RID'</td></tr>
+<tr><td>idValue</td><td>Yes</td><td>the id provided</td><td>5647294083</td></tr>
+</tbody>
+</table>
+<h4><a class="anchor" aria-hidden="true" id="request-12"></a><a href="#request-12" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Request</h4>
+<pre><code class="hljs css language-JSON">{
+  <span class="hljs-attr">"id"</span>: <span class="hljs-string">"mosip.registration.print"</span>,
+  <span class="hljs-attr">"request"</span>: {
+    <span class="hljs-attr">"cardType"</span>: <span class="hljs-string">"UIN"</span>,
+    <span class="hljs-attr">"idValue"</span>: <span class="hljs-string">"5647294083"</span>,
+    <span class="hljs-attr">"idType"</span>: <span class="hljs-string">"UIN"</span>
+  },
+  <span class="hljs-attr">"requesttime"</span>: <span class="hljs-string">"2019-09-13T11:34:13.827Z"</span>,
+  <span class="hljs-attr">"version"</span>: <span class="hljs-string">"1.0"</span>
+}
+</code></pre>
+<h4><a class="anchor" aria-hidden="true" id="response-12"></a><a href="#response-12" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Response</h4>
+<h6><a class="anchor" aria-hidden="true" id="status-code-200-14"></a><a href="#status-code-200-14" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Status Code:200</h6>
+<h6><a class="anchor" aria-hidden="true" id="description-response-code-is-always-200-if-server-receives-the-request-9"></a><a href="#description-response-code-is-always-200-if-server-receives-the-request-9" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Description : response code is always 200 if server receives the request.</h6>
+<p>Success response :</p>
+<pre><code class="hljs css language-JSON"><span class="hljs-comment">// PDF bytes</span>
+</code></pre>
+<p>Error response :</p>
+<pre><code class="hljs">{
+  <span class="hljs-attr">"id"</span>: <span class="hljs-string">"mosip.registration.print"</span>,
+  <span class="hljs-attr">"version"</span>: <span class="hljs-string">"1.0"</span>,
+  <span class="hljs-attr">"responsetime"</span>: <span class="hljs-string">"2019-09-18T06:28:55.676Z"</span>,
+  <span class="hljs-attr">"errors"</span>: [
+    {
+      <span class="hljs-attr">"errorCode"</span>: <span class="hljs-string">"RPR-PRT-011"</span>,
+      <span class="hljs-attr">"message"</span>: <span class="hljs-string">"UIN length should be as per configured digit."</span>
+    }
+  ],
+  <span class="hljs-attr">"response"</span>: <span class="hljs-literal">null</span>
+}
+</code></pre>
+</span></div></article></div><div class="docs-prevnext"></div></div></div><nav class="onPageNav"><ul class="toc-headings"><li><a href="#11-packet-receiver-service">1.1 Packet-receiver service</a><ul class="toc-headings"><li><a href="#post-registrationprocessor-v1-registrationstatus-search"><code>POST /registrationprocessor/v1/registrationstatus/search</code></a></li><li><a href="#parameters-1">Parameters</a></li></ul></li><li><a href="#41-manual-adjudication-assignment-service">4.1 manual-adjudication-assignment service</a></li><li><a href="#42-manual-adjudication-decision-service">4.2 manual-adjudication-decision service</a></li><li><a href="#43-manual-adjudication-applicant-biometric-service">4.3 manual-adjudication-applicant-biometric service</a></li><li><a href="#44-manual-adjudication-applicant-demographic-service">4.4 manual-adjudication-applicant-demographic service</a></li><li><a href="#45-manual-adjudication-packet-metainfo-service">4.5 manual-adjudication-packet-metainfo service</a><ul class="toc-headings"><li><a href="#parameters-10">Parameters</a></li><li><a href="#resource-url-12">Resource URL</a></li><li><a href="#get-registrationprocessor-v1-registrationtransaction-search-langcode-rid"><code>GET /registrationprocessor/v1/registrationtransaction/search/{langcode}/{rid}</code></a></li><li><a href="#parameters-12">Parameters</a></li></ul></li></ul></nav></div><footer class="nav-footer" id="footer"><section class="sitemap"><a href="/mosip-temp-documentation" class="nav-home"><img src="/mosip-temp-documentationimg/favicon.ico" alt="MOSIP Documentation" width="66" height="58"/></a><div><h5>Docs</h5><a href="/mosip-temp-documentationdocs/en/doc1.html">Getting Started (or other categories)</a><a href="/mosip-temp-documentationdocs/en/doc2.html">Guides (or other categories)</a><a href="/mosip-temp-documentationdocs/en/doc3.html">API Reference (or other categories)</a></div><div><h5>Community</h5><a href="/mosip-temp-documentationen/users.html">User Showcase</a><a href="https://stackoverflow.com/questions/tagged/" target="_blank" rel="noreferrer noopener">Stack Overflow</a><a href="https://discordapp.com/">Project Chat</a><a href="https://twitter.com/" target="_blank" rel="noreferrer noopener">Twitter</a></div><div><h5>More</h5><a href="/mosip-temp-documentationblog">Blog</a><a href="https://github.com/">GitHub</a><a class="github-button" data-icon="octicon-star" data-count-href="/facebook/docusaurus/stargazers" data-show-count="true" data-count-aria-label="# stargazers on GitHub" aria-label="Star this project on GitHub">Star</a></div></section><a href="https://opensource.facebook.com/" target="_blank" rel="noreferrer noopener" class="fbOpenSource"><img src="/mosip-temp-documentationimg/oss_logo.png" alt="Facebook Open Source" width="170" height="45"/></a><section class="copyright">Copyright © 2019 Your Name or Your Company Name</section></footer></div></body></html>

@@ -1,0 +1,1119 @@
+<!DOCTYPE html><html lang="en"><head><meta charSet="utf-8"/><meta http-equiv="X-UA-Compatible" content="IE=edge"/><title>ID-Authentication-APIs · MOSIP Documentation</title><meta name="viewport" content="width=device-width"/><meta name="generator" content="Docusaurus"/><meta name="description" content="This section details about the REST services in ID Authentication module."/><meta name="docsearch:language" content="en"/><meta property="og:title" content="ID-Authentication-APIs · MOSIP Documentation"/><meta property="og:type" content="website"/><meta property="og:url" content="https://ssenmosip.github.io/mosip-temp-documentationindex"/><meta property="og:description" content="This section details about the REST services in ID Authentication module."/><meta property="og:image" content="https://ssenmosip.github.io/mosip-temp-documentation/img/undraw_online.svg"/><meta name="twitter:card" content="summary"/><meta name="twitter:image" content="https://ssenmosip.github.io/mosip-temp-documentation/img/undraw_tweetstorm.svg"/><link rel="shortcut icon" href="/mosip-temp-documentationimg/favicon.ico"/><link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css"/><link rel="alternate" type="application/atom+xml" href="https://ssenmosip.github.io/mosip-temp-documentation/blog/atom.xml" title="MOSIP Documentation Blog ATOM Feed"/><link rel="alternate" type="application/rss+xml" href="https://ssenmosip.github.io/mosip-temp-documentation/blog/feed.xml" title="MOSIP Documentation Blog RSS Feed"/><script type="text/javascript" src="https://buttons.github.io/buttons.js"></script><script src="/mosip-temp-documentationjs/scrollSpy.js"></script><link rel="stylesheet" href="/mosip-temp-documentationcss/main.css"/><script src="/mosip-temp-documentationjs/codetabs.js"></script></head><body class="sideNavVisible separateOnPageNav"><div class="fixedHeaderContainer"><div class="headerWrapper wrapper"><header><a href="/mosip-temp-documentation"><img class="logo" src="/mosip-temp-documentationimg/favicon.ico" alt="MOSIP Documentation"/><h2 class="headerTitleWithLogo">MOSIP Documentation</h2></a><div class="navigationWrapper navigationSlider"><nav class="slidingNav"><ul class="nav-site nav-site-internal"><li class=""><a href="/mosip-temp-documentationdocs/Platform-Documentation" target="_self">Docs</a></li><li class=""><a href="/mosip-temp-documentationdocs/Getting-Started" target="_self">API</a></li><li class=""><a href="/mosip-temp-documentationContributor-Guide" target="_self">Help</a></li><li class=""><a href="/mosip-temp-documentationblog/" target="_self">Blog</a></li></ul></nav></div></header></div></div><div class="navPusher"><div class="docMainWrapper wrapper"><div class="container mainContainer"><div class="wrapper"><div class="post"><header class="postHeader"><h1 class="postHeaderTitle">ID-Authentication-APIs</h1></header><article><div><span><p>This section details about the REST services in ID Authentication module.</p>
+<ul>
+<li><a href="#authentication-service-public">Authentication Service</a> - This service can be used by Partners to authenticate an Individual using OTP, Demographic or Biometric-based authentication.</li>
+<li><a href="#ekyc-service-public">eKYC Service</a> - This service can be used by Partners to retrieve KYC details of an Individual, after authenticating them using OTP or Biometric-based authentication.</li>
+<li><a href="#otp-request-service-public">OTP Request Service</a> - This service can be used by Partners to send OTP on behalf of Individual, which can then be used for OTP-based authentication.</li>
+<li><a href="#authentication-service-internal">Internal Authentication Service</a> - This service can be used by MOSIP modules to authenticate Individual using Biometric-based authentication.</li>
+<li><a href="#authentication-transactions-service-internal">Authentication Transactions Service</a> - This service can be used by MOSIP modules to retrieve authentication transactions.</li>
+<li><a href="#authentication-types-status-service-internal">Authentication Type Status Service</a> - This service can be used by MOSIP modules to store/update/retrieve status of authentication types.</li>
+</ul>
+<h2><a class="anchor" aria-hidden="true" id="authentication-service-public"></a><a href="#authentication-service-public" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Authentication Service (Public)</h2>
+<p>This service details authentication (yes/no auth) that can be used by Partners to authenticate an Individual. Below are various authentication types supported by this service -</p>
+<ol>
+<li>OTP based - OTP (Time based OTP)</li>
+<li>Demographic based - Name, DOB, Age, Gender, Address, FullAddress</li>
+<li>Biometric based - Fingerprint, IRIS and Face</li>
+</ol>
+<h4><a class="anchor" aria-hidden="true" id="users-of-authentication-service"></a><a href="#users-of-authentication-service" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Users of Authentication service -</h4>
+<ol>
+<li><code>MISP (MOSIP Infrastructure Service Provider)</code> - MISP's role is limited to infrastructure provisioning and acting as a gate keeper for all authentication requests sent to this service. The MISP is also responsible for the policy creation on the MOSIP servers so their partners will follow the set policy.</li>
+<li><code>Partners</code> - <em>Auth-Partners</em> register themselves with MOSIP, under a MISP. Authentication requests are captured by Auth-Partners and sent to MOSIP, via MISP.</li>
+</ol>
+<ul>
+<li><a href="#post-idauthenticationv1auth">POST /idauthentication/v1/auth/</a></li>
+</ul>
+<h3><a class="anchor" aria-hidden="true" id="post-idauthentication-v1-auth"></a><a href="#post-idauthentication-v1-auth" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>POST /idauthentication/v1/auth/</h3>
+<p>This request will authenticate an Individual, based on provided authentication type(s).</p>
+<h4><a class="anchor" aria-hidden="true" id="resource-url"></a><a href="#resource-url" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Resource URL</h4>
+<div>https://mosip.io/idauthentication/v1/auth/:Auth-Partner-ID/:MISP-LicenseKey</div>
+<h4><a class="anchor" aria-hidden="true" id="resource-details"></a><a href="#resource-details" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Resource details</h4>
+<table>
+<thead>
+<tr><th>Resource Details</th><th>Description</th></tr>
+</thead>
+<tbody>
+<tr><td>Response format</td><td>JSON</td></tr>
+<tr><td>Requires Authentication</td><td>Yes</td></tr>
+</tbody>
+</table>
+<h4><a class="anchor" aria-hidden="true" id="request-body-parameters"></a><a href="#request-body-parameters" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Request Body Parameters</h4>
+<table>
+<thead>
+<tr><th>Name</th><th>Required</th><th>Description</th><th>Default Value</th><th>Example</th></tr>
+</thead>
+<tbody>
+<tr><td>id</td><td>Y</td><td>API Id</td><td></td><td>mosip.identity.auth</td></tr>
+<tr><td>version</td><td>Y</td><td>API version</td><td></td><td>v1</td></tr>
+<tr><td>transactionID</td><td>Y</td><td>Transaction ID of request</td><td></td><td>1234567890</td></tr>
+<tr><td>requestTime</td><td>Y</td><td>Time when Request was captured</td><td></td><td>2019-02-15T10:01:57.086+05:30</td></tr>
+<tr><td>requestedAuth</td><td>Y</td><td>Authentication Types requested</td><td></td></tr>
+<tr><td>requestedAuth: otp</td><td>Y</td><td>OTP Authentication Type</td><td>false</td><td>false</td></tr>
+<tr><td>requestedAuth: demo</td><td>Y</td><td>Demographic Authentication Type</td><td>false</td><td>false</td></tr>
+<tr><td>requestedAuth: bio</td><td>Y</td><td>Biometric Authentication Type</td><td>false</td><td>false</td></tr>
+<tr><td>individualId</td><td>Y</td><td>VID of Individual</td><td></td><td>9830872690593682</td></tr>
+<tr><td>individualIdType</td><td>Y</td><td>Allowed Type of Individual ID - VID, UIN</td><td>VID</td></tr>
+<tr><td>consentObtained</td><td>Y</td><td>If consent of Individual is obtained</td><td>true</td></tr>
+<tr><td>keyIndex</td><td>Y</td><td>Thumbprint of public key certificate used for encryption of sessionKey</td></tr>
+<tr><td>requestSessionKey</td><td>Y</td><td>Session Key encrypted using MOSIP Public Key</td><td></td></tr>
+<tr><td>requestHMAC</td><td>Y</td><td>sha256 of request block before encryption and hash is encrypted using requestSessionKey</td><td></td></tr>
+<tr><td>request</td><td>Y</td><td>Auth request attributes to be used for authenticating Individual</td><td></td></tr>
+<tr><td>request: otp</td><td>N</td><td>OTP</td><td></td></tr>
+<tr><td>request: timestamp</td><td>N</td><td>Timestamp when request block was captured</td><td></td></tr>
+<tr><td>request: demographics</td><td>N</td><td>Demographic data of an Individual</td><td></td></tr>
+<tr><td>request: biometrics</td><td>N</td><td>Biometric data of an Individual</td><td></td></tr>
+<tr><td>request: biometrics: data</td><td>N</td><td>Biometric data of an Individual, encrypted by MDS using below sessionKey using symmetric algorithm - AES/GCM/PKCS5Padding</td><td></td></tr>
+<tr><td>request: biometrics: hash</td><td>N</td><td>This is SHA-256 hashing of above biometric data of an Individual</td><td></td></tr>
+<tr><td>request: biometrics: sessionKey</td><td>N</td><td>This is the symmetric key used to encrypt above biometric data attribute. This symmetric key is encrypted by MOSIP Public Key shared to Partners and Device Providers using asymmetric key algorithm - RSA/ECB/OAEPWITHSHA-256ANDMGF1PADDING</td><td></td></tr>
+<tr><td>request: biometrics: signature</td><td>N</td><td>This is the signature of above biometric data attribute of an Individual, which contains X509 certificate containing public key to verify the signature</td><td></td></tr>
+</tbody>
+</table>
+<p>Mandatory fields for different types of authentications-</p>
+<ol>
+<li><strong>OTP Auth</strong> - request: <strong>otp</strong> attribute is mandatory</li>
+<li><strong>Demographic Auth</strong> - request: <strong>demographics</strong>  attribute is mandatory</li>
+<li><strong>Biometric Auth</strong> - request: <strong>biometrics</strong> attribute is mandatory</li>
+</ol>
+<h4><a class="anchor" aria-hidden="true" id="request-body"></a><a href="#request-body" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Request Body</h4>
+<pre><code class="hljs css language-JSON">{
+  <span class="hljs-attr">"id"</span>: <span class="hljs-string">"mosip.identity.auth"</span>,
+  <span class="hljs-attr">"version"</span>: <span class="hljs-string">"v1"</span>,
+  <span class="hljs-attr">"requestTime"</span>: <span class="hljs-string">"2019-02-15T10:01:57.086+05:30"</span>,
+  <span class="hljs-attr">"transactionID"</span>: <span class="hljs-string">"1234567890"</span>,
+  <span class="hljs-attr">"requestedAuth"</span>: {
+    <span class="hljs-attr">"otp"</span>: <span class="hljs-literal">true</span>,
+    <span class="hljs-attr">"demo"</span>: <span class="hljs-literal">false</span>,
+    <span class="hljs-attr">"bio"</span>: <span class="hljs-literal">false</span>
+  },
+  <span class="hljs-attr">"consentObtained"</span>: <span class="hljs-literal">true</span>,
+  <span class="hljs-attr">"individualId"</span>: <span class="hljs-string">"9830872690593682"</span>,
+  <span class="hljs-attr">"individualIdType"</span>: <span class="hljs-string">"VID"</span>,
+  <span class="hljs-attr">"keyIndex"</span>: <span class="hljs-string">"&lt;thumbprint of the public key certficate used for enryption of sessionKey. This is necessary for key rotaion&gt;"</span>,
+  <span class="hljs-attr">"requestSessionKey"</span>: <span class="hljs-string">"&lt;encrypted with MOSIP public key and encoded session key&gt;"</span>,
+  <span class="hljs-attr">"requestHMAC"</span>: <span class="hljs-string">"&lt;sha256 of the request block before encryption and the hash is encrypted using the requestSessionKey&gt;"</span>,
+  <span class="hljs-attr">"request"</span>: { <span class="hljs-comment">// Encrypted with session key and base64 encoded</span>
+    <span class="hljs-attr">"timestamp"</span>: <span class="hljs-string">"2019-02-15T10:01:56.086+05:30 - ISO format timestamp"</span>,
+    <span class="hljs-attr">"otp"</span>: <span class="hljs-string">"123456"</span>,
+    <span class="hljs-attr">"demographics"</span>: {
+      <span class="hljs-attr">"name"</span>: [
+        {
+          <span class="hljs-attr">"language"</span>: <span class="hljs-string">"ara"</span>,
+          <span class="hljs-attr">"value"</span>: <span class="hljs-string">"ابراهيم بن علي"</span>
+        },
+        {
+          <span class="hljs-attr">"language"</span>: <span class="hljs-string">"fra"</span>,
+          <span class="hljs-attr">"value"</span>: <span class="hljs-string">"Ibrahim Ibn Ali"</span>
+        }
+      ],
+      <span class="hljs-attr">"gender"</span>: [
+        {
+          <span class="hljs-attr">"language"</span>: <span class="hljs-string">"ara"</span>,
+          <span class="hljs-attr">"value"</span>: <span class="hljs-string">"الذكر"</span>
+        },
+        {
+          <span class="hljs-attr">"language"</span>: <span class="hljs-string">"fra"</span>,
+          <span class="hljs-attr">"value"</span>: <span class="hljs-string">"mâle"</span>
+        }
+      ],
+      <span class="hljs-attr">"age"</span>: <span class="hljs-string">"25"</span>,
+      <span class="hljs-attr">"dob"</span>: <span class="hljs-string">"25/11/1990"</span>,
+      <span class="hljs-attr">"fullAddress"</span>: [
+        {
+          <span class="hljs-attr">"language"</span>: <span class="hljs-string">"ara"</span>,
+          <span class="hljs-attr">"value"</span>: <span class="hljs-string">"عنوان العينة سطر 1, عنوان العينة سطر 2"</span>
+        },
+        {
+          <span class="hljs-attr">"language"</span>: <span class="hljs-string">"fra"</span>,
+          <span class="hljs-attr">"value"</span>: <span class="hljs-string">"exemple d'adresse ligne 1, exemple d'adresse ligne 2"</span>
+        }
+      ]
+    },
+    <span class="hljs-attr">"biometrics"</span>: [
+      {
+        <span class="hljs-attr">"data"</span>: <span class="hljs-string">"&lt;Base64 encoded response from Capture API of MDS v0.9.1&gt;"</span>,
+        <span class="hljs-attr">"hash"</span>: <span class="hljs-string">"&lt;sha256 hash of (sha256 hash of previous data block in hex format + sha256 of current data block before encoding in hex format) in hex format&gt;"</span>,
+        <span class="hljs-attr">"sessionKey"</span>: <span class="hljs-string">"&lt;encrypted with MOSIP public key and encoded session key biometric&gt;"</span>,
+        <span class="hljs-attr">"signature"</span>: <span class="hljs-string">"&lt;base64 signature of data block&gt;"</span>
+      },
+      {
+        <span class="hljs-attr">"data"</span>: <span class="hljs-string">"&lt;Base64 encoded response from Capture API of MDS v0.9.1&gt;"</span>,
+        <span class="hljs-attr">"hash"</span>: <span class="hljs-string">"&lt;sha256 hash of (sha256 hash of previous data block in hex format + sha256 of current data block before encoding in hex format) in hex format&gt;"</span>,
+        <span class="hljs-attr">"sessionKey"</span>: <span class="hljs-string">"&lt;encrypted with MOSIP public key and encoded session key biometric&gt;"</span>,
+        <span class="hljs-attr">"signature"</span>: <span class="hljs-string">"&lt;base64 signature of data block&gt;"</span>
+      }
+    ]
+  }
+}
+</code></pre>
+<h4><a class="anchor" aria-hidden="true" id="responses"></a><a href="#responses" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Responses:</h4>
+<h5><a class="anchor" aria-hidden="true" id="success-response"></a><a href="#success-response" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Success Response:</h5>
+<h6><a class="anchor" aria-hidden="true" id="status-code-200-ok"></a><a href="#status-code-200-ok" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Status Code : 200 (OK)</h6>
+<h6><a class="anchor" aria-hidden="true" id="description-successfully-authenticated-an-individual"></a><a href="#description-successfully-authenticated-an-individual" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Description : Successfully authenticated an Individual</h6>
+<pre><code class="hljs css language-JSON">{
+  <span class="hljs-comment">//API Metadata</span>
+  <span class="hljs-attr">"id"</span>: <span class="hljs-string">"mosip.identity.auth"</span>,
+  <span class="hljs-attr">"version"</span>: <span class="hljs-string">"v1"</span>,
+  <span class="hljs-attr">"responseTime"</span>: <span class="hljs-string">"2019-02-15T07:23:19.590+05:30"</span>,
+  <span class="hljs-comment">//Response Metadata</span>
+  <span class="hljs-attr">"transactionID"</span>: <span class="hljs-string">"txn12345"</span>,
+  <span class="hljs-comment">//Auth Response</span>
+  <span class="hljs-attr">"response"</span>: {
+    <span class="hljs-attr">"authStatus"</span>: <span class="hljs-literal">true</span>,
+    <span class="hljs-attr">"staticToken"</span>: <span class="hljs-string">"&lt;static_token&gt;"</span>
+  },
+  <span class="hljs-attr">"errors"</span>: <span class="hljs-literal">null</span>
+}
+</code></pre>
+<h5><a class="anchor" aria-hidden="true" id="failed-response"></a><a href="#failed-response" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Failed Response:</h5>
+<h6><a class="anchor" aria-hidden="true" id="status-code-200-ok-1"></a><a href="#status-code-200-ok-1" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Status Code : 200 (OK)</h6>
+<h6><a class="anchor" aria-hidden="true" id="description-authentication-of-an-individual-failed"></a><a href="#description-authentication-of-an-individual-failed" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Description : Authentication of an Individual failed</h6>
+<pre><code class="hljs css language-JSON">{
+  <span class="hljs-comment">//API Metadata</span>
+  <span class="hljs-attr">"id"</span>: <span class="hljs-string">"mosip.identity.auth"</span>,
+  <span class="hljs-attr">"version"</span>: <span class="hljs-string">"v1"</span>,
+  <span class="hljs-attr">"responseTime"</span>: <span class="hljs-string">"2019-02-15T07:23:19.590+05:30"</span>,
+  <span class="hljs-comment">//Response Metadata</span>
+  <span class="hljs-attr">"transactionID"</span>: <span class="hljs-string">"txn12345"</span>,
+  <span class="hljs-comment">//Auth Response</span>
+  <span class="hljs-attr">"response"</span>: {
+    <span class="hljs-attr">"authStatus"</span>: <span class="hljs-literal">false</span>,
+    <span class="hljs-attr">"staticToken"</span>: <span class="hljs-literal">null</span>
+  },
+  <span class="hljs-attr">"errors"</span>: [
+    {
+      <span class="hljs-attr">"errorCode"</span>: <span class="hljs-string">"IDA-MLC-002"</span>,
+      <span class="hljs-attr">"errorMessage"</span>: <span class="hljs-string">"Invalid UIN"</span>,
+      <span class="hljs-attr">"actionMessage"</span>: <span class="hljs-string">"Please retry with the correct UIN"</span>
+    }
+  ]
+}
+</code></pre>
+<h5><a class="anchor" aria-hidden="true" id="failure-details"></a><a href="#failure-details" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Failure Details</h5>
+<table>
+<thead>
+<tr><th>Error Code</th><th>Error Message</th><th>Description</th><th>Action Message</th></tr>
+</thead>
+<tbody>
+<tr><td>IDA-BIA-001</td><td>Biometric data – &lt;Biometric Attribute&gt; did not match</td><td>FMR,IIR,FID Mismatch</td><td>Please give your biometrics again.</td></tr>
+<tr><td>IDA-BIA-002</td><td>Duplicate fingers in request.</td><td>Duplicate fingers</td><td>Please try again with distinct fingers</td></tr>
+<tr><td>IDA-BIA-003</td><td>Number of FMR should not exceed 2.</td><td>Fingers exceeding 2</td></tr>
+<tr><td>IDA-BIA-006</td><td>Biometric data &lt;Biometric Attribute&gt; not available in database.</td><td>Missing biometric data in MOSIP database</td><td>Your Biometric data is not available in MOSIP</td></tr>
+<tr><td>IDA-BIA-007</td><td>Duplicate Irises in request.</td><td>Duplicate Irises used</td><td>Please try again with distinct Irises</td></tr>
+<tr><td>IDA-BIA-008</td><td>Number of IIR should not exceed 2.</td><td>Irises exceeding 2</td></tr>
+<tr><td>IDA-BIA-009</td><td>Number of FID records should not exceed 1.</td><td>Face exceeding 1</td></tr>
+<tr><td>IDA-BIA-013</td><td>Number of FMR should not exceed 10.</td><td>Fingers exceeding 10 for Internal Auth</td></tr>
+<tr><td>IDA-DEA-001</td><td>Demographic data  &lt;demo attribute&gt;  in  &lt;Language Code&gt; (if applicable) did not match</td><td>name, Full Address, Address line Items, Gender, Phone,e-mail,DOB,DOB Type, and age Mismatch in any language</td><td>Please re-enter your  &lt;demo attribute&gt;  in &lt;Language Code&gt;</td></tr>
+<tr><td>IDA-DEA-002</td><td>Unsupported Language Code &lt;XX&gt;</td><td>Unsupported language Code used in the Lang attribute</td></tr>
+<tr><td>IDA-DEA-003</td><td>Demographic data  &lt;Demographic Attribute&gt; in &lt;Language Code&gt; (if applicable)  not available in database.</td><td>Individual’s data not available</td></tr>
+<tr><td>IDA-MLC-001</td><td>Request to be received at MOSIP within&lt;x&gt; hrs/min</td><td>Invalid Time stamp</td><td>Please send the request within &lt;x&gt; hrs/min</td></tr>
+<tr><td>IDA-MLC-002</td><td>Invalid UIN</td><td>Invalid UIN</td><td>Please retry with the correct UIN.</td></tr>
+<tr><td>IDA-MLC-003</td><td>UIN has been deactivated</td><td>UIN Deactivated</td><td>Your UIN status is not active.</td></tr>
+<tr><td>IDA-MLC-004</td><td>Invalid VID</td><td>Invalid VID</td><td>Please retry with correct VID.</td></tr>
+<tr><td>IDA-MLC-005</td><td>%s VID</td><td>Expired,Used,Revoked VID</td><td>Please regenerate VID and try again</td></tr>
+<tr><td>IDA-MLC-006</td><td>Missing Input parameter- &lt;attribute&gt;  Example: Missing Input parameter- version</td><td>Missing Input parameter- attribute - all the mandatory attributes</td></tr>
+<tr><td>IDA-MLC-007</td><td>Request could not be processed. Please try again</td><td>Could not process request/Unknown error; Invalid Auth Request; Unable to encrypt eKYC response</td></tr>
+<tr><td>IDA-MLC-008</td><td>No authentication type selected</td><td>No authentication type selected in the request</td></tr>
+<tr><td>IDA-MLC-009</td><td>Invalid Input parameter- attribute</td><td>Invalid Input parameter- attribute</td></tr>
+<tr><td>IDA-MLC-010</td><td>VID has been deactivated</td><td>VID corresponding to a deactivated UIN</td></tr>
+<tr><td>IDA-MLC-011</td><td>Unsupported Authentication Type - &lt;Auth Type&gt; - &lt;SubType&gt; if applicable</td><td>Auth Type not supported for a country</td><td>Please use other Authentication Types in the request</td></tr>
+<tr><td>IDA-MLC-012</td><td>Individual's Consent is not available</td><td>Invalid resident consent for eKYC/Auth</td></tr>
+<tr><td>IDA-MLC-013</td><td>Missing  &lt;authtype&gt; auth attribute</td><td>Missing authtype parameter – when &lt;auth-type&gt; = ‘True’ and corresponding auth attribute missing (OTP,Demo and Bio)</td></tr>
+<tr><td>IDA-MLC-014</td><td>&lt;Notification Channel&gt; not registered. Individual has to register and try again</td><td>&lt;Notification Channel&gt; not Registered (Phone/e-mail/both)</td><td>Please register your &lt;Notification Channel&gt; and try again</td></tr>
+<tr><td>IDA-MLC-015</td><td>Identity Type - &lt;Identity Type&gt; not configured for the country</td><td>ID Type (UIN/VID) not supported for a country</td></tr>
+<tr><td>IDA-MLC-018</td><td>%s not available in database</td><td>UIN,VID, User ID not available in database</td></tr>
+<tr><td>IDA-MPA-003</td><td>Unable to decrypt Request.</td><td>Invalid encryption of session key/request</td></tr>
+<tr><td>IDA-MPA-004</td><td>MOSIP Public key expired.</td><td>MOSIP Public key expired</td><td>Please reinitiate the request with updated public key</td></tr>
+<tr><td>IDA-MPA-006</td><td>&lt;Auth Type&gt; - &lt;Sub Type&gt; (if applicable) Authentication Usage not allowed as per policy (Eg: OTP/Demo/Bio - FMR)</td><td>All Authentication Usages not allowed as per policy</td></tr>
+<tr><td>IDA-MPA-007</td><td>License key does not belong to a registered MISP</td><td>License key does not belong to a registered MISP/ License key invalid</td></tr>
+<tr><td>IDA-MPA-008</td><td>License key of MISP has expired</td><td>License key expired</td></tr>
+<tr><td>IDA-MPA-009</td><td>Partner is not registered</td><td>PartnerID Invalid</td></tr>
+<tr><td>IDA-MPA-010</td><td>MISP and Partner not mapped</td><td>MISP and Partner not</td></tr>
+<tr><td>IDA-MPA-011</td><td>License key of MISP is suspended</td><td>License key status of MISP is suspended</td></tr>
+<tr><td>IDA-MPA-012</td><td>Partner is deactivated</td><td>PartnerID is not active</td></tr>
+<tr><td>IDA-MPA-014</td><td>Partner is not assigned with any policy</td><td>PartnerID is not mapped to a policy</td></tr>
+<tr><td>IDA-MPA-015</td><td>&lt;Auth Type&gt; - &lt;Sub Type&gt; (if applicable) Authentiation Usage is mandatory as per policy (Eg: OTP/Demo/Bio - FMR)</td><td>Mandatory Auth Type as per policy of the partner is not available in the auth request</td></tr>
+<tr><td>IDA-MPA-016</td><td>HMAC Validation failed</td><td>HMAC value does not match</td></tr>
+<tr><td>IDA-MPA-017</td><td>License key of MISP is blocked</td><td>License key status of MISP is blocked</td></tr>
+<tr><td>IDA-OTA-003</td><td>OTP has expired</td><td>OTP expired</td><td>Please regenerate OTP and try again after sometime.</td></tr>
+<tr><td>IDA-OTA-004</td><td>OTP is invalid</td><td>OTP Invalid</td><td>Please provide correct OTP value.</td></tr>
+<tr><td>IDA-OTA-005</td><td>Input transactionID does not match transactionID of OTP Request</td><td>Invalid Transaction ID</td></tr>
+<tr><td>IDA-OTA-007</td><td>UIN is locked for OTP validation due to exceeding no of invalid OTP trials</td><td>Validate wrong OTP for exceeding no of retries</td></tr>
+<tr><td>IDA-OTA-010</td><td>Input Identity Type does not match Identity Type of OTP Request</td><td>Invalid Identity Type</td></tr>
+</tbody>
+</table>
+<h2><a class="anchor" aria-hidden="true" id="ekyc-service-public"></a><a href="#ekyc-service-public" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>eKYC Service (Public)</h2>
+<p>This service details authentication (eKYC auth) that can be used by Partners to authenticate an Individual and send Individual's KYC details as response. Below are various authentication types supported by eKYC Authentication -</p>
+<ol>
+<li>OTP Authentication - OTP</li>
+<li>Biometric Authentication - Fingerprint, IRIS and Face</li>
+</ol>
+<h4><a class="anchor" aria-hidden="true" id="users-of-kyc-service"></a><a href="#users-of-kyc-service" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Users of KYC service -</h4>
+<ol>
+<li><code>MISP (MOSIP Infrastructure Service Provider)</code> - MISP's role is limited to infrastructure provisioning and acting as a gate keeper for all KYC requests sent to this service. The MISP is also responsible for policy creation on the MOSIP servers so their partners will follow the set policy.</li>
+<li><code>Partners</code> - <em>eKYC-Partners</em> register themselves with MOSIP, under a MISP. KYC requests are captured by eKYC-Partners and sent to MOSIP, via MISP.</li>
+</ol>
+<ul>
+<li><a href="#post-idauthenticationv1kyc">POST /idauthentication/v1/kyc/</a></li>
+</ul>
+<h3><a class="anchor" aria-hidden="true" id="post-idauthentication-v1-kyc"></a><a href="#post-idauthentication-v1-kyc" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>POST /idauthentication/v1/kyc/</h3>
+<p>This request will provide KYC details of Individual, once an Individual is successfully authenticated.</p>
+<h4><a class="anchor" aria-hidden="true" id="resource-url-1"></a><a href="#resource-url-1" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Resource URL</h4>
+<div>https://mosip.io/idauthentication/v1/kyc/:eKYC-Partner-ID/:MISP-LicenseKey</div>
+<h4><a class="anchor" aria-hidden="true" id="resource-details-1"></a><a href="#resource-details-1" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Resource details</h4>
+<table>
+<thead>
+<tr><th>Resource Details</th><th>Description</th></tr>
+</thead>
+<tbody>
+<tr><td>Response format</td><td>JSON</td></tr>
+<tr><td>Requires Authentication</td><td>Yes</td></tr>
+</tbody>
+</table>
+<h4><a class="anchor" aria-hidden="true" id="request-body-parameters-1"></a><a href="#request-body-parameters-1" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Request Body Parameters</h4>
+<table>
+<thead>
+<tr><th>Name</th><th>Required</th><th>Description</th><th>Default Value</th><th>Example</th></tr>
+</thead>
+<tbody>
+<tr><td>version</td><td>Y</td><td>API version</td><td></td><td>v1</td></tr>
+<tr><td>partnerId</td><td>Y</td><td>eKYC Partner ID</td><td></td></tr>
+<tr><td>transactionID</td><td>Y</td><td>Transaction ID of request</td><td></td><td>1234567890</td></tr>
+<tr><td>requestTime</td><td>Y</td><td>Time when Request was captured</td><td></td><td>2019-02-15T10:01:57.086+05:30</td></tr>
+<tr><td>requestedAuth</td><td>Y</td><td>Authentication Types requested</td><td></td></tr>
+<tr><td>requestedAuth: otp</td><td>Y</td><td>OTP Authentication Type</td><td>false</td><td>false</td></tr>
+<tr><td>requestedAuth: demo</td><td>N</td><td>Demographic Authentication Type</td><td>false</td><td>false</td></tr>
+<tr><td>requestedAuth: bio</td><td>Y</td><td>Biometric Authentication Type</td><td>false</td><td>false</td></tr>
+<tr><td>individualId</td><td>Y</td><td>VID of Individual</td><td></td><td>9830872690593682</td></tr>
+<tr><td>individualIdType</td><td>Y</td><td>Allowed Type of Individual ID - VID, UIN</td><td>VID</td></tr>
+<tr><td>consentObtained</td><td>Y</td><td>If consent of Individual is obtained</td><td>true</td></tr>
+<tr><td>secondaryLangCode</td><td>Y</td><td>Secondary Language Code</td><td></td></tr>
+<tr><td>keyIndex</td><td>Y</td><td>Thumbprint of public key certificate used for encryption of sessionKey</td></tr>
+<tr><td>requestSessionKey</td><td>Y</td><td>Session Key encrypted using MOSIP Public Key</td><td></td></tr>
+<tr><td>requestHMAC</td><td>Y</td><td>sha256 of request block before encryption and hash is encrypted using requestSessionKey</td><td></td></tr>
+<tr><td>request</td><td>Y</td><td>Auth request attributes to be used for authenticating Individual</td><td></td></tr>
+<tr><td>request: otp</td><td>N</td><td>OTP</td><td></td></tr>
+<tr><td>request: timestamp</td><td>N</td><td>Timestamp when request block was captured</td><td></td></tr>
+<tr><td>request: biometrics</td><td>N</td><td>Biometrics of an Individual</td><td></td></tr>
+<tr><td>request: transactionID</td><td>N</td><td>Transaction ID provided by Device Service</td><td></td></tr>
+</tbody>
+</table>
+<h4><a class="anchor" aria-hidden="true" id="request-body-1"></a><a href="#request-body-1" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Request Body</h4>
+<pre><code class="hljs css language-JSON">{
+  <span class="hljs-attr">"id"</span>: <span class="hljs-string">"mosip.identity.kyc"</span>,
+  <span class="hljs-attr">"version"</span>: <span class="hljs-string">"v1"</span>,
+  <span class="hljs-attr">"requestTime"</span>: <span class="hljs-string">"2019-02-15T10:01:57.086+05:30"</span>,
+  <span class="hljs-attr">"transactionID"</span>: <span class="hljs-string">"1234567890"</span>,
+  <span class="hljs-attr">"requestedAuth"</span>: {
+    <span class="hljs-attr">"otp"</span>: <span class="hljs-literal">true</span>,
+    <span class="hljs-attr">"demo"</span>: <span class="hljs-literal">false</span>,
+    <span class="hljs-attr">"bio"</span>: <span class="hljs-literal">true</span>
+  },
+  <span class="hljs-attr">"consentObtained"</span>: <span class="hljs-literal">true</span>,
+  <span class="hljs-attr">"secondaryLangCode"</span>: <span class="hljs-string">"&lt;sec-lang-code&gt;"</span>,
+  <span class="hljs-attr">"individualId"</span>: <span class="hljs-string">"9830872690593682"</span>,
+  <span class="hljs-attr">"individualIdType"</span>: <span class="hljs-string">"VID"</span>,
+  <span class="hljs-attr">"keyIndex"</span>: <span class="hljs-string">"&lt;thumbprint of the public key certficate used for enryption of sessionKey. This is necessary for key rotaion&gt;"</span>,
+  <span class="hljs-attr">"requestSessionKey"</span>: <span class="hljs-string">"&lt;encrypted with MOSIP public key and encoded session key&gt;"</span>,
+  <span class="hljs-attr">"requestHMAC"</span>: <span class="hljs-string">"&lt;sha256 of the request block before encryption and the hash is encrypted using the requestSessionKey&gt;"</span>,
+  <span class="hljs-attr">"request"</span>: { <span class="hljs-comment">// Encrypted with session key and base64 encoded</span>
+    <span class="hljs-attr">"timestamp"</span>: <span class="hljs-string">"2019-02-15T10:01:56.086+05:30 - ISO format timestamp"</span>,
+    <span class="hljs-attr">"otp"</span>: <span class="hljs-string">"123456"</span>,
+    <span class="hljs-attr">"biometrics"</span>: [
+      {
+        <span class="hljs-attr">"data"</span>: { <span class="hljs-comment">// Base64 encoded</span>
+          <span class="hljs-attr">"mosipProcess"</span>: <span class="hljs-string">""</span>,
+          <span class="hljs-attr">"environment"</span>: <span class="hljs-string">""</span>,
+          <span class="hljs-attr">"version"</span>: <span class="hljs-string">""</span>,
+          <span class="hljs-attr">"deviceCode"</span>: <span class="hljs-string">""</span>,
+          <span class="hljs-attr">"digitalId"</span>: <span class="hljs-string">""</span>,
+          <span class="hljs-attr">"deviceServiceVersion"</span>: <span class="hljs-string">""</span>,
+          <span class="hljs-attr">"bioType"</span>: <span class="hljs-string">"FMR"</span>,
+          <span class="hljs-attr">"bioSubType"</span>: <span class="hljs-string">"UNKNOWN"</span>,
+          <span class="hljs-attr">"bioValue"</span>: <span class="hljs-string">"&lt;encrypted with session key and base64 encoded biometric data&gt;"</span>,
+          <span class="hljs-attr">"transactionID"</span>: <span class="hljs-string">"1234567890"</span>,
+          <span class="hljs-attr">"timestamp"</span>: <span class="hljs-string">"2019-02-15T10:01:57.086+05:30"</span>,
+          <span class="hljs-attr">"requestedScore"</span>: <span class="hljs-string">"&lt;floating point number to represent the minimum required score for the capture&gt;"</span>,
+          <span class="hljs-attr">"qualityScore"</span>: <span class="hljs-string">"&lt;floating point number representing the score for the current capture&gt;"</span>
+        },
+        <span class="hljs-attr">"hash"</span>: <span class="hljs-string">"sha256(sha256 hash of the previous data block + sha256 of the current data block before encoding)"</span>,
+        <span class="hljs-attr">"sessionKey"</span>: <span class="hljs-string">"&lt;encrypted with MOSIP public key and encoded session key biometric&gt;"</span>,
+        <span class="hljs-attr">"signature"</span>: <span class="hljs-string">"base64 signature of the data and metaData block"</span>
+      }
+    ]
+  }
+}
+</code></pre>
+<h4><a class="anchor" aria-hidden="true" id="responses-1"></a><a href="#responses-1" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Responses:</h4>
+<h5><a class="anchor" aria-hidden="true" id="success-response-1"></a><a href="#success-response-1" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Success Response:</h5>
+<h6><a class="anchor" aria-hidden="true" id="status-code-200-ok-2"></a><a href="#status-code-200-ok-2" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Status Code : 200 (OK)</h6>
+<h6><a class="anchor" aria-hidden="true" id="description-successful-kyc-authentication-of-an-individual"></a><a href="#description-successful-kyc-authentication-of-an-individual" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Description : Successful KYC Authentication of an Individual</h6>
+<pre><code class="hljs css language-JSON">{
+  <span class="hljs-comment">//API Metadata</span>
+  <span class="hljs-attr">"id"</span>: <span class="hljs-string">"mosip.identity.kyc"</span>,
+  <span class="hljs-attr">"version"</span>: <span class="hljs-string">"v1"</span>,
+  <span class="hljs-attr">"responseTime"</span>: <span class="hljs-string">"2019-02-15T07:23:19.590+05:30"</span>,
+  <span class="hljs-comment">//Response Metadata</span>
+  <span class="hljs-attr">"transactionID"</span>: <span class="hljs-string">"txn12345"</span>,
+  <span class="hljs-comment">//Auth Response</span>
+  <span class="hljs-attr">"response"</span>: {
+    <span class="hljs-attr">"kycStatus"</span>: <span class="hljs-literal">true</span>,
+    <span class="hljs-attr">"staticToken"</span>: <span class="hljs-string">"&lt;static_token&gt;"</span>,
+    <span class="hljs-attr">"identity"</span>: {<span class="hljs-comment">// encoded encrypted KYC info using Partner's public key</span>
+      <span class="hljs-attr">"name"</span>: [
+        {
+          <span class="hljs-attr">"language"</span>: <span class="hljs-string">"ara"</span>,
+          <span class="hljs-attr">"value"</span>: <span class="hljs-string">"ابراهيم"</span>
+        },
+        {
+          <span class="hljs-attr">"language"</span>: <span class="hljs-string">"fra"</span>,
+          <span class="hljs-attr">"value"</span>: <span class="hljs-string">"Ibrahim"</span>
+        }
+      ],
+      <span class="hljs-attr">"dob"</span>: <span class="hljs-string">"25/11/1990"</span>,
+      <span class="hljs-attr">"gender"</span>: [
+        {
+          <span class="hljs-attr">"language"</span>: <span class="hljs-string">"ara"</span>,
+          <span class="hljs-attr">"value"</span>: <span class="hljs-string">"الذكر"</span>
+        }
+      ],
+      <span class="hljs-attr">"phoneNumber"</span>: <span class="hljs-string">"+212-5398-12345"</span>,
+      <span class="hljs-attr">"emailId"</span>: <span class="hljs-string">"sample@samplamail.com"</span>,
+      <span class="hljs-attr">"addressLine1"</span>: [
+        {
+          <span class="hljs-attr">"language"</span>: <span class="hljs-string">"ara"</span>,
+          <span class="hljs-attr">"value"</span>: <span class="hljs-string">"عنوان العينة سطر 1"</span>
+        },
+        {
+          <span class="hljs-attr">"language"</span>: <span class="hljs-string">"fra"</span>,
+          <span class="hljs-attr">"value"</span>: <span class="hljs-string">"exemple d'adresse ligne 1"</span>
+        }
+      ],
+      <span class="hljs-attr">"addressLine2"</span>: [
+        {
+          <span class="hljs-attr">"language"</span>: <span class="hljs-string">"ara"</span>,
+          <span class="hljs-attr">"value"</span>: <span class="hljs-string">"عنوان العينة سطر 2"</span>
+        },
+        {
+          <span class="hljs-attr">"language"</span>: <span class="hljs-string">"fra"</span>,
+          <span class="hljs-attr">"value"</span>: <span class="hljs-string">"exemple d'adresse ligne 2"</span>
+        }
+      ],
+      <span class="hljs-attr">"addressLine3"</span>: [
+        {
+          <span class="hljs-attr">"language"</span>: <span class="hljs-string">"ara"</span>,
+          <span class="hljs-attr">"value"</span>: <span class="hljs-string">"عنوان العينة سطر 3"</span>
+        },
+        {
+          <span class="hljs-attr">"language"</span>: <span class="hljs-string">"fra"</span>,
+          <span class="hljs-attr">"value"</span>: <span class="hljs-string">"exemple d'adresse ligne 3"</span>
+        }
+      ]
+    }
+  },
+  <span class="hljs-attr">"errors"</span>: <span class="hljs-literal">null</span>
+}
+</code></pre>
+<h5><a class="anchor" aria-hidden="true" id="failed-response-1"></a><a href="#failed-response-1" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Failed Response:</h5>
+<h6><a class="anchor" aria-hidden="true" id="status-code-200-ok-3"></a><a href="#status-code-200-ok-3" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Status Code : 200 (OK)</h6>
+<h6><a class="anchor" aria-hidden="true" id="description-kyc-authentication-of-an-individual-failed"></a><a href="#description-kyc-authentication-of-an-individual-failed" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Description : KYC Authentication of an Individual failed</h6>
+<pre><code class="hljs css language-JSON">{
+  <span class="hljs-comment">//API Metadata</span>
+  <span class="hljs-attr">"id"</span>: <span class="hljs-string">"mosip.identity.kyc"</span>,
+  <span class="hljs-attr">"version"</span>: <span class="hljs-string">"v1"</span>,
+  <span class="hljs-attr">"responseTime"</span>: <span class="hljs-string">"2019-02-15T07:23:19.590+05:30"</span>,
+  <span class="hljs-comment">//Response Metadata</span>
+  <span class="hljs-attr">"transactionID"</span>: <span class="hljs-string">"txn12345"</span>,
+  <span class="hljs-comment">//Auth Response</span>
+  <span class="hljs-attr">"response"</span>: {<span class="hljs-comment">// encoded encrypted KYC info using Partner's public key</span>
+    <span class="hljs-attr">"kycStatus"</span>: <span class="hljs-literal">false</span>,
+    <span class="hljs-attr">"identity"</span>: <span class="hljs-literal">null</span>
+  },
+  <span class="hljs-attr">"errors"</span>: [
+      {
+        <span class="hljs-attr">"errorCode"</span>: <span class="hljs-string">"IDA-MLC-002"</span>,
+        <span class="hljs-attr">"errorMessage"</span>: <span class="hljs-string">"Invalid UIN"</span>,
+        <span class="hljs-attr">"actionMessage"</span>: <span class="hljs-string">"Please retry with the correct UIN"</span>
+      }
+    ]
+}
+</code></pre>
+<h5><a class="anchor" aria-hidden="true" id="failure-details-1"></a><a href="#failure-details-1" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Failure Details</h5>
+<table>
+<thead>
+<tr><th>Error Code</th><th>Error Message</th><th>Description</th><th>Action Message</th></tr>
+</thead>
+<tbody>
+<tr><td>IDA-BIA-001</td><td>Biometric data – &lt;Biometric Attribute&gt; did not match</td><td>FMR,IIR,FID Mismatch</td><td>Please give your biometrics again.</td></tr>
+<tr><td>IDA-BIA-002</td><td>Duplicate fingers in request.</td><td>Duplicate fingers</td><td>Please try again with distinct fingers</td></tr>
+<tr><td>IDA-BIA-003</td><td>Number of FMR should not exceed 2.</td><td>Fingers exceeding 2</td></tr>
+<tr><td>IDA-BIA-006</td><td>Biometric data &lt;Biometric Attribute&gt; not available in database.</td><td>Missing biometric data in MOSIP database</td><td>Your Biometric data is not available in MOSIP</td></tr>
+<tr><td>IDA-BIA-007</td><td>Duplicate Irises in request.</td><td>Duplicate Irises used</td><td>Please try again with distinct Irises</td></tr>
+<tr><td>IDA-BIA-008</td><td>Number of IIR should not exceed 2.</td><td>Irises exceeding 2</td></tr>
+<tr><td>IDA-BIA-009</td><td>Number of FID records should not exceed 1.</td><td>Face exceeding 1</td></tr>
+<tr><td>IDA-BIA-013</td><td>Number of FMR should not exceed 10.</td><td>Fingers exceeding 10 for Internal Auth</td></tr>
+<tr><td>IDA-EKA-001</td><td>Unable to encrypt eKYC response</td><td>Invalid encryption of eKYC response</td></tr>
+<tr><td>IDA-MLC-001</td><td>Request to be received at MOSIP within&lt;x&gt; hrs/min</td><td>Invalid Time stamp</td><td>Please send the request within &lt;x&gt; hrs/min</td></tr>
+<tr><td>IDA-MLC-002</td><td>Invalid UIN</td><td>Invalid UIN</td><td>Please retry with the correct UIN.</td></tr>
+<tr><td>IDA-MLC-003</td><td>UIN has been deactivated</td><td>UIN Deactivated</td><td>Your UIN status is not active.</td></tr>
+<tr><td>IDA-MLC-004</td><td>Invalid VID</td><td>Invalid VID</td><td>Please retry with correct VID.</td></tr>
+<tr><td>IDA-MLC-005</td><td>%s VID</td><td>Expired,Used,Revoked VID</td><td>Please regenerate VID and try again</td></tr>
+<tr><td>IDA-MLC-006</td><td>Missing Input parameter- &lt;attribute&gt;  Example: Missing Input parameter- version</td><td>Missing Input parameter- attribute - all the mandatory attributes</td></tr>
+<tr><td>IDA-MLC-007</td><td>Request could not be processed. Please try again</td><td>Could not process request/Unknown error; Invalid Auth Request; Unable to encrypt eKYC response</td></tr>
+<tr><td>IDA-MLC-008</td><td>No authentication type selected</td><td>No authentication type selected in the request</td></tr>
+<tr><td>IDA-MLC-009</td><td>Invalid Input parameter- attribute</td><td>Invalid Input parameter- attribute</td></tr>
+<tr><td>IDA-MLC-010</td><td>VID has been deactivated</td><td>VID corresponding to a deactivated UIN</td></tr>
+<tr><td>IDA-MLC-011</td><td>Unsupported Authentication Type - &lt;Auth Type&gt; - &lt;SubType&gt; if applicable</td><td>Auth Type not supported for a country</td><td>Please use other Authentication Types in the request</td></tr>
+<tr><td>IDA-MLC-012</td><td>Individual's Consent is not available</td><td>Invalid resident consent for eKYC/Auth</td></tr>
+<tr><td>IDA-MLC-013</td><td>Missing  &lt;authtype&gt; auth attribute</td><td>Missing authtype parameter – when &lt;auth-type&gt; = ‘True’ and corresponding auth attribute missing (OTP,Demo and Bio)</td></tr>
+<tr><td>IDA-MLC-014</td><td>&lt;Notification Channel&gt; not registered. Individual has to register and try again</td><td>&lt;Notification Channel&gt; not Registered (Phone/e-mail/both)</td><td>Please register your &lt;Notification Channel&gt; and try again</td></tr>
+<tr><td>IDA-MLC-015</td><td>Identity Type - &lt;Identity Type&gt; not configured for the country</td><td>ID Type (UIN/VID) not supported for a country</td></tr>
+<tr><td>IDA-MLC-018</td><td>%s not available in database</td><td>UIN,VID, User ID not available in database</td></tr>
+<tr><td>IDA-MPA-003</td><td>Unable to decrypt Request.</td><td>Invalid encryption of session key/request</td></tr>
+<tr><td>IDA-MPA-004</td><td>MOSIP Public key expired.</td><td>MOSIP Public key expired</td><td>Please reinitiate the request with updated public key</td></tr>
+<tr><td>IDA-MPA-006</td><td>&lt;Auth Type&gt; - &lt;Sub Type&gt; (if applicable) Authentication Usage not allowed as per policy (Eg: OTP/Demo/Bio - FMR)</td><td>All Authentication Usages not allowed as per policy</td></tr>
+<tr><td>IDA-MPA-007</td><td>License key does not belong to a registered MISP</td><td>License key does not belong to a registered MISP/ License key invalid</td></tr>
+<tr><td>IDA-MPA-008</td><td>License key of MISP has expired</td><td>License key expired</td></tr>
+<tr><td>IDA-MPA-009</td><td>Partner is not registered</td><td>PartnerID Invalid</td></tr>
+<tr><td>IDA-MPA-010</td><td>MISP and Partner not mapped</td><td>MISP and Partner not</td></tr>
+<tr><td>IDA-MPA-011</td><td>License key of MISP is suspended</td><td>License key status of MISP is suspended</td></tr>
+<tr><td>IDA-MPA-012</td><td>Partner is deactivated</td><td>PartnerID is not active</td></tr>
+<tr><td>IDA-MPA-013</td><td>Partner is unauthorised for eKYC</td><td>Partner has no permission for e-KYC</td></tr>
+<tr><td>IDA-MPA-014</td><td>Partner is not assigned with any policy</td><td>PartnerID is not mapped to a policy</td></tr>
+<tr><td>IDA-MPA-015</td><td>&lt;Auth Type&gt; - &lt;Sub Type&gt; (if applicable) Authentiation Usage is mandatory as per policy (Eg: OTP/Demo/Bio - FMR)</td><td>Mandatory Auth Type as per policy of the partner is not available in the auth request</td></tr>
+<tr><td>IDA-MPA-016</td><td>HMAC Validation failed</td><td>HMAC value does not match</td></tr>
+<tr><td>IDA-MPA-017</td><td>License key of MISP is blocked</td><td>License key status of MISP is blocked</td></tr>
+<tr><td>IDA-OTA-003</td><td>OTP has expired</td><td>OTP expired</td><td>Please regenerate OTP and try again after sometime.</td></tr>
+<tr><td>IDA-OTA-004</td><td>OTP is invalid</td><td>OTP Invalid</td><td>Please provide correct OTP value.</td></tr>
+<tr><td>IDA-OTA-005</td><td>Input transactionID does not match transactionID of OTP Request</td><td>Invalid Transaction ID</td></tr>
+<tr><td>IDA-OTA-007</td><td>UIN is locked for OTP validation due to exceeding no of invalid OTP trials</td><td>Validate wrong OTP for exceeding no of retries</td></tr>
+<tr><td>IDA-OTA-010</td><td>Input Identity Type does not match Identity Type of OTP Request</td><td>Invalid Identity Type</td></tr>
+</tbody>
+</table>
+<h2><a class="anchor" aria-hidden="true" id="otp-request-service-public"></a><a href="#otp-request-service-public" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>OTP Request Service (Public)</h2>
+<p>This service enables Partners to request for an OTP for an Individual. The OTP will be send via message or email as requested to the Individual. This OTP can then be used to authenticate an Individual using Authentication or eKYC service.</p>
+<h4><a class="anchor" aria-hidden="true" id="users-of-otp-request-service"></a><a href="#users-of-otp-request-service" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Users of OTP Request service -</h4>
+<ol>
+<li><code>MISP (MOSIP Infrastructure Service Provider)</code> - MISP acts as a gate keeper for any OTP requests sent to this service. MISP is also responsible for the policy creation on the MOSIP servers so their partners will follow the set policy.</li>
+<li><code>Partners</code> - <em>Auth-Partners</em> and <em>eKYC-Partners</em> can send OTP Request to MOSIP on behalf of Individual for Authentication and eKYC requests respectively, via MISP.</li>
+</ol>
+<ul>
+<li><a href="#post-idauthenticationv1otp">POST /idauthentication/v1/otp/</a></li>
+</ul>
+<h3><a class="anchor" aria-hidden="true" id="post-idauthentication-v1-otp"></a><a href="#post-idauthentication-v1-otp" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>POST /idauthentication/v1/otp/</h3>
+<p>This request will send an OTP to the Individual.</p>
+<h4><a class="anchor" aria-hidden="true" id="resource-url-2"></a><a href="#resource-url-2" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Resource URL</h4>
+<div>https://mosip.io/idauthentication/v1/otp/:Partner-ID/:MISP-LicenseKey</div>
+<h4><a class="anchor" aria-hidden="true" id="resource-details-2"></a><a href="#resource-details-2" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Resource details</h4>
+<table>
+<thead>
+<tr><th>Resource Details</th><th>Description</th></tr>
+</thead>
+<tbody>
+<tr><td>Response format</td><td>JSON</td></tr>
+<tr><td>Requires Authentication</td><td>Yes</td></tr>
+</tbody>
+</table>
+<h4><a class="anchor" aria-hidden="true" id="request-body-parameters-2"></a><a href="#request-body-parameters-2" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Request Body Parameters</h4>
+<table>
+<thead>
+<tr><th>Name</th><th>Required</th><th>Description</th><th>Default Value</th><th>Example</th></tr>
+</thead>
+<tbody>
+<tr><td>id</td><td>Y</td><td>API Id</td><td>mosip.identity.otp</td></tr>
+<tr><td>version</td><td>Y</td><td>API version</td><td></td><td>v1</td></tr>
+<tr><td>transactionID</td><td>Y</td><td>Transaction ID of request</td><td></td><td>1234567890</td></tr>
+<tr><td>requestTime</td><td>Y</td><td>Time when Request was captured</td><td></td><td>2019-02-15T10:01:57.086+05:30</td></tr>
+<tr><td>individualId</td><td>Y</td><td>VID</td><td></td><td>9830872690593682</td></tr>
+<tr><td>individualIdType</td><td>Y</td><td>Allowed Type of Individual ID - VID, UIN</td><td>VID</td></tr>
+<tr><td>otpChannel</td><td>Y</td><td>Allowed OTP Channels - EMAIL, PHONE</td><td></td><td>true</td></tr>
+</tbody>
+</table>
+<h4><a class="anchor" aria-hidden="true" id="request-body-2"></a><a href="#request-body-2" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Request Body</h4>
+<pre><code class="hljs css language-JSON">{
+  <span class="hljs-attr">"id"</span>: <span class="hljs-string">"mosip.identity.otp"</span>,
+  <span class="hljs-attr">"version"</span>: <span class="hljs-string">"v1"</span>,
+  <span class="hljs-attr">"requestTime"</span>: <span class="hljs-string">"2019-02-15T07:22:57.086+05:30"</span>,
+  <span class="hljs-attr">"transactionID"</span>: <span class="hljs-string">"txn12345"</span>,
+  <span class="hljs-attr">"individualId"</span>: <span class="hljs-string">"9830872690593682"</span>,
+  <span class="hljs-attr">"individualIdType"</span>: <span class="hljs-string">"VID"</span>,
+  <span class="hljs-attr">"otpChannel"</span>: [
+    <span class="hljs-string">"EMAIL"</span>,
+    <span class="hljs-string">"PHONE"</span>
+  ]
+}
+</code></pre>
+<h4><a class="anchor" aria-hidden="true" id="responses-2"></a><a href="#responses-2" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Responses:</h4>
+<h5><a class="anchor" aria-hidden="true" id="success-response-2"></a><a href="#success-response-2" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Success Response:</h5>
+<h6><a class="anchor" aria-hidden="true" id="status-code-200-ok-4"></a><a href="#status-code-200-ok-4" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Status Code : 200 (OK)</h6>
+<h6><a class="anchor" aria-hidden="true" id="description-otp-for-authentication-or-kyc-service-was-successfully-sent-to-the-individual"></a><a href="#description-otp-for-authentication-or-kyc-service-was-successfully-sent-to-the-individual" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Description : OTP for Authentication or KYC Service was successfully sent to the Individual</h6>
+<pre><code class="hljs css language-JSON">{
+  <span class="hljs-comment">//API Metadata</span>
+  <span class="hljs-attr">"id"</span>: <span class="hljs-string">"mosip.identity.otp"</span>,
+  <span class="hljs-attr">"version"</span>: <span class="hljs-string">"v1"</span>,
+  <span class="hljs-attr">"responseTime"</span>: <span class="hljs-string">"2019-02-15T07:23:19.590+05:30"</span>,
+  <span class="hljs-comment">//Response Metadata</span>
+  <span class="hljs-attr">"transactionID"</span>: <span class="hljs-string">"txn12345"</span>,
+  <span class="hljs-comment">//OTP Response</span>
+  <span class="hljs-attr">"response"</span>: {
+    <span class="hljs-attr">"maskedMobile"</span>: <span class="hljs-string">"XXXXXXX123"</span>,
+    <span class="hljs-attr">"maskedEmail"</span>: <span class="hljs-string">"abXXXXXXXXXcd@xyz.com"</span>
+  },
+  <span class="hljs-attr">"errors"</span>: <span class="hljs-literal">null</span>
+}
+</code></pre>
+<h5><a class="anchor" aria-hidden="true" id="failed-response-2"></a><a href="#failed-response-2" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Failed Response:</h5>
+<h6><a class="anchor" aria-hidden="true" id="status-code-200-ok-5"></a><a href="#status-code-200-ok-5" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Status Code : 200 (OK)</h6>
+<h6><a class="anchor" aria-hidden="true" id="description-failed-to-send-otp-to-the-individual"></a><a href="#description-failed-to-send-otp-to-the-individual" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Description : Failed to send OTP to the Individual</h6>
+<pre><code class="hljs css language-JSON">{
+  <span class="hljs-comment">//API Metadata</span>
+  <span class="hljs-attr">"id"</span>: <span class="hljs-string">"mosip.identity.otp"</span>,
+  <span class="hljs-attr">"version"</span>: <span class="hljs-string">"v1"</span>,
+  <span class="hljs-attr">"responseTime"</span>: <span class="hljs-string">"2019-02-15T07:23:19.590+05:30"</span>,
+  <span class="hljs-comment">//Response Metadata</span>
+  <span class="hljs-attr">"transactionID"</span>: <span class="hljs-string">"txn12345"</span>,
+  <span class="hljs-comment">//OTP Response</span>
+  <span class="hljs-attr">"response"</span>: <span class="hljs-literal">null</span>,
+  <span class="hljs-attr">"errors"</span>: [
+    {
+      <span class="hljs-attr">"errorCode"</span>: <span class="hljs-string">"IDA-MLC-003"</span>,
+      <span class="hljs-attr">"errorMessage"</span>: <span class="hljs-string">"Invalid VID"</span>,
+      <span class="hljs-attr">"actionMessage"</span>: <span class="hljs-string">"Please retry with correct VID"</span>
+    }
+  ]
+}
+</code></pre>
+<h5><a class="anchor" aria-hidden="true" id="failure-details-2"></a><a href="#failure-details-2" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Failure Details</h5>
+<table>
+<thead>
+<tr><th>Error Code</th><th>Error Message</th><th>Description</th><th>Action Message</th></tr>
+</thead>
+<tbody>
+<tr><td>IDA-MLC-001</td><td>Request to be received at MOSIP within&lt;x&gt; hrs/min</td><td>Invalid Time stamp</td><td>Please send the request within &lt;x&gt; hrs/min</td></tr>
+<tr><td>IDA-MLC-002</td><td>Invalid UIN</td><td>Invalid UIN</td><td>Please retry with the correct UIN.</td></tr>
+<tr><td>IDA-MLC-003</td><td>UIN has been deactivated</td><td>UIN Deactivated</td><td>Your UIN status is not active.</td></tr>
+<tr><td>IDA-MLC-004</td><td>Invalid VID</td><td>Invalid VID</td><td>Please retry with correct VID.</td></tr>
+<tr><td>IDA-MLC-005</td><td>%s VID</td><td>Expired,Used,Revoked VID</td><td>Please regenerate VID and try again</td></tr>
+<tr><td>IDA-MLC-006</td><td>Missing Input parameter- &lt;attribute&gt;  Example: Missing Input parameter- version</td><td>Missing Input parameter- attribute - all the mandatory attributes</td></tr>
+<tr><td>IDA-MLC-007</td><td>Request could not be processed. Please try again</td><td>Could not process request/Unknown error; Invalid Auth Request; Unable to encrypt eKYC response</td></tr>
+<tr><td>IDA-MLC-009</td><td>Invalid Input parameter- attribute</td><td>Invalid Input parameter- attribute</td></tr>
+<tr><td>IDA-MLC-010</td><td>VID has been deactivated</td><td>VID corresponding to a deactivated UIN</td></tr>
+<tr><td>IDA-MLC-014</td><td>&lt;Notification Channel&gt; not registered. Individual has to register and try again</td><td>&lt;Notification Channel&gt; not Registered (Phone/e-mail/both)</td><td>Please register your &lt;Notification Channel&gt; and try again</td></tr>
+<tr><td>IDA-MLC-015</td><td>Identity Type - &lt;Identity Type&gt; not configured for the country</td><td>ID Type (UIN/VID) not supported for a country</td></tr>
+<tr><td>IDA-MLC-017</td><td>Invalid UserID</td><td>Invalid UserID</td></tr>
+<tr><td>IDA-MLC-018</td><td>%s not available in database</td><td>UIN,VID, User ID not available in database</td></tr>
+<tr><td>IDA-MPA-004</td><td>MOSIP Public key expired.</td><td>MOSIP Public key expired</td><td>Please reinitiate the request with updated public key</td></tr>
+<tr><td>IDA-MPA-005</td><td>OTP Request Usage not allowed as per policy</td><td>OTP Trigger Usage not allowed as per policy</td></tr>
+<tr><td>IDA-MPA-007</td><td>License key does not belong to a registered MISP</td><td>License key does not belong to a registered MISP/ License key invalid</td></tr>
+<tr><td>IDA-MPA-008</td><td>License key of MISP has expired</td><td>License key expired</td></tr>
+<tr><td>IDA-MPA-009</td><td>Partner is not registered</td><td>PartnerID Invalid</td></tr>
+<tr><td>IDA-MPA-010</td><td>MISP and Partner not mapped</td><td>MISP and Partner not</td></tr>
+<tr><td>IDA-MPA-011</td><td>License key of MISP is suspended</td><td>License key status of MISP is suspended</td></tr>
+<tr><td>IDA-MPA-012</td><td>Partner is deactivated</td><td>PartnerID is not active</td></tr>
+<tr><td>IDA-MPA-014</td><td>Partner is not assigned with any policy</td><td>PartnerID is not mapped to a policy</td></tr>
+<tr><td>IDA-MPA-017</td><td>License key of MISP is blocked</td><td>License key status of MISP is blocked</td></tr>
+<tr><td>IDA-OTA-001</td><td>Innumerous OTP requests received</td><td>OTP Flooding error</td></tr>
+<tr><td>IDA-OTA-002</td><td>Could not generate/send OTP</td><td>Could not generate/send OTP</td></tr>
+<tr><td>IDA-OTA-006</td><td>UIN is locked for OTP generation. Please try again later</td><td>Try to generate OTP for a frozen Account</td></tr>
+<tr><td>IDA-OTA-008</td><td>OTP Notification Channel not provided.</td><td>No OTP Channel is provided in the input</td></tr>
+<tr><td>IDA-OTA-009</td><td>&lt;Notification Channel&gt; not configured for the country</td><td>&lt;Notification Channel&gt; not configured (Phone/e-mail/both)</td></tr>
+</tbody>
+</table>
+<h2><a class="anchor" aria-hidden="true" id="authentication-service-internal"></a><a href="#authentication-service-internal" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Authentication Service (Internal)</h2>
+<p>This service details authentication (yes/no auth) that can be used by MOSIP modules to authenticate an Individual using UserID/VID/UIN. Below are various authentication types supported by this service - Biometric based - Fingerprint, IRIS and Face</p>
+<h4><a class="anchor" aria-hidden="true" id="users-of-internal-authentication-service"></a><a href="#users-of-internal-authentication-service" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Users of Internal Authentication service -</h4>
+<ol>
+<li><code>Registration Client</code> - Registration Client can authenticate biometrics of Operator or Supervisor while onboarding them.</li>
+<li><code>Registration Processor</code> - Registration Processor can authenticate biometrics of Operator or Supervisor while processing registration packets.</li>
+</ol>
+<ul>
+<li><a href="#post-idauthenticationv1internalauth">POST /idauthentication/v1/internal/auth</a></li>
+</ul>
+<h3><a class="anchor" aria-hidden="true" id="post-idauthentication-v1-internal-auth"></a><a href="#post-idauthentication-v1-internal-auth" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>POST /idauthentication/v1/internal/auth</h3>
+<p>This request will authenticate an Operator/Supervisor using Biometric authentication.</p>
+<h4><a class="anchor" aria-hidden="true" id="resource-url-3"></a><a href="#resource-url-3" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Resource URL</h4>
+<div>https://mosip.io/idauthentication/v1/internal/auth</div>
+<h4><a class="anchor" aria-hidden="true" id="resource-details-3"></a><a href="#resource-details-3" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Resource details</h4>
+<table>
+<thead>
+<tr><th>Resource Details</th><th>Description</th></tr>
+</thead>
+<tbody>
+<tr><td>Response format</td><td>JSON</td></tr>
+<tr><td>Requires Authentication</td><td>Yes</td></tr>
+</tbody>
+</table>
+<h4><a class="anchor" aria-hidden="true" id="request-body-parameters-3"></a><a href="#request-body-parameters-3" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Request Body Parameters</h4>
+<table>
+<thead>
+<tr><th>Name</th><th>Required</th><th>Description</th><th>Default Value</th><th>Example</th></tr>
+</thead>
+<tbody>
+<tr><td>id</td><td>Y</td><td>API Id</td><td></td><td>mosip.identity.auth.internal</td></tr>
+<tr><td>version</td><td>Y</td><td>API version</td><td></td><td>v1</td></tr>
+<tr><td>transactionID</td><td>Y</td><td>Transaction ID of request</td><td></td><td>1234567890</td></tr>
+<tr><td>requestTime</td><td>Y</td><td>Time when Request was captured</td><td></td><td>2019-02-15T10:01:57.086+05:30</td></tr>
+<tr><td>requestedAuth</td><td>Y</td><td>Authentication Types requested</td><td></td></tr>
+<tr><td>requestedAuth: otp</td><td>Y</td><td>OTP Authentication Type</td><td>false</td><td>false</td></tr>
+<tr><td>requestedAuth: demo</td><td>Y</td><td>Demographic Authentication Type</td><td>false</td><td>false</td></tr>
+<tr><td>requestedAuth: bio</td><td>Y</td><td>Biometric Authentication Type</td><td>false</td><td>false</td></tr>
+<tr><td>individualId</td><td>Y</td><td>UserID of Operator/Supervisor</td><td></td><td>9830872690593682</td></tr>
+<tr><td>individualIdType</td><td>Y</td><td>Allowed Type of Individual ID - USERID, VID, UIN</td><td>USERID</td></tr>
+<tr><td>consentObtained</td><td>Y</td><td>If consent of Individual is obtained</td><td>true</td></tr>
+<tr><td>keyIndex</td><td>Y</td><td>Thumbprint of public key certificate used for encryption of sessionKey</td></tr>
+<tr><td>requestSessionKey</td><td>Y</td><td>Session Key encrypted using MOSIP Public Key</td><td></td></tr>
+<tr><td>requestHMAC</td><td>Y</td><td>sha256 of request block before encryption and hash is encrypted using requestSessionKey</td><td></td></tr>
+<tr><td>request</td><td>Y</td><td>Auth request attributes to be used for authenticating Individual</td><td></td></tr>
+<tr><td>request: timestamp</td><td>N</td><td>Timestamp when request block was captured</td><td></td></tr>
+<tr><td>request: biometrics</td><td>N</td><td>Biometric data of an Individual</td><td></td></tr>
+</tbody>
+</table>
+<h4><a class="anchor" aria-hidden="true" id="request-body-3"></a><a href="#request-body-3" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Request Body</h4>
+<pre><code class="hljs css language-JSON">{
+  <span class="hljs-attr">"id"</span>: <span class="hljs-string">"mosip.identity.auth.internal"</span>,
+  <span class="hljs-attr">"version"</span>: <span class="hljs-string">"v1"</span>,
+  <span class="hljs-attr">"requestTime"</span>: <span class="hljs-string">"2019-02-15T10:01:57.086+05:30"</span>,
+  <span class="hljs-attr">"transactionID"</span>: <span class="hljs-string">"1234567890"</span>,
+  <span class="hljs-attr">"requestedAuth"</span>: {
+    <span class="hljs-attr">"bio"</span>: <span class="hljs-literal">true</span>,
+    <span class="hljs-attr">"demo"</span>: <span class="hljs-literal">false</span>
+  },
+  <span class="hljs-attr">"consentObtained"</span>: <span class="hljs-literal">true</span>,
+  <span class="hljs-attr">"individualId"</span>: <span class="hljs-string">"9830872690593682"</span>,
+  <span class="hljs-attr">"individualIdType"</span>: <span class="hljs-string">"USERID"</span>,
+  <span class="hljs-attr">"keyIndex"</span>: <span class="hljs-string">"&lt;thumbprint of the public key certificate used for encryption of sessionKey. This is necessary for key rotaion&gt;"</span>,
+  <span class="hljs-attr">"requestSessionKey"</span>: <span class="hljs-string">"&lt;encrypted with MOSIP public key and encoded session key&gt;"</span>,
+  <span class="hljs-attr">"requestHMAC"</span>: <span class="hljs-string">"&lt;sha256 of the request block before encryption and the hash is encrypted using the requestSessionKey&gt;"</span>,
+  <span class="hljs-attr">"request"</span>: { <span class="hljs-comment">// Encrypted with session key and base64 encoded</span>
+    <span class="hljs-attr">"timestamp"</span>: <span class="hljs-string">"2019-02-15T10:01:56.086+05:30 - ISO format timestamp"</span>,
+    <span class="hljs-attr">"biometrics"</span>: [
+      {
+        <span class="hljs-attr">"data"</span>: { <span class="hljs-comment">// Base64 encoded</span>
+          <span class="hljs-attr">"bioType"</span>: <span class="hljs-string">"FMR"</span>,
+          <span class="hljs-attr">"bioSubType"</span>: <span class="hljs-string">"UNKNOWN"</span>,
+          <span class="hljs-attr">"bioValue"</span>: <span class="hljs-string">"&lt;encrypted with session key and base64 encoded biometric data&gt;"</span>,
+        },
+        <span class="hljs-attr">"hash"</span>: <span class="hljs-string">"sha256(sha256 hash of the previous data block + sha256 of the current data block before encoding)"</span>,
+        <span class="hljs-attr">"sessionKey"</span>: <span class="hljs-string">"&lt;encrypted with MOSIP public key and encoded session key biometric&gt;"</span>,
+        <span class="hljs-attr">"signature"</span>: <span class="hljs-string">"base64 signature of the data and metaData block"</span>
+      },
+      {
+        <span class="hljs-attr">"data"</span>: { <span class="hljs-comment">// Base64 encoded</span>
+          <span class="hljs-attr">"bioType"</span>: <span class="hljs-string">"IIR"</span>,
+          <span class="hljs-attr">"bioSubType"</span>: <span class="hljs-string">"RIGHT"</span>,
+          <span class="hljs-attr">"bioValue"</span>: <span class="hljs-string">"&lt;encrypted with session key and base64 encoded biometric data&gt;"</span>,
+        },
+        <span class="hljs-attr">"hash"</span>: <span class="hljs-string">"sha256(sha256 hash of the previous data block + sha256 of the current data block before encoding)"</span>,
+        <span class="hljs-attr">"sessionKey"</span>: <span class="hljs-string">"&lt;encrypted with MOSIP public key and encoded session key biometric&gt;"</span>,
+        <span class="hljs-attr">"signature"</span>: <span class="hljs-string">"base64 signature of the data and metaData block"</span>
+      }
+    ]
+  }
+}
+</code></pre>
+<h4><a class="anchor" aria-hidden="true" id="responses-3"></a><a href="#responses-3" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Responses:</h4>
+<h5><a class="anchor" aria-hidden="true" id="success-response-3"></a><a href="#success-response-3" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Success Response:</h5>
+<h6><a class="anchor" aria-hidden="true" id="status-code-200-ok-6"></a><a href="#status-code-200-ok-6" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Status Code : 200 (OK)</h6>
+<h6><a class="anchor" aria-hidden="true" id="description-successfully-authenticated-an-individual-1"></a><a href="#description-successfully-authenticated-an-individual-1" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Description : Successfully authenticated an Individual</h6>
+<pre><code class="hljs css language-JSON">{
+  <span class="hljs-comment">//API Metadata</span>
+  <span class="hljs-attr">"id"</span>: <span class="hljs-string">"mosip.identity.auth.internal"</span>,
+  <span class="hljs-attr">"version"</span>: <span class="hljs-string">"v1"</span>,
+  <span class="hljs-attr">"responseTime"</span>: <span class="hljs-string">"2019-02-15T07:23:19.590+05:30"</span>,
+  <span class="hljs-comment">//Response Metadata</span>
+  <span class="hljs-attr">"transactionID"</span>: <span class="hljs-string">"1234567890"</span>,
+  <span class="hljs-comment">//Auth Response</span>
+  <span class="hljs-attr">"response"</span>: {
+    <span class="hljs-attr">"authStatus"</span>: <span class="hljs-literal">true</span>
+  },
+  <span class="hljs-attr">"errors"</span>: <span class="hljs-literal">null</span>
+}
+</code></pre>
+<h5><a class="anchor" aria-hidden="true" id="failed-response-3"></a><a href="#failed-response-3" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Failed Response:</h5>
+<h6><a class="anchor" aria-hidden="true" id="status-code-200-ok-7"></a><a href="#status-code-200-ok-7" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Status Code : 200 (OK)</h6>
+<h6><a class="anchor" aria-hidden="true" id="description-authentication-of-an-individual-failed-1"></a><a href="#description-authentication-of-an-individual-failed-1" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Description : Authentication of an Individual failed</h6>
+<pre><code class="hljs css language-JSON">{
+  <span class="hljs-comment">//API Metadata</span>
+  <span class="hljs-attr">"id"</span>: <span class="hljs-string">"mosip.identity.auth.internal"</span>,
+  <span class="hljs-attr">"version"</span>: <span class="hljs-string">"v1"</span>,
+  <span class="hljs-attr">"responseTime"</span>: <span class="hljs-string">"2019-02-15T07:23:19.590+05:30"</span>,
+  <span class="hljs-comment">//Response Metadata</span>
+  <span class="hljs-attr">"transactionID"</span>: <span class="hljs-string">"1234567890"</span>,
+  <span class="hljs-comment">//Auth Response</span>
+  <span class="hljs-attr">"response"</span>: {
+    <span class="hljs-attr">"authStatus"</span>: <span class="hljs-literal">false</span>
+  },
+  <span class="hljs-attr">"errors"</span>: [
+    {
+      <span class="hljs-attr">"errorCode"</span>: <span class="hljs-string">"IDA-MLC-009"</span>,
+      <span class="hljs-attr">"errorMessage"</span>: <span class="hljs-string">"Invalid UserId"</span>,
+      <span class="hljs-attr">"actionMessage"</span>: <span class="hljs-string">"Please retry with the correct UserId"</span>
+    }
+  ]
+}
+</code></pre>
+<h5><a class="anchor" aria-hidden="true" id="failure-details-3"></a><a href="#failure-details-3" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Failure Details</h5>
+<table>
+<thead>
+<tr><th>Error Code</th><th>Error Message</th><th>Description</th><th>Action Message</th></tr>
+</thead>
+<tbody>
+<tr><td>IDA-BIA-001</td><td>Biometric data – &lt;Biometric Attribute&gt; did not match</td><td>FMR,IIR,FID Mismatch</td><td>Please give your biometrics again.</td></tr>
+<tr><td>IDA-BIA-002</td><td>Duplicate fingers in request.</td><td>Duplicate fingers</td><td>Please try again with distinct fingers</td></tr>
+<tr><td>IDA-BIA-003</td><td>Number of FMR should not exceed 2.</td><td>Fingers exceeding 2</td></tr>
+<tr><td>IDA-BIA-006</td><td>Biometric data &lt;Biometric Attribute&gt; not available in database.</td><td>Missing biometric data in MOSIP database</td><td>Your Biometric data is not available in MOSIP</td></tr>
+<tr><td>IDA-BIA-007</td><td>Duplicate Irises in request.</td><td>Duplicate Irises used</td><td>Please try again with distinct Irises</td></tr>
+<tr><td>IDA-BIA-008</td><td>Number of IIR should not exceed 2.</td><td>Irises exceeding 2</td></tr>
+<tr><td>IDA-BIA-009</td><td>Number of FID records should not exceed 1.</td><td>Face exceeding 1</td></tr>
+<tr><td>IDA-BIA-013</td><td>Number of FMR should not exceed 10.</td><td>Fingers exceeding 10 for Internal Auth</td></tr>
+<tr><td>IDA-MLC-001</td><td>Request to be received at MOSIP within&lt;x&gt; hrs/min</td><td>Invalid Time stamp</td><td>Please send the request within &lt;x&gt; hrs/min</td></tr>
+<tr><td>IDA-MLC-002</td><td>Invalid UIN</td><td>Invalid UIN</td><td>Please retry with the correct UIN.</td></tr>
+<tr><td>IDA-MLC-003</td><td>UIN has been deactivated</td><td>UIN Deactivated</td><td>Your UIN status is not active.</td></tr>
+<tr><td>IDA-MLC-006</td><td>Missing Input parameter- &lt;attribute&gt;  Example: Missing Input parameter- version</td><td>Missing Input parameter- attribute - all the mandatory attributes</td></tr>
+<tr><td>IDA-MLC-007</td><td>Request could not be processed. Please try again</td><td>Could not process request/Unknown error; Invalid Auth Request; Unable to encrypt eKYC response</td></tr>
+<tr><td>IDA-MLC-008</td><td>No authentication type selected</td><td>No authentication type selected in the request</td></tr>
+<tr><td>IDA-MLC-009</td><td>Invalid Input parameter- attribute</td><td>Invalid Input parameter- attribute</td></tr>
+<tr><td>IDA-MLC-011</td><td>Unsupported Authentication Type - &lt;Auth Type&gt; - &lt;SubType&gt; if applicable</td><td>Auth Type not supported for a country</td><td>Please use other Authentication Types in the request</td></tr>
+<tr><td>IDA-MLC-012</td><td>Individual's Consent is not available</td><td>Invalid resident consent for eKYC/Auth</td></tr>
+<tr><td>IDA-MLC-013</td><td>Missing  &lt;authtype&gt; auth attribute</td><td>Missing authtype parameter – when &lt;auth-type&gt; = ‘True’ and corresponding auth attribute missing (OTP,Demo and Bio)</td></tr>
+<tr><td>IDA-MLC-014</td><td>&lt;Notification Channel&gt; not registered. Individual has to register and try again</td><td>&lt;Notification Channel&gt; not Registered (Phone/e-mail/both)</td><td>Please register your &lt;Notification Channel&gt; and try again</td></tr>
+<tr><td>IDA-MLC-015</td><td>Identity Type - &lt;Identity Type&gt; not configured for the country</td><td>ID Type (UIN/USERID) not supported for a country</td></tr>
+<tr><td>IDA-MLC-017</td><td>Invalid UserID</td><td>Invalid UserID</td></tr>
+<tr><td>IDA-MLC-018</td><td>%s not available in database</td><td>UIN, User ID not available in database</td></tr>
+<tr><td>IDA-MPA-003</td><td>Unable to decrypt Request.</td><td>Invalid encryption of session key/request</td></tr>
+<tr><td>IDA-MPA-004</td><td>MOSIP Public key expired.</td><td>MOSIP Public key expired</td><td>Please reinitiate the request with updated public key</td></tr>
+</tbody>
+</table>
+<h2><a class="anchor" aria-hidden="true" id="authentication-transactions-service-internal"></a><a href="#authentication-transactions-service-internal" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Authentication Transactions Service (Internal)</h2>
+<p>Authentication Transactions Service can be used by Resident Services to retrieve authentication history of an Individual initiated by Partners. Authentications done by MOSIP's internal modules for any verification will not be returned.</p>
+<h4><a class="anchor" aria-hidden="true" id="users-of-authentication-transactions-service"></a><a href="#users-of-authentication-transactions-service" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Users of Authentication Transactions Service -</h4>
+<ol>
+<li><code>Resident Services</code> - Resident Services will send UIN or VID to retrieve all authentication transactions of an Individual, that are initiated by Partners.</li>
+</ol>
+<ul>
+<li><a href="#get-idauthenticationv1internalauthtransactionsindividualidtypeidtypeindividualididpagestart1pagefetch10">GET /idauthentication/v1/internal/authTransactions/individualIdType/:IDType/individualId/:ID?pageStart=1&amp;pageFetch=10</a></li>
+</ul>
+<h3><a class="anchor" aria-hidden="true" id="get-idauthentication-v1-internal-authtransactions-individualidtype-idtype-individualid-idpagestart-1-pagefetch-10"></a><a href="#get-idauthentication-v1-internal-authtransactions-individualidtype-idtype-individualid-idpagestart-1-pagefetch-10" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>GET /idauthentication/v1/internal/authTransactions/individualIdType/:IDType/individualId/:ID?pageStart=1&amp;pageFetch=10</h3>
+<p>This request will retrieve authentication transactions for the given UIN/VID, alongwith pageStart and pageFetch parameters.</p>
+<h4><a class="anchor" aria-hidden="true" id="resource-url-4"></a><a href="#resource-url-4" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Resource URL</h4>
+<div>https://mosip.io/idauthentication/v1/internal/authTransactions/individualIdType/:IDType/individualId/:ID?pageStart=1&pageFetch=10</div>
+<h4><a class="anchor" aria-hidden="true" id="resource-details-4"></a><a href="#resource-details-4" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Resource details</h4>
+<table>
+<thead>
+<tr><th>Resource Details</th><th>Description</th></tr>
+</thead>
+<tbody>
+<tr><td>Response format</td><td>JSON</td></tr>
+<tr><td>Requires Authentication</td><td>Yes</td></tr>
+</tbody>
+</table>
+<h4><a class="anchor" aria-hidden="true" id="request-query-parameters"></a><a href="#request-query-parameters" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Request Query Parameters</h4>
+<p>The authentication transactions can be queried using this REST service for certain count of transactions which can be retrieved for given pageStart number with pageFetch. The default pageStart value is 1. The default pageFetch value is 10. This default pageFetch value will be taken into account only if the pageStart is provided. If both pageStart and pageFetch values are not provided, all the authentication transactions for the UIN/VID are returned in the response.</p>
+<table>
+<thead>
+<tr><th>Name</th><th>Required</th><th>Description</th><th>Default Value</th><th>Example</th></tr>
+</thead>
+<tbody>
+<tr><td>pageStart</td><td>N</td><td>The page number to start</td><td>1</td><td>2</td></tr>
+<tr><td>pageFetch</td><td>N</td><td>The number of entries per page</td><td>10</td><td>20</td></tr>
+</tbody>
+</table>
+<h4><a class="anchor" aria-hidden="true" id="responses-4"></a><a href="#responses-4" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Responses:</h4>
+<h5><a class="anchor" aria-hidden="true" id="success-response-4"></a><a href="#success-response-4" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Success Response:</h5>
+<h6><a class="anchor" aria-hidden="true" id="status-code-200-ok-8"></a><a href="#status-code-200-ok-8" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Status Code : 200 (OK)</h6>
+<h6><a class="anchor" aria-hidden="true" id="description-successfully-retrieved-authentication-transactions"></a><a href="#description-successfully-retrieved-authentication-transactions" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Description : Successfully retrieved authentication transactions</h6>
+<pre><code class="hljs css language-JSON">{
+        <span class="hljs-comment">//API Metadata</span>
+    <span class="hljs-attr">"id"</span>: <span class="hljs-string">"mosip.identity.auth.transactions.read"</span>,
+    <span class="hljs-attr">"responseTime"</span>: <span class="hljs-string">"2019-07-11T07:30:59.383"</span>,
+    <span class="hljs-attr">"version"</span>: <span class="hljs-string">"v1"</span>,
+    <span class="hljs-attr">"errors"</span>: [],
+        <span class="hljs-comment">//Response</span>
+    <span class="hljs-attr">"response"</span>: {
+        <span class="hljs-attr">"authTransactions"</span>: [{
+                <span class="hljs-attr">"transactionID"</span>: <span class="hljs-string">"1234567890"</span>,
+                <span class="hljs-attr">"requestdatetime"</span>: <span class="hljs-string">"2019-07-10T07:28:59.383"</span>,
+                <span class="hljs-attr">"authtypeCode"</span>: <span class="hljs-string">"FINGERPRINT-AUTH"</span>,
+                <span class="hljs-attr">"statusCode"</span>: <span class="hljs-string">"Y"</span>,
+                <span class="hljs-attr">"statusComment"</span>: <span class="hljs-string">"Finger Authentication Success"</span>,
+                <span class="hljs-attr">"referenceIdType"</span>: <span class="hljs-string">"UIN"</span>,
+                <span class="hljs-attr">"entityName"</span>: <span class="hljs-string">""</span>
+            },
+            {
+                <span class="hljs-attr">"transactionID"</span>: <span class="hljs-string">"1234567891"</span>,
+                <span class="hljs-attr">"requestdatetime"</span>: <span class="hljs-string">"2019-07-11T07:29:59.383"</span>,
+                <span class="hljs-attr">"authtypeCode"</span>: <span class="hljs-string">"OTP-REQUEST"</span>,
+                <span class="hljs-attr">"statusCode"</span>: <span class="hljs-string">"F"</span>,
+                <span class="hljs-attr">"statusComment"</span>: <span class="hljs-string">"OTP Authentication Failed"</span>,
+                <span class="hljs-attr">"referenceIdType"</span>: <span class="hljs-string">"UIN"</span>,
+                <span class="hljs-attr">"entityName"</span>: <span class="hljs-string">""</span>
+            }
+        ]
+    }
+}
+</code></pre>
+<h5><a class="anchor" aria-hidden="true" id="failed-response-4"></a><a href="#failed-response-4" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Failed Response:</h5>
+<h6><a class="anchor" aria-hidden="true" id="status-code-200-ok-9"></a><a href="#status-code-200-ok-9" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Status Code : 200 (OK)</h6>
+<h6><a class="anchor" aria-hidden="true" id="description-failed-to-retrieve-authentication-transactions"></a><a href="#description-failed-to-retrieve-authentication-transactions" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Description : Failed to retrieve authentication transactions</h6>
+<pre><code class="hljs css language-JSON">{
+  <span class="hljs-comment">//API Metadata</span>
+  <span class="hljs-attr">"id"</span>: <span class="hljs-string">"mosip.identity.auth.transactions.read"</span>,
+  <span class="hljs-attr">"version"</span>: <span class="hljs-string">"v1"</span>,
+  <span class="hljs-attr">"responseTime"</span>: <span class="hljs-string">"2019-02-15T07:23:19.590+05:30"</span>,
+  <span class="hljs-attr">"errors"</span>: [
+    {
+      <span class="hljs-attr">"errorCode"</span>: <span class="hljs-string">"IDA-MLC-002"</span>,
+      <span class="hljs-attr">"errorMessage"</span>: <span class="hljs-string">"Invalid UIN"</span>,
+      <span class="hljs-attr">"actionMessage"</span>: <span class="hljs-string">"Please retry with the correct UIN"</span>
+    }
+  ]
+}
+</code></pre>
+<h5><a class="anchor" aria-hidden="true" id="failure-details-4"></a><a href="#failure-details-4" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Failure Details</h5>
+<table>
+<thead>
+<tr><th>Error Code</th><th>Error Message</th><th>Description</th><th>Action Message</th></tr>
+</thead>
+<tbody>
+<tr><td>IDA-MLC-001</td><td>Request to be received at MOSIP within&lt;x&gt; hrs/min</td><td>Invalid Time stamp</td><td>Please send the request within &lt;x&gt; hrs/min</td></tr>
+<tr><td>IDA-MLC-002</td><td>Invalid UIN</td><td>Invalid UIN</td><td>Please retry with the correct UIN.</td></tr>
+<tr><td>IDA-MLC-003</td><td>UIN has been deactivated</td><td>UIN Deactivated</td><td>Your UIN status is not active.</td></tr>
+<tr><td>IDA-MLC-007</td><td>Request could not be processed. Please try again</td><td>Could not process request/Unknown error; Invalid Auth Request</td></tr>
+<tr><td>IDA-MLC-009</td><td>Invalid Input parameter- attribute</td><td>Invalid Input parameter- attribute</td></tr>
+<tr><td>IDA-MLC-015</td><td>Identity Type - &lt;Identity Type&gt; not configured for the country</td><td>ID Type (UIN/USERID) not supported for a country</td></tr>
+<tr><td>IDA-MLC-018</td><td>%s not available in database</td><td>UIN, VID not available in database</td></tr>
+</tbody>
+</table>
+<h2><a class="anchor" aria-hidden="true" id="authentication-types-status-service-internal"></a><a href="#authentication-types-status-service-internal" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Authentication Types Status Service (Internal)</h2>
+<p>Authentication Types Status Service can be used by Resident Services to retrieve or update status (locked or unlocked) of Auth Types of an Individual using VID/UIN.</p>
+<h4><a class="anchor" aria-hidden="true" id="users-of-retrieve-authentication-types-status-service"></a><a href="#users-of-retrieve-authentication-types-status-service" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Users of Retrieve Authentication Types Status Service -</h4>
+<ol>
+<li><code>Resident Services</code> - Individual can request to lock or unlock one or more authentication types using Resident Services, which in turn calls this service to store or retrieve the auth type status.</li>
+</ol>
+<ul>
+<li><a href="#get-idauthenticationv1internalauthtypesstatusindividualidtypeidtypeindividualidid">GET /idauthentication/v1/internal/authtypes/status/individualIdType/:IDType/individualId/:ID</a></li>
+<li><a href="#put-idauthenticationv1internalauthtypesstatus">PUT /idauthentication/v1/internal/authtypes/status</a></li>
+</ul>
+<h3><a class="anchor" aria-hidden="true" id="get-idauthentication-v1-internal-authtypes-status-individualidtype-idtype-individualid-id"></a><a href="#get-idauthentication-v1-internal-authtypes-status-individualidtype-idtype-individualid-id" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>GET /idauthentication/v1/internal/authtypes/status/individualIdType/:IDType/individualId/:ID</h3>
+<p>This request will retrieve status (locked or unlocked) of Auth Types of an Individual using VID/UIN.</p>
+<h4><a class="anchor" aria-hidden="true" id="resource-url-5"></a><a href="#resource-url-5" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Resource URL</h4>
+<div>https://mosip.io/idauthentication/v1/internal/authtypes/status/individualIdType/:IDType/individualId/:ID</div>
+<h4><a class="anchor" aria-hidden="true" id="resource-details-5"></a><a href="#resource-details-5" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Resource details</h4>
+<table>
+<thead>
+<tr><th>Resource Details</th><th>Description</th></tr>
+</thead>
+<tbody>
+<tr><td>Response format</td><td>JSON</td></tr>
+<tr><td>Requires Authentication</td><td>Yes</td></tr>
+</tbody>
+</table>
+<h4><a class="anchor" aria-hidden="true" id="request-path-parameters"></a><a href="#request-path-parameters" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Request Path Parameters</h4>
+<table>
+<thead>
+<tr><th>Name</th><th>Required</th><th>Description</th><th>Default Value</th><th>Example</th></tr>
+</thead>
+<tbody>
+<tr><td>IDType</td><td>Y</td><td>UIN or VID</td><td></td><td>VID</td></tr>
+<tr><td>ID</td><td>Y</td><td>The value of IDType - UIN or VID</td><td></td><td>1234567890</td></tr>
+</tbody>
+</table>
+<h4><a class="anchor" aria-hidden="true" id="responses-5"></a><a href="#responses-5" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Responses:</h4>
+<h5><a class="anchor" aria-hidden="true" id="success-response-5"></a><a href="#success-response-5" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Success Response:</h5>
+<h6><a class="anchor" aria-hidden="true" id="status-code-200-ok-10"></a><a href="#status-code-200-ok-10" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Status Code : 200 (OK)</h6>
+<h6><a class="anchor" aria-hidden="true" id="description-successfully-retrieved-auth-type-status-list"></a><a href="#description-successfully-retrieved-auth-type-status-list" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Description : Successfully retrieved auth type status list</h6>
+<pre><code class="hljs css language-JSON">{
+  <span class="hljs-attr">"id"</span>: <span class="hljs-string">"mosip.identity.authtype.status.read"</span>,
+  <span class="hljs-attr">"version"</span>: <span class="hljs-string">"1.0"</span>,
+  <span class="hljs-attr">"requestTime"</span>: <span class="hljs-string">"2019-02-15T10:01:57.086+05:30"</span>,
+  <span class="hljs-attr">"individualId"</span>: <span class="hljs-string">"9830872690593682"</span>,
+  <span class="hljs-attr">"individualIdType"</span>: <span class="hljs-string">"VID"</span>,
+  <span class="hljs-attr">"request"</span>: {
+    <span class="hljs-comment">// Status of AuthTypes and AuthSubTypes</span>
+    <span class="hljs-attr">"authTypes"</span>: [
+      {
+        <span class="hljs-attr">"authType"</span>: <span class="hljs-string">"otp"</span>,
+        <span class="hljs-attr">"isLocked"</span>: <span class="hljs-literal">false</span>
+      },
+      {
+        <span class="hljs-attr">"authType"</span>: <span class="hljs-string">"demo"</span>,
+        <span class="hljs-attr">"isLocked"</span>: <span class="hljs-literal">false</span>
+      },
+      {
+        <span class="hljs-attr">"authType"</span>: <span class="hljs-string">"bio"</span>,
+        <span class="hljs-attr">"authSubType"</span>: <span class="hljs-string">"FMR"</span>,
+        <span class="hljs-attr">"isLocked"</span>: <span class="hljs-literal">true</span>
+      },
+      {
+        <span class="hljs-attr">"authType"</span>: <span class="hljs-string">"bio"</span>,
+        <span class="hljs-attr">"authSubType"</span>: <span class="hljs-string">"FIR"</span>,
+        <span class="hljs-attr">"isLocked"</span>: <span class="hljs-literal">true</span>
+      },
+      {
+        <span class="hljs-attr">"authType"</span>: <span class="hljs-string">"bio"</span>,
+        <span class="hljs-attr">"authSubType"</span>: <span class="hljs-string">"IIR"</span>,
+        <span class="hljs-attr">"isLocked"</span>: <span class="hljs-literal">true</span>
+      },
+      {
+        <span class="hljs-attr">"authType"</span>: <span class="hljs-string">"bio"</span>,
+        <span class="hljs-attr">"authSubType"</span>: <span class="hljs-string">"FID"</span>,
+        <span class="hljs-attr">"isLocked"</span>: <span class="hljs-literal">true</span>
+      }
+    ]
+  }
+}
+</code></pre>
+<h5><a class="anchor" aria-hidden="true" id="failed-response-5"></a><a href="#failed-response-5" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Failed Response:</h5>
+<h6><a class="anchor" aria-hidden="true" id="status-code-200-ok-11"></a><a href="#status-code-200-ok-11" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Status Code : 200 (OK)</h6>
+<h6><a class="anchor" aria-hidden="true" id="description-failed-to-retrieve-auth-type-status"></a><a href="#description-failed-to-retrieve-auth-type-status" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Description : Failed to retrieve auth type status</h6>
+<pre><code class="hljs css language-JSON">{
+  <span class="hljs-comment">//API Metadata</span>
+  <span class="hljs-attr">"id"</span>: <span class="hljs-string">"mosip.identity.authtype.status.read"</span>,
+  <span class="hljs-attr">"version"</span>: <span class="hljs-string">"v1"</span>,
+  <span class="hljs-attr">"responseTime"</span>: <span class="hljs-string">"2019-02-15T07:23:19.590+05:30"</span>,
+  <span class="hljs-attr">"errors"</span>: [
+    {
+      <span class="hljs-attr">"errorCode"</span>: <span class="hljs-string">"IDA-MLC-002"</span>,
+      <span class="hljs-attr">"errorMessage"</span>: <span class="hljs-string">"Invalid UIN"</span>,
+      <span class="hljs-attr">"actionMessage"</span>: <span class="hljs-string">"Please retry with the correct UIN"</span>
+    }
+  ]
+}
+</code></pre>
+<h5><a class="anchor" aria-hidden="true" id="failure-details-5"></a><a href="#failure-details-5" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Failure Details</h5>
+<table>
+<thead>
+<tr><th>Error Code</th><th>Error Message</th><th>Description</th><th>Action Message</th></tr>
+</thead>
+<tbody>
+<tr><td>IDA-MLC-001</td><td>Request to be received at MOSIP within&lt;x&gt; hrs/min</td><td>Invalid Time stamp</td><td>Please send the request within &lt;x&gt; hrs/min</td></tr>
+<tr><td>IDA-MLC-002</td><td>Invalid UIN</td><td>Invalid UIN</td><td>Please retry with the correct UIN.</td></tr>
+<tr><td>IDA-MLC-003</td><td>UIN has been deactivated</td><td>UIN Deactivated</td><td>Your UIN status is not active.</td></tr>
+<tr><td>IDA-MLC-007</td><td>Request could not be processed. Please try again</td><td>Could not process request/Unknown error; Invalid Auth Request</td></tr>
+<tr><td>IDA-MLC-009</td><td>Invalid Input parameter- attribute</td><td>Invalid Input parameter- attribute</td></tr>
+<tr><td>IDA-MLC-015</td><td>Identity Type - &lt;Identity Type&gt; not configured for the country</td><td>ID Type (UIN/USERID) not supported for a country</td></tr>
+<tr><td>IDA-MLC-018</td><td>%s not available in database</td><td>UIN, VID not available in database</td></tr>
+</tbody>
+</table>
+<h3><a class="anchor" aria-hidden="true" id="put-idauthentication-v1-internal-authtypes-status"></a><a href="#put-idauthentication-v1-internal-authtypes-status" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>PUT /idauthentication/v1/internal/authtypes/status</h3>
+<p>This request will lock or unlock one or more authenticate types for an Individual using VID/UIN.</p>
+<h4><a class="anchor" aria-hidden="true" id="resource-url-6"></a><a href="#resource-url-6" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Resource URL</h4>
+<div>https://mosip.io/idauthentication/v1/internal/authtypes/status</div>
+<h4><a class="anchor" aria-hidden="true" id="resource-details-6"></a><a href="#resource-details-6" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Resource details</h4>
+<table>
+<thead>
+<tr><th>Resource Details</th><th>Description</th></tr>
+</thead>
+<tbody>
+<tr><td>Response format</td><td>JSON</td></tr>
+<tr><td>Requires Authentication</td><td>Yes</td></tr>
+</tbody>
+</table>
+<h4><a class="anchor" aria-hidden="true" id="request-body-parameters-4"></a><a href="#request-body-parameters-4" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Request Body Parameters</h4>
+<table>
+<thead>
+<tr><th>Name</th><th>Required</th><th>Description</th><th>Default Value</th><th>Example</th></tr>
+</thead>
+<tbody>
+<tr><td>consentObtained</td><td>Y</td><td>Individual's consent</td><td></td></tr>
+<tr><td>id</td><td>Y</td><td>API Id</td><td>mosip.identity.otp</td></tr>
+<tr><td>version</td><td>Y</td><td>API version</td><td></td><td>v1</td></tr>
+<tr><td>transactionID</td><td>Y</td><td>Transaction ID of request</td><td></td><td>1234567890</td></tr>
+<tr><td>requestTime</td><td>Y</td><td>Time when Request was captured</td><td></td><td>2019-02-15T10:01:57.086+05:30</td></tr>
+<tr><td>individualId</td><td>Y</td><td>VID</td><td></td><td>9830872690593682</td></tr>
+<tr><td>individualIdType</td><td>Y</td><td>Allowed Type of Individual ID - VID, UIN</td><td>VID</td></tr>
+<tr><td>request</td><td>Y</td><td>Auth type status attributes to be applied for the Individual</td><td></td></tr>
+<tr><td>request: authTypes</td><td>Y</td><td>List of auth type status attributes to be applied for the Individual</td><td></td></tr>
+<tr><td>request: authTypes: authType</td><td>Y</td><td>Auth type to lock - otp, demo, bio</td><td></td><td>bio</td></tr>
+<tr><td>request: authTypes: authSubType</td><td>N</td><td>Auth sub type to lock (if applicable for the selected autType)</td><td></td><td>FIR</td></tr>
+<tr><td>request: authTypes: isLocked</td><td>Y</td><td>Boolean value (<code>true</code> or <code>false</code>) whether to lock or unlock the selected authType (and authSubType)</td><td></td><td>true</td></tr>
+</tbody>
+</table>
+<h4><a class="anchor" aria-hidden="true" id="request-body-4"></a><a href="#request-body-4" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Request Body</h4>
+<pre><code class="hljs css language-JSON">{
+  <span class="hljs-attr">"id"</span>: <span class="hljs-string">"mosip.identity.authtype.status.update"</span>,
+  <span class="hljs-attr">"version"</span>: <span class="hljs-string">"1.0"</span>,
+  <span class="hljs-attr">"requestTime"</span>: <span class="hljs-string">"2019-02-15T10:01:57.086+05:30"</span>,
+  <span class="hljs-attr">"consentObtained"</span>: <span class="hljs-literal">true</span>,
+  <span class="hljs-attr">"individualId"</span>: <span class="hljs-string">"9830872690593682"</span>,
+  <span class="hljs-attr">"individualIdType"</span>: <span class="hljs-string">"VID"</span>,
+  <span class="hljs-attr">"request"</span>: {
+    <span class="hljs-comment">// AuthTypes and AuthSubTypes present in the below list can be locked or unlocked</span>
+    <span class="hljs-attr">"authTypes"</span>: [
+      {
+        <span class="hljs-attr">"authType"</span>: <span class="hljs-string">"otp"</span>,
+        <span class="hljs-attr">"isLocked"</span>: <span class="hljs-literal">false</span>
+      },
+      {
+        <span class="hljs-attr">"authType"</span>: <span class="hljs-string">"demo"</span>,
+        <span class="hljs-attr">"isLocked"</span>: <span class="hljs-literal">false</span>
+      },
+      {
+        <span class="hljs-attr">"authType"</span>: <span class="hljs-string">"bio"</span>,
+        <span class="hljs-attr">"authSubType"</span>: <span class="hljs-string">"FMR"</span>,
+        <span class="hljs-attr">"isLocked"</span>: <span class="hljs-literal">true</span>
+      },
+      {
+        <span class="hljs-attr">"authType"</span>: <span class="hljs-string">"bio"</span>,
+        <span class="hljs-attr">"authSubType"</span>: <span class="hljs-string">"FIR"</span>,
+        <span class="hljs-attr">"isLocked"</span>: <span class="hljs-literal">true</span>
+      },
+      {
+        <span class="hljs-attr">"authType"</span>: <span class="hljs-string">"bio"</span>,
+        <span class="hljs-attr">"authSubType"</span>: <span class="hljs-string">"IIR"</span>,
+        <span class="hljs-attr">"isLocked"</span>: <span class="hljs-literal">true</span>
+      },
+      {
+        <span class="hljs-attr">"authType"</span>: <span class="hljs-string">"bio"</span>,
+        <span class="hljs-attr">"authSubType"</span>: <span class="hljs-string">"FID"</span>,
+        <span class="hljs-attr">"isLocked"</span>: <span class="hljs-literal">true</span>
+      }
+    ]
+  }
+}
+</code></pre>
+<h4><a class="anchor" aria-hidden="true" id="responses-6"></a><a href="#responses-6" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Responses:</h4>
+<h5><a class="anchor" aria-hidden="true" id="success-response-6"></a><a href="#success-response-6" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Success Response:</h5>
+<h6><a class="anchor" aria-hidden="true" id="status-code-200-ok-12"></a><a href="#status-code-200-ok-12" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Status Code : 200 (OK)</h6>
+<h6><a class="anchor" aria-hidden="true" id="description-successfully-updated-auth-type-status"></a><a href="#description-successfully-updated-auth-type-status" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Description : Successfully updated auth type status</h6>
+<pre><code class="hljs css language-JSON">{
+  <span class="hljs-comment">//API Metadata</span>
+  <span class="hljs-attr">"id"</span>: <span class="hljs-string">"mosip.identity.authtype.status.update"</span>,
+  <span class="hljs-attr">"version"</span>: <span class="hljs-string">"1.0"</span>,
+  <span class="hljs-attr">"responseTime"</span>: <span class="hljs-string">"2019-02-15T07:23:19.590+05:30"</span>,
+  <span class="hljs-attr">"errors"</span>: <span class="hljs-literal">null</span>
+}
+</code></pre>
+<h5><a class="anchor" aria-hidden="true" id="failed-response-6"></a><a href="#failed-response-6" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Failed Response:</h5>
+<h6><a class="anchor" aria-hidden="true" id="status-code-200-ok-13"></a><a href="#status-code-200-ok-13" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Status Code : 200 (OK)</h6>
+<h6><a class="anchor" aria-hidden="true" id="description-failed-to-update-auth-type-status"></a><a href="#description-failed-to-update-auth-type-status" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Description : Failed to update auth type status</h6>
+<pre><code class="hljs css language-JSON">{
+  <span class="hljs-comment">//API Metadata</span>
+  <span class="hljs-attr">"id"</span>: <span class="hljs-string">"mosip.identity.authtype.status.update"</span>,
+  <span class="hljs-attr">"version"</span>: <span class="hljs-string">"v1"</span>,
+  <span class="hljs-attr">"responseTime"</span>: <span class="hljs-string">"2019-02-15T07:23:19.590+05:30"</span>,
+  <span class="hljs-attr">"errors"</span>: [
+    {
+      <span class="hljs-attr">"errorCode"</span>: <span class="hljs-string">"IDA-MLC-002"</span>,
+      <span class="hljs-attr">"errorMessage"</span>: <span class="hljs-string">"Invalid UIN"</span>,
+      <span class="hljs-attr">"actionMessage"</span>: <span class="hljs-string">"Please retry with the correct UIN"</span>
+    }
+  ]
+}
+</code></pre>
+<h5><a class="anchor" aria-hidden="true" id="failure-details-6"></a><a href="#failure-details-6" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Failure Details</h5>
+<table>
+<thead>
+<tr><th>Error Code</th><th>Error Message</th><th>Description</th><th>Action Message</th></tr>
+</thead>
+<tbody>
+<tr><td>IDA-MLC-001</td><td>Request to be received at MOSIP within&lt;x&gt; hrs/min</td><td>Invalid Time stamp</td><td>Please send the request within &lt;x&gt; hrs/min</td></tr>
+<tr><td>IDA-MLC-002</td><td>Invalid UIN</td><td>Invalid UIN</td><td>Please retry with the correct UIN.</td></tr>
+<tr><td>IDA-MLC-003</td><td>UIN has been deactivated</td><td>UIN Deactivated</td><td>Your UIN status is not active.</td></tr>
+<tr><td>IDA-MLC-006</td><td>Missing Input parameter- &lt;attribute&gt;  Example: Missing Input parameter- version</td><td>Missing Input parameter- attribute - all the mandatory attributes</td></tr>
+<tr><td>IDA-MLC-007</td><td>Request could not be processed. Please try again</td><td>Could not process request/Unknown error; Invalid Auth Request</td></tr>
+<tr><td>IDA-MLC-009</td><td>Invalid Input parameter- attribute</td><td>Invalid Input parameter- attribute</td></tr>
+<tr><td>IDA-MLC-012</td><td>Individual's Consent is not available</td><td>Invalid resident consent for eKYC/Auth</td></tr>
+<tr><td>IDA-MLC-015</td><td>Identity Type - &lt;Identity Type&gt; not configured for the country</td><td>ID Type (UIN/USERID) not supported for a country</td></tr>
+<tr><td>IDA-MLC-018</td><td>%s not available in database</td><td>UIN, VID not available in database</td></tr>
+</tbody>
+</table>
+</span></div></article></div><div class="docs-prevnext"></div></div></div><nav class="onPageNav"><ul class="toc-headings"><li><a href="#authentication-service-public">Authentication Service (Public)</a><ul class="toc-headings"><li><a href="#post-idauthentication-v1-auth">POST /idauthentication/v1/auth/</a></li></ul></li><li><a href="#ekyc-service-public">eKYC Service (Public)</a><ul class="toc-headings"><li><a href="#post-idauthentication-v1-kyc">POST /idauthentication/v1/kyc/</a></li></ul></li><li><a href="#otp-request-service-public">OTP Request Service (Public)</a><ul class="toc-headings"><li><a href="#post-idauthentication-v1-otp">POST /idauthentication/v1/otp/</a></li></ul></li><li><a href="#authentication-service-internal">Authentication Service (Internal)</a><ul class="toc-headings"><li><a href="#post-idauthentication-v1-internal-auth">POST /idauthentication/v1/internal/auth</a></li></ul></li><li><a href="#authentication-transactions-service-internal">Authentication Transactions Service (Internal)</a><ul class="toc-headings"><li><a href="#get-idauthentication-v1-internal-authtransactions-individualidtype-idtype-individualid-idpagestart-1-amp-pagefetch-10">GET /idauthentication/v1/internal/authTransactions/individualIdType/:IDType/individualId/:ID?pageStart=1&amp;pageFetch=10</a></li></ul></li><li><a href="#authentication-types-status-service-internal">Authentication Types Status Service (Internal)</a><ul class="toc-headings"><li><a href="#get-idauthentication-v1-internal-authtypes-status-individualidtype-idtype-individualid-id">GET /idauthentication/v1/internal/authtypes/status/individualIdType/:IDType/individualId/:ID</a></li><li><a href="#put-idauthentication-v1-internal-authtypes-status">PUT /idauthentication/v1/internal/authtypes/status</a></li></ul></li></ul></nav></div><footer class="nav-footer" id="footer"><section class="sitemap"><a href="/mosip-temp-documentation" class="nav-home"><img src="/mosip-temp-documentationimg/favicon.ico" alt="MOSIP Documentation" width="66" height="58"/></a><div><h5>Docs</h5><a href="/mosip-temp-documentationdocs/en/doc1.html">Getting Started (or other categories)</a><a href="/mosip-temp-documentationdocs/en/doc2.html">Guides (or other categories)</a><a href="/mosip-temp-documentationdocs/en/doc3.html">API Reference (or other categories)</a></div><div><h5>Community</h5><a href="/mosip-temp-documentationen/users.html">User Showcase</a><a href="https://stackoverflow.com/questions/tagged/" target="_blank" rel="noreferrer noopener">Stack Overflow</a><a href="https://discordapp.com/">Project Chat</a><a href="https://twitter.com/" target="_blank" rel="noreferrer noopener">Twitter</a></div><div><h5>More</h5><a href="/mosip-temp-documentationblog">Blog</a><a href="https://github.com/">GitHub</a><a class="github-button" data-icon="octicon-star" data-count-href="/facebook/docusaurus/stargazers" data-show-count="true" data-count-aria-label="# stargazers on GitHub" aria-label="Star this project on GitHub">Star</a></div></section><a href="https://opensource.facebook.com/" target="_blank" rel="noreferrer noopener" class="fbOpenSource"><img src="/mosip-temp-documentationimg/oss_logo.png" alt="Facebook Open Source" width="170" height="45"/></a><section class="copyright">Copyright © 2019 Your Name or Your Company Name</section></footer></div></body></html>

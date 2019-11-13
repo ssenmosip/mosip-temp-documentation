@@ -1,0 +1,116 @@
+<!DOCTYPE html><html lang="en"><head><meta charSet="utf-8"/><meta http-equiv="X-UA-Compatible" content="IE=edge"/><title>FRS-MOSIP-Sub-Systems · MOSIP Documentation</title><meta name="viewport" content="width=device-width"/><meta name="generator" content="Docusaurus"/><meta name="description" content="## Table Of Content"/><meta name="docsearch:language" content="en"/><meta property="og:title" content="FRS-MOSIP-Sub-Systems · MOSIP Documentation"/><meta property="og:type" content="website"/><meta property="og:url" content="https://ssenmosip.github.io/mosip-temp-documentationindex"/><meta property="og:description" content="## Table Of Content"/><meta property="og:image" content="https://ssenmosip.github.io/mosip-temp-documentation/img/undraw_online.svg"/><meta name="twitter:card" content="summary"/><meta name="twitter:image" content="https://ssenmosip.github.io/mosip-temp-documentation/img/undraw_tweetstorm.svg"/><link rel="shortcut icon" href="/mosip-temp-documentationimg/favicon.ico"/><link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css"/><link rel="alternate" type="application/atom+xml" href="https://ssenmosip.github.io/mosip-temp-documentation/blog/atom.xml" title="MOSIP Documentation Blog ATOM Feed"/><link rel="alternate" type="application/rss+xml" href="https://ssenmosip.github.io/mosip-temp-documentation/blog/feed.xml" title="MOSIP Documentation Blog RSS Feed"/><script type="text/javascript" src="https://buttons.github.io/buttons.js"></script><script src="/mosip-temp-documentationjs/scrollSpy.js"></script><link rel="stylesheet" href="/mosip-temp-documentationcss/main.css"/><script src="/mosip-temp-documentationjs/codetabs.js"></script></head><body class="sideNavVisible separateOnPageNav"><div class="fixedHeaderContainer"><div class="headerWrapper wrapper"><header><a href="/mosip-temp-documentation"><img class="logo" src="/mosip-temp-documentationimg/favicon.ico" alt="MOSIP Documentation"/><h2 class="headerTitleWithLogo">MOSIP Documentation</h2></a><div class="navigationWrapper navigationSlider"><nav class="slidingNav"><ul class="nav-site nav-site-internal"><li class=""><a href="/mosip-temp-documentationdocs/Platform-Documentation" target="_self">Docs</a></li><li class=""><a href="/mosip-temp-documentationdocs/Getting-Started" target="_self">API</a></li><li class=""><a href="/mosip-temp-documentationContributor-Guide" target="_self">Help</a></li><li class=""><a href="/mosip-temp-documentationblog/" target="_self">Blog</a></li></ul></nav></div></header></div></div><div class="navPusher"><div class="docMainWrapper wrapper"><div class="container mainContainer"><div class="wrapper"><div class="post"><header class="postHeader"><h1 class="postHeaderTitle">FRS-MOSIP-Sub-Systems</h1></header><article><div><span><h2><a class="anchor" aria-hidden="true" id="table-of-content"></a><a href="#table-of-content" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Table Of Content</h2>
+<ul>
+<li><a href="#sub-systems">Sub-Systems</a>
+<ul>
+<li><a href="#1-uin-generation">1. UIN Generation</a> (MOS_PFM_SUB_FR_1)</li>
+<li><a href="#2-configuration-server">2. Configuration Server</a> (MOS_PFM_SUB_FR_2)</li>
+<li><a href="#3-audit-manager">3. Audit Manager</a> (MOS_PFM_SUB_FR_3)
+<ul>
+<li><a href="#31-log-manager">3.1 Log Manager</a></li>
+</ul></li>
+<li><a href="#4-ldap--authorization-wip">4. LDAP / Authorization</a> (MOS_PFM_SUB_FR_4)</li>
+</ul></li>
+</ul>
+<h1><a class="anchor" aria-hidden="true" id="sub-systems"></a><a href="#sub-systems" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Sub-Systems</h1>
+<h2><a class="anchor" aria-hidden="true" id="1-uin-generation"></a><a href="#1-uin-generation" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>1. UIN Generation</h2>
+<p>MOSIP generates a pool of UINs before the registration process and stores them.
+The number of UINs to be generated in a pool depends on a configuration to be done by the country depending on the peak registration requirements. UIN generation service will receive a request by Registration Processor to get a UIN. The service responds with an un-allocated UIN from the generated Pool.
+When the pool reaches a configured number of minimum UINs, MOSIP generates another pool of UIN.</p>
+<p>The UINs generated follow the following policies:</p>
+<ol>
+<li>UIN should not contain any alphanumeric characters</li>
+<li>UIN should not contain any repeating numbers for 2 or more than 2 digits</li>
+<li>UIN should not contain any sequential number for 3 or more than 3 digits</li>
+<li>UIN should not be generated sequentially</li>
+<li>UIN should not have repeated block of numbers for 2 or more than 2 digits</li>
+<li>The last digit in the number should be reserved for a checksum</li>
+<li>The number should not contain '0' or '1' as the first digit.</li>
+<li>First 5 digits should be different from the last 5 digits (E.g. 4345643456)</li>
+<li>First 5 digits should be different to the last 5 digits reversed (E.g. 4345665434)</li>
+<li>UIN should not be an ascending or descending cyclic figure (E.g. 4567890123, 6543210987)</li>
+<li>UIN should be different from the repetition of the first two digits 5 times (E.g. 3434343434)</li>
+<li>UIN should not contain three even adjacent digits (E.g. 3948613752)</li>
+<li>UIN should not contain ADMIN defined restricted number</li>
+</ol>
+<h2><a class="anchor" aria-hidden="true" id="2-configuration-server"></a><a href="#2-configuration-server" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>2. Configuration Server</h2>
+<p>MOSIP has a centralized config server where all the configuration elements are saved, including the platform config and ID Object schema.
+The Central config server provides following functionality:</p>
+<ol>
+<li>It provides functionality to read XML files and Property files</li>
+<li>It helps to manage all the configuration files stored at a centralized location in Git</li>
+<li>It provides a functionality to change the property for a micro-service, it can reflect the changes dynamically without redeploying the micro-service.</li>
+<li>This component allows all the configurations to come from a central server</li>
+</ol>
+<p><a href="Getting-Started#7-configuring-mosip-">Please refer the <strong>configuring MOSIP</strong> section in <strong>Getting Started guide</strong> for more details on the configuration server</a></p>
+<h2><a class="anchor" aria-hidden="true" id="3-audit-manager"></a><a href="#3-audit-manager" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>3. Audit Manager</h2>
+<p>The Audit Manager component receives a request to audit and store data, validates if the request is from an authorized source, securely store the requested data and respond back with an acknowledgement of storage (Success/Failure). This component will also ensure non-auditable data is not stored.
+Upon receiving a request to store audit logs with the input parameters the audit manager performs the following steps:</p>
+<ol>
+<li><p>Validates if all required input parameters have been received as listed below for each specific request</p>
+<ul>
+<li>Audit Event ID - Mandatory</li>
+<li>Audit Event name - Mandatory</li>
+<li>Audit Event Type - Mandatory</li>
+<li>Action DateTimestamp - Mandatory</li>
+<li>Host - Name - Mandatory</li>
+<li>Host - IP - Mandatory</li>
+<li>Application Id - Mandatory</li>
+<li>Application Name - Mandatory</li>
+<li>Session User Id - Mandatory</li>
+<li>Session User Name - Mandatory</li>
+<li>Module Name – Optional</li>
+<li>Module Id - Optional</li>
+<li>ID - Mandatory</li>
+<li>ID Type - Mandatory</li>
+<li>Logged Timestamp - Mandatory</li>
+<li>Audit Log Description - Optional</li>
+<li>cr_by, (Actor who has done the event) - Mandatory</li>
+<li>cr_dtimes, (When this row is inserted into Database) - Mandatory</li>
+</ul></li>
+<li><p>Validates if the Audit Request is not for one of the exempted events as listed in the Exempted Audit Event List/Table</p></li>
+<li><p>Time Stamp (format: yyyy-MM-ddThh:mm:ss) and Unique Audit ID are generated by the Audit manager component for each Audit REQuest</p></li>
+<li><p>All the input parameters received are stored in the audit Database</p></li>
+<li><p>PII data as listed below is not stored</p>
+<ul>
+<li>Name</li>
+<li>DOB</li>
+<li>Contact Number</li>
+<li>Citizenship</li>
+<li>Legal Status</li>
+<li>Gender</li>
+<li>Race/Ethnicity</li>
+<li>Any Government Identification Number</li>
+</ul></li>
+<li><p>Responds with the acknowledgment to source</p>
+<ul>
+<li>Success</li>
+<li>Failure</li>
+</ul></li>
+<li><p>Raises an alert in case of an exception</p></li>
+</ol>
+<h3><a class="anchor" aria-hidden="true" id="31-log-manager"></a><a href="#31-log-manager" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>3.1 Log Manager</h3>
+<p>Log manager provides following functionalities:</p>
+<ol>
+<li>Generate logs across the application</li>
+<li>Store generated logs in configured location</li>
+<li>Support for reading the logger configurations through as external file</li>
+<li>Support addition log level to a particular logger dynamically</li>
+</ol>
+<h2><a class="anchor" aria-hidden="true" id="4-ldap-authorization-wip"></a><a href="#4-ldap-authorization-wip" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>4. LDAP / Authorization (WIP)</h2>
+<p>MOSIP system can handle Authorization across core services and restricts access to Web-services as per the roles defined below:</p>
+<ol>
+<li>OTP manager: To be defined</li>
+<li>SMS Notification Manager API : To be defined</li>
+<li>Email Notification Manager API : To be defined</li>
+<li>Software Updater API - Master Data : To be defined</li>
+<li>Software Updater API - Configurations : To be defined</li>
+<li>Software Updater API - Public Keys : To be defined</li>
+<li>Crypto Service API : To be defined</li>
+<li>Key Manager API : To be defined</li>
+<li>Master Data APIs (All Create/Update/Delete) : To be defined</li>
+<li>UIN Generator : To be defined</li>
+<li>Audit Manager : To be defined</li>
+<li>OTP Notification Service : To be defined</li>
+<li>ID Repo Service : To be defined</li>
+</ol>
+</span></div></article></div><div class="docs-prevnext"></div></div></div><nav class="onPageNav"><ul class="toc-headings"><li><a href="#table-of-content">Table Of Content</a></li><li><a href="#1-uin-generation">1. UIN Generation</a></li><li><a href="#2-configuration-server">2. Configuration Server</a></li><li><a href="#3-audit-manager">3. Audit Manager</a><ul class="toc-headings"><li><a href="#31-log-manager">3.1 Log Manager</a></li></ul></li><li><a href="#4-ldap-authorization-wip">4. LDAP / Authorization (WIP)</a></li></ul></nav></div><footer class="nav-footer" id="footer"><section class="sitemap"><a href="/mosip-temp-documentation" class="nav-home"><img src="/mosip-temp-documentationimg/favicon.ico" alt="MOSIP Documentation" width="66" height="58"/></a><div><h5>Docs</h5><a href="/mosip-temp-documentationdocs/en/doc1.html">Getting Started (or other categories)</a><a href="/mosip-temp-documentationdocs/en/doc2.html">Guides (or other categories)</a><a href="/mosip-temp-documentationdocs/en/doc3.html">API Reference (or other categories)</a></div><div><h5>Community</h5><a href="/mosip-temp-documentationen/users.html">User Showcase</a><a href="https://stackoverflow.com/questions/tagged/" target="_blank" rel="noreferrer noopener">Stack Overflow</a><a href="https://discordapp.com/">Project Chat</a><a href="https://twitter.com/" target="_blank" rel="noreferrer noopener">Twitter</a></div><div><h5>More</h5><a href="/mosip-temp-documentationblog">Blog</a><a href="https://github.com/">GitHub</a><a class="github-button" data-icon="octicon-star" data-count-href="/facebook/docusaurus/stargazers" data-show-count="true" data-count-aria-label="# stargazers on GitHub" aria-label="Star this project on GitHub">Star</a></div></section><a href="https://opensource.facebook.com/" target="_blank" rel="noreferrer noopener" class="fbOpenSource"><img src="/mosip-temp-documentationimg/oss_logo.png" alt="Facebook Open Source" width="170" height="45"/></a><section class="copyright">Copyright © 2019 Your Name or Your Company Name</section></footer></div></body></html>

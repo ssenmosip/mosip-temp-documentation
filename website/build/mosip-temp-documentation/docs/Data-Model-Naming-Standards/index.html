@@ -1,0 +1,115 @@
+<!DOCTYPE html><html lang="en"><head><meta charSet="utf-8"/><meta http-equiv="X-UA-Compatible" content="IE=edge"/><title>Data-Model-Naming-Standards · MOSIP Documentation</title><meta name="viewport" content="width=device-width"/><meta name="generator" content="Docusaurus"/><meta name="description" content="## Audience"/><meta name="docsearch:language" content="en"/><meta property="og:title" content="Data-Model-Naming-Standards · MOSIP Documentation"/><meta property="og:type" content="website"/><meta property="og:url" content="https://ssenmosip.github.io/mosip-temp-documentationindex"/><meta property="og:description" content="## Audience"/><meta property="og:image" content="https://ssenmosip.github.io/mosip-temp-documentation/img/undraw_online.svg"/><meta name="twitter:card" content="summary"/><meta name="twitter:image" content="https://ssenmosip.github.io/mosip-temp-documentation/img/undraw_tweetstorm.svg"/><link rel="shortcut icon" href="/mosip-temp-documentationimg/favicon.ico"/><link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css"/><link rel="alternate" type="application/atom+xml" href="https://ssenmosip.github.io/mosip-temp-documentation/blog/atom.xml" title="MOSIP Documentation Blog ATOM Feed"/><link rel="alternate" type="application/rss+xml" href="https://ssenmosip.github.io/mosip-temp-documentation/blog/feed.xml" title="MOSIP Documentation Blog RSS Feed"/><script type="text/javascript" src="https://buttons.github.io/buttons.js"></script><script src="/mosip-temp-documentationjs/scrollSpy.js"></script><link rel="stylesheet" href="/mosip-temp-documentationcss/main.css"/><script src="/mosip-temp-documentationjs/codetabs.js"></script></head><body class="sideNavVisible separateOnPageNav"><div class="fixedHeaderContainer"><div class="headerWrapper wrapper"><header><a href="/mosip-temp-documentation"><img class="logo" src="/mosip-temp-documentationimg/favicon.ico" alt="MOSIP Documentation"/><h2 class="headerTitleWithLogo">MOSIP Documentation</h2></a><div class="navigationWrapper navigationSlider"><nav class="slidingNav"><ul class="nav-site nav-site-internal"><li class=""><a href="/mosip-temp-documentationdocs/Platform-Documentation" target="_self">Docs</a></li><li class=""><a href="/mosip-temp-documentationdocs/Getting-Started" target="_self">API</a></li><li class=""><a href="/mosip-temp-documentationContributor-Guide" target="_self">Help</a></li><li class=""><a href="/mosip-temp-documentationblog/" target="_self">Blog</a></li></ul></nav></div></header></div></div><div class="navPusher"><div class="docMainWrapper wrapper"><div class="container mainContainer"><div class="wrapper"><div class="post"><header class="postHeader"><h1 class="postHeaderTitle">Data-Model-Naming-Standards</h1></header><article><div><span><h2><a class="anchor" aria-hidden="true" id="audience"></a><a href="#audience" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Audience</h2>
+<ul>
+<li>Data Modelers</li>
+<li>DBAs</li>
+<li>Database Deverlopers</li>
+<li>Application Developers</li>
+</ul>
+<p>A simple and consistent naming convention for database objects, when followed rigorously, can help database application developers greatly.  This is because developers, once they get used to the convention, can quickly identify objects belonging to their application and are less likely to make mistakes regarding the contents of columns.  In fact, an inadequate or improperly followed convention can actually increase the development effort by unnecessarily tying the application code to intricacies of the database physical design and by making application developers overly dependent on the DBA’s.</p>
+<p>The purpose of this document is to propose a simple and consistent naming mechanism for all the objects in a database schema.  The naming convention is aimed at reducing the dependence of the application developers on the database administrator by naming objects in a way that unambiguously defines their contents.  Where applicable, there is also a mention of how not to name the object and the reasons for this.</p>
+<p>Of course, there can be no one absolute convention that will solve all naming problems and have universal appeal.  The conventions offered in this document are merely one way of naming things that are followed in MOSIP project.</p>
+<h1><a class="anchor" aria-hidden="true" id="common-naming-standards"></a><a href="#common-naming-standards" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Common Naming Standards</h1>
+<p>To name an object within the DB, the following common standards are followed</p>
+<ul>
+<li><strong>Singular Names to the entities</strong></li>
+<li><strong>Object name length to be less than 30 chars:</strong> To be compliant with other databases, the maximum length of the object name is restricted to 30 characters.</li>
+<li><strong>Lower case object names separated by underscore (_)</strong></li>
+<li><strong>Only defined abbreviations are used</strong></li>
+<li><strong>No prefix or suffix to the table names:</strong> Since most of the objects of MOSIP is created on their own databases, we will not have any prefix or suffix of the application / module name or abbreviation to the table or object name.</li>
+<li><strong>Each table is defined an alias, this alias is used in constraints and index names</strong></li>
+</ul>
+<h1><a class="anchor" aria-hidden="true" id="database-naming-standards"></a><a href="#database-naming-standards" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Database Naming Standards</h1>
+<p>The database names will follow the below naming convention
+<strong>mosip_</strong>&lt;abbreviated value of the application/module name&gt;</p>
+<h1><a class="anchor" aria-hidden="true" id="schema-naming-standards"></a><a href="#schema-naming-standards" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Schema Naming Standards</h1>
+<p>Schema name is named after the DB name, by default, without mosip_. If there are more than one schemas in a DB, then a proper single word name is assigned, either full word or an abbreviated word.</p>
+<h1><a class="anchor" aria-hidden="true" id="table-naming-standards"></a><a href="#table-naming-standards" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Table Naming Standards</h1>
+<p>The table name can have one or two words that describe the contents of the table separated by underscore (_). If there are more words then those can be abbreviated based on the standards. Making sure the table name length is less than 30.</p>
+<p>The description should always be in singular (for example, REGISTRATION, REG_TRANSACTION) since they are easier to use and are shorter.  Storing the name in plural could be cumbersome, especially in the case of tables used to resolve many-to-many relationships as these could have two plurals in the name.</p>
+<p>Table names should NOT denote whether the underlying object is a table or a view because this could change during the application cycle (for example, a join view may be converted to a pre-populated table for performance reasons or a table may be converted to a view to show some extra computed columns).</p>
+<p>An alias for each table is defined, this alias can be used in various other places like reference keys, indexes, constraints, etc.</p>
+<h1><a class="anchor" aria-hidden="true" id="index-naming-standards"></a><a href="#index-naming-standards" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Index Naming Standards</h1>
+<p>Indexes are named as &lt;table_name alias&gt;_&lt; col abbreviation &gt; <em>idx</em> &lt; n &gt;
+Here n is a number of 2 digits like 01, 02,... and column abbreviation is optional</p>
+<h1><a class="anchor" aria-hidden="true" id="key-naming-standards-primary-unique-foreign-keys"></a><a href="#key-naming-standards-primary-unique-foreign-keys" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Key Naming Standards (Primary, Unique, Foreign Keys)</h1>
+<p><strong>Primary Key:</strong>
+Each table should have a primary key, the key should be named as “pk_&lt;table_alias&gt;_&lt;column_name&gt;”. If it is a composite key, then in place of column name any meaning full name can be provided. PK should be defined on business key, in case for some reason a business key fields cannot be used to define a PK then add a surrogate key to the table.</p>
+<p><strong>Unique Key:</strong>
+If a surrogate is used as PK then create a unique key, on fields that uniquely defines a business key. The naming of the unique key should be “uk_&lt;table_alias&gt;_&lt;column_names&gt;”.</p>
+<p><strong>Foreign Key:</strong>
+Any references from a table with the master / other tables, the creating a foreign key is mandatory. This helps maintain referential integrity. Foreign key can be named as FK_<referring table alias>_<referred table alias></p>
+<h1><a class="anchor" aria-hidden="true" id="datatype-domains"></a><a href="#datatype-domains" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Datatype Domains</h1>
+<p>PostgreSQL has an inbuilt support to domains (standard datatypes) which other commercial / open source databases doesn’t support. So, in MOSIP we are not defining any domains. But to standardize the datatypes implementation we have defined the following common datatypes used across mosip system. The datatype sizes are defined to consider multi language storage support, which may vary based on the implementation</p>
+<table>
+<thead>
+<tr><th>Attribute</th><th>Attribute Description</th><th>Type</th><th>Size</th></tr>
+</thead>
+<tbody>
+<tr><td>vid</td><td>Virtual ID</td><td>character varying</td><td>28</td></tr>
+<tr><td>uin</td><td>Unique Identification Number</td><td>character varying</td><td>28</td></tr>
+<tr><td>enrl_id</td><td>Enrolment ID</td><td>character varying</td><td>28</td></tr>
+<tr><td>_code</td><td>Code</td><td>character varying</td><td>64</td></tr>
+<tr><td>_descr</td><td>Description</td><td>character varying</td><td>256</td></tr>
+<tr><td>_type</td><td>Type</td><td>character varying</td><td>128</td></tr>
+<tr><td>_name</td><td>Name</td><td>character varying</td><td>128</td></tr>
+<tr><td>_id</td><td>Identification Code / Number</td><td>character varying</td><td>36</td></tr>
+<tr><td>_addr_line</td><td>address line</td><td>character varying</td><td>256</td></tr>
+<tr><td>_loc_line</td><td>location line</td><td>character varying</td><td>128</td></tr>
+<tr><td>country</td><td>country</td><td>character varying</td><td>64</td></tr>
+<tr><td>pin</td><td>pin</td><td>character varying</td><td>16</td></tr>
+<tr><td>_comment / _remarks</td><td>Comments / remarks captured as part of a transaction</td><td>character varying</td><td>1024</td></tr>
+<tr><td>count</td><td></td><td>smallint</td><td></td></tr>
+<tr><td>_by</td><td></td><td>character varying</td><td>32</td></tr>
+<tr><td>ref_id</td><td>Reference id</td><td>character varying</td><td>64</td></tr>
+<tr><td>ref_id_type</td><td>Reference ID Type</td><td>character varying</td><td>64</td></tr>
+<tr><td>is_active</td><td></td><td>boolean</td><td></td></tr>
+<tr><td>cr_by</td><td></td><td>character varying</td><td>32</td></tr>
+<tr><td>cr_dtimes</td><td></td><td>timestamp</td><td></td></tr>
+<tr><td>upd_by</td><td></td><td>character varying</td><td>32</td></tr>
+<tr><td>upd_dtimes</td><td></td><td>timestamp</td><td></td></tr>
+<tr><td>is_deleted</td><td></td><td>boolean</td><td></td></tr>
+<tr><td>del_dtimes</td><td></td><td>timestamp</td><td></td></tr>
+</tbody>
+</table>
+<h1><a class="anchor" aria-hidden="true" id="acronyms"></a><a href="#acronyms" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Acronyms</h1>
+<p>The following acronyms are used in the data model</p>
+<table>
+<thead>
+<tr><th>Abbreviation</th><th>Description</th><th></th><th>Abbreviation</th><th>Description</th></tr>
+</thead>
+<tbody>
+<tr><td>ack</td><td>Acknowledgement</td><td></td><td>active</td><td>Active</td></tr>
+<tr><td>addr</td><td>Address</td><td></td><td>autn</td><td>Authentication</td></tr>
+<tr><td>bio</td><td>Biometric</td><td></td><td>cd</td><td>Code</td></tr>
+<tr><td>cr</td><td>Created</td><td></td><td>del</td><td>Deleted</td></tr>
+<tr><td>demo</td><td>Demographic</td><td></td><td>descr</td><td>Description</td></tr>
+<tr><td>dob</td><td>Date of Birth</td><td></td><td>dt</td><td>Date</td></tr>
+<tr><td>dtime</td><td>Date Time</td><td></td><td>dtimes</td><td>Date Timestamp</td></tr>
+<tr><td>expiry</td><td>Expiry</td><td></td><td>fk</td><td>Foreign Key</td></tr>
+<tr><td>ibio</td><td>Indivisual Biometric</td><td></td><td>id</td><td>Identifier</td></tr>
+<tr><td>ida</td><td>Identity and authentication</td><td></td><td>idem</td><td>Indivisual Demographic</td></tr>
+<tr><td>idsvr</td><td>ID Issuance Server</td><td></td><td>idsw</td><td>ID Issuance Software</td></tr>
+<tr><td>Idx</td><td>Index</td><td></td><td>ins</td><td>Insert</td></tr>
+<tr><td>ip</td><td>IP Address</td><td></td><td>lang</td><td>Language</td></tr>
+<tr><td>last</td><td>Last</td><td></td><td>lh</td><td>Left Hand</td></tr>
+<tr><td>lst</td><td>List</td><td></td><td>mref</td><td>Master Reference</td></tr>
+<tr><td>msg</td><td>Message</td><td></td><td>mstr</td><td>Master</td></tr>
+<tr><td>ntv</td><td>Native</td><td></td><td>nxt</td><td>Next</td></tr>
+<tr><td>otp</td><td>One Time Password</td><td></td><td>parent</td><td>Parent</td></tr>
+<tr><td>pct</td><td>Percentage</td><td></td><td>pk</td><td>Primary Key</td></tr>
+<tr><td>pkt</td><td>Packet</td><td></td><td>preid</td><td>Pre ID Issuance</td></tr>
+<tr><td>prev</td><td>Previous</td><td></td><td>pwd</td><td>Password</td></tr>
+<tr><td>rcvd</td><td>Received</td><td></td><td>regn</td><td>Registration</td></tr>
+<tr><td>remark</td><td>Remarks</td><td></td><td>rh</td><td>Right Hand</td></tr>
+<tr><td>seq</td><td>Sequence</td><td></td><td>status</td><td>Status</td></tr>
+<tr><td>tkn</td><td>Token</td><td></td><td>total</td><td>Total</td></tr>
+<tr><td>trn</td><td>Transaction</td><td></td><td>ttyp</td><td>Transaction Type</td></tr>
+<tr><td>typ</td><td>Type</td><td></td><td>uin</td><td>Unique Identification Number</td></tr>
+<tr><td>upd</td><td>Update</td><td></td><td>usrl</td><td>User Login</td></tr>
+<tr><td>vid</td><td>Virtual ID</td><td></td><td>wfl</td><td>Workflow</td></tr>
+<tr><td>audit</td><td>Audit</td><td></td><td>dtimesz</td><td>Date Timestamp with Time Zone.</td></tr>
+<tr><td>kernel</td><td>Kernel</td><td></td><td>reg</td><td>Registration</td></tr>
+<tr><td>regprc</td><td>Registration Processor</td><td></td><td>prereg</td><td>Pre Registration</td></tr>
+</tbody>
+</table>
+</span></div></article></div><div class="docs-prevnext"></div></div></div><nav class="onPageNav"><ul class="toc-headings"><li><a href="#audience">Audience</a></li></ul></nav></div><footer class="nav-footer" id="footer"><section class="sitemap"><a href="/mosip-temp-documentation" class="nav-home"><img src="/mosip-temp-documentationimg/favicon.ico" alt="MOSIP Documentation" width="66" height="58"/></a><div><h5>Docs</h5><a href="/mosip-temp-documentationdocs/en/doc1.html">Getting Started (or other categories)</a><a href="/mosip-temp-documentationdocs/en/doc2.html">Guides (or other categories)</a><a href="/mosip-temp-documentationdocs/en/doc3.html">API Reference (or other categories)</a></div><div><h5>Community</h5><a href="/mosip-temp-documentationen/users.html">User Showcase</a><a href="https://stackoverflow.com/questions/tagged/" target="_blank" rel="noreferrer noopener">Stack Overflow</a><a href="https://discordapp.com/">Project Chat</a><a href="https://twitter.com/" target="_blank" rel="noreferrer noopener">Twitter</a></div><div><h5>More</h5><a href="/mosip-temp-documentationblog">Blog</a><a href="https://github.com/">GitHub</a><a class="github-button" data-icon="octicon-star" data-count-href="/facebook/docusaurus/stargazers" data-show-count="true" data-count-aria-label="# stargazers on GitHub" aria-label="Star this project on GitHub">Star</a></div></section><a href="https://opensource.facebook.com/" target="_blank" rel="noreferrer noopener" class="fbOpenSource"><img src="/mosip-temp-documentationimg/oss_logo.png" alt="Facebook Open Source" width="170" height="45"/></a><section class="copyright">Copyright © 2019 Your Name or Your Company Name</section></footer></div></body></html>

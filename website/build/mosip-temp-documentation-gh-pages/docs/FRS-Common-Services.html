@@ -1,0 +1,270 @@
+<!DOCTYPE html><html lang="en"><head><meta charSet="utf-8"/><meta http-equiv="X-UA-Compatible" content="IE=edge"/><title>FRS-Common-Services · MOSIP Documentation</title><meta name="viewport" content="width=device-width"/><meta name="generator" content="Docusaurus"/><meta name="description" content="## Table Of Contents"/><meta name="docsearch:language" content="en"/><meta property="og:title" content="FRS-Common-Services · MOSIP Documentation"/><meta property="og:type" content="website"/><meta property="og:url" content="https://ssenmosip.github.io/mosip-temp-documentationindex"/><meta property="og:description" content="## Table Of Contents"/><meta property="og:image" content="https://ssenmosip.github.io/mosip-temp-documentation/img/undraw_online.svg"/><meta name="twitter:card" content="summary"/><meta name="twitter:image" content="https://ssenmosip.github.io/mosip-temp-documentation/img/undraw_tweetstorm.svg"/><link rel="shortcut icon" href="/mosip-temp-documentationimg/favicon.ico"/><link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css"/><link rel="alternate" type="application/atom+xml" href="https://ssenmosip.github.io/mosip-temp-documentation/blog/atom.xml" title="MOSIP Documentation Blog ATOM Feed"/><link rel="alternate" type="application/rss+xml" href="https://ssenmosip.github.io/mosip-temp-documentation/blog/feed.xml" title="MOSIP Documentation Blog RSS Feed"/><script type="text/javascript" src="https://buttons.github.io/buttons.js"></script><script src="/mosip-temp-documentationjs/scrollSpy.js"></script><link rel="stylesheet" href="/mosip-temp-documentationcss/main.css"/><script src="/mosip-temp-documentationjs/codetabs.js"></script></head><body class="sideNavVisible separateOnPageNav"><div class="fixedHeaderContainer"><div class="headerWrapper wrapper"><header><a href="/mosip-temp-documentation"><img class="logo" src="/mosip-temp-documentationimg/favicon.ico" alt="MOSIP Documentation"/><h2 class="headerTitleWithLogo">MOSIP Documentation</h2></a><div class="navigationWrapper navigationSlider"><nav class="slidingNav"><ul class="nav-site nav-site-internal"><li class=""><a href="/mosip-temp-documentationdocs/Platform-Documentation" target="_self">Docs</a></li><li class=""><a href="/mosip-temp-documentationdocs/Getting-Started" target="_self">API</a></li><li class=""><a href="/mosip-temp-documentationContributor-Guide" target="_self">Help</a></li><li class=""><a href="/mosip-temp-documentationblog/" target="_self">Blog</a></li></ul></nav></div></header></div></div><div class="navPusher"><div class="docMainWrapper wrapper"><div class="container mainContainer"><div class="wrapper"><div class="post"><header class="postHeader"><h1 class="postHeaderTitle">FRS-Common-Services</h1></header><article><div><span><h2><a class="anchor" aria-hidden="true" id="table-of-contents"></a><a href="#table-of-contents" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Table Of Contents</h2>
+<ul>
+<li><a href="#common-services">Common Services</a>
+<ul>
+<li><a href="#1-otp-manager-">1. OTP Manager</a> <em>(CMN_FR_1)</em></li>
+<li><a href="#2-qr-code-generator-">2. QR Code Generator</a> <em>(CMN_FR_2)</em></li>
+<li><a href="#3-crypto-services-">3. Crypto Services</a>
+<ul>
+<li><a href="#31-cryptography-services-">3.1 Cryptography Services</a> <em>(CMN_FR_3.1)</em></li>
+<li><a href="#32-key-generator-">3.2 Key Generator</a> <em>(CMN_FR_3.2)</em></li>
+<li><a href="#33-key-management-">3.3 Key Management</a> <em>(CMN_FR_3.3)</em></li>
+<li><a href="#34-crypto-utility-">3.4 Crypto Utility</a> <em>(CMN_FR_3.4)</em></li>
+<li><a href="#35-hash-utility-">3.5 Hash Utility</a> <em>(CMN_FR_3.5)</em></li>
+<li><a href="#36-hmac-utilitychecksum-utility-">3.6 HMAC Utility/Checksum Utility</a> <em>(CMN_FR_3.6)</em></li>
+</ul></li>
+<li><a href="#4-notification-">4. Notification</a>
+<ul>
+<li><a href="#41-otp-notification-services-">4.1 OTP Notification Services</a> <em>(CMN_FR_4.1)</em></li>
+<li><a href="#42-email-notification-">4.2 Email Notification</a> <em>(CMN_FR_4.2)</em></li>
+<li><a href="#43-sms-notification-">4.3 SMS Notification</a> <em>(CMN_FR_4.3)</em></li>
+<li><a href="#44-pdf-generator-">4.4 PDF Generator</a> <em>(CMN_FR_4.4)</em></li>
+<li><a href="#45-template-merger-">4.5 Template Merger</a> <em>(CMN_FR_4.5)</em></li>
+</ul></li>
+<li><a href="#5-transliteration-">5. Transliteration</a> <em>(CMN_FR_5)</em></li>
+<li><a href="#6-mosip-utils-">6. MOSIP Utils</a>
+<ul>
+<li><a href="#61-mobile-data-validator-">6.1 Mobile Data Validator</a> <em>(CMN_FR_6.1)</em></li>
+<li><a href="#62-email-data-validator-">6.2 Email Data Validator</a> <em>(CMN_FR_6.2)</em></li>
+<li><a href="#63-exception-framework-">6.3 Exception Framework</a> <em>(CMN_FR_6.3)</em></li>
+<li><a href="#64-calendar-utility-">6.4 Calendar Utility</a> <em>(CMN_FR_6.4)</em></li>
+<li><a href="#65-date-utility-">6.5 Date Utility</a> <em>(CMN_FR_6.5)</em></li>
+<li><a href="#66-file-utility-">6.6 File Utility</a> <em>(CMN_FR_6.6)</em></li>
+<li><a href="#67-json-utility-">6.7 Json Utility</a> <em>(CMN_FR_6.7)</em></li>
+<li><a href="#68-math-utility-">6.8 Math Utility</a> <em>(CMN_FR_6.8)</em></li>
+<li><a href="#69-string-utility-">6.9 String Utility</a> <em>(CMN_FR_6.9)</em></li>
+<li><a href="#610-uuid-utility-">6.10 UUID Utility</a> <em>(CMN_FR_6.10)</em></li>
+<li><a href="#611-zip-unzip-utility-">6.11 Zip-Unzip Utility</a> <em>(CMN_FR_6.11)</em></li>
+</ul></li>
+<li><a href="#7-virus-scanner-">7. Virus Scaner</a> <em>(CMN_FR_5)</em></li>
+</ul></li>
+<li><a href="#list-of-configurable-parameters-and-processes-">List of Configurable Parameters and Processes</a></li>
+<li><a href="#kernel-api-">Kernel API</a></li>
+</ul>
+<h1><a class="anchor" aria-hidden="true" id="common-services"></a><a href="#common-services" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Common Services</h1>
+<h2><a class="anchor" aria-hidden="true" id="1-otp-manager-table-of-contents"></a><a href="#1-otp-manager-table-of-contents" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>1. OTP Manager <a href="#table-of-contents"><strong>[↑]</strong></a></h2>
+<h3><a class="anchor" aria-hidden="true" id="a-otp-generation"></a><a href="#a-otp-generation" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>A. OTP Generation</h3>
+<ol>
+<li>OTP Manager Component handles OTP Generation and OTP Validation</li>
+<li>For OTP Generation, system receives a request to generate an OTP along with a Key in input parameter.</li>
+<li>This Key can be a Mobile number, Email ID or a combination of Mobile Number and Email ID.</li>
+<li>The component generates an OTP as per the configured length and responds back with the OTP to the source. OTP manager maps an expiry period with the OTP as configured by the Admin.</li>
+</ol>
+<h3><a class="anchor" aria-hidden="true" id="b-otp-validation"></a><a href="#b-otp-validation" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>B. OTP Validation</h3>
+<ol>
+<li><p>For OTP Validation, system receives a request to validate an OTP with a Key and OTP in input parameter.</p></li>
+<li><p>The component validates the OTP against the expiry and then validates the OTP against the Key if the OTP is not expired.</p></li>
+<li><p>If the OTP is not expired and is valid against the Key, it will respond with message “Valid” else responds with “Invalid”.</p></li>
+<li><p>A user will have a maximum configured number of tries to get the OTP wrong after which he/she will be blocked for a configured amount of time. During this blocked period, he/she cannot generate or validate another OTP.</p></li>
+</ol>
+<p><a href="/mosip/mosip/blob/master/docs/design/kernel/kernel-otpmanager.md"><strong>Link to design</strong></a></p>
+<h2><a class="anchor" aria-hidden="true" id="2-qr-code-generator-table-of-contents"></a><a href="#2-qr-code-generator-table-of-contents" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>2. QR Code Generator <a href="#table-of-contents"><strong>[↑]</strong></a></h2>
+<p>QR code generator takes the content received along with the version number and converts the content into a QR code. The version number is configurable and determines how much data a QR code can store. The more the version number, the more data can be stored in a QR Code.</p>
+<p><a href="/mosip/mosip/blob/master/docs/design/kernel/kernel-qrcodegenerator.md"><strong>Link to design</strong></a></p>
+<h2><a class="anchor" aria-hidden="true" id="3-crypto-services-table-of-contents"></a><a href="#3-crypto-services-table-of-contents" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>3. Crypto Services <a href="#table-of-contents"><strong>[↑]</strong></a></h2>
+<h3><a class="anchor" aria-hidden="true" id="31-cryptography-services-table-of-contents"></a><a href="#31-cryptography-services-table-of-contents" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>3.1 Cryptography Services <a href="#table-of-contents"><strong>[↑]</strong></a></h3>
+<p>Crypto service encrypts or decrypts data across MOSIP with the help of Public/Private Keys.</p>
+<h4><a class="anchor" aria-hidden="true" id="a-for-encryption"></a><a href="#a-for-encryption" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>A. For Encryption</h4>
+<p>The Crypto Service receives a request from an application with input parameters – Application ID, Reference ID, Timestamp and Data that needs to be encrypted. It calls the Key Generator API for a symmetric Key and encrypt data using that symmetric Key. It then calls Key Manager Service and get the public key for the Application ID and Timestamp received in the input parameters encrypts the symmetric key using the Public key and joins the Encrypted data and Encrypted Symmetric Key using a Key splitter and respond to the source with the joined data.</p>
+<h4><a class="anchor" aria-hidden="true" id="b-for-decryption"></a><a href="#b-for-decryption" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>B. For Decryption</h4>
+<p>The Crypto Service will receive a request from an application with input parameters – Application ID, Reference ID, Timestamp and Data that needs to be decrypted.</p>
+<p>The Application ID received will be the one, which was sent for encryption of data in the above flow.</p>
+<p>The Crypto Service then splits the received data into Encrypted Content and Encrypted Symmetric Key using the Key Splitter and then calls the Key Manager Service with the Encrypted Symmetric Key, Application ID and Timestamp to decrypt the data using private key.</p>
+<p>The Key Manager instead of responding with the private key, decrypts the symmetric itself and send it back to the crypto service. The service then uses this symmetric key to decrypt data and send the decrypted data back to the source.</p>
+<p><a href="/mosip/mosip/blob/master/docs/design/kernel/kernel-crypto.md"><strong>Link to design</strong></a></p>
+<h3><a class="anchor" aria-hidden="true" id="32-key-generator-table-of-contents"></a><a href="#32-key-generator-table-of-contents" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>3.2 Key Generator <a href="#table-of-contents"><strong>[↑]</strong></a></h3>
+<h4><a class="anchor" aria-hidden="true" id="a-generate-a-symmetric-key"></a><a href="#a-generate-a-symmetric-key" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>A. Generate a Symmetric Key</h4>
+<p>Upon receiving a request to generate symmetric key pair the system generates a key pair (public and private key) as defined below and responds with the symmetric key</p>
+<ul>
+<li>The symmetric key generated supports AES algorithm</li>
+<li>The symmetric key generated is of 256 bit size</li>
+<li>The symmetric will be returned as a byte array</li>
+</ul>
+<h4><a class="anchor" aria-hidden="true" id="b-generate-an-asymmetric-key"></a><a href="#b-generate-an-asymmetric-key" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>B. Generate an Asymmetric Key</h4>
+<p>Upon receiving a request to generate asymmetric key pair the system generates a key pair (public and private key) as defined below and responds with the Asymmetric key</p>
+<ul>
+<li>The asymmetric key pair is generated using the RSA encryption</li>
+<li>The asymmetric key pair generated is of 2048 bit size</li>
+<li>The asymmetric is returned as a byte array</li>
+</ul>
+<p><a href="/mosip/mosip/blob/master/docs/design/kernel/kernel-keygenerator.md"><strong>Link to design</strong></a></p>
+<h3><a class="anchor" aria-hidden="true" id="33-key-management-table-of-contents"></a><a href="#33-key-management-table-of-contents" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>3.3 Key Management <a href="#table-of-contents"><strong>[↑]</strong></a></h3>
+<ol>
+<li>The Key Manager Service works together with the Crypto Service.</li>
+<li>It receives a request from Crypto Service from Public Key with the Application ID and Timestamp.</li>
+<li>Key Manager Service then sends a valid Public key against the application ID received to Crypto Service.</li>
+<li>In case, the public key is expired against that Application ID, it will generate a new Public Key and respond with it.</li>
+<li>When there is a request to decrypt data, the private key of the application id or reference id is used. The Key manager will not respond with Private Key but instead takes the encrypted data from the source and decrypts it itself and responds with decrypted content</li>
+</ol>
+<p><a href="/mosip/mosip/blob/master/docs/design/kernel/kernel-keymanager.md"><strong>Link to design</strong></a></p>
+<h3><a class="anchor" aria-hidden="true" id="34-crypto-utility-table-of-contents"></a><a href="#34-crypto-utility-table-of-contents" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>3.4 Crypto Utility <a href="#table-of-contents"><strong>[↑]</strong></a></h3>
+<p>The crypto utility is supports encryption and decryption. It provides a utility called as key splitter which performs following functions</p>
+<ol>
+<li>It combines the encrypted data and encrypted the symmetric key while sending encrypted content to the source</li>
+<li>It also splits the encrypted data and encrypted the symmetric key while receiving the content for decryption</li>
+</ol>
+<h3><a class="anchor" aria-hidden="true" id="35-hash-utility-table-of-contents"></a><a href="#35-hash-utility-table-of-contents" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>3.5 Hash Utility <a href="#table-of-contents"><strong>[↑]</strong></a></h3>
+<ol>
+<li>Identifies hash util methods</li>
+<li>Creates wrapper class for methods defined in apache-commons hash util</li>
+<li>Raises an alert in case of listed</li>
+</ol>
+<h3><a class="anchor" aria-hidden="true" id="36-hmac-utility-checksum-utility-table-of-contents"></a><a href="#36-hmac-utility-checksum-utility-table-of-contents" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>3.6 HMAC Utility/Checksum Utility <a href="#table-of-contents"><strong>[↑]</strong></a></h3>
+<p>A HMAC/checksum function is a way to create a compact representation of an arbitrarily large amount of data</p>
+<h2><a class="anchor" aria-hidden="true" id="4-notification-table-of-contents"></a><a href="#4-notification-table-of-contents" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>4. Notification <a href="#table-of-contents"><strong>[↑]</strong></a></h2>
+<h3><a class="anchor" aria-hidden="true" id="41-otp-notification-services-table-of-contents"></a><a href="#41-otp-notification-services-table-of-contents" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>4.1 OTP Notification Services <a href="#table-of-contents"><strong>[↑]</strong></a></h3>
+<ol>
+<li>OTP Notification Services is a combined service, which receives a request to generate an OTP and responds directly to the User using SMS or Email Notification.</li>
+<li>The service receives a request to generate and send OTP with User ID, OTP Channel (MOBILE and/or EMAIL), Template Variables, and Template Context (SMS and/or Email).</li>
+<li>It then calls OTP Generator Service to generate an OTP against a Key (Mobile Number or Email).</li>
+<li>It calls the Template Merger Service to merge OTP with the Template (SMS and/or Email).</li>
+<li>It calls SMS and/or Email Notification Service to send the notification as per the template.</li>
+<li>The choice of sending SMS and/or Email depends on the Notification Type Flag received in Input.</li>
+<li>The system responds with the error message if a particular User ID does not have an Email or Mobile number registered against it if the otp channel received is Email or Mobile number respectively</li>
+</ol>
+<h3><a class="anchor" aria-hidden="true" id="42-email-notification-table-of-contents"></a><a href="#42-email-notification-table-of-contents" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>4.2 Email Notification <a href="#table-of-contents"><strong>[↑]</strong></a></h3>
+<ol>
+<li>This service triggers an Email Notification upon receiving a request to trigger notification with Recipient Email-ID, CC Recipients Email-IDs, Subject, Email Content, and Attachment as input parameter.</li>
+<li>The restriction on Attachment and its size is configurable.</li>
+<li>The Third-Party Email Vendor is configurable and any country specific vendor can be used.</li>
+</ol>
+<p><a href="/mosip/mosip/blob/master/docs/design/kernel/kernel-emailnotification.md"><strong>Link to design</strong></a></p>
+<h3><a class="anchor" aria-hidden="true" id="43-sms-notification-table-of-contents"></a><a href="#43-sms-notification-table-of-contents" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>4.3 SMS Notification <a href="#table-of-contents"><strong>[↑]</strong></a></h3>
+<p>This service triggers an SMS Notification upon receiving a request to trigger notification with Phone Number and Content as input parameter. The third-party SMS Vendor is configurable and any country specific vendor can be used.</p>
+<p><a href="/mosip/mosip/blob/master/docs/design/kernel/kernel-smsnotification.md"><strong>Link to design</strong></a></p>
+<h3><a class="anchor" aria-hidden="true" id="44-pdf-generator-table-of-contents"></a><a href="#44-pdf-generator-table-of-contents" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>4.4 PDF Generator <a href="#table-of-contents"><strong>[↑]</strong></a></h3>
+<p>This utility enables creation of PDF from the content received. It will receive a content in input parameter, convert it into a PDF document, and respond with it to the source.</p>
+<p>PDF Generator also supports the feature to generate a Password Protected PDF with an additional input parameter “Password”, which is an optional parameter.</p>
+<p><strong>NOTE</strong>: If a Password is not received, then PDF Generator will generate the PDF of received content without the password protection.</p>
+<p><a href="/mosip/mosip/blob/master/docs/design/kernel/kernel-pdfgenerator.md"><strong>Link to design</strong></a></p>
+<h3><a class="anchor" aria-hidden="true" id="45-template-merger-table-of-contents"></a><a href="#45-template-merger-table-of-contents" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>4.5 Template Merger <a href="#table-of-contents"><strong>[↑]</strong></a></h3>
+<p>This utility merges a Template with Placeholders with the dynamic values to form the content to be sent as Notifications or Acknowledgement. The Utility will receive a template and dynamic values from a source. It will merge the values and template and respond with the processed content.</p>
+<p><a href="/mosip/mosip/blob/master/docs/design/kernel/kernel-templatemanager.md"><strong>Link to design</strong></a></p>
+<h2><a class="anchor" aria-hidden="true" id="5-transliteration-table-of-contents"></a><a href="#5-transliteration-table-of-contents" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>5. Transliteration <a href="#table-of-contents"><strong>[↑]</strong></a></h2>
+<p>MOSIP system can facilitate transliteration by integrating with a third party service provider. Receive a request for transliteration with the required input parameters (Word, Input Language Code, and Output Language Code)</p>
+<ol>
+<li>Validates if all required input parameters have been received as listed below for each specific request
+<ul>
+<li>User Input Word - Mandatory</li>
+<li>Input Language Code - Mandatory</li>
+<li>Output Language Code - Mandatory</li>
+</ul></li>
+<li>Transliterates the Word received from Input Language to Output Language</li>
+<li>In case of Exceptions, system triggers relevant error messages.</li>
+</ol>
+<p><a href="/mosip/mosip/blob/master/docs/design/kernel/kernel-transliteration.md"><strong>Link to design</strong></a></p>
+<h2><a class="anchor" aria-hidden="true" id="6-mosip-utils-table-of-contents"></a><a href="#6-mosip-utils-table-of-contents" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>6. MOSIP Utils <a href="#table-of-contents"><strong>[↑]</strong></a></h2>
+<h3><a class="anchor" aria-hidden="true" id="61-mobile-data-validator-table-of-contents"></a><a href="#61-mobile-data-validator-table-of-contents" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>6.1 Mobile Data Validator <a href="#table-of-contents"><strong>[↑]</strong></a></h3>
+<p>Upon receiving a request to validate a mobile number against configured mobile number policy, the system validates the mobile number against the policy</p>
+<ol>
+<li>Validates if all required input parameters have been received as listed below for each specific request
+<ul>
+<li>Mobile number</li>
+</ul></li>
+<li>Validates if the mobile no. against the following policies
+<ul>
+<li>Mobile no. should contain no of digits configured by the ADMIN</li>
+<li>Mobile no. should only be numerical.</li>
+</ul></li>
+<li>In case of Exceptions, system should trigger relevant error messages. Refer “Messages” section</li>
+<li>Responds to the source with the result (Valid/Invalid)</li>
+<li>Raises an alert in case of exceptions.</li>
+</ol>
+<h3><a class="anchor" aria-hidden="true" id="62-email-data-validator-table-of-contents"></a><a href="#62-email-data-validator-table-of-contents" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>6.2 Email Data Validator <a href="#table-of-contents"><strong>[↑]</strong></a></h3>
+<p>Upon receiving a request to validate an Email ID against the standard Email ID policy, system validates the Email ID against the Standard Email ID format</p>
+<ol>
+<li><p>Validates if all required input parameters have been received as listed below for each specific request</p>
+<ul>
+<li>Email ID</li>
+</ul></li>
+<li><p>Validates if the Email ID contains the minimum no. of characters as configured</p></li>
+<li><p>Validates if the Email ID contains less than 254 max length</p></li>
+<li><p>Validates if the Email ID only contains following characters</p>
+<ul>
+<li>Digits 0 to 9</li>
+<li>Uppercase and lowercase English letters (a–z, A–Z)</li>
+<li>Characters ! # $ % &amp; ' * + - / = ? ^ _ ` { | }</li>
+<li>~ .</li>
+</ul></li>
+<li><p>Validates if the Email ID contains &quot;@&quot; and domain name within the Email ID.</p></li>
+<li><p>Responds to the source with the result (Valid/Invalid)</p></li>
+<li><p>Raises an alert in case of exceptions</p></li>
+</ol>
+<p><a href="/mosip/mosip/blob/master/docs/design/kernel/kernel-datavalidator.md"><strong>Design Link to mobile and email data validator</strong></a></p>
+<h3><a class="anchor" aria-hidden="true" id="63-exception-framework-table-of-contents"></a><a href="#63-exception-framework-table-of-contents" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>6.3 Exception Framework <a href="#table-of-contents"><strong>[↑]</strong></a></h3>
+<p>MOSIP system provides base exception framework.</p>
+<h3><a class="anchor" aria-hidden="true" id="64-calendar-utility-table-of-contents"></a><a href="#64-calendar-utility-table-of-contents" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>6.4 Calendar Utility <a href="#table-of-contents"><strong>[↑]</strong></a></h3>
+<ol>
+<li>Identifies Calendar util methods</li>
+<li>Creates wrapper class for methods defined in apache-commons Calendar util</li>
+<li>Raises an alert in case of listed exceptions</li>
+</ol>
+<h3><a class="anchor" aria-hidden="true" id="65-date-utility-table-of-contents"></a><a href="#65-date-utility-table-of-contents" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>6.5 Date Utility <a href="#table-of-contents"><strong>[↑]</strong></a></h3>
+<ol>
+<li>Identifies File util methods</li>
+<li>Creates wrapper class for methods defined in apache-commons date and time util</li>
+<li>Raises an alert in case of listed exceptions</li>
+</ol>
+<h3><a class="anchor" aria-hidden="true" id="66-file-utility-table-of-contents"></a><a href="#66-file-utility-table-of-contents" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>6.6 File Utility <a href="#table-of-contents"><strong>[↑]</strong></a></h3>
+<ol>
+<li>Identifies File util methods</li>
+<li>Creates wrapper class for methods defined in apache-commons File util</li>
+<li>Raises an alert in case of listed exceptions</li>
+</ol>
+<h3><a class="anchor" aria-hidden="true" id="67-json-utility-table-of-contents"></a><a href="#67-json-utility-table-of-contents" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>6.7 Json Utility <a href="#table-of-contents"><strong>[↑]</strong></a></h3>
+<ol>
+<li>Identifies jason util methods</li>
+<li>Creates wrapper class for methods defined in apache-commons jason util</li>
+<li>Raises an alert in case of listed exceptions</li>
+</ol>
+<h3><a class="anchor" aria-hidden="true" id="68-math-utility-table-of-contents"></a><a href="#68-math-utility-table-of-contents" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>6.8 Math Utility <a href="#table-of-contents"><strong>[↑]</strong></a></h3>
+<ol>
+<li>Identifies Math util methods</li>
+<li>Creates wrapper class for methods defined in apache-commons Math util</li>
+<li>Raises an alert in case of listed exceptions</li>
+</ol>
+<h3><a class="anchor" aria-hidden="true" id="69-string-utility-table-of-contents"></a><a href="#69-string-utility-table-of-contents" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>6.9 String Utility <a href="#table-of-contents"><strong>[↑]</strong></a></h3>
+<ol>
+<li>Identifies String util methods</li>
+<li>Creates wrapper class for methods defined in apache-commons String util</li>
+<li>Raises an alert in case of listed exceptions</li>
+</ol>
+<h3><a class="anchor" aria-hidden="true" id="610-uuid-utility-table-of-contents"></a><a href="#610-uuid-utility-table-of-contents" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>6.10 UUID Utility <a href="#table-of-contents"><strong>[↑]</strong></a></h3>
+<ol>
+<li>Upon receiving a request to generate UUID the system generates UUID as per default UUID generation logic</li>
+<li>UUID generated should be as per UUID Version 5</li>
+<li>UUID generated should be of 36 characters (32 alphanumeric characters and four hyphens e.g. 123e4567-e89b-12d3-a456-426655440000)</li>
+<li>Any application in MOSIP can use this UUID utility</li>
+<li>Responds with the UUID to the source</li>
+<li>Raises an alert in case of listed exceptions</li>
+</ol>
+<p><a href="/mosip/mosip/blob/master/docs/design/kernel/kernel-uuid-generator.md"><strong>Link to design</strong></a></p>
+<h3><a class="anchor" aria-hidden="true" id="611-zip-unzip-utility-table-of-contents"></a><a href="#611-zip-unzip-utility-table-of-contents" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>6.11 Zip-Unzip Utility <a href="#table-of-contents"><strong>[↑]</strong></a></h3>
+<ol>
+<li>Identifies Zip-Unzip util methods</li>
+<li>Creates wrapper class for methods defined in apache-commons Zip-Unzip util</li>
+<li>Raises an alert in case of listed exceptions</li>
+</ol>
+<p><a href="/mosip/mosip/blob/master/docs/design/kernel/kernel-utils.md"><strong>Link to design for Utilities</strong></a></p>
+<h2><a class="anchor" aria-hidden="true" id="7-virus-scanner-table-of-contents"></a><a href="#7-virus-scanner-table-of-contents" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>7 Virus Scanner <a href="#table-of-contents"><strong>[↑]</strong></a></h2>
+<p>Virus Scanner utility allows for virus scanning across MOSIP at various places. This includes:</p>
+<ol>
+<li>Scanning of Document uploaded in Pre-registration</li>
+<li>Scanning in Registration Client Software</li>
+<li>Scanning of Registration packet in Registration Processor</li>
+</ol>
+<p>Currently for Virus Scanner, MOSIP has integrated with Clam Antivirus which allows for 290 concurrent users.
+A Country may integrate their own Licensed version of anti virus as per their requirement.</p>
+<h3><a class="anchor" aria-hidden="true" id="list-of-configurable-parameters-and-processes-table-of-contents"></a><a href="#list-of-configurable-parameters-and-processes-table-of-contents" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>List of Configurable Parameters and Processes <a href="#table-of-contents"><strong>[↑]</strong></a></h3>
+<ol>
+<li><p>Configurable Parameters</p>
+<p><a href="/mosip/mosip-configuration/blob/0.12.0/config/kernel-dev.properties"><strong>Link to Configurable Parameters of Kernel</strong></a></p>
+<p><a href="/mosip/mosip-configuration/blob/0.12.0/config/application-dev.properties"><strong>Link to Kernel Application Properties</strong></a></p></li>
+<li><p>Configurable Processes</p></li>
+</ol>
+<ul>
+<li>(Work in Progress)</li>
+</ul>
+<h3><a class="anchor" aria-hidden="true" id="kernel-api-table-of-contents"></a><a href="#kernel-api-table-of-contents" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Kernel API <a href="#table-of-contents"><strong>[↑]</strong></a></h3>
+<p><a href="Kernel-APIs"><strong>Refer to Wiki for more details on Kernel API</strong></a></p>
+</span></div></article></div><div class="docs-prevnext"></div></div></div><nav class="onPageNav"><ul class="toc-headings"><li><a href="#table-of-contents">Table Of Contents</a></li><li><a href="#1-otp-manager">1. OTP Manager <a href="#table-of-contents"><strong>[↑]</strong></a></a><ul class="toc-headings"><li><a href="#a-otp-generation">A. OTP Generation</a></li><li><a href="#b-otp-validation">B. OTP Validation</a></li></ul></li><li><a href="#2-qr-code-generator">2. QR Code Generator <a href="#table-of-contents"><strong>[↑]</strong></a></a></li><li><a href="#3-crypto-services">3. Crypto Services <a href="#table-of-contents"><strong>[↑]</strong></a></a><ul class="toc-headings"><li><a href="#31-cryptography-services">3.1 Cryptography Services <a href="#table-of-contents"><strong>[↑]</strong></a></a></li><li><a href="#32-key-generator">3.2 Key Generator <a href="#table-of-contents"><strong>[↑]</strong></a></a></li><li><a href="#33-key-management">3.3 Key Management <a href="#table-of-contents"><strong>[↑]</strong></a></a></li><li><a href="#34-crypto-utility">3.4 Crypto Utility <a href="#table-of-contents"><strong>[↑]</strong></a></a></li><li><a href="#35-hash-utility">3.5 Hash Utility <a href="#table-of-contents"><strong>[↑]</strong></a></a></li><li><a href="#36-hmac-utility-checksum-utility">3.6 HMAC Utility/Checksum Utility <a href="#table-of-contents"><strong>[↑]</strong></a></a></li></ul></li><li><a href="#4-notification">4. Notification <a href="#table-of-contents"><strong>[↑]</strong></a></a><ul class="toc-headings"><li><a href="#41-otp-notification-services">4.1 OTP Notification Services <a href="#table-of-contents"><strong>[↑]</strong></a></a></li><li><a href="#42-email-notification">4.2 Email Notification <a href="#table-of-contents"><strong>[↑]</strong></a></a></li><li><a href="#43-sms-notification">4.3 SMS Notification <a href="#table-of-contents"><strong>[↑]</strong></a></a></li><li><a href="#44-pdf-generator">4.4 PDF Generator <a href="#table-of-contents"><strong>[↑]</strong></a></a></li><li><a href="#45-template-merger">4.5 Template Merger <a href="#table-of-contents"><strong>[↑]</strong></a></a></li></ul></li><li><a href="#5-transliteration">5. Transliteration <a href="#table-of-contents"><strong>[↑]</strong></a></a></li><li><a href="#6-mosip-utils">6. MOSIP Utils <a href="#table-of-contents"><strong>[↑]</strong></a></a><ul class="toc-headings"><li><a href="#61-mobile-data-validator">6.1 Mobile Data Validator <a href="#table-of-contents"><strong>[↑]</strong></a></a></li><li><a href="#62-email-data-validator">6.2 Email Data Validator <a href="#table-of-contents"><strong>[↑]</strong></a></a></li><li><a href="#63-exception-framework">6.3 Exception Framework <a href="#table-of-contents"><strong>[↑]</strong></a></a></li><li><a href="#64-calendar-utility">6.4 Calendar Utility <a href="#table-of-contents"><strong>[↑]</strong></a></a></li><li><a href="#65-date-utility">6.5 Date Utility <a href="#table-of-contents"><strong>[↑]</strong></a></a></li><li><a href="#66-file-utility">6.6 File Utility <a href="#table-of-contents"><strong>[↑]</strong></a></a></li><li><a href="#67-json-utility">6.7 Json Utility <a href="#table-of-contents"><strong>[↑]</strong></a></a></li><li><a href="#68-math-utility">6.8 Math Utility <a href="#table-of-contents"><strong>[↑]</strong></a></a></li><li><a href="#69-string-utility">6.9 String Utility <a href="#table-of-contents"><strong>[↑]</strong></a></a></li><li><a href="#610-uuid-utility">6.10 UUID Utility <a href="#table-of-contents"><strong>[↑]</strong></a></a></li><li><a href="#611-zip-unzip-utility">6.11 Zip-Unzip Utility <a href="#table-of-contents"><strong>[↑]</strong></a></a></li></ul></li><li><a href="#7-virus-scanner">7 Virus Scanner <a href="#table-of-contents"><strong>[↑]</strong></a></a><ul class="toc-headings"><li><a href="#list-of-configurable-parameters-and-processes">List of Configurable Parameters and Processes <a href="#table-of-contents"><strong>[↑]</strong></a></a></li><li><a href="#kernel-api">Kernel API <a href="#table-of-contents"><strong>[↑]</strong></a></a></li></ul></li></ul></nav></div><footer class="nav-footer" id="footer"><section class="sitemap"><a href="/mosip-temp-documentation" class="nav-home"><img src="/mosip-temp-documentationimg/favicon.ico" alt="MOSIP Documentation" width="66" height="58"/></a><div><h5>Docs</h5><a href="/mosip-temp-documentationdocs/en/doc1.html">Getting Started (or other categories)</a><a href="/mosip-temp-documentationdocs/en/doc2.html">Guides (or other categories)</a><a href="/mosip-temp-documentationdocs/en/doc3.html">API Reference (or other categories)</a></div><div><h5>Community</h5><a href="/mosip-temp-documentationen/users.html">User Showcase</a><a href="https://stackoverflow.com/questions/tagged/" target="_blank" rel="noreferrer noopener">Stack Overflow</a><a href="https://discordapp.com/">Project Chat</a><a href="https://twitter.com/" target="_blank" rel="noreferrer noopener">Twitter</a></div><div><h5>More</h5><a href="/mosip-temp-documentationblog">Blog</a><a href="https://github.com/">GitHub</a><a class="github-button" data-icon="octicon-star" data-count-href="/facebook/docusaurus/stargazers" data-show-count="true" data-count-aria-label="# stargazers on GitHub" aria-label="Star this project on GitHub">Star</a></div></section><a href="https://opensource.facebook.com/" target="_blank" rel="noreferrer noopener" class="fbOpenSource"><img src="/mosip-temp-documentationimg/oss_logo.png" alt="Facebook Open Source" width="170" height="45"/></a><section class="copyright">Copyright © 2019 Your Name or Your Company Name</section></footer></div></body></html>

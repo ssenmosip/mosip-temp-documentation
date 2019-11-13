@@ -1,0 +1,72 @@
+<!DOCTYPE html><html lang="en"><head><meta charSet="utf-8"/><meta http-equiv="X-UA-Compatible" content="IE=edge"/><title>Encryption-in-DTO-layer · MOSIP Documentation</title><meta name="viewport" content="width=device-width"/><meta name="generator" content="Docusaurus"/><meta name="description" content="# Encryption in DTO layer"/><meta name="docsearch:language" content="en"/><meta property="og:title" content="Encryption-in-DTO-layer · MOSIP Documentation"/><meta property="og:type" content="website"/><meta property="og:url" content="https://ssenmosip.github.io/mosip-temp-documentationindex"/><meta property="og:description" content="# Encryption in DTO layer"/><meta property="og:image" content="https://ssenmosip.github.io/mosip-temp-documentation/img/undraw_online.svg"/><meta name="twitter:card" content="summary"/><meta name="twitter:image" content="https://ssenmosip.github.io/mosip-temp-documentation/img/undraw_tweetstorm.svg"/><link rel="shortcut icon" href="/mosip-temp-documentationimg/favicon.ico"/><link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css"/><link rel="alternate" type="application/atom+xml" href="https://ssenmosip.github.io/mosip-temp-documentation/blog/atom.xml" title="MOSIP Documentation Blog ATOM Feed"/><link rel="alternate" type="application/rss+xml" href="https://ssenmosip.github.io/mosip-temp-documentation/blog/feed.xml" title="MOSIP Documentation Blog RSS Feed"/><script type="text/javascript" src="https://buttons.github.io/buttons.js"></script><script src="/mosip-temp-documentationjs/scrollSpy.js"></script><link rel="stylesheet" href="/mosip-temp-documentationcss/main.css"/><script src="/mosip-temp-documentationjs/codetabs.js"></script></head><body class="sideNavVisible separateOnPageNav"><div class="fixedHeaderContainer"><div class="headerWrapper wrapper"><header><a href="/mosip-temp-documentation"><img class="logo" src="/mosip-temp-documentationimg/favicon.ico" alt="MOSIP Documentation"/><h2 class="headerTitleWithLogo">MOSIP Documentation</h2></a><div class="navigationWrapper navigationSlider"><nav class="slidingNav"><ul class="nav-site nav-site-internal"><li class=""><a href="/mosip-temp-documentationdocs/Platform-Documentation" target="_self">Docs</a></li><li class=""><a href="/mosip-temp-documentationdocs/Getting-Started" target="_self">API</a></li><li class=""><a href="/mosip-temp-documentationContributor-Guide" target="_self">Help</a></li><li class=""><a href="/mosip-temp-documentationblog/" target="_self">Blog</a></li></ul></nav></div></header></div></div><div class="navPusher"><div class="docMainWrapper wrapper"><div class="container mainContainer"><div class="wrapper"><div class="post"><header class="postHeader"><h1 class="postHeaderTitle">Encryption-in-DTO-layer</h1></header><article><div><span><h1><a class="anchor" aria-hidden="true" id="encryption-in-dto-layer"></a><a href="#encryption-in-dto-layer" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Encryption in DTO layer</h1>
+<h4><a class="anchor" aria-hidden="true" id="background"></a><a href="#background" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Background</h4>
+<p>The data level encryption is handled in the DTO layer in the application.</p>
+<h4><a class="anchor" aria-hidden="true" id="solution"></a><a href="#solution" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Solution</h4>
+<p><strong>The key solution considerations are</strong></p>
+<ul>
+<li><p>Following are the key considerations of the encryption in the DTO layer,</p>
+<ul>
+<li>The data are classified into,
+<ul>
+<li>Sensitive</li>
+<li>Non-Sensitive</li>
+</ul></li>
+<li>The Sensitive data is encrypted in the DTO layer.</li>
+<li>AES-256 algorithm is used for the encryption.</li>
+<li>The data are classified and kept in the configuration file. The application layer reads this configuration and the sensitivity property is injected to the DTO layer.</li>
+<li>Hibernate interceptors are used to intercept the fields in the DTO layer.</li>
+<li>During reading of these fields, once again Hibernate interceptors are called to decrypt the data.
+<ul>
+<li>The key expiration is in-built to the key store.</li>
+</ul></li>
+</ul></li>
+<li><p>Following are the various components in the system,</p>
+<ul>
+<li>Keys are stored in &quot;Key Store&quot;. This is a database table in which the keys are maintained along with the index.</li>
+<li>Indexes are persisted in a separate store. When a request comes to a system to encrypt, the current index is retrieved and using this index, the key for encyrption is took. Indexes are stored along with the encrypted data as the prefix separated by colon. For example, 4:sdf<em>)(8S@#YFLSJ&amp;</em>hfdlkj23h</li>
+<li>Scheduler runs a job on some specific time, when the necessity of re-encryption arises.</li>
+<li>HSM devices are used to store the Master keys. These master keys are used to encrypt the keys in the Key store.</li>
+</ul></li>
+<li><p>Encryption:</p>
+<ul>
+<li>The properties in the entities which are supposed to be encrypted are configured in the config server.</li>
+<li>During the encryption, a listener is installed in the DAO layer to intercept the incoming entity objects. If those property are supposed to be, encrypted or not, is recieved from the config server.</li>
+<li>The data is encrypted and prefixed with the index of the key, which is used for the encryption, and stored in the data store.</li>
+<li>The key itself is encrypted with the master key from HSM and stored in a separate data store.</li>
+<li>The index is incremented, if the old index is expired.</li>
+</ul></li>
+</ul>
+<p><strong>Encryption</strong></p>
+<p><img src="_images/security/admin-encryption-flow.jpg" alt="Encryption"></p>
+<ul>
+<li>Decryption:
+<ul>
+<li>When a request is recieved, the DTO fields are checked for the sensitivity, from the config server.</li>
+<li>If the DTO field is sensitive, the decryption() method is called.</li>
+<li>During the decryption, the index is calculated by the delimiter. This index is used to find the Key, which was used for the encryption.</li>
+<li>The Key itself have to decrypted by the master key from HSM, before decrypting the content.</li>
+</ul></li>
+</ul>
+<p><strong>Decryption</strong></p>
+<p><img src="_images/security/admin-decryption-flow.jpg" alt="Decryption"></p>
+<ul>
+<li><p>Key rotation</p>
+<ul>
+<li>On Demand:
+<ul>
+<li>The keys are stored with the expiry date.</li>
+<li>When a request comes to the system, the key is checked for the expiry.</li>
+<li>If the old key had expired, then a new index is generated and persisted in the Indexes. If there is no key exists in the Key store, a new key is created for the encryption. And the new key is used for further encryptions.</li>
+</ul></li>
+<li>Bulk:
+<ul>
+<li>There are times, that the total encrypted data are re-encrypted again. A scheduler is maintained to oversee this. During the scheduled time, the encrypted data is read and re-encryped once again and saved. The newly encryped data will have the new index in front of the encryped content separated by a delimiter.</li>
+<li>Bulk mode is used to removed the expired keys and data is encrypted with the new key.</li>
+</ul></li>
+</ul></li>
+</ul>
+<ul>
+<li>&lt;TODO:&gt; How do we handle failures during the bulk re-encryption?</li>
+<li>&lt;TODO:&gt; How to handle the load, if it is extremely high?</li>
+</ul>
+</span></div></article></div><div class="docs-prevnext"></div></div></div><nav class="onPageNav"></nav></div><footer class="nav-footer" id="footer"><section class="sitemap"><a href="/mosip-temp-documentation" class="nav-home"><img src="/mosip-temp-documentationimg/favicon.ico" alt="MOSIP Documentation" width="66" height="58"/></a><div><h5>Docs</h5><a href="/mosip-temp-documentationdocs/en/doc1.html">Getting Started (or other categories)</a><a href="/mosip-temp-documentationdocs/en/doc2.html">Guides (or other categories)</a><a href="/mosip-temp-documentationdocs/en/doc3.html">API Reference (or other categories)</a></div><div><h5>Community</h5><a href="/mosip-temp-documentationen/users.html">User Showcase</a><a href="https://stackoverflow.com/questions/tagged/" target="_blank" rel="noreferrer noopener">Stack Overflow</a><a href="https://discordapp.com/">Project Chat</a><a href="https://twitter.com/" target="_blank" rel="noreferrer noopener">Twitter</a></div><div><h5>More</h5><a href="/mosip-temp-documentationblog">Blog</a><a href="https://github.com/">GitHub</a><a class="github-button" data-icon="octicon-star" data-count-href="/facebook/docusaurus/stargazers" data-show-count="true" data-count-aria-label="# stargazers on GitHub" aria-label="Star this project on GitHub">Star</a></div></section><a href="https://opensource.facebook.com/" target="_blank" rel="noreferrer noopener" class="fbOpenSource"><img src="/mosip-temp-documentationimg/oss_logo.png" alt="Facebook Open Source" width="170" height="45"/></a><section class="copyright">Copyright © 2019 Your Name or Your Company Name</section></footer></div></body></html>

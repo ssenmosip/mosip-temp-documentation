@@ -1,0 +1,766 @@
+<!DOCTYPE html><html lang="en"><head><meta charSet="utf-8"/><meta http-equiv="X-UA-Compatible" content="IE=edge"/><title>Steps-to-Install-and-configuration-HDFS · MOSIP Documentation</title><meta name="viewport" content="width=device-width"/><meta name="generator" content="Docusaurus"/><meta name="description" content="## 1. Setup HDFS version 2.8.1"/><meta name="docsearch:language" content="en"/><meta property="og:title" content="Steps-to-Install-and-configuration-HDFS · MOSIP Documentation"/><meta property="og:type" content="website"/><meta property="og:url" content="https://ssenmosip.github.io/mosip-temp-documentationindex"/><meta property="og:description" content="## 1. Setup HDFS version 2.8.1"/><meta property="og:image" content="https://ssenmosip.github.io/mosip-temp-documentation/img/undraw_online.svg"/><meta name="twitter:card" content="summary"/><meta name="twitter:image" content="https://ssenmosip.github.io/mosip-temp-documentation/img/undraw_tweetstorm.svg"/><link rel="shortcut icon" href="/mosip-temp-documentationimg/favicon.ico"/><link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css"/><link rel="alternate" type="application/atom+xml" href="https://ssenmosip.github.io/mosip-temp-documentation/blog/atom.xml" title="MOSIP Documentation Blog ATOM Feed"/><link rel="alternate" type="application/rss+xml" href="https://ssenmosip.github.io/mosip-temp-documentation/blog/feed.xml" title="MOSIP Documentation Blog RSS Feed"/><script type="text/javascript" src="https://buttons.github.io/buttons.js"></script><script src="/mosip-temp-documentationjs/scrollSpy.js"></script><link rel="stylesheet" href="/mosip-temp-documentationcss/main.css"/><script src="/mosip-temp-documentationjs/codetabs.js"></script></head><body class="sideNavVisible separateOnPageNav"><div class="fixedHeaderContainer"><div class="headerWrapper wrapper"><header><a href="/mosip-temp-documentation"><img class="logo" src="/mosip-temp-documentationimg/favicon.ico" alt="MOSIP Documentation"/><h2 class="headerTitleWithLogo">MOSIP Documentation</h2></a><div class="navigationWrapper navigationSlider"><nav class="slidingNav"><ul class="nav-site nav-site-internal"><li class=""><a href="/mosip-temp-documentationdocs/Platform-Documentation" target="_self">Docs</a></li><li class=""><a href="/mosip-temp-documentationdocs/Getting-Started" target="_self">API</a></li><li class=""><a href="/mosip-temp-documentationContributor-Guide" target="_self">Help</a></li><li class=""><a href="/mosip-temp-documentationblog/" target="_self">Blog</a></li></ul></nav></div></header></div></div><div class="navPusher"><div class="docMainWrapper wrapper"><div class="container mainContainer"><div class="wrapper"><div class="post"><header class="postHeader"><h1 class="postHeaderTitle">Steps-to-Install-and-configuration-HDFS</h1></header><article><div><span><h2><a class="anchor" aria-hidden="true" id="1-setup-hdfs-version-281"></a><a href="#1-setup-hdfs-version-281" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>1. Setup HDFS version 2.8.1</h2>
+<p><strong>documentation for setting up hdfs cluster with one namenode and one datanode</strong></p>
+<h3><a class="anchor" aria-hidden="true" id="before-you-begin"></a><a href="#before-you-begin" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Before you begin</h3>
+<ol>
+<li>Create 2 VMs. They’ll be referred to throughout this guide as</li>
+</ol>
+<pre><code class="hljs"><span class="hljs-keyword">node</span><span class="hljs-title">-master</span>.example.com
+<span class="hljs-keyword">node</span><span class="hljs-title">-slave1</span>.example.com
+</code></pre>
+<ol start="2">
+<li>Install java (java-8-openjdk) to all the machines in the cluster and setup the JAVA_HOME environment variable for the same.</li>
+</ol>
+<pre><code class="hljs">sudo yum install java<span class="hljs-number">-1.8</span><span class="hljs-number">.0</span>-openjdk-devel
+</code></pre>
+<p>Get your Java installation path.</p>
+<pre><code class="hljs">update-alternatives --<span class="hljs-keyword">display </span><span class="hljs-keyword">java
+</span></code></pre>
+<p><strong>NOTE :</strong> Take the value of the current link and remove the trailing /bin/java. <br/>
+For example on RHEL 7, the link is /usr/lib/jvm/java-1.8.0-openjdk-1.8.0.191.b12-1.el7_6.x86_64/jre/bin/java, <br/>
+so JAVA_HOME should be /usr/lib/jvm/java-1.8.0-openjdk-1.8.0.191.b12-1.el7_6.x86_64/jre.</p>
+<h4><a class="anchor" aria-hidden="true" id="edit-bashrcsh"></a><a href="#edit-bashrcsh" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Edit ~/bashrc.sh:</h4>
+<p>export JAVA_HOME={path-tojava} <br/>
+with your actual java installation path. For example on a Debian with open-jdk-8:</p>
+<pre><code class="hljs">export JAVA_HOME=/usr/lib/jvm/java<span class="hljs-number">-1.8</span><span class="hljs-number">.0</span>-openjdk<span class="hljs-number">-1.8</span><span class="hljs-number">.0</span><span class="hljs-number">.191</span>.b12<span class="hljs-number">-1.</span>el7_6.x86_64/jre
+</code></pre>
+<p>Note: in the further steps when u login to the hadoop account set the java path in ~/hadoop/etc/hadoop/hadoop-env.sh also.</p>
+<ol start="3">
+<li>Get the IP of master and slave nodes using:</li>
+</ol>
+<pre><code class="hljs"><span class="hljs-attribute">ifconfig</span>
+</code></pre>
+<p>Adjust /etc/hosts on all nodes according to your configuration:<br/>
+NOTE: while adding same machine ip to /etc/hosts , use private ip that machine instead of public ip. for other machine in the cluster use public ip.</p>
+<pre><code class="hljs css language-text">NOTE : Editing the Master node VM /etc/hosts file  use private IP of Master node and public IP of the Slave node
+         Editing the Slave node  VM /etc/hosts file use private IP of Slave node and Public IP of Master node 
+</code></pre>
+<p>example:</p>
+<pre><code class="hljs"><span class="hljs-number">10.0.22.11</span> node-master.example.com
+<span class="hljs-number">10.0.3.12</span> node-slave1.example.com
+</code></pre>
+<h3><a class="anchor" aria-hidden="true" id="creating-hadoop-user"></a><a href="#creating-hadoop-user" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Creating Hadoop User</h3>
+<p><strong>create a hadoop user</strong> in every machine in the cluster to followup the documentation <br/>
+or <strong>replace the hadoop user</strong> in the documentation with your own user.</p>
+<p>Log in to the system as the root user.</p>
+<pre><code class="hljs"><span class="hljs-attribute">sudo</span> su -
+</code></pre>
+<p>Create a hadoop user account using the <strong>useradd</strong> command.</p>
+<pre><code class="hljs"><span class="hljs-keyword">adduser </span>hadoop
+
+</code></pre>
+<p>Set a password for the new hadoop user using the <strong>passwd</strong> command.</p>
+<pre><code class="hljs">passwd hadoop
+Changing password <span class="hljs-keyword">for</span><span class="hljs-built_in"> user </span>hadoop.
+New password: 
+Retype new password: 
+passwd: all authentication tokens updated successfully.
+</code></pre>
+<p>Add the haddop user to the wheel group using the <strong>usermod</strong> command.</p>
+<pre><code class="hljs"><span class="hljs-attribute">usermod -aG wheel hadoop</span>
+</code></pre>
+<p>Test that the updated configuration allows the user you created to run commands using sudo.
+Use the <strong>su</strong> to switch to the new user account that you created.</p>
+<pre><code class="hljs"><span class="hljs-attribute">su hadoop</span>
+</code></pre>
+<p>Use the groups to verify that the user is in the wheel group.</p>
+<pre><code class="hljs"><span class="hljs-attribute">groups</span>
+</code></pre>
+<p>Use the sudo command to run the <strong>whoami</strong> command. As this is the first time you have run a command using sudo from hadoop user account the banner message will be displayed. You will be also be prompted to enter the password for the hadoop account.</p>
+<pre><code class="hljs">sudo whoami
+We trust you have received the usual lecture <span class="hljs-keyword">from</span> the local<span class="hljs-built_in"> System
+</span>Administrator. It usually boils down <span class="hljs-keyword">to</span> these three things:
+
+    #1) Respect the privacy of others.
+    #2) Think before you type.
+    #3) With great power comes great responsibility.
+
+[sudo] password <span class="hljs-keyword">for</span> hadoop:
+root
+</code></pre>
+<p>The last line of the output is the user name returned by the <strong>whoami</strong> command. If sudo is configured correctly this value will be <strong>root</strong>.</p>
+<p><strong>You have successfully configured a hadoop user with sudo access</strong>. You can now log in to this hadoop account and use sudo to run commands as if you were logged in to the account of the root user.</p>
+<h3><a class="anchor" aria-hidden="true" id="distribute-authentication-key-pairs-for-the-hadoop-user"></a><a href="#distribute-authentication-key-pairs-for-the-hadoop-user" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Distribute Authentication Key-pairs for the Hadoop User</h3>
+<p>The master node will use an ssh-connection to connect to other nodes with key-pair authentication, to manage the cluster.<br/></p>
+<ol>
+<li>Login to node-master as the hadoop user, and generate an ssh-key:</li>
+</ol>
+<pre><code class="hljs"><span class="hljs-attribute">ssh-keygen -t rsa</span>
+</code></pre>
+<p>id_rsa.pub will contains the generated public key</p>
+<ol start="2">
+<li>Copy the public key to all the other nodes.</li>
+</ol>
+<pre><code class="hljs">ssh-copy-id -<span class="hljs-selector-tag">i</span> <span class="hljs-variable">$HOME</span>/.ssh/id_rsa<span class="hljs-selector-class">.pub</span> hadoop@node-master<span class="hljs-selector-class">.example</span><span class="hljs-selector-class">.com</span>
+ssh-copy-id -<span class="hljs-selector-tag">i</span> <span class="hljs-variable">$HOME</span>/.ssh/id_rsa<span class="hljs-selector-class">.pub</span> hadoop@node-slave1<span class="hljs-selector-class">.example</span><span class="hljs-selector-class">.com</span>
+</code></pre>
+<p>or</p>
+<p>update the $HOME/.ssh/id_rsa.pub file contents of slave node to Master node $HOME/.ssh/authorized_keys file <br/> and also
+update $HOME/.ssh/id_rsa.pub file contents of Master node to Slave node $HOME/.ssh/authorized_keys manually.<br/></p>
+<h3><a class="anchor" aria-hidden="true" id="verify-ssh-from-master-node-to-slave-node-and-vice-versa"></a><a href="#verify-ssh-from-master-node-to-slave-node-and-vice-versa" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Verify ssh from Master node to slave node and vice versa.</h3>
+<pre><code class="hljs">ssh hadoop@<span class="hljs-keyword">node</span><span class="hljs-title">-slave1</span>.example.com
+</code></pre>
+<p>NOTE: if ssh fails, try setting up again the authorized_keys to the machine.</p>
+<h3><a class="anchor" aria-hidden="true" id="download-and-unpack-hadoop-binaries"></a><a href="#download-and-unpack-hadoop-binaries" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Download and Unpack Hadoop Binaries</h3>
+<p>Login to node-master as the hadoop user, download the Hadoop tarball from Hadoop project page, and unzip it:</p>
+<pre><code class="hljs">cd
+
+wget https:<span class="hljs-comment">//archive.apache.org/dist/hadoop/core/hadoop-2.8.1/hadoop-2.8.1.tar.gz</span>
+
+tar -xzf hadoop<span class="hljs-number">-2.8</span><span class="hljs-number">.1</span>.tar.gz
+
+mv hadoop<span class="hljs-number">-2.8</span><span class="hljs-number">.1</span> hadoop
+</code></pre>
+<h3><a class="anchor" aria-hidden="true" id="set-environment-variables-in-each-machine-in-the-cluster"></a><a href="#set-environment-variables-in-each-machine-in-the-cluster" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Set Environment Variables in each machine in the cluster</h3>
+<p>Add Hadoop binaries to your PATH. Edit <code>/home/hadoop/.bashrc</code> or <code>/home/hadoop/.bash_profile</code> and add the following line:</p>
+<pre><code class="hljs"><span class="hljs-builtin-name">export</span> <span class="hljs-attribute">HADOOP_HOME</span>=<span class="hljs-variable">$HOME</span>/hadoop
+<span class="hljs-builtin-name">export</span> <span class="hljs-attribute">HADOOP_CONF_DIR</span>=<span class="hljs-variable">$HOME</span>/hadoop/etc/hadoop
+<span class="hljs-builtin-name">export</span> <span class="hljs-attribute">HADOOP_MAPRED_HOME</span>=<span class="hljs-variable">$HOME</span>/hadoop
+<span class="hljs-builtin-name">export</span> <span class="hljs-attribute">HADOOP_COMMON_HOME</span>=<span class="hljs-variable">$HOME</span>/hadoop
+<span class="hljs-builtin-name">export</span> <span class="hljs-attribute">HADOOP_HDFS_HOME</span>=<span class="hljs-variable">$HOME</span>/hadoop
+<span class="hljs-builtin-name">export</span> <span class="hljs-attribute">YARN_HOME</span>=<span class="hljs-variable">$HOME</span>/hadoop
+<span class="hljs-builtin-name">export</span> <span class="hljs-attribute">PATH</span>=<span class="hljs-variable">$PATH</span>:$HOME/hadoop/bin
+<span class="hljs-builtin-name">export</span> <span class="hljs-attribute">JAVA_HOME</span>=/usr/lib/jvm/java-1.8.0-openjdk-1.8.0.191.b12-0.el7_5.x86_64/jre
+</code></pre>
+<p>run following command to apply environment variable changes, using source command</p>
+<pre><code class="hljs">source /<span class="hljs-built_in">home</span>/hadoop/.bashrc
+<span class="hljs-keyword">or</span>
+source /<span class="hljs-built_in">home</span>/hadoop/.bash_profile
+</code></pre>
+<h3><a class="anchor" aria-hidden="true" id="configure-the-master-node"></a><a href="#configure-the-master-node" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Configure the Master Node</h3>
+<p>Configuration will be done on node-master and replicated to other slave nodes.</p>
+<h4><a class="anchor" aria-hidden="true" id="set-namenode"></a><a href="#set-namenode" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Set NameNode</h4>
+<p>Update ~/hadoop/etc/hadoop/core-site.xml :</p>
+<pre><code class="hljs"><span class="hljs-tag">&lt;<span class="hljs-name">configuration</span>&gt;</span>
+     <span class="hljs-tag">&lt;<span class="hljs-name">property</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">name</span>&gt;</span>fs.defaultFS<span class="hljs-tag">&lt;/<span class="hljs-name">name</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">value</span>&gt;</span>hdfs://node-master.example:51000<span class="hljs-tag">&lt;/<span class="hljs-name">value</span>&gt;</span>
+     <span class="hljs-tag">&lt;/<span class="hljs-name">property</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">configuration</span>&gt;</span>
+</code></pre>
+<h4><a class="anchor" aria-hidden="true" id="set-path-for-hdfs"></a><a href="#set-path-for-hdfs" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Set path for HDFS</h4>
+<p>Edit ~/hadoop/etc/hadoop/hdfs-site.xml :</p>
+<pre><code class="hljs"><span class="hljs-params">&lt;configuration&gt;</span>
+        <span class="hljs-params">&lt;property&gt;</span>
+                <span class="hljs-params">&lt;name&gt;</span>dfs.namenode.name.dir<span class="hljs-params">&lt;/name&gt;</span>
+                <span class="hljs-params">&lt;value&gt;</span><span class="hljs-meta-keyword">/home/</span>hadoop<span class="hljs-meta-keyword">/data/</span>nameNode<span class="hljs-params">&lt;/value&gt;</span>
+        <span class="hljs-params">&lt;/property&gt;</span>
+        <span class="hljs-params">&lt;property&gt;</span>
+                <span class="hljs-params">&lt;name&gt;</span>dfs.datanode.data.dir<span class="hljs-params">&lt;/name&gt;</span>
+                <span class="hljs-params">&lt;value&gt;</span><span class="hljs-meta-keyword">/home/</span>hadoop<span class="hljs-meta-keyword">/data/</span>dataNode<span class="hljs-params">&lt;/value&gt;</span>
+        <span class="hljs-params">&lt;/property&gt;</span>
+        <span class="hljs-params">&lt;property&gt;</span>
+                <span class="hljs-params">&lt;name&gt;</span>dfs.replication<span class="hljs-params">&lt;/name&gt;</span>
+                <span class="hljs-params">&lt;value&gt;</span><span class="hljs-number">1</span><span class="hljs-params">&lt;/value&gt;</span>
+        <span class="hljs-params">&lt;/property&gt;</span>
+    <span class="hljs-params">&lt;property&gt;</span>
+        <span class="hljs-params">&lt;name&gt;</span>dfs.permissions<span class="hljs-params">&lt;/name&gt;</span>
+        <span class="hljs-params">&lt;value&gt;</span>true<span class="hljs-params">&lt;/value&gt;</span>
+    <span class="hljs-params">&lt;/property&gt;</span>
+        <span class="hljs-params">&lt;property&gt;</span>
+                <span class="hljs-params">&lt;name&gt;</span>dfs.namenode.secondary.http-address<span class="hljs-params">&lt;/name&gt;</span>
+                <span class="hljs-params">&lt;value&gt;</span><span class="hljs-number">0.0</span><span class="hljs-number">.0</span><span class="hljs-number">.0</span>:<span class="hljs-number">51090</span><span class="hljs-params">&lt;/value&gt;</span>
+        <span class="hljs-params">&lt;/property&gt;</span>
+        <span class="hljs-params">&lt;property&gt;</span>
+                <span class="hljs-params">&lt;name&gt;</span>dfs.namenode.secondary.https-address<span class="hljs-params">&lt;/name&gt;</span>
+                <span class="hljs-params">&lt;value&gt;</span><span class="hljs-number">0.0</span><span class="hljs-number">.0</span><span class="hljs-number">.0</span>:<span class="hljs-number">51091</span><span class="hljs-params">&lt;/value&gt;</span>
+        <span class="hljs-params">&lt;/property&gt;</span>
+        <span class="hljs-params">&lt;property&gt;</span>
+                <span class="hljs-params">&lt;name&gt;</span>dfs.datanode.address<span class="hljs-params">&lt;/name&gt;</span>
+                <span class="hljs-params">&lt;value&gt;</span><span class="hljs-number">0.0</span><span class="hljs-number">.0</span><span class="hljs-number">.0</span>:<span class="hljs-number">51010</span><span class="hljs-params">&lt;/value&gt;</span>
+        <span class="hljs-params">&lt;/property&gt;</span>
+        <span class="hljs-params">&lt;property&gt;</span>
+                <span class="hljs-params">&lt;name&gt;</span>dfs.datanode.http.address<span class="hljs-params">&lt;/name&gt;</span>
+                <span class="hljs-params">&lt;value&gt;</span><span class="hljs-number">0.0</span><span class="hljs-number">.0</span><span class="hljs-number">.0</span>:<span class="hljs-number">51075</span><span class="hljs-params">&lt;/value&gt;</span>
+        <span class="hljs-params">&lt;/property&gt;</span>
+        <span class="hljs-params">&lt;property&gt;</span>
+                <span class="hljs-params">&lt;name&gt;</span>dfs.datanode.ipc.address<span class="hljs-params">&lt;/name&gt;</span>
+                <span class="hljs-params">&lt;value&gt;</span><span class="hljs-number">0.0</span><span class="hljs-number">.0</span><span class="hljs-number">.0</span>:<span class="hljs-number">51020</span><span class="hljs-params">&lt;/value&gt;</span>
+        <span class="hljs-params">&lt;/property&gt;</span>
+        <span class="hljs-params">&lt;property&gt;</span>
+                <span class="hljs-params">&lt;name&gt;</span>dfs.namenode.http-address<span class="hljs-params">&lt;/name&gt;</span>
+                <span class="hljs-params">&lt;value&gt;</span><span class="hljs-number">0.0</span><span class="hljs-number">.0</span><span class="hljs-number">.0</span>:<span class="hljs-number">51070</span><span class="hljs-params">&lt;/value&gt;</span>
+        <span class="hljs-params">&lt;/property&gt;</span>
+        <span class="hljs-params">&lt;property&gt;</span>
+                <span class="hljs-params">&lt;name&gt;</span>dfs.namenode.https-address<span class="hljs-params">&lt;/name&gt;</span>
+                <span class="hljs-params">&lt;value&gt;</span><span class="hljs-number">0.0</span><span class="hljs-number">.0</span><span class="hljs-number">.0</span>:<span class="hljs-number">51470</span><span class="hljs-params">&lt;/value&gt;</span>
+        <span class="hljs-params">&lt;/property&gt;</span>
+        <span class="hljs-params">&lt;property&gt;</span>
+                <span class="hljs-params">&lt;name&gt;</span>dfs.namenode.backup.address<span class="hljs-params">&lt;/name&gt;</span>
+                <span class="hljs-params">&lt;value&gt;</span><span class="hljs-number">0.0</span><span class="hljs-number">.0</span><span class="hljs-number">.0</span>:<span class="hljs-number">51100</span><span class="hljs-params">&lt;/value&gt;</span>
+        <span class="hljs-params">&lt;/property&gt;</span>
+        <span class="hljs-params">&lt;property&gt;</span>
+                <span class="hljs-params">&lt;name&gt;</span>dfs.namenode.backup.http-address<span class="hljs-params">&lt;/name&gt;</span>
+                <span class="hljs-params">&lt;value&gt;</span><span class="hljs-number">0.0</span><span class="hljs-number">.0</span><span class="hljs-number">.0</span>:<span class="hljs-number">51105</span><span class="hljs-params">&lt;/value&gt;</span>
+        <span class="hljs-params">&lt;/property&gt;</span>
+<span class="hljs-params">&lt;/configuration&gt;</span>
+</code></pre>
+<p>create directories</p>
+<pre><code class="hljs">mkdir -p /home/hadoop/data/nameNode [where on the filesystem the DFS name <span class="hljs-keyword">node</span> <span class="hljs-title">should</span> store the name table(fsimage)]
+mkdir -p /home/hadoop/data/dataNode  [where data <span class="hljs-keyword">node</span> <span class="hljs-title">should</span> store its blocks.]
+</code></pre>
+<h4><a class="anchor" aria-hidden="true" id="configure-master"></a><a href="#configure-master" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Configure Master</h4>
+<p>Edit ~/hadoop/etc/hadoop/masters to be:</p>
+<pre><code class="hljs"><span class="hljs-keyword">node</span><span class="hljs-title">-master</span>.example.com
+</code></pre>
+<h4><a class="anchor" aria-hidden="true" id="configure-slaves"></a><a href="#configure-slaves" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Configure Slaves</h4>
+<p>Edit ~/hadoop/etc/hadoop/slaves to be:<br/>
+this slaves file will specifies the datanode to be setup in which machine</p>
+<pre><code class="hljs"><span class="hljs-keyword">node</span><span class="hljs-title">-slave1</span>.example.com
+</code></pre>
+<h3><a class="anchor" aria-hidden="true" id="duplicate-config-files-on-each-node"></a><a href="#duplicate-config-files-on-each-node" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Duplicate Config Files on Each Node</h3>
+<ol>
+<li>Copy the hadoop binaries to slave nodes:</li>
+</ol>
+<pre><code class="hljs">cd /home/hadoop/
+scp hadoop-*.tar.gz <span class="hljs-keyword">node</span><span class="hljs-title">-slave1</span>.example.com:/home/hadoop
+</code></pre>
+<p>or copy each configured files to other nodes</p>
+<ol start="2">
+<li>Connect to node1 via ssh. A password isn’t required, thanks to the ssh keys copied above:</li>
+</ol>
+<pre><code class="hljs">ssh <span class="hljs-keyword">node</span><span class="hljs-title">-slave1</span>.example.com
+</code></pre>
+<ol start="3">
+<li>Unzip the binaries, rename the directory, and exit node-slave1.example.com to get back on the node-master.example.com:</li>
+</ol>
+<pre><code class="hljs">tar -xzf hadoop-<span class="hljs-number">2.8</span>.<span class="hljs-number">1</span>.tar.gz
+mv hadoop-<span class="hljs-number">2.8</span>.<span class="hljs-number">1</span> hadoop
+<span class="hljs-keyword">exit</span>
+</code></pre>
+<ol start="4">
+<li>Copy the Hadoop configuration files to the slave nodes:</li>
+</ol>
+<pre><code class="hljs"><span class="hljs-keyword">for</span> node <span class="hljs-keyword">in</span> node-slave1.example.com; <span class="hljs-keyword">do</span>
+    scp ~<span class="hljs-regexp">/hadoop/etc</span><span class="hljs-regexp">/hadoop/</span>* <span class="hljs-variable">$node</span><span class="hljs-symbol">:/home/hadoop/hadoop/etc/hadoop/</span>;
+done
+</code></pre>
+<h3><a class="anchor" aria-hidden="true" id="format-hdfs"></a><a href="#format-hdfs" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Format HDFS</h3>
+<p>HDFS needs to be formatted like any classical file system. On node-master, run the following command:</p>
+<pre><code class="hljs">hdfs namenode -<span class="hljs-built_in">format</span>
+</code></pre>
+<p>Your Hadoop installation is now configured and ready to run.</p>
+<h3><a class="anchor" aria-hidden="true" id="start-hdfs"></a><a href="#start-hdfs" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Start HDFS</h3>
+<ol>
+<li>Start the HDFS by running the following script from node-master:
+start-dfs.sh , stop-dfs.sh script files will be present in hadoop_Installation_Dir/sbin/start.dfs.sg</li>
+</ol>
+<pre><code class="hljs">hadoop<span class="hljs-regexp">/sbin/</span>start-dfs.sh
+</code></pre>
+<p>It’ll start NameNode and SecondaryNameNode on node-master.example.com, and DataNode on node-slave1.example.com, according to the configuration in the slaves config file.<br/></p>
+<ol start="2">
+<li>Check that every process is running with the jps command on each node. You should get on node-master.example.com (PID will be different):</li>
+</ol>
+<pre><code class="hljs"><span class="hljs-symbol">21922 </span>Jps
+<span class="hljs-symbol">21603 </span>NameNode
+<span class="hljs-symbol">21787 </span>SecondaryNameNode
+</code></pre>
+<p>and on node-slave1.example.com:</p>
+<pre><code class="hljs"><span class="hljs-symbol">19728 </span>DataNode
+<span class="hljs-symbol">19819 </span>Jps
+</code></pre>
+<p>Hdfs has been Configured Successfully
+<br/>
+<br/>
+<strong>NOTE :</strong> if datanode and namenode has not started.
+look into hdfs logs to debug: $HOME/hadoop/logs/</p>
+<h3><a class="anchor" aria-hidden="true" id="create-hdfs-users"></a><a href="#create-hdfs-users" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Create hdfs users</h3>
+<ol>
+<li>To create users for hdfs (regprocessor, prereg, idrepo), run this command:</li>
+</ol>
+<pre><code class="hljs"><span class="hljs-attr">sudo</span> <span class="hljs-string">useradd  regprocessor</span>
+<span class="hljs-attr">sudo</span> <span class="hljs-string">useradd  prereg</span>
+<span class="hljs-attr">sudo</span> <span class="hljs-string">useradd  idrepo</span>
+
+</code></pre>
+<p><strong>NOTE : Configure the user in module specific properties file (ex- pre-registration-qa.properties) as mosip.kernel.fsadapter.hdfs.user-name=prereg</strong></p>
+<ol start="2">
+<li>Create a directory and give permission for each user</li>
+</ol>
+<pre><code class="hljs">hdfs dfs -mkdir <span class="hljs-regexp">/user/</span>regprocessor
+hdfs dfs -chown -R <span class="hljs-string">regprocessor:</span>regprocessor  <span class="hljs-regexp">/user/</span>regprocessor
+hdfs dfs -mkdir <span class="hljs-regexp">/user/</span>prereg
+hdfs dfs -chown -R <span class="hljs-string">prereg:</span>prereg  <span class="hljs-regexp">/user/</span>prereg
+hdfs dfs -mkdir <span class="hljs-regexp">/user/</span>idrepo
+hdfs dfs -chown -R <span class="hljs-string">idrepo:</span>idrepo  <span class="hljs-regexp">/user/</span>idrepo
+</code></pre>
+<h4><a class="anchor" aria-hidden="true" id="enabling-configured-port-through-firewall-in-each-machine-in-cluster"></a><a href="#enabling-configured-port-through-firewall-in-each-machine-in-cluster" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>enabling configured port through firewall in each machine in cluster</h4>
+<pre><code class="hljs css language-ssh">sudo firewall-cmd <span class="hljs-attribute">--zone</span>=public <span class="hljs-attribute">--add-port</span>=51000/tcp --permanent
+sudo firewall-cmd <span class="hljs-attribute">--zone</span>=public <span class="hljs-attribute">--add-port</span>=51090/tcp --permanent
+sudo firewall-cmd <span class="hljs-attribute">--zone</span>=public <span class="hljs-attribute">--add-port</span>=51010/tcp --permanent
+sudo firewall-cmd <span class="hljs-attribute">--zone</span>=public <span class="hljs-attribute">--add-port</span>=51075/tcp --permanent
+sudo firewall-cmd <span class="hljs-attribute">--zone</span>=public <span class="hljs-attribute">--add-port</span>=51020/tcp --permanent
+sudo firewall-cmd <span class="hljs-attribute">--zone</span>=public <span class="hljs-attribute">--add-port</span>=51070/tcp --permanent
+sudo firewall-cmd <span class="hljs-attribute">--zone</span>=public <span class="hljs-attribute">--add-port</span>=51470/tcp --permanent
+sudo firewall-cmd <span class="hljs-attribute">--zone</span>=public <span class="hljs-attribute">--add-port</span>=51100/tcp --permanent
+sudo firewall-cmd <span class="hljs-attribute">--zone</span>=public <span class="hljs-attribute">--add-port</span>=51105/tcp --permanent
+sudo firewall-cmd --reload
+</code></pre>
+<h5><a class="anchor" aria-hidden="true" id="note"></a><a href="#note" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>NOTE:</h5>
+<p>if different port has been configured , enable those port.</p>
+<h2><a class="anchor" aria-hidden="true" id="2-securing-hdfs"></a><a href="#2-securing-hdfs" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>2. Securing HDFS</h2>
+<p>Following configuration is required to run HDFS in secure mode.
+Read more about kerberos here:
+<a href="//access.redhat.com/documentation/en-us/red_hat_enterprise_linux/6/html/managing_smart_cards/using_Kerberos"><strong>link</strong></a></p>
+<h3><a class="anchor" aria-hidden="true" id="install-kerberos"></a><a href="#install-kerberos" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Install Kerberos</h3>
+<h3><a class="anchor" aria-hidden="true" id="before-installing-kerberos-install-the-jce-policy-file"></a><a href="#before-installing-kerberos-install-the-jce-policy-file" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Before Installing Kerberos Install the JCE Policy File</h3>
+<p>Install Java Cryptography Extension (JCE) Unlimited Strength Jurisdiction Policy File on all cluster and Hadoop user machines.
+Follow this <a href="//dzone.com/articles/install-java-cryptography-extension-jce-unlimited"><strong>link</strong></a></p>
+<h3><a class="anchor" aria-hidden="true" id="kerberos"></a><a href="#kerberos" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Kerberos</h3>
+<p>Kerberos server(KDC) and the client needs to be installed. Install the client on both master and slave nodes. KDC server will be installed on the master node.</p>
+<ol>
+<li>To install packages for a Kerberos server:</li>
+</ol>
+<pre><code class="hljs">yum <span class="hljs-keyword">install </span>krb5-server krb5-libs krb5-auth-<span class="hljs-keyword">dialog
+</span></code></pre>
+<ol start="2">
+<li>To install packages for a Kerberos client:</li>
+</ol>
+<pre><code class="hljs">yum <span class="hljs-keyword">install </span>krb5-workstation krb5-libs krb5-auth-<span class="hljs-keyword">dialog
+</span></code></pre>
+<h3><a class="anchor" aria-hidden="true" id="configuring-the-master-kdc-server"></a><a href="#configuring-the-master-kdc-server" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Configuring the Master KDC Server</h3>
+<ol>
+<li>Edit the /etc/krb5.conf:</li>
+</ol>
+<pre>
+# Configuration snippets may be placed in this directory as well
+includedir /etc/krb5.conf.d/
+<p>[logging]
+default = FILE:/var/log/krb5libs.log
+kdc = FILE:/var/log/krb5kdc.log
+admin_server = FILE:/var/log/kadmind.log</p>
+<p>[libdefaults]
+<b>udp_preference_limit = 1</b>
+dns_lookup_realm = false
+ticket_lifetime = 365d
+renew_lifetime = 365d
+forwardable = true
+rdns = false
+pkinit_anchors = /etc/pki/tls/certs/ca-bundle.crt
+default_realm =  <b>NODE-MASTER.EXAMPLE.COM</b>
+#default_ccache_name = KEYRING:persistent:%{uid}</p>
+<p>[realms]
+<b>NODE-MASTER.EXAMPLE.COM</b> = {
+kdc = <b>node-master.example.com:51088</b>
+admin_server = <b>node-master.example.com</b>
+}</p>
+<p>[domain_realm]
+<b>.node-master.example.com = NODE-MASTER.EXAMPLE.COM
+node-master.example.com = NODE-MASTER.EXAMPLE.COM</b></p>
+</pre>
+<p><strong>NOTE: Place this krb5.conf /kernel/kernel-fsadapter-hdfs/src/main/resources</strong></p>
+<pre><code class="hljs">mosip<span class="hljs-selector-class">.kernel</span><span class="hljs-selector-class">.fsadapter</span><span class="hljs-selector-class">.hdfs</span>.krb-file=classpath:krb5<span class="hljs-selector-class">.conf</span> 
+</code></pre>
+<p>OR If Kept outside resource then give absolute path</p>
+<pre><code class="hljs">mosip<span class="hljs-selector-class">.kernel</span><span class="hljs-selector-class">.fsadapter</span><span class="hljs-selector-class">.hdfs</span>.krb-file=file:/opt/kdc/krb5<span class="hljs-selector-class">.conf</span> 
+</code></pre>
+<ol start="2">
+<li>Edit /var/kerberos/krb5kdc/kdc.conf</li>
+</ol>
+<pre>
+[kdcdefaults]
+ kdc_ports = <b>51088</b>
+ kdc_tcp_ports = <b>51088</b>
+<p>[realms]
+<b>NODE-MASTER.EXAMPLE.COM</b> = {
+#master_key_type = aes256-cts
+acl_file = /var/kerberos/krb5kdc/kadm5.acl
+dict_file = /usr/share/dict/words
+admin_keytab = /var/kerberos/krb5kdc/kadm5.keytab
+supported_enctypes = aes256-cts:normal aes128-cts:normal des3-hmac-sha1:normal arcfour-hmac:normal camellia256-cts:normal camellia128-cts:normal des-hmac-sha1:normal des-cbc-md5:normal des-cbc-crc:normal
+}</p>
+</pre>
+3. Create the database using the kdb5_util utility.
+```
+/usr/sbin/kdb5_util create -s
+```
+4. Edit the /var/kerberos/krb5kdc/kadm5.acl
+```
+*/admin@NODE-MASTER.EXAMPLE.COM *
+```
+5. Create the first principal using kadmin.local at the KDC terminal:
+```
+/usr/sbin/kadmin.local -q "addprinc root/admin"
+```
+6. Start Kerberos using the following commands:
+```
+/sbin/service krb5kdc start
+/sbin/service kadmin start
+```
+to set up the KDC server to auto-start on boot.
+<pre><code class="hljs">RHEL/CentOS/Oracle Linux <span class="hljs-number">6</span>
+
+chkconfig krb5kdc <span class="hljs-keyword">on</span>
+
+chkconfig kadmin <span class="hljs-keyword">on</span>
+
+RHEL/CentOS/Oracle Linux <span class="hljs-number">7</span>
+
+systemctl enable krb5kdc
+
+systemctl enable kadmin
+</code></pre>
+<ol start="7">
+<li>Verify that the KDC is issuing tickets.
+First, run kinit to obtain a ticket and store it in a credential cache file.</li>
+</ol>
+<pre><code class="hljs"><span class="hljs-attribute">kinit</span> root/admin
+</code></pre>
+<p>Next, use klist to view the list of credentials in the cache.</p>
+<pre><code class="hljs"><span class="hljs-attribute">klist</span>
+</code></pre>
+<p>Use kdestroy to destroy the cache and the credentials it contains.</p>
+<pre><code class="hljs">kdestroy -<span class="hljs-keyword">A</span>
+</code></pre>
+<h3><a class="anchor" aria-hidden="true" id="create-and-deploy-the-kerberos-principals-and-keytab-files"></a><a href="#create-and-deploy-the-kerberos-principals-and-keytab-files" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Create and Deploy the Kerberos Principals and Keytab Files</h3>
+<p>For more information, check here:
+<a href="//cloudera.com/documentation/enterprise/5-16-x/topics/cdh_sg_kerberos_prin_keytab_deploy.html"><strong>link</strong></a></p>
+<p>If you have root access to the KDC machine, use kadmin.local, else use kadmin.
+To start kadmin.local (on the KDC machine), run this command:</p>
+<pre><code class="hljs">sudo kadmin.<span class="hljs-keyword">local</span>
+</code></pre>
+<h4><a class="anchor" aria-hidden="true" id="to-create-the-kerberos-principals"></a><a href="#to-create-the-kerberos-principals" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>To create the Kerberos principals</h4>
+<p>Do the following steps for masternode.</p>
+<ol>
+<li>In the kadmin.local or kadmin shell, create the hadoop principal. This principal is used for the NameNode, Secondary NameNode, and DataNodes.</li>
+</ol>
+<pre><code class="hljs"><span class="hljs-attribute">kadmin</span>:  addprinc hadoop/admin<span class="hljs-variable">@NODE-MASTER</span>.EXAMPLE.COM
+</code></pre>
+<ol start="2">
+<li>Create the HTTP principal.</li>
+</ol>
+<pre><code class="hljs"><span class="hljs-attribute">kadmin</span>:  addprinc HTTP/admin<span class="hljs-variable">@NODE-MASTER</span>.EXAMPLE.COM
+</code></pre>
+<ol start="3">
+<li>Create principal for all user of hdfs (regprocessor, prereg, idrepo)</li>
+</ol>
+<pre><code class="hljs"><span class="hljs-attribute">kadmin</span>:  addprinc regprocessor<span class="hljs-variable">@NODE-MASTER</span>.EXAMPLE.COM
+<span class="hljs-attribute">kadmin</span>:  addprinc prereg<span class="hljs-variable">@NODE-MASTER</span>.EXAMPLE.COM
+<span class="hljs-attribute">kadmin</span>:  addprinc idrepo<span class="hljs-variable">@NODE-MASTER</span>.EXAMPLE.COM
+</code></pre>
+<h4><a class="anchor" aria-hidden="true" id="to-create-the-kerberos-keytab-files"></a><a href="#to-create-the-kerberos-keytab-files" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>To create the Kerberos keytab files</h4>
+<p>Create the hdfs keytab file that will contain the hdfs principal and HTTP principal. This keytab file is used for the NameNode, Secondary NameNode, and DataNodes.</p>
+<pre><code class="hljs"><span class="hljs-string">kadmin:</span>  xst -norandkey -k hadoop.keytab hadoop<span class="hljs-regexp">/admin HTTP/</span>admin
+</code></pre>
+<p>Use klist to display the keytab file entries; a correctly-created hdfs keytab file should look something like this:</p>
+<pre><code class="hljs">$ klist -k -e -t hadoop.keytab
+Keytab name: FILE:hadoop.keytab
+KVNO Timestamp           Principal
+---- ------------------- ------------------------------------------------------
+   <span class="hljs-number">1</span> <span class="hljs-number">02</span>/<span class="hljs-number">11</span>/<span class="hljs-number">2019</span> <span class="hljs-number">08</span>:<span class="hljs-number">53</span>:<span class="hljs-number">51</span> hadoop/<span class="hljs-symbol">admin@</span>NODE-MASTER.EXAMPLE.COM (aes256-cts-hmac-sha1<span class="hljs-number">-96</span>)
+   <span class="hljs-number">1</span> <span class="hljs-number">02</span>/<span class="hljs-number">11</span>/<span class="hljs-number">2019</span> <span class="hljs-number">08</span>:<span class="hljs-number">53</span>:<span class="hljs-number">51</span> hadoop/<span class="hljs-symbol">admin@</span>NODE-MASTER.EXAMPLE.COM (aes128-cts-hmac-sha1<span class="hljs-number">-96</span>)
+   <span class="hljs-number">1</span> <span class="hljs-number">02</span>/<span class="hljs-number">11</span>/<span class="hljs-number">2019</span> <span class="hljs-number">08</span>:<span class="hljs-number">53</span>:<span class="hljs-number">51</span> hadoop/<span class="hljs-symbol">admin@</span>NODE-MASTER.EXAMPLE.COM (des3-cbc-sha1)
+   <span class="hljs-number">1</span> <span class="hljs-number">02</span>/<span class="hljs-number">11</span>/<span class="hljs-number">2019</span> <span class="hljs-number">08</span>:<span class="hljs-number">53</span>:<span class="hljs-number">51</span> hadoop/<span class="hljs-symbol">admin@</span>NODE-MASTER.EXAMPLE.COM (arcfour-hmac)
+   <span class="hljs-number">1</span> <span class="hljs-number">02</span>/<span class="hljs-number">11</span>/<span class="hljs-number">2019</span> <span class="hljs-number">08</span>:<span class="hljs-number">53</span>:<span class="hljs-number">51</span> hadoop/<span class="hljs-symbol">admin@</span>NODE-MASTER.EXAMPLE.COM (camellia256-cts-cmac)
+   <span class="hljs-number">1</span> <span class="hljs-number">02</span>/<span class="hljs-number">11</span>/<span class="hljs-number">2019</span> <span class="hljs-number">08</span>:<span class="hljs-number">53</span>:<span class="hljs-number">51</span> hadoop/<span class="hljs-symbol">admin@</span>NODE-MASTER.EXAMPLE.COM (camellia128-cts-cmac)
+   <span class="hljs-number">1</span> <span class="hljs-number">02</span>/<span class="hljs-number">11</span>/<span class="hljs-number">2019</span> <span class="hljs-number">08</span>:<span class="hljs-number">53</span>:<span class="hljs-number">51</span> hadoop/<span class="hljs-symbol">admin@</span>NODE-MASTER.EXAMPLE.COM (des-hmac-sha1)
+   <span class="hljs-number">1</span> <span class="hljs-number">02</span>/<span class="hljs-number">11</span>/<span class="hljs-number">2019</span> <span class="hljs-number">08</span>:<span class="hljs-number">53</span>:<span class="hljs-number">51</span> hadoop/<span class="hljs-symbol">admin@</span>NODE-MASTER.EXAMPLE.COM (des-cbc-md5)
+   <span class="hljs-number">1</span> <span class="hljs-number">02</span>/<span class="hljs-number">11</span>/<span class="hljs-number">2019</span> <span class="hljs-number">08</span>:<span class="hljs-number">53</span>:<span class="hljs-number">51</span> HTTP/<span class="hljs-symbol">admin@</span>NODE-MASTER.EXAMPLE.COM (aes256-cts-hmac-sha1<span class="hljs-number">-96</span>)
+   <span class="hljs-number">1</span> <span class="hljs-number">02</span>/<span class="hljs-number">11</span>/<span class="hljs-number">2019</span> <span class="hljs-number">08</span>:<span class="hljs-number">53</span>:<span class="hljs-number">51</span> HTTP/<span class="hljs-symbol">admin@</span>NODE-MASTER.EXAMPLE.COM (aes128-cts-hmac-sha1<span class="hljs-number">-96</span>)
+   <span class="hljs-number">1</span> <span class="hljs-number">02</span>/<span class="hljs-number">11</span>/<span class="hljs-number">2019</span> <span class="hljs-number">08</span>:<span class="hljs-number">53</span>:<span class="hljs-number">51</span> HTTP/<span class="hljs-symbol">admin@</span>NODE-MASTER.EXAMPLE.COM (des3-cbc-sha1)
+   <span class="hljs-number">1</span> <span class="hljs-number">02</span>/<span class="hljs-number">11</span>/<span class="hljs-number">2019</span> <span class="hljs-number">08</span>:<span class="hljs-number">53</span>:<span class="hljs-number">51</span> HTTP/<span class="hljs-symbol">admin@</span>NODE-MASTER.EXAMPLE.COM (arcfour-hmac)
+   <span class="hljs-number">1</span> <span class="hljs-number">02</span>/<span class="hljs-number">11</span>/<span class="hljs-number">2019</span> <span class="hljs-number">08</span>:<span class="hljs-number">53</span>:<span class="hljs-number">51</span> HTTP/<span class="hljs-symbol">admin@</span>NODE-MASTER.EXAMPLE.COM (camellia256-cts-cmac)
+   <span class="hljs-number">1</span> <span class="hljs-number">02</span>/<span class="hljs-number">11</span>/<span class="hljs-number">2019</span> <span class="hljs-number">08</span>:<span class="hljs-number">53</span>:<span class="hljs-number">51</span> HTTP/<span class="hljs-symbol">admin@</span>NODE-MASTER.EXAMPLE.COM (camellia128-cts-cmac)
+   <span class="hljs-number">1</span> <span class="hljs-number">02</span>/<span class="hljs-number">11</span>/<span class="hljs-number">2019</span> <span class="hljs-number">08</span>:<span class="hljs-number">53</span>:<span class="hljs-number">51</span> HTTP/<span class="hljs-symbol">admin@</span>NODE-MASTER.EXAMPLE.COM (des-hmac-sha1)
+   <span class="hljs-number">1</span> <span class="hljs-number">02</span>/<span class="hljs-number">11</span>/<span class="hljs-number">2019</span> <span class="hljs-number">08</span>:<span class="hljs-number">53</span>:<span class="hljs-number">51</span> HTTP/<span class="hljs-symbol">admin@</span>NODE-MASTER.EXAMPLE.COM (des-cbc-md5)
+</code></pre>
+<h5><a class="anchor" aria-hidden="true" id="creating-keytab-mosipkeytab-file-for-application-to-authenticate-with-hdfs-cluster"></a><a href="#creating-keytab-mosipkeytab-file-for-application-to-authenticate-with-hdfs-cluster" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Creating keytab [mosip.keytab] file for application to authenticate  with hdfs cluster</h5>
+<pre><code class="hljs">$sudo kadmin
+<span class="hljs-symbol">   kadmin:</span> xst -norandkey -k mosip.<span class="hljs-class">keytab </span>{user1}
+<span class="hljs-symbol">   kadmin:</span> xst -norandkey -k mosip.<span class="hljs-class">keytab </span>{user2} 
+</code></pre>
+<pre><code class="hljs">replace {user} with username.
+</code></pre>
+<h5><a class="anchor" aria-hidden="true" id="to-view-the-principals-in-keytab"></a><a href="#to-view-the-principals-in-keytab" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>to view the principals in keytab</h5>
+<pre><code class="hljs"> <span class="hljs-selector-tag">klist</span> <span class="hljs-selector-tag">-k</span> <span class="hljs-selector-tag">-e</span> <span class="hljs-selector-tag">-t</span> <span class="hljs-selector-tag">mosip</span><span class="hljs-selector-class">.keytab</span>
+</code></pre>
+<p>and so on add all the users to keytab. if you want create the separate keytab file for each application and distribute them</p>
+<h4><a class="anchor" aria-hidden="true" id="to-deploy-the-kerberos-keytab-file"></a><a href="#to-deploy-the-kerberos-keytab-file" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>To deploy the Kerberos keytab file</h4>
+<p>On every node in the cluster, copy or move the keytab file to a directory that Hadoop can access, such as /home/hadoop/hadoop/etc/hadoop/hadoop.keytab.</p>
+<h3><a class="anchor" aria-hidden="true" id="to-configure-kernel-hdfs-adapter"></a><a href="#to-configure-kernel-hdfs-adapter" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>To configure Kernel HDFS Adapter</h3>
+<p>Place this mosip.keytab file in /kernel/kernel-fsadapter-hdfs/src/main/resources and update the application properties for</p>
+<pre><code class="hljs">mosip<span class="hljs-selector-class">.kernel</span><span class="hljs-selector-class">.fsadapter</span><span class="hljs-selector-class">.hdfs</span>.keytab-file=classpath:mosip<span class="hljs-selector-class">.keytab</span>
+mosip<span class="hljs-selector-class">.kernel</span><span class="hljs-selector-class">.fsadapter</span><span class="hljs-selector-class">.hdfs</span>.authentication-enabled=true
+mosip<span class="hljs-selector-class">.kernel</span><span class="hljs-selector-class">.fsadapter</span><span class="hljs-selector-class">.hdfs</span>.kdc-domain=NODE-MASTER<span class="hljs-selector-class">.EXAMPLE</span><span class="hljs-selector-class">.COM</span>
+mosip<span class="hljs-selector-class">.kernel</span><span class="hljs-selector-class">.fsadapter</span><span class="hljs-selector-class">.hdfs</span>.name-node-url=hdfs:<span class="hljs-comment">//host-ip:port</span>
+</code></pre>
+<p><strong>NOTE : Configure the user in module specific properties file (ex- pre-registration-qa.properties) as mosip.kernel.fsadapter.hdfs.user-name=prereg</strong></p>
+<h3><a class="anchor" aria-hidden="true" id="enable-security-in-hdfs"></a><a href="#enable-security-in-hdfs" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Enable security in hdfs</h3>
+<p>To enable security in hdfs, you must stop all Hadoop daemons in your cluster and then change some configuration properties.</p>
+<pre><code class="hljs"><span class="hljs-keyword">sh</span> hadoop/sbin/<span class="hljs-keyword">stop</span>-dfs.<span class="hljs-keyword">sh</span>
+</code></pre>
+<h3><a class="anchor" aria-hidden="true" id="enable-hadoop-security"></a><a href="#enable-hadoop-security" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Enable Hadoop Security</h3>
+<ol>
+<li>To enable Hadoop security, add the following properties to the ~/hadoop/etc/hadoop/core-site.xml file on every machine in the cluster:</li>
+</ol>
+<pre><code class="hljs"><span class="hljs-params">&lt;property&gt;</span>
+  <span class="hljs-params">&lt;name&gt;</span>hadoop.security.authentication<span class="hljs-params">&lt;/name&gt;</span>
+  <span class="hljs-params">&lt;value&gt;</span>kerberos<span class="hljs-params">&lt;/value&gt;</span> 
+<span class="hljs-params">&lt;/property&gt;</span>
+
+<span class="hljs-params">&lt;property&gt;</span>
+  <span class="hljs-params">&lt;name&gt;</span>hadoop.security.authorization<span class="hljs-params">&lt;/name&gt;</span>
+  <span class="hljs-params">&lt;value&gt;</span>true<span class="hljs-params">&lt;/value&gt;</span>
+<span class="hljs-params">&lt;/property&gt;</span>
+ 
+<span class="hljs-params">&lt;property&gt;</span>
+  <span class="hljs-params">&lt;name&gt;</span>hadoop.http.filter.initializers<span class="hljs-params">&lt;/name&gt;</span>
+  <span class="hljs-params">&lt;value&gt;</span>org.apache.hadoop.security.AuthenticationFilterInitializer<span class="hljs-params">&lt;/value&gt;</span>
+<span class="hljs-params">&lt;/property&gt;</span>
+
+<span class="hljs-params">&lt;property&gt;</span>
+  <span class="hljs-params">&lt;name&gt;</span>hadoop.http.authentication.type<span class="hljs-params">&lt;/name&gt;</span>
+  <span class="hljs-params">&lt;value&gt;</span>kerberos<span class="hljs-params">&lt;/value&gt;</span>
+<span class="hljs-params">&lt;/property&gt;</span>
+
+<span class="hljs-params">&lt;property&gt;</span>
+  <span class="hljs-params">&lt;name&gt;</span>hadoop.http.authentication.simple.anonymous.allowed<span class="hljs-params">&lt;/name&gt;</span>
+  <span class="hljs-params">&lt;value&gt;</span>true<span class="hljs-params">&lt;/value&gt;</span>
+<span class="hljs-params">&lt;/property&gt;</span>
+
+<span class="hljs-params">&lt;property&gt;</span>
+  <span class="hljs-params">&lt;name&gt;</span>hadoop.http.authentication.kerberos.principal<span class="hljs-params">&lt;/name&gt;</span>
+  <span class="hljs-params">&lt;value&gt;</span>HTTP/admin@NODE-MASTER.EXAMPLE.COM<span class="hljs-params">&lt;/value&gt;</span>
+<span class="hljs-params">&lt;/property&gt;</span>
+
+<span class="hljs-params">&lt;property&gt;</span>
+  <span class="hljs-params">&lt;name&gt;</span>hadoop.http.authentication.kerberos.keytab<span class="hljs-params">&lt;/name&gt;</span>
+  <span class="hljs-params">&lt;value&gt;</span><span class="hljs-meta-keyword">/home/</span>hadoop<span class="hljs-meta-keyword">/hadoop/</span>etc<span class="hljs-meta-keyword">/hadoop/</span>hadoop.keytab<span class="hljs-params">&lt;/value&gt;</span>
+<span class="hljs-params">&lt;/property&gt;</span>
+
+</code></pre>
+<ol start="2">
+<li>Add the following properties to the ~/hadoop/etc/hadoop/hdfs-site.xml file on every machine in the cluster.</li>
+</ol>
+<pre><code class="hljs"><span class="hljs-tag">&lt;<span class="hljs-name">property</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">name</span>&gt;</span>dfs.block.access.token.enable<span class="hljs-tag">&lt;/<span class="hljs-name">name</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">value</span>&gt;</span>true<span class="hljs-tag">&lt;/<span class="hljs-name">value</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">property</span>&gt;</span>
+
+<span class="hljs-comment">&lt;!-- NameNode security config --&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">property</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">name</span>&gt;</span>dfs.namenode.keytab.file<span class="hljs-tag">&lt;/<span class="hljs-name">name</span>&gt;</span>
+  `<span class="hljs-tag">&lt;<span class="hljs-name">value</span>&gt;</span>/home/hadoop/hadoop/etc/hadoop/hadoop.keytab<span class="hljs-tag">&lt;/<span class="hljs-name">value</span>&gt;</span> <span class="hljs-comment">&lt;!-- path to the HDFS keytab --&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">property</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">property</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">name</span>&gt;</span>dfs.namenode.kerberos.principal<span class="hljs-tag">&lt;/<span class="hljs-name">name</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">value</span>&gt;</span>hadoop/admin@NODE-MASTER.EXAMPLE.COM<span class="hljs-tag">&lt;/<span class="hljs-name">value</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">property</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">property</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">name</span>&gt;</span>dfs.namenode.kerberos.internal.spnego.principal<span class="hljs-tag">&lt;/<span class="hljs-name">name</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">value</span>&gt;</span>HTTP/admin@NODE-MASTER.EXAMPLE.COM<span class="hljs-tag">&lt;/<span class="hljs-name">value</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">property</span>&gt;</span>
+
+<span class="hljs-comment">&lt;!-- Secondary NameNode security config --&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">property</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">name</span>&gt;</span>dfs.secondary.namenode.keytab.file<span class="hljs-tag">&lt;/<span class="hljs-name">name</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">value</span>&gt;</span>/home/hadoop/hadoop/etc/hadoop/hadoop.keytab<span class="hljs-tag">&lt;/<span class="hljs-name">value</span>&gt;</span> <span class="hljs-comment">&lt;!-- path to the HDFS keytab --&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">property</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">property</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">name</span>&gt;</span>dfs.secondary.namenode.kerberos.principal<span class="hljs-tag">&lt;/<span class="hljs-name">name</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">value</span>&gt;</span>hadoop/admin@NODE-MASTER.EXAMPLE.COM<span class="hljs-tag">&lt;/<span class="hljs-name">value</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">property</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">property</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">name</span>&gt;</span>dfs.secondary.namenode.kerberos.internal.spnego.principal<span class="hljs-tag">&lt;/<span class="hljs-name">name</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">value</span>&gt;</span>HTTP/admin@NODE-MASTER.EXAMPLE.COM<span class="hljs-tag">&lt;/<span class="hljs-name">value</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">property</span>&gt;</span>
+
+<span class="hljs-comment">&lt;!-- DataNode security config --&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">property</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">name</span>&gt;</span>dfs.datanode.data.dir.perm<span class="hljs-tag">&lt;/<span class="hljs-name">name</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">value</span>&gt;</span>700<span class="hljs-tag">&lt;/<span class="hljs-name">value</span>&gt;</span> 
+<span class="hljs-tag">&lt;/<span class="hljs-name">property</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">property</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">name</span>&gt;</span>dfs.datanode.keytab.file<span class="hljs-tag">&lt;/<span class="hljs-name">name</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">value</span>&gt;</span>/home/hadoop/hadoop/etc/hadoop/hadoop.keytab<span class="hljs-tag">&lt;/<span class="hljs-name">value</span>&gt;</span><span class="hljs-comment">&lt;!-- path to the HDFS keytab --&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">property</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">property</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">name</span>&gt;</span>dfs.datanode.kerberos.principal<span class="hljs-tag">&lt;/<span class="hljs-name">name</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">value</span>&gt;</span>hadoop/admin@NODE-MASTER.EXAMPLE.COM<span class="hljs-tag">&lt;/<span class="hljs-name">value</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">property</span>&gt;</span>
+
+<span class="hljs-comment">&lt;!-- Web Authentication config --&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">property</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">name</span>&gt;</span>dfs.web.authentication.kerberos.principal<span class="hljs-tag">&lt;/<span class="hljs-name">name</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">value</span>&gt;</span>HTTP/admin@NODE-MASTER.EXAMPLE.COM<span class="hljs-tag">&lt;/<span class="hljs-name">value</span>&gt;</span>
+ <span class="hljs-tag">&lt;/<span class="hljs-name">property</span>&gt;</span>
+
+<span class="hljs-tag">&lt;<span class="hljs-name">property</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">name</span>&gt;</span>dfs.data.transfer.protection<span class="hljs-tag">&lt;/<span class="hljs-name">name</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">value</span>&gt;</span>authentication<span class="hljs-tag">&lt;/<span class="hljs-name">value</span>&gt;</span>
+ <span class="hljs-tag">&lt;/<span class="hljs-name">property</span>&gt;</span>
+
+<span class="hljs-tag">&lt;<span class="hljs-name">property</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">name</span>&gt;</span>dfs.http.policy<span class="hljs-tag">&lt;/<span class="hljs-name">name</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">value</span>&gt;</span>HTTPS_ONLY<span class="hljs-tag">&lt;/<span class="hljs-name">value</span>&gt;</span>
+ <span class="hljs-tag">&lt;/<span class="hljs-name">property</span>&gt;</span>
+</code></pre>
+<h3><a class="anchor" aria-hidden="true" id="configuring-https-in-hdfs"></a><a href="#configuring-https-in-hdfs" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Configuring https in hdfs</h3>
+<h4><a class="anchor" aria-hidden="true" id="generating-the-key-and-certificate"></a><a href="#generating-the-key-and-certificate" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Generating the key and certificate</h4>
+<p>The first step of deploying HTTPS is to generate the key and the certificate for each machine in the cluster. You can use Java’s keytool utility to accomplish this task:
+Ensure that firstname/lastname OR common name (CN) matches exactly with the fully qualified domain name (e.g. node-master.example.com) of the server.</p>
+<pre><code class="hljs">keytool -genkey -alias localhost  -keyalg RSA -keysize <span class="hljs-number">2048</span> -keystore keystore.jks
+</code></pre>
+<h4><a class="anchor" aria-hidden="true" id="creating-your-own-ca"></a><a href="#creating-your-own-ca" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Creating your own CA</h4>
+<p>We use openssl to generate a new CA certificate:</p>
+<pre><code class="hljs">openssl req -new -x509 -keyout <span class="hljs-keyword">ca</span>-key.cer -<span class="hljs-keyword">out</span> <span class="hljs-keyword">ca</span>-cert.cer -days 365
+</code></pre>
+<p>The next step is to add the generated CA to the clients’ truststore so that the clients can trust this CA:</p>
+<pre><code class="hljs"><span class="hljs-title">keytool</span> -keystore truststore.jks -<span class="hljs-keyword">alias</span> <span class="hljs-type">CARoot</span> -<span class="hljs-keyword">import</span> -file ca-cert.cer
+</code></pre>
+<h4><a class="anchor" aria-hidden="true" id="signing-the-certificate"></a><a href="#signing-the-certificate" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Signing the certificate:</h4>
+<p>The next step is to sign all certificates generated  with the CA. First, you need to export the certificate from the keystore:</p>
+<pre><code class="hljs">keytool -keystore keystore.jks -<span class="hljs-built_in">alias</span> localhost -certreq -<span class="hljs-built_in">file</span> cert-<span class="hljs-built_in">file</span>.cer
+</code></pre>
+<p>Then sign it with the CA:</p>
+<pre><code class="hljs"><span class="hljs-selector-tag">openssl</span> <span class="hljs-selector-tag">x509</span> <span class="hljs-selector-tag">-req</span> <span class="hljs-selector-tag">-CA</span> <span class="hljs-selector-tag">ca-cert</span><span class="hljs-selector-class">.cer</span> <span class="hljs-selector-tag">-CAkey</span> <span class="hljs-selector-tag">ca-key</span><span class="hljs-selector-class">.cer</span> <span class="hljs-selector-tag">-in</span> <span class="hljs-selector-tag">cert-file</span><span class="hljs-selector-class">.cer</span> <span class="hljs-selector-tag">-out</span> <span class="hljs-selector-tag">cert-signed</span><span class="hljs-selector-class">.cer</span> <span class="hljs-selector-tag">-days</span> 365 <span class="hljs-selector-tag">-CAcreateserial</span> <span class="hljs-selector-tag">-passin</span> <span class="hljs-selector-tag">pass</span><span class="hljs-selector-pseudo">:12345678</span>
+</code></pre>
+<p>Finally, you need to import both the certificate of the CA and the signed certificate into the keystore</p>
+<pre><code class="hljs"><span class="hljs-title">keytool</span> -keystore keystore.jks -<span class="hljs-keyword">alias</span> <span class="hljs-type">CARoot</span> -<span class="hljs-keyword">import</span> -file ca-cert.cer
+<span class="hljs-title">keytool</span> -keystore keystore.jks -<span class="hljs-keyword">alias</span> localhost -<span class="hljs-keyword">import</span> -file cert-signed.cer
+</code></pre>
+<h4><a class="anchor" aria-hidden="true" id="configuring-hdfs"></a><a href="#configuring-hdfs" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Configuring Hdfs</h4>
+<p>Change the ssl-server.xml and ssl-client.xml on all nodes to tell HDFS about the keystore and the truststore</p>
+<ol>
+<li>Edit ~/hadoop/etc/hadoop/ssl-server.xml</li>
+</ol>
+<pre><code class="hljs">&lt;<span class="hljs-keyword">configuration</span>&gt;
+
+&lt;property&gt;
+  &lt;<span class="hljs-type">name</span>&gt;ssl.<span class="hljs-keyword">server</span>.truststore.<span class="hljs-keyword">location</span>&lt;/<span class="hljs-type">name</span>&gt;
+  &lt;<span class="hljs-keyword">value</span>&gt;/home/hadoop/truststore.jks&lt;/<span class="hljs-keyword">value</span>&gt;
+  &lt;description&gt;Truststore <span class="hljs-keyword">to</span> be used <span class="hljs-keyword">by</span> NN <span class="hljs-keyword">and</span> DN. Must be specified.
+  &lt;/description&gt;
+&lt;/property&gt;
+
+&lt;property&gt;
+  &lt;<span class="hljs-type">name</span>&gt;ssl.<span class="hljs-keyword">server</span>.truststore.<span class="hljs-keyword">password</span>&lt;/<span class="hljs-type">name</span>&gt;
+  &lt;<span class="hljs-keyword">value</span>&gt;<span class="hljs-number">12345678</span>&lt;/<span class="hljs-keyword">value</span>&gt;
+  &lt;description&gt;Optional. <span class="hljs-keyword">Default</span> <span class="hljs-keyword">value</span> <span class="hljs-keyword">is</span> "".
+  &lt;/description&gt;
+&lt;/property&gt;
+
+&lt;property&gt;
+  &lt;<span class="hljs-type">name</span>&gt;ssl.<span class="hljs-keyword">server</span>.truststore.<span class="hljs-keyword">type</span>&lt;/<span class="hljs-type">name</span>&gt;
+  &lt;<span class="hljs-keyword">value</span>&gt;jks&lt;/<span class="hljs-keyword">value</span>&gt;
+  &lt;description&gt;Optional. The keystore file <span class="hljs-keyword">format</span>, <span class="hljs-keyword">default</span> <span class="hljs-keyword">value</span> <span class="hljs-keyword">is</span> "jks".
+  &lt;/description&gt;
+&lt;/property&gt;
+
+&lt;property&gt;
+  &lt;<span class="hljs-type">name</span>&gt;ssl.<span class="hljs-keyword">server</span>.truststore.reload.interval&lt;/<span class="hljs-type">name</span>&gt;
+  &lt;<span class="hljs-keyword">value</span>&gt;<span class="hljs-number">10000</span>&lt;/<span class="hljs-keyword">value</span>&gt;
+  &lt;description&gt;Truststore reload <span class="hljs-keyword">check</span> <span class="hljs-type">interval</span>, <span class="hljs-keyword">in</span> milliseconds.
+  <span class="hljs-keyword">Default</span> <span class="hljs-keyword">value</span> <span class="hljs-keyword">is</span> <span class="hljs-number">10000</span> (<span class="hljs-number">10</span> seconds).
+  &lt;/description&gt;
+&lt;/property&gt;
+
+&lt;property&gt;
+  &lt;<span class="hljs-type">name</span>&gt;ssl.<span class="hljs-keyword">server</span>.keystore.<span class="hljs-keyword">location</span>&lt;/<span class="hljs-type">name</span>&gt;
+  &lt;<span class="hljs-keyword">value</span>&gt;/home/hadoop/keystore.jks&lt;/<span class="hljs-keyword">value</span>&gt;
+  &lt;description&gt;Keystore <span class="hljs-keyword">to</span> be used <span class="hljs-keyword">by</span> NN <span class="hljs-keyword">and</span> DN. Must be specified.
+  &lt;/description&gt;
+&lt;/property&gt;
+
+&lt;property&gt;
+  &lt;<span class="hljs-type">name</span>&gt;ssl.<span class="hljs-keyword">server</span>.keystore.<span class="hljs-keyword">password</span>&lt;/<span class="hljs-type">name</span>&gt;
+  &lt;<span class="hljs-keyword">value</span>&gt;<span class="hljs-number">12345678</span>&lt;/<span class="hljs-keyword">value</span>&gt;
+  &lt;description&gt;Must be specified.
+  &lt;/description&gt;
+&lt;/property&gt;
+
+&lt;property&gt;
+  &lt;<span class="hljs-type">name</span>&gt;ssl.<span class="hljs-keyword">server</span>.keystore.keypassword&lt;/<span class="hljs-type">name</span>&gt;
+  &lt;<span class="hljs-keyword">value</span>&gt;<span class="hljs-number">12345678</span>&lt;/<span class="hljs-keyword">value</span>&gt;
+  &lt;description&gt;Must be specified.
+  &lt;/description&gt;
+&lt;/property&gt;
+
+&lt;property&gt;
+  &lt;<span class="hljs-type">name</span>&gt;ssl.<span class="hljs-keyword">server</span>.keystore.<span class="hljs-keyword">type</span>&lt;/<span class="hljs-type">name</span>&gt;
+  &lt;<span class="hljs-keyword">value</span>&gt;jks&lt;/<span class="hljs-keyword">value</span>&gt;
+  &lt;description&gt;Optional. The keystore file <span class="hljs-keyword">format</span>, <span class="hljs-keyword">default</span> <span class="hljs-keyword">value</span> <span class="hljs-keyword">is</span> "jks".
+  &lt;/description&gt;
+&lt;/property&gt;
+
+&lt;property&gt;
+  &lt;<span class="hljs-type">name</span>&gt;ssl.<span class="hljs-keyword">server</span>.<span class="hljs-keyword">exclude</span>.cipher.list&lt;/<span class="hljs-type">name</span>&gt;
+  &lt;<span class="hljs-keyword">value</span>&gt;TLS_ECDHE_RSA_WITH_RC4_128_SHA,SSL_DHE_RSA_EXPORT_WITH_DES40_CBC_SHA,
+  SSL_RSA_WITH_DES_CBC_SHA,SSL_DHE_RSA_WITH_DES_CBC_SHA,
+  SSL_RSA_EXPORT_WITH_RC4_40_MD5,SSL_RSA_EXPORT_WITH_DES40_CBC_SHA,
+  SSL_RSA_WITH_RC4_128_MD5&lt;/<span class="hljs-keyword">value</span>&gt;
+  &lt;description&gt;Optional. The weak <span class="hljs-keyword">security</span> cipher suites that you want excluded
+  <span class="hljs-keyword">from</span> SSL communication.&lt;/description&gt;
+&lt;/property&gt;
+
+&lt;/<span class="hljs-keyword">configuration</span>&gt;
+</code></pre>
+<ol start="2">
+<li>Edit ~/hadoop/etc/hadoop/ssl-client.xml</li>
+</ol>
+<pre><code class="hljs">&lt;<span class="hljs-keyword">configuration</span>&gt;
+
+&lt;property&gt;
+  &lt;<span class="hljs-type">name</span>&gt;ssl.client.truststore.<span class="hljs-keyword">location</span>&lt;/<span class="hljs-type">name</span>&gt;
+  &lt;<span class="hljs-keyword">value</span>&gt;/home/hadoop/truststore.jks&lt;/<span class="hljs-keyword">value</span>&gt;
+  &lt;description&gt;Truststore <span class="hljs-keyword">to</span> be used <span class="hljs-keyword">by</span> clients <span class="hljs-keyword">like</span> distcp. Must be
+  specified.
+  &lt;/description&gt;
+&lt;/property&gt;
+
+&lt;property&gt;
+  &lt;<span class="hljs-type">name</span>&gt;ssl.client.truststore.<span class="hljs-keyword">password</span>&lt;/<span class="hljs-type">name</span>&gt;
+  &lt;<span class="hljs-keyword">value</span>&gt;<span class="hljs-number">12345678</span>&lt;/<span class="hljs-keyword">value</span>&gt;
+  &lt;description&gt;Optional. <span class="hljs-keyword">Default</span> <span class="hljs-keyword">value</span> <span class="hljs-keyword">is</span> "".
+  &lt;/description&gt;
+&lt;/property&gt;
+
+&lt;property&gt;
+  &lt;<span class="hljs-type">name</span>&gt;ssl.client.truststore.<span class="hljs-keyword">type</span>&lt;/<span class="hljs-type">name</span>&gt;
+  &lt;<span class="hljs-keyword">value</span>&gt;jks&lt;/<span class="hljs-keyword">value</span>&gt;
+  &lt;description&gt;Optional. The keystore file <span class="hljs-keyword">format</span>, <span class="hljs-keyword">default</span> <span class="hljs-keyword">value</span> <span class="hljs-keyword">is</span> "jks".
+  &lt;/description&gt;
+&lt;/property&gt;
+
+&lt;property&gt;
+  &lt;<span class="hljs-type">name</span>&gt;ssl.client.truststore.reload.interval&lt;/<span class="hljs-type">name</span>&gt;
+  &lt;<span class="hljs-keyword">value</span>&gt;<span class="hljs-number">10000</span>&lt;/<span class="hljs-keyword">value</span>&gt;
+  &lt;description&gt;Truststore reload <span class="hljs-keyword">check</span> <span class="hljs-type">interval</span>, <span class="hljs-keyword">in</span> milliseconds.
+  <span class="hljs-keyword">Default</span> <span class="hljs-keyword">value</span> <span class="hljs-keyword">is</span> <span class="hljs-number">10000</span> (<span class="hljs-number">10</span> seconds).
+  &lt;/description&gt;
+&lt;/property&gt;
+
+&lt;property&gt;
+  &lt;<span class="hljs-type">name</span>&gt;ssl.client.keystore.<span class="hljs-keyword">location</span>&lt;/<span class="hljs-type">name</span>&gt;
+  &lt;<span class="hljs-keyword">value</span>&gt;/home/hadoop/keystore.jks&lt;/<span class="hljs-keyword">value</span>&gt;
+  &lt;description&gt;Keystore <span class="hljs-keyword">to</span> be used <span class="hljs-keyword">by</span> clients <span class="hljs-keyword">like</span> distcp. Must be
+  specified.
+  &lt;/description&gt;
+&lt;/property&gt;
+
+&lt;property&gt;
+  &lt;<span class="hljs-type">name</span>&gt;ssl.client.keystore.<span class="hljs-keyword">password</span>&lt;/<span class="hljs-type">name</span>&gt;
+  &lt;<span class="hljs-keyword">value</span>&gt;<span class="hljs-number">12345678</span>&lt;/<span class="hljs-keyword">value</span>&gt;
+  &lt;description&gt;Optional. <span class="hljs-keyword">Default</span> <span class="hljs-keyword">value</span> <span class="hljs-keyword">is</span> "".
+  &lt;/description&gt;
+&lt;/property&gt;
+
+&lt;property&gt;
+  &lt;<span class="hljs-type">name</span>&gt;ssl.client.keystore.keypassword&lt;/<span class="hljs-type">name</span>&gt;
+  &lt;<span class="hljs-keyword">value</span>&gt;<span class="hljs-number">12345678</span>&lt;/<span class="hljs-keyword">value</span>&gt;
+  &lt;description&gt;Optional. <span class="hljs-keyword">Default</span> <span class="hljs-keyword">value</span> <span class="hljs-keyword">is</span> "".
+  &lt;/description&gt;
+&lt;/property&gt;
+
+&lt;property&gt;
+  &lt;<span class="hljs-type">name</span>&gt;ssl.client.keystore.<span class="hljs-keyword">type</span>&lt;/<span class="hljs-type">name</span>&gt;
+  &lt;<span class="hljs-keyword">value</span>&gt;jks&lt;/<span class="hljs-keyword">value</span>&gt;
+  &lt;description&gt;Optional. The keystore file <span class="hljs-keyword">format</span>, <span class="hljs-keyword">default</span> <span class="hljs-keyword">value</span> <span class="hljs-keyword">is</span> "jks".
+  &lt;/description&gt;
+&lt;/property&gt;
+
+&lt;/<span class="hljs-keyword">configuration</span>&gt;
+</code></pre>
+<p>After restarting the HDFS daemons (NameNode, DataNode and JournalNode), you should have successfully deployed HTTPS in your HDFS cluster.</p>
+<p>For you face error during kerberos, check this:
+<a href="//steveloughran.gitbooks.io/kerberos_and_hadoop/content/sections/errors.html"><strong>link</strong></a></p>
+</span></div></article></div><div class="docs-prevnext"></div></div></div><nav class="onPageNav"><ul class="toc-headings"><li><a href="#1-setup-hdfs-version-281">1. Setup HDFS version 2.8.1</a><ul class="toc-headings"><li><a href="#before-you-begin">Before you begin</a></li><li><a href="#creating-hadoop-user">Creating Hadoop User</a></li><li><a href="#distribute-authentication-key-pairs-for-the-hadoop-user">Distribute Authentication Key-pairs for the Hadoop User</a></li><li><a href="#verify-ssh-from-master-node-to-slave-node-and-vice-versa">Verify ssh from Master node to slave node and vice versa.</a></li><li><a href="#download-and-unpack-hadoop-binaries">Download and Unpack Hadoop Binaries</a></li><li><a href="#set-environment-variables-in-each-machine-in-the-cluster">Set Environment Variables in each machine in the cluster</a></li><li><a href="#configure-the-master-node">Configure the Master Node</a></li><li><a href="#duplicate-config-files-on-each-node">Duplicate Config Files on Each Node</a></li><li><a href="#format-hdfs">Format HDFS</a></li><li><a href="#start-hdfs">Start HDFS</a></li><li><a href="#create-hdfs-users">Create hdfs users</a></li></ul></li><li><a href="#2-securing-hdfs">2. Securing HDFS</a><ul class="toc-headings"><li><a href="#install-kerberos">Install Kerberos</a></li><li><a href="#before-installing-kerberos-install-the-jce-policy-file">Before Installing Kerberos Install the JCE Policy File</a></li><li><a href="#kerberos">Kerberos</a></li><li><a href="#configuring-the-master-kdc-server">Configuring the Master KDC Server</a></li><li><a href="#create-and-deploy-the-kerberos-principals-and-keytab-files">Create and Deploy the Kerberos Principals and Keytab Files</a></li><li><a href="#to-configure-kernel-hdfs-adapter">To configure Kernel HDFS Adapter</a></li><li><a href="#enable-security-in-hdfs">Enable security in hdfs</a></li><li><a href="#enable-hadoop-security">Enable Hadoop Security</a></li><li><a href="#configuring-https-in-hdfs">Configuring https in hdfs</a></li></ul></li></ul></nav></div><footer class="nav-footer" id="footer"><section class="sitemap"><a href="/mosip-temp-documentation" class="nav-home"><img src="/mosip-temp-documentationimg/favicon.ico" alt="MOSIP Documentation" width="66" height="58"/></a><div><h5>Docs</h5><a href="/mosip-temp-documentationdocs/en/doc1.html">Getting Started (or other categories)</a><a href="/mosip-temp-documentationdocs/en/doc2.html">Guides (or other categories)</a><a href="/mosip-temp-documentationdocs/en/doc3.html">API Reference (or other categories)</a></div><div><h5>Community</h5><a href="/mosip-temp-documentationen/users.html">User Showcase</a><a href="https://stackoverflow.com/questions/tagged/" target="_blank" rel="noreferrer noopener">Stack Overflow</a><a href="https://discordapp.com/">Project Chat</a><a href="https://twitter.com/" target="_blank" rel="noreferrer noopener">Twitter</a></div><div><h5>More</h5><a href="/mosip-temp-documentationblog">Blog</a><a href="https://github.com/">GitHub</a><a class="github-button" data-icon="octicon-star" data-count-href="/facebook/docusaurus/stargazers" data-show-count="true" data-count-aria-label="# stargazers on GitHub" aria-label="Star this project on GitHub">Star</a></div></section><a href="https://opensource.facebook.com/" target="_blank" rel="noreferrer noopener" class="fbOpenSource"><img src="/mosip-temp-documentationimg/oss_logo.png" alt="Facebook Open Source" width="170" height="45"/></a><section class="copyright">Copyright © 2019 Your Name or Your Company Name</section></footer></div></body></html>
