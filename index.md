@@ -19,9 +19,9 @@ Contents
 .. toctree::
    :maxdepth: 2
 
-   getting-started
-   technology-stack
-   privacy-and-security
+   Getting-Started
+   Technology-Stack
+   Privacy-and-Security
    
    
    
@@ -29,7 +29,7 @@ Contents
 What's with the name?
 ----------------------
 
-Here lets link to a page and see how it shows up - To get started on contributing to MOSIP, read our [Contributor Guide](contributor-guide) and our [Code of Conduct](code-of-conduct).
+Here lets link to a page and see how it shows up - To get started on contributing to MOSIP, read our [Contributor Guide](Contributor-Guide) and our [Code of Conduct](Code-of-Conduct).
 
 * [Pre-Registration APIs](Pre-Registration-Services)
 * [Registration Processor APIs](Registration-Processor-APIs)
@@ -38,4 +38,4 @@ Here lets link to a page and see how it shows up - To get started on contributin
 <!--- * [Partner Management APIs (WIP)](Partner-Management-APIs) --->
 * [ABIS APIs](ABIS-APIs).
 * [Biometric APIs](MOSIP-Biometric-APIs)
-* [OTP Manager API](Kernel-APIs#otp-manager-private)
+* [OTP Manager API](Kernel-APIs)
