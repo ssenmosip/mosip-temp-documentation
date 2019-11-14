@@ -1,9 +1,9 @@
 # Table of Contents
 
-# [1. INTRODUCTION](#1-introduction)
-# [2. FUNCTIONAL OVERVIEW](#2-functional-overview)
-# [3. ARCHITECTURE OVERVIEW](#3-architecture-overview)
-  * [3.1 Principles](#31-principles)
+# 1. INTRODUCTION 
+# 2. FUNCTIONAL OVERVIEW 
+# 3. ARCHITECTURE OVERVIEW 
+  * 3.1 Principles
   * [3.2 Logical View](#32-logical-view)
   * [3.3 Technology Stack](#33-technology-stack)
   * [3.4 Data Architecture](#34-data-architecture)

@@ -1,4 +1,5 @@
-##Technology Stack
+# Technology Stack
+
 This page lists all the technologies used in building MOSIP
 
 Category | Tool/Technology | Version | License | Remarks

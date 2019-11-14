@@ -1,4 +1,5 @@
-## Getting Started Guide
+# Getting Started 
+
 * [1. Getting the Source Code](#1-getting-the-source-code-)
 * [2. Setup and Configure Jenkins](#2-setup-and-configure-jenkins-)
 * [3. Setup and Configure Jfrog Artifactory Version 6.5.2](#3-setup-and-configure-jfrog-artifactory-version-652-)

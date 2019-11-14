@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Getting Started Guide &mdash; MOSIP 0.9 documentation</title>
+  <title>Getting Started &mdash; MOSIP 0.9 documentation</title>
   
 
   
@@ -84,7 +84,7 @@
             
               <!-- Local TOC -->
               <div class="local-toc"><ul>
-<li><a class="reference internal" href="#">Getting Started Guide</a></li>
+<li><a class="reference internal" href="#">Getting Started</a><ul>
 <li><a class="reference internal" href="#getting-the-source-code">1. Getting the Source Code <strong>[↑]</strong></a></li>
 <li><a class="reference internal" href="#setup-and-configure-jenkins">2. Setup and Configure Jenkins <strong>[↑]</strong></a><ul>
 <li><a class="reference internal" href="#a-installing-jenkins-version-2-150-1">A. Installing Jenkins version 2.150.1</a></li>
@@ -172,6 +172,8 @@
 </ul>
 </li>
 </ul>
+</li>
+</ul>
 </div>
             
           
@@ -216,7 +218,7 @@
     
       <li><a href="index.html">Docs</a> &raquo;</li>
         
-      <li>Getting Started Guide</li>
+      <li>Getting Started</li>
     
     
       <li class="wy-breadcrumbs-aside">
@@ -235,8 +237,8 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="getting-started-guide">
-<h1>Getting Started Guide<a class="headerlink" href="#getting-started-guide" title="Permalink to this headline">¶</a></h1>
+  <div class="section" id="getting-started">
+<h1>Getting Started<a class="headerlink" href="#getting-started" title="Permalink to this headline">¶</a></h1>
 <ul class="simple">
 <li><p><a class="reference external" href="#1-getting-the-source-code-">1. Getting the Source Code</a></p></li>
 <li><p><a class="reference external" href="#2-setup-and-configure-jenkins-">2. Setup and Configure Jenkins</a></p></li>
@@ -247,9 +249,8 @@
 <li><p><a class="reference external" href="#7-configuring-mosip-">7. Configuring MOSIP</a></p></li>
 <li><p><a class="reference external" href="#8-mosip-deployment-">8. MOSIP Deployment</a></p></li>
 </ul>
-</div>
 <div class="section" id="getting-the-source-code">
-<h1>1. Getting the Source Code <a class="reference external" href="#table-of-content"><strong>[↑]</strong></a><a class="headerlink" href="#getting-the-source-code" title="Permalink to this headline">¶</a></h1>
+<h2>1. Getting the Source Code <a class="reference external" href="#table-of-content"><strong>[↑]</strong></a><a class="headerlink" href="#getting-the-source-code" title="Permalink to this headline">¶</a></h2>
 <p>Knowledge of Linux and Azure with Kubernetes are required to follow the instructions.
 MOSIP source code can be obtained via creating a fork of mosip-platform Github repository from the <a class="reference external" href="/mosip/mosip-platform/">URL</a>. To know more about how to fork code from Github follow this <a class="reference external" href="//help.github.com/articles/fork-a-repo/">guide</a>.
 Once Forked, start the process of setting up your CI/CD tools to build and run MOSIP.</p>
@@ -257,10 +258,10 @@ Once Forked, start the process of setting up your CI/CD tools to build and run M
 </div>
 <hr class="docutils" />
 <div class="section" id="setup-and-configure-jenkins">
-<h1>2. Setup and Configure Jenkins <a class="reference external" href="#table-of-content"><strong>[↑]</strong></a><a class="headerlink" href="#setup-and-configure-jenkins" title="Permalink to this headline">¶</a></h1>
+<h2>2. Setup and Configure Jenkins <a class="reference external" href="#table-of-content"><strong>[↑]</strong></a><a class="headerlink" href="#setup-and-configure-jenkins" title="Permalink to this headline">¶</a></h2>
 <p>In this step, we will setup jenkins and configure it. Configuration contains steps like creating credentials, creating pipelines using xml files present in MOSIP source code, connecting Jenkins to recently forked repository and creating webhooks. Lets look at these steps one by one -</p>
 <div class="section" id="a-installing-jenkins-version-2-150-1">
-<h2>A. Installing Jenkins version 2.150.1<a class="headerlink" href="#a-installing-jenkins-version-2-150-1" title="Permalink to this headline">¶</a></h2>
+<h3>A. Installing Jenkins version 2.150.1<a class="headerlink" href="#a-installing-jenkins-version-2-150-1" title="Permalink to this headline">¶</a></h3>
 <p>Jenkins installation is standard(see <a class="reference external" href="//jenkins.io/doc/book/installing/">How to install Jenkins</a>), but to use MOSIP supported build pipelines you have to install Jenkins in an Redhat 7.6 environment. The prerequisite for installing Jenkins is you should have java already installed and path for JAVA_HOME is also set. Also the following plugins have to be installed
 list of plugins -</p>
 <ul class="simple">
@@ -283,7 +284,7 @@ list of plugins -</p>
 <p>This above command modifies Content Security Policy in Jenkins to enable loading of style and javascript for HTML Reports.</p>
 </div>
 <div class="section" id="b-setting-up-github-for-in-jenkins">
-<h2>B. Setting Up Github for/in Jenkins<a class="headerlink" href="#b-setting-up-github-for-in-jenkins" title="Permalink to this headline">¶</a></h2>
+<h3>B. Setting Up Github for/in Jenkins<a class="headerlink" href="#b-setting-up-github-for-in-jenkins" title="Permalink to this headline">¶</a></h3>
 <p>Setting up Github for/in Jenkins involves putting the Jenkins Webhook url in Github Repo so that Github can inform Jenkins for push events(look at <a class="reference external" href="//developer.github.com/webhooks/">Webhooks</a> and <a class="reference external" href="//wiki.jenkins.io/display/JENKINS/GitHub+Plugin#GitHubPlugin-GitHubhooktriggerforGITScmpolling">Github hook</a>). After hooks are in place, setup Github credentials inside Jenkins, so that on webhook event our pipeline can checkout the code from Github. To set up Github Credentials, follow these steps -</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">I</span><span class="o">.</span> <span class="n">Goto</span> <span class="n">Jenkins</span>
 <span class="n">II</span><span class="o">.</span> <span class="n">Goto</span> <span class="n">Credentials</span> <span class="o">-&gt;</span> <span class="n">System</span>
@@ -302,7 +303,7 @@ list of plugins -</p>
 </div>
 </div>
 <div class="section" id="c-create-pipelines">
-<h2>C. Create Pipelines<a class="headerlink" href="#c-create-pipelines" title="Permalink to this headline">¶</a></h2>
+<h3>C. Create Pipelines<a class="headerlink" href="#c-create-pipelines" title="Permalink to this headline">¶</a></h3>
 <p>Next step after Jenkins installation is to configure/create Jenkins Jobs. These Jenkins Jobs are written as Jenkins Pipelines and respective Jenkinsfile in <a class="reference external" href="https://github.com/mosip/mosip-infra/tree/master/deployment/cloud/jenkinsfile">URL</a>. MOSIP currently has 5 Jenkins jobs that take care of CI/CD process for Development Environment. They are -</p>
 <ul>
 <li><p>master-branch-build-all-modules</p>
@@ -344,7 +345,7 @@ This Job is used to build MOSIP as a single unit. This Job also acts like a nigh
 </div>
 <hr class="docutils" />
 <div class="section" id="setup-and-configure-jfrog-artifactory-version-6-5-2">
-<h1>3. Setup and Configure Jfrog Artifactory Version 6.5.2 <a class="reference external" href="#table-of-content"><strong>[↑]</strong></a><a class="headerlink" href="#setup-and-configure-jfrog-artifactory-version-6-5-2" title="Permalink to this headline">¶</a></h1>
+<h2>3. Setup and Configure Jfrog Artifactory Version 6.5.2 <a class="reference external" href="#table-of-content"><strong>[↑]</strong></a><a class="headerlink" href="#setup-and-configure-jfrog-artifactory-version-6-5-2" title="Permalink to this headline">¶</a></h2>
 <p>For installing and setting up Jfrog, following steps <a class="reference external" href="//jfrog.com/confluence/display/RTF/Installing+Artifactory">here</a> need to be followed.<br/>
 Once the setup is complete, please add the following remote repositories to your Jfrog configuration and point them to libs-release virtual repository:</p>
 <ul class="simple">
@@ -364,7 +365,7 @@ Also if you are planning to import all versions of the Mosip modules in Jfrog to
 </div>
 <hr class="docutils" />
 <div class="section" id="setup-and-configure-sonarqube-version-7-3">
-<h1>4. Setup and Configure SonarQube version 7.3 <a class="reference external" href="#table-of-content"><strong>[↑]</strong></a><a class="headerlink" href="#setup-and-configure-sonarqube-version-7-3" title="Permalink to this headline">¶</a></h1>
+<h2>4. Setup and Configure SonarQube version 7.3 <a class="reference external" href="#table-of-content"><strong>[↑]</strong></a><a class="headerlink" href="#setup-and-configure-sonarqube-version-7-3" title="Permalink to this headline">¶</a></h2>
 <p>SonarQube server can be setup by following single instructions given <a class="reference external" href="//docs.sonarqube.org/latest/setup/get-started-2-minutes/">here</a>.<br/>
 For configuring SonarQube with Jenkins, steps given <a class="reference external" href="//docs.sonarqube.org/display/SCAN/Analyzing+with+SonarQube+Scanner+for+Jenkins">here</a> can be followed.</p>
 <p>Steps to install SonarQube on Ubuntu 16.04</p>
@@ -509,7 +510,7 @@ For configuring SonarQube with Jenkins, steps given <a class="reference external
 </div>
 <hr class="docutils" />
 <div class="section" id="setup-and-configure-docker-registry">
-<h1>5. Setup and Configure Docker Registry <a class="reference external" href="#table-of-content"><strong>[↑]</strong></a><a class="headerlink" href="#setup-and-configure-docker-registry" title="Permalink to this headline">¶</a></h1>
+<h2>5. Setup and Configure Docker Registry <a class="reference external" href="#table-of-content"><strong>[↑]</strong></a><a class="headerlink" href="#setup-and-configure-docker-registry" title="Permalink to this headline">¶</a></h2>
 <p>In this step we will setup and configure a private docker registry, which will be basic authenticated, SSL secured. In our setup we are using azure blobs as storage for our docker images. More options for configuring registry can be found <a class="reference external" href="//docs.docker.com/registry/configuration/">here</a>
 We are deploying Docker registry as Containerized services. For setting up the registry, <a class="reference external" href="//docs.docker.com/install/">Docker</a> and <a class="reference external" href="//docs.docker.com/compose/install/">Docker Compose</a> need to be installed. We have setted up the registry in a machine with Redhat 7.6 installed.<br/>
 Once installation is done, the yaml files which we will be using to setup the registry can be found in this <a class="reference external" href="https://github.com/mosip/mosip-infra/tree/master/deployment/cloud/docker-registry">link</a>
@@ -539,23 +540,23 @@ Once the registry is up and running, variables <strong>registryUrl</strong>, <st
 </div>
 <hr class="docutils" />
 <div class="section" id="installing-external-dependencies">
-<h1>6. Installing External Dependencies <a class="reference external" href="#table-of-content"><strong>[↑]</strong></a><a class="headerlink" href="#installing-external-dependencies" title="Permalink to this headline">¶</a></h1>
+<h2>6. Installing External Dependencies <a class="reference external" href="#table-of-content"><strong>[↑]</strong></a><a class="headerlink" href="#installing-external-dependencies" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="install-and-use-postgresql-version-10-2-on-rhel-7-5">
-<h2>6.1 Install and use PostgreSql Version 10.2 on RHEL 7.5<a class="headerlink" href="#install-and-use-postgresql-version-10-2-on-rhel-7-5" title="Permalink to this headline">¶</a></h2>
+<h3>6.1 Install and use PostgreSql Version 10.2 on RHEL 7.5<a class="headerlink" href="#install-and-use-postgresql-version-10-2-on-rhel-7-5" title="Permalink to this headline">¶</a></h3>
 <p>Often simply Postgres, is an object-relational database management system (ORDBMS) with an emphasis on extensibility and standards compliance. It can handle workloads ranging from small single-machine applications to large Internet-facing applications (or for data warehousing) with many concurrent users
 Postgresql Prerequisites
 On a Linux or Mac system, you must have superuser privileges to perform a PostgreSQL installation. To perform an installation on a Windows system, you must have administrator privileges.</p>
 <div class="section" id="steps-to-install-postgresql-in-rhel-7-5">
-<h3>Steps to install Postgresql in RHEL-7.5<a class="headerlink" href="#steps-to-install-postgresql-in-rhel-7-5" title="Permalink to this headline">¶</a></h3>
+<h4>Steps to install Postgresql in RHEL-7.5<a class="headerlink" href="#steps-to-install-postgresql-in-rhel-7-5" title="Permalink to this headline">¶</a></h4>
 <div class="section" id="download-and-install-postgresql">
-<h4>Download and install PostgreSQL.<a class="headerlink" href="#download-and-install-postgresql" title="Permalink to this headline">¶</a></h4>
+<h5>Download and install PostgreSQL.<a class="headerlink" href="#download-and-install-postgresql" title="Permalink to this headline">¶</a></h5>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ sudo yum install https://download.postgresql.org/pub/repos/yum/10/redhat/rhel-7-x86_64/pgdg-redhat10-10-2.noarch.rpm
 $ sudo  yum-config-manager --disable pgdg95
 </pre></div>
 </div>
 </div>
 <div class="section" id="checking-the-postgresql-packages">
-<h4>checking  the postgresql packages<a class="headerlink" href="#checking-the-postgresql-packages" title="Permalink to this headline">¶</a></h4>
+<h5>checking  the postgresql packages<a class="headerlink" href="#checking-the-postgresql-packages" title="Permalink to this headline">¶</a></h5>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ sudo yum update
 </pre></div>
 </div>
@@ -597,7 +598,7 @@ $ sudo  yum-config-manager --disable pgdg95
 </div>
 </div>
 <div class="section" id="to-increase-the-buffer-size-and-number-of-postgresql-connection-same-fine-modify-the-below-changes-also">
-<h4>To increase the buffer size and number of postgreSql connection  same fine modify the below changes also<a class="headerlink" href="#to-increase-the-buffer-size-and-number-of-postgresql-connection-same-fine-modify-the-below-changes-also" title="Permalink to this headline">¶</a></h4>
+<h5>To increase the buffer size and number of postgreSql connection  same fine modify the below changes also<a class="headerlink" href="#to-increase-the-buffer-size-and-number-of-postgresql-connection-same-fine-modify-the-below-changes-also" title="Permalink to this headline">¶</a></h5>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ sudo vi /var/lib/pgsql/10/data/postgresql.conf
 </pre></div>
 </div>
@@ -608,7 +609,7 @@ max_connections = 1000<br />shared_buffers = 2GB</p>
 </div>
 </div>
 <div class="section" id="to-change-the-default-password">
-<h4>To change the default password<a class="headerlink" href="#to-change-the-default-password" title="Permalink to this headline">¶</a></h4>
+<h5>To change the default password<a class="headerlink" href="#to-change-the-default-password" title="Permalink to this headline">¶</a></h5>
 <p>Login to postgrsql</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ sudo su postgres
 </pre></div>
@@ -633,7 +634,7 @@ max_connections = 1000<br />shared_buffers = 2GB</p>
 <p>Open the file <br/>
 $ sudo vim /var/lib/pgsql/10/data/pg_hba.conf</p>
 <div class="section" id="default-lines-are-present-in-pg-hab-conf-file-br">
-<h5>Default lines are present in pg_hab.conf file <br/><a class="headerlink" href="#default-lines-are-present-in-pg-hab-conf-file-br" title="Permalink to this headline">¶</a></h5>
+<h6>Default lines are present in pg_hab.conf file <br/><a class="headerlink" href="#default-lines-are-present-in-pg-hab-conf-file-br" title="Permalink to this headline">¶</a></h6>
 <p>TYPE  DATABASE        USER            ADDRESS                 METHOD <br/></p>
 <p>local   all             all                                     peer <br/>
 host    all             all             127.0.0.1/32            ident <br/>
@@ -643,7 +644,7 @@ host    replication     all             127.0.0.1/32            ident <br/>
 host    replication     all             ::1/128                 ident <br/></p>
 </div>
 <div class="section" id="modify-with-below-changes-in-file-var-lib-pgsql-10-data-pg-hba-conf">
-<h5>Modify  with below changes in file  /var/lib/pgsql/10/data/pg_hba.conf<a class="headerlink" href="#modify-with-below-changes-in-file-var-lib-pgsql-10-data-pg-hba-conf" title="Permalink to this headline">¶</a></h5>
+<h6>Modify  with below changes in file  /var/lib/pgsql/10/data/pg_hba.conf<a class="headerlink" href="#modify-with-below-changes-in-file-var-lib-pgsql-10-data-pg-hba-conf" title="Permalink to this headline">¶</a></h6>
 <p>local   all             all                                     md5 <br/>
 host    all             all             127.0.0.1/32            ident <br/>
 host    all             all             0.0.0.0/0               md5 <br/>
@@ -665,7 +666,7 @@ https://www.tecmint.com/install-postgresql-on-centos-rhel-fedora</div></p>
 </div>
 <hr class="docutils" />
 <div class="section" id="install-and-use-nginx-version-1-15-8-on-rhel-7-5">
-<h2>6.2 Install and use Nginx Version-1.15.8 on RHEL 7.5<a class="headerlink" href="#install-and-use-nginx-version-1-15-8-on-rhel-7-5" title="Permalink to this headline">¶</a></h2>
+<h3>6.2 Install and use Nginx Version-1.15.8 on RHEL 7.5<a class="headerlink" href="#install-and-use-nginx-version-1-15-8-on-rhel-7-5" title="Permalink to this headline">¶</a></h3>
 <p>We are using nginx for webserver andalso proxy server for MOSIP project
 Create the file named /etc/yum.repos.d/nginx.repo using a text editor such as vim command</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ sudo vi /etc/yum.repos.d/nginx.repo
@@ -817,7 +818,7 @@ $ sudo firewall-cmd --reload
 </pre></div>
 </div>
 <div class="section" id="generate-ssl-tls-for-https">
-<h3>Generate SSL/TLS for HTTPS -<a class="headerlink" href="#generate-ssl-tls-for-https" title="Permalink to this headline">¶</a></h3>
+<h4>Generate SSL/TLS for HTTPS -<a class="headerlink" href="#generate-ssl-tls-for-https" title="Permalink to this headline">¶</a></h4>
 <p>RHEL 7  version, these are the following commands you have to run to generate certificates for nginx server.</p>
 <ol>
 <li><p>wget https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm
@@ -860,10 +861,10 @@ https://stackoverflow.com/questions/23948527/13-permission-denied-while-connecti
 </div>
 </div>
 <div class="section" id="clam-antivirus-version-0-101-0">
-<h2>6.3 Clam AntiVirus Version 0.101.0<a class="headerlink" href="#clam-antivirus-version-0-101-0" title="Permalink to this headline">¶</a></h2>
+<h3>6.3 Clam AntiVirus Version 0.101.0<a class="headerlink" href="#clam-antivirus-version-0-101-0" title="Permalink to this headline">¶</a></h3>
 <p>ClamAV is a free, cross-platform and open-source antivirus software toolkit able to detect many types of malicious software, including viruses.</p>
 <div class="section" id="steps-to-install-clamav-in-rhel-7-5">
-<h3>Steps to install ClamAV in RHEL-7.5<a class="headerlink" href="#steps-to-install-clamav-in-rhel-7-5" title="Permalink to this headline">¶</a></h3>
+<h4>Steps to install ClamAV in RHEL-7.5<a class="headerlink" href="#steps-to-install-clamav-in-rhel-7-5" title="Permalink to this headline">¶</a></h4>
 <p>To install clamAV first we need to install EPEL Repository:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ sudo yum install -y https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm
 </pre></div>
@@ -997,28 +998,28 @@ $ sudo firewall-cmd --reload
 </pre></div>
 </div>
 <div class="section" id="reference-link-link">
-<h4>Reference link: <a class="reference external" href="https://www.golinuxcloud.com/steps-install-configure-clamav-antivirus-centos-linux%3C/div%3E">link</a><a class="headerlink" href="#reference-link-link" title="Permalink to this headline">¶</a></h4>
+<h5>Reference link: <a class="reference external" href="https://www.golinuxcloud.com/steps-install-configure-clamav-antivirus-centos-linux%3C/div%3E">link</a><a class="headerlink" href="#reference-link-link" title="Permalink to this headline">¶</a></h5>
 </div>
 </div>
 </div>
 <div class="section" id="steps-to-install-and-configuration-ceph">
-<h2>6.4 Steps to Install and configuration CEPH<a class="headerlink" href="#steps-to-install-and-configuration-ceph" title="Permalink to this headline">¶</a></h2>
+<h3>6.4 Steps to Install and configuration CEPH<a class="headerlink" href="#steps-to-install-and-configuration-ceph" title="Permalink to this headline">¶</a></h3>
 <p>NOTE: Required only if CEPH is used for packet storage.
 Ceph is an open source software that provides massively scalable and distributed data store. It provides highly scalable object, block and file based storage under a unified system.</p>
 <div class="section" id="on-red-hat-enterprise-linux-7-register-the-target-machine-with-subscription-manager-verify-your-subscriptions-and-enable-the-extras-repository-for-package-dependencies-for-example">
-<h3>1. On Red Hat Enterprise Linux 7, register the target machine with subscription-manager, verify your subscriptions, and enable the “Extras” repository for package dependencies. For example:<a class="headerlink" href="#on-red-hat-enterprise-linux-7-register-the-target-machine-with-subscription-manager-verify-your-subscriptions-and-enable-the-extras-repository-for-package-dependencies-for-example" title="Permalink to this headline">¶</a></h3>
+<h4>1. On Red Hat Enterprise Linux 7, register the target machine with subscription-manager, verify your subscriptions, and enable the “Extras” repository for package dependencies. For example:<a class="headerlink" href="#on-red-hat-enterprise-linux-7-register-the-target-machine-with-subscription-manager-verify-your-subscriptions-and-enable-the-extras-repository-for-package-dependencies-for-example" title="Permalink to this headline">¶</a></h4>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ sudo subscription-manager repos --enable=rhel-7-server-extras-rpms
 </pre></div>
 </div>
 </div>
 <div class="section" id="install-and-enable-the-extra-packages-for-enterprise-linux-epel-repository">
-<h3>2. Install and enable the Extra Packages for Enterprise Linux (EPEL) repository:<a class="headerlink" href="#install-and-enable-the-extra-packages-for-enterprise-linux-epel-repository" title="Permalink to this headline">¶</a></h3>
+<h4>2. Install and enable the Extra Packages for Enterprise Linux (EPEL) repository:<a class="headerlink" href="#install-and-enable-the-extra-packages-for-enterprise-linux-epel-repository" title="Permalink to this headline">¶</a></h4>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ sudo yum install -y https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm
 </pre></div>
 </div>
 </div>
 <div class="section" id="add-the-ceph-repository-to-your-yum-configuration-file-at-etc-yum-repos-d-ceph-repo-with-the-following-command-replace-ceph-stable-release-with-a-stable-ceph-release-e-g-luminous-for-example">
-<h3>3. Add the Ceph repository to your yum configuration file at /etc/yum.repos.d/ceph.repo with the following command.  Replace {ceph-stable-release} with a stable Ceph release (e.g., luminous.) For example:<a class="headerlink" href="#add-the-ceph-repository-to-your-yum-configuration-file-at-etc-yum-repos-d-ceph-repo-with-the-following-command-replace-ceph-stable-release-with-a-stable-ceph-release-e-g-luminous-for-example" title="Permalink to this headline">¶</a></h3>
+<h4>3. Add the Ceph repository to your yum configuration file at /etc/yum.repos.d/ceph.repo with the following command.  Replace {ceph-stable-release} with a stable Ceph release (e.g., luminous.) For example:<a class="headerlink" href="#add-the-ceph-repository-to-your-yum-configuration-file-at-etc-yum-repos-d-ceph-repo-with-the-following-command-replace-ceph-stable-release-with-a-stable-ceph-release-e-g-luminous-for-example" title="Permalink to this headline">¶</a></h4>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">cat</span> <span class="o">&lt;&lt;</span> <span class="n">EOM</span> <span class="o">&gt;</span> <span class="o">/</span><span class="n">etc</span><span class="o">/</span><span class="n">yum</span><span class="o">.</span><span class="n">repos</span><span class="o">.</span><span class="n">d</span><span class="o">/</span><span class="n">ceph</span><span class="o">.</span><span class="n">repo</span>
 <span class="p">[</span><span class="n">ceph</span><span class="o">-</span><span class="n">noarch</span><span class="p">]</span>
 <span class="n">name</span><span class="o">=</span><span class="n">Ceph</span> <span class="n">noarch</span> <span class="n">packages</span>
@@ -1032,20 +1033,20 @@ Ceph is an open source software that provides massively scalable and distributed
 </div>
 </div>
 <div class="section" id="update-your-repository-and-install-ceph-deploy">
-<h3>4. Update your repository and install ceph-deploy:<a class="headerlink" href="#update-your-repository-and-install-ceph-deploy" title="Permalink to this headline">¶</a></h3>
+<h4>4. Update your repository and install ceph-deploy:<a class="headerlink" href="#update-your-repository-and-install-ceph-deploy" title="Permalink to this headline">¶</a></h4>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ sudo yum update
 $ sudo yum install ceph-deploy
 </pre></div>
 </div>
 </div>
 <div class="section" id="ceph-node-setup">
-<h3>CEPH NODE SETUP<a class="headerlink" href="#ceph-node-setup" title="Permalink to this headline">¶</a></h3>
+<h4>CEPH NODE SETUP<a class="headerlink" href="#ceph-node-setup" title="Permalink to this headline">¶</a></h4>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">The</span> <span class="n">admin</span> <span class="n">node</span> <span class="n">must</span> <span class="n">have</span> <span class="n">password</span><span class="o">-</span><span class="n">less</span> <span class="n">SSH</span> <span class="n">access</span> <span class="n">to</span> <span class="n">Ceph</span> <span class="n">nodes</span><span class="o">.</span> <span class="n">When</span> <span class="n">ceph</span><span class="o">-</span><span class="n">deploy</span> <span class="n">logs</span> <span class="ow">in</span> <span class="n">to</span> <span class="n">a</span> <span class="n">Ceph</span> <span class="n">node</span> <span class="k">as</span> <span class="n">a</span> <span class="n">user</span><span class="p">,</span> <span class="n">that</span> <span class="n">particular</span> <span class="n">user</span> <span class="n">must</span> <span class="n">have</span> <span class="n">passwordless</span> <span class="n">sudo</span> <span class="n">privileges</span><span class="o">.</span>
 </pre></div>
 </div>
 </div>
 <div class="section" id="install-ntp">
-<h3>INSTALL NTP<a class="headerlink" href="#install-ntp" title="Permalink to this headline">¶</a></h3>
+<h4>INSTALL NTP<a class="headerlink" href="#install-ntp" title="Permalink to this headline">¶</a></h4>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>We recommend installing NTP on Ceph nodes (especially on Ceph Monitor nodes) to prevent issues arising from clock drift. See  [Clock](//docs.ceph.com/docs/mimic/rados/configuration/mon-config-ref/#clock) for details.
 $ sudo yum install ntp ntpdate ntp-doc
 	Ensure that you enable the NTP service. Ensure that each Ceph Node uses the same NTP time server.
@@ -1053,7 +1054,7 @@ $ sudo yum install ntp ntpdate ntp-doc
 </div>
 </div>
 <div class="section" id="install-ssh-server">
-<h3>INSTALL SSH SERVER<a class="headerlink" href="#install-ssh-server" title="Permalink to this headline">¶</a></h3>
+<h4>INSTALL SSH SERVER<a class="headerlink" href="#install-ssh-server" title="Permalink to this headline">¶</a></h4>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sudo</span> <span class="n">yum</span> <span class="n">install</span> <span class="n">openssh</span><span class="o">-</span><span class="n">server</span>
 	<span class="n">Ensure</span> <span class="n">the</span> <span class="n">SSH</span> <span class="n">server</span> <span class="ow">is</span> <span class="n">running</span> <span class="n">on</span> <span class="n">ALL</span> <span class="n">Ceph</span> <span class="n">Nodes</span><span class="o">.</span>
 </pre></div>
@@ -1068,7 +1069,7 @@ b. cd cluster-config</p></li>
 </li>
 </ol>
 <div class="section" id="this-step-marks-the-nodes-as-initial-monitors">
-<h4>This step marks the nodes as initial monitors.<a class="headerlink" href="#this-step-marks-the-nodes-as-initial-monitors" title="Permalink to this headline">¶</a></h4>
+<h5>This step marks the nodes as initial monitors.<a class="headerlink" href="#this-step-marks-the-nodes-as-initial-monitors" title="Permalink to this headline">¶</a></h5>
 <ol>
 <li><p>Thereafter, we Install ceph packages on required nodes</p>
 <p>ceph-deploy install {ceph-node} […]</p>
@@ -1077,7 +1078,7 @@ b. cd cluster-config</p></li>
 </ol>
 </div>
 <div class="section" id="this-step-will-install-the-latest-stable-version-of-ceph-i-e-mimic-13-2-1-on-the-given-nodes">
-<h4>This step will install the latest stable version of ceph, i.e. mimic (13.2.1) on the given nodes.<a class="headerlink" href="#this-step-will-install-the-latest-stable-version-of-ceph-i-e-mimic-13-2-1-on-the-given-nodes" title="Permalink to this headline">¶</a></h4>
+<h5>This step will install the latest stable version of ceph, i.e. mimic (13.2.1) on the given nodes.<a class="headerlink" href="#this-step-will-install-the-latest-stable-version-of-ceph-i-e-mimic-13-2-1-on-the-given-nodes" title="Permalink to this headline">¶</a></h5>
 <ol>
 <li><p>Now, we deploy the initial monitor nodes and gather keys</p>
 <p>ceph-deploy mon create-initial</p>
@@ -1098,14 +1099,14 @@ ceph-deploy osd create — data /dev/sdb ceph-demo-2</p>
 </ol>
 </div>
 <div class="section" id="after-successfully-executing-these-steps-our-ceph-cluster-is-up-and-running-the-status-and-health-of-the-cluster-can-be-checked-in-by-executing">
-<h4>After successfully executing these steps, our ceph cluster is up and running. The status and health of the cluster can be checked in by executing<a class="headerlink" href="#after-successfully-executing-these-steps-our-ceph-cluster-is-up-and-running-the-status-and-health-of-the-cluster-can-be-checked-in-by-executing" title="Permalink to this headline">¶</a></h4>
+<h5>After successfully executing these steps, our ceph cluster is up and running. The status and health of the cluster can be checked in by executing<a class="headerlink" href="#after-successfully-executing-these-steps-our-ceph-cluster-is-up-and-running-the-status-and-health-of-the-cluster-can-be-checked-in-by-executing" title="Permalink to this headline">¶</a></h5>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ sudo ceph health
 $ sudo ceph -s
 </pre></div>
 </div>
 </div>
 <div class="section" id="we-should-get-a-status-saying-health-ok-and-a-detailed-status-resembling">
-<h4>We should get a status saying HEALTH_OK, and a detailed status resembling :<a class="headerlink" href="#we-should-get-a-status-saying-health-ok-and-a-detailed-status-resembling" title="Permalink to this headline">¶</a></h4>
+<h5>We should get a status saying HEALTH_OK, and a detailed status resembling :<a class="headerlink" href="#we-should-get-a-status-saying-health-ok-and-a-detailed-status-resembling" title="Permalink to this headline">¶</a></h5>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>cluster:
 
 id: 651e9802-b3f0–4b1d-a4d6-c57a46635bc9
@@ -1133,16 +1134,16 @@ pgs:
 </div>
 </div>
 <div class="section" id="expanding-the-existing-cluster">
-<h4>Expanding the Existing cluster<a class="headerlink" href="#expanding-the-existing-cluster" title="Permalink to this headline">¶</a></h4>
+<h5>Expanding the Existing cluster<a class="headerlink" href="#expanding-the-existing-cluster" title="Permalink to this headline">¶</a></h5>
 <p>Now, to demonstrate the ease of expanding a ceph cluster at runtime, we will be adding one node in our running cluster. We will mark that node as osd, manager and monitor to increase the availability of our existing cluster.
 First of all, we need to make a change to our existing ceph.conf which is present inside the cluster-config directory. We add the following line into it</p>
 </div>
 <div class="section" id="public-network-ip-address-bits">
-<h4>public network = {ip-address}/{bits}<a class="headerlink" href="#public-network-ip-address-bits" title="Permalink to this headline">¶</a></h4>
+<h5>public network = {ip-address}/{bits}<a class="headerlink" href="#public-network-ip-address-bits" title="Permalink to this headline">¶</a></h5>
 <p>public network = 10.142.0.0/24</p>
 </div>
 <div class="section" id="for-this-we-need-to-follow-these-sample-steps">
-<h4>For this, we need to follow these sample steps:<a class="headerlink" href="#for-this-we-need-to-follow-these-sample-steps" title="Permalink to this headline">¶</a></h4>
+<h5>For this, we need to follow these sample steps:<a class="headerlink" href="#for-this-we-need-to-follow-these-sample-steps" title="Permalink to this headline">¶</a></h5>
 <ol>
 <li><p>We install ceph packages on 3rd node</p>
 <p>ceph-deploy install {ceph-node}[…]</p>
@@ -1168,11 +1169,11 @@ First of all, we need to make a change to our existing ceph.conf which is presen
 </div>
 </div>
 <div class="section" id="ceph-dashboard">
-<h2>CEPH Dashboard<a class="headerlink" href="#ceph-dashboard" title="Permalink to this headline">¶</a></h2>
+<h3>CEPH Dashboard<a class="headerlink" href="#ceph-dashboard" title="Permalink to this headline">¶</a></h3>
 <p>Now, going ahead, we can enable the CEPH dashboard in order to view all the cluster status via a UI console.</p>
 <p>Ceph in its mimic release has provided the users with a new and redesigned dashboard plugin, with the features like restricted control with username/password protection and SSL/TLS support.</p>
 <div class="section" id="to-enable-the-dashboard-we-need-to-follow-these-steps">
-<h3>To enable the dashboard, we need to follow these steps:<a class="headerlink" href="#to-enable-the-dashboard-we-need-to-follow-these-steps" title="Permalink to this headline">¶</a></h3>
+<h4>To enable the dashboard, we need to follow these steps:<a class="headerlink" href="#to-enable-the-dashboard-we-need-to-follow-these-steps" title="Permalink to this headline">¶</a></h4>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="mi">1</span><span class="p">)</span> <span class="n">ceph</span> <span class="n">mgr</span> <span class="n">module</span> <span class="n">enable</span> <span class="n">dashboard</span>
 
 <span class="mi">2</span><span class="p">)</span> <span class="n">ceph</span> <span class="n">dashboard</span> <span class="n">create</span><span class="o">-</span><span class="bp">self</span><span class="o">-</span><span class="n">signed</span><span class="o">-</span><span class="n">cert</span>
@@ -1197,21 +1198,21 @@ ceph config set mgr mgr/dashboard/server_port $PORT
 <p>After these steps, our ceph infrastructure is ready with all the configurations to do some actual input output operations.</p>
 </div>
 <div class="section" id="reference-link">
-<h3>Reference link:<a class="headerlink" href="#reference-link" title="Permalink to this headline">¶</a></h3>
+<h4>Reference link:<a class="headerlink" href="#reference-link" title="Permalink to this headline">¶</a></h4>
 <div>http://docs.ceph.com/docs/mimic/start/quick-start-preflight/</div></div>
 </div>
 <div class="section" id="steps-to-install-and-configuration-ldap">
-<h2>6.5 Steps to Install and configuration LDAP<a class="headerlink" href="#steps-to-install-and-configuration-ldap" title="Permalink to this headline">¶</a></h2>
+<h3>6.5 Steps to Install and configuration LDAP<a class="headerlink" href="#steps-to-install-and-configuration-ldap" title="Permalink to this headline">¶</a></h3>
 <p><a class="reference internal" href="ApacheDs-Server-installation-and-config.html"><span class="doc">ApacheDs Server installation and config</span></a></p>
 <p><a class="reference internal" href="Apache-Directory-Studio-user-guide.html"><span class="doc">Apache Directory Studio user guide</span></a></p>
 </div>
 <div class="section" id="steps-to-install-and-configuration-hdfs">
-<h2>6.6 Steps to Install and configuration HDFS<a class="headerlink" href="#steps-to-install-and-configuration-hdfs" title="Permalink to this headline">¶</a></h2>
+<h3>6.6 Steps to Install and configuration HDFS<a class="headerlink" href="#steps-to-install-and-configuration-hdfs" title="Permalink to this headline">¶</a></h3>
 <p>NOTE: Required only if HDFS is used for packet storage.</p>
 <p><a class="reference internal" href="Steps-to-Install-and-configuration-HDFS.html"><span class="doc">Refer - Steps-to-Install-and-configuration-HDFS</span></a></p>
 </div>
 <div class="section" id="steps-to-deploy-kernel-key-manager-service">
-<h2>6.7 Steps to Deploy Kernel Key Manager Service<a class="headerlink" href="#steps-to-deploy-kernel-key-manager-service" title="Permalink to this headline">¶</a></h2>
+<h3>6.7 Steps to Deploy Kernel Key Manager Service<a class="headerlink" href="#steps-to-deploy-kernel-key-manager-service" title="Permalink to this headline">¶</a></h3>
 <p>Kernel Keymanager Service is setup outside of Kubernetes cluster on a standalone VM. The steps to setup kernel-keymanager-service are given <a class="reference external" href="https://github.com/mosip/mosip-platform/blob/master/kernel/kernel-keymanager-service/README"><strong>here</strong></a></p>
 <p>To deploy keymanager service, follow below steps -</p>
 <ol class="simple">
@@ -1267,14 +1268,14 @@ $ sudo systemctl status docker
 active_profile_env and registryAddress in the above command accordingly</p>
 </div>
 <div class="section" id="sms-gateway-configuration">
-<h2>6.8 SMS Gateway configuration<a class="headerlink" href="#sms-gateway-configuration" title="Permalink to this headline">¶</a></h2>
+<h3>6.8 SMS Gateway configuration<a class="headerlink" href="#sms-gateway-configuration" title="Permalink to this headline">¶</a></h3>
 <p>Refer kernel-smsnotification-servive Readme <a class="reference external" href="https://github.com/mosip/mosip-platform/blob/master/kernel/kernel-smsnotification-service/README"><strong>here</strong></a></p>
 </div>
 <div class="section" id="installation-of-activemq">
-<h2>6.9 Installation of ActiveMQ<a class="headerlink" href="#installation-of-activemq" title="Permalink to this headline">¶</a></h2>
+<h3>6.9 Installation of ActiveMQ<a class="headerlink" href="#installation-of-activemq" title="Permalink to this headline">¶</a></h3>
 <p>ActiveMQ is the message broker used for MOSIP Registartion processor module.</p>
 <div class="section" id="installation-steps">
-<h3>Installation steps<a class="headerlink" href="#installation-steps" title="Permalink to this headline">¶</a></h3>
+<h4>Installation steps<a class="headerlink" href="#installation-steps" title="Permalink to this headline">¶</a></h4>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">&lt;version&gt;</span></code> : please check http://www.apache.org/dist/activemq/ to find out the latest version. Tested ActiveMQ version - 5.4.1.</p></li>
 <li><p>Prerequiste:<br/>
@@ -1337,9 +1338,9 @@ E.g : For dev profile, the property in registration-processor-dev.properties, th
 </div>
 </div>
 <div class="section" id="configuring-mosip">
-<h1>7. Configuring MOSIP <a class="reference external" href="#table-of-content"><strong>[↑]</strong></a><a class="headerlink" href="#configuring-mosip" title="Permalink to this headline">¶</a></h1>
+<h2>7. Configuring MOSIP <a class="reference external" href="#table-of-content"><strong>[↑]</strong></a><a class="headerlink" href="#configuring-mosip" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="mosip-database-object-deployment-configuration">
-<h2>MOSIP database object deployment / configuration<a class="headerlink" href="#mosip-database-object-deployment-configuration" title="Permalink to this headline">¶</a></h2>
+<h3>MOSIP database object deployment / configuration<a class="headerlink" href="#mosip-database-object-deployment-configuration" title="Permalink to this headline">¶</a></h3>
 <p>Database deployment consists of the following 4 categories of objects to be deployed on postgresql database.</p>
 <ol>
 <li><p><strong>User / Roles:</strong> In MOSIP, the following user / roles are defined to perform various activities</p>
@@ -1375,7 +1376,7 @@ E.g : For dev profile, the property in registration-processor-dev.properties, th
 <p><strong>Note: Please skip Registration client related deployment scripts (Apache derby DB specific) as this will be executed as part of registration client software installation.</strong></p>
 </div>
 <div class="section" id="setup-and-configure-mosip">
-<h2>Setup and configure MOSIP<a class="headerlink" href="#setup-and-configure-mosip" title="Permalink to this headline">¶</a></h2>
+<h3>Setup and configure MOSIP<a class="headerlink" href="#setup-and-configure-mosip" title="Permalink to this headline">¶</a></h3>
 <p>We are using kubernetes configuration server in MOSIP for storing and serving distributed configurations across all the applications and environments.</p>
 <p>We are storing all applications' configuration in config-templates folder inside our Github Repository <a class="reference external" href="https://github.com/mosip/mosip-config.git">here</a>.</p>
 <p>For getting more details about how to use configuration server with our applications, following developer document can be referred:
@@ -1399,7 +1400,7 @@ E.g : For dev profile, the property in registration-processor-dev.properties, th
 <p><strong>Properties Sections that need to be changed in above module specific files once the external dependencies are installed as per your setup</strong></p>
 </div>
 <div class="section" id="global">
-<h2>Global<a class="headerlink" href="#global" title="Permalink to this headline">¶</a></h2>
+<h3>Global<a class="headerlink" href="#global" title="Permalink to this headline">¶</a></h3>
 <ol class="simple">
 <li><p>#--Common properties------------</p></li>
 </ol>
@@ -1430,7 +1431,7 @@ E.g : For dev profile, the property in registration-processor-dev.properties, th
 </div>
 </div>
 <div class="section" id="kernel">
-<h2>Kernel<a class="headerlink" href="#kernel" title="Permalink to this headline">¶</a></h2>
+<h3>Kernel<a class="headerlink" href="#kernel" title="Permalink to this headline">¶</a></h3>
 <ol class="simple">
 <li><p>#--kernel common properties-----------------------</p></li>
 </ol>
@@ -1471,12 +1472,12 @@ E.g : For dev profile, the property in registration-processor-dev.properties, th
 </div>
 <hr class="docutils" />
 <div class="section" id="mosip-deployment">
-<h1>8. MOSIP Deployment <a class="reference external" href="#table-of-content"><strong>[↑]</strong></a><a class="headerlink" href="#mosip-deployment" title="Permalink to this headline">¶</a></h1>
+<h2>8. MOSIP Deployment <a class="reference external" href="#table-of-content"><strong>[↑]</strong></a><a class="headerlink" href="#mosip-deployment" title="Permalink to this headline">¶</a></h2>
 <p>Currently for the Development Process MOSIP Platform is deployed as/in the Kubernetes Cluster. We are using Azure Kubernetes Service for provisioning of Cluster. As of now Kubernetes Deployment is deviced in two parts -</p>
 <p>A. One time setup of MOSIP in Kubernetes Cluster</p>
 <p>B. Continuous deployment</p>
 <div class="section" id="a-one-time-setup-of-mosip-in-kubernetes-cluster">
-<h2>A. One time setup of MOSIP in Kubernetes Cluster<a class="headerlink" href="#a-one-time-setup-of-mosip-in-kubernetes-cluster" title="Permalink to this headline">¶</a></h2>
+<h3>A. One time setup of MOSIP in Kubernetes Cluster<a class="headerlink" href="#a-one-time-setup-of-mosip-in-kubernetes-cluster" title="Permalink to this headline">¶</a></h3>
 <p>One time setup on Kubernetes involves following Steps <br/>
 I. Setting Up local system to communicate with Kubernetes cluster this can be done via <a class="reference external" href="//kubernetes.io/docs/reference/kubectl/overview/"><strong>kubectl</strong></a>.<br/>
 II. Setting Up the Basic environment for MOSIP to run in Kubernetes Cluster, In this step we will work on this <a class="reference external" href="https://github.com/mosip/mosip-infra/tree/master/deployment/cloud/kubernetes/commons">link</a> . following are the files -</p>
@@ -1503,7 +1504,7 @@ This file helps Kubernetes to get the Docker Images from Private Docker Registry
 <p><img alt="Directories" src="_images/kubernetes-mosip-services-directory.JPG" /></p>
 </div>
 <div class="section" id="firstly-deploy-kernel-configuration-server">
-<h2>Firstly Deploy Kernel Configuration server<a class="headerlink" href="#firstly-deploy-kernel-configuration-server" title="Permalink to this headline">¶</a></h2>
+<h3>Firstly Deploy Kernel Configuration server<a class="headerlink" href="#firstly-deploy-kernel-configuration-server" title="Permalink to this headline">¶</a></h3>
 <p>The script is inside ( https://github.com/mosip/mosip-infra/blob/master/deployment/cloud/kubernetes/configuration-server/config-server-deployment-and-service.yml ) <br/>
 Follow below steps:</p>
 <ol>
@@ -1559,7 +1560,7 @@ data:
 <br/><p>More information can be found <a class="reference external" href="https://github.com/mosip/mosip-platform/blob/master/kernel/kernel-config-server/README">here</a></p>
 <br/></div>
 <div class="section" id="deploy-other-components-br">
-<h2>Deploy other components: <br/><a class="headerlink" href="#deploy-other-components-br" title="Permalink to this headline">¶</a></h2>
+<h3>Deploy other components: <br/><a class="headerlink" href="#deploy-other-components-br" title="Permalink to this headline">¶</a></h3>
 <p>Inside each of the directory there is a file for each service of MOSIP that is exposed as Web API. We need to deploy these files to get these running. But before doing that we need to change Private Docker Registry Address and Docker Registry Secret, so that on deployment time Kubernetes can fetch docker images from correct source using correct credentials.
 For doing this, follow below steps (for eg. we will use https://github.com/mosip/mosip-infra/blob/master/deployment/cloud/kubernetes/kernel-deployment/kernel-auditmanager-service-deployment-and-service.yml, but you have to repeat the process for all such files) - <br/>
 I. Open a deployment file. <br/>
@@ -1578,7 +1579,7 @@ Pre-registration-ui uses a file config.json to configure URLs of backend, which 
 </div>
 <hr class="docutils" />
 <div class="section" id="registration-processor-dmz-services-deployment">
-<h2>8.1  Registration-Processor DMZ services deployment<a class="headerlink" href="#registration-processor-dmz-services-deployment" title="Permalink to this headline">¶</a></h2>
+<h3>8.1  Registration-Processor DMZ services deployment<a class="headerlink" href="#registration-processor-dmz-services-deployment" title="Permalink to this headline">¶</a></h3>
 <p>Registration Processor DMZ Services are setup externally(deployed in a separate VM).</p>
 <p>Firstly, update below files present in config folder in configuration repository, and replace the line<br/>
 <code class="docutils literal notranslate"><span class="pre">&lt;to</span> <span class="pre">uri=&quot;https://&lt;dns</span> <span class="pre">name&gt;/registrationprocessor/v1/uploader/securezone&quot;</span> <span class="pre">/&gt;</span></code><br/>
@@ -1667,7 +1668,7 @@ PPK generation command ssh-keygen -t rsa -b 4096 -f mykey.</p></li>
 </ol>
 </div>
 <div class="section" id="kernel-salt-generator">
-<h2>8.2 Kernel Salt Generator<a class="headerlink" href="#kernel-salt-generator" title="Permalink to this headline">¶</a></h2>
+<h3>8.2 Kernel Salt Generator<a class="headerlink" href="#kernel-salt-generator" title="Permalink to this headline">¶</a></h3>
 <p>Kernel Salt Generator Job is a one-time job which is run to populate salts to be used to hash and encrypt data. This generic job takes schema and table name as input, and generates and populates salts in the given schema and table.</p>
 <p><strong>Salt Generator Deployment steps</strong></p>
 <p>a. Login into the VM.
@@ -1706,8 +1707,9 @@ executing next commands.</p>
 <p><strong>Note</strong> - Please change the value for variables active_profile_env, spring_config_label_env, spring_config_url_env and registryAddress in the above four commands accordingly</p>
 </div>
 <div class="section" id="first-user-registration-and-onboarding">
-<h2>8.3 First User Registration and Onboarding<a class="headerlink" href="#first-user-registration-and-onboarding" title="Permalink to this headline">¶</a></h2>
+<h3>8.3 First User Registration and Onboarding<a class="headerlink" href="#first-user-registration-and-onboarding" title="Permalink to this headline">¶</a></h3>
 <p><a class="reference internal" href="First-User-Registration-and-Onboarding.html"><span class="doc">Refer to wiki for detailed procedure on First User Registration and Onboarding</span></a></p>
+</div>
 </div>
 </div>
 

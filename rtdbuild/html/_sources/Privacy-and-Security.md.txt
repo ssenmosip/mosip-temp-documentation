@@ -1,4 +1,4 @@
-## Privacy and Security
+# Privacy and Security
 
 In MOSIP, privacy and security are highest priorities and this document details the measures that have been implemented in the platform so far. As an open source project we aim to continuously improve the security features and incorporate new developments through collaborations and community contributions.
 
