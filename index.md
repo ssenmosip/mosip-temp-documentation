@@ -1,9 +1,13 @@
+Contents:
+
 .. toctree::
    :maxdepth: 2
 
-   Getting-Started.md 
-   Technology-Stack.md 
-   Privacy-and-Security.md 
+   Getting-Started
+   Technology-Stack 
+   Privacy-and-Security 
+
+Contents:
 
 .. toctree::
    :maxdepth: 2
