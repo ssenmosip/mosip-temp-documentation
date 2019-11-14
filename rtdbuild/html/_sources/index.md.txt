@@ -1,3 +1,17 @@
+.. toctree::
+   :maxdepth: 2
+
+   Getting-Started.md 
+   Technology-Stack.md 
+   Privacy-and-Security.md 
+
+.. toctree::
+   :maxdepth: 2
+ 
+   mosip-toc
+
+
+
 Welcome to MOSIP's documentation!
 =======================================
 
@@ -13,15 +27,6 @@ The `source <http://github.com/mosip>`_ is available on Github.
 
 The mailing list for the project is located at google groups:  
 
-Contents
---------
-
-.. toctree::
-   :maxdepth: 2
-
-   Getting-Started <Getting-Started>
-   Technology-Stack <Technology-Stack>
-   Privacy-and-Security <Privacy-and-Security>
    
    
    
