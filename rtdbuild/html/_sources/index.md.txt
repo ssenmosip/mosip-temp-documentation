@@ -19,9 +19,9 @@ Contents
 .. toctree::
    :maxdepth: 2
 
-   Getting-Started
-   Technology-Stack
-   Privacy-and-Security
+   Getting-Started <Getting-Started>
+   Technology-Stack <Technology-Stack>
+   Privacy-and-Security <Privacy-and-Security>
    
    
    
