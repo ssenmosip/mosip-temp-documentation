@@ -1,0 +1,1754 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="java" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="java" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Getting Started Guide &mdash; MOSIP 0.9 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script type="text/javascript" src="_static/jquery.js"></script>
+        <script type="text/javascript" src="_static/underscore.js"></script>
+        <script type="text/javascript" src="_static/doctools.js"></script>
+        <script type="text/javascript" src="_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search"  style="background: white" >
+          
+
+          
+            <a href="index.html" class="icon icon-home"> MOSIP
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.9
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <!-- Local TOC -->
+              <div class="local-toc"><ul>
+<li><a class="reference internal" href="#">Getting Started Guide</a></li>
+<li><a class="reference internal" href="#getting-the-source-code">1. Getting the Source Code <strong>[↑]</strong></a></li>
+<li><a class="reference internal" href="#setup-and-configure-jenkins">2. Setup and Configure Jenkins <strong>[↑]</strong></a><ul>
+<li><a class="reference internal" href="#a-installing-jenkins-version-2-150-1">A. Installing Jenkins version 2.150.1</a></li>
+<li><a class="reference internal" href="#b-setting-up-github-for-in-jenkins">B. Setting Up Github for/in Jenkins</a></li>
+<li><a class="reference internal" href="#c-create-pipelines">C. Create Pipelines</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#setup-and-configure-jfrog-artifactory-version-6-5-2">3. Setup and Configure Jfrog Artifactory Version 6.5.2 <strong>[↑]</strong></a></li>
+<li><a class="reference internal" href="#setup-and-configure-sonarqube-version-7-3">4. Setup and Configure SonarQube version 7.3 <strong>[↑]</strong></a></li>
+<li><a class="reference internal" href="#setup-and-configure-docker-registry">5. Setup and Configure Docker Registry <strong>[↑]</strong></a></li>
+<li><a class="reference internal" href="#installing-external-dependencies">6. Installing External Dependencies <strong>[↑]</strong></a><ul>
+<li><a class="reference internal" href="#install-and-use-postgresql-version-10-2-on-rhel-7-5">6.1 Install and use PostgreSql Version 10.2 on RHEL 7.5</a><ul>
+<li><a class="reference internal" href="#steps-to-install-postgresql-in-rhel-7-5">Steps to install Postgresql in RHEL-7.5</a><ul>
+<li><a class="reference internal" href="#download-and-install-postgresql">Download and install PostgreSQL.</a></li>
+<li><a class="reference internal" href="#checking-the-postgresql-packages">checking  the postgresql packages</a></li>
+<li><a class="reference internal" href="#to-increase-the-buffer-size-and-number-of-postgresql-connection-same-fine-modify-the-below-changes-also">To increase the buffer size and number of postgreSql connection  same fine modify the below changes also</a></li>
+<li><a class="reference internal" href="#to-change-the-default-password">To change the default password</a><ul>
+<li><a class="reference internal" href="#default-lines-are-present-in-pg-hab-conf-file-br">Default lines are present in pg_hab.conf file <br/></a></li>
+<li><a class="reference internal" href="#modify-with-below-changes-in-file-var-lib-pgsql-10-data-pg-hba-conf">Modify  with below changes in file  /var/lib/pgsql/10/data/pg_hba.conf</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a class="reference internal" href="#install-and-use-nginx-version-1-15-8-on-rhel-7-5">6.2 Install and use Nginx Version-1.15.8 on RHEL 7.5</a><ul>
+<li><a class="reference internal" href="#generate-ssl-tls-for-https">Generate SSL/TLS for HTTPS -</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#clam-antivirus-version-0-101-0">6.3 Clam AntiVirus Version 0.101.0</a><ul>
+<li><a class="reference internal" href="#steps-to-install-clamav-in-rhel-7-5">Steps to install ClamAV in RHEL-7.5</a><ul>
+<li><a class="reference internal" href="#reference-link-link">Reference link: link</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a class="reference internal" href="#steps-to-install-and-configuration-ceph">6.4 Steps to Install and configuration CEPH</a><ul>
+<li><a class="reference internal" href="#on-red-hat-enterprise-linux-7-register-the-target-machine-with-subscription-manager-verify-your-subscriptions-and-enable-the-extras-repository-for-package-dependencies-for-example">1. On Red Hat Enterprise Linux 7, register the target machine with subscription-manager, verify your subscriptions, and enable the “Extras” repository for package dependencies. For example:</a></li>
+<li><a class="reference internal" href="#install-and-enable-the-extra-packages-for-enterprise-linux-epel-repository">2. Install and enable the Extra Packages for Enterprise Linux (EPEL) repository:</a></li>
+<li><a class="reference internal" href="#add-the-ceph-repository-to-your-yum-configuration-file-at-etc-yum-repos-d-ceph-repo-with-the-following-command-replace-ceph-stable-release-with-a-stable-ceph-release-e-g-luminous-for-example">3. Add the Ceph repository to your yum configuration file at /etc/yum.repos.d/ceph.repo with the following command.  Replace {ceph-stable-release} with a stable Ceph release (e.g., luminous.) For example:</a></li>
+<li><a class="reference internal" href="#update-your-repository-and-install-ceph-deploy">4. Update your repository and install ceph-deploy:</a></li>
+<li><a class="reference internal" href="#ceph-node-setup">CEPH NODE SETUP</a></li>
+<li><a class="reference internal" href="#install-ntp">INSTALL NTP</a></li>
+<li><a class="reference internal" href="#install-ssh-server">INSTALL SSH SERVER</a><ul>
+<li><a class="reference internal" href="#this-step-marks-the-nodes-as-initial-monitors">This step marks the nodes as initial monitors.</a></li>
+<li><a class="reference internal" href="#this-step-will-install-the-latest-stable-version-of-ceph-i-e-mimic-13-2-1-on-the-given-nodes">This step will install the latest stable version of ceph, i.e. mimic (13.2.1) on the given nodes.</a></li>
+<li><a class="reference internal" href="#after-successfully-executing-these-steps-our-ceph-cluster-is-up-and-running-the-status-and-health-of-the-cluster-can-be-checked-in-by-executing">After successfully executing these steps, our ceph cluster is up and running. The status and health of the cluster can be checked in by executing</a></li>
+<li><a class="reference internal" href="#we-should-get-a-status-saying-health-ok-and-a-detailed-status-resembling">We should get a status saying HEALTH_OK, and a detailed status resembling :</a></li>
+<li><a class="reference internal" href="#expanding-the-existing-cluster">Expanding the Existing cluster</a></li>
+<li><a class="reference internal" href="#public-network-ip-address-bits">public network = {ip-address}/{bits}</a></li>
+<li><a class="reference internal" href="#for-this-we-need-to-follow-these-sample-steps">For this, we need to follow these sample steps:</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a class="reference internal" href="#ceph-dashboard">CEPH Dashboard</a><ul>
+<li><a class="reference internal" href="#to-enable-the-dashboard-we-need-to-follow-these-steps">To enable the dashboard, we need to follow these steps:</a></li>
+<li><a class="reference internal" href="#reference-link">Reference link:</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#steps-to-install-and-configuration-ldap">6.5 Steps to Install and configuration LDAP</a></li>
+<li><a class="reference internal" href="#steps-to-install-and-configuration-hdfs">6.6 Steps to Install and configuration HDFS</a></li>
+<li><a class="reference internal" href="#steps-to-deploy-kernel-key-manager-service">6.7 Steps to Deploy Kernel Key Manager Service</a></li>
+<li><a class="reference internal" href="#sms-gateway-configuration">6.8 SMS Gateway configuration</a></li>
+<li><a class="reference internal" href="#installation-of-activemq">6.9 Installation of ActiveMQ</a><ul>
+<li><a class="reference internal" href="#installation-steps">Installation steps</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a class="reference internal" href="#configuring-mosip">7. Configuring MOSIP <strong>[↑]</strong></a><ul>
+<li><a class="reference internal" href="#mosip-database-object-deployment-configuration">MOSIP database object deployment / configuration</a></li>
+<li><a class="reference internal" href="#setup-and-configure-mosip">Setup and configure MOSIP</a></li>
+<li><a class="reference internal" href="#global">Global</a></li>
+<li><a class="reference internal" href="#kernel">Kernel</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#mosip-deployment">8. MOSIP Deployment <strong>[↑]</strong></a><ul>
+<li><a class="reference internal" href="#a-one-time-setup-of-mosip-in-kubernetes-cluster">A. One time setup of MOSIP in Kubernetes Cluster</a></li>
+<li><a class="reference internal" href="#firstly-deploy-kernel-configuration-server">Firstly Deploy Kernel Configuration server</a></li>
+<li><a class="reference internal" href="#deploy-other-components-br">Deploy other components: <br/></a></li>
+<li><a class="reference internal" href="#registration-processor-dmz-services-deployment">8.1  Registration-Processor DMZ services deployment</a></li>
+<li><a class="reference internal" href="#kernel-salt-generator">8.2 Kernel Salt Generator</a></li>
+<li><a class="reference internal" href="#first-user-registration-and-onboarding">8.3 First User Registration and Onboarding</a></li>
+</ul>
+</li>
+</ul>
+</div>
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">MOSIP</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html">Docs</a> &raquo;</li>
+        
+      <li>Getting Started Guide</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/Getting-Started.md.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="getting-started-guide">
+<h1>Getting Started Guide<a class="headerlink" href="#getting-started-guide" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p><a class="reference external" href="#1-getting-the-source-code-">1. Getting the Source Code</a></p></li>
+<li><p><a class="reference external" href="#2-setup-and-configure-jenkins-">2. Setup and Configure Jenkins</a></p></li>
+<li><p><a class="reference external" href="#3-setup-and-configure-jfrog-artifactory-version-652-">3. Setup and Configure Jfrog Artifactory Version 6.5.2</a></p></li>
+<li><p><a class="reference external" href="#4-setup-and-configure-sonarqube-version-73-">4. Setup and Configure SonarQube version 7.3</a></p></li>
+<li><p><a class="reference external" href="#5-setup-and-configure-docker-registry-">5. Setup and Configure Docker Registry</a></p></li>
+<li><p><a class="reference external" href="#6-installing-external-dependencies-">6. Installing External Dependencies</a></p></li>
+<li><p><a class="reference external" href="#7-configuring-mosip-">7. Configuring MOSIP</a></p></li>
+<li><p><a class="reference external" href="#8-mosip-deployment-">8. MOSIP Deployment</a></p></li>
+</ul>
+</div>
+<div class="section" id="getting-the-source-code">
+<h1>1. Getting the Source Code <a class="reference external" href="#table-of-content"><strong>[↑]</strong></a><a class="headerlink" href="#getting-the-source-code" title="Permalink to this headline">¶</a></h1>
+<p>Knowledge of Linux and Azure with Kubernetes are required to follow the instructions.
+MOSIP source code can be obtained via creating a fork of mosip-platform Github repository from the <a class="reference external" href="/mosip/mosip-platform/">URL</a>. To know more about how to fork code from Github follow this <a class="reference external" href="//help.github.com/articles/fork-a-repo/">guide</a>.
+Once Forked, start the process of setting up your CI/CD tools to build and run MOSIP.</p>
+<p><strong>NOTE</strong> MOSIP configuration has been seperated from the source code. For running the source code, you will be needing a fork of mosip-config repository from this <a class="reference external" href="https://github.com/mosip/mosip-config.git">URL</a>. All the configuration files will be stored under config-templates folder under this repository.</p>
+</div>
+<hr class="docutils" />
+<div class="section" id="setup-and-configure-jenkins">
+<h1>2. Setup and Configure Jenkins <a class="reference external" href="#table-of-content"><strong>[↑]</strong></a><a class="headerlink" href="#setup-and-configure-jenkins" title="Permalink to this headline">¶</a></h1>
+<p>In this step, we will setup jenkins and configure it. Configuration contains steps like creating credentials, creating pipelines using xml files present in MOSIP source code, connecting Jenkins to recently forked repository and creating webhooks. Lets look at these steps one by one -</p>
+<div class="section" id="a-installing-jenkins-version-2-150-1">
+<h2>A. Installing Jenkins version 2.150.1<a class="headerlink" href="#a-installing-jenkins-version-2-150-1" title="Permalink to this headline">¶</a></h2>
+<p>Jenkins installation is standard(see <a class="reference external" href="//jenkins.io/doc/book/installing/">How to install Jenkins</a>), but to use MOSIP supported build pipelines you have to install Jenkins in an Redhat 7.6 environment. The prerequisite for installing Jenkins is you should have java already installed and path for JAVA_HOME is also set. Also the following plugins have to be installed
+list of plugins -</p>
+<ul class="simple">
+<li><p><a class="reference external" href="//wiki.jenkins.io/display/JENKINS/GitHub+Plugin">Github Plugin</a></p></li>
+<li><p><a class="reference external" href="//wiki.jenkins.io/display/JENKINS/Artifactory+Plugin">Artifactory Plugin</a></p></li>
+<li><p><a class="reference external" href="//wiki.jenkins.io/display/JENKINS/Credentials+Plugin">Credentials Plugin</a></p></li>
+<li><p><a class="reference external" href="//wiki.jenkins.io/display/JENKINS/Docker+Pipeline+Plugin">Docker Pipeline Plugin</a></p></li>
+<li><p><a class="reference external" href="//wiki.jenkins-ci.org/display/JENKINS/Email-ext+plugin">Email Extension Plugin</a></p></li>
+<li><p><a class="reference external" href="//wiki.jenkins-ci.org/display/JENKINS/Pipeline+Plugin">Pipeline Plugin</a></p></li>
+<li><p><a class="reference external" href="//wiki.jenkins-ci.org/display/JENKINS/Publish+Over+SSH+Plugin">Publish Over SSH Plugin</a></p></li>
+<li><p><a class="reference external" href="//docs.sonarqube.org/display/SCAN/Analyzing+with+SonarQube+Scanner+for+Jenkins">SonarQube Scanner for Jenkins Plugin</a></p></li>
+<li><p><a class="reference external" href="//wiki.jenkins-ci.org/display/JENKINS/SSH+Agent+Plugin">SSH Agent Plugin</a></p></li>
+<li><p><a class="reference external" href="//wiki.jenkins.io/display/JENKINS/Pipeline+Utility+Steps+Plugin">Pipeline Utility Steps Plugin</a></p></li>
+<li><p><a class="reference external" href="//wiki.jenkins.io/display/JENKINS/M2+Release+Plugin">M2 Release Plugin</a></p></li>
+<li><p><a class="reference external" href="//wiki.jenkins-ci.org/display/JENKINS/SSH+Credentials+Plugin">SSH Credentials Plugin</a></p></li>
+<li><p><a class="reference external" href="//wiki.jenkins.io/display/JENKINS/Office+365+Connector+Plugin">Office 365 Plugin</a></p></li>
+</ul>
+<p>Once the plugin installation is complete, run this command in Jenkins Script Console -</p>
+<p><code class="docutils literal notranslate"><span class="pre">System.setProperty(&quot;hudson.model.DirectoryBrowserSupport.CSP&quot;,</span> <span class="pre">&quot;&quot;)</span></code></p>
+<p>This above command modifies Content Security Policy in Jenkins to enable loading of style and javascript for HTML Reports.</p>
+</div>
+<div class="section" id="b-setting-up-github-for-in-jenkins">
+<h2>B. Setting Up Github for/in Jenkins<a class="headerlink" href="#b-setting-up-github-for-in-jenkins" title="Permalink to this headline">¶</a></h2>
+<p>Setting up Github for/in Jenkins involves putting the Jenkins Webhook url in Github Repo so that Github can inform Jenkins for push events(look at <a class="reference external" href="//developer.github.com/webhooks/">Webhooks</a> and <a class="reference external" href="//wiki.jenkins.io/display/JENKINS/GitHub+Plugin#GitHubPlugin-GitHubhooktriggerforGITScmpolling">Github hook</a>). After hooks are in place, setup Github credentials inside Jenkins, so that on webhook event our pipeline can checkout the code from Github. To set up Github Credentials, follow these steps -</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">I</span><span class="o">.</span> <span class="n">Goto</span> <span class="n">Jenkins</span>
+<span class="n">II</span><span class="o">.</span> <span class="n">Goto</span> <span class="n">Credentials</span> <span class="o">-&gt;</span> <span class="n">System</span>
+<span class="n">III</span><span class="o">.</span> <span class="n">Goto</span> <span class="n">Global</span> <span class="n">credentials</span>
+<span class="n">IV</span><span class="o">.</span> <span class="n">Click</span> <span class="n">on</span> <span class="n">Add</span> <span class="n">Credentials</span>
+<span class="n">V</span><span class="o">.</span> <span class="n">Now</span> <span class="n">use</span> <span class="n">following</span> <span class="n">details</span>
+
+    <span class="n">Kind</span><span class="o">=</span><span class="n">Username</span> <span class="k">with</span> <span class="n">password</span>
+    <span class="n">Scope</span><span class="o">=</span><span class="n">Global</span> <span class="p">(</span><span class="n">Jenkins</span><span class="p">,</span> <span class="n">nodes</span><span class="p">,</span> <span class="n">items</span><span class="p">,</span> <span class="nb">all</span> <span class="n">child</span> <span class="n">items</span><span class="p">,</span> <span class="n">etc</span><span class="p">)</span>
+    <span class="n">Username</span><span class="o">=&lt;</span><span class="n">Your</span> <span class="n">Github</span> <span class="n">Username</span><span class="o">&gt;</span>
+    <span class="n">Password</span><span class="o">=&lt;</span><span class="n">Your</span> <span class="n">Github</span> <span class="n">Password</span><span class="o">&gt;</span>
+    <span class="n">ID</span><span class="o">=</span><span class="n">Some</span> <span class="n">Unique</span> <span class="n">Identifier</span> <span class="n">to</span> <span class="n">refer</span> <span class="n">to</span> <span class="n">this</span> <span class="n">credentials</span> <span class="p">(</span><span class="n">to</span> <span class="n">autogenerate</span> <span class="n">this</span><span class="p">,</span> <span class="n">leave</span> <span class="n">this</span> <span class="n">blank</span><span class="p">)</span>
+    <span class="n">Description</span><span class="o">=&lt;</span><span class="n">It</span> <span class="ow">is</span> <span class="n">optional</span><span class="o">&gt;</span>
+<span class="n">VI</span><span class="o">.</span> <span class="n">Now</span> <span class="n">since</span> <span class="n">our</span> <span class="n">Jenkinsfile</span> <span class="n">usage</span> <span class="n">this</span> <span class="n">github</span> <span class="n">credentials</span><span class="p">,</span> <span class="n">update</span> <span class="n">the</span> <span class="n">credentials</span> <span class="nb">id</span> <span class="ow">in</span> <span class="n">the</span> <span class="n">Jenkinsfile</span><span class="o">.</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="c-create-pipelines">
+<h2>C. Create Pipelines<a class="headerlink" href="#c-create-pipelines" title="Permalink to this headline">¶</a></h2>
+<p>Next step after Jenkins installation is to configure/create Jenkins Jobs. These Jenkins Jobs are written as Jenkins Pipelines and respective Jenkinsfile in <a class="reference external" href="https://github.com/mosip/mosip-infra/tree/master/deployment/cloud/jenkinsfile">URL</a>. MOSIP currently has 5 Jenkins jobs that take care of CI/CD process for Development Environment. They are -</p>
+<ul>
+<li><p>master-branch-build-all-modules</p>
+<p>Jenkinsfile for master-branch-build-all-modules can be found in <a class="reference external" href="https://github.com/mosip/mosip-infra/blob/master/deployment/cloud/jenkinsfile">URL</a>, named <strong>MasterJenkinsfile</strong><br/><br/>
+This Job is used to build MOSIP as a single unit. This Job also acts like a nightly process to check the build status of MOSIP code in Master Branch. To create this Job you need to create a new Item in Jenkins as a Pipeline Project. Here is the configuration for Pipeline you might have to explicitly change to use MOSIP provided Jenkinsfile-</p>
+<p><img alt="Configure Build Triggers" src="_images/master-branch-build-all-modules-build-triggers.JPG" /></p>
+<p><img alt="Configure Pipelines" src="_images/master-branch-build-all-modules-pipeline.JPG" /></p>
+<p>As it can be seen from the above image this pipeline uses Jenkinsfile present in master branch of mosip-platform repository. You need to provide the Github credentials that this pipeline will take to connect and download this Jenkinsfile at the time of the build. Let us now look into this Jenkinsfile.</p>
+<p>Jenkinsfile for this pipeline is written in Groovy Language using the scripted style of writing code.</p>
+<ul>
+<li><p>Then we have module specific Jenkinsfile for individual Modules. These Modules are:</p>
+<ul class="simple">
+<li><p><strong>Kernel</strong><br/></p></li>
+<li><p><strong>Registration</strong><br/></p></li>
+<li><p><strong>Registration-Processor</strong><br/></p></li>
+<li><p><strong>Pre-Registration</strong><br/></p></li>
+<li><p><strong>ID-Repository</strong><br/></p></li>
+<li><p><strong>ID-Authentication</strong><br/></p></li>
+</ul>
+<p>Each Module's CI/CD Jenkins script can be found in <a class="reference external" href="https://github.com/mosip/mosip-infra/tree/master/deployment/cloud/jenkinsfile">URL</a>. This Jenkins script will be  named Jenkinsfile and is responsible to build and deploy the entire Module to Dev environment<br/></p>
+</li>
+<li><p>For promoting these modules to QA, there is a pipeline named <strong>PromoteToQAJenkinsFile</strong> which is located in root directory of mosip source code. This pipeline tags the entire code, runs build process, and once everything is successful, it deploys the entire code to QA environment.</p></li>
+</ul>
+<p>In each Jenkinsfile you will see some variables starting with <strong>params.</strong> These variables are passed as parameters into the Jenkins jobs. You have to setup these parameters variables in your jenkins to use these Jenkinsfiles. These Variables include:<br/></p>
+</li>
+</ul>
+<p><strong>NOTE</strong>-&gt; To set up parameters for a jenkins job, go inside the jenkins job-&gt; Click Configure-&gt;Click on &quot;This project is parameterized&quot; and provide the parameter name and value.</p>
+<ol class="simple">
+<li><p><strong>BRANCH_NAME</strong><br/></p></li>
+<li><p><strong>REGISTRY_URL</strong><br/></p></li>
+<li><p><strong>REGISTRY_NAME</strong><br/></p></li>
+<li><p><strong>REGISTRY_CREDENTIALS</strong><br/></p></li>
+<li><p><strong>GIT_URL</strong><br/></p></li>
+<li><p><strong>GIT_CREDENTIALS</strong><br/></p></li>
+<li><p><strong>BUIILD_OPTION</strong><br/></p></li>
+</ol>
+<p><strong>NOTE</strong> We are building docker images in each of the JenkinsFile, so docker should be installed and accessible for Jenkins user. Please install Docker version 18.09.3 in your Jenkins instance.</p>
+</div>
+</div>
+<hr class="docutils" />
+<div class="section" id="setup-and-configure-jfrog-artifactory-version-6-5-2">
+<h1>3. Setup and Configure Jfrog Artifactory Version 6.5.2 <a class="reference external" href="#table-of-content"><strong>[↑]</strong></a><a class="headerlink" href="#setup-and-configure-jfrog-artifactory-version-6-5-2" title="Permalink to this headline">¶</a></h1>
+<p>For installing and setting up Jfrog, following steps <a class="reference external" href="//jfrog.com/confluence/display/RTF/Installing+Artifactory">here</a> need to be followed.<br/>
+Once the setup is complete, please add the following remote repositories to your Jfrog configuration and point them to libs-release virtual repository:</p>
+<ul class="simple">
+<li><p><a class="reference external" href="//repo.maven.apache.org/maven2/"><strong>Maven Central</strong></a></p></li>
+<li><p><a class="reference external" href="//jcenter.bintray.com"><strong>Jcentre</strong></a></p></li>
+<li><p><a class="reference external" href="http://maven.openimaj.org"><strong>Openimaj</strong></a></p></li>
+</ul>
+<p>To configure Maven to resolve artifacts through Artifactory you need to modify the settings.xml of Jenkins machine's m2_home to point to JFrog.<br/>
+To generate these settings, go to  Artifact Repository Browser of the Artifacts module, select Set Me Up. In the Set Me Up dialog, set Maven in the Tool field and click &quot;Generate Maven Settings&quot;. For more information on artifactory configuration refer <a class="reference external" href="//jfrog.com/confluence/display/RTF/Maven+Repository">here</a></p>
+<p><strong>NOTE</strong> JFrog Artifactory setup by MOSIP is open to public for read only access. So if any of the modules are dependent on previous modules, that you don't have built, you need to connect to our JFrog server to pull those dependencies. For doing that, in the settings.xml file that you generated above, replace url of ID with repository snapshot and release to our Jfrog URLs which will be : </br></p>
+<ol class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">&lt;url&gt;http://&lt;abcd&gt;.mosip.io/artifactory/libs-snapshot&lt;/url&gt;</span></code> for libs-snapshot</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">&lt;url&gt;http://&lt;abcd&gt;.mosip.io/artifactory/libs-release&lt;/url&gt;</span></code> for libs-release</p></li>
+</ol>
+<p>Once you are done with pulling the dependencies you need, you can replace it back to your Jfrog URLs. <br/>
+Also if you are planning to import all versions of the Mosip modules in Jfrog to your VM or Jfrog, make sure you have enough space in your Jfrog VM where you will be importing these dependencies.</p>
+</div>
+<hr class="docutils" />
+<div class="section" id="setup-and-configure-sonarqube-version-7-3">
+<h1>4. Setup and Configure SonarQube version 7.3 <a class="reference external" href="#table-of-content"><strong>[↑]</strong></a><a class="headerlink" href="#setup-and-configure-sonarqube-version-7-3" title="Permalink to this headline">¶</a></h1>
+<p>SonarQube server can be setup by following single instructions given <a class="reference external" href="//docs.sonarqube.org/latest/setup/get-started-2-minutes/">here</a>.<br/>
+For configuring SonarQube with Jenkins, steps given <a class="reference external" href="//docs.sonarqube.org/display/SCAN/Analyzing+with+SonarQube+Scanner+for+Jenkins">here</a> can be followed.</p>
+<p>Steps to install SonarQube on Ubuntu 16.04</p>
+<p>**   Perform a system update**</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span> <span class="o">*</span> <span class="n">sudo</span> <span class="n">apt</span><span class="o">-</span><span class="n">get</span> <span class="n">update</span>
+
+ <span class="o">*</span> <span class="n">sudo</span> <span class="n">apt</span><span class="o">-</span><span class="n">get</span> <span class="o">-</span><span class="n">y</span> <span class="n">upgrade</span>
+</pre></div>
+</div>
+<p>**   Install JDK**</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span> <span class="o">*</span> <span class="n">sudo</span> <span class="n">add</span><span class="o">-</span><span class="n">apt</span><span class="o">-</span><span class="n">repository</span> <span class="n">ppa</span><span class="p">:</span><span class="n">webupd8team</span><span class="o">/</span><span class="n">java</span>
+
+ <span class="o">*</span> <span class="n">sudo</span> <span class="n">apt</span><span class="o">-</span><span class="n">get</span> <span class="n">update</span>
+
+ <span class="o">*</span> <span class="n">sudo</span> <span class="n">apt</span> <span class="n">install</span> <span class="n">oracle</span><span class="o">-</span><span class="n">java8</span><span class="o">-</span><span class="n">installer</span>
+</pre></div>
+</div>
+<p>We can now check the version of Java by typing:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span> <span class="o">*</span> <span class="n">java</span> <span class="o">-</span><span class="n">version</span>
+</pre></div>
+</div>
+<p>**   Install and configure PostgreSQL**</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span> <span class="o">*</span> <span class="n">sudo</span> <span class="n">sh</span> <span class="o">-</span><span class="n">c</span> <span class="s1">&#39;echo &quot;deb http://apt.postgresql.org/pub/repos/apt/ `lsb_release -cs`-pgdg main&quot; &gt;&gt;</span>
+   <span class="o">/</span><span class="n">etc</span><span class="o">/</span><span class="n">apt</span><span class="o">/</span><span class="n">sources</span><span class="o">.</span><span class="n">list</span><span class="o">.</span><span class="n">d</span><span class="o">/</span><span class="n">pgdg</span><span class="o">.</span><span class="n">list</span><span class="s1">&#39;</span>
+
+ <span class="o">*</span> <span class="n">wget</span> <span class="o">-</span><span class="n">q</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">www</span><span class="o">.</span><span class="n">postgresql</span><span class="o">.</span><span class="n">org</span><span class="o">/</span><span class="n">media</span><span class="o">/</span><span class="n">keys</span><span class="o">/</span><span class="n">ACCC4CF8</span><span class="o">.</span><span class="n">asc</span> <span class="o">-</span><span class="n">O</span> <span class="o">-</span> <span class="o">|</span> <span class="n">sudo</span> <span class="n">apt</span><span class="o">-</span><span class="n">key</span> <span class="n">add</span> <span class="o">-</span>
+
+ <span class="o">*</span> <span class="n">sudo</span> <span class="n">apt</span><span class="o">-</span><span class="n">get</span> <span class="o">-</span><span class="n">y</span> <span class="n">install</span> <span class="n">postgresql</span> <span class="n">postgresql</span><span class="o">-</span><span class="n">contrib</span>
+</pre></div>
+</div>
+<p>Start PostgreSQL server and enable it to start automatically at boot time by running:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span> <span class="o">*</span> <span class="n">sudo</span> <span class="n">systemctl</span> <span class="n">start</span> <span class="n">postgresql</span>
+
+ <span class="o">*</span> <span class="n">sudo</span> <span class="n">systemctl</span> <span class="n">enable</span> <span class="n">postgresql</span>
+</pre></div>
+</div>
+<p>Change the password for the default PostgreSQL user.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span> <span class="o">*</span> <span class="n">sudo</span> <span class="n">passwd</span> <span class="n">postgres</span>
+</pre></div>
+</div>
+<p>Switch to the postgres user.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span> <span class="o">*</span> <span class="n">su</span> <span class="o">-</span> <span class="n">postgres</span>
+</pre></div>
+</div>
+<p>Create a new user by typing:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span> <span class="o">*</span> <span class="n">createuser</span> <span class="n">sonar</span>
+</pre></div>
+</div>
+<p>Switch to the PostgreSQL shell.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span> <span class="o">*</span> <span class="n">psql</span>
+</pre></div>
+</div>
+<p>Set a password for the newly created user for SonarQube database.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span> <span class="o">*</span> <span class="n">ALTER</span> <span class="n">USER</span> <span class="n">sonar</span> <span class="n">WITH</span> <span class="n">ENCRYPTED</span> <span class="n">password</span> <span class="s1">&#39;StrongPassword&#39;</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>Create a new database for PostgreSQL database by running:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span> <span class="o">*</span> <span class="n">CREATE</span> <span class="n">DATABASE</span> <span class="n">sonar</span> <span class="n">OWNER</span> <span class="n">sonar</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>Exit from the psql shell:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span> <span class="o">*</span> \<span class="n">q</span>
+</pre></div>
+</div>
+<p>Switch back to the sudo user by running the exit command.</p>
+<p>**   Download and configure SonarQube**</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span> <span class="o">*</span> <span class="n">wget</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">sonarsource</span><span class="o">.</span><span class="n">bintray</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">Distribution</span><span class="o">/</span><span class="n">sonarqube</span><span class="o">/</span><span class="n">sonarqube</span><span class="o">-</span><span class="mf">6.4</span><span class="o">.</span><span class="n">zip</span>
+</pre></div>
+</div>
+<p>Install unzip by running:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span> <span class="o">*</span> <span class="n">apt</span><span class="o">-</span><span class="n">get</span> <span class="o">-</span><span class="n">y</span> <span class="n">install</span> <span class="n">unzip</span>
+</pre></div>
+</div>
+<p>Unzip the archive using the following command.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span> <span class="o">*</span> <span class="n">sudo</span> <span class="n">unzip</span> <span class="n">sonarqube</span><span class="o">-</span><span class="mf">6.4</span><span class="o">.</span><span class="n">zip</span> <span class="o">-</span><span class="n">d</span> <span class="o">/</span><span class="n">opt</span>
+</pre></div>
+</div>
+<p>Rename the directory:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span> <span class="o">*</span> <span class="n">sudo</span> <span class="n">mv</span> <span class="o">/</span><span class="n">opt</span><span class="o">/</span><span class="n">sonarqube</span><span class="o">-</span><span class="mf">6.4</span> <span class="o">/</span><span class="n">opt</span><span class="o">/</span><span class="n">sonarqube</span>
+
+ <span class="o">*</span> <span class="n">sudo</span> <span class="n">nano</span> <span class="o">/</span><span class="n">opt</span><span class="o">/</span><span class="n">sonarqube</span><span class="o">/</span><span class="n">conf</span><span class="o">/</span><span class="n">sonar</span><span class="o">.</span><span class="n">properties</span>
+</pre></div>
+</div>
+<p>Find the following lines.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span> <span class="c1">#sonar.jdbc.username=</span>
+
+ <span class="c1">#sonar.jdbc.password=</span>
+</pre></div>
+</div>
+<p>Uncomment and provide the PostgreSQL username and password of the database that we have created earlier. It should look like:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span> <span class="n">sonar</span><span class="o">.</span><span class="n">jdbc</span><span class="o">.</span><span class="n">username</span><span class="o">=</span><span class="n">sonar</span>
+
+ <span class="n">sonar</span><span class="o">.</span><span class="n">jdbc</span><span class="o">.</span><span class="n">password</span><span class="o">=</span><span class="n">StrongPassword</span>
+</pre></div>
+</div>
+<p>Next, find:</p>
+<p>#sonar.jdbc.url=jdbc:postgresql://localhost/sonar</p>
+<p>Uncomment the line, save the file and exit from the editor.</p>
+<p>**   Configure Systemd service**</p>
+<p>SonarQube can be started directly using the startup script provided in the installer package. As a matter of convenience, you should setup a Systemd unit file for SonarQube.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span> <span class="o">*</span> <span class="n">nano</span> <span class="o">/</span><span class="n">etc</span><span class="o">/</span><span class="n">systemd</span><span class="o">/</span><span class="n">system</span><span class="o">/</span><span class="n">sonar</span><span class="o">.</span><span class="n">service</span>
+
+ <span class="n">Populate</span> <span class="n">the</span> <span class="n">file</span> <span class="k">with</span><span class="p">:</span>
+
+ <span class="p">[</span><span class="n">Unit</span><span class="p">]</span>
+
+ <span class="n">Description</span><span class="o">=</span><span class="n">SonarQube</span> <span class="n">service</span>
+
+ <span class="n">After</span><span class="o">=</span><span class="n">syslog</span><span class="o">.</span><span class="n">target</span> <span class="n">network</span><span class="o">.</span><span class="n">target</span>
+
+ <span class="p">[</span><span class="n">Service</span><span class="p">]</span>
+
+ <span class="n">Type</span><span class="o">=</span><span class="n">forking</span>
+
+ <span class="n">ExecStart</span><span class="o">=/</span><span class="n">opt</span><span class="o">/</span><span class="n">sonarqube</span><span class="o">/</span><span class="nb">bin</span><span class="o">/</span><span class="n">linux</span><span class="o">-</span><span class="n">x86</span><span class="o">-</span><span class="mi">64</span><span class="o">/</span><span class="n">sonar</span><span class="o">.</span><span class="n">sh</span> <span class="n">start</span>
+
+ <span class="n">ExecStop</span><span class="o">=/</span><span class="n">opt</span><span class="o">/</span><span class="n">sonarqube</span><span class="o">/</span><span class="nb">bin</span><span class="o">/</span><span class="n">linux</span><span class="o">-</span><span class="n">x86</span><span class="o">-</span><span class="mi">64</span><span class="o">/</span><span class="n">sonar</span><span class="o">.</span><span class="n">sh</span> <span class="n">stop</span>
+
+ <span class="n">User</span><span class="o">=</span><span class="n">root</span>
+
+ <span class="n">Group</span><span class="o">=</span><span class="n">root</span>  
+
+ <span class="n">Restart</span><span class="o">=</span><span class="n">always</span>
+
+ <span class="p">[</span><span class="n">Install</span><span class="p">]</span>
+
+ <span class="n">WantedBy</span><span class="o">=</span><span class="n">multi</span><span class="o">-</span><span class="n">user</span><span class="o">.</span><span class="n">target</span>
+</pre></div>
+</div>
+<p>Start the application by running:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span> <span class="o">*</span> <span class="n">sudo</span> <span class="n">systemctl</span> <span class="n">start</span> <span class="n">sonar</span>
+</pre></div>
+</div>
+<p>Enable the SonarQube service to automatically start at boot time.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span> <span class="o">*</span> <span class="n">sudo</span> <span class="n">systemctl</span> <span class="n">enable</span> <span class="n">sonar</span>
+</pre></div>
+</div>
+<p>To check if the service is running, run:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span> <span class="o">*</span> <span class="n">sudo</span> <span class="n">systemctl</span> <span class="n">status</span> <span class="n">sonar</span>
+</pre></div>
+</div>
+</div>
+<hr class="docutils" />
+<div class="section" id="setup-and-configure-docker-registry">
+<h1>5. Setup and Configure Docker Registry <a class="reference external" href="#table-of-content"><strong>[↑]</strong></a><a class="headerlink" href="#setup-and-configure-docker-registry" title="Permalink to this headline">¶</a></h1>
+<p>In this step we will setup and configure a private docker registry, which will be basic authenticated, SSL secured. In our setup we are using azure blobs as storage for our docker images. More options for configuring registry can be found <a class="reference external" href="//docs.docker.com/registry/configuration/">here</a>
+We are deploying Docker registry as Containerized services. For setting up the registry, <a class="reference external" href="//docs.docker.com/install/">Docker</a> and <a class="reference external" href="//docs.docker.com/compose/install/">Docker Compose</a> need to be installed. We have setted up the registry in a machine with Redhat 7.6 installed.<br/>
+Once installation is done, the yaml files which we will be using to setup the registry can be found in this <a class="reference external" href="https://github.com/mosip/mosip-infra/tree/master/deployment/cloud/docker-registry">link</a>
+We are using Registry image : registry:2.5.1, registry with any other version can be deployed from <a class="reference external" href="//hub.docker.com/_/registry">here</a>. <br/>For routing purpose, we are using HAproxy image dockercloud/haproxy:1.6.2, other options such as ngnix etc. can also be used for the same purpose.<br/>
+We have the following docker-compose files, under this <a class="reference external" href="https://github.com/mosip/mosip-infra/tree/master/deployment/cloud/docker-registry">link</a></p>
+<ol class="simple">
+<li><p><strong>registry-docker-compose.yml:</strong>  For basic registry and haproxy setup.</p></li>
+<li><p><strong>registry-docker-compose-basic-authentication.yml:</strong>  For securing the docker registry through base authentication.
+For basic authentication, you have to setup a htpasswd file and add a simple user to it. For generating this htpaswd file:<br/></p></li>
+</ol>
+<ul class="simple">
+<li><p>Create Htpasswd_dir directory<br/>
+<code class="docutils literal notranslate"><span class="pre">mkdir</span> <span class="pre">-p</span> <span class="pre">~/htpasswd_dir</span></code><br/></p></li>
+<li><p>Create htpasswd file with your username and password<br/>
+<code class="docutils literal notranslate"><span class="pre">docker</span> <span class="pre">run</span> <span class="pre">--rm</span> <span class="pre">--entrypoint</span> <span class="pre">htpasswd</span> <span class="pre">registry:2</span> <span class="pre">-Bbn</span> <span class="pre">&lt;username&gt;</span> <span class="pre">&quot;&lt;password&gt;&quot;</span> <span class="pre">&gt;</span> <span class="pre">~/htpasswd_dir/htpasswd</span></code><br/></p></li>
+<li><p>In the registry-docker-compose-basic-authentication.yml file, replace <YOUR-REALM-NAME> and <YOUR-HTPASSWD-PATH> with
+specific values.</p></li>
+</ul>
+<ol class="simple">
+<li><p><strong>registry-docker-compose-azure-storage.yml:</strong>  This file is used for configuring azure blob storage. We are assuming that Azure blob has already been configured by you. Replace REGISTRY_STORAGE_AZURE_ACCOUNTNAME, REGISTRY_STORAGE_AZURE_ACCOUNTKEY, REGISTRY_STORAGE_AZURE_CONTAINER with appropriate values configured by you while setting up azure blob storage.</p></li>
+<li><p><strong>registry-docker-compose-tls-enabled.yml:</strong>  We are using <strong>Let's Encrypt</strong>, CA signed SSL certificates. Documentation of Let's Encrypt can be referred <a class="reference external" href="//letsencrypt.org/getting-started/">here</a>
+Once Certificates have been generated, replace the &lt;REGISTRY_HTTP_TLS_CERTIFICATE&gt; property and &lt;REGISTRY_HTTP_TLS_KEY&gt; property in registry-docker-compose-tls-enabled.yml with appropriate values.
+After completing all the above changes, use docker-compose tool to bring up the container using the following command:<br/>
+<code class="docutils literal notranslate"><span class="pre">docker-compose</span> <span class="pre">-f</span> <span class="pre">registry-docker-compose.yml</span> <span class="pre">-f</span> <span class="pre">registry-docker-compose-basic-authentication.yml</span> <span class="pre">-f</span> <span class="pre">registry-docker-compose-azure-storage.yml</span> <span class="pre">-f</span> <span class="pre">registry-docker-compose-tls-enabled.yml</span>&#160; <span class="pre">up</span> <span class="pre">-d</span></code><br/>
+Once the registry is up and running, variables <strong>registryUrl</strong>, <strong>registryName</strong>, <strong>registryCredentials</strong> can be configured accordingly in Jenkinsfile.<br/> For configuring registry Credentials in Jenkins, Username/Password credentials need to be added in Jenkins Global Credentials and credential ID needs to be provided in <strong>registryCredentials</strong> variable in all the Jenkinsfiles.</p></li>
+</ol>
+</div>
+<hr class="docutils" />
+<div class="section" id="installing-external-dependencies">
+<h1>6. Installing External Dependencies <a class="reference external" href="#table-of-content"><strong>[↑]</strong></a><a class="headerlink" href="#installing-external-dependencies" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="install-and-use-postgresql-version-10-2-on-rhel-7-5">
+<h2>6.1 Install and use PostgreSql Version 10.2 on RHEL 7.5<a class="headerlink" href="#install-and-use-postgresql-version-10-2-on-rhel-7-5" title="Permalink to this headline">¶</a></h2>
+<p>Often simply Postgres, is an object-relational database management system (ORDBMS) with an emphasis on extensibility and standards compliance. It can handle workloads ranging from small single-machine applications to large Internet-facing applications (or for data warehousing) with many concurrent users
+Postgresql Prerequisites
+On a Linux or Mac system, you must have superuser privileges to perform a PostgreSQL installation. To perform an installation on a Windows system, you must have administrator privileges.</p>
+<div class="section" id="steps-to-install-postgresql-in-rhel-7-5">
+<h3>Steps to install Postgresql in RHEL-7.5<a class="headerlink" href="#steps-to-install-postgresql-in-rhel-7-5" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="download-and-install-postgresql">
+<h4>Download and install PostgreSQL.<a class="headerlink" href="#download-and-install-postgresql" title="Permalink to this headline">¶</a></h4>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ sudo yum install https://download.postgresql.org/pub/repos/yum/10/redhat/rhel-7-x86_64/pgdg-redhat10-10-2.noarch.rpm
+$ sudo  yum-config-manager --disable pgdg95
+</pre></div>
+</div>
+</div>
+<div class="section" id="checking-the-postgresql-packages">
+<h4>checking  the postgresql packages<a class="headerlink" href="#checking-the-postgresql-packages" title="Permalink to this headline">¶</a></h4>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ sudo yum update
+</pre></div>
+</div>
+<p>$ sudo yum list postgresql*</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1">##### Installation command</span>
+</pre></div>
+</div>
+<p>$ sudo yum install postgresql10 postgresql10-server</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$sudo /usr/pgsql-10/bin/postgresql-10-setup initdb
+</pre></div>
+</div>
+<p>$sudo systemctl enable postgresql-10</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1">##### Postgresql service stop/start/restart command</span>
+</pre></div>
+</div>
+<p>$ sudo systemctl start postgresql-10</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ sudo systemctl status postgresql-10
+</pre></div>
+</div>
+<p>$ sudo systemctl stop postgresql-10</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">To</span> <span class="n">changing</span> <span class="n">default</span> <span class="n">port</span> <span class="mi">5432</span> <span class="n">to</span> <span class="mi">9001</span> <span class="ow">and</span> <span class="n">connection</span> <span class="o">+</span> <span class="n">buffer</span> <span class="n">size</span> <span class="n">we</span> <span class="n">need</span> <span class="n">to</span> <span class="n">edit</span> <span class="n">the</span> <span class="n">postgresql</span><span class="o">.</span><span class="n">conf</span> <span class="n">file</span> <span class="kn">from</span> <span class="nn">below</span> <span class="n">path</span>
+<span class="n">PostgreSQL</span> <span class="ow">is</span> <span class="n">running</span> <span class="n">on</span> <span class="n">default</span> <span class="n">port</span> <span class="mf">5432.</span>
+<span class="n">you</span> <span class="n">decide</span> <span class="n">to</span> <span class="n">change</span> <span class="n">the</span> <span class="n">default</span> <span class="n">port</span><span class="p">,</span> <span class="n">please</span> <span class="n">ensure</span> <span class="n">that</span> <span class="n">your</span> <span class="n">new</span> <span class="n">port</span> <span class="n">number</span> <span class="n">does</span> <span class="ow">not</span> <span class="n">conflict</span> <span class="k">with</span> <span class="nb">any</span> <span class="n">services</span> <span class="n">running</span> <span class="n">on</span> <span class="n">that</span> <span class="n">port</span><span class="o">.</span>
+
+<span class="c1">##### Steps to change the default port :</span>
+
+<span class="c1">###### Open the file  and modify the below changes</span>
+</pre></div>
+</div>
+<p>$ sudo vi /var/lib/pgsql/10/data/postgresql.conf</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">listen_addresses</span> <span class="o">=</span> <span class="s1">&#39;*&#39;</span>   <span class="p">(</span><span class="n">changed</span> <span class="n">to</span> <span class="o">*</span> <span class="n">instead</span> <span class="n">of</span> <span class="n">local</span> <span class="n">host</span> <span class="p">)</span>
+<span class="n">port</span> <span class="o">=</span> <span class="mi">9001</span>       <span class="p">(</span> <span class="n">uncomment</span> <span class="n">port</span><span class="o">=</span><span class="mi">5432</span> <span class="ow">and</span> <span class="n">change</span> <span class="n">the</span> <span class="n">port</span> <span class="n">number</span>
+<span class="c1">###### Open the port 9001 from the VM</span>
+</pre></div>
+</div>
+<p>$  sudo firewall-cmd --zone=public --add-port=9001/tcp --permanent</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$  sudo firewall-cmd --reload
+</pre></div>
+</div>
+</div>
+<div class="section" id="to-increase-the-buffer-size-and-number-of-postgresql-connection-same-fine-modify-the-below-changes-also">
+<h4>To increase the buffer size and number of postgreSql connection  same fine modify the below changes also<a class="headerlink" href="#to-increase-the-buffer-size-and-number-of-postgresql-connection-same-fine-modify-the-below-changes-also" title="Permalink to this headline">¶</a></h4>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ sudo vi /var/lib/pgsql/10/data/postgresql.conf
+</pre></div>
+</div>
+<p>unix_socket_directories = '/var/run/postgresql, /tmp'
+max_connections = 1000<br />shared_buffers = 2GB</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ sudo systemctl start postgresql-10
+</pre></div>
+</div>
+</div>
+<div class="section" id="to-change-the-default-password">
+<h4>To change the default password<a class="headerlink" href="#to-change-the-default-password" title="Permalink to this headline">¶</a></h4>
+<p>Login to postgrsql</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ sudo su postgres
+</pre></div>
+</div>
+<p>bash-4.2$    psql -p 9001</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">postgres</span><span class="o">=</span><span class="c1"># \password postgres</span>
+</pre></div>
+</div>
+<p>Enter new password:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Enter</span> <span class="n">it</span> <span class="n">again</span><span class="p">:</span>
+</pre></div>
+</div>
+<p>postgres=# \q</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sudo</span> <span class="n">systemctl</span> <span class="n">restart</span> <span class="n">postgresql</span><span class="o">-</span><span class="mi">10</span>
+</pre></div>
+</div>
+<p>It will ask new password to login to postgresql</p>
+<p>####### example  for sourcing the sql file form command line</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ psql --username=postgres --host=&lt;server ip&gt; --port=9001 --dbname=postgres
+</pre></div>
+</div>
+<p>Open the file <br/>
+$ sudo vim /var/lib/pgsql/10/data/pg_hba.conf</p>
+<div class="section" id="default-lines-are-present-in-pg-hab-conf-file-br">
+<h5>Default lines are present in pg_hab.conf file <br/><a class="headerlink" href="#default-lines-are-present-in-pg-hab-conf-file-br" title="Permalink to this headline">¶</a></h5>
+<p>TYPE  DATABASE        USER            ADDRESS                 METHOD <br/></p>
+<p>local   all             all                                     peer <br/>
+host    all             all             127.0.0.1/32            ident <br/>
+host    all             all             ::1/128                 ident <br/>
+local   replication     all                                     peer  <br/>
+host    replication     all             127.0.0.1/32            ident <br/>
+host    replication     all             ::1/128                 ident <br/></p>
+</div>
+<div class="section" id="modify-with-below-changes-in-file-var-lib-pgsql-10-data-pg-hba-conf">
+<h5>Modify  with below changes in file  /var/lib/pgsql/10/data/pg_hba.conf<a class="headerlink" href="#modify-with-below-changes-in-file-var-lib-pgsql-10-data-pg-hba-conf" title="Permalink to this headline">¶</a></h5>
+<p>local   all             all                                     md5 <br/>
+host    all             all             127.0.0.1/32            ident <br/>
+host    all             all             0.0.0.0/0               md5 <br/>
+host    all             all             ::1/128                 ident <br/>
+local   replication     all                                     peer <br/>
+host    replication     all             127.0.0.1/32            ident <br/>
+host    replication     all             ::1/128                 ident <br/></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sudo</span> <span class="n">systemctl</span> <span class="n">restart</span> <span class="n">postgresql</span><span class="o">-</span><span class="mi">10</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sudo</span> <span class="n">systemctl</span> <span class="n">status</span> <span class="n">postgresql</span><span class="o">-</span><span class="mi">10</span>
+</pre></div>
+</div>
+<p>Reference link:
+https://www.tecmint.com/install-postgresql-on-centos-rhel-fedora</div></p>
+</div>
+</div>
+</div>
+</div>
+<hr class="docutils" />
+<div class="section" id="install-and-use-nginx-version-1-15-8-on-rhel-7-5">
+<h2>6.2 Install and use Nginx Version-1.15.8 on RHEL 7.5<a class="headerlink" href="#install-and-use-nginx-version-1-15-8-on-rhel-7-5" title="Permalink to this headline">¶</a></h2>
+<p>We are using nginx for webserver andalso proxy server for MOSIP project
+Create the file named /etc/yum.repos.d/nginx.repo using a text editor such as vim command</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ sudo vi /etc/yum.repos.d/nginx.repo
+</pre></div>
+</div>
+<p>Append following for RHEL 7.5</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>[nginx]   
+name=nginx repo
+baseurl=http://nginx.org/packages/mainline/rhel/7/$basearch/
+gpgcheck=0
+enabled=1
+</pre></div>
+</div>
+<p>After updating repo, please run following commands to install and enable nginx -</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ sudo yum update
+</pre></div>
+</div>
+<p>$ sudo yum install nginx</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ sudo systemctl enable nginx  
+</pre></div>
+</div>
+<p>To start, stop, restart or get status of nginx use the following commands -</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ sudo systemctl start nginx
+
+$ sudo systemctl stop nginx
+
+$ sudo systemctl restart nginx
+
+$ sudo systemctl status nginx
+</pre></div>
+</div>
+<p>To edit files use a text editor such as vi</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ sudo vi /etc/nginx/nginx.conf
+</pre></div>
+</div>
+<p>Example to  configure the nginx for dev environment -</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span> user  madmin;
+ worker_processes  2;
+ error_log  /var/log/nginx/error.log warn;
+ pid        /var/run/nginx.pid;
+ events {
+     worker_connections  1024;
+ }
+
+ http {
+         include       /etc/nginx/mime.types;
+         default_type  application/octet-stream;
+         log_format  main  &#39;$remote_addr - $remote_user [$time_local] &quot;$request&quot; &#39;
+         &#39;$status $body_bytes_sent &quot;$http_referer&quot; &#39;
+         &#39;&quot;$http_user_agent&quot; &quot;$http_x_forwarded_for&quot;&#39;;
+         access_log  /var/log/nginx/access.log  main;
+         client_max_body_size 10m;
+         sendfile        on;
+         tcp_nopush     on;
+         proxy_max_temp_file_size 0;
+         sendfile_max_chunk 10m;
+         keepalive_timeout  65;
+         gzip on;
+         gzip_disable &quot;msie6&quot;;
+         gzip_vary on;
+         gzip_proxied any;
+         gzip_comp_level 6;
+         gzip_buffers 16 8k;
+         gzip_http_version 1.1;
+         gzip_min_length 256;
+         gzip_types text/plain text/css application/json application/x-javascript text/xml application/xml application/javascript application/octet-stream application/xml+rss text/javascript application/vnd.ms-fontobject application/x-font-ttf font/opentype image/svg+xml image/x-icon image/png image/jpg;
+         #include /etc/nginx/conf.d/*.conf;
+
+
+###### HTTP configuration ######
+
+  server {
+         listen  80 default_server;
+         listen [::]:80 default_server ipv6only=on;
+         server_name &lt;your-domain-name&gt;;
+
+         location / {
+                                     root /usr/share/nginx/html;
+                 index  index.html index.htm;
+                 proxy_http_version 1.1;
+                 proxy_set_header Upgrade $http_upgrade;
+                 proxy_set_header Connection &quot;upgrade&quot;;
+                 proxy_set_header Host $host;
+                 proxy_connect_timeout                   3600s;
+                 proxy_send_timeout                      3600s;
+                 proxy_read_timeout                      3600s;
+         }
+         return 301 https://$host$request_uri;
+     }
+
+###### HTTPS configuration for your domain ######
+     server {
+
+             client_max_body_size 20M;
+                 listen *:443 ssl http2;
+                 listen [::]:443 ssl http2;
+                 server_name dev.mosip.io;
+                 ssl on;
+                 ssl_certificate         &lt;your-letsencrypt-fullchainpem-path&gt;;
+                 ssl_certificate_key   &lt;your-letsencrypt-privatekey-pem-path&gt;;
+         location /v1/keymanager/ {
+                     proxy_set_header Host $host;
+                     proxy_set_header X-Real-IP $remote_addr;
+                     proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+                     proxy_set_header X-Forwarded-Proto $scheme;
+                     #proxy_set_header Cookie $http_cookie;
+                     proxy_pass  http://&lt;your-keymanager-vm-ip&gt;:&lt;port&gt;/v1/keymanager/;
+             }
+
+              location /registrationprocessor/v1/packetreceiver/ {
+                     proxy_set_header Host $host;
+                     proxy_set_header X-Real-IP $remote_addr;
+                     proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+                     proxy_set_header X-Forwarded-Proto $scheme;
+                    proxy_pass  http://&lt;your-dmz-vm-ip&gt;:&lt;port&gt;/registrationprocessor/v1/packetreceiver/;
+             }
+
+              location /registrationprocessor/v1/registrationstatus/ {
+                     proxy_set_header Host $host;
+                     proxy_set_header X-Real-IP $remote_addr;
+                     proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+                     proxy_set_header X-Forwarded-Proto $scheme;
+                     proxy_pass  http://&lt;your-dmz-vm-ip&gt;:&lt;port&gt;/registrationprocessor/v1/registrationstatus/;
+
+             }
+
+             location / {
+                     proxy_set_header Host $host;
+                     proxy_set_header X-Real-IP $remote_addr;
+                     proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+                     #proxy_set_header X-Forwarded-Host $proxy_add_x_forwarded_for;
+                     proxy_set_header X-Forwarded-Proto $scheme;
+                     proxy_connect_timeout                   3600s;
+                     proxy_send_timeout                      3600s;
+                     proxy_read_timeout                      3600s;
+                     proxy_pass https://&lt;your-dev-k8-cluster-endpoint&gt;; //kubernetes end point
+                     #proxy_intercept_errors on;
+                     #error_page 301 302 307 = @handle_redirects;
+
+             }
+  }
+ }
+</pre></div>
+</div>
+<p>Use below command to open the port 80/443 from RHEL 7.5 VM</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ sudo firewall-cmd --zone=public --add-port=80/tcp --permanent
+$ sudo firewall-cmd --zone=public --add-port=443/tcp --permanent
+$ sudo firewall-cmd --reload
+</pre></div>
+</div>
+<div class="section" id="generate-ssl-tls-for-https">
+<h3>Generate SSL/TLS for HTTPS -<a class="headerlink" href="#generate-ssl-tls-for-https" title="Permalink to this headline">¶</a></h3>
+<p>RHEL 7  version, these are the following commands you have to run to generate certificates for nginx server.</p>
+<ol>
+<li><p>wget https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm
+It will install EPEL script for RHEL 7 OS. It is same as PPA for Ubuntu, it will install some extra packages for enterprise linux edition.
+You can read more about it https://fedoraproject.org/wiki/EPEL.</p></li>
+<li><p>This command will run the EPEL install scripts and enable the EPEL packages for RHEL7</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sudo</span> <span class="n">yum</span> <span class="n">install</span> <span class="n">epel</span><span class="o">-</span><span class="n">release</span><span class="o">-</span><span class="n">latest</span><span class="o">-</span><span class="mf">7.</span><span class="n">noarch</span><span class="o">.</span><span class="n">rpm</span>
+</pre></div>
+</div>
+</li>
+<li><p>This will list all the EPEL packages available for used.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">yum</span> <span class="o">--</span><span class="n">disablerepo</span><span class="o">=</span><span class="s2">&quot;*&quot;</span> <span class="o">--</span><span class="n">enablerepo</span><span class="o">=</span><span class="s2">&quot;epel&quot;</span>  <span class="nb">list</span> <span class="n">available</span>
+</pre></div>
+</div>
+</li>
+<li><p>Check for python2-certbot-nginx package in EPEL Packages.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">yum</span> <span class="o">--</span><span class="n">disablerepo</span><span class="o">=</span><span class="s2">&quot;*&quot;</span> <span class="o">--</span><span class="n">enablerepo</span><span class="o">=</span><span class="s2">&quot;epel&quot;</span> <span class="n">search</span> <span class="n">python2</span><span class="o">-</span><span class="n">certbot</span><span class="o">-</span><span class="n">nginx</span>
+</pre></div>
+</div>
+</li>
+<li><p>This will install python certbot for nginx into VM.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sudo</span> <span class="n">yum</span> <span class="n">install</span> <span class="n">python2</span><span class="o">-</span><span class="n">certbot</span><span class="o">-</span><span class="n">nginx</span>
+</pre></div>
+</div>
+</li>
+<li><p>This will generate the certificate for VM.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sudo</span> <span class="n">certbot</span> <span class="o">--</span><span class="n">nginx</span> <span class="n">certonly</span>
+</pre></div>
+</div>
+</li>
+</ol>
+<p><strong>Troubleshooting:</strong> If you facing getting this issue in nginx <br/> (13: Permission denied) while connecting to upstream:[nginx] <br/>
+Please  run below command -</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$sudo setsebool -P httpd_can_network_connect 1
+</pre></div>
+</div>
+<p>or refer link -
+https://stackoverflow.com/questions/23948527/13-permission-denied-while-connecting-to-upstreamnginx<br/></p>
+<p><strong>Note: Certficates will be generated at, /etc/letsencrypt/live/&lt;domain_name&gt;/ directory. cert.pem is the certificate and privkey.pem is private key. We are using Let's Encrypt, CA signed SSL certificates. Documentation of Let's Encrypt can be referred <a class="reference external" href="//letsencrypt.org/getting-started/">here</a></strong></p>
+</div>
+</div>
+<div class="section" id="clam-antivirus-version-0-101-0">
+<h2>6.3 Clam AntiVirus Version 0.101.0<a class="headerlink" href="#clam-antivirus-version-0-101-0" title="Permalink to this headline">¶</a></h2>
+<p>ClamAV is a free, cross-platform and open-source antivirus software toolkit able to detect many types of malicious software, including viruses.</p>
+<div class="section" id="steps-to-install-clamav-in-rhel-7-5">
+<h3>Steps to install ClamAV in RHEL-7.5<a class="headerlink" href="#steps-to-install-clamav-in-rhel-7-5" title="Permalink to this headline">¶</a></h3>
+<p>To install clamAV first we need to install EPEL Repository:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ sudo yum install -y https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm
+</pre></div>
+</div>
+<p>After that we need to install ClamAV and its related tools.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ yum -y install clamav-server clamav-data clamav-update clamav-filesystem clamav clamav-scanner-systemd clamav-devel clamav-lib clamav-server-systemd
+</pre></div>
+</div>
+<p>After completion of above steps, we need to configure installed ClamAV. This can be done via editing <strong>/etc/clamd.d/scan.conf</strong>. In this file we have to remove <code class="docutils literal notranslate"><span class="pre">Example</span></code> lines. So that ClamAV can use this file's configurations. We can easily do it via running following command -</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ sed -i &#39;/^Example/d&#39; /etc/clamd.d/scan.conf
+</pre></div>
+</div>
+<p>Another thing we need to do in this file is to define our TCP server type. Open this file using -</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ vim /etc/clamd.d/scan.conf
+</pre></div>
+</div>
+<p>here this we need to uncomment line with <code class="docutils literal notranslate"><span class="pre">#LocalSocket</span> <span class="pre">/var/run/clamd.scan/clamd.sock</span></code>. Just remove <strong>#</strong> symbol from the beginning of the line.</p>
+<p>Now we need to configure FreshClam so that it can update ClamAV db automatically. For doing that follow below steps -</p>
+<p>First create a backup of original FreshClam Configuration file -</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ cp /etc/freshclam.conf /etc/freshclam.conf.bak
+</pre></div>
+</div>
+<p>In this <strong>freshclam.conf</strong> file, Here also we need to remove <strong>Example</strong> line from the file. Run following command to delete all <code class="docutils literal notranslate"><span class="pre">Example</span></code> lines-</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ sed -i &#39;/^Example/d&#39; /etc/freshclam.conf
+</pre></div>
+</div>
+<p>Test freshclam via running-</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ freshclam
+</pre></div>
+</div>
+<p>After running above command you should see an output similar to this -</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">ClamAV</span> <span class="n">update</span> <span class="n">process</span> <span class="n">started</span> <span class="n">at</span> <span class="n">Thu</span> <span class="n">May</span> <span class="mi">23</span> <span class="mi">07</span><span class="p">:</span><span class="mi">25</span><span class="p">:</span><span class="mi">44</span> <span class="mi">2019</span>
+<span class="o">.</span>
+<span class="o">.</span>
+<span class="o">.</span>
+<span class="o">.</span>
+<span class="n">main</span><span class="o">.</span><span class="n">cvd</span> <span class="ow">is</span> <span class="n">up</span> <span class="n">to</span> <span class="n">date</span> <span class="p">(</span><span class="n">version</span><span class="p">:</span> <span class="mi">58</span><span class="p">,</span> <span class="n">sigs</span><span class="p">:</span> <span class="mi">4566249</span><span class="p">,</span> <span class="n">f</span><span class="o">-</span><span class="n">level</span><span class="p">:</span> <span class="mi">60</span><span class="p">,</span> <span class="n">builder</span><span class="p">:</span> <span class="n">sigmgr</span><span class="p">)</span>
+<span class="n">Downloading</span> <span class="n">daily</span><span class="o">-</span><span class="mf">25584.</span><span class="n">cdiff</span> <span class="p">[</span><span class="mi">100</span><span class="o">%</span><span class="p">]</span>
+<span class="n">daily</span><span class="o">.</span><span class="n">cld</span> <span class="n">updated</span> <span class="p">(</span><span class="n">version</span><span class="p">:</span> <span class="mi">25584</span><span class="p">,</span> <span class="n">sigs</span><span class="p">:</span> <span class="mi">1779512</span><span class="p">,</span> <span class="n">f</span><span class="o">-</span><span class="n">level</span><span class="p">:</span> <span class="mi">63</span><span class="p">,</span> <span class="n">builder</span><span class="p">:</span> <span class="n">raynman</span><span class="p">)</span>
+<span class="n">bytecode</span><span class="o">.</span><span class="n">cld</span> <span class="ow">is</span> <span class="n">up</span> <span class="n">to</span> <span class="n">date</span> <span class="p">(</span><span class="n">version</span><span class="p">:</span> <span class="mi">331</span><span class="p">,</span> <span class="n">sigs</span><span class="p">:</span> <span class="mi">94</span><span class="p">,</span> <span class="n">f</span><span class="o">-</span><span class="n">level</span><span class="p">:</span> <span class="mi">63</span><span class="p">,</span> <span class="n">builder</span><span class="p">:</span> <span class="n">anvilleg</span><span class="p">)</span>
+<span class="n">Database</span> <span class="n">updated</span> <span class="p">(</span><span class="mi">6345855</span> <span class="n">signatures</span><span class="p">)</span> <span class="kn">from</span> <span class="nn">database.clamav.net</span> <span class="p">(</span><span class="n">IP</span><span class="p">:</span> <span class="mf">104.16</span><span class="o">.</span><span class="mf">218.84</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>We will create a service of freshclam so that freshclam will run in the daemon mode and periodically check for updates throughout the day. To do that we will create a service file for freshclam -</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ vim /usr/lib/systemd/system/clam-freshclam.service
+</pre></div>
+</div>
+<p>And add below content -</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="n">Unit</span><span class="p">]</span>
+<span class="n">Description</span> <span class="o">=</span> <span class="n">freshclam</span> <span class="n">scanner</span>
+<span class="n">After</span> <span class="o">=</span> <span class="n">network</span><span class="o">.</span><span class="n">target</span>
+
+<span class="p">[</span><span class="n">Service</span><span class="p">]</span>
+<span class="n">Type</span> <span class="o">=</span> <span class="n">forking</span>
+<span class="n">ExecStart</span> <span class="o">=</span> <span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="nb">bin</span><span class="o">/</span><span class="n">freshclam</span> <span class="o">-</span><span class="n">d</span> <span class="o">-</span><span class="n">c</span> <span class="mi">4</span>
+<span class="n">Restart</span> <span class="o">=</span> <span class="n">on</span><span class="o">-</span><span class="n">failure</span>
+<span class="n">PrivateTmp</span> <span class="o">=</span> <span class="n">true</span>
+<span class="n">RestartSec</span> <span class="o">=</span> <span class="mi">20</span><span class="n">sec</span>
+
+<span class="p">[</span><span class="n">Install</span><span class="p">]</span>
+<span class="n">WantedBy</span><span class="o">=</span><span class="n">multi</span><span class="o">-</span><span class="n">user</span><span class="o">.</span><span class="n">target</span>
+</pre></div>
+</div>
+<p>Now save and quit. Also reload the systemd daemon to refresh the changes -</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ systemctl daemon-reload
+</pre></div>
+</div>
+<p>Next start and enable the freshclam service -</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ systemctl start clam-freshclam.service
+
+$ systemctl enable clam-freshclam.service
+</pre></div>
+</div>
+<p>Now freshclam setup is complete and our ClamAV db is upto date. We can continue setting up ClamAV. Now we will copy ClamAV service file to system service folder.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ mv /usr/lib/systemd/system/clamd@.service /usr/lib/systemd/system/clamd.service
+</pre></div>
+</div>
+<p>Since we have changed the name, we need to change it at the file that uses this service as well -</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ vim /usr/lib/systemd/system/clamd@scan.service
+</pre></div>
+</div>
+<p>Remove &#64; symbol from <code class="docutils literal notranslate"><span class="pre">.include</span> <span class="pre">/lib/systemd/system/clamd&#64;.service</span></code> line and save the file.</p>
+<p>We will edit Clamd service file now -</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ vim /usr/lib/systemd/system/clamd.service
+</pre></div>
+</div>
+<p>Add following lines at the end of clamd.service file.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="n">Install</span><span class="p">]</span>
+<span class="n">WantedBy</span><span class="o">=</span><span class="n">multi</span><span class="o">-</span><span class="n">user</span><span class="o">.</span><span class="n">target</span>
+</pre></div>
+</div>
+<p>And also remove <code class="docutils literal notranslate"><span class="pre">%i</span></code> symbol from various locations (ex: Description and ExecStart options). Note that at the end of the editing the service file should look something like this -</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="n">Unit</span><span class="p">]</span>
+<span class="n">Description</span> <span class="o">=</span> <span class="n">clamd</span> <span class="n">scanner</span> <span class="n">daemon</span>
+<span class="n">Documentation</span><span class="o">=</span><span class="n">man</span><span class="p">:</span><span class="n">clamd</span><span class="p">(</span><span class="mi">8</span><span class="p">)</span> <span class="n">man</span><span class="p">:</span><span class="n">clamd</span><span class="o">.</span><span class="n">conf</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">www</span><span class="o">.</span><span class="n">clamav</span><span class="o">.</span><span class="n">net</span><span class="o">/</span><span class="n">documents</span><span class="o">/</span>
+<span class="c1"># Check for database existence</span>
+<span class="c1"># ConditionPathExistsGlob=@DBDIR@/main.{c[vl]d,inc}</span>
+<span class="c1"># ConditionPathExistsGlob=@DBDIR@/daily.{c[vl]d,inc}</span>
+<span class="n">After</span> <span class="o">=</span> <span class="n">syslog</span><span class="o">.</span><span class="n">target</span> <span class="n">nss</span><span class="o">-</span><span class="n">lookup</span><span class="o">.</span><span class="n">target</span> <span class="n">network</span><span class="o">.</span><span class="n">target</span>
+
+<span class="p">[</span><span class="n">Service</span><span class="p">]</span>
+<span class="n">Type</span> <span class="o">=</span> <span class="n">forking</span>
+<span class="n">ExecStart</span> <span class="o">=</span> <span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="n">sbin</span><span class="o">/</span><span class="n">clamd</span> <span class="o">-</span><span class="n">c</span> <span class="o">/</span><span class="n">etc</span><span class="o">/</span><span class="n">clamd</span><span class="o">.</span><span class="n">d</span><span class="o">/</span><span class="n">scan</span><span class="o">.</span><span class="n">conf</span>
+<span class="n">Restart</span> <span class="o">=</span> <span class="n">on</span><span class="o">-</span><span class="n">failure</span>
+
+<span class="p">[</span><span class="n">Install</span><span class="p">]</span>
+<span class="n">WantedBy</span><span class="o">=</span><span class="n">multi</span><span class="o">-</span><span class="n">user</span><span class="o">.</span><span class="n">target</span>
+</pre></div>
+</div>
+<p>Now finally start the ClamAV service.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ systemctl start clamd.service
+</pre></div>
+</div>
+<p>If it works fine, then enable this service and test the status of ClamAV service -</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ systemctl enable clamd.service
+
+$ systemctl status clamd.service
+</pre></div>
+</div>
+<p>Now in MOSIP we require ClamAV to be available on Port 3310. To expose ClamAV service on Port 3310, edit <code class="docutils literal notranslate"><span class="pre">scan.conf</span></code></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ vi /etc/clamd.d/scan.conf
+</pre></div>
+</div>
+<p>and Uncomment <code class="docutils literal notranslate"><span class="pre">#TCPSocket</span> <span class="pre">3310</span></code> by removing <strong>#</strong>. After that restart the clamd&#64;scan service -</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ systemctl restart clamd@scan.service
+</pre></div>
+</div>
+<p>Since we are exposing ClamAV on 3310 port, we need to allow incoming traffic through this port. In RHEL 7 run below command to add firewall rule -</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ sudo firewall-cmd --zone=public --add-port=3310/tcp --permanent
+$ sudo firewall-cmd --reload
+</pre></div>
+</div>
+<div class="section" id="reference-link-link">
+<h4>Reference link: <a class="reference external" href="https://www.golinuxcloud.com/steps-install-configure-clamav-antivirus-centos-linux%3C/div%3E">link</a><a class="headerlink" href="#reference-link-link" title="Permalink to this headline">¶</a></h4>
+</div>
+</div>
+</div>
+<div class="section" id="steps-to-install-and-configuration-ceph">
+<h2>6.4 Steps to Install and configuration CEPH<a class="headerlink" href="#steps-to-install-and-configuration-ceph" title="Permalink to this headline">¶</a></h2>
+<p>NOTE: Required only if CEPH is used for packet storage.
+Ceph is an open source software that provides massively scalable and distributed data store. It provides highly scalable object, block and file based storage under a unified system.</p>
+<div class="section" id="on-red-hat-enterprise-linux-7-register-the-target-machine-with-subscription-manager-verify-your-subscriptions-and-enable-the-extras-repository-for-package-dependencies-for-example">
+<h3>1. On Red Hat Enterprise Linux 7, register the target machine with subscription-manager, verify your subscriptions, and enable the “Extras” repository for package dependencies. For example:<a class="headerlink" href="#on-red-hat-enterprise-linux-7-register-the-target-machine-with-subscription-manager-verify-your-subscriptions-and-enable-the-extras-repository-for-package-dependencies-for-example" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ sudo subscription-manager repos --enable=rhel-7-server-extras-rpms
+</pre></div>
+</div>
+</div>
+<div class="section" id="install-and-enable-the-extra-packages-for-enterprise-linux-epel-repository">
+<h3>2. Install and enable the Extra Packages for Enterprise Linux (EPEL) repository:<a class="headerlink" href="#install-and-enable-the-extra-packages-for-enterprise-linux-epel-repository" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ sudo yum install -y https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm
+</pre></div>
+</div>
+</div>
+<div class="section" id="add-the-ceph-repository-to-your-yum-configuration-file-at-etc-yum-repos-d-ceph-repo-with-the-following-command-replace-ceph-stable-release-with-a-stable-ceph-release-e-g-luminous-for-example">
+<h3>3. Add the Ceph repository to your yum configuration file at /etc/yum.repos.d/ceph.repo with the following command.  Replace {ceph-stable-release} with a stable Ceph release (e.g., luminous.) For example:<a class="headerlink" href="#add-the-ceph-repository-to-your-yum-configuration-file-at-etc-yum-repos-d-ceph-repo-with-the-following-command-replace-ceph-stable-release-with-a-stable-ceph-release-e-g-luminous-for-example" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">cat</span> <span class="o">&lt;&lt;</span> <span class="n">EOM</span> <span class="o">&gt;</span> <span class="o">/</span><span class="n">etc</span><span class="o">/</span><span class="n">yum</span><span class="o">.</span><span class="n">repos</span><span class="o">.</span><span class="n">d</span><span class="o">/</span><span class="n">ceph</span><span class="o">.</span><span class="n">repo</span>
+<span class="p">[</span><span class="n">ceph</span><span class="o">-</span><span class="n">noarch</span><span class="p">]</span>
+<span class="n">name</span><span class="o">=</span><span class="n">Ceph</span> <span class="n">noarch</span> <span class="n">packages</span>
+<span class="n">baseurl</span><span class="o">=</span><span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">download</span><span class="o">.</span><span class="n">ceph</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">rpm</span><span class="o">-</span><span class="p">{</span><span class="n">ceph</span><span class="o">-</span><span class="n">stable</span><span class="o">-</span><span class="n">release</span><span class="p">}</span><span class="o">/</span><span class="n">el7</span><span class="o">/</span><span class="n">noarch</span>
+<span class="n">enabled</span><span class="o">=</span><span class="mi">1</span>  
+<span class="n">gpgcheck</span><span class="o">=</span><span class="mi">1</span>
+<span class="nb">type</span><span class="o">=</span><span class="n">rpm</span><span class="o">-</span><span class="n">md</span>
+<span class="n">gpgkey</span><span class="o">=</span><span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">download</span><span class="o">.</span><span class="n">ceph</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">keys</span><span class="o">/</span><span class="n">release</span><span class="o">.</span><span class="n">asc</span>
+<span class="n">EOM</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="update-your-repository-and-install-ceph-deploy">
+<h3>4. Update your repository and install ceph-deploy:<a class="headerlink" href="#update-your-repository-and-install-ceph-deploy" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ sudo yum update
+$ sudo yum install ceph-deploy
+</pre></div>
+</div>
+</div>
+<div class="section" id="ceph-node-setup">
+<h3>CEPH NODE SETUP<a class="headerlink" href="#ceph-node-setup" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">The</span> <span class="n">admin</span> <span class="n">node</span> <span class="n">must</span> <span class="n">have</span> <span class="n">password</span><span class="o">-</span><span class="n">less</span> <span class="n">SSH</span> <span class="n">access</span> <span class="n">to</span> <span class="n">Ceph</span> <span class="n">nodes</span><span class="o">.</span> <span class="n">When</span> <span class="n">ceph</span><span class="o">-</span><span class="n">deploy</span> <span class="n">logs</span> <span class="ow">in</span> <span class="n">to</span> <span class="n">a</span> <span class="n">Ceph</span> <span class="n">node</span> <span class="k">as</span> <span class="n">a</span> <span class="n">user</span><span class="p">,</span> <span class="n">that</span> <span class="n">particular</span> <span class="n">user</span> <span class="n">must</span> <span class="n">have</span> <span class="n">passwordless</span> <span class="n">sudo</span> <span class="n">privileges</span><span class="o">.</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="install-ntp">
+<h3>INSTALL NTP<a class="headerlink" href="#install-ntp" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>We recommend installing NTP on Ceph nodes (especially on Ceph Monitor nodes) to prevent issues arising from clock drift. See  [Clock](//docs.ceph.com/docs/mimic/rados/configuration/mon-config-ref/#clock) for details.
+$ sudo yum install ntp ntpdate ntp-doc
+	Ensure that you enable the NTP service. Ensure that each Ceph Node uses the same NTP time server.
+</pre></div>
+</div>
+</div>
+<div class="section" id="install-ssh-server">
+<h3>INSTALL SSH SERVER<a class="headerlink" href="#install-ssh-server" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sudo</span> <span class="n">yum</span> <span class="n">install</span> <span class="n">openssh</span><span class="o">-</span><span class="n">server</span>
+	<span class="n">Ensure</span> <span class="n">the</span> <span class="n">SSH</span> <span class="n">server</span> <span class="ow">is</span> <span class="n">running</span> <span class="n">on</span> <span class="n">ALL</span> <span class="n">Ceph</span> <span class="n">Nodes</span><span class="o">.</span>
+</pre></div>
+</div>
+<ol>
+<li><p>Make a directory on admin node in order to keep all the keys and configuration files that ceph-deploy generates.
+a. mkdir cluster-config
+b. cd cluster-config</p></li>
+<li><p>Now we create a cluster</p>
+<p>ceph-deploy new {initial-monitor-node(s)}</p>
+<p>ceph-deploy new ceph-demo-1 ceph-demo-2</p>
+</li>
+</ol>
+<div class="section" id="this-step-marks-the-nodes-as-initial-monitors">
+<h4>This step marks the nodes as initial monitors.<a class="headerlink" href="#this-step-marks-the-nodes-as-initial-monitors" title="Permalink to this headline">¶</a></h4>
+<ol>
+<li><p>Thereafter, we Install ceph packages on required nodes</p>
+<p>ceph-deploy install {ceph-node} […]</p>
+<p>ceph-deploy install ceph-demo-1 ceph-demo-2</p>
+</li>
+</ol>
+</div>
+<div class="section" id="this-step-will-install-the-latest-stable-version-of-ceph-i-e-mimic-13-2-1-on-the-given-nodes">
+<h4>This step will install the latest stable version of ceph, i.e. mimic (13.2.1) on the given nodes.<a class="headerlink" href="#this-step-will-install-the-latest-stable-version-of-ceph-i-e-mimic-13-2-1-on-the-given-nodes" title="Permalink to this headline">¶</a></h4>
+<ol>
+<li><p>Now, we deploy the initial monitor nodes and gather keys</p>
+<p>ceph-deploy mon create-initial</p>
+</li>
+<li><p>Now we go ahead and copy our config file and admin key to the admin node as well as ceph-nodes in order to use ceph cli without passing these each time we execute a command.</p>
+<p>ceph-deploy admin {ceph-node}[…]</p>
+<p>ceph-deploy admin ceph-demo-1 ceph-demo-2</p>
+</li>
+<li><p>Now, we deploy a manager daemon</p>
+<p>ceph-deploy mgr create {ceph-node}[…]</p>
+<p>ceph-deploy mgr create ceph-demo-1 ceph-demo-2</p>
+</li>
+<li><p>We create 2 OSDs, assuming each osd has a unused disk called dev/sdb</p>
+<p>ceph-deploy osd create — data {device} {ceph-node}</p>
+<p>ceph-deploy osd create — data /dev/sdb ceph-demo-1
+ceph-deploy osd create — data /dev/sdb ceph-demo-2</p>
+</li>
+</ol>
+</div>
+<div class="section" id="after-successfully-executing-these-steps-our-ceph-cluster-is-up-and-running-the-status-and-health-of-the-cluster-can-be-checked-in-by-executing">
+<h4>After successfully executing these steps, our ceph cluster is up and running. The status and health of the cluster can be checked in by executing<a class="headerlink" href="#after-successfully-executing-these-steps-our-ceph-cluster-is-up-and-running-the-status-and-health-of-the-cluster-can-be-checked-in-by-executing" title="Permalink to this headline">¶</a></h4>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ sudo ceph health
+$ sudo ceph -s
+</pre></div>
+</div>
+</div>
+<div class="section" id="we-should-get-a-status-saying-health-ok-and-a-detailed-status-resembling">
+<h4>We should get a status saying HEALTH_OK, and a detailed status resembling :<a class="headerlink" href="#we-should-get-a-status-saying-health-ok-and-a-detailed-status-resembling" title="Permalink to this headline">¶</a></h4>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>cluster:
+
+id: 651e9802-b3f0–4b1d-a4d6-c57a46635bc9
+
+health: HEALTH_OK
+
+services:
+
+mon: 2 daemons, quorum ceph-demo-1,ceph-demo-2
+
+mgr: ceph-demo-1(active), standbys: ceph-demo-2
+
+osd: 2 osds: 2 up, 2 in
+
+data:
+
+pools: 0 pools, 0 pgs
+
+objects: 0 objects, 0 B
+
+usage: 2.0 GiB used, 18 GiB / 20 GiB avail
+
+pgs:
+</pre></div>
+</div>
+</div>
+<div class="section" id="expanding-the-existing-cluster">
+<h4>Expanding the Existing cluster<a class="headerlink" href="#expanding-the-existing-cluster" title="Permalink to this headline">¶</a></h4>
+<p>Now, to demonstrate the ease of expanding a ceph cluster at runtime, we will be adding one node in our running cluster. We will mark that node as osd, manager and monitor to increase the availability of our existing cluster.
+First of all, we need to make a change to our existing ceph.conf which is present inside the cluster-config directory. We add the following line into it</p>
+</div>
+<div class="section" id="public-network-ip-address-bits">
+<h4>public network = {ip-address}/{bits}<a class="headerlink" href="#public-network-ip-address-bits" title="Permalink to this headline">¶</a></h4>
+<p>public network = 10.142.0.0/24</p>
+</div>
+<div class="section" id="for-this-we-need-to-follow-these-sample-steps">
+<h4>For this, we need to follow these sample steps:<a class="headerlink" href="#for-this-we-need-to-follow-these-sample-steps" title="Permalink to this headline">¶</a></h4>
+<ol>
+<li><p>We install ceph packages on 3rd node</p>
+<p>ceph-deploy install {ceph-node}[…]</p>
+<p>ceph-deploy install ceph-demo-3</p>
+</li>
+<li><p>We need to push the admin keys and conf to 3rd node. We do it using</p>
+<p>ceph-deploy admin {ceph-node}[…]</p>
+<p>ceph-deploy admin ceph-demo-3</p>
+</li>
+<li><p>Now we will add the 3rd node as our monitor</p>
+<p>ceph-deploy mon add {ceph-nodes}</p>
+<p>ceph-deploy mon add ceph-demo-3</p>
+</li>
+<li><p>Now, we go ahead and mark 3rd node as our manager</p>
+<p>ceph-deploy mgr create {ceph-node}[…]</p>
+<p>ceph-deploy mgr create ceph-demo-3</p>
+</li>
+<li><p>We add 3rd node as OSD by following same steps as done while creating the cluster.</p>
+<p>ceph-deploy osd create — data {path} {ceph-node}</p>
+</li>
+</ol>
+</div>
+</div>
+</div>
+<div class="section" id="ceph-dashboard">
+<h2>CEPH Dashboard<a class="headerlink" href="#ceph-dashboard" title="Permalink to this headline">¶</a></h2>
+<p>Now, going ahead, we can enable the CEPH dashboard in order to view all the cluster status via a UI console.</p>
+<p>Ceph in its mimic release has provided the users with a new and redesigned dashboard plugin, with the features like restricted control with username/password protection and SSL/TLS support.</p>
+<div class="section" id="to-enable-the-dashboard-we-need-to-follow-these-steps">
+<h3>To enable the dashboard, we need to follow these steps:<a class="headerlink" href="#to-enable-the-dashboard-we-need-to-follow-these-steps" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="mi">1</span><span class="p">)</span> <span class="n">ceph</span> <span class="n">mgr</span> <span class="n">module</span> <span class="n">enable</span> <span class="n">dashboard</span>
+
+<span class="mi">2</span><span class="p">)</span> <span class="n">ceph</span> <span class="n">dashboard</span> <span class="n">create</span><span class="o">-</span><span class="bp">self</span><span class="o">-</span><span class="n">signed</span><span class="o">-</span><span class="n">cert</span>
+</pre></div>
+</div>
+<p>Note: Self signed certificate is only for quick start purpose.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="mi">3</span><span class="p">)</span> <span class="n">ceph</span> <span class="n">mgr</span> <span class="n">module</span> <span class="n">disable</span> <span class="n">dashboard</span>
+
+<span class="mi">4</span><span class="p">)</span> <span class="n">ceph</span> <span class="n">mgr</span> <span class="n">module</span> <span class="n">enable</span> <span class="n">dashboard</span>
+</pre></div>
+</div>
+<p>Now, we will be able to see the CEPH dashboard on the port 8443, which is by default but on requirement can be configured using:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>ceph config set mgr mgr/dashboard/server_addr $IP
+
+ceph config set mgr mgr/dashboard/server_port $PORT
+</pre></div>
+</div>
+<p>To access, and to utilize full functionality of the dashboard, we need to create the login credentials.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">ceph</span> <span class="n">dashboard</span> <span class="nb">set</span><span class="o">-</span><span class="n">login</span><span class="o">-</span><span class="n">credentials</span> <span class="o">&lt;</span><span class="n">username</span><span class="o">&gt;</span> <span class="o">&lt;</span><span class="n">password</span><span class="o">&gt;</span>
+</pre></div>
+</div>
+<p>After these steps, our ceph infrastructure is ready with all the configurations to do some actual input output operations.</p>
+</div>
+<div class="section" id="reference-link">
+<h3>Reference link:<a class="headerlink" href="#reference-link" title="Permalink to this headline">¶</a></h3>
+<div>http://docs.ceph.com/docs/mimic/start/quick-start-preflight/</div></div>
+</div>
+<div class="section" id="steps-to-install-and-configuration-ldap">
+<h2>6.5 Steps to Install and configuration LDAP<a class="headerlink" href="#steps-to-install-and-configuration-ldap" title="Permalink to this headline">¶</a></h2>
+<p><a class="reference internal" href="ApacheDs-Server-installation-and-config.html"><span class="doc">ApacheDs Server installation and config</span></a></p>
+<p><a class="reference internal" href="Apache-Directory-Studio-user-guide.html"><span class="doc">Apache Directory Studio user guide</span></a></p>
+</div>
+<div class="section" id="steps-to-install-and-configuration-hdfs">
+<h2>6.6 Steps to Install and configuration HDFS<a class="headerlink" href="#steps-to-install-and-configuration-hdfs" title="Permalink to this headline">¶</a></h2>
+<p>NOTE: Required only if HDFS is used for packet storage.</p>
+<p><a class="reference internal" href="Steps-to-Install-and-configuration-HDFS.html"><span class="doc">Refer - Steps-to-Install-and-configuration-HDFS</span></a></p>
+</div>
+<div class="section" id="steps-to-deploy-kernel-key-manager-service">
+<h2>6.7 Steps to Deploy Kernel Key Manager Service<a class="headerlink" href="#steps-to-deploy-kernel-key-manager-service" title="Permalink to this headline">¶</a></h2>
+<p>Kernel Keymanager Service is setup outside of Kubernetes cluster on a standalone VM. The steps to setup kernel-keymanager-service are given <a class="reference external" href="https://github.com/mosip/mosip-platform/blob/master/kernel/kernel-keymanager-service/README"><strong>here</strong></a></p>
+<p>To deploy keymanager service, follow below steps -</p>
+<ol class="simple">
+<li><p>Prerequiste:<br/></p>
+<ul class="simple">
+<li><p>A machine with RHEL 7.6 installed.</p></li>
+<li><p>Docker installed and Docker service enabled.</p></li>
+</ul>
+</li>
+</ol>
+<p>Steps to install Docker ce.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span> $ sudo yum install http://mirror.centos.org/centos/7/extras/x86_64/Packages/container-selinux-2.107-3.el7.noarch.rpm
+
+ $ sudo yum -y install lvm2 device-mapper device-mapper-persistent-data device-mapper-event device-mapper-libs    device-mapper-event-libs
+
+$ sudo wget https://download.docker.com/linux/centos/docker-ce.repo -O /etc/yum.repos.d/docker-ce.repo
+
+$ sudo yum -y install docker-ce
+
+$ sudo systemctl start docker
+
+$ sudo systemctl status docker
+</pre></div>
+</div>
+<ol class="simple">
+<li><p>Open port 8088 on the VM:</p></li>
+</ol>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sudo</span> <span class="n">firewall</span><span class="o">-</span><span class="n">cmd</span> <span class="o">--</span><span class="n">zone</span><span class="o">=</span><span class="n">public</span> <span class="o">--</span><span class="n">add</span><span class="o">-</span><span class="n">port</span><span class="o">=</span><span class="mi">8088</span><span class="o">/</span><span class="n">tcp</span> <span class="o">--</span><span class="n">permanent</span>
+
+<span class="n">sudo</span> <span class="n">firewall</span><span class="o">-</span><span class="n">cmd</span> <span class="o">--</span><span class="n">reload</span>
+</pre></div>
+</div>
+<p><strong>Note:</strong> if firewall is not installed in VM, install with “sudo yum install firewall”</p>
+<p>And also open the port.</p>
+<ol class="simple">
+<li><p>ensure that config server is already deployed.</p></li>
+</ol>
+<p><strong>Process to deploy Services in VM through JenkinsFile:</strong></p>
+<ol class="simple">
+<li><p>Refer the github url for Jenkinsfile : in root directory of kernel module</p></li>
+</ol>
+<p>The last stage in the Jenkinsfile viz 'Key-Manager Deployment' in which we are sshing into this newly created VM through Jenkins to deploy this service, basically, running the docker image of key manager.</p>
+<p>For ssh, place the public key of jenkins inside this newly created VM's authorized_keys under .ssh directory. Generate Docker Registry Credential in jenkins by using docker hub username and password. This will generate the credentialsId.</p>
+<ul class="simple">
+<li><p>Replace the value for registryCredentials(credentialsId of docker hub) with yours</p></li>
+<li><p>Replace the value for  key_manager_vm_ip with IP of your newly created VM.</p></li>
+</ul>
+<p>Once done the following command will be used to deploy keymanager to the machine: <br/><br/></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sudo</span> <span class="n">docker</span> <span class="n">run</span> <span class="o">-</span><span class="n">tid</span> <span class="o">--</span><span class="n">ulimit</span> <span class="n">memlock</span><span class="o">=-</span><span class="mi">1</span> <span class="o">-</span><span class="n">p</span> <span class="mi">8088</span><span class="p">:</span><span class="mi">8088</span> <span class="o">-</span><span class="n">v</span> <span class="n">softhsm</span><span class="p">:</span><span class="o">/</span><span class="n">softhsm</span> <span class="o">-</span><span class="n">e</span> <span class="n">spring_config_url_env</span><span class="o">=</span><span class="s2">&quot;$</span><span class="si">{config_url}</span><span class="s2">&quot;</span> <span class="o">-</span><span class="n">e</span> <span class="n">spring_config_label_env</span><span class="o">=</span><span class="s2">&quot;$</span><span class="si">{branch}</span><span class="s2">&quot;</span> <span class="o">-</span><span class="n">e</span> <span class="n">active_profile_env</span><span class="o">=</span><span class="s2">&quot;$</span><span class="si">{profile_env}</span><span class="s2">&quot;</span> <span class="o">--</span><span class="n">name</span> <span class="n">keymanager</span> <span class="s2">&quot;$</span><span class="si">{registryAddress}</span><span class="s2">&quot;</span><span class="o">/</span><span class="n">kernel</span><span class="o">-</span><span class="n">keymanager</span><span class="o">-</span><span class="n">service</span>
+</pre></div>
+</div>
+<p>**NOTE- Replace the values for spring_config_url_env, spring_config_label_env,
+active_profile_env and registryAddress in the above command accordingly</p>
+</div>
+<div class="section" id="sms-gateway-configuration">
+<h2>6.8 SMS Gateway configuration<a class="headerlink" href="#sms-gateway-configuration" title="Permalink to this headline">¶</a></h2>
+<p>Refer kernel-smsnotification-servive Readme <a class="reference external" href="https://github.com/mosip/mosip-platform/blob/master/kernel/kernel-smsnotification-service/README"><strong>here</strong></a></p>
+</div>
+<div class="section" id="installation-of-activemq">
+<h2>6.9 Installation of ActiveMQ<a class="headerlink" href="#installation-of-activemq" title="Permalink to this headline">¶</a></h2>
+<p>ActiveMQ is the message broker used for MOSIP Registartion processor module.</p>
+<div class="section" id="installation-steps">
+<h3>Installation steps<a class="headerlink" href="#installation-steps" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">&lt;version&gt;</span></code> : please check http://www.apache.org/dist/activemq/ to find out the latest version. Tested ActiveMQ version - 5.4.1.</p></li>
+<li><p>Prerequiste:<br/>
+A machine with RHEL 7.6 installed, Docker installed and Docker service enabled.</p></li>
+<li><p>Download activemq using command - <br/>
+<code class="docutils literal notranslate"><span class="pre">wget</span> <span class="pre">https://archive.apache.org/dist/activemq/5.14.3/apache-activemq-5.14.3-bin.tar.gz</span></code></p></li>
+<li><p>Extract the archive <br/>
+<code class="docutils literal notranslate"><span class="pre">tar</span> <span class="pre">-zxvf</span> <span class="pre">apache-activemq-&lt;version&gt;-bin.tar.gz</span></code></p></li>
+<li><p>Change the permission for startup script<br/>
+<code class="docutils literal notranslate"><span class="pre">chmod</span> <span class="pre">755</span> <span class="pre">apache-activemq-&lt;version&gt;</span></code></p></li>
+<li><p>Start activemq service<br/>
+<code class="docutils literal notranslate"><span class="pre">cd</span> <span class="pre">apache-activemq-&lt;version&gt;</span> <span class="pre">&amp;&amp;</span> <span class="pre">sudo</span>&#160; <span class="pre">./bin/activemq</span> <span class="pre">start</span></code></p></li>
+<li><p>Check for the installed and started activemq on port 61616. <br/>
+<code class="docutils literal notranslate"><span class="pre">netstat</span> <span class="pre">-tulpn</span></code></p></li>
+<li><p>Open ports 8161 and 61616  on the VM:</p></li>
+</ul>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sudo</span> <span class="n">firewall</span><span class="o">-</span><span class="n">cmd</span> <span class="o">--</span><span class="n">zone</span><span class="o">=</span><span class="n">public</span> <span class="o">--</span><span class="n">add</span><span class="o">-</span><span class="n">port</span><span class="o">=</span><span class="mi">8161</span><span class="o">/</span><span class="n">tcp</span> <span class="o">--</span><span class="n">permanent</span>
+<span class="n">sudo</span> <span class="n">firewall</span><span class="o">-</span><span class="n">cmd</span> <span class="o">--</span><span class="n">zone</span><span class="o">=</span><span class="n">public</span> <span class="o">--</span><span class="n">add</span><span class="o">-</span><span class="n">port</span><span class="o">=</span><span class="mi">61616</span><span class="o">/</span><span class="n">tcp</span> <span class="o">--</span><span class="n">permanent</span>
+<span class="n">sudo</span> <span class="n">firewall</span><span class="o">-</span><span class="n">cmd</span> <span class="o">--</span><span class="n">reload</span>
+</pre></div>
+</div>
+<p><strong>Note:</strong> After Installation of activemq, same needs to be mentioned in RegistrationProcessorAbis_{active_profile}.json
+For e.g : Suppose activemq is configured as tcp://xxx.xxx.xxx.xx:61616, then we for dev need to mention this in RegistrationProcessorAbis_dev.json as</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+	<span class="s2">&quot;abis&quot;</span><span class="p">:</span> <span class="p">[{</span>
+			<span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;ABIS1&quot;</span><span class="p">,</span>
+			<span class="s2">&quot;host&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+			<span class="s2">&quot;port&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+			<span class="s2">&quot;brokerUrl&quot;</span><span class="p">:</span> <span class="s2">&quot;tcp://xxx.xxx.xxx.xx:61616&quot;</span><span class="p">,</span>
+			<span class="s2">&quot;inboundQueueName&quot;</span><span class="p">:</span> <span class="s2">&quot;abis1-inbound-address_dev&quot;</span><span class="p">,</span>
+			<span class="s2">&quot;outboundQueueName&quot;</span><span class="p">:</span> <span class="s2">&quot;abis1-outbound-address_dev&quot;</span><span class="p">,</span>
+			<span class="s2">&quot;pingInboundQueueName&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+			<span class="s2">&quot;pingOutboundQueueName&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+			<span class="s2">&quot;userName&quot;</span><span class="p">:</span> <span class="s2">&quot;admin&quot;</span><span class="p">,</span>
+			<span class="s2">&quot;password&quot;</span><span class="p">:</span> <span class="s2">&quot;admin&quot;</span><span class="p">,</span>
+		        <span class="s2">&quot;typeOfQueue&quot;</span><span class="p">:</span> <span class="s2">&quot;ACTIVEMQ&quot;</span>
+		<span class="p">}</span>
+	<span class="p">]</span>
+
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>ActiveMQ is also being used in registration-processor-printing-stage and the details need to be mentioned in registration-processor-{active_profile}.properties in the configuration repository.
+E.g : For dev profile, the property in registration-processor-dev.properties, the Property corresponding to printing-stage related to activemq would be</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Queue</span> <span class="n">username</span>
+<span class="n">registration</span><span class="o">.</span><span class="n">processor</span><span class="o">.</span><span class="n">queue</span><span class="o">.</span><span class="n">username</span><span class="o">=</span><span class="p">{</span><span class="n">username</span><span class="p">}</span>
+<span class="c1">#Queue Password</span>
+<span class="n">registration</span><span class="o">.</span><span class="n">processor</span><span class="o">.</span><span class="n">queue</span><span class="o">.</span><span class="n">password</span><span class="o">=</span><span class="p">{</span><span class="n">password</span><span class="p">}</span>
+<span class="c1">#Queue Url</span>
+<span class="n">registration</span><span class="o">.</span><span class="n">processor</span><span class="o">.</span><span class="n">queue</span><span class="o">.</span><span class="n">url</span><span class="o">=</span><span class="p">{</span><span class="n">queue_url</span><span class="p">}</span>
+<span class="c1">#Type of the Queue</span>
+<span class="n">registration</span><span class="o">.</span><span class="n">processor</span><span class="o">.</span><span class="n">queue</span><span class="o">.</span><span class="n">typeOfQueue</span><span class="o">=</span><span class="n">ACTIVEMQ</span>
+<span class="c1">#Print Service address</span>
+<span class="n">registration</span><span class="o">.</span><span class="n">processor</span><span class="o">.</span><span class="n">queue</span><span class="o">.</span><span class="n">address</span><span class="o">=</span><span class="p">{</span><span class="n">queue_address</span><span class="p">}</span>
+<span class="c1">#Post Service address</span>
+<span class="n">registration</span><span class="o">.</span><span class="n">processor</span><span class="o">.</span><span class="n">queue</span><span class="o">.</span><span class="n">printpostaladdress</span><span class="o">=</span><span class="p">{</span><span class="n">postal_queue_address</span><span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="configuring-mosip">
+<h1>7. Configuring MOSIP <a class="reference external" href="#table-of-content"><strong>[↑]</strong></a><a class="headerlink" href="#configuring-mosip" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="mosip-database-object-deployment-configuration">
+<h2>MOSIP database object deployment / configuration<a class="headerlink" href="#mosip-database-object-deployment-configuration" title="Permalink to this headline">¶</a></h2>
+<p>Database deployment consists of the following 4 categories of objects to be deployed on postgresql database.</p>
+<ol>
+<li><p><strong>User / Roles:</strong> In MOSIP, the following user / roles are defined to perform various activities</p>
+<ul class="simple">
+<li><p><strong>sysadmin:</strong> sysadmin user/role is a super administrator role, who will have all the privileges to performa any task within the database.</p></li>
+<li><p><strong>dbadmin:</strong> dbadmin user / role is created to handle all the database administration activities db monitoring, performance tuning, backups, restore, replication setup, etc.</p></li>
+<li><p><strong>appadmin:</strong> appadmin user / role is used to perform all the DDL (Data Definition Language) tasks. All the db objects that are created in these databases will be owned by appadmin user.</p></li>
+<li><p><strong>Application User:</strong> Each application will have a user / role created to perform DML (Data Manipulation Language) tasks like CRUD operations (select, insert, update, delete). The user prereguser, is created to connect from the application to perform all the DML activities. Similarly, we will have masteruser, prereguser, reguser, idauser, idrepouser, kerneluser, audituser, regprcuser to perform DML tasks for master, pre-registration, registration, ida, ID repository, kernel, audit and registration processor modules respectively.</p></li>
+</ul>
+<p><strong>Note:</strong> From the above set of roles only application user / role is specific to a application / module. The other user / roles are common which needs to be  created per postresql db instance / server.</p>
+</li>
+<li><p><strong>Database and Schema:</strong> Each application / module of MOSIP platform will have a database and schema defined. All the objects (tables) related to an application / module would be created under the respective database / schema. In MOSIP the following database and scehmas are defined</p></li>
+</ol>
+<p>|application / module name|Database tool|database Name|schema name|
+|---------------------------|-----------------|-----------------|-------------------|
+|Master / Administration module|postgresql|mosip_master|master|
+|Kernel|postgresql|mosip_kernel|kernel|
+|Pre-registration |postgresql|mosip_prereg|prereg|
+|Registration|Apache Derby|mosip_reg|reg|
+|Registration Processor|postgresql|mosip_regprc|regprc|
+|ID Authentication|postgresql|mosip_ida|ida|
+|ID Repository|postgresql|mosip_idrepo|idrepo|
+|Audit|postgresql|mosip_audit|audit|
+|IAM|postgresql|mosip_iam|iam|
+|idmap|postgresql|mosip_idmap|idmap|</p>
+<p><strong>Note:</strong> These databases can be deployed on single or separate database servers / instances.</p>
+<ol class="simple">
+<li><p><strong>DB Objects (Tables):</strong> All the tables of each application / module will be created in their respective database and schema. appadmin user / role will own these objects and the respective application user / role will have access to perform DML operations on these objects.</p></li>
+<li><p><strong>Seed Data:</strong> MOSIP platform is designed to provide most of its features to be configured in the system. These configuration are deployed with default setup on config server and few in database. Few of these configuration can be modified / updated by the MOSIP administrator. These configuration include, system configurations, master datasetup, etc. The steps to add new center, machine / device is detailed in <a class="reference external" href="https://github.com/mosip/mosip-docs/wiki/Guidelines-for-Adding-Centers,-Machine,-User-and-Devices"><strong>Guidelines for Adding Centers, Machine, Users and Devices</strong></a></p></li>
+</ol>
+<p>The system configuration and master data is available under the respective application / database related folder. for example, the master data configuration is available in csv file format under <a class="reference external" href="https://github.com/mosip/mosip-platform/tree/master/db_scripts/mosip_master/dml"><strong>folder</strong></a>.</p>
+<p>The scripts to create the above objects are available under <a class="reference external" href="https://github.com/mosip/mosip-platform/tree/master/db_scripts">db_scripts</a>. To deploy the database objects of each application / module <strong>except registration client</strong>, please refer to <a class="reference external" href="https://github.com/mosip/mosip-platform/blob/master/db_scripts/README.MD">README.MD</a> file. These scripts will contain the deployment of all the DB object categories.</p>
+<p><strong>Note: Please skip Registration client related deployment scripts (Apache derby DB specific) as this will be executed as part of registration client software installation.</strong></p>
+</div>
+<div class="section" id="setup-and-configure-mosip">
+<h2>Setup and configure MOSIP<a class="headerlink" href="#setup-and-configure-mosip" title="Permalink to this headline">¶</a></h2>
+<p>We are using kubernetes configuration server in MOSIP for storing and serving distributed configurations across all the applications and environments.</p>
+<p>We are storing all applications' configuration in config-templates folder inside our Github Repository <a class="reference external" href="https://github.com/mosip/mosip-config.git">here</a>.</p>
+<p>For getting more details about how to use configuration server with our applications, following developer document can be referred:
+<a class="reference internal" href="MOSIP-Configuration-Server.html"><span class="doc">MOSIP CONFIGURATION SERVER</span></a></p>
+<p>For Deployment of configurations server, go to <a class="reference external" href="Getting-Started#firstly-deploy-kernel-configuration-server">firstly-deploy-kernel-configuration-server</a> in this document.</p>
+<p>Application specific configuration for all applications and services are placed in MOSIP config server.</p>
+<p><strong>A. Global:</strong>
+<a class="reference external" href="https://github.com/mosip/mosip-config/blob/master/config-templates/application-env.properties"><strong>link</strong></a></p>
+<p><strong>B. Kernel:</strong>
+<a class="reference external" href="https://github.com/mosip/mosip-config/blob/master/config-templates/kernel-env.properties"><strong>link</strong></a></p>
+<p><strong>C. Pre-Registration:</strong>
+<a class="reference external" href="https://github.com/mosip/mosip-config/blob/master/config-templates/pre-registration-env.properties"><strong>link</strong></a></p>
+<p><strong>D. Registartion-Processor:</strong>
+<a class="reference external" href="https://github.com/mosip/mosip-config/blob/master/config-templates/registration-processor-env.properties"><strong>link</strong></a></p>
+<p><strong>E. IDA:</strong>
+<a class="reference external" href="https://github.com/mosip/mosip-config/blob/master/config-templates/id-authentication-env.properties"><strong>link</strong></a></p>
+<p><strong>F. ID-REPO:</strong>
+<a class="reference external" href="https://github.com/mosip/mosip-config/blob/master/config-templates/id-repository-env.properties"><strong>link</strong></a></p>
+<p><strong>H. Registration:</strong>
+<a class="reference external" href="https://github.com/mosip/mosip-config/blob/master/config-templates/registration-env.properties"><strong>link</strong></a></p>
+<p><strong>Properties Sections that need to be changed in above module specific files once the external dependencies are installed as per your setup</strong></p>
+</div>
+<div class="section" id="global">
+<h2>Global<a class="headerlink" href="#global" title="Permalink to this headline">¶</a></h2>
+<ol class="simple">
+<li><p>#--Common properties------------</p></li>
+</ol>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">mosip</span><span class="o">.</span><span class="n">base</span><span class="o">.</span><span class="n">url</span>
+</pre></div>
+</div>
+<ol class="simple">
+<li><p>#--Virus Scanner-----------------</p></li>
+</ol>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">mosip</span><span class="o">.</span><span class="n">kernel</span><span class="o">.</span><span class="n">virus</span><span class="o">-</span><span class="n">scanner</span><span class="o">.</span><span class="n">host</span>
+<span class="n">mosip</span><span class="o">.</span><span class="n">kernel</span><span class="o">.</span><span class="n">virus</span><span class="o">-</span><span class="n">scanner</span><span class="o">.</span><span class="n">port</span>
+</pre></div>
+</div>
+<ol class="simple">
+<li><p>#--FS Adapter-HDFS -------------</p></li>
+</ol>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">mosip</span><span class="o">.</span><span class="n">kernel</span><span class="o">.</span><span class="n">fsadapter</span><span class="o">.</span><span class="n">hdfs</span><span class="o">.</span><span class="n">name</span><span class="o">-</span><span class="n">node</span><span class="o">-</span><span class="n">url</span>
+<span class="c1"># Enable if hadoop security authorization is &#39;true&#39;, default is false</span>
+<span class="n">mosip</span><span class="o">.</span><span class="n">kernel</span><span class="o">.</span><span class="n">fsadapter</span><span class="o">.</span><span class="n">hdfs</span><span class="o">.</span><span class="n">authentication</span><span class="o">-</span><span class="n">enabled</span>
+<span class="c1"># If HDFS is security is configured with Kerberos, Key Distribution Center domain</span>
+<span class="n">mosip</span><span class="o">.</span><span class="n">kernel</span><span class="o">.</span><span class="n">fsadapter</span><span class="o">.</span><span class="n">hdfs</span><span class="o">.</span><span class="n">kdc</span><span class="o">-</span><span class="n">domain</span>
+<span class="c1">#keytab file path, must be set if authentication-enable is true</span>
+<span class="c1">#read keytab file both classpath and physical path ,append appropriate prefix</span>
+<span class="c1">#for classpath prefix classpath:mosip.keytab</span>
+<span class="c1">#for physical path prefix file:/home/keys/mosip.keytab</span>
+<span class="n">mosip</span><span class="o">.</span><span class="n">kernel</span><span class="o">.</span><span class="n">fsadapter</span><span class="o">.</span><span class="n">hdfs</span><span class="o">.</span><span class="n">keytab</span><span class="o">-</span><span class="n">file</span><span class="o">=</span><span class="n">classpath</span><span class="p">:</span><span class="n">mosip</span><span class="o">.</span><span class="n">keytab</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="kernel">
+<h2>Kernel<a class="headerlink" href="#kernel" title="Permalink to this headline">¶</a></h2>
+<ol class="simple">
+<li><p>#--kernel common properties-----------------------</p></li>
+</ol>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">mosip</span><span class="o">.</span><span class="n">kernel</span><span class="o">.</span><span class="n">database</span><span class="o">.</span><span class="n">hostname</span>
+<span class="n">mosip</span><span class="o">.</span><span class="n">kernel</span><span class="o">.</span><span class="n">database</span><span class="o">.</span><span class="n">port</span>
+</pre></div>
+</div>
+<ol class="simple">
+<li><p>#--sms notification service-----------------------</p></li>
+</ol>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">mosip</span><span class="o">.</span><span class="n">kernel</span><span class="o">.</span><span class="n">sms</span><span class="o">.</span><span class="n">authkey</span>
+</pre></div>
+</div>
+<ol class="simple">
+<li><p>#--Email Notification service---------------------</p></li>
+</ol>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">spring</span><span class="o">.</span><span class="n">mail</span><span class="o">.</span><span class="n">host</span>
+<span class="n">spring</span><span class="o">.</span><span class="n">mail</span><span class="o">.</span><span class="n">username</span>
+<span class="n">spring</span><span class="o">.</span><span class="n">mail</span><span class="o">.</span><span class="n">password</span>
+<span class="n">spring</span><span class="o">.</span><span class="n">mail</span><span class="o">.</span><span class="n">port</span><span class="o">=</span><span class="mi">587</span>
+</pre></div>
+</div>
+<ol class="simple">
+<li><p>#--Ldap------------</p></li>
+</ol>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">ldap_1_DS</span><span class="o">.</span><span class="n">datastore</span><span class="o">.</span><span class="n">ipaddress</span>
+<span class="n">ldap_1_DS</span><span class="o">.</span><span class="n">datastore</span><span class="o">.</span><span class="n">port</span>
+</pre></div>
+</div>
+<ol class="simple">
+<li><p>#--DataBase Properties----------------------------</p></li>
+</ol>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">**</span><span class="n">_database_password</span>
+<span class="o">**</span><span class="n">_database_username</span>
+</pre></div>
+</div>
+</div>
+</div>
+<hr class="docutils" />
+<div class="section" id="mosip-deployment">
+<h1>8. MOSIP Deployment <a class="reference external" href="#table-of-content"><strong>[↑]</strong></a><a class="headerlink" href="#mosip-deployment" title="Permalink to this headline">¶</a></h1>
+<p>Currently for the Development Process MOSIP Platform is deployed as/in the Kubernetes Cluster. We are using Azure Kubernetes Service for provisioning of Cluster. As of now Kubernetes Deployment is deviced in two parts -</p>
+<p>A. One time setup of MOSIP in Kubernetes Cluster</p>
+<p>B. Continuous deployment</p>
+<div class="section" id="a-one-time-setup-of-mosip-in-kubernetes-cluster">
+<h2>A. One time setup of MOSIP in Kubernetes Cluster<a class="headerlink" href="#a-one-time-setup-of-mosip-in-kubernetes-cluster" title="Permalink to this headline">¶</a></h2>
+<p>One time setup on Kubernetes involves following Steps <br/>
+I. Setting Up local system to communicate with Kubernetes cluster this can be done via <a class="reference external" href="//kubernetes.io/docs/reference/kubectl/overview/"><strong>kubectl</strong></a>.<br/>
+II. Setting Up the Basic environment for MOSIP to run in Kubernetes Cluster, In this step we will work on this <a class="reference external" href="https://github.com/mosip/mosip-infra/tree/master/deployment/cloud/kubernetes/commons">link</a> . following are the files -</p>
+<p><img alt="File in commons folder" src="_images/kubernetes-commons-files.png" /></p>
+<p>We will now go through each of the file and see what changes we need to perform. we will be using <a class="reference external" href="//kubernetes.io/docs/reference/kubectl/overview/"><strong>kubectl</strong></a> to do the deployments from local system.</p>
+<ul>
+<li><p>DeployIngressController.yaml - We need not to change anything here. we can directly run this file. To run this use this command
+<code class="docutils literal notranslate"><span class="pre">kubectl</span> <span class="pre">apply</span> <span class="pre">-f</span> <span class="pre">DeployIngressController.yaml</span></code></p></li>
+<li><p>DeployIngress.yaml -
+This file contains information about routing to different Kubernetes services, So whenever any traffic comes to our Load Balancer IP it will look for this file to route the request. For eg. Let's say if <strong>some.example.com</strong> is mapped to our kubernetes loadbalancer then if a request is for <strong>some.example.com/pre-registration-ui</strong> then this request will be redirect to <strong>pre-registration-ui</strong> on port <strong>80</strong> service. Routes referrring to <strong>ping-server</strong> and <strong>sample-nginx</strong> can be removed as these are for testing purpose.To run this use this command
+<code class="docutils literal notranslate"><span class="pre">kubectl</span> <span class="pre">apply</span> <span class="pre">-f</span> <span class="pre">DeployIngress.yaml</span></code></p></li>
+<li><p>DeployServiceIngressService.yaml - We need not to change anything here. we can directly run this file. To run this use this command
+kubectl apply -f DeployServiceIngressService.yaml</p></li>
+<li><p>DeployDefaultBackend.yaml - We need not to change anything here. we can directly run this file. To run this use this command
+<code class="docutils literal notranslate"><span class="pre">kubectl</span> <span class="pre">apply</span> <span class="pre">-f</span> <span class="pre">DeployDefaultBackend.yaml</span></code></p></li>
+<li><p>docker-registry-secret.yml -
+This file helps Kubernetes to get the Docker Images from Private Docker Registry. This file is a downloaded YAML of secrets that exists in the Kubernetes. You can either create secret or use this file to deploy secret in Kubernetes. For creating secret for the first time, run below command -</p>
+<p><code class="docutils literal notranslate"><span class="pre">kubectl</span> <span class="pre">create</span> <span class="pre">secret</span> <span class="pre">docker-registry</span> <span class="pre">&lt;registry-credential-name&gt;</span> <span class="pre">--docker-server=&lt;your-registry-server&gt;</span> <span class="pre">--docker-username=&lt;your-name&gt;</span> <span class="pre">--docker-password=&lt;your-pword&gt;</span> <span class="pre">--docker-email=&lt;your-email&gt;</span> </code></p>
+<p>Once secret is created on the Kubernetes Cluster, as a backup strategy we can download the created secret using this command</p>
+<p><code class="docutils literal notranslate"><span class="pre">kubectl</span> <span class="pre">get</span> <span class="pre">secret</span> <span class="pre">&lt;registry-credential-name&gt;</span> <span class="pre">-o</span> <span class="pre">yaml</span> <span class="pre">--export</span></code></p>
+</li>
+</ul>
+<p>Once the above deployment is done, we will start deploying MOSIP services. For doing this, we need to look for these directories -</p>
+<p><img alt="Directories" src="_images/kubernetes-mosip-services-directory.JPG" /></p>
+</div>
+<div class="section" id="firstly-deploy-kernel-configuration-server">
+<h2>Firstly Deploy Kernel Configuration server<a class="headerlink" href="#firstly-deploy-kernel-configuration-server" title="Permalink to this headline">¶</a></h2>
+<p>The script is inside ( https://github.com/mosip/mosip-infra/blob/master/deployment/cloud/kubernetes/configuration-server/config-server-deployment-and-service.yml ) <br/>
+Follow below steps:</p>
+<ol>
+<li><p>Create a ssh key and configure it with your git repository. If you have already configured the ssh key for your repository, you can use that one or else follow <a class="reference external" href="//help.github.com/en/articles/connecting-to-github-with-ssh">this</a> <br/></p></li>
+<li><p>Create a secret for Config server to connect to GIT repo. This secret contains your <strong>id_rsa key (private key), id_rsa_pub key (public key) and known_hosts</strong> which you generated above. We need this secret because config server connects to your Source code management repository, to get configuration for all the services(If you are using ssh URL for cloning the repo). For generating the required secret give the following command: ( Firstly try to connect to GIT repository from your system using ssh url and the key you created above, so that GIT service provider such as GitHub or GitLab comes in your known hosts file): <br/></p>
+<p><code class="docutils literal notranslate"><span class="pre">kubectl</span> <span class="pre">create</span> <span class="pre">secret</span> <span class="pre">generic</span> <span class="pre">config-server-secret</span> <span class="pre">--from-file=id_rsa=/path/to/.ssh/id_rsa</span> <span class="pre">--from-file=id_rsa.pub=/path/to/.ssh/id_rsa.pub</span> <span class="pre">--from-file=known_hosts=/path/to/.ssh/known_hosts</span></code> <br/></p>
+<p><strong>For Encryption Decryption of properties with configuration server</strong> <br/>
+<br/>
+Create keystore with following command:</p>
+<p><code class="docutils literal notranslate"><span class="pre">keytool</span> <span class="pre">-genkeypair</span> <span class="pre">-alias</span> <span class="pre">&lt;your-alias&gt;</span> <span class="pre">-keyalg</span> <span class="pre">RSA</span> <span class="pre">-keystore</span> <span class="pre">server.keystore</span> <span class="pre">-keypass</span> <span class="pre">&lt;</span> <span class="pre">key-secret</span> <span class="pre">&gt;</span> <span class="pre">-storepass</span> <span class="pre">&lt;</span> <span class="pre">store-password</span> <span class="pre">&gt;</span> <span class="pre">--dname</span> <span class="pre">&quot;CN=&lt;your-CN&gt;,OU=&lt;OU&gt;,O=&lt;O&gt;,L=&lt;L&gt;,S=&lt;S&gt;,C=&lt;C&gt;&quot;</span></code></p>
+</li>
+<li><p>The JKS keystore uses a proprietary format. It is recommended to migrate to PKCS12 which is an industry standard format, migrate it using following command:<br>
+<code class="docutils literal notranslate"><span class="pre">keytool</span> <span class="pre">-importkeystore</span> <span class="pre">-srckeystore</span> <span class="pre">server.keystore</span> <span class="pre">-destkeystore</span> <span class="pre">server.keystore</span> <span class="pre">-deststoretype</span> <span class="pre">pkcs12</span></code> <br/>
+For more information look <a class="reference external" href="//cloud.spring.io/spring-cloud-config/single/spring-cloud-config.html#_creating_a_key_store_for_testing">here</a> <br/></p></li>
+</ol>
+<br/>
+4. Create file with following content to create keystore secret for encryption decryption of keys using information from keystore created above: <br/><div class="highlight-default notranslate"><div class="highlight"><pre><span></span>```
+apiVersion: v1
+kind: Secret
+metadata:
+  name: config-server-keystore-values-secret
+type: Opaque
+data:
+  alias: &lt; base-64-encoded-alias-for keystore &gt;
+  password: &lt;  base-64-store-password &gt;
+  secret: &lt; base-64-encoded-key-secret &gt;
+```
+</pre></div>
+</div>
+<ol class="simple">
+<li><p>Save the above file with any name and apply it using: <br/>
+<code class="docutils literal notranslate"><span class="pre">kubectl</span> <span class="pre">apply</span> <span class="pre">-f</span> <span class="pre">&lt;</span> <span class="pre">file-name</span> <span class="pre">&gt;</span></code></p></li>
+</ol>
+<br/><ol class="simple">
+<li><p>Create server.keystore as secret to volume mount it inside container: <br/>
+<code class="docutils literal notranslate"><span class="pre">kubectl</span> <span class="pre">create</span> <span class="pre">secret</span> <span class="pre">generic</span> <span class="pre">config-server-keystore</span> <span class="pre">--from-file=server.keystore=&lt;</span> <span class="pre">location-of-your-server.keystore-file-generated-above</span> <span class="pre">&gt;</span></code></p></li>
+</ol>
+<br/>
+<br/>
+7. Change `git_url_env` environment variable in kernel-config-server-deployment-and-service.yml to your git ssh url of configuration repository
+<br/>
+<br/>
+8. Change `git_config_folder_env` environment variable in kernel-config-server-deployment-and-service.yml  to your configuration folder in git repository.
+<br/>
+<br/>
+9. Change `spec->template->spec->containers->image` from `docker-registry.mosip.io:5000/kernel-config-server` to `< Your Docker Registry >/kernel-config-server` <br/>
+<br/>
+10. Change `spec->template->spec->imagePullSecrets->name` from `pvt-reg-cred` to `< Your docker registry credentials secret >`
+<br/>
+<br/>
+11. Once above configuration is done, execute `kubectl apply -f kernel-config-server-deployment-and-service.yml`
+<br/>
+<br/><p>More information can be found <a class="reference external" href="https://github.com/mosip/mosip-platform/blob/master/kernel/kernel-config-server/README">here</a></p>
+<br/></div>
+<div class="section" id="deploy-other-components-br">
+<h2>Deploy other components: <br/><a class="headerlink" href="#deploy-other-components-br" title="Permalink to this headline">¶</a></h2>
+<p>Inside each of the directory there is a file for each service of MOSIP that is exposed as Web API. We need to deploy these files to get these running. But before doing that we need to change Private Docker Registry Address and Docker Registry Secret, so that on deployment time Kubernetes can fetch docker images from correct source using correct credentials.
+For doing this, follow below steps (for eg. we will use https://github.com/mosip/mosip-infra/blob/master/deployment/cloud/kubernetes/kernel-deployment/kernel-auditmanager-service-deployment-and-service.yml, but you have to repeat the process for all such files) - <br/>
+I. Open a deployment file. <br/>
+II. Change <code class="docutils literal notranslate"><span class="pre">spec-&gt;template-&gt;spec-&gt;containers-&gt;image</span></code> from <code class="docutils literal notranslate"><span class="pre">docker-registry.mosip.io:5000/kernel-auditmanager-service</span></code> to <code class="docutils literal notranslate"><span class="pre">&lt;Your</span> <span class="pre">Docker</span> <span class="pre">Registry&gt;/kernel-auditmanager-service</span></code> <br/>
+III. Change <code class="docutils literal notranslate"><span class="pre">spec-&gt;template-&gt;spec-&gt;imagePullSecrets-&gt;name</span></code> from <code class="docutils literal notranslate"><span class="pre">pvt-reg-cred</span></code> to <code class="docutils literal notranslate"><span class="pre">&lt;Your</span> <span class="pre">docker</span> <span class="pre">registry</span> <span class="pre">credentials</span> <span class="pre">secret&gt;</span></code> <br/>
+IV. Change <code class="docutils literal notranslate"><span class="pre">active_profile_env</span></code> to whichever profile you want to activate and <code class="docutils literal notranslate"><span class="pre">spring_config_label_env</span></code> to the branch from which you want to pick up the configuration<br/>
+V. Save the file and Run <code class="docutils literal notranslate"><span class="pre">kubectl</span> <span class="pre">apply</span> <span class="pre">-f</span> <span class="pre">kernel-auditmanager-service-deployment-and-service.yml</span></code> <br/></p>
+<p>After above process is completed, you can run <code class="docutils literal notranslate"><span class="pre">kubectl</span> <span class="pre">get</span> <span class="pre">services</span></code> command to see the status of all the MOSIP Services.</p>
+<p><strong>For Pre-Registration-UI</strong><br/>
+Pre-registration-ui uses a file config.json to configure URLs of backend, which have to be provided as config map in pre-registration-ui-deployment-and-service.yml. For creating the configmap follow below steps:</p>
+<ol class="simple">
+<li><p>Edit the file scripts -&gt; https://github.com/mosip/mosip-infra/blob/master/deployment/cloud/kubernetes/pre-registration-deployment/pre-registration-ui-configuration.yaml</p></li>
+<li><p>Update <code class="docutils literal notranslate"><span class="pre">https://dev.mosip.io/</span></code> value with url of proxy server which points to pre-registration services. (Note: While editing, be careful with escape sequence characters)</p></li>
+<li><p>Execute command <code class="docutils literal notranslate"><span class="pre">Kubectl</span> <span class="pre">apply</span> <span class="pre">-f</span> <span class="pre">pre-registration-ui-configuration.yaml</span></code></p></li>
+</ol>
+</div>
+<hr class="docutils" />
+<div class="section" id="registration-processor-dmz-services-deployment">
+<h2>8.1  Registration-Processor DMZ services deployment<a class="headerlink" href="#registration-processor-dmz-services-deployment" title="Permalink to this headline">¶</a></h2>
+<p>Registration Processor DMZ Services are setup externally(deployed in a separate VM).</p>
+<p>Firstly, update below files present in config folder in configuration repository, and replace the line<br/>
+<code class="docutils literal notranslate"><span class="pre">&lt;to</span> <span class="pre">uri=&quot;https://&lt;dns</span> <span class="pre">name&gt;/registrationprocessor/v1/uploader/securezone&quot;</span> <span class="pre">/&gt;</span></code><br/>
+with the URL of packet uploader stage.<br/></p>
+<ol class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">registration-processor-camel-routes-new-dmz-&lt;env-name&gt;.xml</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">registration-processor-camel-routes-update-dmz-&lt;env-name&gt;.xml</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">registration-processor-camel-routes-lost-dmz-&lt;env-name&gt;.xml</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">registration-processor-camel-routes-activate-dmz-&lt;env-name&gt;.xml</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">registration-processor-camel-routes-deactivate-dmz-&lt;env-name&gt;.xml</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">registration-processor-camel-routes-res_update-dmz-&lt;env-name&gt;.xml</span></code></p></li>
+</ol>
+<p>We are deploying DMZ services into another VM having docker installed. The steps to setup DMZ environment and services deployment:</p>
+<ol>
+<li><p>Need to set Up VM with RHEL 7.6</p></li>
+<li><p>Installing the Docker ce:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>   $ sudo yum install http://mirror.centos.org/centos/7/extras/x86_64/Packages/container-selinux-2.107-
+     3.el7.noarch.rpm
+
+  $ sudo yum -y install lvm2 device-mapper device-mapper-persistent-data device-mapper-event device-mapper-libs
+    device-mapper-event-libs
+
+  $ sudo wget https://download.docker.com/linux/centos/docker-ce.repo -O /etc/yum.repos.d/docker-ce.repo
+
+  $ sudo yum -y install docker-ce
+
+  $ sudo systemctl start docker
+
+  $ sudo systemctl status docker
+</pre></div>
+</div>
+</li>
+<li><p>Need to copy the Jenkins server public key(id_rsa.pub) inside this newly created VM's authorized_keys(because through jenkins job, we will ssh into new VM and deploy)</p></li>
+</ol>
+<p>After installing Docker Start the Docker Service</p>
+<p><strong>command to start the Docker service</strong></p>
+<ul class="simple">
+<li><p>systemctl start docker</p></li>
+</ul>
+<p><strong>command to check Docker is running:</strong></p>
+<ul class="simple">
+<li><p>systemctl status docker</p></li>
+</ul>
+<ol class="simple">
+<li><p><strong>Open the port 8081, 8083 from the VM:</strong>
+Mosip uses port 8081 for registration-processor-packet-receiver-stage and 8083 for registration-processor-registration-status-service. The port ids need to be updated in ngnix configuration.</p></li>
+</ol>
+<p>sudo firewall-cmd --zone=public --add-port=8081/tcp --permanent</p>
+<p>sudo firewall-cmd --reload</p>
+<p>sudo firewall-cmd --zone=public --add-port=8083/tcp --permanent</p>
+<p>sudo firewall-cmd --reload</p>
+<p><strong>Note:</strong> if firewall is not installed in VM, install with “sudo yum install firewall”</p>
+<p>And also open the port from AZURE OR AWS or any cloud where the VM is launched.</p>
+<p><strong>Process to deploy Services in VM through JenkinsFile:</strong></p>
+<ol>
+<li><p>The last stage in the Jenkinsfile viz DMZ_Deployment in which we are sshing into this newly created VM through Jenkins to deploy these services, basically, running the docker images of registration processor.
+Changes to be made in this stage-&gt;</p>
+<p>a. Replace the value for registryCredentials(credentialsId of docker hub) with yours.</p>
+<p>b. Replace the value for the variable -&gt; dmz_reg_proc_dev_ip with the IP of your newly created VM.</p>
+</li>
+</ol>
+<p>Refer the github url for Jenkinsfile : <a class="reference external" href="https://github.com/mosip/mosip-infra/blob/master/scripts/jenkinsfile/registration-processor-Jenkinsfile">here</a></p>
+<ol class="simple">
+<li><p>Also, instead of following as described in 4th point to use Jenkinsfile, we can do it manually. Steps are -&gt;</p></li>
+</ol>
+<p>a. Login into the DMZ VM.</p>
+<p>b. Perform docker hub login</p>
+<p>c. Execute the following commands</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">docker</span> <span class="n">run</span> <span class="o">--</span><span class="n">restart</span> <span class="n">always</span> <span class="o">-</span><span class="n">it</span> <span class="o">-</span><span class="n">d</span> <span class="o">-</span><span class="n">p</span> <span class="mi">8083</span><span class="p">:</span><span class="mi">8083</span> <span class="o">-</span><span class="n">e</span> <span class="n">active_profile_env</span><span class="o">=</span><span class="s2">&quot;$</span><span class="si">{profile_env}</span><span class="s2">&quot;</span> <span class="o">-</span><span class="n">e</span> <span class="n">spring_config_label_env</span><span class="o">=</span><span class="s2">&quot;$</span><span class="si">{label_env}</span><span class="s2">&quot;</span> <span class="o">-</span><span class="n">e</span> <span class="n">spring_config_url_env</span><span class="o">=</span><span class="s2">&quot;$</span><span class="si">{config_url}</span><span class="s2">&quot;</span> <span class="s2">&quot;$</span><span class="si">{registryAddress}</span><span class="s2">&quot;</span><span class="o">/</span><span class="n">registration</span><span class="o">-</span><span class="n">processor</span><span class="o">-</span><span class="n">registration</span><span class="o">-</span><span class="n">status</span><span class="o">-</span><span class="n">service</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">docker</span> <span class="n">run</span> <span class="o">--</span><span class="n">restart</span> <span class="n">always</span> <span class="o">-</span><span class="n">it</span> <span class="o">-</span><span class="n">d</span> <span class="o">--</span><span class="n">network</span> <span class="n">host</span> <span class="o">--</span><span class="n">privileged</span><span class="o">=</span><span class="n">true</span> <span class="o">-</span><span class="n">v</span> <span class="o">/</span><span class="n">home</span><span class="o">/</span><span class="n">ftp1</span><span class="o">/</span><span class="n">LANDING_ZONE</span><span class="p">:</span><span class="o">/</span><span class="n">home</span><span class="o">/</span><span class="n">ftp1</span><span class="o">/</span><span class="n">LANDING_ZONE</span> <span class="o">-</span><span class="n">v</span> <span class="o">/</span><span class="n">home</span><span class="o">/</span><span class="n">ftp1</span><span class="o">/</span><span class="n">ARCHIVE_PACKET_LOCATION</span><span class="p">:</span><span class="o">/</span><span class="n">home</span><span class="o">/</span><span class="n">ftp1</span><span class="o">/</span><span class="n">ARCHIVE_PACKET_LOCATION</span> <span class="o">-</span><span class="n">e</span> <span class="n">active_profile_env</span><span class="o">=</span><span class="s2">&quot;$</span><span class="si">{profile_env}</span><span class="s2">&quot;</span> <span class="o">-</span><span class="n">e</span> <span class="n">spring_config_label_env</span><span class="o">=</span><span class="s2">&quot;$</span><span class="si">{label_env}</span><span class="s2">&quot;</span> <span class="o">-</span><span class="n">e</span> <span class="n">spring_config_url_env</span><span class="o">=</span><span class="s2">&quot;$</span><span class="si">{config_url}</span><span class="s2">&quot;</span> <span class="s2">&quot;$</span><span class="si">{registryAddress}</span><span class="s2">&quot;</span><span class="o">/</span><span class="n">registration</span><span class="o">-</span><span class="n">processor</span><span class="o">-</span><span class="n">packet</span><span class="o">-</span><span class="n">receiver</span><span class="o">-</span><span class="n">stage</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">docker</span> <span class="n">run</span> <span class="o">--</span><span class="n">restart</span> <span class="n">always</span> <span class="o">-</span><span class="n">it</span> <span class="o">-</span><span class="n">d</span> <span class="o">--</span><span class="n">network</span> <span class="n">host</span> <span class="o">--</span><span class="n">privileged</span><span class="o">=</span><span class="n">true</span> <span class="o">-</span><span class="n">e</span> <span class="n">active_profile_env</span><span class="o">=</span><span class="s2">&quot;$</span><span class="si">{profile_env}</span><span class="s2">&quot;</span> <span class="o">-</span><span class="n">e</span> <span class="n">spring_config_label_env</span><span class="o">=</span><span class="s2">&quot;$</span><span class="si">{label_env}</span><span class="s2">&quot;</span> <span class="o">-</span><span class="n">e</span> <span class="n">spring_config_url_env</span><span class="o">=</span><span class="s2">&quot;$</span><span class="si">{config_url}</span><span class="s2">&quot;</span> <span class="o">-</span><span class="n">e</span> <span class="n">zone_env</span><span class="o">=</span><span class="n">dmz</span>  <span class="s2">&quot;$</span><span class="si">{registryAddress}</span><span class="s2">&quot;</span><span class="o">/</span><span class="n">registration</span><span class="o">-</span><span class="n">processor</span><span class="o">-</span><span class="n">common</span><span class="o">-</span><span class="n">camel</span><span class="o">-</span><span class="n">bridge</span>
+</pre></div>
+</div>
+<p><strong>Note</strong> - Please change the environmental variables(active_profile_env, spring_config_label_env, spring_config_url_env ,registryAddress) in the above commands accordingly whether you are executing manually in your new VM or through Jenkinsfile.</p>
+<ol class="simple">
+<li><p>Packet uploader stage in secure zone will fetch file from dmz to upload it into Distributed File System,to connect to
+dmz vm either we can login using username and password or using ppk file.
+If password value is available in config property name
+registration.processor.dmz.server.password then uploader will connect using username and password.
+otherwise it will login using ppk file available in config with property name registration.processor.vm.ppk.
+PPK generation command ssh-keygen -t rsa -b 4096 -f mykey.</p></li>
+</ol>
+</div>
+<div class="section" id="kernel-salt-generator">
+<h2>8.2 Kernel Salt Generator<a class="headerlink" href="#kernel-salt-generator" title="Permalink to this headline">¶</a></h2>
+<p>Kernel Salt Generator Job is a one-time job which is run to populate salts to be used to hash and encrypt data. This generic job takes schema and table name as input, and generates and populates salts in the given schema and table.</p>
+<p><strong>Salt Generator Deployment steps</strong></p>
+<p>a. Login into the VM.
+Open the port 8092 from the VM:</p>
+<p>sudo firewall-cmd --zone=public --add-port=8092/tcp --permanent</p>
+<p>sudo firewall-cmd --reload</p>
+<p>And also open the port from AZURE OR AWS or any cloud where the VM is launched.</p>
+<p>b. Perform docker hub login</p>
+<p>c. Execute the following commands sequentially one after the other. Wait for the completion of previous command before
+executing next commands.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>  <span class="mf">1.</span>  <span class="n">docker</span> <span class="n">run</span> <span class="o">-</span><span class="n">it</span> <span class="o">-</span><span class="n">p</span> <span class="mi">8092</span><span class="p">:</span><span class="mi">8092</span> <span class="o">-</span><span class="n">e</span> <span class="n">active_profile_env</span><span class="o">=</span><span class="s2">&quot;$</span><span class="si">{profile_env}</span><span class="s2">&quot;</span> <span class="o">-</span><span class="n">e</span> <span class="n">spring_config_label_env</span><span class="o">=</span><span class="s2">&quot;$</span><span class="si">{label_env}</span><span class="s2">&quot;</span>  
+     <span class="o">-</span><span class="n">e</span> <span class="n">spring_config_url_env</span><span class="o">=</span><span class="s2">&quot;$</span><span class="si">{config_url}</span><span class="s2">&quot;</span> <span class="o">-</span><span class="n">e</span> <span class="n">spring_config_name_env</span><span class="o">=</span><span class="nb">id</span><span class="o">-</span><span class="n">repository</span> <span class="o">-</span><span class="n">e</span> <span class="n">db_url</span><span class="o">=</span><span class="n">mosip</span><span class="o">.</span><span class="n">idrepo</span><span class="o">.</span><span class="n">identity</span><span class="o">.</span><span class="n">db</span><span class="o">.</span><span class="n">shard</span><span class="o">.</span><span class="n">url</span> <span class="o">-</span><span class="n">e</span> <span class="n">schema_name</span><span class="o">=</span><span class="n">idrepo</span> <span class="o">-</span><span class="n">e</span> <span class="n">table_name</span><span class="o">=</span><span class="n">uin_hash_salt</span>
+     <span class="s2">&quot;$</span><span class="si">{registryAddress}</span><span class="s2">&quot;</span><span class="o">/</span><span class="nb">id</span><span class="o">-</span><span class="n">repository</span><span class="o">-</span><span class="n">salt</span><span class="o">-</span><span class="n">generator</span>
+
+  <span class="mf">2.</span>  <span class="n">docker</span> <span class="n">run</span> <span class="o">-</span><span class="n">it</span> <span class="o">-</span><span class="n">p</span> <span class="mi">8092</span><span class="p">:</span><span class="mi">8092</span> <span class="o">-</span><span class="n">e</span> <span class="n">active_profile_env</span><span class="o">=</span><span class="s2">&quot;$</span><span class="si">{profile_env}</span><span class="s2">&quot;</span> <span class="o">-</span><span class="n">e</span> <span class="n">spring_config_label_env</span><span class="o">=</span><span class="s2">&quot;$</span><span class="si">{label_env}</span><span class="s2">&quot;</span>  
+     <span class="o">-</span><span class="n">e</span> <span class="n">spring_config_url_env</span><span class="o">=</span><span class="s2">&quot;$</span><span class="si">{config_url}</span><span class="s2">&quot;</span> <span class="o">-</span><span class="n">e</span> <span class="n">spring_config_name_env</span><span class="o">=</span><span class="nb">id</span><span class="o">-</span><span class="n">repository</span> <span class="o">-</span><span class="n">e</span> <span class="n">db_url</span><span class="o">=</span><span class="n">mosip</span><span class="o">.</span><span class="n">idrepo</span><span class="o">.</span><span class="n">identity</span><span class="o">.</span><span class="n">db</span><span class="o">.</span><span class="n">shard</span><span class="o">.</span><span class="n">url</span> <span class="o">-</span><span class="n">e</span> <span class="n">schema_name</span><span class="o">=</span><span class="n">idrepo</span> <span class="o">-</span><span class="n">e</span> <span class="n">table_name</span><span class="o">=</span><span class="n">uin_encrypt_salt</span>
+     <span class="s2">&quot;$</span><span class="si">{registryAddress}</span><span class="s2">&quot;</span><span class="o">/</span><span class="nb">id</span><span class="o">-</span><span class="n">repository</span><span class="o">-</span><span class="n">salt</span><span class="o">-</span><span class="n">generator</span>
+
+  <span class="mf">3.</span>  <span class="n">docker</span> <span class="n">run</span> <span class="o">-</span><span class="n">it</span> <span class="o">-</span><span class="n">p</span> <span class="mi">8092</span><span class="p">:</span><span class="mi">8092</span> <span class="o">-</span><span class="n">e</span> <span class="n">active_profile_env</span><span class="o">=</span><span class="s2">&quot;$</span><span class="si">{profile_env}</span><span class="s2">&quot;</span> <span class="o">-</span><span class="n">e</span> <span class="n">spring_config_label_env</span><span class="o">=</span><span class="s2">&quot;$</span><span class="si">{label_env}</span><span class="s2">&quot;</span>  
+     <span class="o">-</span><span class="n">e</span> <span class="n">spring_config_url_env</span><span class="o">=</span><span class="s2">&quot;$</span><span class="si">{config_url}</span><span class="s2">&quot;</span> <span class="o">-</span><span class="n">e</span> <span class="n">spring_config_name_env</span><span class="o">=</span><span class="nb">id</span><span class="o">-</span><span class="n">repository</span> <span class="o">-</span><span class="n">e</span> <span class="n">db_url</span><span class="o">=</span><span class="n">mosip</span><span class="o">.</span><span class="n">idrepo</span><span class="o">.</span><span class="n">vid</span><span class="o">.</span><span class="n">db</span><span class="o">.</span><span class="n">url</span> <span class="o">-</span><span class="n">e</span> <span class="n">schema_name</span><span class="o">=</span><span class="n">idmap</span> <span class="o">-</span><span class="n">e</span> <span class="n">table_name</span><span class="o">=</span><span class="n">uin_hash_salt</span>
+     <span class="s2">&quot;$</span><span class="si">{registryAddress}</span><span class="s2">&quot;</span><span class="o">/</span><span class="nb">id</span><span class="o">-</span><span class="n">repository</span><span class="o">-</span><span class="n">salt</span><span class="o">-</span><span class="n">generator</span>
+
+  <span class="mf">4.</span>  <span class="n">docker</span> <span class="n">run</span> <span class="o">-</span><span class="n">it</span> <span class="o">-</span><span class="n">p</span> <span class="mi">8092</span><span class="p">:</span><span class="mi">8092</span> <span class="o">-</span><span class="n">e</span> <span class="n">active_profile_env</span><span class="o">=</span><span class="s2">&quot;$</span><span class="si">{profile_env}</span><span class="s2">&quot;</span> <span class="o">-</span><span class="n">e</span> <span class="n">spring_config_label_env</span><span class="o">=</span><span class="s2">&quot;$</span><span class="si">{label_env}</span><span class="s2">&quot;</span>       
+     <span class="o">-</span><span class="n">e</span> <span class="n">spring_config_url_env</span><span class="o">=</span><span class="s2">&quot;$</span><span class="si">{config_url}</span><span class="s2">&quot;</span> <span class="o">-</span><span class="n">e</span> <span class="n">spring_config_name_env</span><span class="o">=</span><span class="nb">id</span><span class="o">-</span><span class="n">repository</span> <span class="o">-</span><span class="n">e</span> <span class="n">db_url</span><span class="o">=</span><span class="n">mosip</span><span class="o">.</span><span class="n">idrepo</span><span class="o">.</span><span class="n">vid</span><span class="o">.</span><span class="n">db</span><span class="o">.</span><span class="n">url</span> <span class="o">-</span><span class="n">e</span> <span class="n">schema_name</span><span class="o">=</span><span class="n">idmap</span> <span class="o">-</span><span class="n">e</span> <span class="n">table_name</span><span class="o">=</span><span class="n">uin_encrypt_salt</span>
+     <span class="s2">&quot;$</span><span class="si">{registryAddress}</span><span class="s2">&quot;</span><span class="o">/</span><span class="nb">id</span><span class="o">-</span><span class="n">repository</span><span class="o">-</span><span class="n">salt</span><span class="o">-</span><span class="n">generator</span>
+
+  <span class="mf">5.</span>  <span class="n">docker</span> <span class="n">run</span> <span class="o">-</span><span class="n">it</span> <span class="o">-</span><span class="n">d</span> <span class="o">-</span><span class="n">p</span> <span class="mi">8092</span><span class="p">:</span><span class="mi">8092</span> <span class="o">-</span><span class="n">e</span> <span class="n">active_profile_env</span><span class="o">=</span><span class="s2">&quot;$</span><span class="si">{profile_env}</span><span class="s2">&quot;</span> <span class="o">-</span><span class="n">e</span> <span class="n">spring_config_label_env</span><span class="o">=</span><span class="s2">&quot;$</span><span class="si">{label_env}</span><span class="s2">&quot;</span>
+      <span class="o">-</span><span class="n">e</span> <span class="n">spring_config_url_env</span><span class="o">=</span><span class="s2">&quot;$</span><span class="si">{config_url}</span><span class="s2">&quot;</span> <span class="o">-</span><span class="n">e</span> <span class="n">spring_config_name_env</span><span class="o">=</span><span class="nb">id</span><span class="o">-</span><span class="n">authentication</span> <span class="o">-</span><span class="n">e</span> <span class="n">schema_name</span><span class="o">=</span><span class="n">ida</span> <span class="o">-</span><span class="n">e</span> <span class="n">table_name</span><span class="o">=</span><span class="n">uin_hash_salt</span>
+      <span class="s2">&quot;$</span><span class="si">{registryAddress}</span><span class="s2">&quot;</span><span class="o">/</span><span class="n">authentication</span><span class="o">-</span><span class="n">salt</span><span class="o">-</span><span class="n">generator</span>
+
+  <span class="mf">6.</span> <span class="n">docker</span> <span class="n">run</span> <span class="o">-</span><span class="n">it</span> <span class="o">-</span><span class="n">d</span> <span class="o">-</span><span class="n">p</span> <span class="mi">8092</span><span class="p">:</span><span class="mi">8092</span> <span class="o">-</span><span class="n">e</span> <span class="n">active_profile_env</span><span class="o">=</span><span class="s2">&quot;$</span><span class="si">{profile_env}</span><span class="s2">&quot;</span> <span class="o">-</span><span class="n">e</span> <span class="n">spring_config_label_env</span><span class="o">=</span><span class="s2">&quot;$</span><span class="si">{label_env}</span><span class="s2">&quot;</span>
+     <span class="o">-</span><span class="n">e</span> <span class="n">spring_config_url_env</span><span class="o">=</span><span class="s2">&quot;$</span><span class="si">{config_url}</span><span class="s2">&quot;</span> <span class="o">-</span><span class="n">e</span> <span class="n">spring_config_name_env</span><span class="o">=</span><span class="nb">id</span><span class="o">-</span><span class="n">authentication</span> <span class="o">-</span><span class="n">e</span> <span class="n">schema_name</span><span class="o">=</span><span class="n">ida</span> <span class="o">-</span><span class="n">e</span> <span class="n">table_name</span><span class="o">=</span><span class="n">uin_encrypt_salt</span>
+     <span class="s2">&quot;$</span><span class="si">{registryAddress}</span><span class="s2">&quot;</span><span class="o">/</span><span class="n">authentication</span><span class="o">-</span><span class="n">salt</span><span class="o">-</span><span class="n">generator</span>
+</pre></div>
+</div>
+<p><strong>Note</strong> - Please change the value for variables active_profile_env, spring_config_label_env, spring_config_url_env and registryAddress in the above four commands accordingly</p>
+</div>
+<div class="section" id="first-user-registration-and-onboarding">
+<h2>8.3 First User Registration and Onboarding<a class="headerlink" href="#first-user-registration-and-onboarding" title="Permalink to this headline">¶</a></h2>
+<p><a class="reference internal" href="First-User-Registration-and-Onboarding.html"><span class="doc">Refer to wiki for detailed procedure on First User Registration and Onboarding</span></a></p>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, mosip-team
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

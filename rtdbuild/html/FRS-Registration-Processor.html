@@ -1,0 +1,665 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="java" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="java" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Table Of Contents &mdash; MOSIP 0.9 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script type="text/javascript" src="_static/jquery.js"></script>
+        <script type="text/javascript" src="_static/underscore.js"></script>
+        <script type="text/javascript" src="_static/doctools.js"></script>
+        <script type="text/javascript" src="_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search"  style="background: white" >
+          
+
+          
+            <a href="index.html" class="icon icon-home"> MOSIP
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.9
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <!-- Local TOC -->
+              <div class="local-toc"><ul>
+<li><a class="reference internal" href="#">Table Of Contents</a></li>
+<li><a class="reference internal" href="#registration-processor">Registration Processor <strong>[↑]</strong></a></li>
+<li><a class="reference internal" href="#id-lifecycle-management">1. ID Lifecycle Management <strong>[↑]</strong></a><ul>
+<li><a class="reference internal" href="#new-id-issuance">1.1 New ID Issuance <strong>[↑]</strong></a></li>
+<li><a class="reference internal" href="#update-individuals-information">1.2 Update Individual’s Information <strong>[↑]</strong></a></li>
+<li><a class="reference internal" href="#de-activate-individuals-id">1.3 De-activate individual’s ID <strong>[↑]</strong></a></li>
+<li><a class="reference internal" href="#re-activate-individuals-id">1.4 Re-activate individual’s ID <strong>[↑]</strong></a></li>
+<li><a class="reference internal" href="#find-an-individuals-id">1.5 Find an Individual’s ID <strong>[↑]</strong></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#configurable-workflow">2. Configurable Workflow <strong>[↑]</strong></a><ul>
+<li><a class="reference internal" href="#orchestration">2.1 Orchestration <strong>[↑]</strong></a></li>
+<li><a class="reference internal" href="#retry-processing-in-case-of-exceptions-failures">2.2 Retry Processing (In case of exceptions/failures) <strong>[↑]</strong></a></li>
+<li><a class="reference internal" href="#resume-workflow">2.3 Resume Workflow <strong>[↑]</strong></a></li>
+<li><a class="reference internal" href="#integration-system-integrator-can-integrate-their-system-with-mosip">2.4 Integration (System Integrator can integrate their system with MOSIP) <strong>[↑]</strong></a></li>
+<li><a class="reference internal" href="#multiple-workflows">2.5 Multiple Workflows <strong>[↑]</strong></a></li>
+<li><a class="reference internal" href="#scalability-and-throughput">2.6 Scalability and Throughput <strong>[↑]</strong></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#types-of-stages">3. Types of Stages <strong>[↑]</strong></a><ul>
+<li><a class="reference internal" href="#pre-processing-validations">3.1 Pre-processing Validations <strong>[↑]</strong></a><ul>
+<li><a class="reference internal" href="#sanity-check">3.1.1 Sanity Check <strong>[↑]</strong></a></li>
+<li><a class="reference internal" href="#virus-scan">3.1.2 Virus Scan <strong>[↑]</strong></a></li>
+<li><a class="reference internal" href="#machine-center-mapping">3.1.3 Machine-Center Mapping <strong>[↑]</strong></a></li>
+<li><a class="reference internal" href="#officer-supervisor-validation">3.1.4 Officer &amp; Supervisor Validation <strong>[↑]</strong></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#processing">3.2 Processing <strong>[↑]</strong></a><ul>
+<li><a class="reference internal" href="#individual-data-validations">3.2.1 Individual Data Validations <strong>[↑]</strong></a><ul>
+<li><a class="reference internal" href="#data-quality-check-photo-age-gender-data-check">3.2.1.1 Data Quality Check: Photo, Age, Gender Data Check <strong>[↑]</strong></a></li>
+<li><a class="reference internal" href="#biometrics-quality-check">3.2.1.2 Biometrics Quality Check <strong>[↑]</strong></a></li>
+<li><a class="reference internal" href="#doc-validation-ocr">3.2.1.3 Doc. Validation - OCR <strong>[↑]</strong></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#functional-validations">3.2.2 Functional Validations <strong>[↑]</strong></a><ul>
+<li><a class="reference internal" href="#file-document-validation">3.2.2.1 File &amp; Document Validation <strong>[↑]</strong></a></li>
+<li><a class="reference internal" href="#introducer-validation">3.2.2.2 Introducer Validation <strong>[↑]</strong></a></li>
+<li><a class="reference internal" href="#deduplication-demographic-biometrics">3.2.2.3 Deduplication – Demographic, Biometrics <strong>[↑]</strong></a></li>
+<li><a class="reference internal" href="#a-demographic-deduplication">A. Demographic deduplication <strong>[↑]</strong></a></li>
+<li><a class="reference internal" href="#b-biometric-deduplication">B. Biometric deduplication <strong>[↑]</strong></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#external-system-integration-elaborate-with-examples">3.2.3 External System Integration: (Elaborate with examples) <strong>[↑]</strong></a><ul>
+<li><a class="reference internal" href="#data-verification-pluggable-by-si-not-part-of-mosip">3.2.3.1 Data Verification (Pluggable by SI – Not part of MOSIP) <strong>[↑]</strong></a></li>
+<li><a class="reference internal" href="#data-enrichment">3.2.3.2 Data Enrichment <strong>[↑]</strong></a></li>
+<li><a class="reference internal" href="#manual-verification-for-ext-system-data-update-pluggable-by-si">3.2.3.3 Manual Verification for ext. system data update (Pluggable by SI) <strong>[↑]</strong></a></li>
+<li><a class="reference internal" href="#manual-adjudication-pluggable-by-si">3.2.3.4 Manual Adjudication (Pluggable by SI) <strong>[↑]</strong></a></li>
+<li><a class="reference internal" href="#abis-integration-incl-abis-middleware">3.2.3.5 ABIS Integration (Incl. ABIS Middleware) <strong>[↑]</strong></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#id-issuance">3.2.4 ID Issuance <strong>[↑]</strong></a><ul>
+<li><a class="reference internal" href="#identity-generation-refer-to-uin-generation-service-incl-uin-generation-and-uin-association">3.2.4.1 Identity Generation (Refer to UIN Generation service) – Incl. UIN Generation and UIN association <strong>[↑]</strong></a></li>
+<li><a class="reference internal" href="#store-update-id-repository-refer-to-id-auth">3.2.4.2 Store/Update ID Repository (Refer to ID-Auth) <strong>[↑]</strong></a></li>
+<li><a class="reference internal" href="#data-extractor-for-id-authentication">3.2.4.3 Data Extractor for ID Authentication <strong>[↑]</strong></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#capture-audit-trails-analytics-data">3.2.5 Capture Audit Trails/Analytics Data <strong>[↑]</strong></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#post-processing">3.3 Post-Processing <strong>[↑]</strong></a><ul>
+<li><a class="reference internal" href="#notification-pluggable-by-si">3.3.1 Notification (Pluggable by SI) <strong>[↑]</strong></a></li>
+<li><a class="reference internal" href="#print-post-pluggable-by-si">3.3.2 Print &amp; Post (Pluggable by SI) <strong>[↑]</strong></a></li>
+<li><a class="reference internal" href="#packet-processing-status">3.4 Packet Processing Status <strong>[↑]</strong></a></li>
+<li><a class="reference internal" href="#list-of-configurable-parameters-and-processes">List of Configurable Parameters and Processes <strong>[↑]</strong></a></li>
+<li><a class="reference internal" href="#registration-processor-api">Registration Processor API <strong>[↑]</strong></a></li>
+<li><a class="reference internal" href="#process-view">Process View <strong>[↑]</strong></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">MOSIP</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html">Docs</a> &raquo;</li>
+        
+      <li>Table Of Contents</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/FRS-Registration-Processor.md.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="table-of-contents">
+<h1>Table Of Contents<a class="headerlink" href="#table-of-contents" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p><a class="reference external" href="#registration-processor-">Registration Processor</a></p></li>
+<li><p><a class="reference external" href="#1-id-lifecycle-management-">1. ID Lifecycle Management</a></p>
+<ul>
+<li><p><a class="reference external" href="#11-new-id-issuance-">1.1 New ID Issuance</a> <em>(RPR_FR_1.1)</em></p></li>
+<li><p><a class="reference external" href="#12-update-individuals-information-">1.2 Update Individual’s Information</a> <em>(RPR_FR_1.2)</em></p></li>
+<li><p><a class="reference external" href="#13-de-activate-individuals-id-">1.3 De-activate Individual’s ID</a> <em>(RPR_FR_1.3)</em></p></li>
+<li><p><a class="reference external" href="#14-re-activate-individuals-id-">1.4 Re-activate Individual’s ID</a> <em>(RPR_FR_1.4)</em></p></li>
+<li><p><a class="reference external" href="#15-find-an-individuals-id-">1.5 Find an Individual’s ID</a> <em>(RPR_FR_1.5)</em></p></li>
+</ul>
+</li>
+<li><p><a class="reference external" href="#2-configurable-workflow-">2. Configurable Workflow</a></p>
+<ul>
+<li><p><a class="reference external" href="#21-orchestration-">2.1 Orchestration</a> <em>(RPR_FR_2.1)</em></p></li>
+<li><p><a class="reference external" href="#22-retry-processing-in-case-of-exceptionsfailures-">2.2 Retry Processing (In case of exceptions/failures)</a> <em>(RPR_FR_2.2)</em></p></li>
+<li><p><a class="reference external" href="#23-resume-workflow-">2.3 Resume Workflow</a> <em>(RPR_FR_2.3)</em></p></li>
+<li><p><a class="reference external" href="#24-integration-system-integrator-can-integrate-their-system-with-mosip-">2.4 Integration (System Integrator can integrate their system with MOSIP)</a> <em>(RPR_FR_2.4)</em></p></li>
+<li><p><a class="reference external" href="#25-multiple-workflows-">2.5 Multiple Workflows</a> (RPR_FR_2.6)_</p></li>
+<li><p><a class="reference external" href="#26-scalability-and-throughput-">2.6 Scalability and Throughput</a> <em>(RPR_FR_2.7)</em></p></li>
+</ul>
+</li>
+<li><p><a class="reference external" href="#3-types-of-stages-">3. Types of Stages</a></p>
+<ul>
+<li><p><a class="reference external" href="#31-pre-processing-validations-">3.1 Pre-processing Validations</a></p>
+<ul>
+<li><p><a class="reference external" href="#311-sanity-check-">3.1.1 Sanity Check</a> <em>(RPR_FR_3.1)</em></p></li>
+<li><p><a class="reference external" href="#312-virus-scan-">3.1.2 Virus Scan</a> <em>(RPR_FR_3.2)</em></p></li>
+<li><p><a class="reference external" href="#313-machine-center-mapping-">3.1.3 Machine-Center Mapping</a> <em>(RPR_FR_3.4)</em></p></li>
+<li><p><a class="reference external" href="#314-officer--supervisor-validation-">3.1.4 Officer &amp; Supervisor Validation</a> <em>(RPR_FR_3.6)</em></p></li>
+</ul>
+</li>
+<li><p><a class="reference external" href="#32-processing-">3.2 Processing</a></p>
+<ul>
+<li><p><a class="reference external" href="#321-individual-data-validations-">3.2.1 Individual Data Validations</a></p>
+<ul>
+<li><p><a class="reference external" href="#3211-data-quality-check-photo-age-gender-data-check-">3.2.1.1 Data Quality Check: Photo, Age, Gender Data Check</a> <em>(RPR_FR_3.7)</em></p></li>
+<li><p><a class="reference external" href="#3212-biometrics-quality-check-">3.2.1.2 Biometrics Quality Check</a> <em>(RPR_FR_3.8)</em></p></li>
+<li><p><a class="reference external" href="#3213-doc-validation---ocr-">3.2.1.3 Doc. Validation - OCR</a> <em>(RPR_FR_3.9)</em></p></li>
+</ul>
+</li>
+<li><p><a class="reference external" href="#322-functional-validations-">3.2.2 Functional Validations</a></p>
+<ul>
+<li><p><a class="reference external" href="#3221-file--document-validation-">3.2.2.1 File &amp; Document Validation</a> <em>(RPR_FR_3.10)</em></p></li>
+<li><p><a class="reference external" href="#3222-introducer-validation-">3.2.2.2 Introducer Validation</a> <em>(RPR_FR_3.11)</em></p></li>
+<li><p><a class="reference external" href="#3223-deduplication--demographic-biometrics-">3.2.2.3 Deduplication – Demographic, Biometrics</a> <em>(RPR_FR_3.12)</em></p></li>
+</ul>
+</li>
+<li><p><a class="reference external" href="#323-external-system-integration-elaborate-with-examples-">3.2.3 External System Integration: (Elaborate with examples)</a></p>
+<ul>
+<li><p><a class="reference external" href="#3231-data-verification-pluggable-by-si--not-part-of-mosip-">3.2.3.1 Data Verification (Pluggable by SI – Not part of MOSIP)</a> <em>(RPR_FR_3.13)</em></p></li>
+<li><p><a class="reference external" href="#3232-data-enrichment-">3.2.3.2 Data Enrichment</a> <em>(RPR_FR_3.14)</em></p></li>
+<li><p><a class="reference external" href="#3233-manual-verification-for-ext-system-data-update-pluggable-by-si-">3.2.3.3 Manual Verification for ext. system data update (Pluggable by SI)</a> <em>(RPR_FR_3.15)</em></p></li>
+<li><p><a class="reference external" href="#3234-manual-adjudication-pluggable-by-si-">3.2.3.4 Manual Adjudication (Pluggable by SI)</a> <em>(RPR_FR_3.16)</em></p></li>
+<li><p><a class="reference external" href="#3235-abis-integration-incl-abis-middleware-">3.2.3.5 ABIS Integration (Incl. ABIS Middleware)</a> <em>(RPR_FR_3.17)</em></p></li>
+</ul>
+</li>
+<li><p><a class="reference external" href="#324-id-issuance-">3.2.4 ID Issuance</a></p>
+<ul>
+<li><p><a class="reference external" href="#3241-identity-generation-refer-to-uin-generation-service--incl-uin-generation-and-uin-association-">3.2.4.1 Identity Generation (Refer to UIN Generation service) – Incl. UIN Generation and UIN association</a> <em>(RPR_FR_3.18)</em></p></li>
+<li><p><a class="reference external" href="#3242-storeupdate-id-repository-refer-to-id-auth-">3.2.4.2 Store/Update ID Repository (Refer to ID-Auth)</a> <em>(RPR_FR_3.19)</em></p></li>
+<li><p><a class="reference external" href="#3243-data-extractor-for-id-authentication-">3.2.4.3 Data Extractor for ID Authentication</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference external" href="#325-capture-audit-trailsanalytics-data-">3.2.5 Capture Audit Trails/Analytics Data</a> <em>(RPR_FR_3.20)</em></p></li>
+</ul>
+</li>
+<li><p><a class="reference external" href="#33-post-processing-">3.3 Post-Processing</a></p>
+<ul>
+<li><p><a class="reference external" href="#331-notification-pluggable-by-si-">3.3.1 Notification (Pluggable by SI)</a> <em>(RPR_FR_3.21)</em></p></li>
+<li><p><a class="reference external" href="#332-print--post-pluggable-by-si-">3.3.2 Print &amp; Post (Pluggable by SI)</a> <em>(RPR_FR_3.22)</em></p></li>
+</ul>
+</li>
+<li><p><a class="reference external" href="#34-packet-processing-status-">3.4 Packet Processing Status</a> <em>(RPR_FR_3.23)</em></p></li>
+</ul>
+</li>
+</ul>
+<ul class="simple">
+<li><p><a class="reference external" href="#list-of-configurable-parameters-and-processes-">List of Configurable Parameters and Processes</a></p></li>
+<li><p><a class="reference external" href="#registration-processor-api-">Registration Processor API</a></p></li>
+<li><p><a class="reference external" href="#process-view-">Process View</a></p></li>
+</ul>
+</div>
+<div class="section" id="registration-processor">
+<h1>Registration Processor <a class="reference external" href="#table-of-contents"><strong>[↑]</strong></a><a class="headerlink" href="#registration-processor" title="Permalink to this headline">¶</a></h1>
+</div>
+<div class="section" id="id-lifecycle-management">
+<h1>1. ID Lifecycle Management <a class="reference external" href="#table-of-contents"><strong>[↑]</strong></a><a class="headerlink" href="#id-lifecycle-management" title="Permalink to this headline">¶</a></h1>
+<p>When an individual visits a registration center to get an ID or update his/her ID details, a registration officer captures the individual’s demographic (name, date of birth, gender, etc.) and biometric (face, iris, fingerprint image) details in a Registration Client. The Registration Client packages the captured information in a secure way (in the form of encrypted packets) and sends it to Registration Processor for further processing.</p>
+<p>The packet received from the Registration Client goes through various sanity checks and validations to perform various life cycle events. The various life cycle events that can be processed by Registration Processor are:</p>
+<ol class="simple">
+<li><p><a class="reference external" href="#11-new-id-issuance-">New ID Issuance</a></p></li>
+<li><p><a class="reference external" href="#12-update-individuals-information-">Update Individual’s Information</a></p></li>
+<li><p><a class="reference external" href="#13-de-activate-individuals-id-">De-activate Individual’s ID</a></p></li>
+<li><p><a class="reference external" href="#14-re-activate-individuals-id-">Re-activate Individual’s ID</a></p></li>
+<li><p><a class="reference external" href="#15-find-an-individuals-id-">Find an Individual’s ID</a></p></li>
+</ol>
+<div class="section" id="new-id-issuance">
+<h2>1.1 New ID Issuance <a class="reference external" href="#table-of-contents"><strong>[↑]</strong></a><a class="headerlink" href="#new-id-issuance" title="Permalink to this headline">¶</a></h2>
+<p>A new ID issuance requires an individual to visit a registration center and provide the required information to register himself/herself in MOSIP for the first time.</p>
+<p>When a registration officer captures an individual’s information, the Registration Client packages the captured information in the form of encrypted packets and sends it to Registration Processor. After the encrypted packet reaches the Registration Processor, the system tries to find the individual’s information (i.e. demographic and biometric information) availability in the system (this process is known as Deduplication). If the system does not find any duplicates of the individual’s information, then the system registers the individual and allocates a unique ID and sends his/her ID credential through the country's configured printing and postal service.</p>
+<p>During the allocation of the Unique Identification Number (UIN), the system also allocates a Virtual Identification Number (VID) to the individual. VID is an alternative to UIN and is a temporary number that can be used for authentications of an individual. The individual can provide the VID instead of UIN to authenticate themselves and protect their UIN from being accessed by someone else.</p>
+<p>MOSIP generates two types of VID such as Perpetual VID and Temporary VID.</p>
+<ol class="simple">
+<li><p><strong>Perpetual VID</strong>: Registration Processor will create a new perpetual VID once UIN is generated successfully.</p></li>
+<li><p><strong>Temporary VID</strong>: Individual can use Resident portal to generate or re-generate a new temporary VID.</p></li>
+</ol>
+<p>Refer to <a class="reference external" href="FRS-Resident-Services#11-vid-service-"><strong>VID Services</strong></a> in Resident Services for more details.</p>
+</div>
+<div class="section" id="update-individuals-information">
+<h2>1.2 Update Individual’s Information <a class="reference external" href="#table-of-contents"><strong>[↑]</strong></a><a class="headerlink" href="#update-individuals-information" title="Permalink to this headline">¶</a></h2>
+<p>After an ID is created for an Individual, then he/she can choose to update his/her demographic or biometric information. The system provides two different channels by which an individual can update his/her information - by visiting a registration center and by using the resident portal.</p>
+<p>In both the cases, the individual’s information is securely packaged and sent to Registration Processor. After all successful validations, the system updates the individual’s information and sends his/her updated ID credential through the country’s configured printing and postal service.</p>
+<p>A country decides the channel and data attributes that can be updated for the individual. In the current implementation,</p>
+<ol class="simple">
+<li><p>An individual can update his/her demographic and biometric information when he/she visits the registration center.</p></li>
+<li><p>An individual can update his/her deomgraphic information when he/she uses the resident portal.</p></li>
+</ol>
+<p><a class="reference external" href="/mosip/mosip-platform/blob/master/design/registration-processor/Approach_for_update_packet"><strong>Link to design</strong></a></p>
+</div>
+<div class="section" id="de-activate-individuals-id">
+<h2>1.3 De-activate individual’s ID <a class="reference external" href="#table-of-contents"><strong>[↑]</strong></a><a class="headerlink" href="#de-activate-individuals-id" title="Permalink to this headline">¶</a></h2>
+<p>This feature is used to de-activate an individual’s ID. When an individual’s ID is deactivated, then he/she will not be able to authenticate himself/herself by using UIN or VID.</p>
+<p>If a country wants to deactivate an individual’s ID due to any specific reason, the system deactivates the individual’s ID after certain validations are performed in Registration Processor.</p>
+<p><a class="reference external" href="/mosip/mosip-platform/blob/master/design/registration-processor/Approach_for_activate_deactivate_uin"><strong>Link to design</strong></a></p>
+</div>
+<div class="section" id="re-activate-individuals-id">
+<h2>1.4 Re-activate individual’s ID <a class="reference external" href="#table-of-contents"><strong>[↑]</strong></a><a class="headerlink" href="#re-activate-individuals-id" title="Permalink to this headline">¶</a></h2>
+<p>This feature is used to re-activate an individual’s deactivated ID. When the individual is re-activated then he/she will be able to authenticate himself/herself by using UIN or VID.</p>
+<p>If a country wants to reactivate an individual’s deactivated ID due to any specific reason, the system reactivates the individual’s deactivated ID after certain validations are performed in Registration Processor.</p>
+<p><a class="reference external" href="/mosip/mosip-platform/blob/master/design/registration-processor/Approach_for_activate_deactivate_uin"><strong>Link to design</strong></a></p>
+</div>
+<div class="section" id="find-an-individuals-id">
+<h2>1.5 Find an Individual’s ID <a class="reference external" href="#table-of-contents"><strong>[↑]</strong></a><a class="headerlink" href="#find-an-individuals-id" title="Permalink to this headline">¶</a></h2>
+<p>When an individual forgets their ID information he/she can find it by providing their biometric information in the Registration Center. Registration processor then uses the captured biometrics to find the individual’s ID and sends his/her ID credential to their registered address through the country's configured printing and postal service.</p>
+</div>
+</div>
+<div class="section" id="configurable-workflow">
+<h1>2. Configurable Workflow <a class="reference external" href="#table-of-contents"><strong>[↑]</strong></a><a class="headerlink" href="#configurable-workflow" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="orchestration">
+<h2>2.1 Orchestration <a class="reference external" href="#table-of-contents"><strong>[↑]</strong></a><a class="headerlink" href="#orchestration" title="Permalink to this headline">¶</a></h2>
+<p>Orchestration is the process of configuring various independent services, which will coordinate and manage to achieve a business goal.</p>
+<p>In Registration Processor, there are various independent stages (such as Packet Receiver Stage, Packet Validator Stage, Operator Supervisor and Introducer Validator Stage, Demographic Deduplication Stage, Biometric Deduplication Stage, UIN Allocator Stage, Notification Stage, Printing and Postal Stage, etc.), which will perform their own set of validations or operations.</p>
+<p>These all stages are connected to each other using a workflow manager to perform various ID lifecycles events for an individual.</p>
+<p>Please refer to <a class="reference external" href="/mosip/mosip-platform/blob/master/design/registration-processor/orchestration_workflow"><strong>Git</strong></a> to understand how Orchestration is done in MOSIP.</p>
+<p><a class="reference external" href="/mosip/mosip-platform/blob/master/design/registration-processor/Approach_for_http_integration"><strong>Link to design for HTTP Integration Stage</strong></a></p>
+<p><a class="reference external" href="/mosip/mosip-platform/blob/master/design/registration-processor/Approach_for_external_system_integration"><strong>Link to design for External System Integration Stage</strong></a></p>
+</div>
+<div class="section" id="retry-processing-in-case-of-exceptions-failures">
+<h2>2.2 Retry Processing (In case of exceptions/failures) <a class="reference external" href="#table-of-contents"><strong>[↑]</strong></a><a class="headerlink" href="#retry-processing-in-case-of-exceptions-failures" title="Permalink to this headline">¶</a></h2>
+<p>When multiple systems interact with each other, there might be a communication issues due to a network lag. Registration Processor interacts with multiple external systems (Printing and Postal Service Provider, ABIS system, Country’s External ID Systems). Hence, there is high probability of having network failures between the two systems.</p>
+<p>Instead of failing to process the packets because of such network issues, Registration Processor provides a feature to retry connecting with the external system after a second or two for a certain number of times (which is configurable).</p>
+</div>
+<div class="section" id="resume-workflow">
+<h2>2.3 Resume Workflow <a class="reference external" href="#table-of-contents"><strong>[↑]</strong></a><a class="headerlink" href="#resume-workflow" title="Permalink to this headline">¶</a></h2>
+<p>MOSIP system has the capability to recover and continue packet processing if any incident happens which stops processing of some of the packets. These incidents can be: an external/internal stage is not responding, database connection is lost, dependent packets have not been processed, etc.</p>
+<p>In case of such incidents, the system have a mechanism in place which identifies any packets that are stuck at a particular stage for a long period of time and resume processing at a configured time.</p>
+<p>Please refer to <a class="reference external" href="/mosip/mosip-platform/blob/master/design/registration-processor/orchestration_workflow"><strong>Git</strong></a> to understand orchestration workflow in MOSIP.</p>
+<p><a class="reference external" href="/mosip/mosip-platform/blob/master/design/registration-processor/Approach_for_reprocess"><strong>Link to design</strong></a></p>
+</div>
+<div class="section" id="integration-system-integrator-can-integrate-their-system-with-mosip">
+<h2>2.4 Integration (System Integrator can integrate their system with MOSIP) <a class="reference external" href="#table-of-contents"><strong>[↑]</strong></a><a class="headerlink" href="#integration-system-integrator-can-integrate-their-system-with-mosip" title="Permalink to this headline">¶</a></h2>
+<p>Packet processing is divided broadly into three sections such as pre-processing, processing and post processing. Each section has a set of stages which are orchestrated together to create workflow. System integrator can customize workflow by adding or by removing stages.</p>
+<p>If a country wants to integrate MOSIP with their system to share information to/from MOSIP then MOSIP has provision for system integrator to plugin external system to pull or push data very easily with some customization in the workflow.</p>
+<p>Registration processor architecture gives flexibility to customize the workflow to plug-in additional stages and exclude existing stages as per the business need.</p>
+<p>Please refer to <a class="reference external" href="/mosip/mosip-platform/blob/master/design/registration-processor/External_System_Integration_Guide"><strong>Git</strong></a> for more details in external system integration guide.</p>
+<p><a class="reference external" href="/mosip/mosip-platform/blob/master/design/registration-processor/Approach_for_http_integration"><strong>Link to design for HTTP Integration Stage</strong></a></p>
+<p><a class="reference external" href="/mosip/mosip-platform/blob/master/design/registration-processor/Approach_for_external_system_integration"><strong>Link to design for External System Integration Stage</strong></a></p>
+</div>
+<div class="section" id="multiple-workflows">
+<h2>2.5 Multiple Workflows <a class="reference external" href="#table-of-contents"><strong>[↑]</strong></a><a class="headerlink" href="#multiple-workflows" title="Permalink to this headline">¶</a></h2>
+<p>An ID goes through various lifecycles (ID Issuance, Update of ID information, Activating or Deactivating an ID) and each lifecycle has its own set of stages to achieve the end goal.</p>
+<p>These stages are glued together to form a workflow. Hence, based on the ID lifecycle, Registration Processor has multiple workflows.</p>
+<p>Having multiple workflow increase reusability of stages, readability of workflow configured for each event and maintainability of each workflow which also involve customizing workflow based on the country’s need.</p>
+<p><a class="reference external" href="/mosip/mosip-platform/blob/master/design/registration-processor/Approach_for_update_packet"><strong>Link to design</strong></a></p>
+</div>
+<div class="section" id="scalability-and-throughput">
+<h2>2.6 Scalability and Throughput <a class="reference external" href="#table-of-contents"><strong>[↑]</strong></a><a class="headerlink" href="#scalability-and-throughput" title="Permalink to this headline">¶</a></h2>
+<p>MOSIP is scalable so that it can handle any kind of processing load or request in the future without disturbing the base architecture. MOSIP infrastructure can handle additional processing request based on the requirement of a country. The architecture is designed in such a way that it is flexible to support scalability and holds the request until the end goal is achieved.</p>
+<p><a class="reference external" href="MOSIP-Non-Functional-Requirements"><strong>Link to Non-Functional Requirements</strong></a></p>
+</div>
+</div>
+<div class="section" id="types-of-stages">
+<h1>3. Types of Stages <a class="reference external" href="#table-of-contents"><strong>[↑]</strong></a><a class="headerlink" href="#types-of-stages" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="pre-processing-validations">
+<h2>3.1 Pre-processing Validations <a class="reference external" href="#table-of-contents"><strong>[↑]</strong></a><a class="headerlink" href="#pre-processing-validations" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="sanity-check">
+<h3>3.1.1 Sanity Check <a class="reference external" href="#table-of-contents"><strong>[↑]</strong></a><a class="headerlink" href="#sanity-check" title="Permalink to this headline">¶</a></h3>
+<p>When Registration Processor receives a packet, the system performs various sanity checks on the packet, such as:</p>
+<ol class="simple">
+<li><p><strong>Authentication of the Request</strong> - The system validates if the request is coming from a verified source.</p></li>
+<li><p><strong>Virus Scan</strong> - The system performs in-memory virus scan of the packet received.</p></li>
+<li><p><strong>Packet Integrity Check</strong> - The system validates if the packet received was not tampered during transit by performing check sum validation.</p></li>
+<li><p><strong>Packet Size Check</strong> - The system validates if the packet received was not tampered during transit by validating the size of the packet.</p></li>
+<li><p><strong>Packet Format Check</strong> - The system validates if the packet format is per the configured format.</p></li>
+<li><p><strong>Duplicate Check</strong> - The system validates if the request received is not a duplicate request.</p></li>
+</ol>
+<p><a class="reference external" href="/mosip/mosip-platform/blob/master/design/registration-processor/Approach_for_packet_validator"><strong>Link to design</strong></a></p>
+</div>
+<div class="section" id="virus-scan">
+<h3>3.1.2 Virus Scan <a class="reference external" href="#table-of-contents"><strong>[↑]</strong></a><a class="headerlink" href="#virus-scan" title="Permalink to this headline">¶</a></h3>
+<p>Virus Scanning is an important process, which helps to detect and move the virus infected packets to the quarantine zone. With a good virus scanner integrated in MOSIP will prevent virus interference.</p>
+<p>Whenever virus scanning is performed in Registration Processor, the encrypted packets are first scanned and then the packets are decrypted in-memory and scanned.</p>
+<p>Virus scanning is performed twice in Registration Processor:</p>
+<ol class="simple">
+<li><p>When a packet is received by Registration Processor.</p></li>
+<li><p>When Registration Processor stores the packet in its internal secure file system.</p></li>
+</ol>
+<p><a class="reference external" href="/mosip/mosip-platform/blob/master/design/registration-processor/Approach_for_virus_scanner"><strong>Link to design</strong></a></p>
+</div>
+<div class="section" id="machine-center-mapping">
+<h3>3.1.3 Machine-Center Mapping <a class="reference external" href="#table-of-contents"><strong>[↑]</strong></a><a class="headerlink" href="#machine-center-mapping" title="Permalink to this headline">¶</a></h3>
+<p>When a packet is created in Registration Client, the packet will be created using a registered machine, devices, registration officer, registration supervisor, and registration center.</p>
+<p>To make sure that the packets are created as per the defined rules, the system performs the following validations:</p>
+<ol class="simple">
+<li><p>Registration Center must be active when the packet was created.</p></li>
+<li><p>User (registration officer/registration supervisor) must be active when the packet was created.</p></li>
+<li><p>Machine and devices, in which packet was created must be active when the packet was created.</p></li>
+<li><p>User, machine and center must be mapped when the packet was created.</p></li>
+<li><p>Packet must be created in working days and not in holidays.</p></li>
+<li><p>The GPS must be captured when a packet is created.</p></li>
+</ol>
+<p><a class="reference external" href="/mosip/mosip-platform/blob/master/design/registration-processor/Approach_for_OSI_validation"><strong>Link to design</strong></a></p>
+</div>
+<div class="section" id="officer-supervisor-validation">
+<h3>3.1.4 Officer &amp; Supervisor Validation <a class="reference external" href="#table-of-contents"><strong>[↑]</strong></a><a class="headerlink" href="#officer-supervisor-validation" title="Permalink to this headline">¶</a></h3>
+<p>When a packet is created in Registration Client, the officer or supervisor will authenticate himself/herself and the same is captured in the packet. There are three modes by which an officer or supervisor can authenticate himself/herself, which are listed below:</p>
+<ol class="simple">
+<li><p>Biometric Authentication</p></li>
+<li><p>Password Based Authentication</p></li>
+<li><p>OTP Based Authentication</p></li>
+</ol>
+<p>In case of Biometric Authentication, Registration Processor authenticates the Officer/Supervisor again after receiving the packet from the Registration Client.</p>
+<p><a class="reference external" href="/mosip/mosip-platform/blob/master/design/registration-processor/Approach_for_OSI_validation"><strong>Link to design</strong></a></p>
+</div>
+</div>
+<div class="section" id="processing">
+<h2>3.2 Processing <a class="reference external" href="#table-of-contents"><strong>[↑]</strong></a><a class="headerlink" href="#processing" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="individual-data-validations">
+<h3>3.2.1 Individual Data Validations <a class="reference external" href="#table-of-contents"><strong>[↑]</strong></a><a class="headerlink" href="#individual-data-validations" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="data-quality-check-photo-age-gender-data-check">
+<h4>3.2.1.1 Data Quality Check: Photo, Age, Gender Data Check <a class="reference external" href="#table-of-contents"><strong>[↑]</strong></a><a class="headerlink" href="#data-quality-check-photo-age-gender-data-check" title="Permalink to this headline">¶</a></h4>
+<p>The system provides a feature to integrate with an SDK to identify and validate the age and gender captured by the registration officer against the photo of the resident.</p>
+<p>This validation helps system to identify the mistake, that are performed by the registration officer.</p>
+<p><strong>WIP - This is factored for future releases and is not part of current implementation.</strong></p>
+<p><a class="reference external" href="/mosip/mosip-platform/blob/master/design/registration-processor/Approach_for_packet_receiver_stage"><strong>Link to design</strong></a></p>
+</div>
+<div class="section" id="biometrics-quality-check">
+<h4>3.2.1.2 Biometrics Quality Check <a class="reference external" href="#table-of-contents"><strong>[↑]</strong></a><a class="headerlink" href="#biometrics-quality-check" title="Permalink to this headline">¶</a></h4>
+<p>The biometrics captured (Face, Fingerprint or Iris) for an individual is used to authenticate the individual. If the quality of the biometric image captured during registration were low, then authentication for the individual using biometrics will not be accurate.</p>
+<p>Hence, the system provides a feature to integrate with an SDK to validate if the quality of biometrics captured of an individual is above the configured threshold. If the quality of the biometric captured is lower than the threshold configured, then Registration Processor does not allow ID generation for the individual.</p>
+</div>
+<div class="section" id="doc-validation-ocr">
+<h4>3.2.1.3 Doc. Validation - OCR <a class="reference external" href="#table-of-contents"><strong>[↑]</strong></a><a class="headerlink" href="#doc-validation-ocr" title="Permalink to this headline">¶</a></h4>
+<p>When an individual visits the Registration Center to get an ID or update his/her information, the officer manually enters various demographic information for the individual, which might cause a human error. To avoid such issues, the system provides the feature to integrate with an SDK, which validates the fields that are manually entered against the corresponding documents.</p>
+<p><strong>WIP - This is factored for future releases and is not part of current implementation.</strong></p>
+<p><a class="reference external" href="/mosip/mosip-platform/blob/master/design/registration-processor/Approach_for_packet_validator"><strong>Link to design</strong></a></p>
+</div>
+</div>
+<div class="section" id="functional-validations">
+<h3>3.2.2 Functional Validations <a class="reference external" href="#table-of-contents"><strong>[↑]</strong></a><a class="headerlink" href="#functional-validations" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="file-document-validation">
+<h4>3.2.2.1 File &amp; Document Validation <a class="reference external" href="#table-of-contents"><strong>[↑]</strong></a><a class="headerlink" href="#file-document-validation" title="Permalink to this headline">¶</a></h4>
+<p>When the Registration Packets are received from Registration Client, the system checks if all the files listed in the packet are available. If available, the system verifies if the documents required for an individual are present in the packet as per the data captured. In order to perform this validation, the mapping of the data captured and mandatory document required can be configured by the country.</p>
+<p>For Example:</p>
+<ol class="simple">
+<li><p>If name is captured, the country can add a validation for Proof of Identity.</p></li>
+<li><p>If address is captured, the country can add a validation for Proof of Address.</p></li>
+</ol>
+<p><a class="reference external" href="/mosip/mosip-platform/blob/master/design/registration-processor/Approach_for_packet_validator"><strong>Link to design</strong></a></p>
+</div>
+<div class="section" id="introducer-validation">
+<h4>3.2.2.2 Introducer Validation <a class="reference external" href="#table-of-contents"><strong>[↑]</strong></a><a class="headerlink" href="#introducer-validation" title="Permalink to this headline">¶</a></h4>
+<p>An Introducer in MOSIP is one who introduces someone attempting to register without any valid document or proof of identity. In the current implementation, in the context of Minor's registration Introducer is the Parent or Guardian of the minor (child) who approaches the center for registration.</p>
+<p>A minor is not mature enough to provide biometrics (like Finger Prints or Iris) as they are under developed during the time of registration, hence, the Parent or Guardian acts as the Introducer to register the minor in MOSIP.</p>
+<p>When a minor is registered, the Registration Client mandates the capture of the ID and biometrics of the Parent or Guardian, which is used for authenticating the Parent or Guardian in Registration Processor.</p>
+<p>To support the Principle of Inclusion, an Introducer can be any individual whose biometrics are registered in MOSIP.</p>
+<p><a class="reference external" href="/mosip/mosip-platform/blob/master/design/registration-processor/Approach_for_OSI_validation"><strong>Link to design</strong></a></p>
+</div>
+<div class="section" id="deduplication-demographic-biometrics">
+<h4>3.2.2.3 Deduplication – Demographic, Biometrics <a class="reference external" href="#table-of-contents"><strong>[↑]</strong></a><a class="headerlink" href="#deduplication-demographic-biometrics" title="Permalink to this headline">¶</a></h4>
+<p>Deduplication is the process to find a duplicate by comparing the individual’s details (biometric and demographic data) with the data stored in the system.</p>
+</div>
+<div class="section" id="a-demographic-deduplication">
+<h4>A. Demographic deduplication <a class="reference external" href="#table-of-contents"><strong>[↑]</strong></a><a class="headerlink" href="#a-demographic-deduplication" title="Permalink to this headline">¶</a></h4>
+<ol class="simple">
+<li><p>The system compares the demographic details (name, gender, and date of birth) of the individual with the data available in the system to find a potential match.</p></li>
+<li><p>If a potential match is found, then the system sends the packet to <a class="reference internal" href="Automated-Biometric-Identification-System-(ABIS)-Interface.html"><span class="doc">Automated Biometric Identification System</span></a> to perform 1:1 biometric match (it is an additional check to confirm that it is a duplicate).</p></li>
+<li><p>If a potential match is not found in <a class="reference internal" href="Automated-Biometric-Identification-System-(ABIS)-Interface.html"><span class="doc">Automated Biometric Identification System</span></a> or Demographic deduplication, then system sends the packet to perform biometric deduplication.</p></li>
+</ol>
+</div>
+<div class="section" id="b-biometric-deduplication">
+<h4>B. Biometric deduplication <a class="reference external" href="#table-of-contents"><strong>[↑]</strong></a><a class="headerlink" href="#b-biometric-deduplication" title="Permalink to this headline">¶</a></h4>
+<ol class="simple">
+<li><p>The system performs Biometric deduplication (1:N, where N indicates the whole set of biometric available in the system) by sending the data to <a class="reference internal" href="Automated-Biometric-Identification-System-(ABIS)-Interface.html"><span class="doc">Automated Biometric Identification System</span></a>.</p></li>
+<li><p><a class="reference internal" href="Automated-Biometric-Identification-System-(ABIS)-Interface.html"><span class="doc">Automated Biometric Identification System</span></a> compares the biometric data received with the whole set of the data to find a potential match based on a configured threshold.</p></li>
+<li><p>If a potential match is found in <a class="reference internal" href="Automated-Biometric-Identification-System-(ABIS)-Interface.html"><span class="doc">Automated Biometric Identification System</span></a>, then the system sends the packet for manual verification.</p></li>
+<li><p>If a manual verifier (experts who know more about biometrics) finds a duplicate, then the system rejects the packet.</p></li>
+<li><p>If the manual verifier or <a class="reference internal" href="Automated-Biometric-Identification-System-(ABIS)-Interface.html"><span class="doc">Automated Biometric Identification System</span></a> does not find the duplicate, then the system sends the packet for UIN generation.</p></li>
+</ol>
+<p><a class="reference external" href="/mosip/mosip-platform/blob/master/design/registration-processor/Approach_for_demo_dedupe"><strong>Link to design</strong></a></p>
+</div>
+</div>
+<div class="section" id="external-system-integration-elaborate-with-examples">
+<h3>3.2.3 External System Integration: (Elaborate with examples) <a class="reference external" href="#table-of-contents"><strong>[↑]</strong></a><a class="headerlink" href="#external-system-integration-elaborate-with-examples" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="data-verification-pluggable-by-si-not-part-of-mosip">
+<h4>3.2.3.1 Data Verification (Pluggable by SI – Not part of MOSIP) <a class="reference external" href="#table-of-contents"><strong>[↑]</strong></a><a class="headerlink" href="#data-verification-pluggable-by-si-not-part-of-mosip" title="Permalink to this headline">¶</a></h4>
+<p>Data verification is a process in which the system can verify the data captured during a registration with the data received from an external system to ensure accuracy and consistency. It helps to determine whether data was accurately translated, is complete and supports the interoperability standards.</p>
+<p>The System Integrator can plug-in a stage in the workflow, where the stage can communicate with any external system to receive some information and validate it with the information captured at the Registration Center.</p>
+<p><a class="reference external" href="/mosip/mosip-platform/blob/master/design/registration-processor/Approach_for_external_system_integration"><strong>Link to design for External System Integration Stage</strong></a></p>
+<p><a class="reference external" href="/mosip/mosip-platform/blob/master/design/registration-processor/Approach_for_http_integration"><strong>Link to design for HTTP Integration Stage</strong></a></p>
+</div>
+<div class="section" id="data-enrichment">
+<h4>3.2.3.2 Data Enrichment <a class="reference external" href="#table-of-contents"><strong>[↑]</strong></a><a class="headerlink" href="#data-enrichment" title="Permalink to this headline">¶</a></h4>
+<p>Data enrichment is a value adding process, where external data from multiple sources is added to the existing data sets in MOSIP to enhance the quality and richness of the data.
+MOSIP receives some data from the external system in the form of Packet (as per MOSIP Standards). The System has the capability to receive this updated packet from external sources and process it with the packet received from Registration Client.</p>
+</div>
+<div class="section" id="manual-verification-for-ext-system-data-update-pluggable-by-si">
+<h4>3.2.3.3 Manual Verification for ext. system data update (Pluggable by SI) <a class="reference external" href="#table-of-contents"><strong>[↑]</strong></a><a class="headerlink" href="#manual-verification-for-ext-system-data-update-pluggable-by-si" title="Permalink to this headline">¶</a></h4>
+<p>When there are any discrepancies between the data received from external system vs. the data captured during registration, a country may opt to manually verify the data.
+The System Integrator in such case may build a Manual Verification Module for External System data mismatch. MOSIP will enable the system integrator to integrate the manual verification system with MOSIP platform.</p>
+<p><a class="reference external" href="/mosip/mosip-platform/blob/master/design/registration-processor/Approach_for_manual_adjudication"><strong>Link to design</strong></a></p>
+</div>
+<div class="section" id="manual-adjudication-pluggable-by-si">
+<h4>3.2.3.4 Manual Adjudication (Pluggable by SI) <a class="reference external" href="#table-of-contents"><strong>[↑]</strong></a><a class="headerlink" href="#manual-adjudication-pluggable-by-si" title="Permalink to this headline">¶</a></h4>
+<p>When Biometric Deduplicates are found in <a class="reference internal" href="Automated-Biometric-Identification-System-(ABIS)-Interface.html"><span class="doc">Automated Biometric Identification System</span></a>, the System Integrator can plug-in the Manual Adjudication Stage, which would send the biometric and demographic data of the duplicates to a Manual Adjudicator. The Manual Adjudicator now can perform various validations on the duplicate data and inform the MOSIP system if the two records are duplicates or not.</p>
+<p><a class="reference external" href="/mosip/mosip-platform/blob/master/design/registration-processor/Approach_for_manual_adjudication"><strong>Link to design</strong></a></p>
+</div>
+<div class="section" id="abis-integration-incl-abis-middleware">
+<h4>3.2.3.5 ABIS Integration (Incl. ABIS Middleware) <a class="reference external" href="#table-of-contents"><strong>[↑]</strong></a><a class="headerlink" href="#abis-integration-incl-abis-middleware" title="Permalink to this headline">¶</a></h4>
+<p>The MOSIP System, in-order to perform Biometric Deduplication (validate if there are no biometric duplicates in system), integrates with an ABIS system (<a class="reference internal" href="Automated-Biometric-Identification-System-(ABIS)-Interface.html"><span class="doc">Automated Biometric Identification System</span></a>).</p>
+<p>ABIS Middleware, which is designed by MOSIP and MOSIP Middleware, designed by <a class="reference internal" href="Automated-Biometric-Identification-System-(ABIS)-Interface.html"><span class="doc">Automated Biometric Identification System</span></a> is used to communicate between MOSIP system and ABIS.</p>
+<p><a class="reference external" href="/mosip/mosip-platform/blob/master/design/registration-processor/Approach_for_ABIS_Integration"><strong>Link to design</strong></a></p>
+</div>
+</div>
+<div class="section" id="id-issuance">
+<h3>3.2.4 ID Issuance <a class="reference external" href="#table-of-contents"><strong>[↑]</strong></a><a class="headerlink" href="#id-issuance" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="identity-generation-refer-to-uin-generation-service-incl-uin-generation-and-uin-association">
+<h4>3.2.4.1 Identity Generation (Refer to UIN Generation service) – Incl. UIN Generation and UIN association <a class="reference external" href="#table-of-contents"><strong>[↑]</strong></a><a class="headerlink" href="#identity-generation-refer-to-uin-generation-service-incl-uin-generation-and-uin-association" title="Permalink to this headline">¶</a></h4>
+<p>After all the business validations are completed, the system gets a Unique Identification Number (UIN) from the <a class="reference internal" href="UIN-Generation.html"><span class="doc">UIN Generation</span></a> API and allocates the UIN by sending the new UIN number and the individual's information to <a class="reference internal" href="ID-Repository-API.html"><span class="doc">ID repository</span></a>.</p>
+<p><a class="reference external" href="/mosip/mosip-platform/blob/master/design/registration-processor/Approach_for_uin_generator"><strong>Link to design</strong></a></p>
+</div>
+<div class="section" id="store-update-id-repository-refer-to-id-auth">
+<h4>3.2.4.2 Store/Update ID Repository (Refer to ID-Auth) <a class="reference external" href="#table-of-contents"><strong>[↑]</strong></a><a class="headerlink" href="#store-update-id-repository-refer-to-id-auth" title="Permalink to this headline">¶</a></h4>
+<p>After all the business validations are performed for a new ID issuance or updating an individual’s information, this information is sent to <a class="reference internal" href="ID-Repository-API.html"><span class="doc">ID repository</span></a> for storing or updating the information respectively.</p>
+<p><a class="reference external" href="/mosip/mosip-platform/blob/master/design/registration-processor/Approach_for_uin_generator"><strong>Link to design</strong></a></p>
+</div>
+<div class="section" id="data-extractor-for-id-authentication">
+<h4>3.2.4.3 Data Extractor for ID Authentication <a class="reference external" href="#table-of-contents"><strong>[↑]</strong></a><a class="headerlink" href="#data-extractor-for-id-authentication" title="Permalink to this headline">¶</a></h4>
+<p>The system that extracts the latest copy of an individual’s data after the Individual has registered in MOSIP or has updated their data in MOSIP and sends it to ID Authentication. Now, ID Authentication can use the latest copy of the Individual’s data for Authentication.</p>
+</div>
+</div>
+<div class="section" id="capture-audit-trails-analytics-data">
+<h3>3.2.5 Capture Audit Trails/Analytics Data <a class="reference external" href="#table-of-contents"><strong>[↑]</strong></a><a class="headerlink" href="#capture-audit-trails-analytics-data" title="Permalink to this headline">¶</a></h3>
+<p>When any transaction is performed in MOSIP system or the packet fails any validations or any system level exception happens, then the same is captured as part of MOSIP Audit Trails, which can be further used for Reporting/Analytics as required.</p>
+</div>
+</div>
+<div class="section" id="post-processing">
+<h2>3.3 Post-Processing <a class="reference external" href="#table-of-contents"><strong>[↑]</strong></a><a class="headerlink" href="#post-processing" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="notification-pluggable-by-si">
+<h3>3.3.1 Notification (Pluggable by SI) <a class="reference external" href="#table-of-contents"><strong>[↑]</strong></a><a class="headerlink" href="#notification-pluggable-by-si" title="Permalink to this headline">¶</a></h3>
+<p>Notification (SMS/Email as configured), which is received by an individual is the final step of all the life cycle processes. System sends a notification to the individual for various life cycle scenarios such as, successful or un-successful issuance of UIN, update of UIN data, activate or deactivate UIN, finding a lost UIN, etc. using kernel <a class="reference external" href="FRS-Common-Services#45-template-merger-"><strong>Template Merger</strong></a> and <a class="reference external" href="FRS-Common-Services#4-notification-"><strong>Notification Manager</strong></a>.</p>
+</div>
+<div class="section" id="print-post-pluggable-by-si">
+<h3>3.3.2 Print &amp; Post (Pluggable by SI) <a class="reference external" href="#table-of-contents"><strong>[↑]</strong></a><a class="headerlink" href="#print-post-pluggable-by-si" title="Permalink to this headline">¶</a></h3>
+<p>When an individual’s ID is created or an individual’s data is updated, the system sends the individual’s physical ID credential to the individual’s registered address.</p>
+<p>This feature is the post processing integration point for Registration Processor, where a country can generate the PDF of the individual’s ID and sends it to the country’s configured printing and postal service provider. The printing and postal service provider in turn would print the physical ID credential and deliver it to the individual’s registered address.</p>
+<p><a class="reference external" href="/mosip/mosip-platform/blob/master/design/registration-processor/Approach_for_printing_stage"><strong>Link to design</strong></a></p>
+</div>
+<div class="section" id="packet-processing-status">
+<h3>3.4 Packet Processing Status <a class="reference external" href="#table-of-contents"><strong>[↑]</strong></a><a class="headerlink" href="#packet-processing-status" title="Permalink to this headline">¶</a></h3>
+<p>After the Registration Client sends the packet to Registration Processor, it starts processing the packet. Registration Processor enables the Registration Client to know the processing status of such packet\s. The probable packet statuses are as follows:</p>
+<ol class="simple">
+<li><p>PROCESSING – The packet is under processing.</p></li>
+<li><p>PROCESSED – The packet has been processed and Registration Client deletes the packet from its storage location.</p></li>
+<li><p>RESEND – Initial validation like virus scan and packet integrity check have failed for the packet for a configured number of times and Registration Client needs to resend the packet for processing.</p></li>
+<li><p>RE-REGISTER – The packet has failed a business validation like center-machine check, supervisor and officer validation, etc., due to which the system will not be able to process the packet. The registration officer will intimate the individual to come back to the center and re-register, post which registration client can delete the packet from its storage location.</p></li>
+<li><p>REJECTED – A duplicate packet was found against the individual’s biometrics. As processing of the packet is completed, Registration Client can delete the packet from it storage location.</p></li>
+</ol>
+</div>
+<div class="section" id="list-of-configurable-parameters-and-processes">
+<h3>List of Configurable Parameters and Processes <a class="reference external" href="#table-of-contents"><strong>[↑]</strong></a><a class="headerlink" href="#list-of-configurable-parameters-and-processes" title="Permalink to this headline">¶</a></h3>
+<ol>
+<li><p>Configurable Parameters</p>
+<p><a class="reference external" href="/mosip/mosip-config/blob/master/config/registration-processor.properties"><strong>Link to Configurable Parameters of Registration Processor</strong></a></p>
+</li>
+<li><p>Configurable Processes</p></li>
+</ol>
+<ul class="simple">
+<li><p>(Work in Progress)</p></li>
+</ul>
+</div>
+<div class="section" id="registration-processor-api">
+<h3>Registration Processor API <a class="reference external" href="#table-of-contents"><strong>[↑]</strong></a><a class="headerlink" href="#registration-processor-api" title="Permalink to this headline">¶</a></h3>
+<p><a class="reference internal" href="Registration-Processor-APIs.html"><span class="doc">Please refer to Wiki for more details on the Registration Processor API</span></a>.</p>
+</div>
+<div class="section" id="process-view">
+<h3>Process View <a class="reference external" href="#table-of-contents"><strong>[↑]</strong></a><a class="headerlink" href="#process-view" title="Permalink to this headline">¶</a></h3>
+<p><a class="reference external" href="Process-view#3-registration-processor-"><strong>Link to Process View of Registration processor</strong></a></p>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, mosip-team
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

@@ -1,0 +1,341 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="java" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="java" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Search &mdash; MOSIP 0.9 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script type="text/javascript" src="_static/jquery.js"></script>
+        <script type="text/javascript" src="_static/underscore.js"></script>
+        <script type="text/javascript" src="_static/doctools.js"></script>
+        <script type="text/javascript" src="_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search"  style="background: white" >
+          
+
+          
+            <a href="index.html" class="icon icon-home"> MOSIP
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.9
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <!-- Local TOC -->
+              <div class="local-toc"><ul>
+<li><a class="reference internal" href="#">Search</a><ul>
+<li><a class="reference internal" href="#post-search">POST /search</a><ul>
+<li><a class="reference internal" href="#resource-url">Resource URL</a></li>
+<li><a class="reference internal" href="#resource-details">Resource details</a></li>
+<li><a class="reference internal" href="#parameters">Parameters</a></li>
+<li><a class="reference internal" href="#example-request">Example Request</a></li>
+<li><a class="reference internal" href="#example-response">Example Response</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">MOSIP</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html">Docs</a> &raquo;</li>
+        
+      <li>Search</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/Masterdata-generic-api-spec.md.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <ul class="simple">
+<li><p><a class="reference external" href="#search">Search</a></p></li>
+</ul>
+<div class="section" id="search">
+<h1>Search<a class="headerlink" href="#search" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p><a class="reference external" href="#post-fetch">POST /search</a></p></li>
+</ul>
+<div class="section" id="post-search">
+<h2>POST /search<a class="headerlink" href="#post-search" title="Permalink to this headline">¶</a></h2>
+<p>This service searches the master data details.</p>
+<div class="section" id="resource-url">
+<h3>Resource URL<a class="headerlink" href="#resource-url" title="Permalink to this headline">¶</a></h3>
+<div>https://mosip.io/v1/admin/search</div></div>
+<div class="section" id="resource-details">
+<h3>Resource details<a class="headerlink" href="#resource-details" title="Permalink to this headline">¶</a></h3>
+<p>Resource Details | Description
+------------ | -------------
+Response format | The response will be sent in the Response Header and also a JSON message will be returned.
+Requires Authentication | no</p>
+</div>
+<div class="section" id="parameters">
+<h3>Parameters<a class="headerlink" href="#parameters" title="Permalink to this headline">¶</a></h3>
+<p>Name | Required | Description | Default Value | Example
+-----|----------|-------------|---------------|--------
+entity|Yes|This is the entity name. | -NA- | machines
+conditionandoperators|No|This is the WHERE clause which is used to filter the entity. This is an array. | -NA- | []
+order|Yes|This is the order in which the filter criteria is applied.| -NA- | 1
+column_name|Yes|This is the column name for which the filter is applied.| -NA- | machinename
+operator|Yes|This is the operator for which the filter is applied.| -NA- | EQUALS
+column_value|Yes|This is the column value for which the filter is applied.| -NA- | DYJD7252
+type|Yes|This is the data type of the filter.| -NA- | string</p>
+</div>
+<div class="section" id="example-request">
+<h3>Example Request<a class="headerlink" href="#example-request" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-JSON notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+	<span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;mosip.admin.masterdata.fetch&quot;</span><span class="p">,</span>
+	<span class="nt">&quot;version&quot;</span><span class="p">:</span><span class="s2">&quot;1.0&quot;</span><span class="p">,</span>	
+	<span class="nt">&quot;requesttime&quot;</span><span class="p">:</span><span class="s2">&quot;2007-12-03T10:15:30Z&quot;</span><span class="p">,</span>
+	<span class="nt">&quot;request&quot;</span><span class="p">:</span> <span class="p">{</span>
+		<span class="nt">&quot;entity&quot;</span><span class="p">:</span> <span class="s2">&quot;machines&quot;</span><span class="p">,</span>
+		<span class="nt">&quot;conditionandoperators&quot;</span><span class="p">:[</span>
+			<span class="p">{</span>
+				<span class="nt">&quot;order&quot;</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span>
+				<span class="nt">&quot;column_name&quot;</span><span class="p">:</span><span class="s2">&quot;machinename&quot;</span><span class="p">,</span>
+				<span class="nt">&quot;operator&quot;</span><span class="p">:</span><span class="s2">&quot;EQUALS&quot;</span><span class="p">,</span>
+				<span class="nt">&quot;column_value&quot;</span><span class="p">:</span><span class="s2">&quot;DYJD7252&quot;</span><span class="p">,</span>
+				<span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="s2">&quot;string&quot;</span>
+			<span class="p">},</span>
+			<span class="p">{</span>
+				<span class="nt">&quot;order&quot;</span><span class="p">:</span><span class="mi">2</span><span class="p">,</span>
+				<span class="nt">&quot;column_name&quot;</span><span class="p">:</span><span class="s2">&quot;is_active&quot;</span><span class="p">,</span>
+				<span class="nt">&quot;operator&quot;</span><span class="p">:</span><span class="s2">&quot;EQUALS&quot;</span><span class="p">,</span>
+				<span class="nt">&quot;column_value&quot;</span><span class="p">:</span><span class="s2">&quot;false&quot;</span>
+				<span class="s2">&quot;type&quot;</span><span class="p">:</span><span class="s2">&quot;boolean&quot;</span>
+			<span class="p">}</span>
+		<span class="p">],</span>
+		<span class="nt">&quot;operator&quot;</span> <span class="p">:</span> <span class="s2">&quot;AND&quot;</span>
+		
+	<span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="example-response">
+<h3>Example Response<a class="headerlink" href="#example-response" title="Permalink to this headline">¶</a></h3>
+<p>Success Response</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">JSON</span><span class="p">:</span>
+<span class="p">{</span>
+	<span class="s2">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;mosip.admin.masterdata.fetch&quot;</span><span class="p">,</span>
+	<span class="s2">&quot;ver&quot;</span><span class="p">:</span> <span class="s2">&quot;1.0&quot;</span><span class="p">,</span>
+	<span class="s2">&quot;responsetime&quot;</span><span class="p">:</span> <span class="s2">&quot;2007-12-03T10:15:30Z&quot;</span><span class="p">,</span>
+	<span class="s2">&quot;response&quot;</span><span class="p">:</span> <span class="p">{</span>
+		<span class="s2">&quot;machines&quot;</span><span class="p">:</span> <span class="p">[</span>
+			<span class="p">{</span>
+				<span class="s2">&quot;machineid&quot;</span><span class="p">:</span><span class="s2">&quot;string&quot;</span><span class="p">,</span>
+				<span class="s2">&quot;machinename&quot;</span><span class="p">:</span><span class="s2">&quot;string&quot;</span><span class="p">,</span>
+				<span class="s2">&quot;macid&quot;</span><span class="p">:</span><span class="s2">&quot;string&quot;</span><span class="p">,</span>
+				<span class="s2">&quot;serialnumber&quot;</span><span class="p">:</span><span class="s2">&quot;string&quot;</span><span class="p">,</span>
+				<span class="s2">&quot;isactive&quot;</span><span class="p">:</span><span class="s2">&quot;string&quot;</span>
+			<span class="p">}</span>
+		<span class="p">]</span>
+	<span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Error Responses</p>
+<ol class="simple">
+<li><p>Invalid credentials: If the passed credentials is not correct.</p></li>
+</ol>
+<div class="highlight-JSON notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+	<span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;mosip.admin.masterdata.fetch&quot;</span><span class="p">,</span>
+	<span class="nt">&quot;ver&quot;</span><span class="p">:</span> <span class="s2">&quot;1.0&quot;</span><span class="p">,</span>
+	<span class="nt">&quot;responsetime&quot;</span><span class="p">:</span> <span class="s2">&quot;2007-12-03T10:15:30Z&quot;</span><span class="p">,</span>
+	<span class="nt">&quot;errors&quot;</span><span class="p">:[</span>
+			<span class="p">{</span>
+				<span class="nt">&quot;errorCode&quot;</span><span class="p">:</span> <span class="s2">&quot;ADMN_MST_FTCH_AUTH_ERR_INVALIDCREDENTIALS&quot;</span><span class="p">,</span>
+				<span class="nt">&quot;message&quot;</span><span class="p">:</span> <span class="s2">&quot;The passed in credentials is not correct&quot;</span>
+		  <span class="p">}</span>	
+		<span class="p">]</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<ol class="simple">
+<li><p>Invalid entity: If the passed in entity is not correct.</p></li>
+</ol>
+<div class="highlight-JSON notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+	<span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;mosip.admin.masterdata.fetch&quot;</span><span class="p">,</span>
+	<span class="nt">&quot;ver&quot;</span><span class="p">:</span> <span class="s2">&quot;1.0&quot;</span><span class="p">,</span>
+	<span class="nt">&quot;responsetime&quot;</span><span class="p">:</span> <span class="s2">&quot;2007-12-03T10:15:30Z&quot;</span><span class="p">,</span>
+	<span class="nt">&quot;errors&quot;</span><span class="p">:[</span>
+			<span class="p">{</span>
+				<span class="nt">&quot;errorCode&quot;</span><span class="p">:</span> <span class="s2">&quot;ADMN_MST_FTCH_AUTH_ENTITY_INVALID&quot;</span><span class="p">,</span>
+				<span class="nt">&quot;message&quot;</span><span class="p">:</span> <span class="s2">&quot;The passed in entity is not correct&quot;</span>
+		  <span class="p">}</span>	
+		<span class="p">]</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<ol class="simple">
+<li><p>Invalid fields: If the passed fields are not correct.</p></li>
+</ol>
+<div class="highlight-JSON notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+	<span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;mosip.admin.masterdata.fetch&quot;</span><span class="p">,</span>
+	<span class="nt">&quot;ver&quot;</span><span class="p">:</span> <span class="s2">&quot;1.0&quot;</span><span class="p">,</span>
+	<span class="nt">&quot;responsetime&quot;</span><span class="p">:</span> <span class="s2">&quot;2007-12-03T10:15:30Z&quot;</span><span class="p">,</span>
+	<span class="nt">&quot;errors&quot;</span><span class="p">:[</span>
+			<span class="p">{</span>
+				<span class="nt">&quot;errorCode&quot;</span><span class="p">:</span> <span class="s2">&quot;ADMN_MST_FTCH_AUTH_FLDS_INVALID&quot;</span><span class="p">,</span>
+				<span class="nt">&quot;message&quot;</span><span class="p">:</span> <span class="s2">&quot;The passed in fields are not correct&quot;</span>
+		  <span class="p">}</span>	
+		<span class="p">]</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, mosip-team
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

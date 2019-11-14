@@ -1,0 +1,964 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="java" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="java" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Pre-Registration &mdash; MOSIP 0.9 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script type="text/javascript" src="_static/jquery.js"></script>
+        <script type="text/javascript" src="_static/underscore.js"></script>
+        <script type="text/javascript" src="_static/doctools.js"></script>
+        <script type="text/javascript" src="_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search"  style="background: white" >
+          
+
+          
+            <a href="index.html" class="icon icon-home"> MOSIP
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.9
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <!-- Local TOC -->
+              <div class="local-toc"><ul>
+<li><a class="reference internal" href="#">Pre-Registration</a><ul>
+<li><a class="reference internal" href="#authentication">1. Authentication</a><ul>
+<li><a class="reference internal" href="#login">1.1 Login</a></li>
+<li><a class="reference internal" href="#logout">1.2 Logout</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#language-data-manager">2. Language Data Manager</a><ul>
+<li><a class="reference internal" href="#translation">2.1 Translation</a></li>
+<li><a class="reference internal" href="#transliteration">2.2 Transliteration</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#pre-registration-sync">3. Pre-Registration Sync</a><ul>
+<li><a class="reference internal" href="#pre-registration-data-sync">3.1 Pre-Registration Data Sync</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#appointment-scheduler">4. Appointment Scheduler</a><ul>
+<li><a class="reference internal" href="#rc-identifier">4.1 RC Identifier</a></li>
+<li><a class="reference internal" href="#availability-checker">4.2 Availability Checker</a></li>
+<li><a class="reference internal" href="#appointment-booking">4.3 Appointment Booking</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#pre-registration-application-manager">5. Pre-Registration Application Manager</a><ul>
+<li><a class="reference internal" href="#id1">5.1 Pre-Registration Application Manager</a></li>
+<li><a class="reference internal" href="#acknowledgment">5.2 Acknowledgment</a></li>
+<li><a class="reference internal" href="#prid-generator">5.3 PRID Generator</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a class="reference internal" href="#registration">Registration</a><ul>
+<li><a class="reference internal" href="#registration-client-setup">1. Registration Client Setup</a><ul>
+<li><a class="reference internal" href="#registration-client-installation">1.1 Registration Client Installation</a></li>
+<li><a class="reference internal" href="#registration-client-launch">1.2 Registration Client Launch</a></li>
+<li><a class="reference internal" href="#registration-client-software-update">1.3 Registration Client Software Update</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#system-health-checker">2. System Health Checker</a><ul>
+<li><a class="reference internal" href="#connectivity-checker">2.1 Connectivity Checker</a></li>
+<li><a class="reference internal" href="#security-scan">2.2 Security Scan</a></li>
+<li><a class="reference internal" href="#disk-space-checker">2.3 Disk Space Checker</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#registration-officer-authentication">3. Registration Officer Authentication</a><ul>
+<li><a class="reference internal" href="#id2">3.1 Login</a></li>
+<li><a class="reference internal" href="#id3">3.2 Logout</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#user-onboarding-manager">4. User Onboarding/Manager</a><ul>
+<li><a class="reference internal" href="#user-registration">4.1 User Registration</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#language-manager">5. Language Manager</a><ul>
+<li><a class="reference internal" href="#id4">5.1 Translation</a></li>
+<li><a class="reference internal" href="#id5">5.2 Transliteration</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#registration-application-manager-new">6. Registration Application Manager - New</a><ul>
+<li><a class="reference internal" href="#location-geo-tagging">6.1 Location Geo tagging</a></li>
+<li><a class="reference internal" href="#individual-category-selection">6.2 Individual Category Selection</a></li>
+<li><a class="reference internal" href="#demo-data-capture">6.3 Demo Data Capture</a></li>
+<li><a class="reference internal" href="#document-upload">6.4 Document Upload</a></li>
+<li><a class="reference internal" href="#fingerprint-capture">6.5 Fingerprint Capture</a></li>
+<li><a class="reference internal" href="#iris-capture">6.6 Iris Capture</a></li>
+<li><a class="reference internal" href="#face-capture">6.7 Face Capture</a></li>
+<li><a class="reference internal" href="#biometric-exception-capture">6.8 Biometric Exception Capture</a></li>
+<li><a class="reference internal" href="#registration-checks">6.9 Registration Checks</a></li>
+<li><a class="reference internal" href="#id6">6.10 Acknowledgment</a></li>
+<li><a class="reference internal" href="#notification">6.11 Notification</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#registration-officer-authorization">7. Registration Officer Authorization</a><ul>
+<li><a class="reference internal" href="#id7">7.1 Registration Officer Authorization</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#registration-packet-manager">8. Registration Packet Manager</a><ul>
+<li><a class="reference internal" href="#packet-creation">8.1 Packet Creation</a></li>
+<li><a class="reference internal" href="#packet-exporter">8.2 Packet Exporter</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#sync-handler">9. Sync Handler</a><ul>
+<li><a class="reference internal" href="#master-data-syncher">9.1 Master Data Syncher</a></li>
+<li><a class="reference internal" href="#packet-syncher">9.2 Packet Syncher</a></li>
+<li><a class="reference internal" href="#registration-packet-status-reader">9.3 Registration Packet Status-Reader</a></li>
+<li><a class="reference internal" href="#registration-client-configuration-syncher">9.4 Registration Client Configuration Syncher</a></li>
+<li><a class="reference internal" href="#user-role-setup-syncher">9.5 User Role Setup Syncher</a></li>
+<li><a class="reference internal" href="#policy-syncher">9.6 Policy Syncher</a></li>
+<li><a class="reference internal" href="#pre-registration-data-syncher">9.7 Pre-Registration Data Syncher</a></li>
+<li><a class="reference internal" href="#login-credentials-syncher">9.8 Login Credentials Syncher</a></li>
+<li><a class="reference internal" href="#audit-log-syncher">9.9 Audit Log Syncher</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#individual-uin-update">10. Individual UIN - Update</a><ul>
+<li><a class="reference internal" href="#uin-update">10.1 UIN Update</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#reporting">11. Reporting</a><ul>
+<li><a class="reference internal" href="#registration-reports">11.1 Registration Reports</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#clean-up">12. Clean Up</a><ul>
+<li><a class="reference internal" href="#data-clean-up">12.1 Data Clean Up</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a class="reference internal" href="#registration-processor">Registration Processor</a><ul>
+<li><a class="reference internal" href="#registration-packet-handler">1. Registration Packet Handler</a><ul>
+<li><a class="reference internal" href="#packets-receiver">1.1  Packets Receiver</a></li>
+<li><a class="reference internal" href="#virus-scanner-stage">1.2  Virus Scanner Stage</a></li>
+<li><a class="reference internal" href="#archive-packets">1.3 Archive Packets</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#registration-status-service">2. Registration Status Service</a><ul>
+<li><a class="reference internal" href="#registration-status">2.1 Registration Status</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#registration-packet-processor">3. Registration Packet Processor</a><ul>
+<li><a class="reference internal" href="#packet-validator-stage">3.1 Packet Validator Stage</a></li>
+<li><a class="reference internal" href="#osi-validator-stage">3.2 OSI Validator Stage</a></li>
+<li><a class="reference internal" href="#quality-check-stage">3.3 Quality Check Stage</a></li>
+<li><a class="reference internal" href="#demo-de-dupe-stage">3.4 Demo De-Dupe Stage</a></li>
+<li><a class="reference internal" href="#biometric-de-dupe-dummy-abis">3.5 Biometric De-Dupe Dummy ABIS</a></li>
+<li><a class="reference internal" href="#manual-verification">3.6 Manual Verification</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#uin-generator">4. UIN Generator</a><ul>
+<li><a class="reference internal" href="#uin-generator-stage">4.1 UIN Generator Stage</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#print">5. Print</a><ul>
+<li><a class="reference internal" href="#print-queue-stage">5.1 Print Queue Stage</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#uin-lifecycle-manager">6. UIN Lifecycle Manager</a><ul>
+<li><a class="reference internal" href="#uin-update-stage">6.1 UIN Update Stage</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#external-system-integration">7. External System Integration</a><ul>
+<li><a class="reference internal" href="#id8">7.1 External System Integration</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a class="reference internal" href="#id-authentication">ID-Authentication</a><ul>
+<li><a class="reference internal" href="#tsp-ua-authentication">1. TSP/UA Authentication</a><ul>
+<li><a class="reference internal" href="#tsp-authentication">1.1 TSP Authentication</a></li>
+<li><a class="reference internal" href="#authentication-mode-verifier">1.2 Authentication Mode Verifier</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#tsp-ua-authorization">2. TSP/UA Authorization</a><ul>
+<li><a class="reference internal" href="#tsp-authorization">2.1 TSP Authorization</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#individual-authentication">3. Individual Authentication</a><ul>
+<li><a class="reference internal" href="#biometric-authentication">3.1 Biometric Authentication</a></li>
+<li><a class="reference internal" href="#demographic-authentication">3.2 Demographic Authentication</a></li>
+<li><a class="reference internal" href="#otp-authentication">3.3 OTP Authentication</a></li>
+<li><a class="reference internal" href="#static-pin-authentication">3.4 Static PIN Authentication</a></li>
+<li><a class="reference internal" href="#e-kyc-authentication-services">3.5 E-KYC Authentication Services</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#integrated-individual-authentication">4. Integrated Individual Authentication</a><ul>
+<li><a class="reference internal" href="#multiple-components">4.1 Multiple Components</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a class="reference internal" href="#admin-setup-tbd-wip">Admin Setup (TBD WIP)</a></li>
+<li><a class="reference internal" href="#resident-services-tbd-wip">Resident Services (TBD WIP)</a></li>
+<li><a class="reference internal" href="#reporting-tbd-wip">Reporting (TBD WIP)</a></li>
+<li><a class="reference internal" href="#platform-level-features-and-utilities">Platform Level Features and Utilities</a><ul>
+<li><a class="reference internal" href="#utilities">Utilities</a><ul>
+<li><a class="reference internal" href="#exception-handler">Exception Handler</a></li>
+<li><a class="reference internal" href="#log-manager-mosip-logging">Log Manager (mosip-logging)</a></li>
+<li><a class="reference internal" href="#mosip-utils">mosip-utils</a></li>
+<li><a class="reference internal" href="#data-access-manager-dataaccess-hibernate">Data Access Manager(dataaccess-hibernate)</a></li>
+<li><a class="reference internal" href="#data-mapper">Data Mapper</a></li>
+<li><a class="reference internal" href="#mobile-validator">Mobile validator</a></li>
+<li><a class="reference internal" href="#email-validator">Email validator</a></li>
+<li><a class="reference internal" href="#blacklisted-words-validator">Blacklisted Words Validator</a></li>
+<li><a class="reference internal" href="#rid-generator">RID Generator</a></li>
+<li><a class="reference internal" href="#id9">PRID Generator</a></li>
+<li><a class="reference internal" href="#vid-generator">VID Generator</a></li>
+<li><a class="reference internal" href="#token-id-generator">Token ID Generator</a></li>
+<li><a class="reference internal" href="#static-pin-generator">Static PIN Generator</a></li>
+<li><a class="reference internal" href="#registration-center-id-generator">Registration Center ID Generator</a></li>
+<li><a class="reference internal" href="#machine-id-generator">Machine ID generator</a></li>
+<li><a class="reference internal" href="#tsp-id-generator">TSP ID Generator</a></li>
+<li><a class="reference internal" href="#virusscanner-clamav">virusscanner-clamav</a></li>
+<li><a class="reference internal" href="#template-merger">Template Merger</a></li>
+<li><a class="reference internal" href="#pdfgenerator">pdfgenerator</a></li>
+<li><a class="reference internal" href="#qr-code-generator">QR Code Generator</a></li>
+<li><a class="reference internal" href="#ftp-upload-packet">FTP - Upload packet</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#features">Features</a><ul>
+<li><a class="reference internal" href="#notification-manager-notification-sms">Notification Manager-notification-sms</a></li>
+<li><a class="reference internal" href="#notification-manager-notification-email">Notification Manager-notification-email</a></li>
+<li><a class="reference internal" href="#sync-handler-master-data">Sync Handler-Master data</a></li>
+<li><a class="reference internal" href="#sync-handler-public-keys">Sync Handler-Public keys</a></li>
+<li><a class="reference internal" href="#sync-handler-configuration-changes">Sync Handler-Configuration changes</a></li>
+<li><a class="reference internal" href="#sync-handler-list-of-roles-and-users">Sync Handler-List of Roles and users</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">MOSIP</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html">Docs</a> &raquo;</li>
+        
+      <li>Pre-Registration</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/MOSIP-Functional-Requirement-Specifications.md.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="pre-registration">
+<h1>Pre-Registration<a class="headerlink" href="#pre-registration" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="authentication">
+<h2>1. Authentication<a class="headerlink" href="#authentication" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="login">
+<h3>1.1 Login<a class="headerlink" href="#login" title="Permalink to this headline">¶</a></h3>
+<p>Log in to the pre-registration system with a mobile or email with OTP so that you can get access to the pre-registration system</p>
+</div>
+<div class="section" id="logout">
+<h3>1.2 Logout<a class="headerlink" href="#logout" title="Permalink to this headline">¶</a></h3>
+<p>Log out from the pre-registration system</p>
+</div>
+</div>
+<div class="section" id="language-data-manager">
+<h2>2. Language Data Manager<a class="headerlink" href="#language-data-manager" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="translation">
+<h3>2.1 Translation<a class="headerlink" href="#translation" title="Permalink to this headline">¶</a></h3>
+<p>Translation of the language as per the pre-configured primary and secondary language for a country</p>
+</div>
+<div class="section" id="transliteration">
+<h3>2.2 Transliteration<a class="headerlink" href="#transliteration" title="Permalink to this headline">¶</a></h3>
+<p>Transliteration of the language as per the pre-configured secondary language for a country</p>
+</div>
+</div>
+<div class="section" id="pre-registration-sync">
+<h2>3. Pre-Registration Sync<a class="headerlink" href="#pre-registration-sync" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="pre-registration-data-sync">
+<h3>3.1 Pre-Registration Data Sync<a class="headerlink" href="#pre-registration-data-sync" title="Permalink to this headline">¶</a></h3>
+<ol class="simple">
+<li><p>Synchronizes the pre-registration data with the registration-client</p></li>
+<li><p>Synchronizes status of pre-ID with registration processor</p></li>
+</ol>
+</div>
+</div>
+<div class="section" id="appointment-scheduler">
+<h2>4. Appointment Scheduler<a class="headerlink" href="#appointment-scheduler" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="rc-identifier">
+<h3>4.1 RC Identifier<a class="headerlink" href="#rc-identifier" title="Permalink to this headline">¶</a></h3>
+<p>Provides search facility for available registration centers so that applicant can book an appointment</p>
+</div>
+<div class="section" id="availability-checker">
+<h3>4.2 Availability Checker<a class="headerlink" href="#availability-checker" title="Permalink to this headline">¶</a></h3>
+<p>Getting availability of slots in the chosen registration center</p>
+</div>
+<div class="section" id="appointment-booking">
+<h3>4.3 Appointment Booking<a class="headerlink" href="#appointment-booking" title="Permalink to this headline">¶</a></h3>
+<p>Booking\re-booking the selected slot in the chosen registration-center for registration</p>
+</div>
+</div>
+<div class="section" id="pre-registration-application-manager">
+<h2>5. Pre-Registration Application Manager<a class="headerlink" href="#pre-registration-application-manager" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id1">
+<h3>5.1 Pre-Registration Application Manager<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h3>
+<p>Collects (create\modify\delete) demographic data and documents (specific to the applicant type) from the user\applicant</p>
+</div>
+<div class="section" id="acknowledgment">
+<h3>5.2 Acknowledgment<a class="headerlink" href="#acknowledgment" title="Permalink to this headline">¶</a></h3>
+<p>Generates an acknowledgment (with QR Code) for successful pre-registration, which can then be printed or downloaded for future reference.</p>
+</div>
+<div class="section" id="prid-generator">
+<h3>5.3 PRID Generator<a class="headerlink" href="#prid-generator" title="Permalink to this headline">¶</a></h3>
+<p>Generates pre-registration ID</p>
+</div>
+</div>
+</div>
+<div class="section" id="registration">
+<h1>Registration<a class="headerlink" href="#registration" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="registration-client-setup">
+<h2>1. Registration Client Setup<a class="headerlink" href="#registration-client-setup" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="registration-client-installation">
+<h3>1.1 Registration Client Installation<a class="headerlink" href="#registration-client-installation" title="Permalink to this headline">¶</a></h3>
+<p>Installs the registration-client on the machine</p>
+</div>
+<div class="section" id="registration-client-launch">
+<h3>1.2 Registration Client Launch<a class="headerlink" href="#registration-client-launch" title="Permalink to this headline">¶</a></h3>
+<p>Helps in launching the registration-client</p>
+</div>
+<div class="section" id="registration-client-software-update">
+<h3>1.3 Registration Client Software Update<a class="headerlink" href="#registration-client-software-update" title="Permalink to this headline">¶</a></h3>
+<p>Updates the client software</p>
+</div>
+</div>
+<div class="section" id="system-health-checker">
+<h2>2. System Health Checker<a class="headerlink" href="#system-health-checker" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="connectivity-checker">
+<h3>2.1 Connectivity Checker<a class="headerlink" href="#connectivity-checker" title="Permalink to this headline">¶</a></h3>
+<p>Checks if the client machine is connected to the network</p>
+</div>
+<div class="section" id="security-scan">
+<h3>2.2 Security Scan<a class="headerlink" href="#security-scan" title="Permalink to this headline">¶</a></h3>
+<p>Virus scan of the data packets and the application software</p>
+</div>
+<div class="section" id="disk-space-checker">
+<h3>2.3 Disk Space Checker<a class="headerlink" href="#disk-space-checker" title="Permalink to this headline">¶</a></h3>
+<p>Checks whether there is enough space in the client machine\dongle to store the registration packet</p>
+</div>
+</div>
+<div class="section" id="registration-officer-authentication">
+<h2>3. Registration Officer Authentication<a class="headerlink" href="#registration-officer-authentication" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id2">
+<h3>3.1 Login<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h3>
+<p>Enables logging in to the client machine by a password, OTP or biometrics</p>
+</div>
+<div class="section" id="id3">
+<h3>3.2 Logout<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h3>
+<p>Logging out from the client application</p>
+</div>
+</div>
+<div class="section" id="user-onboarding-manager">
+<h2>4. User Onboarding/Manager<a class="headerlink" href="#user-onboarding-manager" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="user-registration">
+<h3>4.1 User Registration<a class="headerlink" href="#user-registration" title="Permalink to this headline">¶</a></h3>
+<p>Enables mapping between the user and machine\dongle. Allows a user to on-board themselves on a machine</p>
+</div>
+</div>
+<div class="section" id="language-manager">
+<h2>5. Language Manager<a class="headerlink" href="#language-manager" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id4">
+<h3>5.1 Translation<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h3>
+<p>Translates the static messages as per the configures primary and secondary languages</p>
+</div>
+<div class="section" id="id5">
+<h3>5.2 Transliteration<a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h3>
+<p>Translates the user entered text from primary to secondary language</p>
+</div>
+</div>
+<div class="section" id="registration-application-manager-new">
+<h2>6. Registration Application Manager - New<a class="headerlink" href="#registration-application-manager-new" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="location-geo-tagging">
+<h3>6.1 Location Geo tagging<a class="headerlink" href="#location-geo-tagging" title="Permalink to this headline">¶</a></h3>
+<p>Captures the GPS coordinates of the client machine to ensure data integrity</p>
+</div>
+<div class="section" id="individual-category-selection">
+<h3>6.2 Individual Category Selection<a class="headerlink" href="#individual-category-selection" title="Permalink to this headline">¶</a></h3>
+<p>Helps to distinguish if an applicant is an adult or a child</p>
+</div>
+<div class="section" id="demo-data-capture">
+<h3>6.3 Demo Data Capture<a class="headerlink" href="#demo-data-capture" title="Permalink to this headline">¶</a></h3>
+<p>Captures the demographic data of the applicant</p>
+</div>
+<div class="section" id="document-upload">
+<h3>6.4 Document Upload<a class="headerlink" href="#document-upload" title="Permalink to this headline">¶</a></h3>
+<p>Enables scan and upload supporting doc such as POA and POI</p>
+</div>
+<div class="section" id="fingerprint-capture">
+<h3>6.5 Fingerprint Capture<a class="headerlink" href="#fingerprint-capture" title="Permalink to this headline">¶</a></h3>
+<p>Captures the fingerprint data and determines the quality of the data</p>
+</div>
+<div class="section" id="iris-capture">
+<h3>6.6 Iris Capture<a class="headerlink" href="#iris-capture" title="Permalink to this headline">¶</a></h3>
+<p>Captures the iris data and determines the quality of the data</p>
+</div>
+<div class="section" id="face-capture">
+<h3>6.7 Face Capture<a class="headerlink" href="#face-capture" title="Permalink to this headline">¶</a></h3>
+<p>Captures the face photograph</p>
+</div>
+<div class="section" id="biometric-exception-capture">
+<h3>6.8 Biometric Exception Capture<a class="headerlink" href="#biometric-exception-capture" title="Permalink to this headline">¶</a></h3>
+<ol class="simple">
+<li><p>Captures the exception photograph</p></li>
+<li><p>Marks the biometric exceptions</p></li>
+</ol>
+</div>
+<div class="section" id="registration-checks">
+<h3>6.9 Registration Checks<a class="headerlink" href="#registration-checks" title="Permalink to this headline">¶</a></h3>
+<ol class="simple">
+<li><p>Preview of the registration details</p></li>
+<li><p>Operator authentication for submitting the registration</p></li>
+<li><p>Supervisor authentication for submitting registration with exception</p></li>
+<li><p>End of day approval</p></li>
+<li><p>Re-registration</p></li>
+</ol>
+</div>
+<div class="section" id="id6">
+<h3>6.10 Acknowledgment<a class="headerlink" href="#id6" title="Permalink to this headline">¶</a></h3>
+<p>Renders the acknowledgment page after successful registration and allows printing</p>
+</div>
+<div class="section" id="notification">
+<h3>6.11 Notification<a class="headerlink" href="#notification" title="Permalink to this headline">¶</a></h3>
+<p>Renders email and SMS notification for various events such as successful registration</p>
+</div>
+</div>
+<div class="section" id="registration-officer-authorization">
+<h2>7. Registration Officer Authorization<a class="headerlink" href="#registration-officer-authorization" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id7">
+<h3>7.1 Registration Officer Authorization<a class="headerlink" href="#id7" title="Permalink to this headline">¶</a></h3>
+<p>Determines the user roles and provides access based on the privileges</p>
+</div>
+</div>
+<div class="section" id="registration-packet-manager">
+<h2>8. Registration Packet Manager<a class="headerlink" href="#registration-packet-manager" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="packet-creation">
+<h3>8.1 Packet Creation<a class="headerlink" href="#packet-creation" title="Permalink to this headline">¶</a></h3>
+<p>Creates the encrypted data packets</p>
+</div>
+<div class="section" id="packet-exporter">
+<h3>8.2 Packet Exporter<a class="headerlink" href="#packet-exporter" title="Permalink to this headline">¶</a></h3>
+<p>Allows sending packets to the processing server</p>
+<ol class="simple">
+<li><p>Using the upload feature of the client</p></li>
+<li><p>Copying packets to an external storage device</p></li>
+</ol>
+</div>
+</div>
+<div class="section" id="sync-handler">
+<h2>9. Sync Handler<a class="headerlink" href="#sync-handler" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="master-data-syncher">
+<h3>9.1 Master Data Syncher<a class="headerlink" href="#master-data-syncher" title="Permalink to this headline">¶</a></h3>
+<p>Synchronizes master data between a server to client</p>
+</div>
+<div class="section" id="packet-syncher">
+<h3>9.2 Packet Syncher<a class="headerlink" href="#packet-syncher" title="Permalink to this headline">¶</a></h3>
+<p>Send registration packet IDs from client to processor so that to ensure data security</p>
+</div>
+<div class="section" id="registration-packet-status-reader">
+<h3>9.3 Registration Packet Status-Reader<a class="headerlink" href="#registration-packet-status-reader" title="Permalink to this headline">¶</a></h3>
+<p>Read the status of the packets from processor into the client to ensure resend or deleting of packets as required</p>
+</div>
+<div class="section" id="registration-client-configuration-syncher">
+<h3>9.4 Registration Client Configuration Syncher<a class="headerlink" href="#registration-client-configuration-syncher" title="Permalink to this headline">¶</a></h3>
+<p>Synchronizes configuration data between a server to client</p>
+</div>
+<div class="section" id="user-role-setup-syncher">
+<h3>9.5 User Role Setup Syncher<a class="headerlink" href="#user-role-setup-syncher" title="Permalink to this headline">¶</a></h3>
+<p>Synchronizes user and role data between a server to client</p>
+</div>
+<div class="section" id="policy-syncher">
+<h3>9.6 Policy Syncher<a class="headerlink" href="#policy-syncher" title="Permalink to this headline">¶</a></h3>
+<p>Synchronizes encryptions Keys between a server to client</p>
+</div>
+<div class="section" id="pre-registration-data-syncher">
+<h3>9.7 Pre-Registration Data Syncher<a class="headerlink" href="#pre-registration-data-syncher" title="Permalink to this headline">¶</a></h3>
+<p>Synchronizes pre-registration data between a server to client</p>
+</div>
+<div class="section" id="login-credentials-syncher">
+<h3>9.8 Login Credentials Syncher<a class="headerlink" href="#login-credentials-syncher" title="Permalink to this headline">¶</a></h3>
+<p>Synchronizes login data (password) between a server to client</p>
+</div>
+<div class="section" id="audit-log-syncher">
+<h3>9.9 Audit Log Syncher<a class="headerlink" href="#audit-log-syncher" title="Permalink to this headline">¶</a></h3>
+<p>Synchronize the audit log from client to server</p>
+</div>
+</div>
+<div class="section" id="individual-uin-update">
+<h2>10. Individual UIN - Update<a class="headerlink" href="#individual-uin-update" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="uin-update">
+<h3>10.1 UIN Update<a class="headerlink" href="#uin-update" title="Permalink to this headline">¶</a></h3>
+<p>Allows the UIN holder to update their data (A specific set of data as defined by the country)</p>
+</div>
+</div>
+<div class="section" id="reporting">
+<h2>11. Reporting<a class="headerlink" href="#reporting" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="registration-reports">
+<h3>11.1 Registration Reports<a class="headerlink" href="#registration-reports" title="Permalink to this headline">¶</a></h3>
+<p>Generates reports on end of day process and re-registration</p>
+</div>
+</div>
+<div class="section" id="clean-up">
+<h2>12. Clean Up<a class="headerlink" href="#clean-up" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="data-clean-up">
+<h3>12.1 Data Clean Up<a class="headerlink" href="#data-clean-up" title="Permalink to this headline">¶</a></h3>
+<p>Deletes the following data from the client machine after successful registration:</p>
+<ol class="simple">
+<li><p>Registration</p></li>
+<li><p>Pre-registration</p></li>
+<li><p>Audit</p></li>
+</ol>
+</div>
+</div>
+</div>
+<div class="section" id="registration-processor">
+<h1>Registration Processor<a class="headerlink" href="#registration-processor" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="registration-packet-handler">
+<h2>1. Registration Packet Handler<a class="headerlink" href="#registration-packet-handler" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="packets-receiver">
+<h3>1.1  Packets Receiver<a class="headerlink" href="#packets-receiver" title="Permalink to this headline">¶</a></h3>
+<ol class="simple">
+<li><p>It receives the packet sent from the registration client</p></li>
+<li><p>Performs various sanity checks on the packet</p></li>
+</ol>
+</div>
+<div class="section" id="virus-scanner-stage">
+<h3>1.2  Virus Scanner Stage<a class="headerlink" href="#virus-scanner-stage" title="Permalink to this headline">¶</a></h3>
+<p>Performs virus scan of the encrypted and de-crypted packet and stores the packet in the file system as per configuration</p>
+</div>
+<div class="section" id="archive-packets">
+<h3>1.3 Archive Packets<a class="headerlink" href="#archive-packets" title="Permalink to this headline">¶</a></h3>
+<p>Makes the data packets available for archival</p>
+</div>
+</div>
+<div class="section" id="registration-status-service">
+<h2>2. Registration Status Service<a class="headerlink" href="#registration-status-service" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="registration-status">
+<h3>2.1 Registration Status<a class="headerlink" href="#registration-status" title="Permalink to this headline">¶</a></h3>
+<p>As the per the stage driven architecture, this utility updates the status in the DB for the data packet at every stage</p>
+</div>
+</div>
+<div class="section" id="registration-packet-processor">
+<h2>3. Registration Packet Processor<a class="headerlink" href="#registration-packet-processor" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="packet-validator-stage">
+<h3>3.1 Packet Validator Stage<a class="headerlink" href="#packet-validator-stage" title="Permalink to this headline">¶</a></h3>
+<p>It performs integrity validation (checksum) and file validation</p>
+</div>
+<div class="section" id="osi-validator-stage">
+<h3>3.2 OSI Validator Stage<a class="headerlink" href="#osi-validator-stage" title="Permalink to this headline">¶</a></h3>
+<p>Authenticate operator, supervisor and introducer information received in data packet, and validate the metadata captured during packet creation</p>
+</div>
+<div class="section" id="quality-check-stage">
+<h3>3.3 Quality Check Stage<a class="headerlink" href="#quality-check-stage" title="Permalink to this headline">¶</a></h3>
+<ol class="simple">
+<li><p>Checks the quality of biometric data against a configured threshold</p></li>
+<li><p>Validates if photo, age and gender are in sync</p></li>
+<li><p>Validates the document with the data captured using OCR</p></li>
+<li><p>Performs fingerprint quality checks like a real finger or finger of the same person</p></li>
+</ol>
+</div>
+<div class="section" id="demo-de-dupe-stage">
+<h3>3.4 Demo De-Dupe Stage<a class="headerlink" href="#demo-de-dupe-stage" title="Permalink to this headline">¶</a></h3>
+<p>Demographic de-duplication of name, gender and DOB</p>
+</div>
+<div class="section" id="biometric-de-dupe-dummy-abis">
+<h3>3.5 Biometric De-Dupe Dummy ABIS<a class="headerlink" href="#biometric-de-dupe-dummy-abis" title="Permalink to this headline">¶</a></h3>
+<p>It is a dummy ABIS which provides the failure and successful scenarios using Dummy Tags</p>
+</div>
+<div class="section" id="manual-verification">
+<h3>3.6 Manual Verification<a class="headerlink" href="#manual-verification" title="Permalink to this headline">¶</a></h3>
+<p>This is a pluggable stage where a manual verifier can verify the demographic and biometric data of an individual manually</p>
+</div>
+</div>
+<div class="section" id="uin-generator">
+<h2>4. UIN Generator<a class="headerlink" href="#uin-generator" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="uin-generator-stage">
+<h3>4.1 UIN Generator Stage<a class="headerlink" href="#uin-generator-stage" title="Permalink to this headline">¶</a></h3>
+<ol class="simple">
+<li><p>Generates and allocates a UIN as per the defined logic</p></li>
+<li><p>Stores the people biometric and demographic data in the identity repository</p></li>
+<li><p>Notifies the resident that UIN is generated through the configured channels (SMS, Email etc.)</p></li>
+</ol>
+</div>
+</div>
+<div class="section" id="print">
+<h2>5. Print<a class="headerlink" href="#print" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="print-queue-stage">
+<h3>5.1 Print Queue Stage<a class="headerlink" href="#print-queue-stage" title="Permalink to this headline">¶</a></h3>
+<p>Make the UIN data and UIN card available for printing and postal services</p>
+</div>
+</div>
+<div class="section" id="uin-lifecycle-manager">
+<h2>6. UIN Lifecycle Manager<a class="headerlink" href="#uin-lifecycle-manager" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="uin-update-stage">
+<h3>6.1 UIN Update Stage<a class="headerlink" href="#uin-update-stage" title="Permalink to this headline">¶</a></h3>
+<ol class="simple">
+<li><p>Updates the data (demographic\biometric) of the resident</p></li>
+<li><p>Updation of UIN status to re-activate</p></li>
+<li><p>Updation of UIN status to deactivate</p></li>
+</ol>
+</div>
+</div>
+<div class="section" id="external-system-integration">
+<h2>7. External System Integration<a class="headerlink" href="#external-system-integration" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id8">
+<h3>7.1 External System Integration<a class="headerlink" href="#id8" title="Permalink to this headline">¶</a></h3>
+<p>This stage interacts with various external systems such as CNIE and EC</p>
+</div>
+</div>
+</div>
+<div class="section" id="id-authentication">
+<h1>ID-Authentication<a class="headerlink" href="#id-authentication" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="tsp-ua-authentication">
+<h2>1. TSP/UA Authentication<a class="headerlink" href="#tsp-ua-authentication" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="tsp-authentication">
+<h3>1.1 TSP Authentication<a class="headerlink" href="#tsp-authentication" title="Permalink to this headline">¶</a></h3>
+<p>Validates if the TSP and UA are authenticated sources to initiate the individual's authentication request</p>
+</div>
+<div class="section" id="authentication-mode-verifier">
+<h3>1.2 Authentication Mode Verifier<a class="headerlink" href="#authentication-mode-verifier" title="Permalink to this headline">¶</a></h3>
+<p>Verifies if the UA holds permission to initiate the mode of authentication in the authentication request</p>
+</div>
+</div>
+<div class="section" id="tsp-ua-authorization">
+<h2>2. TSP/UA Authorization<a class="headerlink" href="#tsp-ua-authorization" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="tsp-authorization">
+<h3>2.1 TSP Authorization<a class="headerlink" href="#tsp-authorization" title="Permalink to this headline">¶</a></h3>
+<p>Determines if the TSP and UA are authorised entities to initiate the individual's authentication request</p>
+</div>
+</div>
+<div class="section" id="individual-authentication">
+<h2>3. Individual Authentication<a class="headerlink" href="#individual-authentication" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="biometric-authentication">
+<h3>3.1 Biometric Authentication<a class="headerlink" href="#biometric-authentication" title="Permalink to this headline">¶</a></h3>
+<p>Verifies the authenticity of an individual using biometric attributes provided in the authentication request</p>
+</div>
+<div class="section" id="demographic-authentication">
+<h3>3.2 Demographic Authentication<a class="headerlink" href="#demographic-authentication" title="Permalink to this headline">¶</a></h3>
+<p>Verifies the authenticity of an individual using demographic attributes provided in the authentication request</p>
+</div>
+<div class="section" id="otp-authentication">
+<h3>3.3 OTP Authentication<a class="headerlink" href="#otp-authentication" title="Permalink to this headline">¶</a></h3>
+<ol class="simple">
+<li><p>Enables an individual to receive OTP</p></li>
+<li><p>Verifies the authenticity of an individual using OTP provided in the authentication request</p></li>
+</ol>
+</div>
+<div class="section" id="static-pin-authentication">
+<h3>3.4 Static PIN Authentication<a class="headerlink" href="#static-pin-authentication" title="Permalink to this headline">¶</a></h3>
+<ol class="simple">
+<li><p>Enables storage of static pin set by an individual in MOSIP Resident Services Portal</p></li>
+<li><p>Verifies the authenticity of an individual using static pin provided in the authentication request</p></li>
+</ol>
+</div>
+<div class="section" id="e-kyc-authentication-services">
+<h3>3.5 E-KYC Authentication Services<a class="headerlink" href="#e-kyc-authentication-services" title="Permalink to this headline">¶</a></h3>
+<p>Provides E-KYC details of an individual to the UA post successful authentication of the individual</p>
+</div>
+</div>
+<div class="section" id="integrated-individual-authentication">
+<h2>4. Integrated Individual Authentication<a class="headerlink" href="#integrated-individual-authentication" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="multiple-components">
+<h3>4.1 Multiple Components<a class="headerlink" href="#multiple-components" title="Permalink to this headline">¶</a></h3>
+<p>Verifies the authenticity of an individual using multiple attributes provided in the authentication request</p>
+</div>
+</div>
+</div>
+<div class="section" id="admin-setup-tbd-wip">
+<h1>Admin Setup (TBD WIP)<a class="headerlink" href="#admin-setup-tbd-wip" title="Permalink to this headline">¶</a></h1>
+</div>
+<div class="section" id="resident-services-tbd-wip">
+<h1>Resident Services (TBD WIP)<a class="headerlink" href="#resident-services-tbd-wip" title="Permalink to this headline">¶</a></h1>
+</div>
+<div class="section" id="reporting-tbd-wip">
+<h1>Reporting (TBD WIP)<a class="headerlink" href="#reporting-tbd-wip" title="Permalink to this headline">¶</a></h1>
+</div>
+<div class="section" id="platform-level-features-and-utilities">
+<h1>Platform Level Features and Utilities<a class="headerlink" href="#platform-level-features-and-utilities" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="utilities">
+<h2>Utilities<a class="headerlink" href="#utilities" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="exception-handler">
+<h3>Exception Handler<a class="headerlink" href="#exception-handler" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>Ability to provide base exception framework</p></li>
+<li><p>Framework to include base exception parameters (Message, throwable, cause)</p></li>
+</ul>
+</div>
+<div class="section" id="log-manager-mosip-logging">
+<h3>Log Manager (mosip-logging)<a class="headerlink" href="#log-manager-mosip-logging" title="Permalink to this headline">¶</a></h3>
+<p>Provide the following logging utility</p>
+<ul class="simple">
+<li><p>Generate logs for implentation events across the application</p></li>
+<li><p>Stores the genrated logs in configured location</p></li>
+<li><p>Each log can be genrated as a file/console</p></li>
+<li><p>Raise an alert in case of listed exceptions (File not found, No such file exists, to be identified)</p></li>
+<li><p>Links various logs associated to one applicant</p></li>
+</ul>
+</div>
+<div class="section" id="mosip-utils">
+<h3>mosip-utils<a class="headerlink" href="#mosip-utils" title="Permalink to this headline">¶</a></h3>
+<p>MOSIP provides the following utilities</p>
+<ul class="simple">
+<li><p>String utility</p></li>
+<li><p>Calendar utility</p></li>
+<li><p>Math utility</p></li>
+<li><p>File utility</p></li>
+<li><p>Hash utility</p></li>
+</ul>
+</div>
+<div class="section" id="data-access-manager-dataaccess-hibernate">
+<h3>Data Access Manager(dataaccess-hibernate)<a class="headerlink" href="#data-access-manager-dataaccess-hibernate" title="Permalink to this headline">¶</a></h3>
+<p>Provides a interface for DAO (Data Access Manager) interface</p>
+</div>
+<div class="section" id="data-mapper">
+<h3>Data Mapper<a class="headerlink" href="#data-mapper" title="Permalink to this headline">¶</a></h3>
+<p>Facilitate data mapping between DTO (Data Transfer Object) and Entity</p>
+</div>
+<div class="section" id="mobile-validator">
+<h3>Mobile validator<a class="headerlink" href="#mobile-validator" title="Permalink to this headline">¶</a></h3>
+<p>Performs the pattern validation on the mobile number based on the configured length</p>
+</div>
+<div class="section" id="email-validator">
+<h3>Email validator<a class="headerlink" href="#email-validator" title="Permalink to this headline">¶</a></h3>
+<p>Performs the pattern validation on email ID based on the configured parameters</p>
+</div>
+<div class="section" id="blacklisted-words-validator">
+<h3>Blacklisted Words Validator<a class="headerlink" href="#blacklisted-words-validator" title="Permalink to this headline">¶</a></h3>
+<p>Performs a word to word validation against a configured list of blacklisted words</p>
+</div>
+<div class="section" id="rid-generator">
+<h3>RID Generator<a class="headerlink" href="#rid-generator" title="Permalink to this headline">¶</a></h3>
+<p>Genetares and validates RID(Registration ID) as per defined logic</p>
+</div>
+<div class="section" id="id9">
+<h3>PRID Generator<a class="headerlink" href="#id9" title="Permalink to this headline">¶</a></h3>
+<p>Genetares and validates PRID(Pre-Registration ID) as per defined logic</p>
+</div>
+<div class="section" id="vid-generator">
+<h3>VID Generator<a class="headerlink" href="#vid-generator" title="Permalink to this headline">¶</a></h3>
+<p>Genetares and validates VID(Virtual ID) as per defined logic</p>
+</div>
+<div class="section" id="token-id-generator">
+<h3>Token ID Generator<a class="headerlink" href="#token-id-generator" title="Permalink to this headline">¶</a></h3>
+<p>Genetares and validates token ID (Token ID) as per defined logic for TSPs(Third praty service provider)</p>
+</div>
+<div class="section" id="static-pin-generator">
+<h3>Static PIN Generator<a class="headerlink" href="#static-pin-generator" title="Permalink to this headline">¶</a></h3>
+<p>Generates and Validate static PIN for user authentication</p>
+</div>
+<div class="section" id="registration-center-id-generator">
+<h3>Registration Center ID Generator<a class="headerlink" href="#registration-center-id-generator" title="Permalink to this headline">¶</a></h3>
+<p>Generates a registration center ID</p>
+</div>
+<div class="section" id="machine-id-generator">
+<h3>Machine ID generator<a class="headerlink" href="#machine-id-generator" title="Permalink to this headline">¶</a></h3>
+<p>Generates a machine ID of the client machine</p>
+</div>
+<div class="section" id="tsp-id-generator">
+<h3>TSP ID Generator<a class="headerlink" href="#tsp-id-generator" title="Permalink to this headline">¶</a></h3>
+<p>Generates and validates a TSP ID</p>
+</div>
+<div class="section" id="virusscanner-clamav">
+<h3>virusscanner-clamav<a class="headerlink" href="#virusscanner-clamav" title="Permalink to this headline">¶</a></h3>
+<p>Performs virus scan on registration and pre-registration packet</p>
+</div>
+<div class="section" id="template-merger">
+<h3>Template Merger<a class="headerlink" href="#template-merger" title="Permalink to this headline">¶</a></h3>
+<p>Merges an pre-configured template with dynamic values</p>
+</div>
+<div class="section" id="pdfgenerator">
+<h3>pdfgenerator<a class="headerlink" href="#pdfgenerator" title="Permalink to this headline">¶</a></h3>
+<p>This utility enables PDF file creation of received contente.g.acknoledge and notification templates</p>
+</div>
+<div class="section" id="qr-code-generator">
+<h3>QR Code Generator<a class="headerlink" href="#qr-code-generator" title="Permalink to this headline">¶</a></h3>
+<p>This utility enable QR code generation for Pre-reg,reg and UIN acknoledgement</p>
+</div>
+<div class="section" id="ftp-upload-packet">
+<h3>FTP - Upload packet<a class="headerlink" href="#ftp-upload-packet" title="Permalink to this headline">¶</a></h3>
+<p>Provides a upload portal for registarion client to upload packets for sending it to registration processor</p>
+</div>
+</div>
+<div class="section" id="features">
+<h2>Features<a class="headerlink" href="#features" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="notification-manager-notification-sms">
+<h3>Notification Manager-notification-sms<a class="headerlink" href="#notification-manager-notification-sms" title="Permalink to this headline">¶</a></h3>
+<p>Provides an interface to send a SMS notification</p>
+</div>
+<div class="section" id="notification-manager-notification-email">
+<h3>Notification Manager-notification-email<a class="headerlink" href="#notification-manager-notification-email" title="Permalink to this headline">¶</a></h3>
+<p>Provides an interface to send a Email notification</p>
+</div>
+<div class="section" id="sync-handler-master-data">
+<h3>Sync Handler-Master data<a class="headerlink" href="#sync-handler-master-data" title="Permalink to this headline">¶</a></h3>
+<p>Syncs master data between the MOSIP master data server and the client local database</p>
+</div>
+<div class="section" id="sync-handler-public-keys">
+<h3>Sync Handler-Public keys<a class="headerlink" href="#sync-handler-public-keys" title="Permalink to this headline">¶</a></h3>
+<p>Syncs public keys between the MOSIP DB and clinet DB</p>
+</div>
+<div class="section" id="sync-handler-configuration-changes">
+<h3>Sync Handler-Configuration changes<a class="headerlink" href="#sync-handler-configuration-changes" title="Permalink to this headline">¶</a></h3>
+<p>Syncs the cofigurations stored in  MOSIP config server with the locally stored configs of client</p>
+</div>
+<div class="section" id="sync-handler-list-of-roles-and-users">
+<h3>Sync Handler-List of Roles and users<a class="headerlink" href="#sync-handler-list-of-roles-and-users" title="Permalink to this headline">¶</a></h3>
+<p>Syncs user role data between the MOSIP  server and the client local database</p>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, mosip-team
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

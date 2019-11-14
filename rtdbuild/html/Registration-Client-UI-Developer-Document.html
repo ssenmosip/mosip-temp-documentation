@@ -1,0 +1,241 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="java" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="java" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Registration Client UI Developer Documentation &mdash; MOSIP 0.9 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script type="text/javascript" src="_static/jquery.js"></script>
+        <script type="text/javascript" src="_static/underscore.js"></script>
+        <script type="text/javascript" src="_static/doctools.js"></script>
+        <script type="text/javascript" src="_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search"  style="background: white" >
+          
+
+          
+            <a href="index.html" class="icon icon-home"> MOSIP
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.9
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <!-- Local TOC -->
+              <div class="local-toc"><ul>
+<li><a class="reference internal" href="#">Registration Client UI Developer Documentation</a><ul>
+<li><a class="reference internal" href="#ui-screen-vs-controller-mapping">UI Screen Vs Controller mapping:</a></li>
+</ul>
+</li>
+</ul>
+</div>
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">MOSIP</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html">Docs</a> &raquo;</li>
+        
+      <li>Registration Client UI Developer Documentation</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/Registration-Client-UI-Developer-Document.md.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="registration-client-ui-developer-documentation">
+<h1>Registration Client UI Developer Documentation<a class="headerlink" href="#registration-client-ui-developer-documentation" title="Permalink to this headline">¶</a></h1>
+<hr class="docutils" />
+<p>This document guides the developer to find the traceability between UI and the respective controller components.  The provided technical classes are available in the package of '<strong>registration-client</strong>' module. In this module, the required controllers are bind with the FXML screens.</p>
+<p>It doesn't detail about each methods level information since that is covered in Javadoc of each component and Design Documents.</p>
+<div class="section" id="ui-screen-vs-controller-mapping">
+<h2>UI Screen Vs Controller mapping:<a class="headerlink" href="#ui-screen-vs-controller-mapping" title="Permalink to this headline">¶</a></h2>
+<p>|<strong>Functionality:</strong>| Login with UserName and Password/ OTP/ BIO  |<br />|:------:|-----|<br />|<strong>Technical Detail:</strong>| Login screen with User ID will be loaded initially and after successful valudation of the user id the respective authenitcaiton screen [if multi-factor more than one authenticaiton] will be loaded|<br />|<strong>FXML and Controller class</strong>| <strong>RegistrtaionLogin.fxml</strong>  --&gt; <strong>LoginController.java</strong> and <strong>Authentication.fxml</strong> --&gt; <strong>AuthenticationController.java</strong>. For each controller always the <strong>initialization()</strong> method will be called from the controller to initialize the screen|<br />|<strong>Input parameter:</strong>| The required buttons,text fields, Radio buttons, On-click events directly mapped to the Controllers of public methods|</p>
+<p>|<strong>Functionality:</strong>| Officer Information Header Screen  |<br />|:------:|-----|<br />|<strong>Technical Detail:</strong>| After successful login, the Home screen displayed with the officer's information as a header.|<br />|<strong>FXML and Controller class</strong>| <strong>Header.fxml</strong>  --&gt; <strong>HeaderController.java</strong>. For each controller always the <strong>initialization()</strong> method will be called from the controller to initialize the screen|<br />|<strong>Input parameter:</strong>| The required buttons, text fields, Radio buttons, On-click events directly mapped to the Controllers of public methods.|</p>
+<p>|<strong>Functionality:</strong>| Main / Home Screen  |<br />|:------:|-----|<br />|<strong>Technical Detail:</strong>| After successful login to the application, the application launches the home screen where the operator can do the new registration/UIN update/ Lost UIN / Pending Approval/ Update operator Bio-metrics operations|<br />|<strong>FXML and Controller class</strong>| <strong>RegistrationOfficerLayout.fxml, RegistrationOfficerPacketLayout.fxml</strong>  --&gt; <strong>PacketHandlerController.java</strong>. For each controller always the <strong>initalization()</strong> method will be called from the controller to initialize the screen|<br />|<strong>Input parameter:</strong>| The required buttons, text fields, Radio buttons, On-click events directly mapped ot the Controllers of public methods.|</p>
+<p>|<strong>Functionality:</strong>| Registration Header Screen  |<br />|:------:|-----|<br />|<strong>Technical Detail:</strong>| On Click of any registration/UIN update or Lost UIN the screen header loaded with Registration Header screen, which indicates to the operator currently which data are we going to capture. It highlights with bold color.|<br />|<strong>FXML and Controller class</strong>| <strong>RegistrationHeader.fxml</strong>  --&gt; <strong>RegistrationHeaderController.java</strong>. For each controller always the <strong>initialization()</strong> method will be called from the controller to initialize the screen|<br />|<strong>Input parameter:</strong>| The required buttons, text fields, Radio buttons, On-click events directly mapped to the Controllers of the public methods|</p>
+<p>|<strong>Functionality:</strong>| Demographic Screen  |<br />|:------:|-----|<br />|<strong>Technical Detail:</strong>| This screen helps to capture the demographic information of the Resident like Name,Age/DOB , Address, Parent/Gaurdian Details,Email ID and Mobile Number|<br />|<strong>FXML and Controller class</strong>| <strong>Registration.fxml, DemographicDetail.fxml</strong>  --&gt; <strong>RegistrationController.java</strong>. For each controller always the <strong>initialization()</strong> method will be called from the controller to initialize the screen|<br />|<strong>Input parameter:</strong>| The required buttons, text fields, Radio buttons, On-click events directly mapped to the Controllers of the public methods|</p>
+<p>|<strong>Functionality:</strong>| Fingerprint Capture Screen  |<br />|:------:|-----|<br />|<strong>Technical Detail:</strong>| This screen helps to capture the fingerprint information of the Resident like left slap /Right Slap and two thumbs. Apart from this capture of single fingerprint for the authentication will also be called from here. The operations like Reset/Star Over and Scan methods are applicable to this screen|<br />|<strong>FXML and Controller class</strong>| <strong>FingerPrintCapture.fxml</strong>  --&gt; <strong>FingerPrintCaptureController.java</strong>. For each controller always the <strong>initialization()</strong> method will be called from the controller to initialize the screen|<br />|<strong>Input parameter:</strong>| The required buttons, text fields, Radio buttons, On-click events directly mapped to the Controllers of the public methods|</p>
+<p>|<strong>Functionality:</strong>| Iris Capture Screen  |<br />|:------:|-----|<br />|<strong>Technical Detail:</strong>| This screen helps to capture the Iris information of the Resident like left Eye /Right eye. Apart from this capture of single iris for the authentication will also be called from here. The operations like Reset/Star Over and Scan methods are applicable to this screen|<br />|<strong>FXML and Controller class</strong>| <strong>IrisCapture.fxml</strong>  --&gt; <strong>IrisCaptureController.java</strong>. For each controller always the <strong>initialization()</strong> method will be called from the controller to initialize the screen|<br />|<strong>Input parameter:</strong>| The required buttons, text fields, Radio buttons, On-click events directly mapped to the Controllers of the public methods|</p>
+<p>|<strong>Functionality:</strong>| Face Capture and Camera popup Screen |<br />|:------:|-----|<br />|<strong>Technical Detail:</strong>| This screen helps to capture the Face information of the Resident using the ICFO standard. Apart from this capture of face for the authentication will also be called from here. The operations like capture/reset/close methods are applicable to this screen. The pop for the camera will be also part of this controller.|<br />|<strong>FXML and Controller class</strong>| <strong>FaceCapture.fxml</strong>  --&gt; <strong>FaceCaptureController.java</strong> and <strong>WebCamera.fxml</strong> --&gt; <strong>WebCameraController.java</strong>. For each controller always the <strong>initialization()</strong> method will be called from the controller to initialize the screen|<br />|<strong>Input parameter:</strong>| The required buttons, text fields, Radio buttons, On-click events directly mapped to the Controllers of the public methods|</p>
+<p>|<strong>Functionality:</strong>| Resident capture information Preview Screen |<br />|:------:|-----|<br />|<strong>Technical Detail:</strong>| This screen helps to preview the captured information of the Resident like Demographic/Bio-metric and Documents scanned. This screen helps to edit the particular section of which we captured.|<br />|<strong>FXML and Controller class</strong>| <strong>RegistrationPreview.fxml</strong>  --&gt; <strong>RegistrationPreviewController.java</strong>. For each controller always the <strong>initialization()</strong> method will be called from the controller to initialize the screen|<br />|<strong>Input parameter:</strong>| The required buttons, text fields, Radio buttons, On-click events directly mapped to the Controllers of the public methods|</p>
+<p>|<strong>Functionality:</strong>| Officer/Supervisor Authentication Screen |
+|:------:|-----|<br />|<strong>Technical Detail:</strong>| This screen helps to authenticate the officer/supervisor, after capture the all resident information. The authentication can happen base don the configuration like PWD/OTP/Bio-metric.|<br />|<strong>FXML and Controller class</strong>| <strong>OperatorAuthentication.fxml</strong>  --&gt; <strong>AuthenticationController.java</strong>. For each controller always the <strong>initialization()</strong> method will be called from the controller to initialize the screen|<br />|<strong>Input parameter:</strong>| The required buttons, text fields, Radio buttons, On-click events directly mapped to the Controllers of the public methods|</p>
+<p>|<strong>Functionality:</strong>| Acknowledgment Screen |
+|:------:|-----|<br />|<strong>Technical Detail:</strong>| This screen helps to provide the acknowledgment information of the information captured of the resident. This helps the operator to print the acknowledgment slip and give to the resident.|<br />|<strong>FXML and Controller class</strong>| <strong>AckReceipt.fxml</strong>  --&gt; <strong>AckReceiptController.java</strong>. For each controller always the <strong>initialization()</strong> method will be called from the controller to initialize the screen|<br />|<strong>Input parameter:</strong>| The required buttons, text fields, Radio buttons, On-click events directly mapped to the Controllers of the public methods|</p>
+<p>|<strong>Functionality:</strong>| Document Scan Screen &amp; Scan Popup screen |
+|:------:|-----|<br />|<strong>Technical Detail:</strong>| This screen helps to scan the required documents which required based on the operations like New Registration/UIN update /Lost UIN. This scan/edit/remove operation of the documents mapped to this controller. For each scan button, the relevant scan pop window will be displayed. The operations capture will be part of the ScanPopupViewController.|<br />|<strong>FXML and Controller class</strong>| <strong>DocumentScan.fxml</strong>  --&gt; <strong>DocumentScanController.java</strong> and <strong>Scan.fxml</strong> --&gt; <strong>ScanPopUpViewController.java</strong>. For each controller always the <strong>initialization()</strong> method will be called from the controller to initialize the screen|<br />|<strong>Input parameter:</strong>| The required buttons, text fields, Radio buttons, On-click events directly mapped to the Controllers of the public methods|</p>
+<p>|<strong>Functionality:</strong>| Bio-metric Exception Screen |
+|:------:|-----|<br />|<strong>Technical Detail:</strong>| This screen helps to mark the bio-metrics which are not available for the resident while capturing the biometric information. By this screen, we can select/deselect the fingers [10] and iris[2]. The operation select/deselect mapped to the controller.|<br />|<strong>FXML and Controller class</strong>| <strong>BiometricException.fxml</strong>  --&gt; <strong>BiometricExceptionController.java</strong>. For each controller always the <strong>initialization()</strong> method will be called from the controller to initialize the screen|<br />|<strong>Input parameter:</strong>| The required buttons, text fields, Radio buttons, On-click events directly mapped to the Controllers of the public methods|</p>
+<p>|<strong>Functionality:</strong>| Parent/Guardian Bio-metric Screen |
+|:------:|-----|<br />|<strong>Technical Detail:</strong>| This screen helps to capture the anyone of the parent bio-metric for the child registration/UIN update or Lost UIN. This screen provided with the dropdown by selecting the required bio-metric the same thing should be captured by the operator.  The operation Reset/StarOver/Scan mapped to the controller.|<br />|<strong>FXML and Controller class</strong>| <strong>GuardianBiometrics.fxml</strong>  --&gt; <strong>GuardianBiometricsController.java</strong>. For each controller always the <strong>initialization()</strong> method will be called from the controller to initialize the screen|<br />|<strong>Input parameter:</strong>| The required buttons, text fields, Radio buttons, On-click events directly mapped to the Controllers of the public methods|</p>
+<p>|<strong>Functionality:</strong>| Officer/Supervisor Onboarding Screen |
+|:------:|-----|<br />|<strong>Technical Detail:</strong>| This screen helps to Onboard the officer/supervisor to the current machine to create the New Registration/UIN Update and Lost UIN for the residents.|<br />|<strong>FXML and Controller class</strong>| <strong>Onboard.fxml, UserOnboard.fxml</strong>  --&gt; <strong>UserOnboardParentController.java</strong>. For each controller always the <strong>initialization()</strong> method will be called from the controller to initialize the screen|<br />|<strong>Input parameter:</strong>| The required buttons, text fields, Radio buttons, On-click events directly mapped to the Controllers of the public methods|</p>
+<p>|<strong>Functionality:</strong>| Officer/Supervisor Fingerprint Capture Screen  |<br />|:------:|-----|<br />|<strong>Technical Detail:</strong>| This screen helps to capture the Officer/Supervisor fingerprint information of the Resident like left slap /Right Slap and two thumbs. Apart from this capture of single fingerprint for the authentication will also be called from here. The operations like Reset/Star Over and Scan methods are applicable to this screen|<br />|<strong>FXML and Controller class</strong>| <strong>UserOnboardFPCapture.fxml</strong>  --&gt; <strong>FingerPrintCaptureController.java</strong>. For each controller always the <strong>initialization()</strong> method will be called from the controller to initialize the screen|<br />|<strong>Input parameter:</strong>| The required buttons, text fields, Radio buttons, On-click events directly mapped to the Controllers of the public methods|</p>
+<p>|<strong>Functionality:</strong>| Officer/Supervisor Iris Capture Screen  |<br />|:------:|-----|<br />|<strong>Technical Detail:</strong>| This screen helps to capture the Officer/Supervisor Iris information of the Resident like left Eye /Right eye. Apart from this capture of single iris for the authentication will also be called from here. The operations like Reset/Star Over and Scan methods are applicable to this screen|<br />|<strong>FXML and Controller class</strong>| <strong>UserOnboardIrisCapture.fxml</strong>  --&gt; <strong>IrisCaptureController.java</strong>. For each controller always the <strong>initialization()</strong> method will be called from the controller to initialize the screen|<br />|<strong>Input parameter:</strong>| The required buttons, text fields, Radio buttons, On-click events directly mapped to the Controllers of the public methods|</p>
+<p>|<strong>Functionality:</strong>| Officer/Supervisor Face Capture and Camera popup Screen |<br />|:------:|-----|<br />|<strong>Technical Detail:</strong>| This screen helps to capture the Officer/Supervisor Face information of the Resident using the ICFO standard. Apart from this capture of face for the authentication will also be called from here. The operations like capture/reset/close methods are applicable to this screen. The pop for the camera will be also part of this controller.|<br />|<strong>FXML and Controller class</strong>| <strong>UserOnboardWebCamera.fxml</strong>  --&gt; <strong>FaceCaptureController.java</strong> and <strong>WebCamera.fxml</strong> --&gt; <strong>WebCameraController.java</strong>. For each controller always the <strong>initialization()</strong> method will be called from the controller to initialize the screen|<br />|<strong>Input parameter:</strong>| The required buttons, text fields, Radio buttons, On-click events directly mapped to the Controllers of the public methods|</p>
+<p>|<strong>Functionality:</strong>| Pending Approval Screen |<br />|:------:|-----|<br />|<strong>Technical Detail:</strong>| This screen helps the supervisor to approve the registration done by the officer. This screen displays the list of the packets with respect to their acknowledgment slip. The operations approve/reject mapped to this controller.|
+|<strong>FXML and Controller class</strong>| <strong>RegistrationPendingApproval.fxml</strong>  --&gt; <strong>RegistrationApprovalController.java</strong>. For each controller always the <strong>initialization()</strong> method will be called from the controller to initialize the screen|<br />|<strong>Input parameter:</strong>| The required buttons, text fields, Radio buttons, On-click events directly mapped to the Controllers of the public methods.|</p>
+<p>|<strong>Functionality:</strong>| Pending Approval - Rejection list Screen  |<br />|:------:|-----|<br />|<strong>Technical Detail:</strong>| This screen helps the supervisor to reject the registrations done by the officer. This screen displays the list of the packets with respect to their acknowledgment slip. The operations reject mapped to this controller. On selecting the rejection the drop-down will be displayed with a list of reasons to reject the registrations.|
+|<strong>FXML and Controller class</strong>| <strong>RejectionComment.fxml</strong>  --&gt; <strong>RejectionController.java</strong>. For each controller always the <strong>initialization()</strong> method will be called from the controller to initialize the screen|<br />|<strong>Input parameter:</strong>| The required buttons, text fields, Radio buttons, On-click events directly mapped to the Controllers of the public methods.|</p>
+<p>|<strong>Functionality:</strong>| Send Notification[SMS/Email] Screen  |<br />|:------:|-----|<br />|<strong>Technical Detail:</strong>| This screen helps the officer to send the SMS/email to other members. After successful registration of the resident, if the person wants to send the message to more than one person they can send by using this screen. |
+|<strong>FXML and Controller class</strong>| <strong>SendNotification.fxml</strong>  --&gt; <strong>SendNotificationController.java</strong>. For each controller always the <strong>initialization()</strong> method will be called from the controller to initialize the screen|<br />|<strong>Input parameter:</strong>| The required buttons, text fields, Radio buttons, On-click events directly mapped to the Controllers of the public methods.|</p>
+<p>|<strong>Functionality:</strong>| UIN - Update Selection Screen  |<br />|:------:|-----|<br />|<strong>Technical Detail:</strong>| This screen helps the officer to select the required fields to be updated as part of the UIN update screen. W.r.t the selection of the relevant fields and screen will be displayed subsequentially.|
+|<strong>FXML and Controller class</strong>| <strong>UpdateUIN.fxml</strong>  --&gt; <strong>UpdateUINController.java</strong>. For each controller always the <strong>initialization()</strong> method will be called from the controller to initialize the screen|<br />|<strong>Input parameter:</strong>| The required buttons, text fields, Radio buttons, On-click events directly mapped to the Controllers of the public methods.|</p>
+<p>|<strong>Functionality:</strong>| Re-Registration Screen  |<br />|:------:|-----|<br />|<strong>Technical Detail:</strong>| This screen helps the officer to inform/not inform the re-registration status, which comes from the server as response. |
+|<strong>FXML and Controller class</strong>| <strong>ReRegistration.fxml</strong>  --&gt; <strong>ReRegistrationController.java</strong>. For each controller always the <strong>initialization()</strong> method will be called from the controller to initialize the screen|<br />|<strong>Input parameter:</strong>| The required buttons, text fields, Radio buttons, On-click events directly mapped to the Controllers of the public methods.|</p>
+<p>|<strong>Functionality:</strong>| Sync Data Screen  |<br />|:------:|-----|<br />|<strong>Technical Detail:</strong>| This screen helps the officer to sync the all required operations manually. Which is available at the Main home screen. |
+|<strong>FXML and Controller class</strong>| <strong>SyncDataProcess.fxml</strong>  --&gt; <strong>SyncDataProcessController.java</strong>. For each controller always the <strong>initialization()</strong> method will be called from the controller to initialize the screen|<br />|<strong>Input parameter:</strong>| The required buttons, text fields, Radio buttons, On-click events directly mapped to the Controllers of the public methods.|</p>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, mosip-team
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

@@ -1,0 +1,604 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="java" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="java" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Table Of Contents &mdash; MOSIP 0.9 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script type="text/javascript" src="_static/jquery.js"></script>
+        <script type="text/javascript" src="_static/underscore.js"></script>
+        <script type="text/javascript" src="_static/doctools.js"></script>
+        <script type="text/javascript" src="_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search"  style="background: white" >
+          
+
+          
+            <a href="index.html" class="icon icon-home"> MOSIP
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.9
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <!-- Local TOC -->
+              <div class="local-toc"><ul>
+<li><a class="reference internal" href="#">Table Of Contents</a></li>
+<li><a class="reference internal" href="#common-services">Common Services</a><ul>
+<li><a class="reference internal" href="#otp-manager">1. OTP Manager <strong>[↑]</strong></a><ul>
+<li><a class="reference internal" href="#a-otp-generation">A. OTP Generation</a></li>
+<li><a class="reference internal" href="#b-otp-validation">B. OTP Validation</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#qr-code-generator">2. QR Code Generator <strong>[↑]</strong></a></li>
+<li><a class="reference internal" href="#crypto-services">3. Crypto Services <strong>[↑]</strong></a><ul>
+<li><a class="reference internal" href="#cryptography-services">3.1 Cryptography Services <strong>[↑]</strong></a><ul>
+<li><a class="reference internal" href="#a-for-encryption">A. For Encryption</a></li>
+<li><a class="reference internal" href="#b-for-decryption">B. For Decryption</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#key-generator">3.2 Key Generator <strong>[↑]</strong></a><ul>
+<li><a class="reference internal" href="#a-generate-a-symmetric-key">A. Generate a Symmetric Key</a></li>
+<li><a class="reference internal" href="#b-generate-an-asymmetric-key">B. Generate an Asymmetric Key</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#key-management">3.3 Key Management <strong>[↑]</strong></a></li>
+<li><a class="reference internal" href="#crypto-utility">3.4 Crypto Utility <strong>[↑]</strong></a></li>
+<li><a class="reference internal" href="#hash-utility">3.5 Hash Utility <strong>[↑]</strong></a></li>
+<li><a class="reference internal" href="#hmac-utility-checksum-utility">3.6 HMAC Utility/Checksum Utility <strong>[↑]</strong></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#notification">4. Notification <strong>[↑]</strong></a><ul>
+<li><a class="reference internal" href="#otp-notification-services">4.1 OTP Notification Services <strong>[↑]</strong></a></li>
+<li><a class="reference internal" href="#email-notification">4.2 Email Notification <strong>[↑]</strong></a></li>
+<li><a class="reference internal" href="#sms-notification">4.3 SMS Notification <strong>[↑]</strong></a></li>
+<li><a class="reference internal" href="#pdf-generator">4.4 PDF Generator <strong>[↑]</strong></a></li>
+<li><a class="reference internal" href="#template-merger">4.5 Template Merger <strong>[↑]</strong></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#transliteration">5. Transliteration <strong>[↑]</strong></a></li>
+<li><a class="reference internal" href="#mosip-utils">6. MOSIP Utils <strong>[↑]</strong></a><ul>
+<li><a class="reference internal" href="#mobile-data-validator">6.1 Mobile Data Validator <strong>[↑]</strong></a></li>
+<li><a class="reference internal" href="#email-data-validator">6.2 Email Data Validator <strong>[↑]</strong></a></li>
+<li><a class="reference internal" href="#exception-framework">6.3 Exception Framework <strong>[↑]</strong></a></li>
+<li><a class="reference internal" href="#calendar-utility">6.4 Calendar Utility <strong>[↑]</strong></a></li>
+<li><a class="reference internal" href="#date-utility">6.5 Date Utility <strong>[↑]</strong></a></li>
+<li><a class="reference internal" href="#file-utility">6.6 File Utility <strong>[↑]</strong></a></li>
+<li><a class="reference internal" href="#json-utility">6.7 Json Utility <strong>[↑]</strong></a></li>
+<li><a class="reference internal" href="#math-utility">6.8 Math Utility <strong>[↑]</strong></a></li>
+<li><a class="reference internal" href="#string-utility">6.9 String Utility <strong>[↑]</strong></a></li>
+<li><a class="reference internal" href="#uuid-utility">6.10 UUID Utility <strong>[↑]</strong></a></li>
+<li><a class="reference internal" href="#zip-unzip-utility">6.11 Zip-Unzip Utility <strong>[↑]</strong></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#virus-scanner">7 Virus Scanner <strong>[↑]</strong></a><ul>
+<li><a class="reference internal" href="#list-of-configurable-parameters-and-processes">List of Configurable Parameters and Processes <strong>[↑]</strong></a></li>
+<li><a class="reference internal" href="#kernel-api">Kernel API <strong>[↑]</strong></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">MOSIP</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html">Docs</a> &raquo;</li>
+        
+      <li>Table Of Contents</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/FRS-Common-Services.md.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="table-of-contents">
+<h1>Table Of Contents<a class="headerlink" href="#table-of-contents" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p><a class="reference external" href="#common-services">Common Services</a></p>
+<ul>
+<li><p><a class="reference external" href="#1-otp-manager-">1. OTP Manager</a> <em>(CMN_FR_1)</em></p></li>
+<li><p><a class="reference external" href="#2-qr-code-generator-">2. QR Code Generator</a> <em>(CMN_FR_2)</em></p></li>
+<li><p><a class="reference external" href="#3-crypto-services-">3. Crypto Services</a></p>
+<ul>
+<li><p><a class="reference external" href="#31-cryptography-services-">3.1 Cryptography Services</a> <em>(CMN_FR_3.1)</em></p></li>
+<li><p><a class="reference external" href="#32-key-generator-">3.2 Key Generator</a> <em>(CMN_FR_3.2)</em></p></li>
+<li><p><a class="reference external" href="#33-key-management-">3.3 Key Management</a> <em>(CMN_FR_3.3)</em></p></li>
+<li><p><a class="reference external" href="#34-crypto-utility-">3.4 Crypto Utility</a> <em>(CMN_FR_3.4)</em></p></li>
+<li><p><a class="reference external" href="#35-hash-utility-">3.5 Hash Utility</a> <em>(CMN_FR_3.5)</em></p></li>
+<li><p><a class="reference external" href="#36-hmac-utilitychecksum-utility-">3.6 HMAC Utility/Checksum Utility</a> <em>(CMN_FR_3.6)</em></p></li>
+</ul>
+</li>
+<li><p><a class="reference external" href="#4-notification-">4. Notification</a></p>
+<ul>
+<li><p><a class="reference external" href="#41-otp-notification-services-">4.1 OTP Notification Services</a> <em>(CMN_FR_4.1)</em></p></li>
+<li><p><a class="reference external" href="#42-email-notification-">4.2 Email Notification</a> <em>(CMN_FR_4.2)</em></p></li>
+<li><p><a class="reference external" href="#43-sms-notification-">4.3 SMS Notification</a> <em>(CMN_FR_4.3)</em></p></li>
+<li><p><a class="reference external" href="#44-pdf-generator-">4.4 PDF Generator</a> <em>(CMN_FR_4.4)</em></p></li>
+<li><p><a class="reference external" href="#45-template-merger-">4.5 Template Merger</a> <em>(CMN_FR_4.5)</em></p></li>
+</ul>
+</li>
+<li><p><a class="reference external" href="#5-transliteration-">5. Transliteration</a> <em>(CMN_FR_5)</em></p></li>
+<li><p><a class="reference external" href="#6-mosip-utils-">6. MOSIP Utils</a></p>
+<ul>
+<li><p><a class="reference external" href="#61-mobile-data-validator-">6.1 Mobile Data Validator</a> <em>(CMN_FR_6.1)</em></p></li>
+<li><p><a class="reference external" href="#62-email-data-validator-">6.2 Email Data Validator</a> <em>(CMN_FR_6.2)</em></p></li>
+<li><p><a class="reference external" href="#63-exception-framework-">6.3 Exception Framework</a> <em>(CMN_FR_6.3)</em></p></li>
+<li><p><a class="reference external" href="#64-calendar-utility-">6.4 Calendar Utility</a> <em>(CMN_FR_6.4)</em></p></li>
+<li><p><a class="reference external" href="#65-date-utility-">6.5 Date Utility</a> <em>(CMN_FR_6.5)</em></p></li>
+<li><p><a class="reference external" href="#66-file-utility-">6.6 File Utility</a> <em>(CMN_FR_6.6)</em></p></li>
+<li><p><a class="reference external" href="#67-json-utility-">6.7 Json Utility</a> <em>(CMN_FR_6.7)</em></p></li>
+<li><p><a class="reference external" href="#68-math-utility-">6.8 Math Utility</a> <em>(CMN_FR_6.8)</em></p></li>
+<li><p><a class="reference external" href="#69-string-utility-">6.9 String Utility</a> <em>(CMN_FR_6.9)</em></p></li>
+<li><p><a class="reference external" href="#610-uuid-utility-">6.10 UUID Utility</a> <em>(CMN_FR_6.10)</em></p></li>
+<li><p><a class="reference external" href="#611-zip-unzip-utility-">6.11 Zip-Unzip Utility</a> <em>(CMN_FR_6.11)</em></p></li>
+</ul>
+</li>
+<li><p><a class="reference external" href="#7-virus-scanner-">7. Virus Scaner</a> <em>(CMN_FR_5)</em></p></li>
+</ul>
+</li>
+<li><p><a class="reference external" href="#list-of-configurable-parameters-and-processes-">List of Configurable Parameters and Processes</a></p></li>
+<li><p><a class="reference external" href="#kernel-api-">Kernel API</a></p></li>
+</ul>
+</div>
+<div class="section" id="common-services">
+<h1>Common Services<a class="headerlink" href="#common-services" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="otp-manager">
+<h2>1. OTP Manager <a class="reference external" href="#table-of-contents"><strong>[↑]</strong></a><a class="headerlink" href="#otp-manager" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="a-otp-generation">
+<h3>A. OTP Generation<a class="headerlink" href="#a-otp-generation" title="Permalink to this headline">¶</a></h3>
+<ol class="simple">
+<li><p>OTP Manager Component handles OTP Generation and OTP Validation</p></li>
+<li><p>For OTP Generation, system receives a request to generate an OTP along with a Key in input parameter.</p></li>
+<li><p>This Key can be a Mobile number, Email ID or a combination of Mobile Number and Email ID.</p></li>
+<li><p>The component generates an OTP as per the configured length and responds back with the OTP to the source. OTP manager maps an expiry period with the OTP as configured by the Admin.</p></li>
+</ol>
+</div>
+<div class="section" id="b-otp-validation">
+<h3>B. OTP Validation<a class="headerlink" href="#b-otp-validation" title="Permalink to this headline">¶</a></h3>
+<ol class="simple">
+<li><p>For OTP Validation, system receives a request to validate an OTP with a Key and OTP in input parameter.</p></li>
+<li><p>The component validates the OTP against the expiry and then validates the OTP against the Key if the OTP is not expired.</p></li>
+<li><p>If the OTP is not expired and is valid against the Key, it will respond with message “Valid” else responds with “Invalid”.</p></li>
+<li><p>A user will have a maximum configured number of tries to get the OTP wrong after which he/she will be blocked for a configured amount of time. During this blocked period, he/she cannot generate or validate another OTP.</p></li>
+</ol>
+<p><a class="reference external" href="/mosip/mosip/blob/master/docs/design/kernel/kernel-otpmanager"><strong>Link to design</strong></a></p>
+</div>
+</div>
+<div class="section" id="qr-code-generator">
+<h2>2. QR Code Generator <a class="reference external" href="#table-of-contents"><strong>[↑]</strong></a><a class="headerlink" href="#qr-code-generator" title="Permalink to this headline">¶</a></h2>
+<p>QR code generator takes the content received along with the version number and converts the content into a QR code. The version number is configurable and determines how much data a QR code can store. The more the version number, the more data can be stored in a QR Code.</p>
+<p><a class="reference external" href="/mosip/mosip/blob/master/docs/design/kernel/kernel-qrcodegenerator"><strong>Link to design</strong></a></p>
+</div>
+<div class="section" id="crypto-services">
+<h2>3. Crypto Services <a class="reference external" href="#table-of-contents"><strong>[↑]</strong></a><a class="headerlink" href="#crypto-services" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="cryptography-services">
+<h3>3.1 Cryptography Services <a class="reference external" href="#table-of-contents"><strong>[↑]</strong></a><a class="headerlink" href="#cryptography-services" title="Permalink to this headline">¶</a></h3>
+<p>Crypto service encrypts or decrypts data across MOSIP with the help of Public/Private Keys.</p>
+<div class="section" id="a-for-encryption">
+<h4>A. For Encryption<a class="headerlink" href="#a-for-encryption" title="Permalink to this headline">¶</a></h4>
+<p>The Crypto Service receives a request from an application with input parameters – Application ID, Reference ID, Timestamp and Data that needs to be encrypted. It calls the Key Generator API for a symmetric Key and encrypt data using that symmetric Key. It then calls Key Manager Service and get the public key for the Application ID and Timestamp received in the input parameters encrypts the symmetric key using the Public key and joins the Encrypted data and Encrypted Symmetric Key using a Key splitter and respond to the source with the joined data.</p>
+</div>
+<div class="section" id="b-for-decryption">
+<h4>B. For Decryption<a class="headerlink" href="#b-for-decryption" title="Permalink to this headline">¶</a></h4>
+<p>The Crypto Service will receive a request from an application with input parameters – Application ID, Reference ID, Timestamp and Data that needs to be decrypted.</p>
+<p>The Application ID received will be the one, which was sent for encryption of data in the above flow.</p>
+<p>The Crypto Service then splits the received data into Encrypted Content and Encrypted Symmetric Key using the Key Splitter and then calls the Key Manager Service with the Encrypted Symmetric Key, Application ID and Timestamp to decrypt the data using private key.</p>
+<p>The Key Manager instead of responding with the private key, decrypts the symmetric itself and send it back to the crypto service. The service then uses this symmetric key to decrypt data and send the decrypted data back to the source.</p>
+<p><a class="reference external" href="/mosip/mosip/blob/master/docs/design/kernel/kernel-crypto"><strong>Link to design</strong></a></p>
+</div>
+</div>
+<div class="section" id="key-generator">
+<h3>3.2 Key Generator <a class="reference external" href="#table-of-contents"><strong>[↑]</strong></a><a class="headerlink" href="#key-generator" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="a-generate-a-symmetric-key">
+<h4>A. Generate a Symmetric Key<a class="headerlink" href="#a-generate-a-symmetric-key" title="Permalink to this headline">¶</a></h4>
+<p>Upon receiving a request to generate symmetric key pair the system generates a key pair (public and private key) as defined below and responds with the symmetric key</p>
+<ul class="simple">
+<li><p>The symmetric key generated supports AES algorithm</p></li>
+<li><p>The symmetric key generated is of 256 bit size</p></li>
+<li><p>The symmetric will be returned as a byte array</p></li>
+</ul>
+</div>
+<div class="section" id="b-generate-an-asymmetric-key">
+<h4>B. Generate an Asymmetric Key<a class="headerlink" href="#b-generate-an-asymmetric-key" title="Permalink to this headline">¶</a></h4>
+<p>Upon receiving a request to generate asymmetric key pair the system generates a key pair (public and private key) as defined below and responds with the Asymmetric key</p>
+<ul class="simple">
+<li><p>The asymmetric key pair is generated using the RSA encryption</p></li>
+<li><p>The asymmetric key pair generated is of 2048 bit size</p></li>
+<li><p>The asymmetric is returned as a byte array</p></li>
+</ul>
+<p><a class="reference external" href="/mosip/mosip/blob/master/docs/design/kernel/kernel-keygenerator"><strong>Link to design</strong></a></p>
+</div>
+</div>
+<div class="section" id="key-management">
+<h3>3.3 Key Management <a class="reference external" href="#table-of-contents"><strong>[↑]</strong></a><a class="headerlink" href="#key-management" title="Permalink to this headline">¶</a></h3>
+<ol class="simple">
+<li><p>The Key Manager Service works together with the Crypto Service.</p></li>
+<li><p>It receives a request from Crypto Service from Public Key with the Application ID and Timestamp.</p></li>
+<li><p>Key Manager Service then sends a valid Public key against the application ID received to Crypto Service.</p></li>
+<li><p>In case, the public key is expired against that Application ID, it will generate a new Public Key and respond with it.</p></li>
+<li><p>When there is a request to decrypt data, the private key of the application id or reference id is used. The Key manager will not respond with Private Key but instead takes the encrypted data from the source and decrypts it itself and responds with decrypted content</p></li>
+</ol>
+<p><a class="reference external" href="/mosip/mosip/blob/master/docs/design/kernel/kernel-keymanager"><strong>Link to design</strong></a></p>
+</div>
+<div class="section" id="crypto-utility">
+<h3>3.4 Crypto Utility <a class="reference external" href="#table-of-contents"><strong>[↑]</strong></a><a class="headerlink" href="#crypto-utility" title="Permalink to this headline">¶</a></h3>
+<p>The crypto utility is supports encryption and decryption. It provides a utility called as key splitter which performs following functions</p>
+<ol class="simple">
+<li><p>It combines the encrypted data and encrypted the symmetric key while sending encrypted content to the source</p></li>
+<li><p>It also splits the encrypted data and encrypted the symmetric key while receiving the content for decryption</p></li>
+</ol>
+</div>
+<div class="section" id="hash-utility">
+<h3>3.5 Hash Utility <a class="reference external" href="#table-of-contents"><strong>[↑]</strong></a><a class="headerlink" href="#hash-utility" title="Permalink to this headline">¶</a></h3>
+<ol class="simple">
+<li><p>Identifies hash util methods</p></li>
+<li><p>Creates wrapper class for methods defined in apache-commons hash util</p></li>
+<li><p>Raises an alert in case of listed</p></li>
+</ol>
+</div>
+<div class="section" id="hmac-utility-checksum-utility">
+<h3>3.6 HMAC Utility/Checksum Utility <a class="reference external" href="#table-of-contents"><strong>[↑]</strong></a><a class="headerlink" href="#hmac-utility-checksum-utility" title="Permalink to this headline">¶</a></h3>
+<p>A HMAC/checksum function is a way to create a compact representation of an arbitrarily large amount of data</p>
+</div>
+</div>
+<div class="section" id="notification">
+<h2>4. Notification <a class="reference external" href="#table-of-contents"><strong>[↑]</strong></a><a class="headerlink" href="#notification" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="otp-notification-services">
+<h3>4.1 OTP Notification Services <a class="reference external" href="#table-of-contents"><strong>[↑]</strong></a><a class="headerlink" href="#otp-notification-services" title="Permalink to this headline">¶</a></h3>
+<ol class="simple">
+<li><p>OTP Notification Services is a combined service, which receives a request to generate an OTP and responds directly to the User using SMS or Email Notification.</p></li>
+<li><p>The service receives a request to generate and send OTP with User ID, OTP Channel (MOBILE and/or EMAIL), Template Variables, and Template Context (SMS and/or Email).</p></li>
+<li><p>It then calls OTP Generator Service to generate an OTP against a Key (Mobile Number or Email).</p></li>
+<li><p>It calls the Template Merger Service to merge OTP with the Template (SMS and/or Email).</p></li>
+<li><p>It calls SMS and/or Email Notification Service to send the notification as per the template.</p></li>
+<li><p>The choice of sending SMS and/or Email depends on the Notification Type Flag received in Input.</p></li>
+<li><p>The system responds with the error message if a particular User ID does not have an Email or Mobile number registered against it if the otp channel received is Email or Mobile number respectively</p></li>
+</ol>
+</div>
+<div class="section" id="email-notification">
+<h3>4.2 Email Notification <a class="reference external" href="#table-of-contents"><strong>[↑]</strong></a><a class="headerlink" href="#email-notification" title="Permalink to this headline">¶</a></h3>
+<ol class="simple">
+<li><p>This service triggers an Email Notification upon receiving a request to trigger notification with Recipient Email-ID, CC Recipients Email-IDs, Subject, Email Content, and Attachment as input parameter.</p></li>
+<li><p>The restriction on Attachment and its size is configurable.</p></li>
+<li><p>The Third-Party Email Vendor is configurable and any country specific vendor can be used.</p></li>
+</ol>
+<p><a class="reference external" href="/mosip/mosip/blob/master/docs/design/kernel/kernel-emailnotification"><strong>Link to design</strong></a></p>
+</div>
+<div class="section" id="sms-notification">
+<h3>4.3 SMS Notification <a class="reference external" href="#table-of-contents"><strong>[↑]</strong></a><a class="headerlink" href="#sms-notification" title="Permalink to this headline">¶</a></h3>
+<p>This service triggers an SMS Notification upon receiving a request to trigger notification with Phone Number and Content as input parameter. The third-party SMS Vendor is configurable and any country specific vendor can be used.</p>
+<p><a class="reference external" href="/mosip/mosip/blob/master/docs/design/kernel/kernel-smsnotification"><strong>Link to design</strong></a></p>
+</div>
+<div class="section" id="pdf-generator">
+<h3>4.4 PDF Generator <a class="reference external" href="#table-of-contents"><strong>[↑]</strong></a><a class="headerlink" href="#pdf-generator" title="Permalink to this headline">¶</a></h3>
+<p>This utility enables creation of PDF from the content received. It will receive a content in input parameter, convert it into a PDF document, and respond with it to the source.</p>
+<p>PDF Generator also supports the feature to generate a Password Protected PDF with an additional input parameter “Password”, which is an optional parameter.</p>
+<p><strong>NOTE</strong>: If a Password is not received, then PDF Generator will generate the PDF of received content without the password protection.</p>
+<p><a class="reference external" href="/mosip/mosip/blob/master/docs/design/kernel/kernel-pdfgenerator"><strong>Link to design</strong></a></p>
+</div>
+<div class="section" id="template-merger">
+<h3>4.5 Template Merger <a class="reference external" href="#table-of-contents"><strong>[↑]</strong></a><a class="headerlink" href="#template-merger" title="Permalink to this headline">¶</a></h3>
+<p>This utility merges a Template with Placeholders with the dynamic values to form the content to be sent as Notifications or Acknowledgement. The Utility will receive a template and dynamic values from a source. It will merge the values and template and respond with the processed content.</p>
+<p><a class="reference external" href="/mosip/mosip/blob/master/docs/design/kernel/kernel-templatemanager"><strong>Link to design</strong></a></p>
+</div>
+</div>
+<div class="section" id="transliteration">
+<h2>5. Transliteration <a class="reference external" href="#table-of-contents"><strong>[↑]</strong></a><a class="headerlink" href="#transliteration" title="Permalink to this headline">¶</a></h2>
+<p>MOSIP system can facilitate transliteration by integrating with a third party service provider. Receive a request for transliteration with the required input parameters (Word, Input Language Code, and Output Language Code)</p>
+<ol class="simple">
+<li><p>Validates if all required input parameters have been received as listed below for each specific request</p>
+<ul class="simple">
+<li><p>User Input Word - Mandatory</p></li>
+<li><p>Input Language Code - Mandatory</p></li>
+<li><p>Output Language Code - Mandatory</p></li>
+</ul>
+</li>
+<li><p>Transliterates the Word received from Input Language to Output Language</p></li>
+<li><p>In case of Exceptions, system triggers relevant error messages.</p></li>
+</ol>
+<p><a class="reference external" href="/mosip/mosip/blob/master/docs/design/kernel/kernel-transliteration"><strong>Link to design</strong></a></p>
+</div>
+<div class="section" id="mosip-utils">
+<h2>6. MOSIP Utils <a class="reference external" href="#table-of-contents"><strong>[↑]</strong></a><a class="headerlink" href="#mosip-utils" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="mobile-data-validator">
+<h3>6.1 Mobile Data Validator <a class="reference external" href="#table-of-contents"><strong>[↑]</strong></a><a class="headerlink" href="#mobile-data-validator" title="Permalink to this headline">¶</a></h3>
+<p>Upon receiving a request to validate a mobile number against configured mobile number policy, the system validates the mobile number against the policy</p>
+<ol class="simple">
+<li><p>Validates if all required input parameters have been received as listed below for each specific request</p>
+<ul class="simple">
+<li><p>Mobile number</p></li>
+</ul>
+</li>
+<li><p>Validates if the mobile no. against the following policies</p>
+<ul class="simple">
+<li><p>Mobile no. should contain no of digits configured by the ADMIN</p></li>
+<li><p>Mobile no. should only be numerical.</p></li>
+</ul>
+</li>
+<li><p>In case of Exceptions, system should trigger relevant error messages. Refer “Messages” section</p></li>
+<li><p>Responds to the source with the result (Valid/Invalid)</p></li>
+<li><p>Raises an alert in case of exceptions.</p></li>
+</ol>
+</div>
+<div class="section" id="email-data-validator">
+<h3>6.2 Email Data Validator <a class="reference external" href="#table-of-contents"><strong>[↑]</strong></a><a class="headerlink" href="#email-data-validator" title="Permalink to this headline">¶</a></h3>
+<p>Upon receiving a request to validate an Email ID against the standard Email ID policy, system validates the Email ID against the Standard Email ID format</p>
+<ol class="simple">
+<li><p>Validates if all required input parameters have been received as listed below for each specific request</p>
+<ul class="simple">
+<li><p>Email ID</p></li>
+</ul>
+</li>
+<li><p>Validates if the Email ID contains the minimum no. of characters as configured</p></li>
+<li><p>Validates if the Email ID contains less than 254 max length</p></li>
+<li><p>Validates if the Email ID only contains following characters</p>
+<ul class="simple">
+<li><p>Digits 0 to 9</p></li>
+<li><p>Uppercase and lowercase English letters (a–z, A–Z)</p></li>
+<li><p>Characters ! # $ % &amp; ' * + - / = ? ^ _ ` { | }</p></li>
+<li><p>~ .</p></li>
+</ul>
+</li>
+<li><p>Validates if the Email ID contains &quot;&#64;&quot; and domain name within the Email ID.</p></li>
+<li><p>Responds to the source with the result (Valid/Invalid)</p></li>
+<li><p>Raises an alert in case of exceptions</p></li>
+</ol>
+<p><a class="reference external" href="/mosip/mosip/blob/master/docs/design/kernel/kernel-datavalidator"><strong>Design Link to mobile and email data validator</strong></a></p>
+</div>
+<div class="section" id="exception-framework">
+<h3>6.3 Exception Framework <a class="reference external" href="#table-of-contents"><strong>[↑]</strong></a><a class="headerlink" href="#exception-framework" title="Permalink to this headline">¶</a></h3>
+<p>MOSIP system provides base exception framework.</p>
+</div>
+<div class="section" id="calendar-utility">
+<h3>6.4 Calendar Utility <a class="reference external" href="#table-of-contents"><strong>[↑]</strong></a><a class="headerlink" href="#calendar-utility" title="Permalink to this headline">¶</a></h3>
+<ol class="simple">
+<li><p>Identifies Calendar util methods</p></li>
+<li><p>Creates wrapper class for methods defined in apache-commons Calendar util</p></li>
+<li><p>Raises an alert in case of listed exceptions</p></li>
+</ol>
+</div>
+<div class="section" id="date-utility">
+<h3>6.5 Date Utility <a class="reference external" href="#table-of-contents"><strong>[↑]</strong></a><a class="headerlink" href="#date-utility" title="Permalink to this headline">¶</a></h3>
+<ol class="simple">
+<li><p>Identifies File util methods</p></li>
+<li><p>Creates wrapper class for methods defined in apache-commons date and time util</p></li>
+<li><p>Raises an alert in case of listed exceptions</p></li>
+</ol>
+</div>
+<div class="section" id="file-utility">
+<h3>6.6 File Utility <a class="reference external" href="#table-of-contents"><strong>[↑]</strong></a><a class="headerlink" href="#file-utility" title="Permalink to this headline">¶</a></h3>
+<ol class="simple">
+<li><p>Identifies File util methods</p></li>
+<li><p>Creates wrapper class for methods defined in apache-commons File util</p></li>
+<li><p>Raises an alert in case of listed exceptions</p></li>
+</ol>
+</div>
+<div class="section" id="json-utility">
+<h3>6.7 Json Utility <a class="reference external" href="#table-of-contents"><strong>[↑]</strong></a><a class="headerlink" href="#json-utility" title="Permalink to this headline">¶</a></h3>
+<ol class="simple">
+<li><p>Identifies jason util methods</p></li>
+<li><p>Creates wrapper class for methods defined in apache-commons jason util</p></li>
+<li><p>Raises an alert in case of listed exceptions</p></li>
+</ol>
+</div>
+<div class="section" id="math-utility">
+<h3>6.8 Math Utility <a class="reference external" href="#table-of-contents"><strong>[↑]</strong></a><a class="headerlink" href="#math-utility" title="Permalink to this headline">¶</a></h3>
+<ol class="simple">
+<li><p>Identifies Math util methods</p></li>
+<li><p>Creates wrapper class for methods defined in apache-commons Math util</p></li>
+<li><p>Raises an alert in case of listed exceptions</p></li>
+</ol>
+</div>
+<div class="section" id="string-utility">
+<h3>6.9 String Utility <a class="reference external" href="#table-of-contents"><strong>[↑]</strong></a><a class="headerlink" href="#string-utility" title="Permalink to this headline">¶</a></h3>
+<ol class="simple">
+<li><p>Identifies String util methods</p></li>
+<li><p>Creates wrapper class for methods defined in apache-commons String util</p></li>
+<li><p>Raises an alert in case of listed exceptions</p></li>
+</ol>
+</div>
+<div class="section" id="uuid-utility">
+<h3>6.10 UUID Utility <a class="reference external" href="#table-of-contents"><strong>[↑]</strong></a><a class="headerlink" href="#uuid-utility" title="Permalink to this headline">¶</a></h3>
+<ol class="simple">
+<li><p>Upon receiving a request to generate UUID the system generates UUID as per default UUID generation logic</p></li>
+<li><p>UUID generated should be as per UUID Version 5</p></li>
+<li><p>UUID generated should be of 36 characters (32 alphanumeric characters and four hyphens e.g. 123e4567-e89b-12d3-a456-426655440000)</p></li>
+<li><p>Any application in MOSIP can use this UUID utility</p></li>
+<li><p>Responds with the UUID to the source</p></li>
+<li><p>Raises an alert in case of listed exceptions</p></li>
+</ol>
+<p><a class="reference external" href="/mosip/mosip/blob/master/docs/design/kernel/kernel-uuid-generator"><strong>Link to design</strong></a></p>
+</div>
+<div class="section" id="zip-unzip-utility">
+<h3>6.11 Zip-Unzip Utility <a class="reference external" href="#table-of-contents"><strong>[↑]</strong></a><a class="headerlink" href="#zip-unzip-utility" title="Permalink to this headline">¶</a></h3>
+<ol class="simple">
+<li><p>Identifies Zip-Unzip util methods</p></li>
+<li><p>Creates wrapper class for methods defined in apache-commons Zip-Unzip util</p></li>
+<li><p>Raises an alert in case of listed exceptions</p></li>
+</ol>
+<p><a class="reference external" href="/mosip/mosip/blob/master/docs/design/kernel/kernel-utils"><strong>Link to design for Utilities</strong></a></p>
+</div>
+</div>
+<div class="section" id="virus-scanner">
+<h2>7 Virus Scanner <a class="reference external" href="#table-of-contents"><strong>[↑]</strong></a><a class="headerlink" href="#virus-scanner" title="Permalink to this headline">¶</a></h2>
+<p>Virus Scanner utility allows for virus scanning across MOSIP at various places. This includes:</p>
+<ol class="simple">
+<li><p>Scanning of Document uploaded in Pre-registration</p></li>
+<li><p>Scanning in Registration Client Software</p></li>
+<li><p>Scanning of Registration packet in Registration Processor</p></li>
+</ol>
+<p>Currently for Virus Scanner, MOSIP has integrated with Clam Antivirus which allows for 290 concurrent users.
+A Country may integrate their own Licensed version of anti virus as per their requirement.</p>
+<div class="section" id="list-of-configurable-parameters-and-processes">
+<h3>List of Configurable Parameters and Processes <a class="reference external" href="#table-of-contents"><strong>[↑]</strong></a><a class="headerlink" href="#list-of-configurable-parameters-and-processes" title="Permalink to this headline">¶</a></h3>
+<ol>
+<li><p>Configurable Parameters</p>
+<p><a class="reference external" href="/mosip/mosip-configuration/blob/0.12.0/config/kernel-dev.properties"><strong>Link to Configurable Parameters of Kernel</strong></a></p>
+<p><a class="reference external" href="/mosip/mosip-configuration/blob/0.12.0/config/application-dev.properties"><strong>Link to Kernel Application Properties</strong></a></p>
+</li>
+<li><p>Configurable Processes</p></li>
+</ol>
+<ul class="simple">
+<li><p>(Work in Progress)</p></li>
+</ul>
+</div>
+<div class="section" id="kernel-api">
+<h3>Kernel API <a class="reference external" href="#table-of-contents"><strong>[↑]</strong></a><a class="headerlink" href="#kernel-api" title="Permalink to this headline">¶</a></h3>
+<p><a class="reference internal" href="Kernel-APIs.html"><span class="doc">Refer to Wiki for more details on Kernel API</span></a></p>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, mosip-team
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

@@ -1,0 +1,248 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="java" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="java" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Devices: &mdash; MOSIP 0.9 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script type="text/javascript" src="_static/jquery.js"></script>
+        <script type="text/javascript" src="_static/underscore.js"></script>
+        <script type="text/javascript" src="_static/doctools.js"></script>
+        <script type="text/javascript" src="_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search"  style="background: white" >
+          
+
+          
+            <a href="index.html" class="icon icon-home"> MOSIP
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.9
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <!-- Local TOC -->
+              <div class="local-toc"><ul>
+<li><a class="reference internal" href="#">Devices:</a><ul>
+<li><a class="reference internal" href="#scanner">Scanner:</a></li>
+<li><a class="reference internal" href="#printer">Printer:</a></li>
+<li><a class="reference internal" href="#gps">GPS:</a></li>
+</ul>
+</li>
+</ul>
+</div>
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">MOSIP</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html">Docs</a> &raquo;</li>
+        
+      <li>Devices:</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/Device-Integration-Specifications.md.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <p>This document detailed out the design approach to integrate with the list of devices used in the MOSIP platform.</p>
+<p>Interface approach has been taken to implement the integration with external devices.<br />The interface should have the required method to communicate with the external devices.<br />An Abstract class has been defined to implement the common functionality and it should be extended by Vendor specific implementation class.
+The device vendor's specific implementation class should extend the Abstract class and implement the required methods using available libraries.</p>
+<div class="section" id="devices">
+<h1>Devices:<a class="headerlink" href="#devices" title="Permalink to this headline">¶</a></h1>
+<ol class="simple">
+<li><p>Scanner</p></li>
+<li><p>Printer</p></li>
+<li><p>GPS</p></li>
+</ol>
+<div class="section" id="scanner">
+<h2>Scanner:<a class="headerlink" href="#scanner" title="Permalink to this headline">¶</a></h2>
+<hr class="docutils" />
+<p><strong>Interface: IMosipDocumentScannerService</strong></p>
+<ol class="simple">
+<li><p>public Boolean isConnected()  -  to check the scanner connection availability.</p></li>
+<li><p>public BufferedImage scan() -   to scan the document from the scanner device.</p></li>
+</ol>
+<p><strong>Abstract Class: DocumentScannerService</strong></p>
+<ol class="simple">
+<li><p>public byte[] asPDF(List<BufferedImage> bufferedImages) -  to convert the captured scanned document files into pdf format.</p></li>
+<li><p>public byte[] asImage(List<BufferedImage> bufferedImages) -  to convert the captured scanned document files into image format.</p></li>
+<li><p>public byte[] getImageBytesFromBufferedImage(BufferedImage bufferedImage) - to get the byte[] from BuffredImage object.</p></li>
+<li><p>public List<BufferedImage>  pdfToImages(byte[] pdfBytes) - to convert the pdf document to image format in order to show in the document preview.</p></li>
+</ol>
+</div>
+<div class="section" id="printer">
+<h2>Printer:<a class="headerlink" href="#printer" title="Permalink to this headline">¶</a></h2>
+<hr class="docutils" />
+<p>Use the JavaFx provided print functionality to interact with printer directly from UI layer. No additional interface is required.
+javafx.scene.web.WebView.getEngine().print(PrinterJob)</p>
+</div>
+<div class="section" id="gps">
+<h2>GPS:<a class="headerlink" href="#gps" title="Permalink to this headline">¶</a></h2>
+<hr class="docutils" />
+<p><strong>Interface:IMosipGPSService</strong></p>
+<ol class="simple">
+<li><p>public String getComPortGPSData (String comPortNo, int portReadWaitTime) - it returns GPS signal in standard format.</p></li>
+</ol>
+<p><strong>Abstract Class:IMosipGPSServiceImpl</strong></p>
+<ol class="simple">
+<li><p>public GPSPosition sigalParser(String line)
+Inputs: gps signal (Ex: $GPRMC,055218.000,A,1259.4845,N,08014.7602,E,0.07,120.70,171018,,,A*64)</p>
+<ul class="simple">
+<li><p>returns the latitude and longitude from the GPS signal.</p></li>
+</ul>
+</li>
+</ol>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, mosip-team
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

@@ -1,0 +1,327 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="java" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="java" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Partner Management &mdash; MOSIP 0.9 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script type="text/javascript" src="_static/jquery.js"></script>
+        <script type="text/javascript" src="_static/underscore.js"></script>
+        <script type="text/javascript" src="_static/doctools.js"></script>
+        <script type="text/javascript" src="_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search"  style="background: white" >
+          
+
+          
+            <a href="index.html" class="icon icon-home"> MOSIP
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.9
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <!-- Local TOC -->
+              <div class="local-toc"><ul>
+<li><a class="reference internal" href="#">Partner Management</a></li>
+<li><a class="reference internal" href="#architecturally-significant-use-cases">Architecturally Significant Use Cases</a></li>
+<li><a class="reference internal" href="#high-level-entity-relationships">High Level Entity Relationships</a><ul>
+<li><a class="reference internal" href="#policy">Policy</a></li>
+<li><a class="reference internal" href="#policy-group">Policy Group</a></li>
+<li><a class="reference internal" href="#policy-manager">Policy Manager</a></li>
+<li><a class="reference internal" href="#partnerapikey">PartnerAPIKey</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#logical-view">Logical View</a></li>
+</ul>
+</div>
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">MOSIP</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html">Docs</a> &raquo;</li>
+        
+      <li>Partner Management</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/Partner-Management.md.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="partner-management">
+<h1>Partner Management<a class="headerlink" href="#partner-management" title="Permalink to this headline">¶</a></h1>
+<p>Partner Management provides services for Partner and MISP (MOSIP Infrastructure Service Provider) Registration and Authentication. Registered Partners and MISP are only allowed to access MOSIP Authentication services. Partners and MISP are registered using Partner Management Services.  Authentication services of MOSIP will internally use the Partner Management Services to authenticate Partner and MISP and validate if only the registered entities are accessing the services.</p>
+<p>Partner Management also involves policy management for Partners. Each partner can access Authentication services only based on a defined policy. Authentication services of MOSIP will internally use the Partner Management Services to authenticate a partner based on the policy.</p>
+<p>Partner Management also includes License Key Management services. Authentication Services of MOSIP will utilize Partner Management services for License key based authentication of a MISP Partners send authentication request and receive authentication responses in a secured setup. Public/Private keys are used for encryption/decryption/signing the request/response. Distribution of Public key to Partners and retrieval of Public key from partners is managed by Partner Management Services.</p>
+<p>Partners will utilize MOSIP’s resigned digital certificate from Partner Management Services for signing the authentication request.</p>
+</div>
+<div class="section" id="architecturally-significant-use-cases">
+<h1>Architecturally Significant Use Cases<a class="headerlink" href="#architecturally-significant-use-cases" title="Permalink to this headline">¶</a></h1>
+<p><strong>User Management</strong></p>
+<ul class="simple">
+<li><p>MOSIP admin would be able to create and manage(update,view) Partner Management users viz- MISP Admin, Partner Manager, Policy Manager in Kernel's Identity and Access Management (IAM) module. Role authorization and access control for these users would be done at Kernel's Identity and Access Management (IAM) module</p></li>
+<li><p>MOSIP admin would be able to issue and map license key to MISP. MOSIP admin would be able to list MISPs and would be able to activate/de-activate MISP, as well as MISP license key for a particular MISP</p></li>
+<li><p>MOSIP admin would be able to map users (Policy Manager, Partner Manager) to specific policy group. (Policy groups are country specific, that are customize and seeded from backend)</p></li>
+<li><p>MOSIP admin would be able to activate/de-activate policy manager,partner manager
+<img alt="Partner Management User Management" src="_images/PartnerManagement_User_Mgmt.png" /></p></li>
+</ul>
+<p><strong>MOSIP Infrastructure Service Provider (MISP)</strong></p>
+<ul class="simple">
+<li><p>MISP will be managing whitelisted IPs at infrastructure security level and every authentication request is intercepted by MISP for validation of request from authorized partners. MISP will append MISP license key with every partner authentication request, that would be taken care at infrastructure level</p></li>
+<li><p>MISP will receive license key from Partner Management module</p></li>
+<li><p>MISP admin would be able to generate new license key request for a MISP and receive new license key after expiration of existing license key</p></li>
+<li><p>MISP would be able to generate usage statistics report for billing purpose (out of scope)
+<img alt="MOSIP Infrastructure Service Provider (MISP) Management" src="_images/PartnerManagement_MISPAdmin.png" /></p></li>
+</ul>
+<p><strong>Policy Manager</strong></p>
+<ul class="simple">
+<li><p>Policy manager would be able to create policy for the policy group he belongs to</p></li>
+<li><p>Policy manager would be able to activate and de-activate policy for his policy group. All associated PartnerAPIKeys for the policy would accordingly get impacted</p></li>
+<li><p>Policy manager would be able to update policy for his policy group. All associated PartnerAPIKeys for the policy would accordingly get impacted</p></li>
+<li><p>Policy manager would be able to list all policies for his policy group</p></li>
+</ul>
+<p><img alt="Partner Management Policy Manager" src="_images/PartnerManagement_PolicyManager.png" /></p>
+<p><strong>Partner Manager</strong></p>
+<ul class="simple">
+<li><p>Partner manager would be able to list all partners for a policy group</p></li>
+<li><p>Partner manager would be able to activate/de-activate partners</p></li>
+<li><p>Partner manager would be able to approve / reject PartnerAPIKey request, as received from partner</p></li>
+<li><p>Partner manager would be able to issue PartnerAPIKey(s) to a specified partner for fulfilling specified use case(s) as requested in PartnerAPIKey request.</p></li>
+<li><p>Partner manager would be able to map PartnerAPIKey(s) to a specified partner</p></li>
+<li><p>Partner manager would be able to map PartnerAPIKey(s) to policy</p></li>
+<li><p>Partner Manager would be able to retrieve and update partner details for a specific PartnerAPIKey</p></li>
+<li><p>Partner manager would be able to issue new PartnerAPIKey(s) after expiration of existing PartnerAPIKey(s), and map the same to the partner</p></li>
+<li><p>Partner manager would be able to activate/de-activate PartnerAPIKey for a partner</p></li>
+</ul>
+<p><img alt="Partner Management Partner Manager" src="_images/PartnerManagement_PartnerManager.png" /></p>
+<p><strong>Partners</strong></p>
+<ul class="simple">
+<li><p>Partners would be able to do self registration in partner management module. Post successful registration, partners would be provided login credentials for further activities</p></li>
+<li><p>Using login credentials, Partners would be able to submit PartnerAPIKey request, track PartnerAPIKey request status, download PartnerAPIKey</p></li>
+<li><p>Partners would be able to download MOSIP digital certificate. Partner management would be using Kernel services to get MOSIP digital certificate</p></li>
+<li><p>Partner Management module would be using Kernel services for validation,encryption, decryption, storage, rotation requirements w.r.t. digital certificate</p></li>
+<li><p>Partners would be able to encrypt any request for partner management module using MOSIP digital certificate. Partner management module would utilize kernel services to be able to decrypt the request</p></li>
+<li><p>Partners would be able to upload partner digital certificates to partner management module. Any response to partners would be encrypted using respective partner provided digital certificate. Partner management module would be using kernel services to encrypt the responses for partner</p></li>
+<li><p>Partner provided digital certificates are managed at kernel
+<img alt="Partner Management Partner Manager" src="_images/PartnerManagement_Partners.png" /></p></li>
+</ul>
+<p><strong>ID Authentication Services</strong></p>
+<ul class="simple">
+<li><p>IDA would be able to validate digital certificate for all requests as received from partner, and would be able to decrypt all request using MOSIP secured private key</p></li>
+<li><p>IDA would be able to download partner digital certificates from Partner Management module. IDA would be able to encrypt every response for partner using respective partner provided digital certificates. Partner management module would be using Kernel services for encryption and decryption</p></li>
+<li><p>IDA would be able to validate PartnerAPIKey, as received from partner authentication request</p></li>
+<li><p>IDA would be able to validate MISP License Key, as received from partner authentication request</p></li>
+<li><p>IDA would be able to get partner policy details, post successful validation
+<img alt="Partner Management IDA services" src="_images/PartnerManagement_IDA_Services.png" /></p></li>
+</ul>
+</div>
+<div class="section" id="high-level-entity-relationships">
+<h1>High Level Entity Relationships<a class="headerlink" href="#high-level-entity-relationships" title="Permalink to this headline">¶</a></h1>
+<p><img alt="Partner Management Entity Relations" src="_images/PartnerManagement_Entity_Relations.png" /></p>
+<div class="section" id="policy">
+<h2>Policy<a class="headerlink" href="#policy" title="Permalink to this headline">¶</a></h2>
+<p>A policy is an authentication type or set of authentication types that is utilized by partners to validate any individual's identity .
+There are following Authentication Types available for partners to choose from :</p>
+<ol class="simple">
+<li><p>Demographic Authentication - Based on individual's Name, Date of Birth, Gender, Address details</p></li>
+<li><p>OTP Authentication - Based on mobile or email one time password (OTP) authentication</p></li>
+<li><p>Biometric Authentication - Based on Finger, IRIS, Face</p></li>
+</ol>
+<p>After successful authentication, KYC response is sent back to Partner for the individual.</p>
+</div>
+<div class="section" id="policy-group">
+<h2>Policy Group<a class="headerlink" href="#policy-group" title="Permalink to this headline">¶</a></h2>
+<p>A Policy Group is a sector OR domain like Banking, Insurance, Telecome etc, specific to a country. Any policy manager, partner manager and partner belong to a specific policy group. MOSIP would require Policy Group master data are prepared and defined beforehand by country, before creation of Partner, Partner Manager and Policy Manager</p>
+</div>
+<div class="section" id="policy-manager">
+<h2>Policy Manager<a class="headerlink" href="#policy-manager" title="Permalink to this headline">¶</a></h2>
+<p>Policy manager would be creating and managing policy/policies for the policy group he/she belongs to</p>
+</div>
+<div class="section" id="partnerapikey">
+<h2>PartnerAPIKey<a class="headerlink" href="#partnerapikey" title="Permalink to this headline">¶</a></h2>
+<p>For a partner to opt for an authentication policy, they have to generate PartnerAPIKey request with following sample parameters - PartnerCode, UseCaseDescription, SupportingInfo, Status etc. Once the PartnerAPIKey request is approved by Partner Manager, Partner is provided PartnerAPIKey that contains details like - PartnerAPIKey (combination of PartnerCode, policy group and policy), IssuedOn, ValidTill, IsActive etc)</p>
+<p><strong>Sample Master Policy JSON</strong></p>
+<div class="highlight-{ notranslate"><div class="highlight"><pre><span></span>  &quot;policies&quot;: {
+    &quot;authPolicies&quot;: [ 	{&quot;authType&quot;: &quot;otp&quot;,&quot;mandatory&quot;: true},
+						{&quot;authType&quot;: &quot;demo&quot;,&quot;mandatory&quot;: false},
+						{&quot;authType&quot;: &quot;bio&quot;,&quot;authSubType&quot;: &quot;FINGER&quot;,&quot;mandatory&quot;: true},
+						{&quot;authType&quot;: &quot;bio&quot;,&quot;authSubType&quot;: &quot;IRIS&quot;,&quot;mandatory&quot;: false},
+						{&quot;authType&quot;: &quot;bio&quot;,&quot;authSubType&quot;: &quot;FACE&quot;,&quot;mandatory&quot;: false},
+						{&quot;authType&quot;: &quot;kyc&quot;,&quot;mandatory&quot;: false}
+					],
+    &quot;allowedKycAttributes&quot;: [  {&quot;attributeName&quot;: &quot;fullName&quot;,&quot;required&quot;: true},
+							   {&quot;attributeName&quot;: &quot;dateOfBirth&quot;,&quot;required&quot;: true},
+							   {&quot;attributeName&quot;: &quot;gender&quot;,&quot;required&quot;: true},
+							   {&quot;attributeName&quot;: &quot;phone&quot;,&quot;required&quot;: true},
+							   {&quot;attributeName&quot;: &quot;email&quot;,&quot;required&quot;: true},
+							   {&quot;attributeName&quot;: &quot;addressLine1&quot;,&quot;required&quot;: true},
+							   {&quot;attributeName&quot;: &quot;addressLine2&quot;,&quot;required&quot;: true},
+							   {&quot;attributeName&quot;: &quot;addressLine3&quot;,&quot;required&quot;: true},
+							   {&quot;attributeName&quot;: &quot;location1&quot;,&quot;required&quot;: true},
+							   {&quot;attributeName&quot;: &quot;location2&quot;,&quot;required&quot;: true},
+							   {&quot;attributeName&quot;: &quot;location3&quot;,required&quot;: true},
+							   {&quot;attributeName&quot;: &quot;postalCode&quot;,&quot;required&quot;: false},
+							   {&quot;attributeName&quot;: &quot;photo&quot;,&quot;required&quot;: true}
+							]
+  }
+}
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="logical-view">
+<h1>Logical View<a class="headerlink" href="#logical-view" title="Permalink to this headline">¶</a></h1>
+<p><img alt="Partner Management Logical View" src="_images/PartnerManagement_Logical_Diagram.png" /></p>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, mosip-team
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

@@ -1,0 +1,224 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="java" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="java" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>List of Configurable Parameters and Processes &mdash; MOSIP 0.9 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script type="text/javascript" src="_static/jquery.js"></script>
+        <script type="text/javascript" src="_static/underscore.js"></script>
+        <script type="text/javascript" src="_static/doctools.js"></script>
+        <script type="text/javascript" src="_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search"  style="background: white" >
+          
+
+          
+            <a href="index.html" class="icon icon-home"> MOSIP
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.9
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <!-- Local TOC -->
+              <div class="local-toc"><ul>
+<li><a class="reference internal" href="#">List of Configurable Parameters and Processes</a></li>
+<li><a class="reference internal" href="#kernel-api">Kernel API</a></li>
+</ul>
+</div>
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">MOSIP</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html">Docs</a> &raquo;</li>
+        
+      <li>List of Configurable Parameters and Processes</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/Authentication-and-Authorization.md.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <ul class="simple">
+<li><p><strong>Authentication and Authorization</strong> <em>(AUT_FR_1)</em></p></li>
+</ul>
+<p>In MOSIP, Authentication largely falls into the below categories:</p>
+<ul class="simple">
+<li><p>Authentication via web channel (for Pre-Registration web app, Admin web app and Resident services portal)</p></li>
+<li><p>Authentication via local system i.e., offline authentication (for Registration client)</p></li>
+</ul>
+<p>In MOSIP, Authorization falls into the below categories:</p>
+<ul class="simple">
+<li><p>Authorization of API's accessed via web channel</p></li>
+<li><p>Authorization to access specific data (will be implemented in v2)</p></li>
+</ul>
+<p>A country will have its own hierarchy of system users especially the Registration staff and system administration staff. So, instead of defining a fixed hierarchy, by default MOSIP will depend on an LDAP implementation to manage users, organizational hierarchy and roles for users in the hierarchy. MOSIP will use an open source LDAP server as the LDAP implementation. Administrators can create hierarchy and users using Apache Directory Studio.
+(<a class="reference internal" href="AuthN-&amp;-AuthZ-APIs.html"><span class="doc">Refer to Wiki for more details on Authentication and Authorization API</span></a>).</p>
+<p>MOSIP system can handle Authorization across core services and restricts access to Web-services as per the roles defined.</p>
+<p><a class="reference external" href="_files/requirements/MOSIP_Roles%20and%20Responsibility_Matrix_16Jan19.xlsx"><strong>Please refer Git for more details on the roles and Privileges of a user</strong></a>.</p>
+<div class="section" id="list-of-configurable-parameters-and-processes">
+<h1>List of Configurable Parameters and Processes<a class="headerlink" href="#list-of-configurable-parameters-and-processes" title="Permalink to this headline">¶</a></h1>
+<ol>
+<li><p>Configurable Parameters</p>
+<p><a class="reference external" href="/mosip/mosip-config-mt/blob/master/config-templates/application-env.properties"><strong>Link to Configurable Parameters of Kernel</strong></a></p>
+<p><a class="reference external" href="/mosip/mosip-config-mt/blob/master/config-templates/kernel-env.properties"><strong>Link to Kernel Application Properties</strong></a></p>
+</li>
+</ol>
+</div>
+<div class="section" id="kernel-api">
+<h1>Kernel API<a class="headerlink" href="#kernel-api" title="Permalink to this headline">¶</a></h1>
+<p><a class="reference internal" href="Kernel-APIs.html"><span class="doc">Refer to Wiki for more details on Kernel API</span></a></p>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, mosip-team
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

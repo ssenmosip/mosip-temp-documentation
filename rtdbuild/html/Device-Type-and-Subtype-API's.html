@@ -1,0 +1,946 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="java" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="java" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Device Types API &mdash; MOSIP 0.9 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script type="text/javascript" src="_static/jquery.js"></script>
+        <script type="text/javascript" src="_static/underscore.js"></script>
+        <script type="text/javascript" src="_static/doctools.js"></script>
+        <script type="text/javascript" src="_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search"  style="background: white" >
+          
+
+          
+            <a href="index.html" class="icon icon-home"> MOSIP
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.9
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <!-- Local TOC -->
+              <div class="local-toc"><ul>
+<li><a class="reference internal" href="#">Device Types API</a></li>
+<li><a class="reference internal" href="#post-devicetypes">POST /devicetypes</a><ul>
+<li><a class="reference internal" href="#resource-url">Resource URL</a></li>
+<li><a class="reference internal" href="#id1"><code class="docutils literal notranslate"><span class="pre">POST</span> <span class="pre">/devicetypes</span></code></a></li>
+<li><a class="reference internal" href="#resource-details">Resource details</a></li>
+<li><a class="reference internal" href="#parameters">Parameters</a></li>
+<li><a class="reference internal" href="#example-request">Example Request</a></li>
+<li><a class="reference internal" href="#example-response">Example Response</a><ul>
+<li><a class="reference internal" href="#error-response">Error Response:</a></li>
+<li><a class="reference internal" href="#failure-details">Failure details</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a class="reference internal" href="#get-devicetypes-code">GET /devicetypes/{code}</a><ul>
+<li><a class="reference internal" href="#id2">Resource URL</a></li>
+<li><a class="reference internal" href="#id3"><code class="docutils literal notranslate"><span class="pre">GET</span> <span class="pre">/devicetypes/{code}</span></code></a></li>
+<li><a class="reference internal" href="#id4">Resource details</a></li>
+<li><a class="reference internal" href="#id5">Parameters</a></li>
+<li><a class="reference internal" href="#id6">Example Response</a><ul>
+<li><a class="reference internal" href="#id7">Error Response:</a></li>
+<li><a class="reference internal" href="#id8">Failure details</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a class="reference internal" href="#put-devicetypes">PUT /devicetypes</a><ul>
+<li><a class="reference internal" href="#id9">Resource URL</a></li>
+<li><a class="reference internal" href="#id10"><code class="docutils literal notranslate"><span class="pre">PUT</span> <span class="pre">/devicetypes</span></code></a></li>
+<li><a class="reference internal" href="#id11">Resource details</a></li>
+<li><a class="reference internal" href="#id12">Parameters</a></li>
+<li><a class="reference internal" href="#id13">Example Request</a></li>
+<li><a class="reference internal" href="#id14">Example Response</a><ul>
+<li><a class="reference internal" href="#id15">Error Response:</a></li>
+<li><a class="reference internal" href="#id16">Failure details</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a class="reference internal" href="#delete-devicetypes-code">DELETE /devicetypes/{code}</a><ul>
+<li><a class="reference internal" href="#id17">Resource URL</a></li>
+<li><a class="reference internal" href="#id18"><code class="docutils literal notranslate"><span class="pre">DELETE</span> <span class="pre">/devicetypes/{code}</span></code></a></li>
+<li><a class="reference internal" href="#id19">Resource details</a></li>
+<li><a class="reference internal" href="#id20">Parameters</a></li>
+<li><a class="reference internal" href="#id21">Example Response</a><ul>
+<li><a class="reference internal" href="#id22">Error Response:</a></li>
+<li><a class="reference internal" href="#id23">Failure details</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a class="reference internal" href="#device-subtypes-api">Device Subtypes API</a></li>
+<li><a class="reference internal" href="#post-devicesubtypes">POST /devicesubtypes</a><ul>
+<li><a class="reference internal" href="#id24">Resource URL</a></li>
+<li><a class="reference internal" href="#id25"><code class="docutils literal notranslate"><span class="pre">POST</span> <span class="pre">/devicesubtypes</span></code></a></li>
+<li><a class="reference internal" href="#id26">Resource details</a></li>
+<li><a class="reference internal" href="#id27">Parameters</a></li>
+<li><a class="reference internal" href="#id28">Example Request</a></li>
+<li><a class="reference internal" href="#id29">Example Response</a><ul>
+<li><a class="reference internal" href="#id30">Error Response:</a></li>
+<li><a class="reference internal" href="#id31">Failure details</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a class="reference internal" href="#get-devicesubtypes-code">GET /devicesubtypes/{code}</a><ul>
+<li><a class="reference internal" href="#id32">Resource URL</a></li>
+<li><a class="reference internal" href="#id33"><code class="docutils literal notranslate"><span class="pre">GET</span> <span class="pre">/devicesubtypes/{code}</span></code></a></li>
+<li><a class="reference internal" href="#id34">Resource details</a></li>
+<li><a class="reference internal" href="#id35">Parameters</a></li>
+<li><a class="reference internal" href="#id36">Example Response</a><ul>
+<li><a class="reference internal" href="#id37">Error Response:</a></li>
+<li><a class="reference internal" href="#id38">Failure details</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a class="reference internal" href="#put-devicesubtypes">PUT /devicesubtypes</a><ul>
+<li><a class="reference internal" href="#id39">Resource URL</a></li>
+<li><a class="reference internal" href="#id40"><code class="docutils literal notranslate"><span class="pre">PUT</span> <span class="pre">/devicesubtypes</span></code></a></li>
+<li><a class="reference internal" href="#id41">Resource details</a></li>
+<li><a class="reference internal" href="#id42">Parameters</a></li>
+<li><a class="reference internal" href="#id43">Example Request</a></li>
+<li><a class="reference internal" href="#id44">Example Response</a><ul>
+<li><a class="reference internal" href="#id45">Error Response:</a></li>
+<li><a class="reference internal" href="#id46">Failure details</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a class="reference internal" href="#delete-devicesubtypes-code">DELETE /devicesubtypes/{code}</a><ul>
+<li><a class="reference internal" href="#id47">Resource URL</a></li>
+<li><a class="reference internal" href="#id48"><code class="docutils literal notranslate"><span class="pre">DELETE</span> <span class="pre">/devicesubtypes/{code}</span></code></a></li>
+<li><a class="reference internal" href="#id49">Resource details</a></li>
+<li><a class="reference internal" href="#id50">Parameters</a></li>
+<li><a class="reference internal" href="#id51">Example Response</a><ul>
+<li><a class="reference internal" href="#id52">Error Response:</a></li>
+<li><a class="reference internal" href="#id53">Failure details</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">MOSIP</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html">Docs</a> &raquo;</li>
+        
+      <li>Device Types API</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/Device-Type-and-Subtype-API&#39;s.md.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <p>This page represents the Device type and Device subtype API's</p>
+<div class="section" id="device-types-api">
+<h1>Device Types API<a class="headerlink" href="#device-types-api" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p><a class="reference external" href="#post-devicetypes">POST /devicetypes</a></p></li>
+<li><p><a class="reference external" href="#get-devicetypescode">GET /devicetypes/{code}</a></p></li>
+<li><p><a class="reference external" href="#put-devicetypes">PUT /devicetypes</a></p></li>
+<li><p><a class="reference external" href="#delete-devicetypescode">DELETE /devicetypes/{code}</a></p></li>
+</ul>
+</div>
+<div class="section" id="post-devicetypes">
+<h1>POST /devicetypes<a class="headerlink" href="#post-devicetypes" title="Permalink to this headline">¶</a></h1>
+<p>Master data is required across the platform.</p>
+<p>This service will create the Device Types which are used in the MOSIP platform.</p>
+<div class="section" id="resource-url">
+<h2>Resource URL<a class="headerlink" href="#resource-url" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="id1">
+<h2><code class="docutils literal notranslate"><span class="pre">POST</span> <span class="pre">/devicetypes</span></code><a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="resource-details">
+<h2>Resource details<a class="headerlink" href="#resource-details" title="Permalink to this headline">¶</a></h2>
+<p>Resource Details | Description
+------------ | -------------
+Response format | JSON
+Requires Authentication | Yes</p>
+</div>
+<div class="section" id="parameters">
+<h2>Parameters<a class="headerlink" href="#parameters" title="Permalink to this headline">¶</a></h2>
+<p>Name | Required | Description | Default Value | Example
+-----|----------|-------------|---------------|--------
+code|Yes|code of the device type| |
+name|Yes|name of the device type| |
+descr|No|decription of the device type| |</p>
+</div>
+<div class="section" id="example-request">
+<h2>Example Request<a class="headerlink" href="#example-request" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-JSON notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+  <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;string&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;metadata&quot;</span><span class="p">:</span> <span class="p">{},</span>
+  <span class="nt">&quot;request&quot;</span><span class="p">:</span>  <span class="p">{</span>
+    <span class="nt">&quot;code&quot;</span><span class="p">:</span> <span class="s2">&quot;DeviceTypeCode&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Finger&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;descr&quot;</span><span class="p">:</span> <span class="s2">&quot;Device Type Finger&quot;</span>
+  <span class="p">},</span>
+  <span class="nt">&quot;requesttime&quot;</span><span class="p">:</span> <span class="s2">&quot;2018-12-10T06:12:52.994Z&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;version&quot;</span><span class="p">:</span> <span class="s2">&quot;string&quot;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="example-response">
+<h2>Example Response<a class="headerlink" href="#example-response" title="Permalink to this headline">¶</a></h2>
+<p>200 Ok</p>
+<div class="highlight-JSON notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+  <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;string&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;version&quot;</span><span class="p">:</span> <span class="s2">&quot;string&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;metadata&quot;</span><span class="p">:</span> <span class="p">{},</span>
+  <span class="nt">&quot;responsetime&quot;</span><span class="p">:</span> <span class="s2">&quot;2018-12-10T06:12:52.994Z&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;errors&quot;</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
+  <span class="nt">&quot;response&quot;</span><span class="p">:</span>  <span class="p">[</span>
+    <span class="p">{</span>
+      <span class="nt">&quot;code&quot;</span><span class="p">:</span> <span class="s2">&quot;Finger&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Device Type Finger&quot;</span>
+    <span class="p">}</span>
+  <span class="p">],</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<div class="section" id="error-response">
+<h3>Error Response:<a class="headerlink" href="#error-response" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-JSON notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+  <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;string&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;version&quot;</span><span class="p">:</span> <span class="s2">&quot;string&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;metadata&quot;</span><span class="p">:</span> <span class="p">{},</span>
+  <span class="nt">&quot;responsetime&quot;</span><span class="p">:</span> <span class="s2">&quot;yyyy-MM-dd&#39;T&#39;HH:mm:ss.SSS&#39;Z&#39;&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;errors&quot;</span><span class="p">:</span> <span class="p">[</span>
+    <span class="p">{</span>
+      <span class="nt">&quot;errorCode&quot;</span><span class="p">:</span> <span class="s2">&quot;string&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;message&quot;</span><span class="p">:</span> <span class="s2">&quot;string&quot;</span>
+    <span class="p">}</span>
+  <span class="p">],</span>
+ <span class="nt">&quot;response&quot;</span><span class="p">:</span> <span class="kc">null</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="failure-details">
+<h3>Failure details<a class="headerlink" href="#failure-details" title="Permalink to this headline">¶</a></h3>
+<p>Error Code  | Error Message | Error Description
+-----|----------|-------------
+KER-MSD-500 |Internal Server Error|If system error occurs
+KER-ATH-403 |Forbidden|If unauthorized role detected
+KER-ATH-401 |Authentication Failed|If no role/invalid token is detected</p>
+</div>
+</div>
+</div>
+<div class="section" id="get-devicetypes-code">
+<h1>GET /devicetypes/{code}<a class="headerlink" href="#get-devicetypes-code" title="Permalink to this headline">¶</a></h1>
+<p>Master data is required across the platform.</p>
+<p>This service will provides the service to get the device types.</p>
+<div class="section" id="id2">
+<h2>Resource URL<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="id3">
+<h2><code class="docutils literal notranslate"><span class="pre">GET</span> <span class="pre">/devicetypes/{code}</span></code><a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="id4">
+<h2>Resource details<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h2>
+<p>Resource Details | Description
+------------ | -------------
+Response format | JSON
+Requires Authentication | Yes</p>
+</div>
+<div class="section" id="id5">
+<h2>Parameters<a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h2>
+<p>Name | Required | Description | Default Value | Example
+-----|----------|-------------|---------------|--------
+-NA-</p>
+</div>
+<div class="section" id="id6">
+<h2>Example Response<a class="headerlink" href="#id6" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-JSON notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+  <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;string&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;version&quot;</span><span class="p">:</span> <span class="s2">&quot;string&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;metadata&quot;</span><span class="p">:</span> <span class="p">{},</span>
+  <span class="nt">&quot;responsetime&quot;</span><span class="p">:</span> <span class="s2">&quot;yyyy-MM-dd&#39;T&#39;HH:mm:ss.SSS&#39;Z&#39;&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;errors&quot;</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
+  <span class="nt">&quot;response&quot;</span><span class="p">:</span> <span class="p">{</span>
+		 <span class="nt">&quot;code&quot;</span><span class="p">:</span> <span class="s2">&quot;DeviceTypeCode&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Finger&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;descr&quot;</span><span class="p">:</span> <span class="s2">&quot;Device Type Finger&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;isActive&quot;</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
+    <span class="nt">&quot;createdBy&quot;</span><span class="p">:</span> <span class="s2">&quot;superadmin&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;createdDateTime&quot;</span><span class="p">:</span> <span class="s2">&quot;2019-07-26T12:18:40.718Z&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;updatedBy&quot;</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
+    <span class="nt">&quot;updatedDateTime&quot;</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
+    <span class="nt">&quot;isDeleted&quot;</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
+    <span class="nt">&quot;deletedDateTime&quot;</span><span class="p">:</span> <span class="kc">null</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<div class="section" id="id7">
+<h3>Error Response:<a class="headerlink" href="#id7" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-JSON notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+  <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;string&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;version&quot;</span><span class="p">:</span> <span class="s2">&quot;string&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;metadata&quot;</span><span class="p">:</span> <span class="p">{},</span>
+  <span class="nt">&quot;responsetime&quot;</span><span class="p">:</span> <span class="s2">&quot;yyyy-MM-dd&#39;T&#39;HH:mm:ss.SSS&#39;Z&#39;&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;errors&quot;</span><span class="p">:</span> <span class="p">[</span>
+    <span class="p">{</span>
+      <span class="nt">&quot;errorCode&quot;</span><span class="p">:</span> <span class="s2">&quot;string&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;message&quot;</span><span class="p">:</span> <span class="s2">&quot;string&quot;</span>
+    <span class="p">}</span>
+  <span class="p">],</span>
+ <span class="nt">&quot;response&quot;</span><span class="p">:</span> <span class="kc">null</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="id8">
+<h3>Failure details<a class="headerlink" href="#id8" title="Permalink to this headline">¶</a></h3>
+<p>Error Code  | Error Message | Error Description
+-----|----------|-------------
+KER-MSD-500 |Internal Server Error|If system error occurs
+KER-ATH-403 |Forbidden|If unauthorized role detected
+KER-ATH-401 |Authentication Failed|If no role/invalid token is detected</p>
+</div>
+</div>
+</div>
+<div class="section" id="put-devicetypes">
+<h1>PUT /devicetypes<a class="headerlink" href="#put-devicetypes" title="Permalink to this headline">¶</a></h1>
+<p>Master data is required across the platform.</p>
+<p>This service will update the Device Types which are used in the MOSIP platform.</p>
+<div class="section" id="id9">
+<h2>Resource URL<a class="headerlink" href="#id9" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="id10">
+<h2><code class="docutils literal notranslate"><span class="pre">PUT</span> <span class="pre">/devicetypes</span></code><a class="headerlink" href="#id10" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="id11">
+<h2>Resource details<a class="headerlink" href="#id11" title="Permalink to this headline">¶</a></h2>
+<p>Resource Details | Description
+------------ | -------------
+Response format | JSON
+Requires Authentication | Yes</p>
+</div>
+<div class="section" id="id12">
+<h2>Parameters<a class="headerlink" href="#id12" title="Permalink to this headline">¶</a></h2>
+<p>Name | Required | Description | Default Value | Example
+-----|----------|-------------|---------------|--------
+code|Yes|code of the device type| |
+name|No|name of the device type| |
+descr|No|decription of the device type| |</p>
+</div>
+<div class="section" id="id13">
+<h2>Example Request<a class="headerlink" href="#id13" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-JSON notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+  <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;string&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;metadata&quot;</span><span class="p">:</span> <span class="p">{},</span>
+  <span class="nt">&quot;request&quot;</span><span class="p">:</span>  <span class="p">{</span>
+    <span class="nt">&quot;code&quot;</span><span class="p">:</span> <span class="s2">&quot;DeviceTypeCode&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Finger&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;descr&quot;</span><span class="p">:</span> <span class="s2">&quot;Device Type Finger&quot;</span>
+  <span class="p">},</span>
+  <span class="nt">&quot;requesttime&quot;</span><span class="p">:</span> <span class="s2">&quot;2018-12-10T06:12:52.994Z&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;version&quot;</span><span class="p">:</span> <span class="s2">&quot;string&quot;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="id14">
+<h2>Example Response<a class="headerlink" href="#id14" title="Permalink to this headline">¶</a></h2>
+<p>200 Ok</p>
+<div class="highlight-JSON notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+  <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;string&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;version&quot;</span><span class="p">:</span> <span class="s2">&quot;string&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;metadata&quot;</span><span class="p">:</span> <span class="p">{},</span>
+  <span class="nt">&quot;responsetime&quot;</span><span class="p">:</span> <span class="s2">&quot;2018-12-10T06:12:52.994Z&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;errors&quot;</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
+  <span class="nt">&quot;response&quot;</span><span class="p">:</span>  <span class="p">[</span>
+    <span class="p">{</span>
+      <span class="nt">&quot;code&quot;</span><span class="p">:</span> <span class="s2">&quot;DeviceTypeCode&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Finger&quot;</span>
+    <span class="p">}</span>
+  <span class="p">],</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<div class="section" id="id15">
+<h3>Error Response:<a class="headerlink" href="#id15" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-JSON notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+  <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;string&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;version&quot;</span><span class="p">:</span> <span class="s2">&quot;string&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;metadata&quot;</span><span class="p">:</span> <span class="p">{},</span>
+  <span class="nt">&quot;responsetime&quot;</span><span class="p">:</span> <span class="s2">&quot;yyyy-MM-dd&#39;T&#39;HH:mm:ss.SSS&#39;Z&#39;&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;errors&quot;</span><span class="p">:</span> <span class="p">[</span>
+    <span class="p">{</span>
+      <span class="nt">&quot;errorCode&quot;</span><span class="p">:</span> <span class="s2">&quot;string&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;message&quot;</span><span class="p">:</span> <span class="s2">&quot;string&quot;</span>
+    <span class="p">}</span>
+  <span class="p">],</span>
+ <span class="nt">&quot;response&quot;</span><span class="p">:</span> <span class="kc">null</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="id16">
+<h3>Failure details<a class="headerlink" href="#id16" title="Permalink to this headline">¶</a></h3>
+<p>Error Code  | Error Message | Error Description
+-----|----------|-------------
+KER-MSD-500 |Internal Server Error|If system error occurs
+KER-ATH-403 |Forbidden|If unauthorized role detected
+KER-ATH-401 |Authentication Failed|If no role/invalid token is detected</p>
+</div>
+</div>
+</div>
+<div class="section" id="delete-devicetypes-code">
+<h1>DELETE /devicetypes/{code}<a class="headerlink" href="#delete-devicetypes-code" title="Permalink to this headline">¶</a></h1>
+<p>Master data is required across the platform.</p>
+<p>This service will provides the service to delete the device types.</p>
+<div class="section" id="id17">
+<h2>Resource URL<a class="headerlink" href="#id17" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="id18">
+<h2><code class="docutils literal notranslate"><span class="pre">DELETE</span> <span class="pre">/devicetypes/{code}</span></code><a class="headerlink" href="#id18" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="id19">
+<h2>Resource details<a class="headerlink" href="#id19" title="Permalink to this headline">¶</a></h2>
+<p>Resource Details | Description
+------------ | -------------
+Response format | JSON
+Requires Authentication | Yes</p>
+</div>
+<div class="section" id="id20">
+<h2>Parameters<a class="headerlink" href="#id20" title="Permalink to this headline">¶</a></h2>
+<p>Name | Required | Description | Default Value | Example
+-----|----------|-------------|---------------|--------
+-NA-</p>
+</div>
+<div class="section" id="id21">
+<h2>Example Response<a class="headerlink" href="#id21" title="Permalink to this headline">¶</a></h2>
+<p>200 Ok</p>
+<div class="highlight-JSON notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+  <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;string&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;version&quot;</span><span class="p">:</span> <span class="s2">&quot;string&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;metadata&quot;</span><span class="p">:</span> <span class="p">{},</span>
+  <span class="nt">&quot;responsetime&quot;</span><span class="p">:</span> <span class="s2">&quot;yyyy-MM-dd&#39;T&#39;HH:mm:ss.SSS&#39;Z&#39;&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;errors&quot;</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
+  <span class="nt">&quot;response&quot;</span><span class="p">:</span> <span class="p">{</span>
+		 <span class="nt">&quot;code&quot;</span><span class="p">:</span> <span class="s2">&quot;DeviceTypeCode&quot;</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<div class="section" id="id22">
+<h3>Error Response:<a class="headerlink" href="#id22" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-JSON notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+  <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;string&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;version&quot;</span><span class="p">:</span> <span class="s2">&quot;string&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;metadata&quot;</span><span class="p">:</span> <span class="p">{},</span>
+  <span class="nt">&quot;responsetime&quot;</span><span class="p">:</span> <span class="s2">&quot;yyyy-MM-dd&#39;T&#39;HH:mm:ss.SSS&#39;Z&#39;&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;errors&quot;</span><span class="p">:</span> <span class="p">[</span>
+    <span class="p">{</span>
+      <span class="nt">&quot;errorCode&quot;</span><span class="p">:</span> <span class="s2">&quot;string&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;message&quot;</span><span class="p">:</span> <span class="s2">&quot;string&quot;</span>
+    <span class="p">}</span>
+  <span class="p">],</span>
+ <span class="nt">&quot;response&quot;</span><span class="p">:</span> <span class="kc">null</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="id23">
+<h3>Failure details<a class="headerlink" href="#id23" title="Permalink to this headline">¶</a></h3>
+<p>Error Code  | Error Message | Error Description
+-----|----------|-------------
+KER-MSD-500 |Internal Server Error|If system error occurs
+KER-ATH-403 |Forbidden|If unauthorized role detected
+KER-ATH-401 |Authentication Failed|If no role/invalid token is detected</p>
+</div>
+</div>
+</div>
+<div class="section" id="device-subtypes-api">
+<h1>Device Subtypes API<a class="headerlink" href="#device-subtypes-api" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p><a class="reference external" href="#post-devicesubtypes">POST /devicesubtypes</a></p></li>
+<li><p><a class="reference external" href="#get-devicesubtypes">GET /devicesubtypes/{code}</a></p></li>
+<li><p><a class="reference external" href="#put-devicesubtypes">PUT /devicesubtypes</a></p></li>
+<li><p><a class="reference external" href="#delete-devicesubtypes">DELETE /devicesubtypes/{code}</a></p></li>
+</ul>
+</div>
+<div class="section" id="post-devicesubtypes">
+<h1>POST /devicesubtypes<a class="headerlink" href="#post-devicesubtypes" title="Permalink to this headline">¶</a></h1>
+<p>Master data is required across the platform.</p>
+<p>This service will create the Device Subtypes which are used in the MOSIP platform.</p>
+<div class="section" id="id24">
+<h2>Resource URL<a class="headerlink" href="#id24" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="id25">
+<h2><code class="docutils literal notranslate"><span class="pre">POST</span> <span class="pre">/devicesubtypes</span></code><a class="headerlink" href="#id25" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="id26">
+<h2>Resource details<a class="headerlink" href="#id26" title="Permalink to this headline">¶</a></h2>
+<p>Resource Details | Description
+------------ | -------------
+Response format | JSON
+Requires Authentication | Yes</p>
+</div>
+<div class="section" id="id27">
+<h2>Parameters<a class="headerlink" href="#id27" title="Permalink to this headline">¶</a></h2>
+<p>Name | Required | Description | Default Value | Example
+-----|----------|-------------|---------------|--------
+code|Yes|code of the device subtype| |
+deviceTypeCode|Yes|devicetype code of the device subtype| |
+name|Yes|name of the device subtype| |
+descr|No|decription of the device subtype| |</p>
+</div>
+<div class="section" id="id28">
+<h2>Example Request<a class="headerlink" href="#id28" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-JSON notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+  <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;string&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;metadata&quot;</span><span class="p">:</span> <span class="p">{},</span>
+  <span class="nt">&quot;request&quot;</span><span class="p">:</span>  <span class="p">{</span>
+    <span class="nt">&quot;code&quot;</span><span class="p">:</span> <span class="s2">&quot;DeviceSubtypeCode&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;deviceTypeCode&quot;</span><span class="p">:</span> <span class="s2">&quot;DevicetypeCode&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Finger Slab&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;descr&quot;</span><span class="p">:</span> <span class="s2">&quot;Finger Slab Description&quot;</span>
+  <span class="p">},</span>
+  <span class="nt">&quot;requesttime&quot;</span><span class="p">:</span> <span class="s2">&quot;2018-12-10T06:12:52.994Z&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;version&quot;</span><span class="p">:</span> <span class="s2">&quot;string&quot;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="id29">
+<h2>Example Response<a class="headerlink" href="#id29" title="Permalink to this headline">¶</a></h2>
+<p>200 Ok</p>
+<div class="highlight-JSON notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+  <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;string&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;version&quot;</span><span class="p">:</span> <span class="s2">&quot;string&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;metadata&quot;</span><span class="p">:</span> <span class="p">{},</span>
+  <span class="nt">&quot;responsetime&quot;</span><span class="p">:</span> <span class="s2">&quot;2018-12-10T06:12:52.994Z&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;errors&quot;</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
+  <span class="nt">&quot;response&quot;</span><span class="p">:</span>  <span class="p">[</span>
+    <span class="p">{</span>
+      <span class="nt">&quot;code&quot;</span><span class="p">:</span> <span class="s2">&quot;DeviceSubtypeCode&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Finger Slab&quot;</span>
+    <span class="p">}</span>
+  <span class="p">],</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<div class="section" id="id30">
+<h3>Error Response:<a class="headerlink" href="#id30" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-JSON notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+  <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;string&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;version&quot;</span><span class="p">:</span> <span class="s2">&quot;string&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;metadata&quot;</span><span class="p">:</span> <span class="p">{},</span>
+  <span class="nt">&quot;responsetime&quot;</span><span class="p">:</span> <span class="s2">&quot;yyyy-MM-dd&#39;T&#39;HH:mm:ss.SSS&#39;Z&#39;&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;errors&quot;</span><span class="p">:</span> <span class="p">[</span>
+    <span class="p">{</span>
+      <span class="nt">&quot;errorCode&quot;</span><span class="p">:</span> <span class="s2">&quot;string&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;message&quot;</span><span class="p">:</span> <span class="s2">&quot;string&quot;</span>
+    <span class="p">}</span>
+  <span class="p">],</span>
+ <span class="nt">&quot;response&quot;</span><span class="p">:</span> <span class="kc">null</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="id31">
+<h3>Failure details<a class="headerlink" href="#id31" title="Permalink to this headline">¶</a></h3>
+<p>Error Code  | Error Message | Error Description
+-----|----------|-------------
+KER-MSD-500 |Internal Server Error|If system error occurs
+KER-ATH-403 |Forbidden|If unauthorized role detected
+KER-ATH-401 |Authentication Failed|If no role/invalid token is detected</p>
+</div>
+</div>
+</div>
+<div class="section" id="get-devicesubtypes-code">
+<h1>GET /devicesubtypes/{code}<a class="headerlink" href="#get-devicesubtypes-code" title="Permalink to this headline">¶</a></h1>
+<p>Master data is required across the platform.</p>
+<p>This service will provides the service to get the device subtypes.</p>
+<div class="section" id="id32">
+<h2>Resource URL<a class="headerlink" href="#id32" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="id33">
+<h2><code class="docutils literal notranslate"><span class="pre">GET</span> <span class="pre">/devicesubtypes/{code}</span></code><a class="headerlink" href="#id33" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="id34">
+<h2>Resource details<a class="headerlink" href="#id34" title="Permalink to this headline">¶</a></h2>
+<p>Resource Details | Description
+------------ | -------------
+Response format | JSON
+Requires Authentication | Yes</p>
+</div>
+<div class="section" id="id35">
+<h2>Parameters<a class="headerlink" href="#id35" title="Permalink to this headline">¶</a></h2>
+<p>Name | Required | Description | Default Value | Example
+-----|----------|-------------|---------------|--------
+-NA-</p>
+</div>
+<div class="section" id="id36">
+<h2>Example Response<a class="headerlink" href="#id36" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-JSON notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+  <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;string&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;version&quot;</span><span class="p">:</span> <span class="s2">&quot;string&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;metadata&quot;</span><span class="p">:</span> <span class="p">{},</span>
+  <span class="nt">&quot;responsetime&quot;</span><span class="p">:</span> <span class="s2">&quot;yyyy-MM-dd&#39;T&#39;HH:mm:ss.SSS&#39;Z&#39;&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;errors&quot;</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
+  <span class="nt">&quot;response&quot;</span><span class="p">:</span> <span class="p">{</span>
+		<span class="nt">&quot;code&quot;</span><span class="p">:</span> <span class="s2">&quot;DeviceSubtypeCode&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;deviceTypeCode&quot;</span><span class="p">:</span> <span class="s2">&quot;DevicetypeCode&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Finger Slab&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;descr&quot;</span><span class="p">:</span> <span class="s2">&quot;Finger Slab Description&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;isActive&quot;</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
+    <span class="nt">&quot;createdBy&quot;</span><span class="p">:</span> <span class="s2">&quot;superadmin&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;createdDateTime&quot;</span><span class="p">:</span> <span class="s2">&quot;2019-07-26T12:18:40.718Z&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;updatedBy&quot;</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
+    <span class="nt">&quot;updatedDateTime&quot;</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
+    <span class="nt">&quot;isDeleted&quot;</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
+    <span class="nt">&quot;deletedDateTime&quot;</span><span class="p">:</span> <span class="kc">null</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<div class="section" id="id37">
+<h3>Error Response:<a class="headerlink" href="#id37" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-JSON notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+  <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;string&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;version&quot;</span><span class="p">:</span> <span class="s2">&quot;string&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;metadata&quot;</span><span class="p">:</span> <span class="p">{},</span>
+  <span class="nt">&quot;responsetime&quot;</span><span class="p">:</span> <span class="s2">&quot;yyyy-MM-dd&#39;T&#39;HH:mm:ss.SSS&#39;Z&#39;&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;errors&quot;</span><span class="p">:</span> <span class="p">[</span>
+    <span class="p">{</span>
+      <span class="nt">&quot;errorCode&quot;</span><span class="p">:</span> <span class="s2">&quot;string&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;message&quot;</span><span class="p">:</span> <span class="s2">&quot;string&quot;</span>
+    <span class="p">}</span>
+  <span class="p">],</span>
+ <span class="nt">&quot;response&quot;</span><span class="p">:</span> <span class="kc">null</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="id38">
+<h3>Failure details<a class="headerlink" href="#id38" title="Permalink to this headline">¶</a></h3>
+<p>Error Code  | Error Message | Error Description
+-----|----------|-------------
+KER-MSD-500 |Internal Server Error|If system error occurs
+KER-ATH-403 |Forbidden|If unauthorized role detected
+KER-ATH-401 |Authentication Failed|If no role/invalid token is detected</p>
+</div>
+</div>
+</div>
+<div class="section" id="put-devicesubtypes">
+<h1>PUT /devicesubtypes<a class="headerlink" href="#put-devicesubtypes" title="Permalink to this headline">¶</a></h1>
+<p>Master data is required across the platform.</p>
+<p>This service will update the Device Subtypes which are used in the MOSIP platform.</p>
+<div class="section" id="id39">
+<h2>Resource URL<a class="headerlink" href="#id39" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="id40">
+<h2><code class="docutils literal notranslate"><span class="pre">PUT</span> <span class="pre">/devicesubtypes</span></code><a class="headerlink" href="#id40" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="id41">
+<h2>Resource details<a class="headerlink" href="#id41" title="Permalink to this headline">¶</a></h2>
+<p>Resource Details | Description
+------------ | -------------
+Response format | JSON
+Requires Authentication | Yes</p>
+</div>
+<div class="section" id="id42">
+<h2>Parameters<a class="headerlink" href="#id42" title="Permalink to this headline">¶</a></h2>
+<p>Name | Required | Description | Default Value | Example
+-----|----------|-------------|---------------|--------
+code|Yes|code of the device subtype| |
+deviceTypeCode|Yes|devicetype code of the device subtype| |
+name|Yes|name of the device subtype| |
+descr|No|decription of the device subtype| |</p>
+</div>
+<div class="section" id="id43">
+<h2>Example Request<a class="headerlink" href="#id43" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-JSON notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+  <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;string&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;metadata&quot;</span><span class="p">:</span> <span class="p">{},</span>
+  <span class="nt">&quot;request&quot;</span><span class="p">:</span>  <span class="p">{</span>
+    <span class="nt">&quot;code&quot;</span><span class="p">:</span> <span class="s2">&quot;DeviceSubtypeCode&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;deviceTypeCode&quot;</span><span class="p">:</span> <span class="s2">&quot;DevicetypeCode&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Finger Slab&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;descr&quot;</span><span class="p">:</span> <span class="s2">&quot;Finger Slab Description&quot;</span>
+  <span class="p">},</span>
+  <span class="nt">&quot;requesttime&quot;</span><span class="p">:</span> <span class="s2">&quot;2018-12-10T06:12:52.994Z&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;version&quot;</span><span class="p">:</span> <span class="s2">&quot;string&quot;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="id44">
+<h2>Example Response<a class="headerlink" href="#id44" title="Permalink to this headline">¶</a></h2>
+<p>200 Ok</p>
+<div class="highlight-JSON notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+  <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;string&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;version&quot;</span><span class="p">:</span> <span class="s2">&quot;string&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;metadata&quot;</span><span class="p">:</span> <span class="p">{},</span>
+  <span class="nt">&quot;responsetime&quot;</span><span class="p">:</span> <span class="s2">&quot;2018-12-10T06:12:52.994Z&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;errors&quot;</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
+  <span class="nt">&quot;response&quot;</span><span class="p">:</span>  <span class="p">[</span>
+    <span class="p">{</span>
+       <span class="nt">&quot;code&quot;</span><span class="p">:</span> <span class="s2">&quot;DeviceSubtypeCode&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Finger Slab&quot;</span>
+    <span class="p">}</span>
+  <span class="p">],</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<div class="section" id="id45">
+<h3>Error Response:<a class="headerlink" href="#id45" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-JSON notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+  <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;string&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;version&quot;</span><span class="p">:</span> <span class="s2">&quot;string&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;metadata&quot;</span><span class="p">:</span> <span class="p">{},</span>
+  <span class="nt">&quot;responsetime&quot;</span><span class="p">:</span> <span class="s2">&quot;yyyy-MM-dd&#39;T&#39;HH:mm:ss.SSS&#39;Z&#39;&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;errors&quot;</span><span class="p">:</span> <span class="p">[</span>
+    <span class="p">{</span>
+      <span class="nt">&quot;errorCode&quot;</span><span class="p">:</span> <span class="s2">&quot;string&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;message&quot;</span><span class="p">:</span> <span class="s2">&quot;string&quot;</span>
+    <span class="p">}</span>
+  <span class="p">],</span>
+ <span class="nt">&quot;response&quot;</span><span class="p">:</span> <span class="kc">null</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="id46">
+<h3>Failure details<a class="headerlink" href="#id46" title="Permalink to this headline">¶</a></h3>
+<p>Error Code  | Error Message | Error Description
+-----|----------|-------------
+KER-MSD-500 |Internal Server Error|If system error occurs
+KER-ATH-403 |Forbidden|If unauthorized role detected
+KER-ATH-401 |Authentication Failed|If no role/invalid token is detected</p>
+</div>
+</div>
+</div>
+<div class="section" id="delete-devicesubtypes-code">
+<h1>DELETE /devicesubtypes/{code}<a class="headerlink" href="#delete-devicesubtypes-code" title="Permalink to this headline">¶</a></h1>
+<p>Master data is required across the platform.</p>
+<p>This service will provides the service to delete the device subtypes.</p>
+<div class="section" id="id47">
+<h2>Resource URL<a class="headerlink" href="#id47" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="id48">
+<h2><code class="docutils literal notranslate"><span class="pre">DELETE</span> <span class="pre">/devicesubtypes/{code}</span></code><a class="headerlink" href="#id48" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="id49">
+<h2>Resource details<a class="headerlink" href="#id49" title="Permalink to this headline">¶</a></h2>
+<p>Resource Details | Description
+------------ | -------------
+Response format | JSON
+Requires Authentication | Yes</p>
+</div>
+<div class="section" id="id50">
+<h2>Parameters<a class="headerlink" href="#id50" title="Permalink to this headline">¶</a></h2>
+<p>Name | Required | Description | Default Value | Example
+-----|----------|-------------|---------------|--------
+-NA-</p>
+</div>
+<div class="section" id="id51">
+<h2>Example Response<a class="headerlink" href="#id51" title="Permalink to this headline">¶</a></h2>
+<p>200 Ok</p>
+<div class="highlight-JSON notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+  <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;string&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;version&quot;</span><span class="p">:</span> <span class="s2">&quot;string&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;metadata&quot;</span><span class="p">:</span> <span class="p">{},</span>
+  <span class="nt">&quot;responsetime&quot;</span><span class="p">:</span> <span class="s2">&quot;yyyy-MM-dd&#39;T&#39;HH:mm:ss.SSS&#39;Z&#39;&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;errors&quot;</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
+  <span class="nt">&quot;response&quot;</span><span class="p">:</span> <span class="p">{</span>
+		 <span class="nt">&quot;code&quot;</span><span class="p">:</span> <span class="s2">&quot;DeviceSubtypeCode&quot;</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<div class="section" id="id52">
+<h3>Error Response:<a class="headerlink" href="#id52" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-JSON notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+  <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;string&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;version&quot;</span><span class="p">:</span> <span class="s2">&quot;string&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;metadata&quot;</span><span class="p">:</span> <span class="p">{},</span>
+  <span class="nt">&quot;responsetime&quot;</span><span class="p">:</span> <span class="s2">&quot;yyyy-MM-dd&#39;T&#39;HH:mm:ss.SSS&#39;Z&#39;&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;errors&quot;</span><span class="p">:</span> <span class="p">[</span>
+    <span class="p">{</span>
+      <span class="nt">&quot;errorCode&quot;</span><span class="p">:</span> <span class="s2">&quot;string&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;message&quot;</span><span class="p">:</span> <span class="s2">&quot;string&quot;</span>
+    <span class="p">}</span>
+  <span class="p">],</span>
+ <span class="nt">&quot;response&quot;</span><span class="p">:</span> <span class="kc">null</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="id53">
+<h3>Failure details<a class="headerlink" href="#id53" title="Permalink to this headline">¶</a></h3>
+<p>Error Code  | Error Message | Error Description
+-----|----------|-------------
+KER-MSD-500 |Internal Server Error|If system error occurs
+KER-ATH-403 |Forbidden|If unauthorized role detected
+KER-ATH-401 |Authentication Failed|If no role/invalid token is detected</p>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, mosip-team
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

@@ -1,0 +1,1 @@
+This page will provide details on how to customize the MOSIP UI.

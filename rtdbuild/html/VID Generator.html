@@ -1,0 +1,279 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="java" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="java" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>VID Generator &mdash; MOSIP 0.9 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script type="text/javascript" src="_static/jquery.js"></script>
+        <script type="text/javascript" src="_static/underscore.js"></script>
+        <script type="text/javascript" src="_static/doctools.js"></script>
+        <script type="text/javascript" src="_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search"  style="background: white" >
+          
+
+          
+            <a href="index.html" class="icon icon-home"> MOSIP
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.9
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <!-- Local TOC -->
+              <div class="local-toc"><ul>
+<li><a class="reference internal" href="#">VID Generator</a><ul>
+<li><a class="reference internal" href="#background">Background</a></li>
+<li><a class="reference internal" href="#solution">Solution</a></li>
+</ul>
+</li>
+</ul>
+</div>
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">MOSIP</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html">Docs</a> &raquo;</li>
+        
+      <li>VID Generator</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/VID Generator.md.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="vid-generator">
+<h1>VID Generator<a class="headerlink" href="#vid-generator" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="background">
+<h2>Background<a class="headerlink" href="#background" title="Permalink to this headline">¶</a></h2>
+<p>A virtual ID can be requested by an Indivudual against his UIN. The request is received to fetch a VID, which is unallocated yet at the time of request. There are many types of VIDs such as Perpetual VIDs, Transactional, Long term, short term.</p>
+</div>
+<div class="section" id="solution">
+<h2>Solution<a class="headerlink" href="#solution" title="Permalink to this headline">¶</a></h2>
+<p><strong>The key solution considerations are</strong></p>
+<p>A pool of the VIDs are maintained for the faster dispatch of the VIDs to the requestor.</p>
+<ul class="simple">
+<li><p>Vert.x REST Services:
+Following are the services which are available for the VID generator component,</p></li>
+</ul>
+<ol class="simple">
+<li><p>VID Fetcher Service</p>
+<ul class="simple">
+<li><p>This service requests for an unassigned VIDs.</p></li>
+<li><p>Expiry days is passed as a parameter to this service. So, the VID pool knows when to expire this VID.</p></li>
+<li><p>In case of perpetual VIDs, the expiry days is not passed. So that, the expiry of the VIDs have to be called back specifically.</p></li>
+<li><p>Each time when this service is called, a call is triggered to the &quot;VID pool size checker&quot;</p></li>
+<li><p>Once the VID assigned, the status is changed to ASSIGNED</p></li>
+</ul>
+</li>
+</ol>
+<p><strong>Flowchart diagram for fetcher</strong></p>
+<p><img alt="Flowchart diagram for fetcher" src="_images/VIDGenerator_flowchart_fetcher.jpg" /></p>
+<ol class="simple">
+<li><p>VID Revoke Service</p>
+<ul class="simple">
+<li><p>This service revokes the VID and allocates the VID in the free pool.</p></li>
+<li><p>This service accepts the VID as input.</p></li>
+<li><p>The requested VID status is changed to EXPIRED</p></li>
+<li><p>The expired VID can be reallocated after the configured cool-off period</p></li>
+</ul>
+</li>
+</ol>
+<p><strong>Flowchart diagram for revoker</strong></p>
+<p><img alt="Flowchart diagram for revoker" src="_images/VIDGenerator_flowchart_revoker.jpg" /></p>
+<ul class="simple">
+<li><p>Vert.x Verticles:
+Following are the various verticles which are available,</p></li>
+</ul>
+<ol class="simple">
+<li><p>VID pool size checker</p>
+<ul class="simple">
+<li><p>This vertical checks whether the pool has the available sufficient VIDs.</p></li>
+<li><p>The configuration for the Shrink pool size, number of VIDs to be generated etc., are retrieved from the config server.</p></li>
+<li><p>If the pool had shrunk below the configured size, the next &quot;VID Pool Populator&quot; vertical is notified.</p></li>
+<li><p>The &quot;VID pool size checker&quot; vertical is called whenever a request is received for the VID generator.</p></li>
+</ul>
+</li>
+<li><p>VID Pool Populator</p>
+<ul class="simple">
+<li><p>When the notification is received from the &quot;VID pool size checker&quot;, this vertical is notified to generate the next set of VIDs are generated and placed in the pool.</p></li>
+<li><p>When this vertical runs, it creates a lock. So that no multiple populator runs.</p></li>
+<li><p>The worker verticle size is double as &quot;VID Genertor Service&quot;.</p></li>
+<li><p>The status of the new generated VIDs is AVAILABLE</p></li>
+</ul>
+</li>
+</ol>
+<ul class="simple">
+<li><p>Vert.x expirer:</p>
+<ul>
+<li><p>The expired VIDs status' have to be changed back to available. This scheduler runs at night when the traffic is minimal. The entire database have to be scanned for the expired VIDs.</p></li>
+<li><p>The VID's status is changed back to AVAILABLE, if the VID is expired and crossed the cool-off period.</p></li>
+</ul>
+</li>
+</ul>
+<p><strong>Flowchart diagram for expirer</strong></p>
+<p><img alt="Flowchart Diagram" src="_images/VIDGenerator_flowchart_expirer.jpg" /></p>
+<ul class="simple">
+<li><p>Database:</p></li>
+</ul>
+<ol class="simple">
+<li><p>A separate schema is needed for the VID.</p></li>
+<li><p>VID Statuses are maintained in the database.</p></li>
+</ol>
+<p><strong>Module diagram</strong></p>
+<p><img alt="Module Diagram" src="_images/VID_generator.jpg" /></p>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, mosip-team
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

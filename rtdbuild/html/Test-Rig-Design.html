@@ -1,0 +1,276 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="java" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="java" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Table Of Content &mdash; MOSIP 0.9 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script type="text/javascript" src="_static/jquery.js"></script>
+        <script type="text/javascript" src="_static/underscore.js"></script>
+        <script type="text/javascript" src="_static/doctools.js"></script>
+        <script type="text/javascript" src="_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search"  style="background: white" >
+          
+
+          
+            <a href="index.html" class="icon icon-home"> MOSIP
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.9
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <!-- Local TOC -->
+              <div class="local-toc"><ul>
+<li><a class="reference internal" href="#">Table Of Content</a></li>
+<li><a class="reference internal" href="#test-rig-definition">Test Rig Definition</a></li>
+<li><a class="reference internal" href="#test-automation">Test Automation <strong>[↑]</strong></a><ul>
+<li><a class="reference internal" href="#module-level-automation-suites">Module Level Automation Suites <strong>[↑]</strong></a></li>
+<li><a class="reference internal" href="#p-align-center-figure-1-api-api-level-integration-testing-automation-design-framework"><p align="center"> <strong>Figure 1: <em>API &amp; API Level Integration Testing- Automation Design Framework</em></strong></a></li>
+<li><a class="reference internal" href="#system-level-or-e2e-automation-suite-test-rig">System Level or E2E Automation Suite (Test Rig) <strong>[↑]</strong></a></li>
+<li><a class="reference internal" href="#p-align-center-figure-2-e2e-test-rig-design"><p align="center"> <strong>Figure 2: <em>E2E Test Rig Design</em></strong></a></li>
+</ul>
+</li>
+</ul>
+</div>
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">MOSIP</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html">Docs</a> &raquo;</li>
+        
+      <li>Table Of Content</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/Test-Rig-Design.md.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="table-of-content">
+<h1>Table Of Content<a class="headerlink" href="#table-of-content" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p><a class="reference external" href="#test-rig-definition">Test Rig Definition</a></p></li>
+<li><p><a class="reference external" href="#test-automation-">Test Automation</a></p>
+<ul>
+<li><p><a class="reference external" href="#module-level-automation-suites-">Module Level Automation Suites</a></p></li>
+<li><p><a class="reference external" href="#system-level-or-e2e-automation-suite-test-rig-">System Level or E2E Automation Suite (Test Rig)</a></p></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="test-rig-definition">
+<h1>Test Rig Definition<a class="headerlink" href="#test-rig-definition" title="Permalink to this headline">¶</a></h1>
+<p>Test Rig represents a one click automation to build, deploy and test a software module. Successful execution of test rig would ascertain complete setup of the MOSIP platform.</p>
+<p>Test-Rig comprises of multiple components starting from:</p>
+<ol class="simple">
+<li><p>Kubernetes env setup</p></li>
+<li><p>Pulling the source code from the GIT repository</p></li>
+<li><p>Running sonarqube tests for static code analysis</p></li>
+<li><p>Building the application using maven</p></li>
+<li><p>Automated application deployment using Kubernetes</p></li>
+<li><p>Running automated unit tests</p></li>
+<li><p>Running automated tests to verify and validate the application build against the given requirements.</p></li>
+</ol>
+</div>
+<div class="section" id="test-automation">
+<h1>Test Automation <a class="reference external" href="#table-of-content"><strong>[↑]</strong></a><a class="headerlink" href="#test-automation" title="Permalink to this headline">¶</a></h1>
+<p>MOSIP platform architecture is mainly based on Micro services and SEDA architecture.
+Therefore it predominantly comprises of Rest &amp; JAVA APIs. Therefore test automation best serves the purpose of detailed API level testing.
+Test automation is the key to the successful testing of individual APIs and their interrelation with interdependent APIs. It ensures comprehensive test coverage and test data.</p>
+<p>Automation deliverables mainly comprises of individual module level suites for the individual MOSIP modules:</p>
+<ol class="simple">
+<li><p>Pre-Registration</p></li>
+<li><p>Registration Client</p></li>
+<li><p>Registration Processor</p></li>
+<li><p>IDA</p></li>
+<li><p>Kernel</p></li>
+</ol>
+<p>Additionally there will be an end to end, system level test suite that will cut across all modules covering the functionality</p>
+<div class="section" id="module-level-automation-suites">
+<h2>Module Level Automation Suites <a class="reference external" href="#table-of-content"><strong>[↑]</strong></a><a class="headerlink" href="#module-level-automation-suites" title="Permalink to this headline">¶</a></h2>
+<p>The below diagram depicts the various building blocks of the module level suite.</p>
+<p><strong>Salient features</strong></p>
+<ol class="simple">
+<li><p>The automation suite is configurable to selectively execute tests such as Sanity or/and Regression</p></li>
+<li><p>Each module level suite covers API and inter API automation</p></li>
+</ol>
+<p>The individual module level test suites and the end to end suite are triggered via the CI/CD pipeline and run post application deployment</p>
+<p><img alt="Automation Design Framework" src="_images/AutomationDesignFrameworks.jpg" /></p>
+</div>
+<div class="section" id="p-align-center-figure-1-api-api-level-integration-testing-automation-design-framework">
+<h2><p align="center"> <strong>Figure 1: <em>API &amp; API Level Integration Testing- Automation Design Framework</em></strong><a class="headerlink" href="#p-align-center-figure-1-api-api-level-integration-testing-automation-design-framework" title="Permalink to this headline">¶</a></h2>
+<p>The user guides listed below detail the usage of individual module level automation suites</p>
+<ol class="simple">
+<li><p><a class="reference external" href="Tester-Documentation#1-kernel-test-automation-suite---user-guide"><strong>Kernel Test Automation Suite - User Guide</strong></a></p></li>
+<li><p><a class="reference external" href="Tester-Documentation#2-pre-registration-test-automation-suite---user-guide"><strong>Pre-Registration Test Automation Suite - User Guide</strong></a></p></li>
+<li><p><a class="reference external" href="#3-registration-client-test-automation-suite---user-guide"><strong>Registration Client Test Automation Suite - User Guide</strong></a></p></li>
+<li><p><a class="reference external" href="Tester-Documentation#4-registration-processor-test-automation-suite---user-guide"><strong>Registration Processor Test Automation Suite - User Guide</strong></a></p></li>
+<li><p><a class="reference external" href="Tester-Documentation#5-id-authentication-ida-test-automation-suite---user-guide"><strong>ID Authentication (IDA) Test Automation Suite - User Guide</strong></a></p></li>
+</ol>
+</div>
+<div class="section" id="system-level-or-e2e-automation-suite-test-rig">
+<h2>System Level or E2E Automation Suite (Test Rig) <a class="reference external" href="#table-of-content"><strong>[↑]</strong></a><a class="headerlink" href="#system-level-or-e2e-automation-suite-test-rig" title="Permalink to this headline">¶</a></h2>
+<p>End to end system level Test Rig covers the functionality across the modules starting with Pre-Registration and ending in Registration Processor or IDA.</p>
+<p>The below diagram depicts the overall design of the end to end suite.</p>
+<p><img alt="Test Rig Design" src="_images/E2ETestRigDesign.drawio.jpg" /></p>
+</div>
+<div class="section" id="p-align-center-figure-2-e2e-test-rig-design">
+<h2><p align="center"> <strong>Figure 2: <em>E2E Test Rig Design</em></strong><a class="headerlink" href="#p-align-center-figure-2-e2e-test-rig-design" title="Permalink to this headline">¶</a></h2>
+<ol class="simple">
+<li><p><a class="reference external" href="Tester-Documentation#6-e2e-test-automation-suite---user-guide"><strong>E2E Test Automation Suite - User Guide</strong></a></p></li>
+</ol>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, mosip-team
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

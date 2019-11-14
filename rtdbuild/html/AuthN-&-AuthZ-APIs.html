@@ -1,0 +1,935 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="java" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="java" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>1. Authentication &mdash; MOSIP 0.9 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script type="text/javascript" src="_static/jquery.js"></script>
+        <script type="text/javascript" src="_static/underscore.js"></script>
+        <script type="text/javascript" src="_static/doctools.js"></script>
+        <script type="text/javascript" src="_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search"  style="background: white" >
+          
+
+          
+            <a href="index.html" class="icon icon-home"> MOSIP
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.9
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <!-- Local TOC -->
+              <div class="local-toc"><ul>
+<li><a class="reference internal" href="#">1. Authentication</a><ul>
+<li><a class="reference internal" href="#send-otp">1.1 Send OTP</a><ul>
+<li><a class="reference internal" href="#resource-url">Resource URL</a></li>
+<li><a class="reference internal" href="#post-v1-authenticate-sendotp"><code class="docutils literal notranslate"><span class="pre">POST</span> <span class="pre">/v1/authenticate/sendotp</span></code></a></li>
+<li><a class="reference internal" href="#resource-details">Resource details</a></li>
+<li><a class="reference internal" href="#parameters">Parameters</a></li>
+<li><a class="reference internal" href="#example-request">Example Request</a></li>
+<li><a class="reference internal" href="#example-response">Example Response</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#authenticate-userid-and-otp">1.2 Authenticate UserId and OTP</a><ul>
+<li><a class="reference internal" href="#id1">Resource URL</a></li>
+<li><a class="reference internal" href="#post-v1-authenticate-useridotp"><code class="docutils literal notranslate"><span class="pre">POST</span> <span class="pre">/v1/authenticate/useridOTP</span></code></a></li>
+<li><a class="reference internal" href="#id2">Resource details</a></li>
+<li><a class="reference internal" href="#id3">Parameters</a></li>
+<li><a class="reference internal" href="#id4">Example Request</a></li>
+<li><a class="reference internal" href="#id5">Example Response</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#authenticate-using-username-and-password">1.3 Authenticate using username and password</a><ul>
+<li><a class="reference internal" href="#id6">Resource URL</a></li>
+<li><a class="reference internal" href="#post-v-1authenticate-useridpwd"><code class="docutils literal notranslate"><span class="pre">POST</span> <span class="pre">/v/1authenticate/useridPwd</span></code></a></li>
+<li><a class="reference internal" href="#id7">Resource details</a></li>
+<li><a class="reference internal" href="#id8">Parameters</a></li>
+<li><a class="reference internal" href="#id9">Example Request</a></li>
+<li><a class="reference internal" href="#id10">Example Response</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#authenticate-using-clientid-and-secret-key">1.4 Authenticate using clientid and secret key</a><ul>
+<li><a class="reference internal" href="#id11">Resource URL</a></li>
+<li><a class="reference internal" href="#post-v1-authenticate-clientidsecretkey"><code class="docutils literal notranslate"><span class="pre">POST</span> <span class="pre">/v1/authenticate/clientidsecretkey</span></code></a></li>
+<li><a class="reference internal" href="#id12">Resource details</a></li>
+<li><a class="reference internal" href="#id13">Parameters</a></li>
+<li><a class="reference internal" href="#id14">Example Request</a></li>
+<li><a class="reference internal" href="#id15">Example Response</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a class="reference internal" href="#authorization">2. Authorization</a><ul>
+<li><a class="reference internal" href="#validate-token">2.1 Validate Token</a><ul>
+<li><a class="reference internal" href="#id16">Resource URL</a></li>
+<li><a class="reference internal" href="#post-v1-authorize-validatetoken"><code class="docutils literal notranslate"><span class="pre">POST</span> <span class="pre">/v1/authorize/validateToken</span></code></a></li>
+<li><a class="reference internal" href="#resource-detail">Resource detail</a></li>
+<li><a class="reference internal" href="#id17">Parameters</a></li>
+<li><a class="reference internal" href="#id18">Example Request</a></li>
+<li><a class="reference internal" href="#id19">Example Response</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#invalidate-token">2.3 Invalidate Token</a><ul>
+<li><a class="reference internal" href="#id20">Resource URL</a></li>
+<li><a class="reference internal" href="#post-v1-authorize-invalidatetoken"><code class="docutils literal notranslate"><span class="pre">POST</span> <span class="pre">/v1/authorize/invalidateToken</span></code></a></li>
+<li><a class="reference internal" href="#id21">Resource details</a></li>
+<li><a class="reference internal" href="#id22">Parameters</a></li>
+<li><a class="reference internal" href="#id23">Example Request</a></li>
+<li><a class="reference internal" href="#id24">Example Response</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a class="reference internal" href="#otp-services">3. OTP services</a><ul>
+<li><a class="reference internal" href="#generate-otp">3.1 Generate OTP</a><ul>
+<li><a class="reference internal" href="#id25">Resource URL</a></li>
+<li><a class="reference internal" href="#post-v1-otp-generate"><code class="docutils literal notranslate"><span class="pre">POST</span> <span class="pre">/v1/otp/generate</span></code></a></li>
+<li><a class="reference internal" href="#id26">Resource details</a></li>
+<li><a class="reference internal" href="#id27">Parameters</a></li>
+<li><a class="reference internal" href="#id28">Example Request</a></li>
+<li><a class="reference internal" href="#id29">Example Response</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#validate-otp">3.2 Validate OTP</a><ul>
+<li><a class="reference internal" href="#id30">Resource URL</a></li>
+<li><a class="reference internal" href="#post-v1-otp-validate"><code class="docutils literal notranslate"><span class="pre">POST</span> <span class="pre">/v1/otp/validate</span></code></a></li>
+<li><a class="reference internal" href="#id31">Resource details</a></li>
+<li><a class="reference internal" href="#id32">Parameters</a></li>
+<li><a class="reference internal" href="#id33">Example Request</a></li>
+<li><a class="reference internal" href="#id34">Example Response</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">MOSIP</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html">Docs</a> &raquo;</li>
+        
+      <li>1. Authentication</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/AuthN-&amp;-AuthZ-APIs.md.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="authentication">
+<h1>1. Authentication<a class="headerlink" href="#authentication" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="send-otp">
+<h2>1.1 Send OTP<a class="headerlink" href="#send-otp" title="Permalink to this headline">¶</a></h2>
+<p>This service sends an OTP to the user. The caller of this service have to send the channel in which the OTP will be sent. Based on the application ID, the corresponding channel's recepient address will be found out and the OTP is send accordingly. Note: At this point of time, no Auth Token will be generated.</p>
+<div class="section" id="resource-url">
+<h3>Resource URL<a class="headerlink" href="#resource-url" title="Permalink to this headline">¶</a></h3>
+</div>
+<div class="section" id="post-v1-authenticate-sendotp">
+<h3><code class="docutils literal notranslate"><span class="pre">POST</span> <span class="pre">/v1/authenticate/sendotp</span></code><a class="headerlink" href="#post-v1-authenticate-sendotp" title="Permalink to this headline">¶</a></h3>
+</div>
+<div class="section" id="resource-details">
+<h3>Resource details<a class="headerlink" href="#resource-details" title="Permalink to this headline">¶</a></h3>
+<p>Resource Details | Description
+------------ | -------------
+Response format | A JSON message will be returned.
+Requires Authentication | no</p>
+</div>
+<div class="section" id="parameters">
+<h3>Parameters<a class="headerlink" href="#parameters" title="Permalink to this headline">¶</a></h3>
+<p>Name | Required | Description | Default Value | Example
+-----|----------|-------------|---------------|--------
+userid|Yes|This is the userid of the user. Based on the useridtype, this will vary.| -NA- | M392380
+otpchannel|Yes|This is the channel in which the OTP will be sent. It is an array of the enumeration {&quot;EMAIL&quot;, &quot;MOBILE&quot;}. If the channel is not found, ChannelNotSupported error will be sent back| -NA- | MOBILENUMBER
+useridtype|Yes|This field is the user id type. It should be one the {&quot;UIN&quot;, &quot;USERID&quot;}. Based on the combination of &quot;appid&quot; and &quot;useridtype&quot; the system identifies from which system to pickup the channel's recepient address| -NA- | USERID
+appid|Yes|This is the application ID of the caller of this service. It should be on of the {&quot;PREREGISTRATION&quot;, &quot;REGISTRATIONCLIENT&quot;, &quot;REGISTRATIONPROCESSOR&quot;, &quot;IDA&quot;}| -NA- | PREREGISTRATION
+templateVariables|No|This is the map of custom template variables|-NA-|{&quot;UIN&quot;:&quot;2530192395&quot;}
+context|Yes|This shows the purpose of the sending otp like Login,notification etc|&quot;auth-otp&quot; for default OTP|auth-otp,auth-login-otp</p>
+</div>
+<div class="section" id="example-request">
+<h3>Example Request<a class="headerlink" href="#example-request" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-JSON notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+  <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;string&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;metadata&quot;</span><span class="p">:</span> <span class="p">{},</span>
+  <span class="nt">&quot;request&quot;</span><span class="p">:</span> <span class="p">{</span>
+    <span class="nt">&quot;appId&quot;</span><span class="p">:</span> <span class="s2">&quot;ida&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;otpChannel&quot;</span><span class="p">:</span> <span class="p">[</span>
+      <span class="s2">&quot;email&quot;</span>
+    <span class="p">],</span>
+    <span class="nt">&quot;context&quot;</span><span class="p">:</span><span class="s2">&quot;auth-otp&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;templateVariables&quot;</span><span class="p">:{</span><span class="nt">&quot;UIN&quot;</span><span class="p">:</span><span class="s2">&quot;2530192395&quot;</span><span class="p">},</span>
+    <span class="nt">&quot;userId&quot;</span><span class="p">:</span> <span class="s2">&quot;2530192395&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;useridtype&quot;</span><span class="p">:</span> <span class="s2">&quot;UIN&quot;</span>
+  <span class="p">},</span>
+  <span class="nt">&quot;requesttime&quot;</span><span class="p">:</span> <span class="s2">&quot;2019-04-29T07:01:24.692Z&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;version&quot;</span><span class="p">:</span> <span class="s2">&quot;string&quot;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="example-response">
+<h3>Example Response<a class="headerlink" href="#example-response" title="Permalink to this headline">¶</a></h3>
+<p>Success Response</p>
+<div class="highlight-JSON notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+	<span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;mosip.authentication.sendotp&quot;</span><span class="p">,</span>
+	<span class="nt">&quot;ver&quot;</span><span class="p">:</span> <span class="s2">&quot;1.0&quot;</span><span class="p">,</span>
+	<span class="nt">&quot;responsetime&quot;</span><span class="p">:</span> <span class="s2">&quot;2007-12-03T10:15:30Z&quot;</span><span class="p">,</span>
+	<span class="nt">&quot;response&quot;</span><span class="p">:</span> <span class="p">{</span>
+                <span class="nt">&quot;status&quot;</span><span class="p">:</span> <span class="s2">&quot;success&quot;</span><span class="p">,</span>
+		<span class="nt">&quot;message&quot;</span><span class="p">:</span><span class="s2">&quot;OTP had been sent successfully&quot;</span>
+	<span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Error Response</p>
+<ol class="simple">
+<li><p>Invalid Channel: This is the error response in case if the channel is not valid.</p></li>
+</ol>
+<div class="highlight-JSON notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+	<span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;mosip.authentication.sendotp&quot;</span><span class="p">,</span>
+	<span class="nt">&quot;ver&quot;</span><span class="p">:</span> <span class="s2">&quot;1.0&quot;</span><span class="p">,</span>
+	<span class="nt">&quot;responsetime&quot;</span><span class="p">:</span> <span class="s2">&quot;2007-12-03T10:15:30Z&quot;</span><span class="p">,</span>
+	<span class="nt">&quot;errors&quot;</span><span class="p">:[</span>
+			<span class="p">{</span>
+				<span class="nt">&quot;errorCode&quot;</span><span class="p">:</span> <span class="s2">&quot;KER-AUTH-CHANNEL_INVALID&quot;</span><span class="p">,</span>
+				<span class="nt">&quot;message&quot;</span><span class="p">:</span> <span class="s2">&quot;The passed channel is invalid.&quot;</span>
+		  <span class="p">}</span>	
+		<span class="p">]</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<ol class="simple">
+<li><p>Multiple channels not supported: In case, if the caller can send only one channel, then this error will be sent. For example, Pre-Registration module cannot have multiple channels.</p></li>
+</ol>
+<div class="highlight-JSON notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+	<span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;mosip.authentication.sendotp&quot;</span><span class="p">,</span>
+	<span class="nt">&quot;ver&quot;</span><span class="p">:</span> <span class="s2">&quot;1.0&quot;</span><span class="p">,</span>
+	<span class="nt">&quot;responsetime&quot;</span><span class="p">:</span> <span class="s2">&quot;2007-12-03T10:15:30Z&quot;</span><span class="p">,</span>
+	<span class="nt">&quot;errors&quot;</span><span class="p">:[</span>
+			<span class="p">{</span>
+				<span class="nt">&quot;errorCode&quot;</span><span class="p">:</span> <span class="s2">&quot;AUTH_ERR_MULTIPLE_CHANNELS&quot;</span><span class="p">,</span>
+				<span class="nt">&quot;message&quot;</span><span class="p">:</span> <span class="s2">&quot;Multiple channels are not supported in your module.&quot;</span>
+		  <span class="p">}</span>	
+		<span class="p">]</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<ol class="simple">
+<li><p>User not found: If the passed is not found in the system.</p></li>
+</ol>
+<div class="highlight-JSON notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+	<span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;mosip.authentication.sendotp&quot;</span><span class="p">,</span>
+	<span class="nt">&quot;ver&quot;</span><span class="p">:</span> <span class="s2">&quot;1.0&quot;</span><span class="p">,</span>
+	<span class="nt">&quot;responsetime&quot;</span><span class="p">:</span> <span class="s2">&quot;2007-12-03T10:15:30Z&quot;</span><span class="p">,</span>
+	<span class="nt">&quot;errors&quot;</span><span class="p">:[</span>
+			<span class="p">{</span>
+				<span class="nt">&quot;errorCode&quot;</span><span class="p">:</span> <span class="s2">&quot;AUTH_ERR_USER_NOT_FOUND&quot;</span><span class="p">,</span>
+				<span class="nt">&quot;message&quot;</span><span class="p">:</span> <span class="s2">&quot;The passed in user is not found&quot;</span>
+		  <span class="p">}</span>	
+		<span class="p">]</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<ol class="simple">
+<li><p>Channel path not found: If the channel's path is not found. For example, if the channel is email and the email ID is not found for that user.</p></li>
+</ol>
+<div class="highlight-JSON notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+	<span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;mosip.authentication.sendotp&quot;</span><span class="p">,</span>
+	<span class="nt">&quot;ver&quot;</span><span class="p">:</span> <span class="s2">&quot;1.0&quot;</span><span class="p">,</span>
+	<span class="nt">&quot;responsetime&quot;</span><span class="p">:</span> <span class="s2">&quot;2007-12-03T10:15:30Z&quot;</span><span class="p">,</span>
+	<span class="nt">&quot;errors&quot;</span><span class="p">:[</span>
+			<span class="p">{</span>
+				<span class="nt">&quot;errorCode&quot;</span><span class="p">:</span> <span class="s2">&quot;AUTH_ERR_CHANNELPATH_NOT_FOUND&quot;</span><span class="p">,</span>
+				<span class="nt">&quot;message&quot;</span><span class="p">:</span> <span class="s2">&quot;The passed in user is not found&quot;</span>
+		  <span class="p">}</span>	
+		<span class="p">]</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="authenticate-userid-and-otp">
+<h2>1.2 Authenticate UserId and OTP<a class="headerlink" href="#authenticate-userid-and-otp" title="Permalink to this headline">¶</a></h2>
+<p>This service authenticates the use ID and the OTP. If the authentication is successfull, an AuthToken will be sent in the Response header.</p>
+<div class="section" id="id1">
+<h3>Resource URL<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h3>
+</div>
+<div class="section" id="post-v1-authenticate-useridotp">
+<h3><code class="docutils literal notranslate"><span class="pre">POST</span> <span class="pre">/v1/authenticate/useridOTP</span></code><a class="headerlink" href="#post-v1-authenticate-useridotp" title="Permalink to this headline">¶</a></h3>
+</div>
+<div class="section" id="id2">
+<h3>Resource details<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h3>
+<p>Resource Details | Description
+------------ | -------------
+Response format | The response will be sent in the Response Header and also a JSON message will be returned.
+Requires Authentication | no</p>
+</div>
+<div class="section" id="id3">
+<h3>Parameters<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h3>
+<p>Name | Required | Description | Default Value | Example
+-----|----------|-------------|---------------|--------
+userid|Yes|This is the userid of the user against which the OTP had been sent. Based on the useridtype, this will vary.| -NA- | M392380
+otp|Yes|This is OTP which is sent to the userid's preferred channel| -NA- | 6473</p>
+</div>
+<div class="section" id="id4">
+<h3>Example Request<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-JSON notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+	<span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;mosip.authentication.useridOTP&quot;</span><span class="p">,</span>
+	<span class="nt">&quot;version&quot;</span><span class="p">:</span><span class="s2">&quot;1.0&quot;</span><span class="p">,</span>	
+	<span class="nt">&quot;requesttime&quot;</span><span class="p">:</span><span class="s2">&quot;2007-12-03T10:15:30Z&quot;</span><span class="p">,</span>
+	<span class="nt">&quot;request&quot;</span><span class="p">:</span> <span class="p">{</span>
+		<span class="nt">&quot;userid&quot;</span><span class="p">:</span> <span class="s2">&quot;M392380&quot;</span><span class="p">,</span>
+		<span class="nt">&quot;otp&quot;</span><span class="p">:</span> <span class="s2">&quot;6473&quot;</span>
+	<span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="id5">
+<h3>Example Response<a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h3>
+<p>Success Response</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>Response Cookie:
+
+Set-Cookie →Authorization=Mosip-TokeneyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJpbmRpdmlkdWFsIiwibW9iaWxlIjoiOTY2MzE3NTkyOCIsIm1haWwiOiJpbmRpdmlkdWFsQGdtYWlsLmNvbSIsInJvbGUiOiJwZXJzb24iLCJpYXQiOjE1NTEzNDU1NjUsImV4cCI6MTU1MTM1MTU2NX0.pCyibViXo31enOgRD60BnKjEpEA-78yzbWnZGChxCIZ5lTpYnhgm-0dtoT3neFebTJ8eAI7-o8jDWMCMqq6uSw; Max-Age=6000000; Expires=Wed, 08-May-2019 19:59:43 GMT; Path=/; Secure; HttpOnly
+</pre></div>
+</div>
+<div class="highlight-JSON notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+	<span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;mosip.authentication.useridOTP&quot;</span><span class="p">,</span>
+	<span class="nt">&quot;ver&quot;</span><span class="p">:</span> <span class="s2">&quot;1.0&quot;</span><span class="p">,</span>
+	<span class="nt">&quot;responsetime&quot;</span><span class="p">:</span> <span class="s2">&quot;2007-12-03T10:15:30Z&quot;</span><span class="p">,</span>
+	<span class="nt">&quot;response&quot;</span><span class="p">:</span> <span class="p">{</span>
+                <span class="nt">&quot;status&quot;</span><span class="p">:</span> <span class="s2">&quot;success&quot;</span><span class="p">,</span>
+		<span class="nt">&quot;message&quot;</span><span class="p">:</span><span class="s2">&quot;OTP validation is successfull&quot;</span>
+	<span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Error Responses</p>
+<ol class="simple">
+<li><p>Invalid OTP: If the passed OTP is not valid.</p></li>
+</ol>
+<div class="highlight-JSON notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+	<span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;mosip.authentication.useridOTP&quot;</span><span class="p">,</span>
+	<span class="nt">&quot;ver&quot;</span><span class="p">:</span> <span class="s2">&quot;1.0&quot;</span><span class="p">,</span>
+	<span class="nt">&quot;responsetime&quot;</span><span class="p">:</span> <span class="s2">&quot;2007-12-03T10:15:30Z&quot;</span><span class="p">,</span>
+	<span class="nt">&quot;errors&quot;</span><span class="p">:[</span>
+			<span class="p">{</span>
+				<span class="nt">&quot;errorCode&quot;</span><span class="p">:</span> <span class="s2">&quot;AUTH_ERR_INVALIDOTP&quot;</span><span class="p">,</span>
+				<span class="nt">&quot;message&quot;</span><span class="p">:</span> <span class="s2">&quot;The passed in OTP is invalid&quot;</span>
+		  <span class="p">}</span>	
+		<span class="p">]</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<ol class="simple">
+<li><p>Expired OTP: If the passed OTP is expired.</p></li>
+</ol>
+<div class="highlight-JSON notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+	<span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;mosip.authentication.useridOTP&quot;</span><span class="p">,</span>
+	<span class="nt">&quot;ver&quot;</span><span class="p">:</span> <span class="s2">&quot;1.0&quot;</span><span class="p">,</span>
+	<span class="nt">&quot;responsetime&quot;</span><span class="p">:</span> <span class="s2">&quot;2007-12-03T10:15:30Z&quot;</span><span class="p">,</span>
+	<span class="nt">&quot;errors&quot;</span><span class="p">:[</span>
+			<span class="p">{</span>
+				<span class="nt">&quot;errorCode&quot;</span><span class="p">:</span> <span class="s2">&quot;AUTH_ERR_EXPIREDOTP&quot;</span><span class="p">,</span>
+				<span class="nt">&quot;message&quot;</span><span class="p">:</span> <span class="s2">&quot;The passed OTP is expired&quot;</span>
+		  <span class="p">}</span>	
+		<span class="p">]</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="authenticate-using-username-and-password">
+<h2>1.3 Authenticate using username and password<a class="headerlink" href="#authenticate-using-username-and-password" title="Permalink to this headline">¶</a></h2>
+<p>This service will authenticate the username and password.</p>
+<div class="section" id="id6">
+<h3>Resource URL<a class="headerlink" href="#id6" title="Permalink to this headline">¶</a></h3>
+</div>
+<div class="section" id="post-v-1authenticate-useridpwd">
+<h3><code class="docutils literal notranslate"><span class="pre">POST</span> <span class="pre">/v/1authenticate/useridPwd</span></code><a class="headerlink" href="#post-v-1authenticate-useridpwd" title="Permalink to this headline">¶</a></h3>
+</div>
+<div class="section" id="id7">
+<h3>Resource details<a class="headerlink" href="#id7" title="Permalink to this headline">¶</a></h3>
+<p>Resource Details | Description
+------------ | -------------
+Response format | The response will be sent in the Response Header and also a JSON message will be returned.
+Requires Authentication | no</p>
+</div>
+<div class="section" id="id8">
+<h3>Parameters<a class="headerlink" href="#id8" title="Permalink to this headline">¶</a></h3>
+<p>Name | Required | Description | Default Value | Example
+-----|----------|-------------|---------------|--------
+username|Yes|This is the username of the user. | -NA- | M392380
+password|Yes|This is the password of the user.| -NA- | ADGDAGADFF
+appid|Yes|This is the application ID of the caller of this service. It should be on of the {&quot;PREREGISTRATION&quot;, &quot;REGISTRATIONCLIENT&quot;, &quot;REGISTRATIONPROCESSOR&quot;, &quot;IDA&quot;}| -NA- | PREREGISTRATION</p>
+</div>
+<div class="section" id="id9">
+<h3>Example Request<a class="headerlink" href="#id9" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-JSON notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+	<span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;mosip.authentication.useridPwd&quot;</span><span class="p">,</span>
+	<span class="nt">&quot;version&quot;</span><span class="p">:</span><span class="s2">&quot;1.0&quot;</span><span class="p">,</span>	
+	<span class="nt">&quot;requesttime&quot;</span><span class="p">:</span><span class="s2">&quot;2007-12-03T10:15:30Z&quot;</span><span class="p">,</span>
+	<span class="nt">&quot;request&quot;</span><span class="p">:</span> <span class="p">{</span>
+		<span class="nt">&quot;username&quot;</span><span class="p">:</span> <span class="s2">&quot;M392380&quot;</span><span class="p">,</span>
+		<span class="nt">&quot;password&quot;</span><span class="p">:</span> <span class="s2">&quot;fdkj943lkj32k32ew$8Kf&quot;</span><span class="p">,</span>
+		<span class="nt">&quot;appid&quot;</span><span class="p">:</span> <span class="s2">&quot;REGISTRATIONCLIENT&quot;</span>
+	<span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="id10">
+<h3>Example Response<a class="headerlink" href="#id10" title="Permalink to this headline">¶</a></h3>
+<p>Success Response</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>Response Cookie:
+
+Set-Cookie →Authorization=Mosip-TokeneyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJpbmRpdmlkdWFsIiwibW9iaWxlIjoiOTY2MzE3NTkyOCIsIm1haWwiOiJpbmRpdmlkdWFsQGdtYWlsLmNvbSIsInJvbGUiOiJwZXJzb24iLCJpYXQiOjE1NTEzNDU1NjUsImV4cCI6MTU1MTM1MTU2NX0.pCyibViXo31enOgRD60BnKjEpEA-78yzbWnZGChxCIZ5lTpYnhgm-0dtoT3neFebTJ8eAI7-o8jDWMCMqq6uSw; Max-Age=6000000; Expires=Wed, 08-May-2019 19:59:43 GMT; Path=/; Secure; HttpOnly
+</pre></div>
+</div>
+<div class="highlight-JSON notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+	<span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;mosip.authentication.useridPwd&quot;</span><span class="p">,</span>
+	<span class="nt">&quot;ver&quot;</span><span class="p">:</span> <span class="s2">&quot;1.0&quot;</span><span class="p">,</span>
+	<span class="nt">&quot;responsetime&quot;</span><span class="p">:</span> <span class="s2">&quot;2007-12-03T10:15:30Z&quot;</span><span class="p">,</span>
+	<span class="nt">&quot;response&quot;</span><span class="p">:</span> <span class="p">{</span>
+                <span class="nt">&quot;status&quot;</span><span class="p">:</span> <span class="s2">&quot;success&quot;</span><span class="p">,</span>
+		<span class="nt">&quot;message&quot;</span><span class="p">:</span><span class="s2">&quot;Username and password combination had been validated successfully&quot;</span>
+	<span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Error Responses</p>
+<ol class="simple">
+<li><p>Invalid credentials: If the passed credentials is not correct.</p></li>
+</ol>
+<div class="highlight-JSON notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+	<span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;mosip.authentication.useridPwd&quot;</span><span class="p">,</span>
+	<span class="nt">&quot;ver&quot;</span><span class="p">:</span> <span class="s2">&quot;1.0&quot;</span><span class="p">,</span>
+	<span class="nt">&quot;responsetime&quot;</span><span class="p">:</span> <span class="s2">&quot;2007-12-03T10:15:30Z&quot;</span><span class="p">,</span>
+	<span class="nt">&quot;errors&quot;</span><span class="p">:[</span>
+			<span class="p">{</span>
+				<span class="nt">&quot;errorCode&quot;</span><span class="p">:</span> <span class="s2">&quot;AUTH_ERR_INVALIDCREDENTIALS&quot;</span><span class="p">,</span>
+				<span class="nt">&quot;message&quot;</span><span class="p">:</span> <span class="s2">&quot;The passed in credentials is not correct&quot;</span>
+		  <span class="p">}</span>	
+		<span class="p">]</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<ol class="simple">
+<li><p>Invalid application ID: If the passed in application is not correct.</p></li>
+</ol>
+<div class="highlight-JSON notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+	<span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;mosip.authentication.useridPwd&quot;</span><span class="p">,</span>
+	<span class="nt">&quot;ver&quot;</span><span class="p">:</span> <span class="s2">&quot;1.0&quot;</span><span class="p">,</span>
+	<span class="nt">&quot;responsetime&quot;</span><span class="p">:</span> <span class="s2">&quot;2007-12-03T10:15:30Z&quot;</span><span class="p">,</span>
+	<span class="nt">&quot;errors&quot;</span><span class="p">:[</span>
+			<span class="p">{</span>
+				<span class="nt">&quot;errorCode&quot;</span><span class="p">:</span> <span class="s2">&quot;AUTH_ERR_INVALIDAPPID&quot;</span><span class="p">,</span>
+				<span class="nt">&quot;message&quot;</span><span class="p">:</span> <span class="s2">&quot;The passed in application ID is not correct&quot;</span>
+		  <span class="p">}</span>	
+		<span class="p">]</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="authenticate-using-clientid-and-secret-key">
+<h2>1.4 Authenticate using clientid and secret key<a class="headerlink" href="#authenticate-using-clientid-and-secret-key" title="Permalink to this headline">¶</a></h2>
+<p>This service will authenticate the clientid and secret key. When an application try to call any service in the MOSIP system, the call have to be authenticated and authorized. For example, when Pre-registration application calls some master service, the call have to be authenticated first. This call can facilitate the call.
+The clientid would have provided to the caller application before hand using another procedure. So, before making this call, the caller application have to have the clientid and the secret key.</p>
+<div class="section" id="id11">
+<h3>Resource URL<a class="headerlink" href="#id11" title="Permalink to this headline">¶</a></h3>
+</div>
+<div class="section" id="post-v1-authenticate-clientidsecretkey">
+<h3><code class="docutils literal notranslate"><span class="pre">POST</span> <span class="pre">/v1/authenticate/clientidsecretkey</span></code><a class="headerlink" href="#post-v1-authenticate-clientidsecretkey" title="Permalink to this headline">¶</a></h3>
+</div>
+<div class="section" id="id12">
+<h3>Resource details<a class="headerlink" href="#id12" title="Permalink to this headline">¶</a></h3>
+<p>Resource Details | Description
+------------ | -------------
+Response format | The response will be sent in the Response Header and also a JSON message will be returned.
+Requires Authentication | no</p>
+</div>
+<div class="section" id="id13">
+<h3>Parameters<a class="headerlink" href="#id13" title="Permalink to this headline">¶</a></h3>
+<p>Name | Required | Description | Default Value | Example
+-----|----------|-------------|---------------|--------
+clientid|Yes|This is the client id, provided to the caller application upfront. | -NA- | D72HJDF8
+secretkey|Yes|This is the secret key which was provided to the application corresponding to the clientid| -NA- | JSlj8p789sdfjhlsJKDHFS</p>
+</div>
+<div class="section" id="id14">
+<h3>Example Request<a class="headerlink" href="#id14" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-JSON notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+	<span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;mosip.authentication.clientidsecretkey&quot;</span><span class="p">,</span>
+	<span class="nt">&quot;version&quot;</span><span class="p">:</span><span class="s2">&quot;1.0&quot;</span><span class="p">,</span>	
+	<span class="nt">&quot;requesttime&quot;</span><span class="p">:</span><span class="s2">&quot;2007-12-03T10:15:30Z&quot;</span><span class="p">,</span>
+	<span class="nt">&quot;request&quot;</span><span class="p">:</span> <span class="p">{</span>
+		<span class="nt">&quot;clientid&quot;</span><span class="p">:</span> <span class="s2">&quot;D72HJDF8&quot;</span><span class="p">,</span>
+		<span class="nt">&quot;secretkey&quot;</span><span class="p">:</span> <span class="s2">&quot;JSlj8p789sdfjhlsJKDHFS&quot;</span>
+	<span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="id15">
+<h3>Example Response<a class="headerlink" href="#id15" title="Permalink to this headline">¶</a></h3>
+<p>Success Response</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>Response Cookie:
+
+Set-Cookie →Authorization=Mosip-TokeneyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJpbmRpdmlkdWFsIiwibW9iaWxlIjoiOTY2MzE3NTkyOCIsIm1haWwiOiJpbmRpdmlkdWFsQGdtYWlsLmNvbSIsInJvbGUiOiJwZXJzb24iLCJpYXQiOjE1NTEzNDU1NjUsImV4cCI6MTU1MTM1MTU2NX0.pCyibViXo31enOgRD60BnKjEpEA-78yzbWnZGChxCIZ5lTpYnhgm-0dtoT3neFebTJ8eAI7-o8jDWMCMqq6uSw; Max-Age=6000000; Expires=Wed, 08-May-2019 19:59:43 GMT; Path=/; Secure; HttpOnly
+</pre></div>
+</div>
+<div class="highlight-JSON notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+	<span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;mosip.authentication.clientidsecretkey&quot;</span><span class="p">,</span>
+	<span class="nt">&quot;ver&quot;</span><span class="p">:</span> <span class="s2">&quot;1.0&quot;</span><span class="p">,</span>
+	<span class="nt">&quot;responsetime&quot;</span><span class="p">:</span> <span class="s2">&quot;2007-12-03T10:15:30Z&quot;</span><span class="p">,</span>
+	<span class="nt">&quot;response&quot;</span><span class="p">:</span> <span class="p">{</span>
+                <span class="nt">&quot;status&quot;</span><span class="p">:</span> <span class="s2">&quot;success&quot;</span><span class="p">,</span>
+		<span class="nt">&quot;message&quot;</span><span class="p">:</span><span class="s2">&quot;Clientid and Token combination had been validated successfully&quot;</span>
+	<span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Error Responses</p>
+<ol class="simple">
+<li><p>Invalid credentials: If the passed credentials is not correct.</p></li>
+</ol>
+<div class="highlight-JSON notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+	<span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;mosip.authentication.clientidsecretkey&quot;</span><span class="p">,</span>
+	<span class="nt">&quot;ver&quot;</span><span class="p">:</span> <span class="s2">&quot;1.0&quot;</span><span class="p">,</span>
+	<span class="nt">&quot;responsetime&quot;</span><span class="p">:</span> <span class="s2">&quot;2007-12-03T10:15:30Z&quot;</span><span class="p">,</span>
+	<span class="nt">&quot;errors&quot;</span><span class="p">:[</span>
+			<span class="p">{</span>
+				<span class="nt">&quot;errorCode&quot;</span><span class="p">:</span> <span class="s2">&quot;AUTH_ERR_INVALIDCLIENTIDCREDENTIALS&quot;</span><span class="p">,</span>
+				<span class="nt">&quot;message&quot;</span><span class="p">:</span> <span class="s2">&quot;The passed in credentials is not correct&quot;</span>
+		  <span class="p">}</span>	
+		<span class="p">]</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="authorization">
+<h1>2. Authorization<a class="headerlink" href="#authorization" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="validate-token">
+<h2>2.1 Validate Token<a class="headerlink" href="#validate-token" title="Permalink to this headline">¶</a></h2>
+<p>This service checks the validity of the Auth token.</p>
+<div class="section" id="id16">
+<h3>Resource URL<a class="headerlink" href="#id16" title="Permalink to this headline">¶</a></h3>
+</div>
+<div class="section" id="post-v1-authorize-validatetoken">
+<h3><code class="docutils literal notranslate"><span class="pre">POST</span> <span class="pre">/v1/authorize/validateToken</span></code><a class="headerlink" href="#post-v1-authorize-validatetoken" title="Permalink to this headline">¶</a></h3>
+</div>
+<div class="section" id="resource-detail">
+<h3>Resource detail<a class="headerlink" href="#resource-detail" title="Permalink to this headline">¶</a></h3>
+<p>Resource Details | Description
+------------ | -------------
+Response format | The response will be sent in the Response Header and also a JSON message will be returned.
+Requires Authentication | no</p>
+</div>
+<div class="section" id="id17">
+<h3>Parameters<a class="headerlink" href="#id17" title="Permalink to this headline">¶</a></h3>
+<p>Name | Required | Description | Default Value | Example
+-----|----------|-------------|---------------|--------
+Authorization|Yes|AuthToken passed in the request cookie| | Mosip-TokeneyeyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VySWQiOiJiMDhmODZhZi0zNWRhLTQ4ZjItOGZhYi1jZWYzOTA0NjYwYmQifQ.-xN_h82PHVTCMA9vdoHrcZxH-x5mb11y1537t3rGzcM</p>
+</div>
+<div class="section" id="id18">
+<h3>Example Request<a class="headerlink" href="#id18" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Request</span> <span class="n">Cookie</span><span class="p">:</span>
+<span class="n">Authorization</span><span class="o">=</span><span class="n">Mosip</span><span class="o">-</span><span class="n">TokeneyeyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9</span><span class="o">.</span><span class="n">eyJ1c2VySWQiOiJiMDhmODZhZi0zNWRhLTQ4ZjItOGZhYi1jZWYzOTA0NjYwYmQifQ</span><span class="o">.-</span><span class="n">xN_h82PHVTCMA9vdoHrcZxH</span><span class="o">-</span><span class="n">x5mb11y1537t3rGzcM</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="id19">
+<h3>Example Response<a class="headerlink" href="#id19" title="Permalink to this headline">¶</a></h3>
+<p>Success Response</p>
+<div class="highlight-JSON notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+	<span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;mosip.authorize.validatetoken&quot;</span><span class="p">,</span>
+	<span class="nt">&quot;ver&quot;</span><span class="p">:</span> <span class="s2">&quot;1.0&quot;</span><span class="p">,</span>
+	<span class="nt">&quot;responsetime&quot;</span><span class="p">:</span> <span class="s2">&quot;2007-12-03T10:15:30Z&quot;</span><span class="p">,</span>
+	<span class="nt">&quot;response&quot;</span><span class="p">:</span> <span class="p">{</span>
+		<span class="nt">&quot;message&quot;</span><span class="p">:</span><span class="s2">&quot;Token had been validated successfully&quot;</span>
+	<span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Error Responses</p>
+<ol class="simple">
+<li><p>Invalid Token: If the passed token is not correct.</p></li>
+</ol>
+<div class="highlight-JSON notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+	<span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;mosip.authentication.validatetoken&quot;</span><span class="p">,</span>
+	<span class="nt">&quot;ver&quot;</span><span class="p">:</span> <span class="s2">&quot;1.0&quot;</span><span class="p">,</span>
+	<span class="nt">&quot;responsetime&quot;</span><span class="p">:</span> <span class="s2">&quot;2007-12-03T10:15:30Z&quot;</span><span class="p">,</span>
+	<span class="nt">&quot;errors&quot;</span><span class="p">:[</span>
+			<span class="p">{</span>
+				<span class="nt">&quot;errorCode&quot;</span><span class="p">:</span> <span class="s2">&quot;AUTH_ERR_TOKENNOTVALID&quot;</span><span class="p">,</span>
+				<span class="nt">&quot;message&quot;</span><span class="p">:</span> <span class="s2">&quot;The passed in Token is not correct&quot;</span>
+		  <span class="p">}</span>	
+		<span class="p">]</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="invalidate-token">
+<h2>2.3 Invalidate Token<a class="headerlink" href="#invalidate-token" title="Permalink to this headline">¶</a></h2>
+<p>This service invalidates the token</p>
+<div class="section" id="id20">
+<h3>Resource URL<a class="headerlink" href="#id20" title="Permalink to this headline">¶</a></h3>
+</div>
+<div class="section" id="post-v1-authorize-invalidatetoken">
+<h3><code class="docutils literal notranslate"><span class="pre">POST</span> <span class="pre">/v1/authorize/invalidateToken</span></code><a class="headerlink" href="#post-v1-authorize-invalidatetoken" title="Permalink to this headline">¶</a></h3>
+</div>
+<div class="section" id="id21">
+<h3>Resource details<a class="headerlink" href="#id21" title="Permalink to this headline">¶</a></h3>
+<p>Resource Details | Description
+------------ | -------------
+Response format | The response will be sent in the Response Cookies and also a JSON message will be returned.
+Requires Authentication | no</p>
+</div>
+<div class="section" id="id22">
+<h3>Parameters<a class="headerlink" href="#id22" title="Permalink to this headline">¶</a></h3>
+<p>Name | Required | Description | Default Value | Example
+-----|----------|-------------|---------------|--------
+Authorization|Yes|AuthToken passed in the request cookie| | eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VySWQiOiJiMDhmODZhZi0zNWRhLTQ4ZjItOGZhYi1jZWYzOTA0NjYwYmQifQ.-xN_h82PHVTCMA9vdoHrcZxH-x5mb11y1537t3rGzcM</p>
+</div>
+<div class="section" id="id23">
+<h3>Example Request<a class="headerlink" href="#id23" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Request</span> <span class="n">Cookie</span><span class="p">:</span>
+<span class="n">Authorization</span><span class="o">=</span><span class="n">Mosip</span><span class="o">-</span><span class="n">TokeneyeyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9</span><span class="o">.</span><span class="n">eyJ1c2VySWQiOiJiMDhmODZhZi0zNWRhLTQ4ZjItOGZhYi1jZWYzOTA0NjYwYmQifQ</span><span class="o">.-</span><span class="n">xN_h82PHVTCMA9vdoHrcZxH</span><span class="o">-</span><span class="n">x5mb11y1537t3rGzcM</span> 
+</pre></div>
+</div>
+</div>
+<div class="section" id="id24">
+<h3>Example Response<a class="headerlink" href="#id24" title="Permalink to this headline">¶</a></h3>
+<p>Success Response</p>
+<div class="highlight-JSON notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+	<span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;mosip.authorize.invalidatetoken&quot;</span><span class="p">,</span>
+	<span class="nt">&quot;ver&quot;</span><span class="p">:</span> <span class="s2">&quot;1.0&quot;</span><span class="p">,</span>
+	<span class="nt">&quot;responsetime&quot;</span><span class="p">:</span> <span class="s2">&quot;2007-12-03T10:15:30Z&quot;</span><span class="p">,</span>
+	<span class="nt">&quot;response&quot;</span><span class="p">:</span> <span class="p">{</span>
+		<span class="nt">&quot;message&quot;</span><span class="p">:</span><span class="s2">&quot;Token invalidated successfully&quot;</span>
+	<span class="p">}</span>	
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Error Responses</p>
+<ol class="simple">
+<li><p>Empty Cookie: If the passed Cookie is empty.</p></li>
+</ol>
+<div class="highlight-JSON notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+	<span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;mosip.authentication.invalidatetoken&quot;</span><span class="p">,</span>
+	<span class="nt">&quot;ver&quot;</span><span class="p">:</span> <span class="s2">&quot;1.0&quot;</span><span class="p">,</span>
+	<span class="nt">&quot;responsetime&quot;</span><span class="p">:</span> <span class="s2">&quot;2007-12-03T10:15:30Z&quot;</span><span class="p">,</span>
+	<span class="nt">&quot;errors&quot;</span><span class="p">:[</span>
+			<span class="p">{</span>
+				<span class="nt">&quot;errorCode&quot;</span><span class="p">:</span> <span class="s2">&quot;AUTH_ERR_COOKIEEMPTY&quot;</span><span class="p">,</span>
+				<span class="nt">&quot;message&quot;</span><span class="p">:</span> <span class="s2">&quot;The passed in Cookie is empty&quot;</span>
+		  <span class="p">}</span>	
+		<span class="p">]</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="otp-services">
+<h1>3. OTP services<a class="headerlink" href="#otp-services" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="generate-otp">
+<h2>3.1 Generate OTP<a class="headerlink" href="#generate-otp" title="Permalink to this headline">¶</a></h2>
+<p>The OTP Generator component will receive a request to generate OTP, validate if the OTP generation request is from an authorized source, call OTP generator API with the input parameters (Key), receive the OTP from the OTP generator API which is generated based on the OTP generation policy and respond to the source with the OTP.</p>
+<p>The OTP Generator can also reject a request from a blocked/frozen account and assign a validity to each OTP that is generated, based on the defined policy</p>
+<div class="section" id="id25">
+<h3>Resource URL<a class="headerlink" href="#id25" title="Permalink to this headline">¶</a></h3>
+</div>
+<div class="section" id="post-v1-otp-generate">
+<h3><code class="docutils literal notranslate"><span class="pre">POST</span> <span class="pre">/v1/otp/generate</span></code><a class="headerlink" href="#post-v1-otp-generate" title="Permalink to this headline">¶</a></h3>
+</div>
+<div class="section" id="id26">
+<h3>Resource details<a class="headerlink" href="#id26" title="Permalink to this headline">¶</a></h3>
+<p>Resource Details | Description
+------------ | -------------
+Response format | The response will be sent as a JSON response.
+Requires Authentication | no</p>
+</div>
+<div class="section" id="id27">
+<h3>Parameters<a class="headerlink" href="#id27" title="Permalink to this headline">¶</a></h3>
+<p>Name | Required | Description | Default Value | Example
+-----|----------|-------------|---------------|--------
+Key|Yes|AuthToken passed in the request header| |</p>
+</div>
+<div class="section" id="id28">
+<h3>Example Request<a class="headerlink" href="#id28" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-JSON notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+	<span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;mosip.otp.generateOTP&quot;</span><span class="p">,</span>
+	<span class="nt">&quot;version&quot;</span><span class="p">:</span><span class="s2">&quot;1.0&quot;</span><span class="p">,</span>	
+	<span class="nt">&quot;requesttime&quot;</span><span class="p">:</span><span class="s2">&quot;2007-12-03T10:15:30Z&quot;</span><span class="p">,</span>
+	<span class="nt">&quot;request&quot;</span><span class="p">:</span> <span class="p">{</span>
+	   <span class="nt">&quot;key&quot;</span><span class="p">:</span> <span class="s2">&quot;9820173642&quot;</span>
+	<span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="id29">
+<h3>Example Response<a class="headerlink" href="#id29" title="Permalink to this headline">¶</a></h3>
+<p>Success Response</p>
+<div class="highlight-JSON notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+	<span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;mosip.otp.generateOTP&quot;</span><span class="p">,</span>
+	<span class="nt">&quot;ver&quot;</span><span class="p">:</span> <span class="s2">&quot;1.0&quot;</span><span class="p">,</span>
+	<span class="nt">&quot;responsetime&quot;</span><span class="p">:</span> <span class="s2">&quot;2007-12-03T10:15:30Z&quot;</span><span class="p">,</span>
+	<span class="nt">&quot;response&quot;</span><span class="p">:</span> <span class="p">{</span>
+		<span class="nt">&quot;otp&quot;</span><span class="p">:</span> <span class="s2">&quot;849004&quot;</span><span class="p">,</span>
+		<span class="nt">&quot;status&quot;</span><span class="p">:</span> <span class="s2">&quot;GENERATION_SUCCESSFUL&quot;</span>
+	<span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Error Responses
+-NA-</p>
+</div>
+</div>
+<div class="section" id="validate-otp">
+<h2>3.2 Validate OTP<a class="headerlink" href="#validate-otp" title="Permalink to this headline">¶</a></h2>
+<p>This component facilitates basic validation of an OTP.</p>
+<p>This includes: Receiving a request for OTP validation with required input parameters (Key), Validating the pattern of OTP generated based on defined policy, validating if the OTP is active/inactive and responding to the source with a response (Valid/Invalid)</p>
+<p>This component also facilitates deletion of every successfully validated OTP when consumed and freezing an account for exceeding the number of retries/wrong input of OTP.</p>
+<div class="section" id="id30">
+<h3>Resource URL<a class="headerlink" href="#id30" title="Permalink to this headline">¶</a></h3>
+</div>
+<div class="section" id="post-v1-otp-validate">
+<h3><code class="docutils literal notranslate"><span class="pre">POST</span> <span class="pre">/v1/otp/validate</span></code><a class="headerlink" href="#post-v1-otp-validate" title="Permalink to this headline">¶</a></h3>
+</div>
+<div class="section" id="id31">
+<h3>Resource details<a class="headerlink" href="#id31" title="Permalink to this headline">¶</a></h3>
+<p>Resource Details | Description
+------------ | -------------
+Response format | The response will be sent as a JSON response.
+Requires Authentication | no</p>
+</div>
+<div class="section" id="id32">
+<h3>Parameters<a class="headerlink" href="#id32" title="Permalink to this headline">¶</a></h3>
+<p>Name | Required | Description | Default Value | Example
+-----|----------|-------------|---------------|--------
+Key|Yes|AuthToken passed in the request header| -NA- | 9820173642
+otp|Yes|OTP which was sent to the user| -NA- | 849004</p>
+</div>
+<div class="section" id="id33">
+<h3>Example Request<a class="headerlink" href="#id33" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-JSON notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+	<span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;mosip.otp.validateOTP&quot;</span><span class="p">,</span>
+	<span class="nt">&quot;timestamp&quot;</span><span class="p">:</span> <span class="s2">&quot;2019-01-24T10:27:48.628Z&quot;</span><span class="p">,</span>
+	<span class="nt">&quot;ver&quot;</span><span class="p">:</span> <span class="s2">&quot;1.0&quot;</span><span class="p">,</span>
+	<span class="nt">&quot;request&quot;</span><span class="p">:</span> <span class="p">{</span>
+		<span class="nt">&quot;key&quot;</span><span class="p">:</span> <span class="s2">&quot;9820173642&quot;</span><span class="p">,</span> 
+		<span class="nt">&quot;otp&quot;</span><span class="p">:</span><span class="s2">&quot;849004&quot;</span>
+	<span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="id34">
+<h3>Example Response<a class="headerlink" href="#id34" title="Permalink to this headline">¶</a></h3>
+<p>Success Response</p>
+<div class="highlight-JSON notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+	<span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;mosip.otp.validateOTP&quot;</span><span class="p">,</span>
+	<span class="nt">&quot;ver&quot;</span><span class="p">:</span> <span class="s2">&quot;1.0&quot;</span><span class="p">,</span>
+	<span class="nt">&quot;responsetime&quot;</span><span class="p">:</span> <span class="s2">&quot;2007-12-03T10:15:30Z&quot;</span><span class="p">,</span>
+	<span class="nt">&quot;response&quot;</span><span class="p">:</span> <span class="p">{</span>
+		<span class="nt">&quot;status&quot;</span><span class="p">:</span> <span class="s2">&quot;success&quot;</span><span class="p">,</span>
+		<span class="nt">&quot;message&quot;</span><span class="p">:</span> <span class="s2">&quot;VALIDATION SUCCESSFUL&quot;</span>
+	<span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Error Responses</p>
+<ol class="simple">
+<li><p>Invalid OTP: If the passed OTP is not correct.</p></li>
+</ol>
+<div class="highlight-JSON notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+	<span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;mosip.authentication.validateOTP&quot;</span><span class="p">,</span>
+	<span class="nt">&quot;ver&quot;</span><span class="p">:</span> <span class="s2">&quot;1.0&quot;</span><span class="p">,</span>
+	<span class="nt">&quot;responsetime&quot;</span><span class="p">:</span> <span class="s2">&quot;2007-12-03T10:15:30Z&quot;</span><span class="p">,</span>
+	<span class="nt">&quot;errors&quot;</span><span class="p">:[</span>
+			<span class="p">{</span>
+				<span class="nt">&quot;errorCode&quot;</span><span class="p">:</span> <span class="s2">&quot;AUTH_ERR_OTPNOTVALID&quot;</span><span class="p">,</span>
+				<span class="nt">&quot;message&quot;</span><span class="p">:</span> <span class="s2">&quot;The passed in OTP is not valid&quot;</span>
+		  <span class="p">}</span>	
+		<span class="p">]</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<ol class="simple">
+<li><p>OTP Expired: If the passed OTP had been expired.</p></li>
+</ol>
+<div class="highlight-JSON notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+	<span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;mosip.authentication.validateOTP&quot;</span><span class="p">,</span>
+	<span class="nt">&quot;ver&quot;</span><span class="p">:</span> <span class="s2">&quot;1.0&quot;</span><span class="p">,</span>
+	<span class="nt">&quot;responsetime&quot;</span><span class="p">:</span> <span class="s2">&quot;2007-12-03T10:15:30Z&quot;</span><span class="p">,</span>
+	<span class="nt">&quot;errors&quot;</span><span class="p">:[</span>
+			<span class="p">{</span>
+				<span class="nt">&quot;errorCode&quot;</span><span class="p">:</span> <span class="s2">&quot;AUTH_ERR_OTPEXPIRED&quot;</span><span class="p">,</span>
+				<span class="nt">&quot;message&quot;</span><span class="p">:</span> <span class="s2">&quot;The passed in OTP is expired&quot;</span>
+		  <span class="p">}</span>	
+		<span class="p">]</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, mosip-team
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

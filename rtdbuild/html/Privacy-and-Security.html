@@ -1,0 +1,334 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="java" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="java" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Privacy and Security &mdash; MOSIP 0.9 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script type="text/javascript" src="_static/jquery.js"></script>
+        <script type="text/javascript" src="_static/underscore.js"></script>
+        <script type="text/javascript" src="_static/doctools.js"></script>
+        <script type="text/javascript" src="_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search"  style="background: white" >
+          
+
+          
+            <a href="index.html" class="icon icon-home"> MOSIP
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.9
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <!-- Local TOC -->
+              <div class="local-toc"><ul>
+<li><a class="reference internal" href="#">Privacy and Security</a></li>
+<li><a class="reference internal" href="#governing-principles">Governing Principles</a></li>
+<li><a class="reference internal" href="#mosip-security-design-key-features">MOSIP Security Design Key Features</a></li>
+<li><a class="reference internal" href="#mosip-cryptography-algorithms">MOSIP Cryptography Algorithms</a></li>
+<li><a class="reference internal" href="#database-encryption">Database encryption</a></li>
+<li><a class="reference internal" href="#registration-data-encryption">Registration data encryption</a></li>
+<li><a class="reference internal" href="#key-management">Key management</a><ul>
+<li><a class="reference internal" href="#database-encryption-keys">Database encryption keys</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#id1">Registration data encryption</a><ul>
+<li><a class="reference internal" href="#id2">Key Management</a><ul>
+<li><a class="reference internal" href="#digital-signature-keys">Digital Signature Keys</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a class="reference internal" href="#authentication-authorization-tbd">Authentication &amp; Authorization (TBD)</a></li>
+</ul>
+</div>
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">MOSIP</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html">Docs</a> &raquo;</li>
+        
+      <li>Privacy and Security</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/Privacy-and-Security.md.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="privacy-and-security">
+<h1>Privacy and Security<a class="headerlink" href="#privacy-and-security" title="Permalink to this headline">¶</a></h1>
+<p>In MOSIP, privacy and security are highest priorities and this document details the measures that have been implemented in the platform so far. As an open source project we aim to continuously improve the security features and incorporate new developments through collaborations and community contributions.</p>
+</div>
+<div class="section" id="governing-principles">
+<h1>Governing Principles<a class="headerlink" href="#governing-principles" title="Permalink to this headline">¶</a></h1>
+<p>MOSIP's approach on privacy and security is determined by the <a class="reference external" href="https://www.mosip.io/uploads/resources/5cc84b0a08284Country%20Engagement%20Principles_v2.pdf">framework principles</a> under which it operates.</p>
+</div>
+<div class="section" id="mosip-security-design-key-features">
+<h1>MOSIP Security Design Key Features<a class="headerlink" href="#mosip-security-design-key-features" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p>Direct access to data stored in database not permitted - data accessed via APIs only.</p></li>
+<li><p>Zero-Knowledge Administration principle used so administrators can manage data without seeing the actual data. Data can be accessed only via APIs</p></li>
+<li><p>The integrity of each database row protected to prevent any malicious tampering like swapping identities, for instance.</p></li>
+<li><p>Revocable Virtual IDs and Tokens used to thwart any attempt on profiling the users.</p></li>
+<li><p>Access controls implemented on all APIs to ensure data privacy (who can see what).</p></li>
+<li><p>All APIs support rate-limiting and are digitally signed.</p></li>
+<li><p>All network channels assumed 'dirty'.</p></li>
+<li><p>Every artifact (including JSON data sent over API) digitally signed.</p></li>
+</ul>
+</div>
+<div class="section" id="mosip-cryptography-algorithms">
+<h1>MOSIP Cryptography Algorithms<a class="headerlink" href="#mosip-cryptography-algorithms" title="Permalink to this headline">¶</a></h1>
+<p>MOSIP uses following algorithms:</p>
+<ol class="simple">
+<li><p>RSA OAEP 2048 bit minimum for all PKI based encryption.</p></li>
+<li><p>AES GCM 256 bit minimum for all Symmetric key encryption.</p></li>
+<li><p>SHA256 as the standard hashing algorithm.</p></li>
+<li><p>X509 V3 as the certificate standard.</p></li>
+<li><p>FIPS 140-2 Level 3 as the minimum Hardware Security Module (HSM) standard.</p></li>
+<li><p>PKCS11 is used for HSM communication.</p></li>
+</ol>
+</div>
+<div class="section" id="database-encryption">
+<h1>Database encryption<a class="headerlink" href="#database-encryption" title="Permalink to this headline">¶</a></h1>
+<p>As a principle, MOSIP does not use any mechanism in-built in a database for encryption. All sensitive data to be stored in a DB is encrypted/decrypted outside the DB at the application layer.</p>
+<ul class="simple">
+<li><p>All sensitive (configurable) data is encrypted using a symmetric key algorithm. MOSIP supports AES 256 algorithm by default.</p></li>
+<li><p>Each cell is encrypted using its own symmetric key and the keys are selected randomly.</p></li>
+<li><p>By default, we generate 10,000 symmetric keys for the database encryption. This is a soft limit and that can be increased.</p></li>
+<li><p>The symmetric keys are encrypted using a master key in HSM.</p></li>
+<li><p>Every key has an expiry and application follows the expiry to update the data with new keys.</p></li>
+</ul>
+<p><img alt="_images/DB_encryption.png" src="_images/DB_encryption.png" /></p>
+</div>
+<div class="section" id="registration-data-encryption">
+<h1>Registration data encryption<a class="headerlink" href="#registration-data-encryption" title="Permalink to this headline">¶</a></h1>
+<p>Registration Client is used to collect all the personal and biometric information for MOSIP. The client is designed to work on TPM compatible machines. The client follows the following principles</p>
+<ul class="simple">
+<li><p>All machines are registered using the TPM identity keys. The public part of these keys are pre whitelisted in the MOSIP database.</p></li>
+<li><p>An SK from SRK key is created to encrypt all the other keys used by MOSIP.</p></li>
+<li><p>All local configurations are encrypted using the same mechanism.</p></li>
+<li><p>A set of (defaulted to 10000) RSA keys are created for registration. These keys are generated in an HSM and the public part of these keys are embedded in the MOSIP registration client. These keys are used to encrypt the users/residents data.</p></li>
+<li><p>The registration data in its unencrypted form is always stored in the volatile memory and never stored on permanent storage.</p></li>
+</ul>
+</div>
+<div class="section" id="key-management">
+<h1>Key management<a class="headerlink" href="#key-management" title="Permalink to this headline">¶</a></h1>
+<p>MOSIP uses AES and RSA keys. By default, the MOSIP is designed to have the expiry and key rotation as a configurable parameter. The default values are set as follows</p>
+<ul class="simple">
+<li><p>AES 256 bit keys - 6 months from the date of creation.</p></li>
+<li><p>RSA 2048 bit encryption keys - 1 year from the date of creation</p></li>
+<li><p>RSA 2048 bit signature keys - 2 years from the date of creation.</p></li>
+</ul>
+<div class="section" id="database-encryption-keys">
+<h2>Database encryption keys<a class="headerlink" href="#database-encryption-keys" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>MOSIP uses symmetric keys to protect its database.</p></li>
+<li><p>Every key has an expiry date upon creation. (It's defined by the configuration, Default set to 6 Months)</p></li>
+</ul>
+<p>There are two modes of operation for key management. </br></p>
+<p><strong>Inline</strong></p>
+<ul class="simple">
+<li><p>In this mode the system would look at a configuration to see</p></li>
+<li><p>When a data is written back to the database a new active key is used.</p></li>
+<li><p>When a data is read where the encryption key is expired the system notifies the key management that the expired key is used and has to be re-encrypted with an active key. </br></p></li>
+</ul>
+<p><strong>Batch</strong></p>
+<ul class="simple">
+<li><p>In this mode, the system would search for all the tables for encrypted data with expired keys.</p></li>
+<li><p>Re-encrypt them with the new active keys.</p></li>
+<li><p>This mode is scheduled to run upon need basis or bi-monthly so there is no huge data crunch and the inline mode would have re-encrypted most of the data.</p></li>
+</ul>
+</div>
+</div>
+<div class="section" id="id1">
+<h1>Registration data encryption<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h1>
+<p>Registration Client is used to collect all the personal and biometric information for MOSIP. The client is designed to work on TPM compatible machines. The client follows the following principles</p>
+<ul class="simple">
+<li><p>All machines are registered using the TPM identity keys. The public part of these keys are pre whitelisted in the MOSIP database.</p></li>
+<li><p>An SK from SRK key is created to encrypt all the other keys used by MOSIP.</p></li>
+<li><p>All local configurations are encrypted using the same mechanism.</p></li>
+<li><p>A set of (defaulted to 10000) RSA keys are created for registration. These keys are generated in an HSM and the public part of these keys are embedded in the MOSIP registration client. These keys are used to encrypt the users/residents data.</p></li>
+<li><p>The registration data in its unencrypted form is always stored in the volatile memory and never stored in any permenant storage or filesystem.</p></li>
+</ul>
+<div class="section" id="id2">
+<h2>Key Management<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
+<p>RSA 2048 bit keys are used for encryption of resident/user data from the registration client. The expiry poliy for the same is set to 1 year.</p>
+<ul class="simple">
+<li><p>The default expiry of these keys are set to 1 year.</p></li>
+<li><p>These keys will be rotated using the API. Currently the key rotation would happen manually with client upgrades.</p></li>
+</ul>
+<div class="section" id="digital-signature-keys">
+<h3>Digital Signature Keys<a class="headerlink" href="#digital-signature-keys" title="Permalink to this headline">¶</a></h3>
+<p>The digital signature keys are domain specific and are used to sign the artifacts generated by MOSIP for external consumption. Its expected that the countries would follow their legal standard on the digital signatures. The default expiry is set to 2 years.</p>
+</div>
+</div>
+</div>
+<div class="section" id="authentication-authorization-tbd">
+<h1>Authentication &amp; Authorization (TBD)<a class="headerlink" href="#authentication-authorization-tbd" title="Permalink to this headline">¶</a></h1>
+<p>In MOSIP Authentication largely falls into the below categories</p>
+<ul class="simple">
+<li><p>Authentication via web channel (for Pre-Registration web app, Admin web app and Resident services portal)</p></li>
+<li><p>Authentication via local system i.e., offline authentication (for Registration client)</p></li>
+</ul>
+<p>In MOSIP Authorization falls into the below categories</p>
+<ul class="simple">
+<li><p>Authorization of API's accessed via web channel (We are in migration to a KeyCloak server at this point in time. Soon we will publish the documents)</p></li>
+<li><p>Authorization to access specific data (will be implemented in v3)</p></li>
+</ul>
+<p>A country will have its own hierarchy of system users especially the Registration staff and system administration staff. So, instead of defining a fixed hierarchy, by default MOSIP will depend on an LDAP implementation to manage users, organizational hierarchy and roles for users in the hierarchy. MOSIP will use an open source LDAP server as the LDAP implementation. Administrators can create hierarchy and users using Apache Directory Studio.</p>
+<p><img alt="Authentication" src="_images/AuthN&amp;AuthZ.png" /></p>
+<hr class="docutils" />
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, mosip-team
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

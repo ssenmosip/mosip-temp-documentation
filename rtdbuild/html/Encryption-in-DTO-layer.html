@@ -1,0 +1,281 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="java" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="java" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Encryption in DTO layer &mdash; MOSIP 0.9 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script type="text/javascript" src="_static/jquery.js"></script>
+        <script type="text/javascript" src="_static/underscore.js"></script>
+        <script type="text/javascript" src="_static/doctools.js"></script>
+        <script type="text/javascript" src="_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search"  style="background: white" >
+          
+
+          
+            <a href="index.html" class="icon icon-home"> MOSIP
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.9
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <!-- Local TOC -->
+              <div class="local-toc"><ul>
+<li><a class="reference internal" href="#">Encryption in DTO layer</a><ul>
+<li><a class="reference internal" href="#background">Background</a></li>
+<li><a class="reference internal" href="#solution">Solution</a></li>
+</ul>
+</li>
+</ul>
+</div>
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">MOSIP</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html">Docs</a> &raquo;</li>
+        
+      <li>Encryption in DTO layer</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/Encryption-in-DTO-layer.md.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="encryption-in-dto-layer">
+<h1>Encryption in DTO layer<a class="headerlink" href="#encryption-in-dto-layer" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="background">
+<h2>Background<a class="headerlink" href="#background" title="Permalink to this headline">¶</a></h2>
+<p>The data level encryption is handled in the DTO layer in the application.</p>
+</div>
+<div class="section" id="solution">
+<h2>Solution<a class="headerlink" href="#solution" title="Permalink to this headline">¶</a></h2>
+<p><strong>The key solution considerations are</strong></p>
+<ul class="simple">
+<li><p>Following are the key considerations of the encryption in the DTO layer,</p>
+<ul>
+<li><p>The data are classified into,</p>
+<ul>
+<li><p>Sensitive</p></li>
+<li><p>Non-Sensitive</p></li>
+</ul>
+</li>
+<li><p>The Sensitive data is encrypted in the DTO layer.</p></li>
+<li><p>AES-256 algorithm is used for the encryption.</p></li>
+<li><p>The data are classified and kept in the configuration file. The application layer reads this configuration and the sensitivity property is injected to the DTO layer.</p></li>
+<li><p>Hibernate interceptors are used to intercept the fields in the DTO layer.</p></li>
+<li><p>During reading of these fields, once again Hibernate interceptors are called to decrypt the data.</p>
+<ul>
+<li><p>The key expiration is in-built to the key store.</p></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>Following are the various components in the system,</p>
+<ul>
+<li><p>Keys are stored in &quot;Key Store&quot;. This is a database table in which the keys are maintained along with the index.</p></li>
+<li><p>Indexes are persisted in a separate store. When a request comes to a system to encrypt, the current index is retrieved and using this index, the key for encyrption is took. Indexes are stored along with the encrypted data as the prefix separated by colon. For example, 4:sdf*)(8S&#64;#YFLSJ&amp;*hfdlkj23h</p></li>
+<li><p>Scheduler runs a job on some specific time, when the necessity of re-encryption arises.</p></li>
+<li><p>HSM devices are used to store the Master keys. These master keys are used to encrypt the keys in the Key store.</p></li>
+</ul>
+</li>
+<li><p>Encryption:</p>
+<ul>
+<li><p>The properties in the entities which are supposed to be encrypted are configured in the config server.</p></li>
+<li><p>During the encryption, a listener is installed in the DAO layer to intercept the incoming entity objects. If those property are supposed to be, encrypted or not, is recieved from the config server.</p></li>
+<li><p>The data is encrypted and prefixed with the index of the key, which is used for the encryption, and stored in the data store.</p></li>
+<li><p>The key itself is encrypted with the master key from HSM and stored in a separate data store.</p></li>
+<li><p>The index is incremented, if the old index is expired.</p></li>
+</ul>
+</li>
+</ul>
+<p><strong>Encryption</strong></p>
+<p><img alt="Encryption" src="_images/admin-encryption-flow.jpg" /></p>
+<ul class="simple">
+<li><p>Decryption:</p>
+<ul>
+<li><p>When a request is recieved, the DTO fields are checked for the sensitivity, from the config server.</p></li>
+<li><p>If the DTO field is sensitive, the decryption() method is called.</p></li>
+<li><p>During the decryption, the index is calculated by the delimiter. This index is used to find the Key, which was used for the encryption.</p></li>
+<li><p>The Key itself have to decrypted by the master key from HSM, before decrypting the content.</p></li>
+</ul>
+</li>
+</ul>
+<p><strong>Decryption</strong></p>
+<p><img alt="Decryption" src="_images/admin-decryption-flow.jpg" /></p>
+<ul class="simple">
+<li><p>Key rotation</p>
+<ul>
+<li><p>On Demand:</p>
+<ul>
+<li><p>The keys are stored with the expiry date.</p></li>
+<li><p>When a request comes to the system, the key is checked for the expiry.</p></li>
+<li><p>If the old key had expired, then a new index is generated and persisted in the Indexes. If there is no key exists in the Key store, a new key is created for the encryption. And the new key is used for further encryptions.</p></li>
+</ul>
+</li>
+<li><p>Bulk:</p>
+<ul>
+<li><p>There are times, that the total encrypted data are re-encrypted again. A scheduler is maintained to oversee this. During the scheduled time, the encrypted data is read and re-encryped once again and saved. The newly encryped data will have the new index in front of the encryped content separated by a delimiter.</p></li>
+<li><p>Bulk mode is used to removed the expired keys and data is encrypted with the new key.</p></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p><a class="reference external" href="TODO:">TODO:</a> How do we handle failures during the bulk re-encryption?</p></li>
+<li><p><a class="reference external" href="TODO:">TODO:</a> How to handle the load, if it is extremely high?</p></li>
+</ul>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, mosip-team
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

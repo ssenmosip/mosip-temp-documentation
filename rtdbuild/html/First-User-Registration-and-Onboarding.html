@@ -1,0 +1,236 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="java" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="java" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>1. Creating the First User in LDAP &mdash; MOSIP 0.9 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script type="text/javascript" src="_static/jquery.js"></script>
+        <script type="text/javascript" src="_static/underscore.js"></script>
+        <script type="text/javascript" src="_static/doctools.js"></script>
+        <script type="text/javascript" src="_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search"  style="background: white" >
+          
+
+          
+            <a href="index.html" class="icon icon-home"> MOSIP
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.9
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <!-- Local TOC -->
+              <div class="local-toc"><ul>
+<li><a class="reference internal" href="#">1. Creating the First User in LDAP</a></li>
+<li><a class="reference internal" href="#creating-the-relevant-master-data">2. Creating the Relevant Master Data</a></li>
+<li><a class="reference internal" href="#creating-the-first-user-in-mosip">3. Creating the First User in MOSIP</a></li>
+<li><a class="reference internal" href="#allocating-the-rid-to-the-user-created-in-ldap">4. Allocating the RID to the User Created in LDAP</a></li>
+<li><a class="reference internal" href="#user-onboarding">5. User Onboarding</a></li>
+</ul>
+</div>
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">MOSIP</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html">Docs</a> &raquo;</li>
+        
+      <li>1. Creating the First User in LDAP</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/First-User-Registration-and-Onboarding.md.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <p>Steps to generate the first User in MOSIP eco-system, refer below for the process:</p>
+<div class="section" id="creating-the-first-user-in-ldap">
+<h1>1. Creating the First User in LDAP<a class="headerlink" href="#creating-the-first-user-in-ldap" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p>First the roles for MOSIP users need to be created in LDAP (<a class="reference external" href="Getting-Started#65-steps-to-install-and-configuration-ldap"><strong>Refer to the link for more details</strong></a>). <em>For example, Registration Processor, Supervisor, Registration Officer, etc.</em></p></li>
+<li><p>An Individual say 'X' has to be created in LDAP and the roles “Registration Processor” and “Supervisor” needs to be mapped</p></li>
+<li><p>Preferred User ID and Password should be set for the Individual 'X' and the same User ID should be present as part of Master Data as mentioned below</p></li>
+</ul>
+</div>
+<div class="section" id="creating-the-relevant-master-data">
+<h1>2. Creating the Relevant Master Data<a class="headerlink" href="#creating-the-relevant-master-data" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p>All data required as part of ID Object, for example, Gender, Location hierarchy, templates, etc. should be setup in the database through the CSV Utility</p></li>
+<li><p>Master data of user, machine, device and centre should be created and uploaded through the CSV Utility <em>(Note - the user id for the Individual 'X' should be present in Master data of <em>User</em>)</em></p></li>
+<li><p>All necessary centre-machine-device-user mappings should be completed through the CSV Utility</p></li>
+</ul>
+</div>
+<div class="section" id="creating-the-first-user-in-mosip">
+<h1>3. Creating the First User in MOSIP<a class="headerlink" href="#creating-the-first-user-in-mosip" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p>A RID for the Individual 'X' is created using the Swagger API of RID Generator</p></li>
+<li><p>A UIN for the Individual 'X' is created using the Swagger API of UIN Generator</p></li>
+<li><p>The ID Object for the Individual 'X' is created using the generated RID and UIN <em>(The ID object consists of the demographic and bio-metric data of the individual 'X')</em></p></li>
+<li><p>The ID Object of the Individual 'X' is stored in ID Repository using the Swagger API of ID Repository</p></li>
+</ul>
+</div>
+<div class="section" id="allocating-the-rid-to-the-user-created-in-ldap">
+<h1>4. Allocating the RID to the User Created in LDAP<a class="headerlink" href="#allocating-the-rid-to-the-user-created-in-ldap" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p>The RID created for the Individual 'X' is updated in the LDAP</p></li>
+</ul>
+</div>
+<div class="section" id="user-onboarding">
+<h1>5. User Onboarding<a class="headerlink" href="#user-onboarding" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p>The Individual 'X' can now login to Registration Client (From the mapped machine/centre) with the above Username/Password and register the subsequent  Officers and Supervisors</p></li>
+<li><p>The User details of the subsequent Officers and Supervisor must be created in LDAP with appropriate roles assigned (as per Step 1) and their RIDs should be mapped in LDAP (as per Step 4) so that they can login to Registration Client</p></li>
+</ul>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, mosip-team
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

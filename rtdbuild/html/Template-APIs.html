@@ -1,0 +1,705 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="java" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="java" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Template API &mdash; MOSIP 0.9 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script type="text/javascript" src="_static/jquery.js"></script>
+        <script type="text/javascript" src="_static/underscore.js"></script>
+        <script type="text/javascript" src="_static/doctools.js"></script>
+        <script type="text/javascript" src="_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search"  style="background: white" >
+          
+
+          
+            <a href="index.html" class="icon icon-home"> MOSIP
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.9
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <!-- Local TOC -->
+              <div class="local-toc"><ul>
+<li><a class="reference internal" href="#">Template API</a></li>
+<li><a class="reference internal" href="#post-templates">POST /templates</a><ul>
+<li><a class="reference internal" href="#resource-url">Resource URL</a></li>
+<li><a class="reference internal" href="#id1"><code class="docutils literal notranslate"><span class="pre">POST</span> <span class="pre">/templates</span></code></a></li>
+<li><a class="reference internal" href="#resource-details">Resource details</a></li>
+<li><a class="reference internal" href="#parameters">Parameters</a></li>
+<li><a class="reference internal" href="#example-request">Example Request</a></li>
+<li><a class="reference internal" href="#example-response">Example Response</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#put-templates">PUT /templates</a><ul>
+<li><a class="reference internal" href="#id2">Resource URL</a></li>
+<li><a class="reference internal" href="#id3"><code class="docutils literal notranslate"><span class="pre">PUT</span> <span class="pre">/templates</span></code></a></li>
+<li><a class="reference internal" href="#id4">Resource details</a></li>
+<li><a class="reference internal" href="#id5">Parameters</a></li>
+<li><a class="reference internal" href="#id6">Example Request</a></li>
+<li><a class="reference internal" href="#id7">Example Response</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#delete-templates-id">DELETE /templates/{id}</a><ul>
+<li><a class="reference internal" href="#id8">Resource URL</a></li>
+<li><a class="reference internal" href="#id9"><code class="docutils literal notranslate"><span class="pre">DELETE</span> <span class="pre">/templates/{id}</span></code></a></li>
+<li><a class="reference internal" href="#id10">Resource details</a></li>
+<li><a class="reference internal" href="#id11">Parameters</a></li>
+<li><a class="reference internal" href="#success-response">Success Response</a></li>
+<li><a class="reference internal" href="#id12">Example Response</a><ul>
+<li><a class="reference internal" href="#failure-details">Failure details</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a class="reference internal" href="#template-types-api">Template Types API</a></li>
+<li><a class="reference internal" href="#get-templatetype-code">GET /templatetype/{code}</a><ul>
+<li><a class="reference internal" href="#id13">Resource URL</a></li>
+<li><a class="reference internal" href="#id14"><code class="docutils literal notranslate"><span class="pre">GET</span> <span class="pre">/templatetype/{code}</span></code></a></li>
+<li><a class="reference internal" href="#id15">Resource details</a></li>
+<li><a class="reference internal" href="#id16">Parameters</a></li>
+<li><a class="reference internal" href="#id17">Example Request</a></li>
+<li><a class="reference internal" href="#id18">Example Response</a></li>
+<li><a class="reference internal" href="#response-codes">Response codes</a><ul>
+<li><a class="reference internal" href="#id19">Failure details</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#id20">Resource URL</a></li>
+<li><a class="reference internal" href="#post-template-search"><code class="docutils literal notranslate"><span class="pre">POST</span> <span class="pre">/template/search</span></code></a></li>
+<li><a class="reference internal" href="#id21">Resource details</a></li>
+<li><a class="reference internal" href="#id22">Parameters</a></li>
+<li><a class="reference internal" href="#id23">Example Request</a></li>
+<li><a class="reference internal" href="#id24">Example Response</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#templatefilter-values">Templatefilter values</a></li>
+<li><a class="reference internal" href="#post-template-filtervalues">POST /template/filtervalues</a><ul>
+<li><a class="reference internal" href="#id25">Resource URL</a></li>
+<li><a class="reference internal" href="#id26"><code class="docutils literal notranslate"><span class="pre">POST</span> <span class="pre">/template/filtervalues</span></code></a></li>
+<li><a class="reference internal" href="#id27">Resource details</a></li>
+<li><a class="reference internal" href="#id28">Parameters</a></li>
+<li><a class="reference internal" href="#id29">Example Request</a></li>
+<li><a class="reference internal" href="#id30">Example Response</a></li>
+</ul>
+</li>
+</ul>
+</div>
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">MOSIP</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html">Docs</a> &raquo;</li>
+        
+      <li>Template API</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/Template-APIs.md.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <p>This section details about the service APIs in the template modules</p>
+<ul class="simple">
+<li><p><a class="reference external" href="#template-api">Templates API</a></p></li>
+<li><p><a class="reference external" href="#template-types-api">Template Types API</a></p></li>
+<li><p><a class="reference external" href="#post-templatesearch">Template- Search API</a></p></li>
+<li><p><a class="reference external" href="#post-templatefiltervalues">Template- Filter values</a></p></li>
+</ul>
+<div class="section" id="template-api">
+<h1>Template API<a class="headerlink" href="#template-api" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p><a class="reference external" href="#post-templates">POST /templates</a></p></li>
+<li><p><a class="reference external" href="#put-templates">PUT /templates</a></p></li>
+<li><p><a class="reference external" href="#delete-templatesid">DELETE /templates/{id}</a></p></li>
+</ul>
+</div>
+<div class="section" id="post-templates">
+<h1>POST /templates<a class="headerlink" href="#post-templates" title="Permalink to this headline">¶</a></h1>
+<p>This service will create the list of Template  which are used in the MOSIP platform.</p>
+<div class="section" id="resource-url">
+<h2>Resource URL<a class="headerlink" href="#resource-url" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="id1">
+<h2><code class="docutils literal notranslate"><span class="pre">POST</span> <span class="pre">/templates</span></code><a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="resource-details">
+<h2>Resource details<a class="headerlink" href="#resource-details" title="Permalink to this headline">¶</a></h2>
+<p>Resource Details | Description
+------------ | -------------
+Response format | JSON
+Requires Authentication | Yes</p>
+</div>
+<div class="section" id="parameters">
+<h2>Parameters<a class="headerlink" href="#parameters" title="Permalink to this headline">¶</a></h2>
+<p>Name | Required | Description | Default Value | Example
+-----|----------|-------------|---------------|--------
+id|Yes|id of template | |
+descr|Yes|Description of the template | |
+lang_code|Yes|Language code of the template | |
+isActive |Yes|is active or not| |
+moduleId |Yes| Id of module | |
+templateTypeCode |Yes| Id of template type | |
+fileFormatCode | Yes | Code of file format| |</p>
+</div>
+<div class="section" id="example-request">
+<h2>Example Request<a class="headerlink" href="#example-request" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-JSON notranslate"><div class="highlight"><pre><span></span>{
+  &quot;id&quot;: &quot;string&quot;,
+  &quot;version&quot;: &quot;string&quot;,
+  &quot;metadata&quot;: {},
+  &quot;requesttime&quot;: &quot;yyyy-MM-dd&#39;T&#39;HH:mm:ss.SSS&#39;Z&#39;&quot;,
+  &quot;request&quot;:  {
+    &quot;description&quot;: &quot;string&quot;,
+    &quot;fileFormatCode&quot;: &quot;string&quot;,
+    &quot;fileText&quot;: &quot;string&quot;,
+    &quot;id&quot;: &quot;string&quot;,
+    &quot;isActive&quot;: true,
+    &quot;langCode&quot;: &quot;string&quot;,
+    &quot;model&quot;: &quot;string&quot;,
+    &quot;moduleId&quot;: &quot;string&quot;,
+    &quot;moduleName&quot;: &quot;string&quot;,
+    &quot;name&quot;: &quot;string&quot;,
+    &quot;templateTypeCode&quot;: &quot;string&quot;
+  }
+}
+}
+</pre></div>
+</div>
+</div>
+<div class="section" id="example-response">
+<h2>Example Response<a class="headerlink" href="#example-response" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-JSON notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+  <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;string&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;version&quot;</span><span class="p">:</span> <span class="s2">&quot;string&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;metadata&quot;</span><span class="p">:</span> <span class="p">{},</span>
+  <span class="nt">&quot;responsetime&quot;</span><span class="p">:</span> <span class="s2">&quot;yyyy-MM-dd&#39;T&#39;HH:mm:ss.SSS&#39;Z&#39;&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;errors&quot;</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
+  <span class="nt">&quot;response&quot;</span><span class="p">:</span>  <span class="p">{</span>
+     <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;string&quot;</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="put-templates">
+<h1>PUT /templates<a class="headerlink" href="#put-templates" title="Permalink to this headline">¶</a></h1>
+<p>This service will update the list of Template  which are used in the MOSIP platform.</p>
+<div class="section" id="id2">
+<h2>Resource URL<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="id3">
+<h2><code class="docutils literal notranslate"><span class="pre">PUT</span> <span class="pre">/templates</span></code><a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="id4">
+<h2>Resource details<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h2>
+<p>Resource Details | Description
+------------ | -------------
+Response format | JSON
+Requires Authentication | Yes</p>
+</div>
+<div class="section" id="id5">
+<h2>Parameters<a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h2>
+<p>Name | Required | Description | Default Value | Example
+-----|----------|-------------|---------------|--------
+id|Yes|id of template | |
+lang_code|Yes|Language code of the template | |
+isActive |Yes|is active or not| |
+moduleId |Yes| Id of module | |
+templateTypeCode |Yes| Id of template type | |
+fileFormatCode | Yes | Code of file format| |</p>
+</div>
+<div class="section" id="id6">
+<h2>Example Request<a class="headerlink" href="#id6" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-JSON notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+  <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;string&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;version&quot;</span><span class="p">:</span> <span class="s2">&quot;string&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;metadata&quot;</span><span class="p">:</span> <span class="p">{},</span>
+  <span class="nt">&quot;requesttime&quot;</span><span class="p">:</span> <span class="s2">&quot;yyyy-MM-dd&#39;T&#39;HH:mm:ss.SSS&#39;Z&#39;&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;request&quot;</span><span class="p">:</span>  <span class="p">{</span>
+    <span class="nt">&quot;description&quot;</span><span class="p">:</span> <span class="s2">&quot;string&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;fileFormatCode&quot;</span><span class="p">:</span> <span class="s2">&quot;string&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;fileText&quot;</span><span class="p">:</span> <span class="s2">&quot;string&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;string&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;isActive&quot;</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
+    <span class="nt">&quot;langCode&quot;</span><span class="p">:</span> <span class="s2">&quot;string&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;model&quot;</span><span class="p">:</span> <span class="s2">&quot;string&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;moduleId&quot;</span><span class="p">:</span> <span class="s2">&quot;string&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;moduleName&quot;</span><span class="p">:</span> <span class="s2">&quot;string&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;string&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;templateTypeCode&quot;</span><span class="p">:</span> <span class="s2">&quot;string&quot;</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="id7">
+<h2>Example Response<a class="headerlink" href="#id7" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-JSON notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+  <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;string&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;version&quot;</span><span class="p">:</span> <span class="s2">&quot;string&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;metadata&quot;</span><span class="p">:</span> <span class="p">{},</span>
+  <span class="nt">&quot;responsetime&quot;</span><span class="p">:</span> <span class="s2">&quot;yyyy-MM-dd&#39;T&#39;HH:mm:ss.SSS&#39;Z&#39;&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;errors&quot;</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
+  <span class="nt">&quot;response&quot;</span><span class="p">:</span>  <span class="p">{</span>
+      <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;string&quot;</span>
+   <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="delete-templates-id">
+<h1>DELETE /templates/{id}<a class="headerlink" href="#delete-templates-id" title="Permalink to this headline">¶</a></h1>
+<p>Master data is required across the platform.</p>
+<p>This service will deletes a list of Template from the Template master module.</p>
+<div class="section" id="id8">
+<h2>Resource URL<a class="headerlink" href="#id8" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="id9">
+<h2><code class="docutils literal notranslate"><span class="pre">DELETE</span> <span class="pre">/templates/{id}</span></code><a class="headerlink" href="#id9" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="id10">
+<h2>Resource details<a class="headerlink" href="#id10" title="Permalink to this headline">¶</a></h2>
+<p>Resource Details | Description
+------------ | -------------
+Response format | JSON
+Requires Authentication | Yes</p>
+</div>
+<div class="section" id="id11">
+<h2>Parameters<a class="headerlink" href="#id11" title="Permalink to this headline">¶</a></h2>
+<p>Name | Required | Description | Default Value | Example
+-----|----------|-------------|---------------|--------
+id|Yes|id of the Template|</p>
+</div>
+<div class="section" id="success-response">
+<h2>Success Response<a class="headerlink" href="#success-response" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-JSON notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+  <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;string&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;version&quot;</span><span class="p">:</span> <span class="s2">&quot;string&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;metadata&quot;</span><span class="p">:</span> <span class="p">{},</span>
+  <span class="nt">&quot;responsetime&quot;</span><span class="p">:</span> <span class="s2">&quot;yyyy-MM-dd&#39;T&#39;HH:mm:ss.SSS&#39;Z&#39;&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;errors&quot;</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
+  <span class="nt">&quot;response&quot;</span>  <span class="p">:</span> <span class="p">{</span>
+      <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;string&quot;</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="id12">
+<h2>Example Response<a class="headerlink" href="#id12" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-JSON notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+  <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;string&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;version&quot;</span><span class="p">:</span> <span class="s2">&quot;string&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;metadata&quot;</span><span class="p">:</span> <span class="p">{},</span>
+  <span class="nt">&quot;responsetime&quot;</span><span class="p">:</span> <span class="s2">&quot;yyyy-MM-dd&#39;T&#39;HH:mm:ss.SSS&#39;Z&#39;&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;errors&quot;</span><span class="p">:</span> <span class="p">[{</span>
+      <span class="nt">&quot;errorCode&quot;</span><span class="p">:</span> <span class="s2">&quot;string&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;message&quot;</span><span class="p">:</span> <span class="s2">&quot;string&quot;</span>
+    <span class="p">}],</span>
+  <span class="nt">&quot;response&quot;</span><span class="p">:</span>  <span class="kc">null</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<div class="section" id="failure-details">
+<h3>Failure details<a class="headerlink" href="#failure-details" title="Permalink to this headline">¶</a></h3>
+<p>Error Code | Error Message | Error Description
+------------|------------------------------|-------------
+KER-MSD-045 | Error occurred while fetching templates | Fetch Issue
+KER-MSD-145 | Exception during inserting data into db | Insertion Issue
+KER-MSD-046 | Template not found. | Data Not Found
+KER-MSD-095 | Error occurred while updating template | Update Issue
+KER-MSD-096 | Error occurred while deleting template | Delete Issue</p>
+</div>
+</div>
+</div>
+<div class="section" id="template-types-api">
+<h1>Template Types API<a class="headerlink" href="#template-types-api" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p><a class="reference external" href="#get-templatetypecode">GET /templatetype/{code}</a></p></li>
+</ul>
+</div>
+<div class="section" id="get-templatetype-code">
+<h1>GET /templatetype/{code}<a class="headerlink" href="#get-templatetype-code" title="Permalink to this headline">¶</a></h1>
+<p>This service fetches the template types irrespective of the language. The service returns the results in all the languages.</p>
+<div class="section" id="id13">
+<h2>Resource URL<a class="headerlink" href="#id13" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="id14">
+<h2><code class="docutils literal notranslate"><span class="pre">GET</span> <span class="pre">/templatetype/{code}</span></code><a class="headerlink" href="#id14" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="id15">
+<h2>Resource details<a class="headerlink" href="#id15" title="Permalink to this headline">¶</a></h2>
+<p>Resource Details | Description
+------------ | -------------
+Response format | JSON
+Requires Authentication | Yes</p>
+</div>
+<div class="section" id="id16">
+<h2>Parameters<a class="headerlink" href="#id16" title="Permalink to this headline">¶</a></h2>
+<p>Name | Required | Description | Default Value | Example
+-----|----------|-------------|---------------|--------
+code|Yes|This is the template code field|-NA-|auth-email-content</p>
+</div>
+<div class="section" id="id17">
+<h2>Example Request<a class="headerlink" href="#id17" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-JSON notranslate"><div class="highlight"><pre><span></span>-NA-
+</pre></div>
+</div>
+</div>
+<div class="section" id="id18">
+<h2>Example Response<a class="headerlink" href="#id18" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-JSON notranslate"><div class="highlight"><pre><span></span>{
+  &quot;id&quot;: &quot;string&quot;,
+  &quot;version&quot;: &quot;string&quot;,
+  &quot;metadata&quot;: {},
+  &quot;responsetime&quot;: &quot;yyyy-MM-dd&#39;T&#39;HH:mm:ss.SSS&#39;Z&#39;&quot;,
+  &quot;errors&quot;: [{
+      &quot;errorCode&quot;: &quot;string&quot;,
+      &quot;message&quot;: &quot;string&quot;
+    }],
+  &quot;response&quot;:   {
+		&quot;code&quot;: &quot;string&quot;,
+		&quot;descr&quot;: &quot;string&quot;,
+		&quot;langCode&quot;: &quot;string&quot;,
+		&quot;isactive&quot;: boolean
+	} 
+}
+</pre></div>
+</div>
+</div>
+<div class="section" id="response-codes">
+<h2>Response codes<a class="headerlink" href="#response-codes" title="Permalink to this headline">¶</a></h2>
+<p>200</p>
+<p>Description: Success</p>
+<div class="section" id="id19">
+<h3>Failure details<a class="headerlink" href="#id19" title="Permalink to this headline">¶</a></h3>
+<p>Error Code | Error Message | Error Description
+------------|------------------------------|-------------
+KER-MSD-072 | Error occurred while inserting Template Type details into db | Insertion Issue</p>
+</div>
+</div>
+<div class="section" id="id20">
+<h2>Resource URL<a class="headerlink" href="#id20" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="post-template-search">
+<h2><code class="docutils literal notranslate"><span class="pre">POST</span> <span class="pre">/template/search</span></code><a class="headerlink" href="#post-template-search" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="id21">
+<h2>Resource details<a class="headerlink" href="#id21" title="Permalink to this headline">¶</a></h2>
+<p>Resource Details | Description
+------------ | -------------
+Response format | JSON
+Requires Authentication | Yes</p>
+</div>
+<div class="section" id="id22">
+<h2>Parameters<a class="headerlink" href="#id22" title="Permalink to this headline">¶</a></h2>
+<p>Name | Required | Description | Default Value | Example
+-----|----------|-------------|---------------|--------
+filters|No|Array of the filter applied. In case of &quot;list&quot; screen, this array will be empty| -NA- |
+columnName|No|The column name in the JSON response| -NA- |
+type|No|The value have to be in [&quot;in&quot;,&quot;equals&quot;,&quot;startsWith&quot;,&quot;between&quot;]| -NA- |
+value|No|Value or id selected in the filter by the end user| -NA- |
+fromValue|No|If the type is &quot;between&quot;, this field is the value of the start range| -NA- |
+toValue|No|If the type is &quot;between&quot;, this field is the value of the end range| -NA- |
+languagecode|Yes|Language code in Language code in ISO 639-2 format| |
+sort|No|This is an array of the sort field and type| |
+sortfield| The field on which the sort is applied | | modifiedDate
+sorttype| This should be either of ['ASC','DESC']| | ASC
+pagination|The pagination parameter object| |
+pageStart|This is the start index | 0 | 10
+pageFetch| This is the amount of records to be fetched | 10 | 10</p>
+</div>
+<div class="section" id="id23">
+<h2>Example Request<a class="headerlink" href="#id23" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-JSON notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+	<span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;string&quot;</span><span class="p">,</span>
+	<span class="nt">&quot;metadata&quot;</span><span class="p">:</span> <span class="p">{},</span>
+	<span class="nt">&quot;requesttime&quot;</span><span class="p">:</span> <span class="s2">&quot;2018-12-10T06:12:52.994Z&quot;</span><span class="p">,</span>
+	<span class="nt">&quot;version&quot;</span><span class="p">:</span> <span class="s2">&quot;string&quot;</span><span class="p">,</span>
+	<span class="nt">&quot;request&quot;</span><span class="p">:</span> <span class="p">{</span>
+		<span class="nt">&quot;filters&quot;</span> <span class="p">:</span> <span class="p">[</span>
+			<span class="p">{</span>
+				<span class="nt">&quot;columnName&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+				<span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;in&quot;</span><span class="p">,</span>
+				<span class="nt">&quot;value&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>  
+				<span class="nt">&quot;fromValue&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>    
+				<span class="nt">&quot;toValue&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span>				
+			<span class="p">}</span>
+		<span class="p">],</span>
+		<span class="nt">&quot;sort&quot;</span><span class="p">:[</span>
+			<span class="p">{</span>
+				<span class="nt">&quot;sortfield&quot;</span><span class="p">:</span><span class="s2">&quot;string&quot;</span><span class="p">,</span>
+				<span class="nt">&quot;sorttype&quot;</span><span class="p">:</span><span class="s2">&quot;ASC&quot;</span>
+			<span class="p">}</span>
+		<span class="p">],</span>
+		<span class="nt">&quot;pagination&quot;</span><span class="p">:{</span>
+			<span class="nt">&quot;pageStart&quot;</span><span class="p">:</span><span class="s2">&quot;number&quot;</span><span class="p">,</span>
+			<span class="nt">&quot;pageFetch&quot;</span><span class="p">:</span><span class="s2">&quot;number&quot;</span>
+		<span class="p">},</span>
+                <span class="nt">&quot;languageCode&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span>
+		
+	<span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="id24">
+<h2>Example Response<a class="headerlink" href="#id24" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-JSON notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+  <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;string&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;version&quot;</span><span class="p">:</span> <span class="s2">&quot;string&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;metadata&quot;</span><span class="p">:</span> <span class="p">{},</span>
+  <span class="nt">&quot;responsetime&quot;</span><span class="p">:</span> <span class="s2">&quot;yyyy-MM-dd&#39;T&#39;HH:mm:ss.SSS&#39;Z&#39;&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;errors&quot;</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
+  <span class="nt">&quot;response&quot;</span><span class="p">:</span> <span class="p">{</span>
+  <span class="nt">&quot;templates&quot;</span><span class="p">:</span> <span class="p">[</span>
+      <span class="p">{</span>
+        <span class="nt">&quot;description&quot;</span><span class="p">:</span> <span class="s2">&quot;string&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;fileFormatCode&quot;</span><span class="p">:</span> <span class="s2">&quot;string&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;fileText&quot;</span><span class="p">:</span> <span class="s2">&quot;string&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;string&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;isActive&quot;</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
+        <span class="nt">&quot;langCode&quot;</span><span class="p">:</span> <span class="s2">&quot;string&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;model&quot;</span><span class="p">:</span> <span class="s2">&quot;string&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;moduleId&quot;</span><span class="p">:</span> <span class="s2">&quot;string&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;moduleName&quot;</span><span class="p">:</span> <span class="s2">&quot;string&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;string&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;templateTypeCode&quot;</span><span class="p">:</span> <span class="s2">&quot;string&quot;</span>
+      <span class="p">}</span>
+    <span class="p">],</span>
+	<span class="nt">&quot;fromRecord&quot;</span> <span class="p">:</span> <span class="s2">&quot;number&quot;</span><span class="p">,</span>
+	<span class="nt">&quot;toRecord&quot;</span><span class="p">:</span><span class="s2">&quot;number&quot;</span><span class="p">,</span>
+	<span class="nt">&quot;totalRecord&quot;</span><span class="p">:</span><span class="s2">&quot;number&quot;</span>
+ <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="templatefilter-values">
+<h1>Templatefilter values<a class="headerlink" href="#templatefilter-values" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p><a class="reference external" href="#post-templatefiltervalues">POST /template/filtervalues</a></p></li>
+</ul>
+</div>
+<div class="section" id="post-template-filtervalues">
+<h1>POST /template/filtervalues<a class="headerlink" href="#post-template-filtervalues" title="Permalink to this headline">¶</a></h1>
+<p>This service returns the filter values which are required in the dropdown entries of the filter screen.</p>
+<div class="section" id="id25">
+<h2>Resource URL<a class="headerlink" href="#id25" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="id26">
+<h2><code class="docutils literal notranslate"><span class="pre">POST</span> <span class="pre">/template/filtervalues</span></code><a class="headerlink" href="#id26" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="id27">
+<h2>Resource details<a class="headerlink" href="#id27" title="Permalink to this headline">¶</a></h2>
+<p>Resource Details | Description
+------------ | -------------
+Response format | JSON
+Requires Authentication | Yes</p>
+</div>
+<div class="section" id="id28">
+<h2>Parameters<a class="headerlink" href="#id28" title="Permalink to this headline">¶</a></h2>
+<p>Name | Required | Description | Default Value | Example
+-----|----------|-------------|---------------|--------
+filters|No|Array of the filter applied. In case of &quot;list&quot; screen, this array will be empty| -NA- |
+columnName|No|The column name in the JSON response| -NA- |
+type|No|The value have to be in [&quot;unique&quot;,&quot;all&quot;]| unique | unique
+languagecode|Yes|Language code in Language code in ISO 639-2 format| |</p>
+</div>
+<div class="section" id="id29">
+<h2>Example Request<a class="headerlink" href="#id29" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-JSON notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+	<span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;string&quot;</span><span class="p">,</span>
+	<span class="nt">&quot;metadata&quot;</span><span class="p">:</span> <span class="p">{},</span>
+	<span class="nt">&quot;requesttime&quot;</span><span class="p">:</span> <span class="s2">&quot;2018-12-10T06:12:52.994Z&quot;</span><span class="p">,</span>
+	<span class="nt">&quot;version&quot;</span><span class="p">:</span> <span class="s2">&quot;string&quot;</span>
+	<span class="s2">&quot;request&quot;</span><span class="p">:</span> <span class="p">{</span>
+		<span class="nt">&quot;filters&quot;</span> <span class="p">:</span> <span class="p">[</span>
+			<span class="p">{</span>
+				<span class="nt">&quot;columnName&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span>
+				<span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;unique&quot;</span>
+			<span class="p">}</span>
+		<span class="p">],</span>
+		<span class="nt">&quot;languageCode&quot;</span><span class="p">:</span> <span class="s2">&quot;string&quot;</span><span class="p">,</span>
+	<span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="id30">
+<h2>Example Response<a class="headerlink" href="#id30" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-JSON notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+  <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;string&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;version&quot;</span><span class="p">:</span> <span class="s2">&quot;string&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;metadata&quot;</span><span class="p">:</span> <span class="p">{},</span>
+  <span class="nt">&quot;responsetime&quot;</span><span class="p">:</span> <span class="s2">&quot;yyyy-MM-dd&#39;T&#39;HH:mm:ss.SSS&#39;Z&#39;&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;errors&quot;</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
+  <span class="nt">&quot;response&quot;</span><span class="p">:</span> <span class="p">{</span>
+  <span class="nt">&quot;filters&quot;</span><span class="p">:</span> <span class="p">[</span>
+	<span class="p">{</span>
+		<span class="nt">&quot;fieldID&quot;</span><span class="p">:</span> <span class="s2">&quot;string&quot;</span><span class="p">,</span>
+		<span class="nt">&quot;fieldValue&quot;</span><span class="p">:</span> <span class="s2">&quot;string&quot;</span>
+	<span class="p">}</span>
+   <span class="p">]</span>
+ <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, mosip-team
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

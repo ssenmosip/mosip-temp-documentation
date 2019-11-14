@@ -1,0 +1,542 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="java" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="java" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Table Of Content &mdash; MOSIP 0.9 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script type="text/javascript" src="_static/jquery.js"></script>
+        <script type="text/javascript" src="_static/underscore.js"></script>
+        <script type="text/javascript" src="_static/doctools.js"></script>
+        <script type="text/javascript" src="_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search"  style="background: white" >
+          
+
+          
+            <a href="index.html" class="icon icon-home"> MOSIP
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.9
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <!-- Local TOC -->
+              <div class="local-toc"><ul>
+<li><a class="reference internal" href="#">Table Of Content</a></li>
+<li><a class="reference internal" href="#pre-registration">1. Pre-Registration</a><ul>
+<li><a class="reference internal" href="#log-in-log-out-feature">1.1 Log in- Log out Feature</a></li>
+<li><a class="reference internal" href="#pre-registration-application-manager">1.2 Pre-Registration Application Manager</a><ul>
+<li><a class="reference internal" href="#id1">1.2.1	Pre-Registration Application Manager</a></li>
+<li><a class="reference internal" href="#prid-generator">1.2.2	PRID Generator</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#language-data-manager">1.3 Language Data Manager</a><ul>
+<li><a class="reference internal" href="#translation">1.3.1	Translation</a></li>
+<li><a class="reference internal" href="#transliteration">1.3.2	Transliteration</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#appointment-booking">1.4 Appointment Booking</a><ul>
+<li><a class="reference internal" href="#search-registration-center">1.4.1 Search Registration center</a></li>
+<li><a class="reference internal" href="#choose-the-registration-center-from-the-search-result-and-check-available-slots">1.4.2 Choose the Registration center from the search result and check available slots</a></li>
+<li><a class="reference internal" href="#choose-an-available-time-slot-and-book-an-appointment">1.4.3 Choose an available time slot and book an appointment</a></li>
+<li><a class="reference internal" href="#reschedule-a-booked-appointment">1.4.4 Reschedule a booked appointment</a></li>
+<li><a class="reference internal" href="#cancel-an-appointment">1.4.5 Cancel an appointment</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#acknowledgment">1.5 Acknowledgment</a></li>
+<li><a class="reference internal" href="#pre-registration-sync">1.6 Pre-Registration Sync</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#registration">2. Registration</a><ul>
+<li><a class="reference internal" href="#registration-client-setup">2.1 Registration Client Setup</a></li>
+<li><a class="reference internal" href="#system-health-checker">2.2 System Health Checker</a></li>
+<li><a class="reference internal" href="#registration-officer-authentication">2.3 Registration Officer Authentication</a></li>
+<li><a class="reference internal" href="#user-onboarding-manager">2.4 User Onboarding/Manager</a></li>
+<li><a class="reference internal" href="#language-manager">2.5 Language Manager</a></li>
+<li><a class="reference internal" href="#registration-application-manager-new">2.6 Registration Application Manager – New</a></li>
+<li><a class="reference internal" href="#registration-officer-authorization">2.7 Registration Officer Authorization</a></li>
+<li><a class="reference internal" href="#registration-packet-manager">2.8 Registration Packet Manager</a></li>
+<li><a class="reference internal" href="#sync-handler">2.9 Sync Handler</a></li>
+<li><a class="reference internal" href="#individual-uin-update">2.10 Individual UIN – Update</a></li>
+<li><a class="reference internal" href="#clean-up">2.11 Clean Up</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#registration-processor">3. Registration Processor</a><ul>
+<li><a class="reference internal" href="#registration-packet-handler">3.1 Registration Packet Handler</a></li>
+<li><a class="reference internal" href="#registration-status-service">3.2 Registration Status Service</a></li>
+<li><a class="reference internal" href="#registration-packet-processor">3.3 Registration Packet Processor</a></li>
+<li><a class="reference internal" href="#uin-generator">3.4 UIN Generator</a></li>
+<li><a class="reference internal" href="#print">3.5 Print</a></li>
+<li><a class="reference internal" href="#uin-lifecycle-manager">3.6 UIN Lifecycle Manager</a></li>
+<li><a class="reference internal" href="#external-system-integration">3.7 External System Integration</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#id-authentication">4. ID-Authentication</a><ul>
+<li><a class="reference internal" href="#tsp-ua-authentication">4.1 TSP/UA Authentication</a><ul>
+<li><a class="reference internal" href="#tsp-authentication">4.1.1 TSP Authentication</a></li>
+<li><a class="reference internal" href="#authentication-mode-verifier">4.1.2 Authentication Mode Verifier</a></li>
+<li><a class="reference internal" href="#tsp-ua-authorization">4.2 TSP/UA Authorization</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#individual-authentication">4.3 Individual Authentication</a><ul>
+<li><a class="reference internal" href="#biometric-authentication">4.3.1 Biometric Authentication</a></li>
+<li><a class="reference internal" href="#demographic-authentication">4.3.2 Demographic Authentication</a></li>
+<li><a class="reference internal" href="#otp-authentication">4.3.3 OTP Authentication</a></li>
+<li><a class="reference internal" href="#static-pin-authentication">4.3.4 Static PIN Authentication</a></li>
+<li><a class="reference internal" href="#e-kyc-authentication-service">4.3.5 E-KYC Authentication Service</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#integrated-individual-authentication">4.4 Integrated Individual Authentication</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#resident-services-tbd-wip">5. Resident Services (TBD WIP)</a></li>
+<li><a class="reference internal" href="#admin-setup-tbd-wip">6. Admin Setup (TBD WIP)</a></li>
+<li><a class="reference internal" href="#reporting-tbd-wip">7. Reporting (TBD WIP)</a></li>
+<li><a class="reference internal" href="#platform-level-features-and-utilities">8. Platform Level Features and Utilities</a><ul>
+<li><a class="reference internal" href="#features">8.1 Features</a></li>
+<li><a class="reference internal" href="#utilities">8.2 Utilities</a></li>
+</ul>
+</li>
+</ul>
+</div>
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">MOSIP</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html">Docs</a> &raquo;</li>
+        
+      <li>Table Of Content</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/Functional-Requirement-Specification.md.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="table-of-content">
+<h1>Table Of Content<a class="headerlink" href="#table-of-content" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p><a class="reference external" href="#">1. Pre-registration</a></p>
+<ul>
+<li><p><a class="reference internal" href="FRS-Pre-Registration.html"><span class="doc">Click here</span></a></p></li>
+</ul>
+</li>
+<li><p><a class="reference external" href="#2-registration">2. Registration</a></p>
+<ul>
+<li><p><a class="reference external" href="#21-registration-client-setup">2.1 Registration Client Setup</a></p></li>
+<li><p><a class="reference external" href="#22-system-health-checker">2.2 System Health Checker</a></p></li>
+<li><p><a class="reference external" href="#23-registration-officer-authentication">2.3 Registration Officer Authentication</a></p></li>
+<li><p><a class="reference external" href="#24-user-onboardingmanager">2.4 User Onboarding/Manager</a></p></li>
+<li><p><a class="reference external" href="#25-language-manager">2.5 Language Manager</a></p></li>
+<li><p><a class="reference external" href="#26-registration-application-manager--new">2.6 Registration Application Manager – New</a></p></li>
+<li><p><a class="reference external" href="#27-registration-officer-authorization">2.7 Registration Officer Authorization</a></p></li>
+<li><p><a class="reference external" href="#28-registration-packet-manager">2.8 Registration Packet Manager</a></p></li>
+<li><p><a class="reference external" href="#29-sync-handler">2.9 Sync Handler</a></p></li>
+<li><p><a class="reference external" href="#210-individual-uin--update">2.10 Individual UIN – Update</a></p></li>
+<li><p><a class="reference external" href="#211-clean-up">2.11 Clean Up</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference external" href="#3-registration-processor">3. Registration Processor</a></p>
+<ul>
+<li><p><a class="reference external" href="#31-registration-packet-handler">3.1 Registration Packet Handler</a></p></li>
+<li><p><a class="reference external" href="#32-registration-status-service">3.2 Registration Status Service</a></p></li>
+<li><p><a class="reference external" href="#33-registration-packet-processor">3.3 Registration Packet Processor</a></p></li>
+<li><p><a class="reference external" href="#34-uin-generator">3.4 UIN Generator</a></p></li>
+<li><p><a class="reference external" href="#35-print">3.5 Print</a></p></li>
+<li><p><a class="reference external" href="#36-uin-lifecycle-manager">3.6 UIN Lifecycle Manager</a></p></li>
+<li><p><a class="reference external" href="#37-external-system-integration">3.7 External System Integration</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference external" href="#4-id-authentication">4. ID-Authentication</a></p>
+<ul>
+<li><p><a class="reference external" href="#41-tspua-authentication">4.1 TSP/UA Authentication</a></p>
+<ul>
+<li><p><a class="reference external" href="#411-tsp-authentication">4.1.1 TSP Authentication</a></p></li>
+<li><p><a class="reference external" href="#412-authentication-mode-verifier">4.1.2 Authentication Mode Verifier</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference external" href="#42-tspua-authorization">4.2 TSP/UA Authorization</a></p></li>
+<li><p><a class="reference external" href="#43-individual-authentication">4.3 Individual Authentication</a></p>
+<ul>
+<li><p><a class="reference external" href="#431-biometric-authentication">4.3.1 Biometric Authentication</a></p></li>
+<li><p><a class="reference external" href="#432-demographic-authentication">4.3.2 Demographic Authentication</a></p></li>
+<li><p><a class="reference external" href="#433-otp-authentication">4.3.3 OTP Authentication</a></p></li>
+<li><p><a class="reference external" href="#434-static-pin-authentication">4.3.4 Static PIN Authentication</a></p></li>
+<li><p><a class="reference external" href="#435-e-kyc-authentication-service">4.3.5 E-KYC Authentication Service</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference external" href="#44-integrated-individual-authentication">4.4 Integrated Individual Authentication</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference external" href="#5-resident-services-tbd-wip">5. Resident Services (TBD WIP)</a></p></li>
+<li><p><a class="reference external" href="#6-admin-setup-tbd-wip">6. Admin Setup (TBD WIP)</a></p></li>
+<li><p><a class="reference external" href="#7-reporting-tbd-wip">7. Reporting (TBD WIP)</a></p></li>
+<li><p><a class="reference external" href="#8-platform-level-features-and-utilities">8. Platform Level Features and Utilities</a></p>
+<ul>
+<li><p><a class="reference external" href="#81-features">8.1 Features</a></p></li>
+<li><p><a class="reference external" href="#82-utilities">8.2 Utilities</a></p></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="pre-registration">
+<h1>1. Pre-Registration<a class="headerlink" href="#pre-registration" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="log-in-log-out-feature">
+<h2>1.1 Log in- Log out Feature<a class="headerlink" href="#log-in-log-out-feature" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="pre-registration-application-manager">
+<h2>1.2 Pre-Registration Application Manager<a class="headerlink" href="#pre-registration-application-manager" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id1">
+<h3>1.2.1	Pre-Registration Application Manager<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h3>
+</div>
+<div class="section" id="prid-generator">
+<h3>1.2.2	PRID Generator<a class="headerlink" href="#prid-generator" title="Permalink to this headline">¶</a></h3>
+</div>
+</div>
+<div class="section" id="language-data-manager">
+<h2>1.3 Language Data Manager<a class="headerlink" href="#language-data-manager" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="translation">
+<h3>1.3.1	Translation<a class="headerlink" href="#translation" title="Permalink to this headline">¶</a></h3>
+</div>
+<div class="section" id="transliteration">
+<h3>1.3.2	Transliteration<a class="headerlink" href="#transliteration" title="Permalink to this headline">¶</a></h3>
+</div>
+</div>
+<div class="section" id="appointment-booking">
+<h2>1.4 Appointment Booking<a class="headerlink" href="#appointment-booking" title="Permalink to this headline">¶</a></h2>
+<p>This component enables a user\individual to Book\re-schedule an appointment for selected slot in the chosen registration center for registration. It also allows user to cancel a booked appointment.</p>
+<p>The functional capabilities of this component are detailed out below:</p>
+<p>The system provides the provision to a user to select at-least one Pre-Registration application and perform the following tasks</p>
+<div class="section" id="search-registration-center">
+<h3>1.4.1 Search Registration center<a class="headerlink" href="#search-registration-center" title="Permalink to this headline">¶</a></h3>
+<ol class="simple">
+<li><p>The System provides the User search criteria, with which user can search a center</p></li>
+<li><p>The System allows the user to perform text search to find a center</p></li>
+<li><p>The System allows a user to enable location, if the Location sharing is disabled in the device/machine and allows the user to select nearby centers</p></li>
+<li><p>The System checks for Lat-Long values of the User. Then system fetches all the Registration centers within 2 KM Radius (configurable)</p></li>
+<li><p>The system fetches the Location Hierarchy as defined in the Master Data. This Location Hierarchy will be the search criteria to find a suitable center</p></li>
+<li><p>The system displays the Registration centers based on the search criteria in a tabular format (Registration center name, Address, Working Hours, Contact Person, Center Type, and Contact Number)</p></li>
+<li><p>The System displays the First Registration center on Map by default</p></li>
+</ol>
+</div>
+<div class="section" id="choose-the-registration-center-from-the-search-result-and-check-available-slots">
+<h3>1.4.2 Choose the Registration center from the search result and check available slots<a class="headerlink" href="#choose-the-registration-center-from-the-search-result-and-check-available-slots" title="Permalink to this headline">¶</a></h3>
+<ol class="simple">
+<li><p>The System displays 7 calendar days (configurable) for the Individual to select</p></li>
+<li><p>The Systems disable (Grey out) the Calendar day which is a Holiday for the selected Registration center</p></li>
+<li><p>The System displays time slots of 15 mins(configurable) each for the selected calendar day</p></li>
+<li><p>The System considers 8 hours (configurable) as working hours for Selected Registration Center</p></li>
+<li><p>System provides Available spots for every time slot shown in the selected calendar day</p></li>
+</ol>
+</div>
+<div class="section" id="choose-an-available-time-slot-and-book-an-appointment">
+<h3>1.4.3 Choose an available time slot and book an appointment<a class="headerlink" href="#choose-an-available-time-slot-and-book-an-appointment" title="Permalink to this headline">¶</a></h3>
+<ol class="simple">
+<li><p>The System provides the User with a default appointment selection system to select consecutively available Appointment spots</p></li>
+<li><p>The System allows the User to select any of the Appointment Date available and any of the Appointment Spot available</p></li>
+<li><p>The System asks against which Pre-Registration ID the Appointment spot is being booked</p></li>
+<li><p>The System maps appointment spot with all the Pre-Registration IDs which are selected for Appointment Booking. If any Pre-Registration ID does not have Booking mapped, system notifies user if he opts to continue without booking</p></li>
+<li><p>The System allows the user to click on Previous and redirect him to search Registration center. In this case the appointment booking done should be removed and system does not save any previous selection(s)</p></li>
+<li><p>The System enables the Booking if at least one applicant is selected for an Appointment Slot. If only one applicant is present then he should be selected for an Appointment slot.</p></li>
+<li><p>The System does not allow to book spots for dates for which spots are un-available</p></li>
+</ol>
+</div>
+<div class="section" id="reschedule-a-booked-appointment">
+<h3>1.4.4 Reschedule a booked appointment<a class="headerlink" href="#reschedule-a-booked-appointment" title="Permalink to this headline">¶</a></h3>
+<ol class="simple">
+<li><p>The System provides the User with a default appointment selection: Select Consecutively available Appointment spots</p></li>
+<li><p>The System allows the User to select any of the Appointment Date available and any of the Appointment Spot available</p></li>
+<li><p>The System asks against which Pre-Registration ID the Appointment spot is being booked</p></li>
+<li><p>The System maps appointment spot with all the Pre-Registration IDs which are selected for Appointment Booking. If any Pre-Registration ID does not have Booking mapped, system notifies User if he wants to continue without booking.</p></li>
+<li><p>The System allows the user to click on Previous and redirect him to search Registration center. In this case the appointment Re-booking (Time Slot selected) done is removed</p></li>
+<li><p>The System does not allow the User to Rebook the Appointment if the appointment Booking is less than 48 hrs(configurable) from time of booking</p></li>
+<li><p>The System does not display the previously existing appointment data</p></li>
+</ol>
+</div>
+<div class="section" id="cancel-an-appointment">
+<h3>1.4.5 Cancel an appointment<a class="headerlink" href="#cancel-an-appointment" title="Permalink to this headline">¶</a></h3>
+<ol class="simple">
+<li><p>The system provides an option to cancel selected Appointment\s against application which is\are in Booked Status and notifies the user about the successful cancellation</p></li>
+<li><p>Following a successful Appointment Cancellation the system unlocks the time slot of the Pre-Registration</p></li>
+</ol>
+</div>
+</div>
+<div class="section" id="acknowledgment">
+<h2>1.5 Acknowledgment<a class="headerlink" href="#acknowledgment" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>The System triggers an Acknowledgement after Successful completion of Pre-Registration (Booking an appointment)</p></li>
+<li><p>The System sends an acknowledgement to the  applicant through SMS, Email and on-screens as provided in Demographic details</p></li>
+<li><p>The acknowledgement contains the following information: Name, Pre-Registration ID, Age/DoB, Mobile Number, Email ID and Registration center Details, Appointment Date, Appointment Time)</p></li>
+<li><p>Individual can Choose to print the Acknowledgement or can Download the Acknowledgement as PDF and print later</p></li>
+</ul>
+</div>
+<div class="section" id="pre-registration-sync">
+<h2>1.6 Pre-Registration Sync<a class="headerlink" href="#pre-registration-sync" title="Permalink to this headline">¶</a></h2>
+</div>
+</div>
+<div class="section" id="registration">
+<h1>2. Registration<a class="headerlink" href="#registration" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="registration-client-setup">
+<h2>2.1 Registration Client Setup<a class="headerlink" href="#registration-client-setup" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="system-health-checker">
+<h2>2.2 System Health Checker<a class="headerlink" href="#system-health-checker" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="registration-officer-authentication">
+<h2>2.3 Registration Officer Authentication<a class="headerlink" href="#registration-officer-authentication" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="user-onboarding-manager">
+<h2>2.4 User Onboarding/Manager<a class="headerlink" href="#user-onboarding-manager" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="language-manager">
+<h2>2.5 Language Manager<a class="headerlink" href="#language-manager" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="registration-application-manager-new">
+<h2>2.6 Registration Application Manager – New<a class="headerlink" href="#registration-application-manager-new" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="registration-officer-authorization">
+<h2>2.7 Registration Officer Authorization<a class="headerlink" href="#registration-officer-authorization" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="registration-packet-manager">
+<h2>2.8 Registration Packet Manager<a class="headerlink" href="#registration-packet-manager" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="sync-handler">
+<h2>2.9 Sync Handler<a class="headerlink" href="#sync-handler" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="individual-uin-update">
+<h2>2.10 Individual UIN – Update<a class="headerlink" href="#individual-uin-update" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="clean-up">
+<h2>2.11 Clean Up<a class="headerlink" href="#clean-up" title="Permalink to this headline">¶</a></h2>
+</div>
+</div>
+<div class="section" id="registration-processor">
+<h1>3. Registration Processor<a class="headerlink" href="#registration-processor" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="registration-packet-handler">
+<h2>3.1 Registration Packet Handler<a class="headerlink" href="#registration-packet-handler" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="registration-status-service">
+<h2>3.2 Registration Status Service<a class="headerlink" href="#registration-status-service" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="registration-packet-processor">
+<h2>3.3 Registration Packet Processor<a class="headerlink" href="#registration-packet-processor" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="uin-generator">
+<h2>3.4 UIN Generator<a class="headerlink" href="#uin-generator" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="print">
+<h2>3.5 Print<a class="headerlink" href="#print" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="uin-lifecycle-manager">
+<h2>3.6 UIN Lifecycle Manager<a class="headerlink" href="#uin-lifecycle-manager" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="external-system-integration">
+<h2>3.7 External System Integration<a class="headerlink" href="#external-system-integration" title="Permalink to this headline">¶</a></h2>
+</div>
+</div>
+<div class="section" id="id-authentication">
+<h1>4. ID-Authentication<a class="headerlink" href="#id-authentication" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="tsp-ua-authentication">
+<h2>4.1 TSP/UA Authentication<a class="headerlink" href="#tsp-ua-authentication" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="tsp-authentication">
+<h3>4.1.1 TSP Authentication<a class="headerlink" href="#tsp-authentication" title="Permalink to this headline">¶</a></h3>
+</div>
+<div class="section" id="authentication-mode-verifier">
+<h3>4.1.2 Authentication Mode Verifier<a class="headerlink" href="#authentication-mode-verifier" title="Permalink to this headline">¶</a></h3>
+</div>
+<div class="section" id="tsp-ua-authorization">
+<h3>4.2 TSP/UA Authorization<a class="headerlink" href="#tsp-ua-authorization" title="Permalink to this headline">¶</a></h3>
+</div>
+</div>
+<div class="section" id="individual-authentication">
+<h2>4.3 Individual Authentication<a class="headerlink" href="#individual-authentication" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="biometric-authentication">
+<h3>4.3.1 Biometric Authentication<a class="headerlink" href="#biometric-authentication" title="Permalink to this headline">¶</a></h3>
+</div>
+<div class="section" id="demographic-authentication">
+<h3>4.3.2 Demographic Authentication<a class="headerlink" href="#demographic-authentication" title="Permalink to this headline">¶</a></h3>
+</div>
+<div class="section" id="otp-authentication">
+<h3>4.3.3 OTP Authentication<a class="headerlink" href="#otp-authentication" title="Permalink to this headline">¶</a></h3>
+</div>
+<div class="section" id="static-pin-authentication">
+<h3>4.3.4 Static PIN Authentication<a class="headerlink" href="#static-pin-authentication" title="Permalink to this headline">¶</a></h3>
+</div>
+<div class="section" id="e-kyc-authentication-service">
+<h3>4.3.5 E-KYC Authentication Service<a class="headerlink" href="#e-kyc-authentication-service" title="Permalink to this headline">¶</a></h3>
+</div>
+</div>
+<div class="section" id="integrated-individual-authentication">
+<h2>4.4 Integrated Individual Authentication<a class="headerlink" href="#integrated-individual-authentication" title="Permalink to this headline">¶</a></h2>
+</div>
+</div>
+<div class="section" id="resident-services-tbd-wip">
+<h1>5. Resident Services (TBD WIP)<a class="headerlink" href="#resident-services-tbd-wip" title="Permalink to this headline">¶</a></h1>
+</div>
+<div class="section" id="admin-setup-tbd-wip">
+<h1>6. Admin Setup (TBD WIP)<a class="headerlink" href="#admin-setup-tbd-wip" title="Permalink to this headline">¶</a></h1>
+</div>
+<div class="section" id="reporting-tbd-wip">
+<h1>7. Reporting (TBD WIP)<a class="headerlink" href="#reporting-tbd-wip" title="Permalink to this headline">¶</a></h1>
+</div>
+<div class="section" id="platform-level-features-and-utilities">
+<h1>8. Platform Level Features and Utilities<a class="headerlink" href="#platform-level-features-and-utilities" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="features">
+<h2>8.1 Features<a class="headerlink" href="#features" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="utilities">
+<h2>8.2 Utilities<a class="headerlink" href="#utilities" title="Permalink to this headline">¶</a></h2>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, mosip-team
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

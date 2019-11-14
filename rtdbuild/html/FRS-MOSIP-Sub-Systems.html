@@ -1,0 +1,337 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="java" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="java" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Table Of Content &mdash; MOSIP 0.9 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script type="text/javascript" src="_static/jquery.js"></script>
+        <script type="text/javascript" src="_static/underscore.js"></script>
+        <script type="text/javascript" src="_static/doctools.js"></script>
+        <script type="text/javascript" src="_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search"  style="background: white" >
+          
+
+          
+            <a href="index.html" class="icon icon-home"> MOSIP
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.9
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <!-- Local TOC -->
+              <div class="local-toc"><ul>
+<li><a class="reference internal" href="#">Table Of Content</a></li>
+<li><a class="reference internal" href="#sub-systems">Sub-Systems</a><ul>
+<li><a class="reference internal" href="#uin-generation">1. UIN Generation</a></li>
+<li><a class="reference internal" href="#configuration-server">2. Configuration Server</a></li>
+<li><a class="reference internal" href="#audit-manager">3. Audit Manager</a><ul>
+<li><a class="reference internal" href="#log-manager">3.1 Log Manager</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#ldap-authorization-wip">4. LDAP / Authorization (WIP)</a></li>
+</ul>
+</li>
+</ul>
+</div>
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">MOSIP</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html">Docs</a> &raquo;</li>
+        
+      <li>Table Of Content</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/FRS-MOSIP-Sub-Systems.md.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="table-of-content">
+<h1>Table Of Content<a class="headerlink" href="#table-of-content" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p><a class="reference external" href="#sub-systems">Sub-Systems</a></p>
+<ul>
+<li><p><a class="reference external" href="#1-uin-generation">1. UIN Generation</a> (MOS_PFM_SUB_FR_1)</p></li>
+<li><p><a class="reference external" href="#2-configuration-server">2. Configuration Server</a> (MOS_PFM_SUB_FR_2)</p></li>
+<li><p><a class="reference external" href="#3-audit-manager">3. Audit Manager</a> (MOS_PFM_SUB_FR_3)</p>
+<ul>
+<li><p><a class="reference external" href="#31-log-manager">3.1 Log Manager</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference external" href="#4-ldap--authorization-wip">4. LDAP / Authorization</a> (MOS_PFM_SUB_FR_4)</p></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="sub-systems">
+<h1>Sub-Systems<a class="headerlink" href="#sub-systems" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="uin-generation">
+<h2>1. UIN Generation<a class="headerlink" href="#uin-generation" title="Permalink to this headline">¶</a></h2>
+<p>MOSIP generates a pool of UINs before the registration process and stores them.
+The number of UINs to be generated in a pool depends on a configuration to be done by the country depending on the peak registration requirements. UIN generation service will receive a request by Registration Processor to get a UIN. The service responds with an un-allocated UIN from the generated Pool.
+When the pool reaches a configured number of minimum UINs, MOSIP generates another pool of UIN.</p>
+<p>The UINs generated follow the following policies:</p>
+<ol class="simple">
+<li><p>UIN should not contain any alphanumeric characters</p></li>
+<li><p>UIN should not contain any repeating numbers for 2 or more than 2 digits</p></li>
+<li><p>UIN should not contain any sequential number for 3 or more than 3 digits</p></li>
+<li><p>UIN should not be generated sequentially</p></li>
+<li><p>UIN should not have repeated block of numbers for 2 or more than 2 digits</p></li>
+<li><p>The last digit in the number should be reserved for a checksum</p></li>
+<li><p>The number should not contain '0' or '1' as the first digit.</p></li>
+<li><p>First 5 digits should be different from the last 5 digits (E.g. 4345643456)</p></li>
+<li><p>First 5 digits should be different to the last 5 digits reversed (E.g. 4345665434)</p></li>
+<li><p>UIN should not be an ascending or descending cyclic figure (E.g. 4567890123, 6543210987)</p></li>
+<li><p>UIN should be different from the repetition of the first two digits 5 times (E.g. 3434343434)</p></li>
+<li><p>UIN should not contain three even adjacent digits (E.g. 3948613752)</p></li>
+<li><p>UIN should not contain ADMIN defined restricted number</p></li>
+</ol>
+</div>
+<div class="section" id="configuration-server">
+<h2>2. Configuration Server<a class="headerlink" href="#configuration-server" title="Permalink to this headline">¶</a></h2>
+<p>MOSIP has a centralized config server where all the configuration elements are saved, including the platform config and ID Object schema.
+The Central config server provides following functionality:</p>
+<ol class="simple">
+<li><p>It provides functionality to read XML files and Property files</p></li>
+<li><p>It helps to manage all the configuration files stored at a centralized location in Git</p></li>
+<li><p>It provides a functionality to change the property for a micro-service, it can reflect the changes dynamically without redeploying the micro-service.</p></li>
+<li><p>This component allows all the configurations to come from a central server</p></li>
+</ol>
+<p><a class="reference external" href="Getting-Started#7-configuring-mosip-">Please refer the <strong>configuring MOSIP</strong> section in <strong>Getting Started guide</strong> for more details on the configuration server</a></p>
+</div>
+<div class="section" id="audit-manager">
+<h2>3. Audit Manager<a class="headerlink" href="#audit-manager" title="Permalink to this headline">¶</a></h2>
+<p>The Audit Manager component receives a request to audit and store data, validates if the request is from an authorized source, securely store the requested data and respond back with an acknowledgement of storage (Success/Failure). This component will also ensure non-auditable data is not stored.
+Upon receiving a request to store audit logs with the input parameters the audit manager performs the following steps:</p>
+<ol class="simple">
+<li><p>Validates if all required input parameters have been received as listed below for each specific request</p>
+<ul class="simple">
+<li><p>Audit Event ID - Mandatory</p></li>
+<li><p>Audit Event name - Mandatory</p></li>
+<li><p>Audit Event Type - Mandatory</p></li>
+<li><p>Action DateTimestamp - Mandatory</p></li>
+<li><p>Host - Name - Mandatory</p></li>
+<li><p>Host - IP - Mandatory</p></li>
+<li><p>Application Id - Mandatory</p></li>
+<li><p>Application Name - Mandatory</p></li>
+<li><p>Session User Id - Mandatory</p></li>
+<li><p>Session User Name - Mandatory</p></li>
+<li><p>Module Name – Optional</p></li>
+<li><p>Module Id - Optional</p></li>
+<li><p>ID - Mandatory</p></li>
+<li><p>ID Type - Mandatory</p></li>
+<li><p>Logged Timestamp - Mandatory</p></li>
+<li><p>Audit Log Description - Optional</p></li>
+<li><p>cr_by, (Actor who has done the event) - Mandatory</p></li>
+<li><p>cr_dtimes, (When this row is inserted into Database) - Mandatory</p></li>
+</ul>
+</li>
+<li><p>Validates if the Audit Request is not for one of the exempted events as listed in the Exempted Audit Event List/Table</p></li>
+<li><p>Time Stamp (format: yyyy-MM-ddThh:mm:ss) and Unique Audit ID are generated by the Audit manager component for each Audit REQuest</p></li>
+<li><p>All the input parameters received are stored in the audit Database</p></li>
+<li><p>PII data as listed below is not stored</p>
+<ul class="simple">
+<li><p>Name</p></li>
+<li><p>DOB</p></li>
+<li><p>Contact Number</p></li>
+<li><p>Citizenship</p></li>
+<li><p>Legal Status</p></li>
+<li><p>Gender</p></li>
+<li><p>Race/Ethnicity</p></li>
+<li><p>Any Government Identification Number</p></li>
+</ul>
+</li>
+<li><p>Responds with the acknowledgment to source</p>
+<ul class="simple">
+<li><p>Success</p></li>
+<li><p>Failure</p></li>
+</ul>
+</li>
+<li><p>Raises an alert in case of an exception</p></li>
+</ol>
+<div class="section" id="log-manager">
+<h3>3.1 Log Manager<a class="headerlink" href="#log-manager" title="Permalink to this headline">¶</a></h3>
+<p>Log manager provides following functionalities:</p>
+<ol class="simple">
+<li><p>Generate logs across the application</p></li>
+<li><p>Store generated logs in configured location</p></li>
+<li><p>Support for reading the logger configurations through as external file</p></li>
+<li><p>Support addition log level to a particular logger dynamically</p></li>
+</ol>
+</div>
+</div>
+<div class="section" id="ldap-authorization-wip">
+<h2>4. LDAP / Authorization (WIP)<a class="headerlink" href="#ldap-authorization-wip" title="Permalink to this headline">¶</a></h2>
+<p>MOSIP system can handle Authorization across core services and restricts access to Web-services as per the roles defined below:</p>
+<ol class="simple">
+<li><p>OTP manager: To be defined</p></li>
+<li><p>SMS Notification Manager API : To be defined</p></li>
+<li><p>Email Notification Manager API : To be defined</p></li>
+<li><p>Software Updater API - Master Data : To be defined</p></li>
+<li><p>Software Updater API - Configurations : To be defined</p></li>
+<li><p>Software Updater API - Public Keys : To be defined</p></li>
+<li><p>Crypto Service API : To be defined</p></li>
+<li><p>Key Manager API : To be defined</p></li>
+<li><p>Master Data APIs (All Create/Update/Delete) : To be defined</p></li>
+<li><p>UIN Generator : To be defined</p></li>
+<li><p>Audit Manager : To be defined</p></li>
+<li><p>OTP Notification Service : To be defined</p></li>
+<li><p>ID Repo Service : To be defined</p></li>
+</ol>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, mosip-team
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

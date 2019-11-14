@@ -1,0 +1,232 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="java" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="java" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Architecturally Significant Use Cases &mdash; MOSIP 0.9 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script type="text/javascript" src="_static/jquery.js"></script>
+        <script type="text/javascript" src="_static/underscore.js"></script>
+        <script type="text/javascript" src="_static/doctools.js"></script>
+        <script type="text/javascript" src="_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search"  style="background: white" >
+          
+
+          
+            <a href="index.html" class="icon icon-home"> MOSIP
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.9
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <!-- Local TOC -->
+              <div class="local-toc"><ul>
+<li><a class="reference internal" href="#">Architecturally Significant Use Cases</a><ul>
+<li><a class="reference internal" href="#ease-of-use">Ease of use</a></li>
+<li><a class="reference internal" href="#secured-services">Secured services</a></li>
+<li><a class="reference internal" href="#expected-work-around-time">Expected work around time</a></li>
+<li><a class="reference internal" href="#performance">Performance</a></li>
+<li><a class="reference internal" href="#auditing">Auditing</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#logical-view">Logical view</a></li>
+</ul>
+</div>
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">MOSIP</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html">Docs</a> &raquo;</li>
+        
+      <li>Architecturally Significant Use Cases</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/Resident-services.md.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <p>Resident services are the self services which is used by the resident themselves for the functionalities. The resident can login to the portal and do the functionalities such as lock/unlock authentication types, reprint UIN, view his/her authentication history etc., The services uses only the OTP method of authentication.</p>
+<div class="section" id="architecturally-significant-use-cases">
+<h1>Architecturally Significant Use Cases<a class="headerlink" href="#architecturally-significant-use-cases" title="Permalink to this headline">¶</a></h1>
+<p>Following are the architecturally significant use cases which affects the architectural principles,</p>
+<div class="section" id="ease-of-use">
+<h2>Ease of use<a class="headerlink" href="#ease-of-use" title="Permalink to this headline">¶</a></h2>
+<p>The user have to use these services with ease of use. Only the OTP is used as the means of authentication. Security is a trade off for the usability. There is no multi factor authentication is implemented except for OTP, to make the life of the user easy.</p>
+</div>
+<div class="section" id="secured-services">
+<h2>Secured services<a class="headerlink" href="#secured-services" title="Permalink to this headline">¶</a></h2>
+<p>The Resident services which can be invoked from the public domain should be secured enough, when the request goes to the backend modules such as Registration processor and ID Repository. The backend modules are highly protected and the permissions are added from the server side after the one-time OTP authentication is successfull from the client side.
+The resident services are classified as &quot;Public&quot; services and in turn will call the &quot;Private&quot; services of Registration Processor or IDA.
+Except for the &quot;/login&quot; functionality, all the services in both the Public and Private area should be defined with authorization.</p>
+</div>
+<div class="section" id="expected-work-around-time">
+<h2>Expected work around time<a class="headerlink" href="#expected-work-around-time" title="Permalink to this headline">¶</a></h2>
+<p>The functionalities such as printing a new UIN card will be sent to a third parties for further action. During these actions no further actions of callbacks are handled by the Resident services. But, the result of the posting actions to these 3rd parties are tracked and maintained as part of the Resident services.</p>
+</div>
+<div class="section" id="performance">
+<h2>Performance<a class="headerlink" href="#performance" title="Permalink to this headline">¶</a></h2>
+<p>Since the Resident Services are public facing APIs, performance plays the key part. All the services should adhere to the minimum SLA which is defined.</p>
+</div>
+<div class="section" id="auditing">
+<h2>Auditing<a class="headerlink" href="#auditing" title="Permalink to this headline">¶</a></h2>
+<p>All the service calls should be audited properly for the later review purpose. Since, this is a public facing services, auditing plays an important role for various audits such as performance audit, security audit and for analysis purposes.</p>
+</div>
+</div>
+<div class="section" id="logical-view">
+<h1>Logical view<a class="headerlink" href="#logical-view" title="Permalink to this headline">¶</a></h1>
+<p><img alt="Logical Diagram" src="_images/ResidentServices_LogicalDiagram.jpg" /></p>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, mosip-team
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

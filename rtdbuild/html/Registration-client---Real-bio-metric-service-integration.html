@@ -1,0 +1,286 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="java" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="java" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Registration client - Real biometric device integration &mdash; MOSIP 0.9 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script type="text/javascript" src="_static/jquery.js"></script>
+        <script type="text/javascript" src="_static/underscore.js"></script>
+        <script type="text/javascript" src="_static/doctools.js"></script>
+        <script type="text/javascript" src="_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search"  style="background: white" >
+          
+
+          
+            <a href="index.html" class="icon icon-home"> MOSIP
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.9
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <!-- Local TOC -->
+              <div class="local-toc"><ul>
+<li><a class="reference internal" href="#">Registration client - Real biometric device integration</a><ul>
+<li><a class="reference internal" href="#required-binaries">REQUIRED BINARIES</a><ul>
+<li><a class="reference internal" href="#syncbytemosiprdservicesetup-exe">SyncbyteMosipRDServiceSetup.exe</a></li>
+<li><a class="reference internal" href="#mosipclient-debug-rar">MosipClient_Debug.rar</a></li>
+<li><a class="reference internal" href="#please-follow-the-below-mentioned-steps-to-register-a-biometric-device-with-syncbytemosiprdservice-service">Please follow the below-mentioned steps to register a biometric device with SYNCBYTEMOSIPRDSERVICE service</a></li>
+<li><a class="reference internal" href="#device-info-response">Device Info Response</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#registration-of-photo-capture-device">REGISTRATION OF PHOTO CAPTURE DEVICE</a><ul>
+<li><a class="reference internal" href="#follow-the-mentioned-steps">Follow the mentioned steps.</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">MOSIP</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html">Docs</a> &raquo;</li>
+        
+      <li>Registration client - Real biometric device integration</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/Registration-client---Real-bio-metric-service-integration.md.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="registration-client-real-biometric-device-integration">
+<h1>Registration client - Real biometric device integration<a class="headerlink" href="#registration-client-real-biometric-device-integration" title="Permalink to this headline">¶</a></h1>
+<p>This document contains information regarding the installation of biometric devices and how to register the biometric device for capturing the biodata.</p>
+<div class="section" id="required-binaries">
+<h2>REQUIRED BINARIES<a class="headerlink" href="#required-binaries" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>SyncbyteMosipRDServiceSetup.exe</p></li>
+<li><p>MosipClient_Debug.rar</p></li>
+</ul>
+<div class="section" id="syncbytemosiprdservicesetup-exe">
+<h3>SyncbyteMosipRDServiceSetup.exe<a class="headerlink" href="#syncbytemosiprdservicesetup-exe" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">This</span> <span class="ow">is</span> <span class="n">the</span> <span class="n">service</span> <span class="n">application</span> <span class="n">which</span> <span class="n">we</span> <span class="n">have</span> <span class="n">to</span> <span class="n">run</span> <span class="ow">in</span> <span class="n">order</span> <span class="n">to</span> <span class="n">install</span> <span class="n">the</span> <span class="n">driver</span> <span class="n">dependencies</span> <span class="n">of</span> <span class="n">the</span> <span class="n">concerned</span> <span class="n">biometric</span> <span class="n">devices</span><span class="p">,</span> <span class="n">upon</span> <span class="n">successful</span> <span class="n">installation</span> <span class="n">of</span> <span class="n">this</span> <span class="n">binary</span> <span class="n">it</span> <span class="n">will</span> <span class="n">start</span> <span class="n">an</span> <span class="n">ever</span> <span class="n">running</span> <span class="n">service</span> <span class="n">named</span> <span class="n">SYNCBYTEMOSIPRDSERVICE</span><span class="o">.</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="mosipclient-debug-rar">
+<h3>MosipClient_Debug.rar<a class="headerlink" href="#mosipclient-debug-rar" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Upon</span> <span class="n">unzipping</span> <span class="n">this</span> <span class="n">file</span> <span class="n">you</span> <span class="n">will</span> <span class="n">find</span> <span class="n">a</span> <span class="n">runnable</span> <span class="n">binary</span> <span class="n">named</span> <span class="n">MosipCleint</span><span class="o">.</span><span class="n">exe</span> <span class="n">among</span> <span class="n">other</span> <span class="n">dependency</span> <span class="n">files</span><span class="o">.</span>
+</pre></div>
+</div>
+<p><strong>MosipCleint.exe</strong>
+Run this client application you will be prompted with a client UI <br/>
+<img alt="Biometric service UI " src="_images/mdm_integ_01.png" /></p>
+<p>MosipClient application is a client-side application which will be used to register the biometric devices such as fingerprint capturing device or iris capturing device to the <strong>SYNCBYTEMOSIPRDSERVICE</strong> which is running in the background.</p>
+</div>
+<div class="section" id="please-follow-the-below-mentioned-steps-to-register-a-biometric-device-with-syncbytemosiprdservice-service">
+<h3>Please follow the below-mentioned steps to register a biometric device with SYNCBYTEMOSIPRDSERVICE service<a class="headerlink" href="#please-follow-the-below-mentioned-steps-to-register-a-biometric-device-with-syncbytemosiprdservice-service" title="Permalink to this headline">¶</a></h3>
+<ol class="simple">
+<li><p>Connect the biometric device to the Laptop/Desktop through the USB port(make sure there is no restriction on your
+machines USB port).</p></li>
+<li><p>Start the MosipClient application by running MosipClient.exe file</p></li>
+<li><p>Hit the button Refresh RD Upon hitting the button Refresh RD you will get the connected biometric device in a drop-down
+below the Button, but the status of this device will be INACTIVE, I am assuming to connect a fingerprint device for the
+purpose of this document</p></li>
+<li><p>Configuring the DEVICE REGISTRATION INFO
+Configure the following dropdowns<br/></p>
+<ul class="simple">
+<li><p>Process		: Registration (Select from dropdown)</p></li>
+<li><p>Dev. Type		: Fingerprint (Select from dropdown)</p></li>
+<li><p>Reg. OTP		: MOS-4290-0604-2827 (Type, Set of OTP’s will be shared from the service provider)</p></li>
+<li><p>Dev. SubType	: Slab (Select from dropdown)</p></li>
+</ul>
+</li>
+<li><p>Hit the button Device Reg. With OTP</p></li>
+<li><p>Hit the button Refresh RD</p></li>
+<li><p>Now you should be able to see (in the dropdown below Refresh RD button) the connected device will be in an ACTIVE state</p></li>
+<li><p>Hit the button Device Info, you must get the response as mentioned below based on the connected device</p></li>
+<li><p>Repeat the aforementioned steps to register some other device by changing the configuration accordingly.</p></li>
+</ol>
+</div>
+<div class="section" id="device-info-response">
+<h3>Device Info Response<a class="headerlink" href="#device-info-response" title="Permalink to this headline">¶</a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">[</span> <span class="pre">{</span> <span class="pre">&quot;type&quot;:</span> <span class="pre">&quot;Fingerprint&quot;,</span> <span class="pre">&quot;subType&quot;:</span> <span class="pre">&quot;Slab&quot;,</span> <span class="pre">&quot;status&quot;:</span> <span class="pre">&quot;READY&quot;,</span> <span class="pre">&quot;deviceInfo&quot;:</span> <span class="pre">{</span> <span class="pre">&quot;deviceId&quot;:</span> <span class="pre">&quot;2a80d6ad-1dc8-496f-8b4a-dd78c36bdc55&quot;,</span> <span class="pre">&quot;deviceSubId&quot;:</span> <span class="pre">[</span> <span class="pre">1,</span> <span class="pre">2,</span> <span class="pre">3</span> <span class="pre">],</span> <span class="pre">&quot;firmware&quot;:</span> <span class="pre">&quot;FSM84C1.0&quot;,</span> <span class="pre">&quot;deviceProviderName&quot;:</span> <span class="pre">&quot;SYNCBYTE&quot;,</span> <span class="pre">&quot;deviceProviderId&quot;:</span> <span class="pre">&quot;SYNCBYTE.TCI322&quot;,</span> <span class="pre">&quot;deviceModel&quot;:</span> <span class="pre">&quot;DactyScan84c&quot;,</span> <span class="pre">&quot;deviceMake&quot;:</span> <span class="pre">&quot;Greenbit&quot;,</span> <span class="pre">&quot;deviceExpiry&quot;:</span> <span class="pre">&quot;2025-01-01T00:00:00.000+05:30&quot;,</span> <span class="pre">&quot;certification&quot;:</span> <span class="pre">&quot;L0&quot;,</span> <span class="pre">&quot;timestamp&quot;:</span> <span class="pre">&quot;2019-08-20T11:43:35.690+05:30&quot;</span> <span class="pre">},</span> <span class="pre">&quot;deviceInfoSignature&quot;:</span> <span class="pre">&quot;MIIEJzCCAw+gAwIBAgIGAWxRROvlMA0GCSqGSIb3DQEBCwUAMIHCMSUwIwYJKoZIhvcNAQkBFhZzdXJlc2hiYWJ1QHN5bmNieXRlLmluMRgwFgYDVQQDEw9TVVJFU0ggQkFCVSBNQ0sxGzAZBgNVBAsTElNvZnR3YXJlIFNvbHV0a&quot;,</span> <span class="pre">&quot;serviceVersion&quot;:</span> <span class="pre">&quot;SB.WIN.001&quot;,</span> <span class="pre">&quot;deviceSubId&quot;:</span> <span class="pre">[</span> <span class="pre">1,</span> <span class="pre">2,</span> <span class="pre">3</span> <span class="pre">],</span> <span class="pre">&quot;error&quot;:</span> <span class="pre">{</span> <span class="pre">&quot;errorCode&quot;:</span> <span class="pre">&quot;0&quot;,</span> <span class="pre">&quot;errorInfo&quot;:</span> <span class="pre">&quot;No</span> <span class="pre">Action</span> <span class="pre">Necessary.&quot;</span> <span class="pre">},</span> <span class="pre">&quot;callbackId&quot;:</span> <span class="pre">&quot;http://127.0.0.1:4501/&quot;</span> <span class="pre">}</span> <span class="pre">]</span> </code></p>
+<p><strong>Note:</strong>  At any time you can check the log of any activity with the SYNCBYTEMOSIPRDSERVICE service either from the MosipClient or the code implementation</p>
+<p>Location of the log file in windows machine:  <strong>C:\Program Files\Syncbyte Innovations Private Limited\SyncbyteMosipRDService\MOSIPRDSERVICE.log</strong></p>
+</div>
+</div>
+<div class="section" id="registration-of-photo-capture-device">
+<h2>REGISTRATION OF PHOTO CAPTURE DEVICE<a class="headerlink" href="#registration-of-photo-capture-device" title="Permalink to this headline">¶</a></h2>
+<p>Special measures should be in place when registering the photo capture device
+Apart from performing the above-mentioned steps, you have to specify the VID and PID of the connected device for the
+service application.</p>
+<div class="section" id="follow-the-mentioned-steps">
+<h3>Follow the mentioned steps.<a class="headerlink" href="#follow-the-mentioned-steps" title="Permalink to this headline">¶</a></h3>
+<ol class="simple">
+<li><p>Find the VID and PID of the connected device (I have connected Logitech HD Webcam  to my machine) <br/>
+* From windows, start panel go to  Device Manager <br/>
+* In the device manager, you should see imaging devices among other devices </br>
+<img alt="Device Manager" src="_images/mdm_integ_02.png" /> <br/>
+* Select Imaging devices it should give you the web came device that you have connected <br/>
+<img alt="Selected Devices" src="_images/mdm_integ_03.png" /> <br/>
+* Click on the Device Information tab <br/>
+<img alt="Device Information" src="_images/mdm_integ_04.png" /><br/>
+* VID = 0x046D, PID = 0x081B</p></li>
+<li><p>Please find the following <strong>config.properties</strong> file : <strong>C:\Program Files\Syncbyte Innovations Private Limited\SyncbyteMosipRDService\source\ config.properties</strong>
+And change the value of faceVID, and facePID to the VID and PID that you have found earlier.</p></li>
+</ol>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, mosip-team
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

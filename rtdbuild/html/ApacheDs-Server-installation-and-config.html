@@ -1,0 +1,266 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="java" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="java" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>ApacheDs Installation and Config &mdash; MOSIP 0.9 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script type="text/javascript" src="_static/jquery.js"></script>
+        <script type="text/javascript" src="_static/underscore.js"></script>
+        <script type="text/javascript" src="_static/doctools.js"></script>
+        <script type="text/javascript" src="_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search"  style="background: white" >
+          
+
+          
+            <a href="index.html" class="icon icon-home"> MOSIP
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.9
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <!-- Local TOC -->
+              <div class="local-toc"><ul>
+<li><a class="reference internal" href="#">ApacheDs Installation and Config</a><ul>
+<li><a class="reference internal" href="#install-java">Install Java</a></li>
+<li><a class="reference internal" href="#download-apacheds">Download ApacheDs</a></li>
+<li><a class="reference internal" href="#install-apacheds">Install ApacheDs</a></li>
+<li><a class="reference internal" href="#go-to-the-location-cd-etc-init-d-start-stop-and-check-status-apacheds-server">go to the location (cd /etc/init.d) Start, Stop and check status ApacheDs server.</a></li>
+</ul>
+</li>
+</ul>
+</div>
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">MOSIP</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html">Docs</a> &raquo;</li>
+        
+      <li>ApacheDs Installation and Config</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/ApacheDs-Server-installation-and-config.md.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="apacheds-installation-and-config">
+<h1>ApacheDs Installation and Config<a class="headerlink" href="#apacheds-installation-and-config" title="Permalink to this headline">¶</a></h1>
+<p><strong>Note:</strong> The below documentation is for linux machines.</p>
+<div class="section" id="install-java">
+<h2>Install Java<a class="headerlink" href="#install-java" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sudo</span> <span class="n">yum</span> <span class="n">install</span> <span class="n">java</span><span class="o">-</span><span class="mf">1.8</span><span class="o">.</span><span class="mi">0</span><span class="o">-</span><span class="n">openjdk</span><span class="o">-</span><span class="n">devel</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="download-apacheds">
+<h2>Download ApacheDs<a class="headerlink" href="#download-apacheds" title="Permalink to this headline">¶</a></h2>
+<p>Use one of the three methods below to download the binary file of ApacheDs.</p>
+<ol>
+<li><p>Execute the below command in the terminal.</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>wget http://mirrors.estointernet.in/apache//directory/apacheds/dist/2.0.0.AM25/apacheds-2.0.0.AM25-64bit.bin
+</pre></div>
+</div>
+</li>
+<li><p>Click <a class="reference external" href="//mirrors.estointernet.in/apache//directory/apacheds/dist/2.0.0.AM25/apacheds-2.0.0.AM25-64bit.bin">here</a> to download ApacheDs binary file in your system and move it to the VM using tools like <a class="reference external" href="//winscp.net/eng/download.php">WINSCP</a>, scp command in linux terminals etc.</p></li>
+<li><p>If the download link above doesnot work, visit <a class="reference external" href="//directory.apache.org/apacheds/downloads.html">ApacheDs downloads</a> page and select Linux binary installer to download file to your system. Then move it to the VM using tools like <a class="reference external" href="//winscp.net/eng/download.php">WINSCP</a>, scp command in linux terminals etc.</p></li>
+</ol>
+</div>
+<div class="section" id="install-apacheds">
+<h2>Install ApacheDs<a class="headerlink" href="#install-apacheds" title="Permalink to this headline">¶</a></h2>
+<ol>
+<li><p>Navigate to the directory where you downloaded the ApacheDs binary file and run the follwing command.</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>bash apacheds-2.0.0.AM25-64bit.bin
+</pre></div>
+</div>
+<p><strong>Note:</strong> apacheds-2.0.0.AM25-64bit.bin is the name of the binary file we downloaded. Change it if your file name differs.</p>
+</li>
+<li><p>Now you will see a Apache License agreement as shown in the screenshot below.</p>
+<p><img alt="apacheds-installation-1" src="_images/apacheds-installation-1.png" /></p>
+<p>Press Enter key to read through the license agreement untill you are prompted to agree with terms with yes as shown in the screen shot below.</p>
+<p><img alt="apacheds-installation-2" src="_images/apacheds-installation-2.png" /></p>
+</li>
+<li><p>Once you accept the license terms, you are asked to enter the installation paths as shown below.</p>
+<p><img alt="apacheds-installation-3" src="_images/apacheds-installation-3.png" /></p>
+<p><strong>Note:</strong> All the paths provided in the above screenshot are set to defaults in current implementation where as the instance name, user name and group name are provided as shown in the diagram.</p>
+</li>
+<li><p>After providing all the paths, successful installation message is displayed as shown in the below screenshot.</p>
+<p><img alt="apacheds-installation-4" src="_images/apacheds-installation-4.png" /></p>
+</li>
+</ol>
+</div>
+<div class="section" id="go-to-the-location-cd-etc-init-d-start-stop-and-check-status-apacheds-server">
+<h2>go to the location (cd /etc/init.d) Start, Stop and check status ApacheDs server.<a class="headerlink" href="#go-to-the-location-cd-etc-init-d-start-stop-and-check-status-apacheds-server" title="Permalink to this headline">¶</a></h2>
+<ul>
+<li><p>To run ApacheDs server, run the below command</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>./apacheds-2.0.0.AM25-mosip start
+</pre></div>
+</div>
+</li>
+<li><p>To check status of ApacheDs server, run the below command</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>./apacheds-2.0.0.AM25-mosip status
+</pre></div>
+</div>
+</li>
+<li><p>To stop ApacheDs server, run the below command</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>./apacheds-2.0.0.AM25-mosip stop
+</pre></div>
+</div>
+</li>
+</ul>
+<p><img alt="apacheds-installation-7" src="_images/apacheds-installation-7.png" /></p>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, mosip-team
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

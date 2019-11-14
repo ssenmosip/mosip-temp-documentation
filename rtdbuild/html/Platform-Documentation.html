@@ -1,0 +1,689 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="java" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="java" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Table Of Contents &mdash; MOSIP 0.9 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script type="text/javascript" src="_static/jquery.js"></script>
+        <script type="text/javascript" src="_static/underscore.js"></script>
+        <script type="text/javascript" src="_static/doctools.js"></script>
+        <script type="text/javascript" src="_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search"  style="background: white" >
+          
+
+          
+            <a href="index.html" class="icon icon-home"> MOSIP
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.9
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <!-- Local TOC -->
+              <div class="local-toc"><ul>
+<li><a class="reference internal" href="#">Table Of Contents</a></li>
+<li><a class="reference internal" href="#introduction">1. INTRODUCTION</a></li>
+<li><a class="reference internal" href="#functional-overview">2. FUNCTIONAL OVERVIEW<strong>[↑]</strong></a><ul>
+<li><a class="reference internal" href="#pre-registration">2.1 Pre-Registration</a></li>
+<li><a class="reference internal" href="#registration-services">2.2 Registration Services</a></li>
+<li><a class="reference internal" href="#registration-processor">2.3 Registration Processor</a></li>
+<li><a class="reference internal" href="#id-authentication">2.4 ID Authentication</a></li>
+<li><a class="reference internal" href="#kernel">2.5 Kernel</a></li>
+<li><a class="reference internal" href="#admin-portal-and-administrator-services-wip">2.6 Admin Portal and Administrator Services (WIP)</a></li>
+<li><a class="reference internal" href="#id-repository">2.9 ID Repository</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#architecture-overview">3. ARCHITECTURE OVERVIEW<strong>[↑]</strong></a><ul>
+<li><a class="reference internal" href="#architectural-principles-and-platform-goals">3.1 Architectural Principles and Platform Goals</a></li>
+<li><a class="reference internal" href="#logical-architecture">3.2 Logical Architecture</a></li>
+<li><a class="reference internal" href="#technology-stack">3.3 Technology Stack</a></li>
+<li><a class="reference internal" href="#data-architecture">3.4 Data Architecture</a></li>
+<li><a class="reference internal" href="#high-level-design">3.5 High Level Design</a><ul>
+<li><a class="reference internal" href="#id1">3.5.1 Pre-Registration</a></li>
+<li><a class="reference internal" href="#id2">3.5.2 Kernel</a></li>
+<li><a class="reference internal" href="#id3">3.5.3 Registration Services</a></li>
+<li><a class="reference internal" href="#id4">3.5.4 Registration Processor</a></li>
+<li><a class="reference internal" href="#authentication-services">3.5.5 Authentication Services</a></li>
+<li><a class="reference internal" href="#administrator-services">3.5.7 Administrator Services</a></li>
+<li><a class="reference internal" href="#id5">3.5.8 ID Repository</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#deployment-architecture">3.6 Deployment Architecture</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#requirement-specifications">4. REQUIREMENT SPECIFICATIONS<strong>[↑]</strong></a><ul>
+<li><a class="reference internal" href="#functional-requirement-specifications">4.1 Functional Requirement Specifications</a><ul>
+<li><a class="reference internal" href="#id6">4.1.1 Pre-Registration</a></li>
+<li><a class="reference internal" href="#data-services">4.1.2 Data Services</a></li>
+<li><a class="reference internal" href="#common-services">4.1.3 Common Services</a></li>
+<li><a class="reference internal" href="#admin-services">4.1.4 Admin Services</a></li>
+<li><a class="reference internal" href="#uin-generation">4.1.5 UIN Generation</a></li>
+<li><a class="reference internal" href="#configuration-server">4.1.6 Configuration Server</a></li>
+<li><a class="reference internal" href="#audit-manager">4.1.7 Audit Manager</a></li>
+<li><a class="reference internal" href="#authentication-and-authorization">4.1.8 Authentication and Authorization</a></li>
+<li><a class="reference internal" href="#id7">4.1.9 Registration Services</a></li>
+<li><a class="reference internal" href="#id8">4.1.10 Registration Processor</a></li>
+<li><a class="reference internal" href="#id9">4.1.11 Authentication Services</a></li>
+<li><a class="reference internal" href="#id10">4.1.13 Administrator Services</a></li>
+<li><a class="reference internal" href="#id11">4.1.15 ID Repository</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#non-functional-requirement-specifications">4.2 Non-Functional Requirement Specifications</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#architecturally-significant-components">5. ARCHITECTURALLY SIGNIFICANT COMPONENTS<strong>[↑]</strong></a><ul>
+<li><a class="reference internal" href="#id-object-definition">5.1 ID Object Definition</a></li>
+<li><a class="reference internal" href="#configurations">5.2 Configurations</a></li>
+<li><a class="reference internal" href="#registration-packet-structure">5.3 Registration Packet Structure</a></li>
+<li><a class="reference internal" href="#abis-middleware">5.4 ABIS Middleware</a></li>
+<li><a class="reference internal" href="#biometric-data-standards">5.5 Biometric Data Standards</a></li>
+<li><a class="reference internal" href="#mosip-device-specification">5.6 MOSIP Device Specification</a></li>
+<li><a class="reference internal" href="#core-data-management">5.7 Core Data Management</a></li>
+<li><a class="reference internal" href="#integration-with-external-systems">5.8 Integration with External Systems</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#mosip-apis">6. MOSIP APIs<strong>[↑]</strong></a><ul>
+<li><a class="reference internal" href="#external-apis">6.1	External APIs</a></li>
+<li><a class="reference internal" href="#internal-apis">6.2	Internal APIs</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#privacy-and-security">7. PRIVACY AND SECURITY<strong>[↑]</strong></a></li>
+<li><a class="reference internal" href="#contributing">8. CONTRIBUTING<strong>[↑]</strong></a></li>
+<li><a class="reference internal" href="#building-and-deploying-mosip">9. BUILDING AND DEPLOYING MOSIP<strong>[↑]</strong></a><ul>
+<li><a class="reference internal" href="#getting-started-guide">9.1 Getting Started Guide</a></li>
+<li><a class="reference internal" href="#tester-documentation">9.2 Tester Documentation</a></li>
+<li><a class="reference internal" href="#developer-documentation">9.3 Developer Documentation</a></li>
+<li><a class="reference internal" href="#customization-wip">9.4 [Customization (WIP)]</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#infrastructure-recommendations">10.  INFRASTRUCTURE RECOMMENDATIONS<strong>[↑]</strong></a><ul>
+<li><a class="reference internal" href="#data-center-architecture-wip">10.1 Data Center Architecture (WIP)</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#list-of-acronyms">11. List Of Acronyms</a></li>
+</ul>
+</div>
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">MOSIP</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html">Docs</a> &raquo;</li>
+        
+      <li>Table Of Contents</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/Platform-Documentation.md.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="table-of-contents">
+<h1>Table Of Contents<a class="headerlink" href="#table-of-contents" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p><a class="reference external" href="#1-introduction">1. INTRODUCTION</a></p></li>
+<li><p><a class="reference external" href="#2-functional-overview">2. FUNCTIONAL OVERVIEW</a></p></li>
+<li><p><a class="reference external" href="#3-architecture-overview">3. ARCHITECTURE OVERVIEW</a></p>
+<ul>
+<li><p><a class="reference external" href="#31-principles">3.1 Principles</a></p></li>
+<li><p><a class="reference external" href="#32-logical-view">3.2 Logical View</a></p></li>
+<li><p><a class="reference external" href="#33-technology-stack">3.3 Technology Stack</a></p></li>
+<li><p><a class="reference external" href="#34-data-architecture">3.4 Data Architecture</a></p></li>
+<li><p><a class="reference external" href="#35-high-level-design">3.5 High Level Design</a></p></li>
+<li><p><a class="reference external" href="#36-deployment-architecture">3.6 Deployment Architecture</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference external" href="#4-requirement-specifications">4. FEATURES</a></p></li>
+<li><p><a class="reference external" href="#5-architecturally-significant-components">5. ARCHITECTURALLY SIGNIFICANT COMPONENTS</a></p>
+<ul>
+<li><p><a class="reference external" href="#51-id-object-definition">5.1 ID Object Definition</a></p></li>
+<li><p><a class="reference external" href="#52-configurations">5.2 Configurations</a></p></li>
+<li><p><a class="reference external" href="#53-registration-packet-structure">5.3 Registration Packet Structure</a></p></li>
+<li><p><a class="reference external" href="#54-abis-middleware">5.4 ABIS Middleware</a></p></li>
+<li><p><a class="reference external" href="#55-biometric-data-standards">5.5 Biometric Data Standards</a></p></li>
+<li><p><a class="reference external" href="#56-mosip-device-specification">5.6 MOSIP Device Specification</a></p></li>
+<li><p><a class="reference external" href="#57-core-data-management">5.7 Core Data Management</a></p></li>
+<li><p><a class="reference external" href="#58-integration-with-external-systems">5.8 Integration with External Systems</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference external" href="#6-mosip-apis">6. APIs</a></p></li>
+<li><p><a class="reference external" href="#7-privacy-and-security">7. PRIVACY AND SECURITY</a></p></li>
+<li><p><a class="reference external" href="#8-contributing">8. HOW TO CONTRIBUTE</a></p></li>
+<li><p><a class="reference external" href="#9-building-and-deploying-mosip">9. BUILDING AND DEPLOYING (WIP)</a></p>
+<ul>
+<li><p><a class="reference external" href="#91-getting-started-guide">9.1 Getting Started Guide</a></p></li>
+<li><p><a class="reference external" href="#92-tester-documentation">9.2 Tester Documentation</a></p></li>
+<li><p><a class="reference external" href="#93-developer-document">9.3 Developer Document</a></p></li>
+<li><p><a class="reference external" href="#94-customization-wip">9.4 Customization (WIP)</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference external" href="#10--infrastructure-recommendations">10. INFRASTRUCTURE RECOMMENDATIONS</a></p>
+<ul>
+<li><p><a class="reference external" href="#101-data-center-architecture-wip">10.1 Data Center Architecture (WIP)</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference external" href="#11-list-of-acronyms">11. List Of Acronyms</a></p></li>
+<li><p><a class="reference external" href="https://github.com/mosip/mosip-docs/wiki/Hardware-Software-requirements">12. Hardware Sizing and Software Requirements</a></p></li>
+</ul>
+</div>
+<div class="section" id="introduction">
+<h1>1. INTRODUCTION<a class="headerlink" href="#introduction" title="Permalink to this headline">¶</a></h1>
+<p>This document describes the objectives and explicit functional requirements of MOSIP. It also gives an overview of architecturally significant features, APIs and standards followed in MOSIP. Lastly, it provides necessary information on implementation, customization and set up.</p>
+</div>
+<div class="section" id="functional-overview">
+<h1>2. FUNCTIONAL OVERVIEW<a class="reference external" href="#table-of-contents"><strong>[↑]</strong></a><a class="headerlink" href="#functional-overview" title="Permalink to this headline">¶</a></h1>
+<p>Further details are available on each modules under <a class="reference external" href="#4-requirement-specifications">Requirement Specifications</a></p>
+<div class="section" id="pre-registration">
+<h2>2.1 Pre-Registration<a class="headerlink" href="#pre-registration" title="Permalink to this headline">¶</a></h2>
+<p>Pre-registration is the web channel of the MOSIP. This module enables a user to:</p>
+<ol class="simple">
+<li><p>Book an appointment for registration</p></li>
+<li><p>Enter demographic data &amp; upload supporting documents</p></li>
+<li><p>Appointment notification, rescheduling and cancellation</p></li>
+<li><p>Send resident data to registration center before appointment, which can be used during registration</p></li>
+</ol>
+<p><a class="reference internal" href="FRS-Pre-Registration.html"><span class="doc">Detailed functional specifications of pre-registration module</span></a></p>
+</div>
+<div class="section" id="registration-services">
+<h2>2.2 Registration Services<a class="headerlink" href="#registration-services" title="Permalink to this headline">¶</a></h2>
+<p>Registration Client application captures the demographic and biometric details of an individual along with supporting information (proof documents &amp; information about parent/guardian/introducer) and packages the information in a secure way. This module provides the following capabilities:</p>
+<ol class="simple">
+<li><p>Provides a secure way of capturing an individual's demographic and biometric data</p></li>
+<li><p>Provides interfaces to biometric devices that comply to industry standards</p></li>
+<li><p>Works in online and offline mode to capture data</p></li>
+<li><p>Provides option to transfer data to server when online and helps in uninterrupted registrations</p></li>
+<li><p>Client has the ability to update itself for patch upgrades (bug fixes/enhancements) in a remote way. There could be hundreds of client instances running on laptops/desktops. Updates on all of them are controlled by the client and a central server.</p></li>
+<li><p>Registration client is secured such that it cannot be tampered with or misused</p></li>
+</ol>
+<p><a class="reference internal" href="FRS-Registration-Services.html"><span class="doc">Detailed functional specifications of registration services</span></a></p>
+</div>
+<div class="section" id="registration-processor">
+<h2>2.3 Registration Processor<a class="headerlink" href="#registration-processor" title="Permalink to this headline">¶</a></h2>
+<p>Registration Processor processes the data (demographic and biometric) of an individual for quality and uniqueness and then issues a Unique Identification Number (UIN). The source of data are primarily from:</p>
+<ol class="simple">
+<li><p>MOSIP Registration Client</p></li>
+<li><p>Existing ID system(s) of a country</p></li>
+</ol>
+<p>This module has the following capabilities:</p>
+<ol class="simple">
+<li><p>Provides guaranteed packet processing - Not lose the packet once received on the server</p></li>
+<li><p>Handle server failure, recovery and re-submission of packets for processing automatically</p></li>
+<li><p>Add new processing step(s) without changing existing steps as different countries may have different processing requirements</p></li>
+<li><p>Integrate with multiple ABIS providers. Accommodate sending one or more biometric modality to one or more ABISs and calculate a composite fusion score and then take a decision on the processing</p></li>
+<li><p>Each processing step is scalable independently based on the load</p></li>
+</ol>
+<p><a class="reference internal" href="FRS-Registration-Processor.html"><span class="doc">Detailed functional requirement specifications of Registration Processor</span></a></p>
+</div>
+<div class="section" id="id-authentication">
+<h2>2.4 ID Authentication<a class="headerlink" href="#id-authentication" title="Permalink to this headline">¶</a></h2>
+<p>ID Authentication in MOSIP provides services through APIs that validates the authenticity of a resident based on one or more factors (demographic and biometric). The authentication services are integrated with TSPs (Trusted Service Providers) for delivering eKYC services to residents via user agencies.</p>
+<p>This module provides the following capabilities:</p>
+<ol class="simple">
+<li><p>Authenticate an individual in a secure and trusted way</p></li>
+<li><p>Capture the biometric data as per the defined standards</p></li>
+<li><p>Authenticate an individual based on their basic identity data captured via MOSIP</p></li>
+<li><p>In addition to demographic and biometric authentication, an individual can also be authenticated based on the following parameters:</p>
+<ul class="simple">
+<li><p>Temporary One Time Password (TOTP) based</p></li>
+<li><p>Challenge response</p></li>
+</ul>
+</li>
+<li><p>Authentication APIs</p></li>
+<li><p>High Availability (HA) to ensure smooth service</p></li>
+<li><p>Scalable to cater to the growing population of a country</p></li>
+<li><p>Protects an Individual's identity from request-replay attacks</p></li>
+<li><p>Audited for reporting and fraud management checks</p></li>
+</ol>
+<p><a class="reference internal" href="FRS-Authentication-Services.html"><span class="doc">Detailed functional requirement specifications for authentication services</span></a></p>
+</div>
+<div class="section" id="kernel">
+<h2>2.5 Kernel<a class="headerlink" href="#kernel" title="Permalink to this headline">¶</a></h2>
+<p>Kernel is a platform to build higher-level services as well as a secure sandbox. Functionally it caters to the following services:</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="UIN-Generation.html"><span class="doc">UIN Generation</span></a></p></li>
+<li><p><a class="reference internal" href="Configuration-Server.html"><span class="doc">Configuration Server</span></a></p></li>
+<li><p><a class="reference internal" href="Audit-Manager.html"><span class="doc">Audit Manager</span></a></p>
+<ul>
+<li><p><a class="reference external" href="log-manager">Log manager</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="Authentication-and-Authorization.html"><span class="doc">Authentication and Authorization</span></a></p></li>
+<li><p><a class="reference internal" href="FRS-Common-Services.html"><span class="doc">Common Services</span></a></p></li>
+<li><p><a class="reference internal" href="FRS-Data-Services.html"><span class="doc">Data Services</span></a></p></li>
+<li><p><a class="reference internal" href="FRS-Admin-Services.html"><span class="doc">Admin Services</span></a></p></li>
+</ul>
+</div>
+<div class="section" id="admin-portal-and-administrator-services-wip">
+<h2>2.6 Admin Portal and Administrator Services (WIP)<a class="headerlink" href="#admin-portal-and-administrator-services-wip" title="Permalink to this headline">¶</a></h2>
+<p>Admin Portal allows an MOSIP Administrator to manages administrative activities of MOSIP through either the back-end process with the help of available APIs or the UI screens.</p>
+<p>These administrative activities are:</p>
+<ul class="simple">
+<li><p>Set up Platform Data, Process Flows, ID Definition, Configuration, and Security Policy (Through back-end process).</p></li>
+<li><p>Manage (Create, Update, View, Activate/Deactivate, Map/Un-map/Re-map/Decommission) the resources. (Through API and UI Screens)</p></li>
+<li><p>Map the resources (Users, Machines, and Devices) to a registration center.(Through APIs)</p></li>
+<li><p>Manage the master data (Create/Update/Activate/Deactivate).(Through APIs)</p></li>
+<li><p>Manage approval requests for creation and updation of resources and master data.</p></li>
+<li><p>Manage personal account details (Reset Password, Forgot User Name, Change Password, Unlock Account, and Edit Personal
+Details.</p></li>
+<li><p>Activate/deactivate UIN</p></li>
+<li><p>View status of packets</p></li>
+</ul>
+<p><a class="reference internal" href="FRS-Administrator-Services.html"><span class="doc">Detailed functional specifications of administrator services module</span></a></p>
+<!--- 
+### 2.7 Resident Services (WIP)
+
+Resident Services module will provide a host of services for a user which he/she can utilize after generation of his/her UIN. The list of services a user can avail are outlined below:
+
+1. Download e-UIN.
+2. Retrieve lost UIN.
+3. Initiate UIN Update.
+4. Request re-print UIN.
+5. Track status of UIN update.
+6. View history of Authentication Requests.
+7. Lock or Unlock UIN/VID for each ‘Auth’ type(s).
+
+Additionally a user can also track status of his/her UIN generation after registration. 
+These services include:
+
+1. Retrieve Lost RID (registration ID).
+2. Track Status of UIN Generation via RID.
+
+[Detailed functional specifications of resident services module](FRS-Resident-Services)
+### 2.8 Partner Management (WIP)
+
+Partner Management provides services for Partner and MISP (MOSIP Infrastructure Service Provider) Registration and Authentication. Only Registered Partners and MISP are allowed to access MOSIP Authentication services. Partners and MISP are registered using Partner Management Services.  Authentication services of MOSIP will internally use the Partner Management Services to authenticate Partner and MISP and validate if only the registered entities are accessing the services.
+
+Partner Management also involves policy management for Partners. Each partner can access authentication services only based on a defined policy. Authentication services of MOSIP will internally use the Partner Management Services to authenticate a partner based on the policy.
+
+Partners send authentication request and receive authentication responses in a secured setup. Public/Private keys are used for encryption/decryption/signing the request/response. A few of the key management activities are managed in the Partner Management Services.
+
+Further Certificates are used by Partners for signing the authentication request. Partner Management Services is used for a few of the signature related services.
+
+[Detailed functional specifications of Partner Management module](FRS-Partner-Management)
+---></div>
+<div class="section" id="id-repository">
+<h2>2.9 ID Repository<a class="headerlink" href="#id-repository" title="Permalink to this headline">¶</a></h2>
+<p><a class="reference internal" href="FRS-ID-Repository.html"><span class="doc">Detailed functional specifications of ID Repository</span></a></p>
+</div>
+</div>
+<div class="section" id="architecture-overview">
+<h1>3. ARCHITECTURE OVERVIEW<a class="reference external" href="#table-of-contents"><strong>[↑]</strong></a><a class="headerlink" href="#architecture-overview" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="architectural-principles-and-platform-goals">
+<h2>3.1 <a class="reference internal" href="Architecture-Principles-&amp;-Platform-Goals.html"><span class="doc">Architectural Principles and Platform Goals</span></a><a class="headerlink" href="#architectural-principles-and-platform-goals" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="logical-architecture">
+<h2>3.2 <a class="reference internal" href="Logical-Architecture.html"><span class="doc">Logical Architecture</span></a><a class="headerlink" href="#logical-architecture" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="technology-stack">
+<h2>3.3 <a class="reference internal" href="Technology-Stack.html"><span class="doc">Technology Stack</span></a><a class="headerlink" href="#technology-stack" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="data-architecture">
+<h2>3.4 <a class="reference internal" href="MOSIP-Data-Architecture.html"><span class="doc">Data Architecture</span></a><a class="headerlink" href="#data-architecture" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="high-level-design">
+<h2>3.5 High Level Design<a class="headerlink" href="#high-level-design" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id1">
+<h3>3.5.1 <a class="reference internal" href="Pre-Registration.html"><span class="doc">Pre-Registration</span></a><a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h3>
+</div>
+<div class="section" id="id2">
+<h3>3.5.2 <a class="reference internal" href="Kernel.html"><span class="doc">Kernel</span></a><a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h3>
+</div>
+<div class="section" id="id3">
+<h3>3.5.3 <a class="reference internal" href="Registration-Client.html"><span class="doc">Registration Services</span></a><a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h3>
+</div>
+<div class="section" id="id4">
+<h3>3.5.4 <a class="reference internal" href="Registration-Processor.html"><span class="doc">Registration Processor</span></a><a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h3>
+</div>
+<div class="section" id="authentication-services">
+<h3>3.5.5 <a class="reference internal" href="ID-Authentication.html"><span class="doc">Authentication Services</span></a><a class="headerlink" href="#authentication-services" title="Permalink to this headline">¶</a></h3>
+<!---  #### 3.5.6 [Resident Services](Resident-services) ---></div>
+<div class="section" id="administrator-services">
+<h3>3.5.7 <a class="reference internal" href="Admin.html"><span class="doc">Administrator Services</span></a><a class="headerlink" href="#administrator-services" title="Permalink to this headline">¶</a></h3>
+</div>
+<div class="section" id="id5">
+<h3>3.5.8 <a class="reference internal" href="ID-Repository.html"><span class="doc">ID Repository</span></a><a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h3>
+</div>
+</div>
+<div class="section" id="deployment-architecture">
+<h2>3.6 <a class="reference internal" href="Deployment-Architecture.html"><span class="doc">Deployment Architecture</span></a><a class="headerlink" href="#deployment-architecture" title="Permalink to this headline">¶</a></h2>
+</div>
+</div>
+<div class="section" id="requirement-specifications">
+<h1>4. REQUIREMENT SPECIFICATIONS<a class="reference external" href="#table-of-contents"><strong>[↑]</strong></a><a class="headerlink" href="#requirement-specifications" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="functional-requirement-specifications">
+<h2>4.1 Functional Requirement Specifications<a class="headerlink" href="#functional-requirement-specifications" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id6">
+<h3>4.1.1 <a class="reference internal" href="FRS-Pre-Registration.html"><span class="doc">Pre-Registration</span></a><a class="headerlink" href="#id6" title="Permalink to this headline">¶</a></h3>
+</div>
+<div class="section" id="data-services">
+<h3>4.1.2 <a class="reference internal" href="FRS-Data-Services.html"><span class="doc">Data Services</span></a><a class="headerlink" href="#data-services" title="Permalink to this headline">¶</a></h3>
+</div>
+<div class="section" id="common-services">
+<h3>4.1.3 <a class="reference internal" href="FRS-Common-Services.html"><span class="doc">Common Services</span></a><a class="headerlink" href="#common-services" title="Permalink to this headline">¶</a></h3>
+</div>
+<div class="section" id="admin-services">
+<h3>4.1.4 <a class="reference internal" href="FRS-Admin-Services.html"><span class="doc">Admin Services</span></a><a class="headerlink" href="#admin-services" title="Permalink to this headline">¶</a></h3>
+</div>
+<div class="section" id="uin-generation">
+<h3>4.1.5 <a class="reference internal" href="UIN-Generation.html"><span class="doc">UIN Generation</span></a><a class="headerlink" href="#uin-generation" title="Permalink to this headline">¶</a></h3>
+</div>
+<div class="section" id="configuration-server">
+<h3>4.1.6 <a class="reference internal" href="Configuration-Server.html"><span class="doc">Configuration Server</span></a><a class="headerlink" href="#configuration-server" title="Permalink to this headline">¶</a></h3>
+</div>
+<div class="section" id="audit-manager">
+<h3>4.1.7 <a class="reference internal" href="Audit-Manager.html"><span class="doc">Audit Manager</span></a><a class="headerlink" href="#audit-manager" title="Permalink to this headline">¶</a></h3>
+</div>
+<div class="section" id="authentication-and-authorization">
+<h3>4.1.8 <a class="reference internal" href="Authentication-and-Authorization.html"><span class="doc">Authentication and Authorization</span></a><a class="headerlink" href="#authentication-and-authorization" title="Permalink to this headline">¶</a></h3>
+</div>
+<div class="section" id="id7">
+<h3>4.1.9 <a class="reference internal" href="FRS-Registration-Services.html"><span class="doc">Registration Services</span></a><a class="headerlink" href="#id7" title="Permalink to this headline">¶</a></h3>
+</div>
+<div class="section" id="id8">
+<h3>4.1.10 <a class="reference internal" href="FRS-Registration-Processor.html"><span class="doc">Registration Processor</span></a><a class="headerlink" href="#id8" title="Permalink to this headline">¶</a></h3>
+</div>
+<div class="section" id="id9">
+<h3>4.1.11 <a class="reference internal" href="FRS-Authentication-Services.html"><span class="doc">Authentication Services</span></a><a class="headerlink" href="#id9" title="Permalink to this headline">¶</a></h3>
+<!---! #### 4.1.12 [Resident Services](FRS-Resident-Services) ---></div>
+<div class="section" id="id10">
+<h3>4.1.13 <a class="reference internal" href="FRS-Administrator-Services.html"><span class="doc">Administrator Services</span></a><a class="headerlink" href="#id10" title="Permalink to this headline">¶</a></h3>
+<!--- #### 4.1.14 [Partner Management](FRS-Partner-Management)---></div>
+<div class="section" id="id11">
+<h3>4.1.15 <a class="reference internal" href="FRS-ID-Repository.html"><span class="doc">ID Repository</span></a><a class="headerlink" href="#id11" title="Permalink to this headline">¶</a></h3>
+</div>
+</div>
+<div class="section" id="non-functional-requirement-specifications">
+<h2>4.2 <a class="reference internal" href="Non-Functional-Requirements.html"><span class="doc">Non-Functional Requirement Specifications</span></a><a class="headerlink" href="#non-functional-requirement-specifications" title="Permalink to this headline">¶</a></h2>
+</div>
+</div>
+<div class="section" id="architecturally-significant-components">
+<h1>5. ARCHITECTURALLY SIGNIFICANT COMPONENTS<a class="reference external" href="#table-of-contents"><strong>[↑]</strong></a><a class="headerlink" href="#architecturally-significant-components" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="id-object-definition">
+<h2>5.1 ID Object Definition<a class="headerlink" href="#id-object-definition" title="Permalink to this headline">¶</a></h2>
+<p>ID definition describes the attributes a Country or entity intends to capture from an Individual, which will formulate the definition of ID for a Country. This section elaborates on the mechanism MOSIP adopts, in order to provide the flexibility for each Country to define its preferred ID definition and ID object definition schema.</p>
+<p><a class="reference external" href="MOSIP-ID-Object-definition">More details on ID Object Definition</a></p>
+</div>
+<div class="section" id="configurations">
+<h2>5.2 Configurations<a class="headerlink" href="#configurations" title="Permalink to this headline">¶</a></h2>
+<p>MOSIP as a platform will have multiple applications running and each application will have a set of configurations.
+This section details:</p>
+<ol class="simple">
+<li><p>The key configuration files a system owner has to create before starting the platform – with a centralized Config Server.</p></li>
+<li><p>Launcher component which will read the configuration files, validate and launch the platform.</p></li>
+</ol>
+<p><a class="reference internal" href="MOSIP-configuration-&amp;-launcher.html"><span class="doc">More details on Configurations</span></a></p>
+</div>
+<div class="section" id="registration-packet-structure">
+<h2>5.3 Registration Packet Structure<a class="headerlink" href="#registration-packet-structure" title="Permalink to this headline">¶</a></h2>
+<p>This section illustrates the packet creation flow along with the encryption process, as part of Registration Client.</p>
+<p><a class="reference internal" href="Registration-Packet.html"><span class="doc">More details on Registration Packet</span></a></p>
+</div>
+<div class="section" id="abis-middleware">
+<h2>5.4 ABIS Middleware<a class="headerlink" href="#abis-middleware" title="Permalink to this headline">¶</a></h2>
+<p>This section provides details on the ability of MOSIP to support a single or multi-ABIS solution, specifics on the Components &amp; APIs of ABIS Middleware, Strategies for Biometric data management in ABIS and Strategies for de-duplication in case of multiple ABIS systems.</p>
+<p><a class="reference internal" href="MOSIP-ABIS-Middleware.html"><span class="doc">More details on ABIS Middleware</span></a></p>
+</div>
+<div class="section" id="biometric-data-standards">
+<h2>5.5 Biometric Data Standards<a class="headerlink" href="#biometric-data-standards" title="Permalink to this headline">¶</a></h2>
+<p>This section details out the specifications for Biometric data during data acquisition and verification.</p>
+<p><a class="reference internal" href="MOSIP-Biometric-Data-Specifications.html"><span class="doc">More details on Biometric Data Specifications</span></a></p>
+</div>
+<div class="section" id="mosip-device-specification">
+<h2>5.6 MOSIP Device Specification<a class="headerlink" href="#mosip-device-specification" title="Permalink to this headline">¶</a></h2>
+<p>This section illustrates the VDM technical specifications to be adhered by a vendor, who intends to adopt their devices to the MOSIP platform, so as to capture the biometric data and process the same.</p>
+<p><a class="reference internal" href="MOSIP-VDM-Specifications.html"><span class="doc">More details on MOSIP Device Specification</span></a></p>
+</div>
+<div class="section" id="core-data-management">
+<h2>5.7 Core Data Management<a class="headerlink" href="#core-data-management" title="Permalink to this headline">¶</a></h2>
+<p>ID Repository module contains the golden record of Identity for an Individual. Once new/update packets are processed by Registration Processor, the Identity details of an Individual are added/updated in ID Repository. The Identity information available in ID Repository is then used by ID Authentication to authenticate an Individual.</p>
+<p>This module exposes few REST APIs which can be used to create/update/retrieve identity of an individual. Please refer to the <a class="reference internal" href="ID-Repository-API.html"><span class="doc">ID Repository API</span></a> for more details.</p>
+</div>
+<div class="section" id="integration-with-external-systems">
+<h2>5.8 Integration with External Systems<a class="headerlink" href="#integration-with-external-systems" title="Permalink to this headline">¶</a></h2>
+<p><a class="reference external" href="/mosip/mosip-platform/wiki/Registration-Processor-External_System_Integration_Guide">This section</a> illustrates the integration specifications of MOSIP with an external system.</p>
+</div>
+</div>
+<div class="section" id="mosip-apis">
+<h1>6. MOSIP APIs<a class="reference external" href="#table-of-contents"><strong>[↑]</strong></a><a class="headerlink" href="#mosip-apis" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="external-apis">
+<h2>6.1	External APIs<a class="headerlink" href="#external-apis" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p><a class="reference internal" href="Pre-Registration-Services.html"><span class="doc">Pre-Registration APIs</span></a></p></li>
+<li><p><a class="reference internal" href="Registration-Processor-APIs.html"><span class="doc">Registration Processor APIs</span></a></p></li>
+<li><p><a class="reference internal" href="ID-Authentication-APIs.html"><span class="doc">ID Authentication APIs</span></a>.</p></li>
+</ul>
+<!--- * [Resident Services APIs (WIP)](Resident-Service-APIs).---><!--- * [Partner Management APIs (WIP)](Partner-Management-APIs) ---><ul class="simple">
+<li><p><a class="reference internal" href="ABIS-APIs.html"><span class="doc">ABIS APIs</span></a>.</p></li>
+<li><p><a class="reference internal" href="MOSIP-Biometric-APIs.html"><span class="doc">Biometric APIs</span></a></p></li>
+<li><p><a class="reference external" href="Kernel-APIs#otp-manager-private">OTP Manager API</a></p></li>
+</ul>
+</div>
+<div class="section" id="internal-apis">
+<h2>6.2	Internal APIs<a class="headerlink" href="#internal-apis" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p><a class="reference internal" href="Kernel-APIs.html"><span class="doc">Kernel APIs</span></a>---</p></li>
+<li><p><a class="reference internal" href="ID-Repository-API.html"><span class="doc">ID Repository API</span></a></p></li>
+<li><p><a class="reference internal" href="Admin-APIs.html"><span class="doc">Admin APIs</span></a></p></li>
+<li><p><a class="reference internal" href="AuthN-&amp;-AuthZ-APIs.html"><span class="doc">AuthN &amp; AuthZ APIs</span></a></p></li>
+<li><p>Master Data APIs</p>
+<ol class="simple">
+<li><p><a class="reference internal" href="Biometric-APIs.html"><span class="doc">Internal Biometric APIs</span></a></p></li>
+<li><p><a class="reference internal" href="Document-APIs.html"><span class="doc">Document APIs</span></a></p></li>
+<li><p><a class="reference internal" href="Device-APIs.html"><span class="doc">Device APIs</span></a></p></li>
+<li><p><a class="reference internal" href="Machine-APIs.html"><span class="doc">Machine APIs</span></a></p></li>
+<li><p><a class="reference internal" href="Packet-APIs.html"><span class="doc">Packet APIs</span></a></p></li>
+<li><p><a class="reference internal" href="Template-APIs.html"><span class="doc">Template APIs</span></a></p></li>
+<li><p><a class="reference internal" href="Common-APIs.html"><span class="doc">Common APIs</span></a></p></li>
+<li><p><a class="reference internal" href="Registration-Center-APIs.html"><span class="doc">Registration Center APIs</span></a></p></li>
+</ol>
+</li>
+</ul>
+</div>
+</div>
+<div class="section" id="privacy-and-security">
+<h1>7. PRIVACY AND SECURITY<a class="reference external" href="#table-of-contents"><strong>[↑]</strong></a><a class="headerlink" href="#privacy-and-security" title="Permalink to this headline">¶</a></h1>
+<p>Multiple aspects of Security like Confidentiality, Privacy, and Integrity of data are key in ensuring an Individual's identity is not compromised. This section illuminates on the <a class="reference internal" href="Privacy-and-Security.html"><span class="doc">privacy and security</span></a> design principles MOSIP follows. Please also take a look at <a class="reference internal" href="Security-Tools.html"><span class="doc">Security Tools</span></a> to know more about the tools used for security testing.</p>
+</div>
+<div class="section" id="contributing">
+<h1>8. CONTRIBUTING<a class="reference external" href="#table-of-contents"><strong>[↑]</strong></a><a class="headerlink" href="#contributing" title="Permalink to this headline">¶</a></h1>
+<p>To get started on contributing to MOSIP, read our <a class="reference external" href="contributor-guide">Contributor Guide</a> and our <a class="reference external" href="code-of-conduct">Code of Conduct</a></p>
+</div>
+<div class="section" id="building-and-deploying-mosip">
+<h1>9. BUILDING AND DEPLOYING MOSIP<a class="reference external" href="#table-of-contents"><strong>[↑]</strong></a><a class="headerlink" href="#building-and-deploying-mosip" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="getting-started-guide">
+<h2>9.1 <a class="reference internal" href="Getting-Started.html"><span class="doc">Getting Started Guide</span></a><a class="headerlink" href="#getting-started-guide" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="tester-documentation">
+<h2>9.2 Tester Documentation<a class="headerlink" href="#tester-documentation" title="Permalink to this headline">¶</a></h2>
+<p>Useful information for the tester community. <a class="reference external" href="tester-documentation">Tester Documentation</a></p>
+<p>Test Rig represents a one click automation to build, deploy and test a software module. Successful execution of test rig would ascertain complete setup of the MOSIP platform. More details on <a class="reference internal" href="Test-Rig-Design.html"><span class="doc">Test Rig Design</span></a>.</p>
+<p>More details on <a class="reference internal" href="Tester-Documentation.html"><span class="doc">Test Automation</span></a></p>
+</div>
+<div class="section" id="developer-documentation">
+<h2>9.3 <a class="reference internal" href="Developer-Documentation.html"><span class="doc">Developer Documentation</span></a><a class="headerlink" href="#developer-documentation" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="customization-wip">
+<h2>9.4 [Customization (WIP)]<a class="headerlink" href="#customization-wip" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/mosip/mosip-docs/wiki/Customization-of-UI---How-to-Guide">UI Customization (WIP)</a></p></li>
+</ul>
+</div>
+</div>
+<div class="section" id="infrastructure-recommendations">
+<h1>10.  INFRASTRUCTURE RECOMMENDATIONS<a class="reference external" href="#table-of-contents"><strong>[↑]</strong></a><a class="headerlink" href="#infrastructure-recommendations" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="data-center-architecture-wip">
+<h2>10.1 Data Center Architecture (WIP)<a class="headerlink" href="#data-center-architecture-wip" title="Permalink to this headline">¶</a></h2>
+</div>
+</div>
+<div class="section" id="list-of-acronyms">
+<h1>11. List Of Acronyms<a class="headerlink" href="#list-of-acronyms" title="Permalink to this headline">¶</a></h1>
+<p>|Acronym|Expanded Form|
+|-----|------|
+| ABIS|  Automated Biometric Identification System |
+| API | Application Programming Interface|
+| ID |Identity|
+|IDA|Identity Authentication|
+| MOSIP | Modular Open Source Identity Platform|
+| NFR | Non-Functional Requirements|
+| OTP | One Time Password|
+| SDK | Software Development Kit|
+| TBD | To Be Determined|
+|TOTP|Temporary One Time Password|
+| UIN | Unique Identification Number|
+| WIP | Work In Progress|
+| CBEFF |Common Biometric Exchange Formats Framework|
+| HSM |Hardware Security Module|
+| TPM |Trusted Platform Module|</p>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, mosip-team
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

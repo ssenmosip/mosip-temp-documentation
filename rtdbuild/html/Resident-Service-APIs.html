@@ -1,0 +1,1724 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="java" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="java" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>POST /resident/v1/req/otp &mdash; MOSIP 0.9 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script type="text/javascript" src="_static/jquery.js"></script>
+        <script type="text/javascript" src="_static/underscore.js"></script>
+        <script type="text/javascript" src="_static/doctools.js"></script>
+        <script type="text/javascript" src="_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search"  style="background: white" >
+          
+
+          
+            <a href="index.html" class="icon icon-home"> MOSIP
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.9
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <!-- Local TOC -->
+              <div class="local-toc"><ul>
+<li><a class="reference internal" href="#">POST /resident/v1/req/otp</a><ul>
+<li><a class="reference internal" href="#resource-url">Resource URL</a></li>
+<li><a class="reference internal" href="#resource-details">Resource details</a></li>
+<li><a class="reference internal" href="#request-body-parameters">Request Body Parameters</a></li>
+<li><a class="reference internal" href="#request-body-1">Request Body -1</a></li>
+<li><a class="reference internal" href="#request-body-2">Request Body -2</a></li>
+<li><a class="reference internal" href="#responses">Responses:</a><ul>
+<li><a class="reference internal" href="#success-response">Success Response:</a><ul>
+<li><a class="reference internal" href="#status-code-200-ok">Status Code : 200 (OK)</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#failed-response">Failed Response:</a><ul>
+<li><a class="reference internal" href="#id1">Status Code : 200 (OK)</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a class="reference internal" href="#failure-details">Failure details</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#post-resident-v1-rid-check-status">POST /resident/v1/rid/check-status</a><ul>
+<li><a class="reference internal" href="#id2">Resource URL</a></li>
+<li><a class="reference internal" href="#id3">Resource details</a></li>
+<li><a class="reference internal" href="#id4">Request Body Parameters</a></li>
+<li><a class="reference internal" href="#request-body">Request Body</a></li>
+<li><a class="reference internal" href="#id5">Responses:</a><ul>
+<li><a class="reference internal" href="#id6">Success Response:</a><ul>
+<li><a class="reference internal" href="#id7">Status Code : 200 (OK)</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#id8">Failed Response:</a><ul>
+<li><a class="reference internal" href="#id9">Status Code : 200 (OK)</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a class="reference internal" href="#id10">Failure details</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#post-resident-v1-req-euin">POST /resident/v1/req/euin</a><ul>
+<li><a class="reference internal" href="#id11">Resource URL</a></li>
+<li><a class="reference internal" href="#id12">Resource details</a></li>
+<li><a class="reference internal" href="#id13">Request Body Parameters</a></li>
+<li><a class="reference internal" href="#id14">Request Body</a></li>
+<li><a class="reference internal" href="#id15">Responses:</a><ul>
+<li><a class="reference internal" href="#id16">Success Response:</a><ul>
+<li><a class="reference internal" href="#id17">Status Code : 200 (OK)</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#id18">Failed Response:</a><ul>
+<li><a class="reference internal" href="#id19">Status Code : 200 (OK)</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a class="reference internal" href="#id20">Failure details</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#post-resident-v1-req-print-uin">POST /resident/v1/req/print-uin</a><ul>
+<li><a class="reference internal" href="#id21">Resource URL</a></li>
+<li><a class="reference internal" href="#id22">Resource details</a></li>
+<li><a class="reference internal" href="#id23">Request Body Parameters</a></li>
+<li><a class="reference internal" href="#id24">Request Body</a></li>
+<li><a class="reference internal" href="#id25">Responses:</a><ul>
+<li><a class="reference internal" href="#id26">Success Response:</a><ul>
+<li><a class="reference internal" href="#id27">Status Code : 200 (OK)</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#id28">Failed Response:</a><ul>
+<li><a class="reference internal" href="#id29">Status Code : 200 (OK)</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a class="reference internal" href="#id30">Failure details</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#post-resident-v1-req-uin">POST /resident/v1/req/uin</a><ul>
+<li><a class="reference internal" href="#id31">Resource URL</a></li>
+<li><a class="reference internal" href="#id32">Resource details</a></li>
+<li><a class="reference internal" href="#id33">Request Body Parameters</a></li>
+<li><a class="reference internal" href="#id34">Request Body</a></li>
+<li><a class="reference internal" href="#id35">Responses:</a><ul>
+<li><a class="reference internal" href="#id36">Success Response:</a><ul>
+<li><a class="reference internal" href="#id37">Status Code : 200 (OK)</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#id38">Failed Response:</a><ul>
+<li><a class="reference internal" href="#id39">Status Code : 200 (OK)</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a class="reference internal" href="#id40">Failure details</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#post-resident-v1-req-rid">POST /resident/v1/req/rid</a><ul>
+<li><a class="reference internal" href="#id41">Resource URL</a></li>
+<li><a class="reference internal" href="#id42">Resource details</a></li>
+<li><a class="reference internal" href="#id43">Request Body Parameters</a></li>
+<li><a class="reference internal" href="#id44">Request Body</a></li>
+<li><a class="reference internal" href="#id45">Responses:</a><ul>
+<li><a class="reference internal" href="#id46">Success Response:</a><ul>
+<li><a class="reference internal" href="#id47">Status Code : 200 (OK)</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#id48">Failed Response:</a><ul>
+<li><a class="reference internal" href="#id49">Status Code : 200 (OK)</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a class="reference internal" href="#id50">Failure details</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#post-resident-v1-req-update-uin">POST /resident/v1/req/update-uin</a><ul>
+<li><a class="reference internal" href="#id51">Resource URL</a></li>
+<li><a class="reference internal" href="#id52">Resource details</a></li>
+<li><a class="reference internal" href="#id53">Request Body Parameters</a></li>
+<li><a class="reference internal" href="#id54">Request Body</a></li>
+<li><a class="reference internal" href="#id55">Responses:</a><ul>
+<li><a class="reference internal" href="#id56">Success Response:</a><ul>
+<li><a class="reference internal" href="#id57">Status Code : 200 (OK)</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#id58">Failed Response:</a><ul>
+<li><a class="reference internal" href="#id59">Status Code : 200 (OK)</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a class="reference internal" href="#id60">Failure details</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#post-resident-v1-vid">POST /resident/v1/vid</a><ul>
+<li><a class="reference internal" href="#id61">Resource URL</a></li>
+<li><a class="reference internal" href="#id62">Resource details</a></li>
+<li><a class="reference internal" href="#id63">Request Body Parameters</a></li>
+<li><a class="reference internal" href="#id64">Request Body</a></li>
+<li><a class="reference internal" href="#id65">Responses:</a><ul>
+<li><a class="reference internal" href="#id66">Success Response:</a><ul>
+<li><a class="reference internal" href="#id67">Status Code : 200 (OK)</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#id68">Failed Response:</a><ul>
+<li><a class="reference internal" href="#id69">Status Code : 200 (OK)</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a class="reference internal" href="#id70">Failure details</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#patch-resident-v1-vid-vid">PATCH /resident/v1/vid/{vid}</a><ul>
+<li><a class="reference internal" href="#id71">Resource URL</a></li>
+<li><a class="reference internal" href="#id72">Resource details</a></li>
+<li><a class="reference internal" href="#id73">Request Body Parameters</a></li>
+<li><a class="reference internal" href="#id74">Request Body</a></li>
+<li><a class="reference internal" href="#id75">Responses:</a><ul>
+<li><a class="reference internal" href="#id76">Success Response:</a><ul>
+<li><a class="reference internal" href="#id77">Status Code : 200 (OK)</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#id78">Failed Response:</a><ul>
+<li><a class="reference internal" href="#id79">Status Code : 200 (OK)</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a class="reference internal" href="#id80">Failure details</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#post-resident-v1-req-auth-lock">POST /resident/v1/req/auth-lock</a><ul>
+<li><a class="reference internal" href="#id81">Resource URL</a></li>
+<li><a class="reference internal" href="#id82">Resource details</a></li>
+<li><a class="reference internal" href="#id83">Request Body Parameters</a></li>
+<li><a class="reference internal" href="#id84">Request Body</a></li>
+<li><a class="reference internal" href="#id85">Responses:</a><ul>
+<li><a class="reference internal" href="#id86">Success Response:</a><ul>
+<li><a class="reference internal" href="#id87">Status Code : 200 (OK)</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#id88">Failed Response:</a><ul>
+<li><a class="reference internal" href="#id89">Status Code : 200 (OK)</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a class="reference internal" href="#id90">Failure details</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#post-resident-v1-req-auth-unlock">POST /resident/v1/req/auth-unlock</a><ul>
+<li><a class="reference internal" href="#id91">Resource URL</a></li>
+<li><a class="reference internal" href="#id92">Resource details</a></li>
+<li><a class="reference internal" href="#id93">Request Body Parameters</a></li>
+<li><a class="reference internal" href="#id94">Request Body</a></li>
+<li><a class="reference internal" href="#id95">Responses:</a><ul>
+<li><a class="reference internal" href="#id96">Success Response:</a><ul>
+<li><a class="reference internal" href="#id97">Status Code : 200 (OK)</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#id98">Failed Response:</a><ul>
+<li><a class="reference internal" href="#id99">Status Code : 200 (OK)</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a class="reference internal" href="#id100">Failure details</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#post-resident-v1-req-auth-history">POST /resident/v1/req/auth-history</a><ul>
+<li><a class="reference internal" href="#id101">Resource URL</a></li>
+<li><a class="reference internal" href="#id102">Resource details</a></li>
+<li><a class="reference internal" href="#id103">Request Body Parameters</a></li>
+<li><a class="reference internal" href="#id104">Request Body</a></li>
+<li><a class="reference internal" href="#id105">Responses:</a><ul>
+<li><a class="reference internal" href="#id106">Success Response:</a><ul>
+<li><a class="reference internal" href="#id107">Status Code : 200 (OK)</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#id108">Failed Response:</a><ul>
+<li><a class="reference internal" href="#id109">Status Code : 200 (OK)</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a class="reference internal" href="#id110">Failure details</a></li>
+</ul>
+</li>
+</ul>
+</div>
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">MOSIP</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html">Docs</a> &raquo;</li>
+        
+      <li>POST /resident/v1/req/otp</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/Resident-Service-APIs.md.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <p>This section details out all Resident Service REST APIs</p>
+<ul class="simple">
+<li><p><a class="reference external" href="#post-residentv1reqotp">OTP Request API</a></p></li>
+<li><p><a class="reference external" href="#post-residentv1ridcheck-status">Service Request Status Check API</a></p></li>
+<li><p><a class="reference external" href="#post-residentv1reqeuin">e-UIN API</a></p></li>
+<li><p><a class="reference external" href="#post-residentv1reqprint-uin">Re-print UIN API</a></p></li>
+<li><p><a class="reference external" href="#post-residentv1requin">Retrieve Lost UIN API</a></p></li>
+<li><p><a class="reference external" href="#post-residentv1reqrid">Retrieve Lost RID API</a></p></li>
+<li><p><a class="reference external" href="#post-residentv1requpdate-uin">UIN Update API</a></p></li>
+<li><p><a class="reference external" href="#post-/residentv1vid">VID Generate API</a></p></li>
+<li><p><a class="reference external" href="#patch-residentv1vid%7Bvid%7D">VID Revoke API</a></p></li>
+<li><p><a class="reference external" href="#post-residentv1reqauth-lock">Lock Authentication Type API</a></p></li>
+<li><p><a class="reference external" href="#post-residentv1reqauth-unlock">UnLock Authentication Type API</a></p></li>
+<li><p><a class="reference external" href="#post-residentv1reqauth-history">Authentication History API</a></p></li>
+</ul>
+<div class="section" id="post-resident-v1-req-otp">
+<h1>POST /resident/v1/req/otp<a class="headerlink" href="#post-resident-v1-req-otp" title="Permalink to this headline">¶</a></h1>
+<p>This service enables Individual to request for an OTP. The OTP will be send via registered message/email to the Individual. This OTP can then be used to authenticate in other resident services.</p>
+<div class="section" id="resource-url">
+<h2>Resource URL<a class="headerlink" href="#resource-url" title="Permalink to this headline">¶</a></h2>
+<div>https://mosip.io/resident/v1/req/otp</div></div>
+<div class="section" id="resource-details">
+<h2>Resource details<a class="headerlink" href="#resource-details" title="Permalink to this headline">¶</a></h2>
+<p>Resource Details | Description
+------------ | -------------
+Response format | JSON
+Requires Authentication | No</p>
+</div>
+<div class="section" id="request-body-parameters">
+<h2>Request Body Parameters<a class="headerlink" href="#request-body-parameters" title="Permalink to this headline">¶</a></h2>
+<p>Name | Required | Description | Default Value | Example
+-----|----------|-------------|---------------|--------
+id | Y | API Id | mosip.resident.otp |
+version | Y | API version |  | v1
+requestTime| Y |Time when Request was captured| | 2018-12-09T06:39:03.683Z
+request: transactionID| Y | Transaction ID of request | | dabed834-974f-11e9-bc42-526af7764f64
+request: individualId| N | VID | | 9830872690593682
+request: individualIdType| Y | Allowed Type of Individual ID - VID, UIN, demo | VID
+request: demographics|N| Demographic data of an Individual| |</p>
+<p>Mandatory fields for different types of authentications-</p>
+<ul class="simple">
+<li><p>If individualIdType is  VID or UIN then individualId is Mandatory</p></li>
+<li><p>If individualIdType is demo then  demographics is Mandatory</p></li>
+</ul>
+</div>
+<div class="section" id="request-body-1">
+<h2>Request Body -1<a class="headerlink" href="#request-body-1" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-JSON notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+  <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;mosip.resident.otp&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;version&quot;</span><span class="p">:</span> <span class="s2">&quot;v1&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;requestTime&quot;</span><span class="p">:</span> <span class="s2">&quot;2018-12-09T06:39:03.683Z&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;request&quot;</span><span class="p">:</span> <span class="p">{</span>
+  <span class="nt">&quot;transactionID&quot;</span><span class="p">:</span> <span class="s2">&quot;dabed834-974f-11e9-bc42-526af7764f64&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;individualId&quot;</span><span class="p">:</span> <span class="s2">&quot;9830872690593682&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;individualIdType&quot;</span><span class="p">:</span> <span class="s2">&quot;VID&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;demographics&quot;</span><span class="p">:</span> <span class="kc">null</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="request-body-2">
+<h2>Request Body -2<a class="headerlink" href="#request-body-2" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-JSON notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+  <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;mosip.resident.otp&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;version&quot;</span><span class="p">:</span> <span class="s2">&quot;v1&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;requestTime&quot;</span><span class="p">:</span> <span class="s2">&quot;2018-12-09T06:39:03.683Z&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;request&quot;</span><span class="p">:</span> <span class="p">{</span>
+  <span class="nt">&quot;transactionID&quot;</span><span class="p">:</span> <span class="s2">&quot;dabed834-974f-11e9-bc42-526af7764f64&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;individualId&quot;</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
+  <span class="nt">&quot;individualIdType&quot;</span><span class="p">:</span> <span class="s2">&quot;demo&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;demographics&quot;</span><span class="p">:</span> <span class="p">{</span>
+      <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="p">[</span>
+        <span class="p">{</span>
+          <span class="nt">&quot;language&quot;</span><span class="p">:</span> <span class="s2">&quot;fra&quot;</span><span class="p">,</span>
+          <span class="nt">&quot;value&quot;</span><span class="p">:</span> <span class="s2">&quot;Ibrahim Ibn Ali&quot;</span>
+        <span class="p">}</span>
+      <span class="p">],</span>
+      <span class="nt">&quot;gender&quot;</span><span class="p">:</span> <span class="p">[</span>
+        <span class="p">{</span>
+          <span class="nt">&quot;language&quot;</span><span class="p">:</span> <span class="s2">&quot;fra&quot;</span><span class="p">,</span>
+          <span class="nt">&quot;value&quot;</span><span class="p">:</span> <span class="s2">&quot;mâle&quot;</span>
+        <span class="p">}</span>
+      <span class="p">],</span>
+      <span class="nt">&quot;postalCode&quot;</span><span class="p">:</span> <span class="p">{</span>
+          <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;10004&quot;</span>
+        <span class="p">},</span>
+      <span class="nt">&quot;phone&quot;</span><span class="p">:</span> <span class="p">{</span>
+          <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;998989989809&quot;</span>
+        <span class="p">},</span>
+      <span class="nt">&quot;email&quot;</span><span class="p">:</span> <span class="p">{</span>
+          <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;abcdefgh@xyz.com&quot;</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="responses">
+<h2>Responses:<a class="headerlink" href="#responses" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="success-response">
+<h3>Success Response:<a class="headerlink" href="#success-response" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="status-code-200-ok">
+<h4>Status Code : 200 (OK)<a class="headerlink" href="#status-code-200-ok" title="Permalink to this headline">¶</a></h4>
+<div class="highlight-JSON notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+  <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;mosip.resident.otp&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;version&quot;</span><span class="p">:</span> <span class="s2">&quot;v1&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;responseTime&quot;</span><span class="p">:</span> <span class="s2">&quot;2018-12-09T06:39:04.683Z&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;transactionID&quot;</span><span class="p">:</span> <span class="s2">&quot;dabed834-974f-11e9-bc42-526af7764f64&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;response&quot;</span><span class="p">:</span> <span class="p">{</span>
+    <span class="nt">&quot;status&quot;</span><span class="p">:</span> <span class="s2">&quot;success&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;message&quot;</span><span class="p">:</span> <span class="s2">&quot;Notification has been sent to abXXXXXXXXXcd@xyz.com&quot;</span>
+  <span class="p">},</span>
+  <span class="nt">&quot;errors&quot;</span><span class="p">:</span> <span class="kc">null</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="failed-response">
+<h3>Failed Response:<a class="headerlink" href="#failed-response" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id1">
+<h4>Status Code : 200 (OK)<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h4>
+<div class="highlight-JSON notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+  <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;mosip.resident.otp&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;version&quot;</span><span class="p">:</span> <span class="s2">&quot;v1&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;responseTime&quot;</span><span class="p">:</span> <span class="s2">&quot;2018-12-09T06:39:04.683Z&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;transactionID&quot;</span><span class="p">:</span> <span class="s2">&quot;dabed834-974f-11e9-bc42-526af7764f64&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;response&quot;</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
+  <span class="nt">&quot;errors&quot;</span><span class="p">:</span> <span class="p">[</span>
+    <span class="p">{</span>
+      <span class="nt">&quot;errorCode&quot;</span><span class="p">:</span> <span class="s2">&quot;RES-REP-089&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;errorMessage&quot;</span><span class="p">:</span> <span class="s2">&quot;Invalid VID&quot;</span>
+    <span class="p">}</span>
+  <span class="p">]</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="failure-details">
+<h2>Failure details<a class="headerlink" href="#failure-details" title="Permalink to this headline">¶</a></h2>
+<p>Error Code | Error Message | Error Description
+------------|------------------------------|-------------
+XXX-XXX-001 | OTP Request failed |
+XXX-XXX-002 | Invalid VID | No active VID found</p>
+</div>
+</div>
+<div class="section" id="post-resident-v1-rid-check-status">
+<h1>POST /resident/v1/rid/check-status<a class="headerlink" href="#post-resident-v1-rid-check-status" title="Permalink to this headline">¶</a></h1>
+<p>This service will respond with service request (UIN Generation/Updataion,Reprint etc) status and notification will be sent to phone/email.</p>
+<div class="section" id="id2">
+<h2>Resource URL<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
+<div>https://mosip.io/resident/v1/rid/check-status</div></div>
+<div class="section" id="id3">
+<h2>Resource details<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h2>
+<p>Resource Details | Description
+------------ | -------------
+Response format | JSON
+Requires Authentication | Yes</p>
+</div>
+<div class="section" id="id4">
+<h2>Request Body Parameters<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h2>
+<p>Name | Required | Description | Default Value | Example
+-----|----------|-------------|---------------|--------
+id | Y | API Id | | mosip.resident.uinstatus
+version | Y | API version | | v1
+requestTime| Y |Time when Request was captured| | 2018-12-09T06:39:04.683Z
+request: transactionID| N | Transaction ID of request | | dabed834-974f-11e9-bc42-526af7764f64
+request: individualId| Y | RID | | 9830872690593682
+request: individualIdType| Y | Allowed Type of Individual ID - RID | RID</p>
+</div>
+<div class="section" id="request-body">
+<h2>Request Body<a class="headerlink" href="#request-body" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-JSON notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+  <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;mosip.resident.uinstatus&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;version&quot;</span><span class="p">:</span> <span class="s2">&quot;v1&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;requestTime&quot;</span><span class="p">:</span> <span class="s2">&quot;2018-12-09T06:39:04.683Z&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;request&quot;</span><span class="p">:</span> <span class="p">{</span>
+  <span class="nt">&quot;transactionID&quot;</span><span class="p">:</span> <span class="s2">&quot;dabed834-974f-11e9-bc42-526af7764f64&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;individualId&quot;</span><span class="p">:</span> <span class="s2">&quot;9830872690593682&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;individualIdType&quot;</span><span class="p">:</span> <span class="s2">&quot;RID&quot;</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="id5">
+<h2>Responses:<a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id6">
+<h3>Success Response:<a class="headerlink" href="#id6" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id7">
+<h4>Status Code : 200 (OK)<a class="headerlink" href="#id7" title="Permalink to this headline">¶</a></h4>
+<div class="highlight-JSON notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+  <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;mosip.resident.uinstatus&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;version&quot;</span><span class="p">:</span> <span class="s2">&quot;v1&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;responseTime&quot;</span><span class="p">:</span> <span class="s2">&quot;2018-12-09T06:39:04.683Z&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;response&quot;</span><span class="p">:</span> <span class="p">{</span>
+    <span class="nt">&quot;ridStatus&quot;</span><span class="p">:</span> <span class="s2">&quot;PROCESSING&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;status&quot;</span><span class="p">:</span> <span class="s2">&quot;success&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;message&quot;</span><span class="p">:</span> <span class="s2">&quot;Notification has been sent to abXXXXXXXXXcd@xyz.com&quot;</span>
+  <span class="p">},</span>
+  <span class="nt">&quot;errors&quot;</span><span class="p">:</span> <span class="kc">null</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="id8">
+<h3>Failed Response:<a class="headerlink" href="#id8" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id9">
+<h4>Status Code : 200 (OK)<a class="headerlink" href="#id9" title="Permalink to this headline">¶</a></h4>
+<div class="highlight-JSON notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+  <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;mosip.resident.uinstatus&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;version&quot;</span><span class="p">:</span> <span class="s2">&quot;v1&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;responseTime&quot;</span><span class="p">:</span> <span class="s2">&quot;2018-12-09T06:39:04.683Z&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;response&quot;</span><span class="p">:</span> <span class="p">{</span>
+
+  <span class="p">},</span>
+  <span class="nt">&quot;errors&quot;</span><span class="p">:</span> <span class="p">[</span>
+    <span class="p">{</span>
+      <span class="nt">&quot;errorCode&quot;</span><span class="p">:</span> <span class="s2">&quot;XXX-XXX-002&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;errorMessage&quot;</span><span class="p">:</span> <span class="s2">&quot;Invalid RID&quot;</span>
+    <span class="p">}</span>
+  <span class="p">]</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="id10">
+<h2>Failure details<a class="headerlink" href="#id10" title="Permalink to this headline">¶</a></h2>
+<p>Error Code | Error Message | Error Description
+------------|------------------------------|-------------
+RES-TUG-002| Data entered does not match or not valid or not found
+RES-TUG-004| No Registered Mobile/email ID found</p>
+</div>
+</div>
+<div class="section" id="post-resident-v1-req-euin">
+<h1>POST /resident/v1/req/euin<a class="headerlink" href="#post-resident-v1-req-euin" title="Permalink to this headline">¶</a></h1>
+<p>This request will authenticate an Individual based on provided OTP and respond with e-UIN. Notification will be sent to phone/email.</p>
+<div class="section" id="id11">
+<h2>Resource URL<a class="headerlink" href="#id11" title="Permalink to this headline">¶</a></h2>
+<div>https://mosip.io/resident/v1/req/euin</div></div>
+<div class="section" id="id12">
+<h2>Resource details<a class="headerlink" href="#id12" title="Permalink to this headline">¶</a></h2>
+<p>Resource Details | Description
+------------ | -------------
+Response format | JSON
+Requires Authentication | Yes</p>
+</div>
+<div class="section" id="id13">
+<h2>Request Body Parameters<a class="headerlink" href="#id13" title="Permalink to this headline">¶</a></h2>
+<p>Name | Required | Description | Default Value | Example
+-----|----------|-------------|---------------|--------
+id | Y | API Id | | mosip.resident.euin
+version | Y | API version | | v1
+requestTime| Y |Time when Request was captured| | 2018-12-09T06:39:04.683Z
+request: transactionID| Y | Transaction ID of request | | dabed834-974f-11e9-bc42-526af7764f64
+request: individualId| Y | VID | | 9830872690593682
+request: individualIdType| Y | Allowed Type of Individual ID - VID, UIN | VID
+request: otp| Y | OTP | |</p>
+</div>
+<div class="section" id="id14">
+<h2>Request Body<a class="headerlink" href="#id14" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-JSON notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+  <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;mosip.resident.euin&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;version&quot;</span><span class="p">:</span> <span class="s2">&quot;v1&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;requestTime&quot;</span><span class="p">:</span> <span class="s2">&quot;2018-12-09T06:39:04.683Z&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;request&quot;</span><span class="p">:</span> <span class="p">{</span>
+  <span class="nt">&quot;transactionID&quot;</span><span class="p">:</span> <span class="s2">&quot;dabed834-974f-11e9-bc42-526af7764f64&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;individualId&quot;</span><span class="p">:</span> <span class="s2">&quot;9830872690593682&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;individualIdType&quot;</span><span class="p">:</span> <span class="s2">&quot;VID&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;otp&quot;</span><span class="p">:</span> <span class="s2">&quot;123456&quot;</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="id15">
+<h2>Responses:<a class="headerlink" href="#id15" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id16">
+<h3>Success Response:<a class="headerlink" href="#id16" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id17">
+<h4>Status Code : 200 (OK)<a class="headerlink" href="#id17" title="Permalink to this headline">¶</a></h4>
+<div class="highlight-JSON notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+  <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;mosip.resident.euin&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;version&quot;</span><span class="p">:</span> <span class="s2">&quot;v1&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;responseTime&quot;</span><span class="p">:</span> <span class="s2">&quot;2018-12-09T06:39:04.683Z&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;response&quot;</span><span class="p">:</span> <span class="p">{</span>
+    <span class="nt">&quot;euin&quot;</span><span class="p">:</span> <span class="s2">&quot;&lt;uin-pdf byte string&gt;&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;status&quot;</span><span class="p">:</span> <span class="s2">&quot;success&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;message&quot;</span><span class="p">:</span> <span class="s2">&quot;Notification has been sent to abXXXXXXXXXcd@xyz.com&quot;</span>
+  <span class="p">},</span>
+  <span class="nt">&quot;errors&quot;</span><span class="p">:</span> <span class="kc">null</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="id18">
+<h3>Failed Response:<a class="headerlink" href="#id18" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id19">
+<h4>Status Code : 200 (OK)<a class="headerlink" href="#id19" title="Permalink to this headline">¶</a></h4>
+<div class="highlight-JSON notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+  <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;mosip.resident.euin&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;version&quot;</span><span class="p">:</span> <span class="s2">&quot;v1&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;responseTime&quot;</span><span class="p">:</span> <span class="s2">&quot;2018-12-09T06:39:04.683Z&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;response&quot;</span><span class="p">:</span> <span class="p">{</span>
+
+  <span class="p">},</span>
+  <span class="nt">&quot;errors&quot;</span><span class="p">:</span> <span class="p">[</span>
+    <span class="p">{</span>
+      <span class="nt">&quot;errorCode&quot;</span><span class="p">:</span> <span class="s2">&quot;XXX-XXX-002&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;errorMessage&quot;</span><span class="p">:</span> <span class="s2">&quot;OTP Authentication Failed&quot;</span>
+    <span class="p">}</span>
+  <span class="p">]</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="id20">
+<h2>Failure details<a class="headerlink" href="#id20" title="Permalink to this headline">¶</a></h2>
+<p>Error Code | Error Message | Error Description
+------------|------------------------------|-------------
+RES-DOW-001| OTP Authentication Failed.
+RES-DOW-002| Data entered is not valid.
+RES-DOW-004| No Registered Mobile/email ID found.</p>
+</div>
+</div>
+<div class="section" id="post-resident-v1-req-print-uin">
+<h1>POST /resident/v1/req/print-uin<a class="headerlink" href="#post-resident-v1-req-print-uin" title="Permalink to this headline">¶</a></h1>
+<p>This request will authenticate an Individual based on provided OTP and post a request for UIN re-print to Postal Service. Notification will be sent to phone/email.</p>
+<div class="section" id="id21">
+<h2>Resource URL<a class="headerlink" href="#id21" title="Permalink to this headline">¶</a></h2>
+<div>https://mosip.io/resident/v1/req/print-uin</div></div>
+<div class="section" id="id22">
+<h2>Resource details<a class="headerlink" href="#id22" title="Permalink to this headline">¶</a></h2>
+<p>Resource Details | Description
+------------ | -------------
+Response format | JSON
+Requires Authentication | Yes</p>
+</div>
+<div class="section" id="id23">
+<h2>Request Body Parameters<a class="headerlink" href="#id23" title="Permalink to this headline">¶</a></h2>
+<p>Name | Required | Description | Default Value | Example
+-----|----------|-------------|---------------|--------
+id | Y | API Id | | mosip.resident.reprintuin
+version | Y | API version | | v1
+requestTime| Y |Time when Request was captured| | 2018-12-09T06:39:04.683Z
+request: transactionID| Y | Transaction ID of request | | dabed834-974f-11e9-bc42-526af7764f64
+request: individualId| Y | VID | | 9830872690593682
+request: individualIdType| Y | Allowed Type of Individual ID - VID, UIN | VID
+request: otp| Y | OTP | |</p>
+</div>
+<div class="section" id="id24">
+<h2>Request Body<a class="headerlink" href="#id24" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-JSON notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+  <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;mosip.resident.reprintuin&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;version&quot;</span><span class="p">:</span> <span class="s2">&quot;v1&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;requestTime&quot;</span><span class="p">:</span> <span class="s2">&quot;2018-12-09T06:39:04.683Z&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;request&quot;</span><span class="p">:</span> <span class="p">{</span>
+  <span class="nt">&quot;transactionID&quot;</span><span class="p">:</span> <span class="s2">&quot;dabed834-974f-11e9-bc42-526af7764f64&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;individualId&quot;</span><span class="p">:</span> <span class="s2">&quot;9830872690593682&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;individualIdType&quot;</span><span class="p">:</span> <span class="s2">&quot;VID&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;otp&quot;</span><span class="p">:</span> <span class="s2">&quot;123456&quot;</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="id25">
+<h2>Responses:<a class="headerlink" href="#id25" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id26">
+<h3>Success Response:<a class="headerlink" href="#id26" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id27">
+<h4>Status Code : 200 (OK)<a class="headerlink" href="#id27" title="Permalink to this headline">¶</a></h4>
+<div class="highlight-JSON notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+  <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;mosip.resident.reprintuin&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;version&quot;</span><span class="p">:</span> <span class="s2">&quot;v1&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;responseTime&quot;</span><span class="p">:</span> <span class="s2">&quot;2018-12-09T06:39:04.683Z&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;response&quot;</span><span class="p">:</span> <span class="p">{</span>
+	<span class="nt">&quot;rid&quot;</span><span class="p">:</span> <span class="s2">&quot;770872690593682&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;status&quot;</span><span class="p">:</span> <span class="s2">&quot;success&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;message&quot;</span><span class="p">:</span> <span class="s2">&quot;Notification has been sent to abXXXXXXXXXcd@xyz.com&quot;</span>
+  <span class="p">},</span>
+  <span class="nt">&quot;errors&quot;</span><span class="p">:</span> <span class="kc">null</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="id28">
+<h3>Failed Response:<a class="headerlink" href="#id28" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id29">
+<h4>Status Code : 200 (OK)<a class="headerlink" href="#id29" title="Permalink to this headline">¶</a></h4>
+<div class="highlight-JSON notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+  <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;mosip.resident.reprintuin&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;version&quot;</span><span class="p">:</span> <span class="s2">&quot;v1&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;responseTime&quot;</span><span class="p">:</span> <span class="s2">&quot;2018-12-09T06:39:04.683Z&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;response&quot;</span><span class="p">:</span> <span class="p">{</span>
+
+  <span class="p">},</span>
+  <span class="nt">&quot;errors&quot;</span><span class="p">:</span> <span class="p">[</span>
+    <span class="p">{</span>
+      <span class="nt">&quot;errorCode&quot;</span><span class="p">:</span> <span class="s2">&quot;XXX-XXX-002&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;errorMessage&quot;</span><span class="p">:</span> <span class="s2">&quot;OTP Authentication Failed&quot;</span>
+    <span class="p">}</span>
+  <span class="p">]</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="id30">
+<h2>Failure details<a class="headerlink" href="#id30" title="Permalink to this headline">¶</a></h2>
+<p>Error Code | Error Message | Error Description
+------------|------------------------------|-------------
+RES-REP-001| OTP Authentication Failed.
+RES-REP-002| Data entered is not valid.
+RES-REP-004| No Registered Mobile/email ID found.</p>
+</div>
+</div>
+<div class="section" id="post-resident-v1-req-uin">
+<h1>POST /resident/v1/req/uin<a class="headerlink" href="#post-resident-v1-req-uin" title="Permalink to this headline">¶</a></h1>
+<p>This request will authenticate an Individual based on provided OTP and respond with UIN. Notification will be sent to phone/email.</p>
+<div class="section" id="id31">
+<h2>Resource URL<a class="headerlink" href="#id31" title="Permalink to this headline">¶</a></h2>
+<div>https://mosip.io/resident/v1/req/uin</div></div>
+<div class="section" id="id32">
+<h2>Resource details<a class="headerlink" href="#id32" title="Permalink to this headline">¶</a></h2>
+<p>Resource Details | Description
+------------ | -------------
+Response format | JSON
+Requires Authentication | Yes</p>
+</div>
+<div class="section" id="id33">
+<h2>Request Body Parameters<a class="headerlink" href="#id33" title="Permalink to this headline">¶</a></h2>
+<p>Name | Required | Description | Default Value | Example
+-----|----------|-------------|---------------|--------
+id | Y | API Id | | mosip.resident.lostuin
+version | Y | API version | | v1
+requestTime| Y |Time when Request was captured| | 2018-12-09T06:39:04.683Z
+request: transactionID| Y | Transaction ID of request | | dabed834-974f-11e9-bc42-526af7764f64
+request: individualIdType| Y | Allowed Type of Individual ID - demo | demo
+request: otp| Y | OTP | |
+request: demographics|N| Demographic data of an Individual| |</p>
+</div>
+<div class="section" id="id34">
+<h2>Request Body<a class="headerlink" href="#id34" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-JSON notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+  <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;mosip.resident.lostuin&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;version&quot;</span><span class="p">:</span> <span class="s2">&quot;v1&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;requestTime&quot;</span><span class="p">:</span> <span class="s2">&quot;2018-12-09T06:39:04.683Z&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;request&quot;</span><span class="p">:</span> <span class="p">{</span>
+  <span class="nt">&quot;transactionID&quot;</span><span class="p">:</span> <span class="s2">&quot;dabed834-974f-11e9-bc42-526af7764f64&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;individualIdType&quot;</span><span class="p">:</span> <span class="s2">&quot;demo&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;otp&quot;</span><span class="p">:</span> <span class="s2">&quot;123456&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;demographics&quot;</span><span class="p">:</span> <span class="p">{</span>
+      <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="p">[</span>
+        <span class="p">{</span>
+          <span class="nt">&quot;language&quot;</span><span class="p">:</span> <span class="s2">&quot;ara&quot;</span><span class="p">,</span>
+          <span class="nt">&quot;value&quot;</span><span class="p">:</span> <span class="s2">&quot;ابراهيم بن علي&quot;</span>
+        <span class="p">},</span>
+        <span class="p">{</span>
+          <span class="nt">&quot;language&quot;</span><span class="p">:</span> <span class="s2">&quot;fra&quot;</span><span class="p">,</span>
+          <span class="nt">&quot;value&quot;</span><span class="p">:</span> <span class="s2">&quot;Ibrahim Ibn Ali&quot;</span>
+        <span class="p">}</span>
+      <span class="p">],</span>
+      <span class="nt">&quot;gender&quot;</span><span class="p">:</span> <span class="p">[</span>
+        <span class="p">{</span>
+          <span class="nt">&quot;language&quot;</span><span class="p">:</span> <span class="s2">&quot;ara&quot;</span><span class="p">,</span>
+          <span class="nt">&quot;value&quot;</span><span class="p">:</span> <span class="s2">&quot;الذكر&quot;</span>
+        <span class="p">},</span>
+        <span class="p">{</span>
+          <span class="nt">&quot;language&quot;</span><span class="p">:</span> <span class="s2">&quot;fra&quot;</span><span class="p">,</span>
+          <span class="nt">&quot;value&quot;</span><span class="p">:</span> <span class="s2">&quot;mâle&quot;</span>
+        <span class="p">}</span>
+      <span class="p">],</span>
+      <span class="nt">&quot;postalCode&quot;</span><span class="p">:</span> <span class="p">{</span>
+          <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;10004&quot;</span>
+        <span class="p">},</span>
+      <span class="nt">&quot;phone&quot;</span><span class="p">:</span> <span class="p">{</span>
+          <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;998989989809&quot;</span>
+        <span class="p">},</span>
+      <span class="nt">&quot;email&quot;</span><span class="p">:</span> <span class="p">{</span>
+          <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;abcdefgh@xyz.com&quot;</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="id35">
+<h2>Responses:<a class="headerlink" href="#id35" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id36">
+<h3>Success Response:<a class="headerlink" href="#id36" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id37">
+<h4>Status Code : 200 (OK)<a class="headerlink" href="#id37" title="Permalink to this headline">¶</a></h4>
+<div class="highlight-JSON notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+  <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;mosip.resident.lostuin&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;version&quot;</span><span class="p">:</span> <span class="s2">&quot;v1&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;responseTime&quot;</span><span class="p">:</span> <span class="s2">&quot;2018-12-09T06:39:04.683Z&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;response&quot;</span><span class="p">:</span> <span class="p">{</span>
+	<span class="nt">&quot;uin&quot;</span><span class="p">:</span> <span class="s2">&quot;989768897876565&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;status&quot;</span><span class="p">:</span> <span class="s2">&quot;success&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;message&quot;</span><span class="p">:</span> <span class="s2">&quot;Notification has been sent to abXXXXXXXXXcd@xyz.com&quot;</span>
+  <span class="p">},</span>
+  <span class="nt">&quot;errors&quot;</span><span class="p">:</span> <span class="kc">null</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="id38">
+<h3>Failed Response:<a class="headerlink" href="#id38" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id39">
+<h4>Status Code : 200 (OK)<a class="headerlink" href="#id39" title="Permalink to this headline">¶</a></h4>
+<div class="highlight-JSON notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+  <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;mosip.resident.lostuin&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;version&quot;</span><span class="p">:</span> <span class="s2">&quot;v1&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;responseTime&quot;</span><span class="p">:</span> <span class="s2">&quot;2018-12-09T06:39:04.683Z&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;response&quot;</span><span class="p">:</span> <span class="p">{</span>
+
+  <span class="p">},</span>
+  <span class="nt">&quot;errors&quot;</span><span class="p">:</span> <span class="p">[</span>
+    <span class="p">{</span>
+      <span class="nt">&quot;errorCode&quot;</span><span class="p">:</span> <span class="s2">&quot;XXX-XXX-002&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;errorMessage&quot;</span><span class="p">:</span> <span class="s2">&quot;OTP Authentication Failed&quot;</span>
+    <span class="p">}</span>
+  <span class="p">]</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="id40">
+<h2>Failure details<a class="headerlink" href="#id40" title="Permalink to this headline">¶</a></h2>
+<p>Error Code | Error Message | Error Description
+------------|------------------------------|-------------
+RES-LOU-001|OTP Validation Failed.
+RES-LOU-002|Data entered does not match.
+RES-LOU-004|No Registered Mobile/email ID found.</p>
+</div>
+</div>
+<div class="section" id="post-resident-v1-req-rid">
+<h1>POST /resident/v1/req/rid<a class="headerlink" href="#post-resident-v1-req-rid" title="Permalink to this headline">¶</a></h1>
+<p>This request will authenticate an Individual based on provided OTP and respond with RID. Notification will be sent to phone/email.</p>
+<div class="section" id="id41">
+<h2>Resource URL<a class="headerlink" href="#id41" title="Permalink to this headline">¶</a></h2>
+<div>https://mosip.io/resident/v1/req/rid</div></div>
+<div class="section" id="id42">
+<h2>Resource details<a class="headerlink" href="#id42" title="Permalink to this headline">¶</a></h2>
+<p>Resource Details | Description
+------------ | -------------
+Response format | JSON
+Requires Authentication | Yes</p>
+</div>
+<div class="section" id="id43">
+<h2>Request Body Parameters<a class="headerlink" href="#id43" title="Permalink to this headline">¶</a></h2>
+<p>Name | Required | Description | Default Value | Example
+-----|----------|-------------|---------------|--------
+id | Y | API Id | | mosip.resident.lostrid
+version | Y | API version | | v1
+requestTime| Y |Time when Request was captured| | 2018-12-09T06:39:04.683Z
+request: transactionID| Y | Transaction ID of request | | dabed834-974f-11e9-bc42-526af7764f64
+request: individualIdType| Y | Allowed Type of Individual ID - demo | demo
+request: otp| Y | OTP | |
+request: demographics|N| Demographic data of an Individual| |</p>
+</div>
+<div class="section" id="id44">
+<h2>Request Body<a class="headerlink" href="#id44" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-JSON notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+  <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;mosip.resident.lostrid&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;version&quot;</span><span class="p">:</span> <span class="s2">&quot;v1&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;requestTime&quot;</span><span class="p">:</span> <span class="s2">&quot;2018-12-09T06:39:04.683Z&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;request&quot;</span><span class="p">:</span> <span class="p">{</span>
+  <span class="nt">&quot;transactionID&quot;</span><span class="p">:</span> <span class="s2">&quot;dabed834-974f-11e9-bc42-526af7764f64&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;individualIdType&quot;</span><span class="p">:</span> <span class="s2">&quot;demo&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;otp&quot;</span><span class="p">:</span> <span class="s2">&quot;123456&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;demographics&quot;</span><span class="p">:</span> <span class="p">{</span>
+      <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="p">[</span>
+        <span class="p">{</span>
+          <span class="nt">&quot;language&quot;</span><span class="p">:</span> <span class="s2">&quot;ara&quot;</span><span class="p">,</span>
+          <span class="nt">&quot;value&quot;</span><span class="p">:</span> <span class="s2">&quot;ابراهيم بن علي&quot;</span>
+        <span class="p">},</span>
+        <span class="p">{</span>
+          <span class="nt">&quot;language&quot;</span><span class="p">:</span> <span class="s2">&quot;fra&quot;</span><span class="p">,</span>
+          <span class="nt">&quot;value&quot;</span><span class="p">:</span> <span class="s2">&quot;Ibrahim Ibn Ali&quot;</span>
+        <span class="p">}</span>
+      <span class="p">],</span>
+      <span class="nt">&quot;gender&quot;</span><span class="p">:</span> <span class="p">[</span>
+        <span class="p">{</span>
+          <span class="nt">&quot;language&quot;</span><span class="p">:</span> <span class="s2">&quot;ara&quot;</span><span class="p">,</span>
+          <span class="nt">&quot;value&quot;</span><span class="p">:</span> <span class="s2">&quot;الذكر&quot;</span>
+        <span class="p">},</span>
+        <span class="p">{</span>
+          <span class="nt">&quot;language&quot;</span><span class="p">:</span> <span class="s2">&quot;fra&quot;</span><span class="p">,</span>
+          <span class="nt">&quot;value&quot;</span><span class="p">:</span> <span class="s2">&quot;mâle&quot;</span>
+        <span class="p">}</span>
+      <span class="p">],</span>
+      <span class="nt">&quot;postalCode&quot;</span><span class="p">:</span> <span class="p">{</span>
+          <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;10004&quot;</span>
+        <span class="p">},</span>
+      <span class="nt">&quot;phone&quot;</span><span class="p">:</span> <span class="p">{</span>
+          <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;998989989809&quot;</span>
+        <span class="p">},</span>
+      <span class="nt">&quot;email&quot;</span><span class="p">:</span> <span class="p">{</span>
+          <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;abcdefgh@xyz.com&quot;</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="id45">
+<h2>Responses:<a class="headerlink" href="#id45" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id46">
+<h3>Success Response:<a class="headerlink" href="#id46" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id47">
+<h4>Status Code : 200 (OK)<a class="headerlink" href="#id47" title="Permalink to this headline">¶</a></h4>
+<div class="highlight-JSON notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+  <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;mosip.resident.lostrid&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;version&quot;</span><span class="p">:</span> <span class="s2">&quot;v1&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;responseTime&quot;</span><span class="p">:</span> <span class="s2">&quot;2018-12-09T06:39:04.683Z&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;response&quot;</span><span class="p">:</span> <span class="p">{</span>
+    <span class="nt">&quot;rid&quot;</span><span class="p">:</span> <span class="s2">&quot;989768897876565&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;status&quot;</span><span class="p">:</span> <span class="s2">&quot;success&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;message&quot;</span><span class="p">:</span> <span class="s2">&quot;Notification has been sent to abXXXXXXXXXcd@xyz.com&quot;</span>
+  <span class="p">},</span>
+  <span class="nt">&quot;errors&quot;</span><span class="p">:</span> <span class="kc">null</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="id48">
+<h3>Failed Response:<a class="headerlink" href="#id48" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id49">
+<h4>Status Code : 200 (OK)<a class="headerlink" href="#id49" title="Permalink to this headline">¶</a></h4>
+<div class="highlight-JSON notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+  <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;mosip.resident.lostrid&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;version&quot;</span><span class="p">:</span> <span class="s2">&quot;v1&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;responseTime&quot;</span><span class="p">:</span> <span class="s2">&quot;2018-12-09T06:39:04.683Z&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;response&quot;</span><span class="p">:</span> <span class="p">{</span>
+
+  <span class="p">},</span>
+  <span class="nt">&quot;errors&quot;</span><span class="p">:</span> <span class="p">[</span>
+    <span class="p">{</span>
+      <span class="nt">&quot;errorCode&quot;</span><span class="p">:</span> <span class="s2">&quot;XXX-XXX-002&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;errorMessage&quot;</span><span class="p">:</span> <span class="s2">&quot;OTP Authentication Failed&quot;</span>
+    <span class="p">}</span>
+  <span class="p">]</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="id50">
+<h2>Failure details<a class="headerlink" href="#id50" title="Permalink to this headline">¶</a></h2>
+<p>Error Code | Error Message | Error Description
+------------|------------------------------|-------------
+RES-LOR-001|OTP Validation Failed.
+RES-LOR-002|Data entered does not match.
+RES-LOR-004|No Registered Mobile/email ID found.</p>
+</div>
+</div>
+<div class="section" id="post-resident-v1-req-update-uin">
+<h1>POST /resident/v1/req/update-uin<a class="headerlink" href="#post-resident-v1-req-update-uin" title="Permalink to this headline">¶</a></h1>
+<p>This request will authenticate an Individual based on provided OTP and respond with RID after successfully placing update request to Registration Processor. Notification will be sent to phone/email.</p>
+<div class="section" id="id51">
+<h2>Resource URL<a class="headerlink" href="#id51" title="Permalink to this headline">¶</a></h2>
+<div>https://mosip.io/resident/v1/req/update-uin</div></div>
+<div class="section" id="id52">
+<h2>Resource details<a class="headerlink" href="#id52" title="Permalink to this headline">¶</a></h2>
+<p>Resource Details | Description
+------------ | -------------
+Response format | JSON
+Requires Authentication | Yes</p>
+</div>
+<div class="section" id="id53">
+<h2>Request Body Parameters<a class="headerlink" href="#id53" title="Permalink to this headline">¶</a></h2>
+<p>Name | Required | Description | Default Value | Example
+-----|----------|-------------|---------------|--------
+id | Y | API Id | | mosip.resident.uin
+version | Y | API version | | v1
+requestTime| Y |Time when Request was captured| | 2018-12-09T06:39:04.683Z
+request: transactionID| Y | Transaction ID of request | | dabed834-974f-11e9-bc42-526af7764f64
+request: individualId| Y | UIN | | 9830872690593682
+request: individualIdType| Y | Allowed Type of Individual ID - VID, UIN | UIN
+request: otp| Y | OTP | |
+request: demographics|Y| Demographic data of an Individual| |</p>
+</div>
+<div class="section" id="id54">
+<h2>Request Body<a class="headerlink" href="#id54" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-JSON notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+  <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;mosip.resident.uin&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;version&quot;</span><span class="p">:</span> <span class="s2">&quot;v1&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;requestTime&quot;</span><span class="p">:</span> <span class="s2">&quot;2018-12-09T06:39:04.683Z&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;request&quot;</span><span class="p">:</span> <span class="p">{</span>
+  <span class="nt">&quot;transactionID&quot;</span><span class="p">:</span> <span class="s2">&quot;dabed834-974f-11e9-bc42-526af7764f64&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;individualId&quot;</span><span class="p">:</span> <span class="s2">&quot;9830872690593682&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;individualIdType&quot;</span><span class="p">:</span> <span class="s2">&quot;UIN&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;otp&quot;</span><span class="p">:</span> <span class="s2">&quot;123456&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;demographics&quot;</span><span class="p">:</span> <span class="p">{</span>
+      <span class="nt">&quot;addressLine1&quot;</span><span class="p">:</span> <span class="p">[</span>
+      <span class="p">{</span>
+        <span class="nt">&quot;language&quot;</span><span class="p">:</span> <span class="s2">&quot;ara&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;value&quot;</span><span class="p">:</span> <span class="s2">&quot;عنوان العينة سطر 1&quot;</span>
+      <span class="p">},</span>
+      <span class="p">{</span>
+        <span class="nt">&quot;language&quot;</span><span class="p">:</span> <span class="s2">&quot;fra&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;value&quot;</span><span class="p">:</span> <span class="s2">&quot;exemple d&#39;adresse ligne 1&quot;</span>
+      <span class="p">}</span>
+    <span class="p">],</span>
+    <span class="nt">&quot;addressLine2&quot;</span><span class="p">:</span> <span class="p">[</span>
+      <span class="p">{</span>
+        <span class="nt">&quot;language&quot;</span><span class="p">:</span> <span class="s2">&quot;ara&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;value&quot;</span><span class="p">:</span> <span class="s2">&quot;عنوان العينة سطر 2&quot;</span>
+      <span class="p">},</span>
+      <span class="p">{</span>
+        <span class="nt">&quot;language&quot;</span><span class="p">:</span> <span class="s2">&quot;fra&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;value&quot;</span><span class="p">:</span> <span class="s2">&quot;exemple d&#39;adresse ligne 2&quot;</span>
+      <span class="p">}</span>
+    <span class="p">],</span>
+    <span class="nt">&quot;addressLine3&quot;</span><span class="p">:</span> <span class="p">[</span>
+      <span class="p">{</span>
+        <span class="nt">&quot;language&quot;</span><span class="p">:</span> <span class="s2">&quot;ara&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;value&quot;</span><span class="p">:</span> <span class="s2">&quot;عنوان العينة سطر 2&quot;</span>
+      <span class="p">},</span>
+      <span class="p">{</span>
+        <span class="nt">&quot;language&quot;</span><span class="p">:</span> <span class="s2">&quot;fra&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;value&quot;</span><span class="p">:</span> <span class="s2">&quot;exemple d&#39;adresse ligne 2&quot;</span>
+      <span class="p">}</span>
+    <span class="p">],</span>
+    <span class="nt">&quot;region&quot;</span><span class="p">:</span> <span class="p">[</span>
+      <span class="p">{</span>
+        <span class="nt">&quot;language&quot;</span><span class="p">:</span> <span class="s2">&quot;fra&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;value&quot;</span><span class="p">:</span> <span class="s2">&quot;RSK&quot;</span>
+      <span class="p">}</span>
+    <span class="p">],</span>
+    <span class="nt">&quot;province&quot;</span><span class="p">:</span> <span class="p">[</span>
+      <span class="p">{</span>
+        <span class="nt">&quot;language&quot;</span><span class="p">:</span> <span class="s2">&quot;fra&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;value&quot;</span><span class="p">:</span> <span class="s2">&quot;Kénitra&quot;</span>
+      <span class="p">}</span>
+    <span class="p">],</span>
+    <span class="nt">&quot;city&quot;</span><span class="p">:</span> <span class="p">[</span>
+      <span class="p">{</span>
+        <span class="nt">&quot;language&quot;</span><span class="p">:</span> <span class="s2">&quot;fra&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;value&quot;</span><span class="p">:</span> <span class="s2">&quot;Kénitra&quot;</span>
+      <span class="p">}</span>
+    <span class="p">],</span>
+    <span class="nt">&quot;postalCode&quot;</span><span class="p">:</span> <span class="s2">&quot;10111&quot;</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="id55">
+<h2>Responses:<a class="headerlink" href="#id55" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id56">
+<h3>Success Response:<a class="headerlink" href="#id56" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id57">
+<h4>Status Code : 200 (OK)<a class="headerlink" href="#id57" title="Permalink to this headline">¶</a></h4>
+<div class="highlight-JSON notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+  <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;mosip.resident.uin&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;version&quot;</span><span class="p">:</span> <span class="s2">&quot;v1&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;responseTime&quot;</span><span class="p">:</span> <span class="s2">&quot;2018-12-09T06:39:04.683Z&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;response&quot;</span><span class="p">:</span> <span class="p">{</span>
+    <span class="nt">&quot;rid&quot;</span><span class="p">:</span> <span class="s2">&quot;989768897876565&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;status&quot;</span><span class="p">:</span> <span class="s2">&quot;success&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;message&quot;</span><span class="p">:</span> <span class="s2">&quot;Notification has been sent to abXXXXXXXXXcd@xyz.com&quot;</span>
+  <span class="p">},</span>
+  <span class="nt">&quot;errors&quot;</span><span class="p">:</span> <span class="kc">null</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="id58">
+<h3>Failed Response:<a class="headerlink" href="#id58" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id59">
+<h4>Status Code : 200 (OK)<a class="headerlink" href="#id59" title="Permalink to this headline">¶</a></h4>
+<div class="highlight-JSON notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+  <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;mosip.resident.uin&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;version&quot;</span><span class="p">:</span> <span class="s2">&quot;v1&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;responseTime&quot;</span><span class="p">:</span> <span class="s2">&quot;2018-12-09T06:39:04.683Z&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;response&quot;</span><span class="p">:</span> <span class="p">{</span>
+
+  <span class="p">},</span>
+  <span class="nt">&quot;errors&quot;</span><span class="p">:</span> <span class="p">[</span>
+    <span class="p">{</span>
+      <span class="nt">&quot;errorCode&quot;</span><span class="p">:</span> <span class="s2">&quot;XXX-XXX-002&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;errorMessage&quot;</span><span class="p">:</span> <span class="s2">&quot;OTP Authentication Failed&quot;</span>
+    <span class="p">}</span>
+  <span class="p">]</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="id60">
+<h2>Failure details<a class="headerlink" href="#id60" title="Permalink to this headline">¶</a></h2>
+<p>Error Code | Error Message | Error Description
+------------|------------------------------|-------------
+RES-UIU-001| OTP Authentication Failed.
+RES-UIU-002| Data entered does not match or not valid.
+RES-UIU-004| No Registered Mobile/email ID found.
+RES-UIU-005| Status of UIN Update is UnSuccessful.</p>
+</div>
+</div>
+<div class="section" id="post-resident-v1-vid">
+<h1>POST /resident/v1/vid<a class="headerlink" href="#post-resident-v1-vid" title="Permalink to this headline">¶</a></h1>
+<p>This request will authenticate an Individual based on provided OTP and will generate VID for the respective UIN.</p>
+<div class="section" id="id61">
+<h2>Resource URL<a class="headerlink" href="#id61" title="Permalink to this headline">¶</a></h2>
+<div>https://mosip.io/resident/v1/vid</div></div>
+<div class="section" id="id62">
+<h2>Resource details<a class="headerlink" href="#id62" title="Permalink to this headline">¶</a></h2>
+<p>Resource Details | Description
+------------ | -------------
+Response format | JSON
+Requires Authentication | Yes</p>
+</div>
+<div class="section" id="id63">
+<h2>Request Body Parameters<a class="headerlink" href="#id63" title="Permalink to this headline">¶</a></h2>
+<p>Name | Required | Description | Default Value | Example
+-----|----------|-------------|---------------|--------
+id | Y | API Id | | mosip.resident.vid
+version | Y | API version | | v1
+requestTime| Y |Time when Request was captured| | 2018-12-09T06:39:04.683Z
+request: transactionID| Y | Transaction ID of request | | dabed834-974f-11e9-bc42-526af7764f64
+request: vidType	| Y |	VID Type	- PERPETUAL or  TEMPORARY |
+request: individualId| Y | UIN | | 9830872690593682
+request: individualIdType| Y | Allowed Type of Individual ID - UIN | UIN
+request: otp| Y | OTP | |</p>
+</div>
+<div class="section" id="id64">
+<h2>Request Body<a class="headerlink" href="#id64" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-JSON notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+  <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;mosip.resident.vid&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;version&quot;</span><span class="p">:</span> <span class="s2">&quot;v1&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;requestTime&quot;</span><span class="p">:</span> <span class="s2">&quot;2018-12-09T06:39:04.683Z&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;request&quot;</span><span class="p">:</span> <span class="p">{</span>
+  <span class="nt">&quot;transactionID&quot;</span><span class="p">:</span> <span class="s2">&quot;dabed834-974f-11e9-bc42-526af7764f64&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;individualId&quot;</span><span class="p">:</span> <span class="s2">&quot;9830872690593682&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;individualIdType&quot;</span><span class="p">:</span> <span class="s2">&quot;UIN&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;otp&quot;</span><span class="p">:</span> <span class="s2">&quot;123456&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;vidType&quot;</span><span class="p">:</span> <span class="s2">&quot;PERPETUAL&quot;</span> 
+  <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="id65">
+<h2>Responses:<a class="headerlink" href="#id65" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id66">
+<h3>Success Response:<a class="headerlink" href="#id66" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id67">
+<h4>Status Code : 200 (OK)<a class="headerlink" href="#id67" title="Permalink to this headline">¶</a></h4>
+<div class="highlight-JSON notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+  <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;mosip.resident.vid&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;version&quot;</span><span class="p">:</span> <span class="s2">&quot;v1&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;responseTime&quot;</span><span class="p">:</span> <span class="s2">&quot;2018-12-09T06:39:04.683Z&quot;</span><span class="p">,</span>
+   <span class="nt">&quot;response&quot;</span><span class="p">:</span> <span class="p">{</span>
+    <span class="nt">&quot;vid&quot;</span><span class="p">:</span> <span class="s2">&quot;989768897876565&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;status&quot;</span><span class="p">:</span> <span class="s2">&quot;success&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;message&quot;</span><span class="p">:</span> <span class="s2">&quot;Notification has been sent to abXXXXXXXXXcd@xyz.com&quot;</span>
+  <span class="p">},</span>
+  <span class="nt">&quot;errors&quot;</span><span class="p">:</span> <span class="kc">null</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="id68">
+<h3>Failed Response:<a class="headerlink" href="#id68" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id69">
+<h4>Status Code : 200 (OK)<a class="headerlink" href="#id69" title="Permalink to this headline">¶</a></h4>
+<div class="highlight-JSON notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+  <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;mosip.resident.vid&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;version&quot;</span><span class="p">:</span> <span class="s2">&quot;v1&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;responseTime&quot;</span><span class="p">:</span> <span class="s2">&quot;2018-12-09T06:39:04.683Z&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;response&quot;</span><span class="p">:</span> <span class="p">{</span>
+
+  <span class="p">},</span>
+  <span class="nt">&quot;errors&quot;</span><span class="p">:</span> <span class="p">[</span>
+    <span class="p">{</span>
+      <span class="nt">&quot;errorCode&quot;</span><span class="p">:</span> <span class="s2">&quot;XXX-XXX-002&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;errorMessage&quot;</span><span class="p">:</span> <span class="s2">&quot;OTP Authentication Failed&quot;</span>
+    <span class="p">}</span>
+  <span class="p">]</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="id70">
+<h2>Failure details<a class="headerlink" href="#id70" title="Permalink to this headline">¶</a></h2>
+<p>Error Code | Error Message | Error Description
+------------|------------------------------|-------------
+RES-VID-002| OTP Authentication Failed.
+RES-VID-003| Data entered is not valid.
+RES-VID-004| No Registered Mobile/email ID found.</p>
+</div>
+</div>
+<div class="section" id="patch-resident-v1-vid-vid">
+<h1>PATCH /resident/v1/vid/{vid}<a class="headerlink" href="#patch-resident-v1-vid-vid" title="Permalink to this headline">¶</a></h1>
+<p>This request will authenticate an Individual based on provided OTP and will revoke respective VID.</p>
+<div class="section" id="id71">
+<h2>Resource URL<a class="headerlink" href="#id71" title="Permalink to this headline">¶</a></h2>
+<div>https://mosip.io/resident/v1/vid/9830872690593682</div></div>
+<div class="section" id="id72">
+<h2>Resource details<a class="headerlink" href="#id72" title="Permalink to this headline">¶</a></h2>
+<p>Resource Details | Description
+------------ | -------------
+Response format | JSON
+Requires Authentication | Yes</p>
+</div>
+<div class="section" id="id73">
+<h2>Request Body Parameters<a class="headerlink" href="#id73" title="Permalink to this headline">¶</a></h2>
+<p>Name | Required | Description | Default Value | Example
+-----|----------|-------------|---------------|--------
+id | Y | API Id | | mosip.resident.vidstatus
+version | Y | API version | | v1
+requestTime| Y |Time when Request was captured| | 2018-12-09T06:39:04.683Z
+request: transactionID| Y | Transaction ID of request | | dabed834-974f-11e9-bc42-526af7764f64
+request: vidStatus	| Y| 	Status of VID	-	REVOKED |
+request: individualId| Y | VID | | 9830872690593682
+request: individualIdType| Y | Allowed Type of Individual ID - VID | VID
+request: otp| Y | OTP | |</p>
+</div>
+<div class="section" id="id74">
+<h2>Request Body<a class="headerlink" href="#id74" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-JSON notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+  <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;mosip.resident.vidstatus&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;version&quot;</span><span class="p">:</span> <span class="s2">&quot;v1&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;requestTime&quot;</span><span class="p">:</span> <span class="s2">&quot;2018-12-09T06:39:04.683Z&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;request&quot;</span><span class="p">:</span> <span class="p">{</span>
+  <span class="nt">&quot;transactionID&quot;</span><span class="p">:</span> <span class="s2">&quot;dabed834-974f-11e9-bc42-526af7764f64&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;individualId&quot;</span><span class="p">:</span> <span class="s2">&quot;9830872690593682&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;individualIdType&quot;</span><span class="p">:</span> <span class="s2">&quot;VID&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;otp&quot;</span><span class="p">:</span> <span class="s2">&quot;123456&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;vidStatus&quot;</span><span class="p">:</span> <span class="s2">&quot;REVOKED&quot;</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="id75">
+<h2>Responses:<a class="headerlink" href="#id75" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id76">
+<h3>Success Response:<a class="headerlink" href="#id76" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id77">
+<h4>Status Code : 200 (OK)<a class="headerlink" href="#id77" title="Permalink to this headline">¶</a></h4>
+<div class="highlight-JSON notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+  <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;mosip.resident.vidstatus&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;version&quot;</span><span class="p">:</span> <span class="s2">&quot;v1&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;responseTime&quot;</span><span class="p">:</span> <span class="s2">&quot;2018-12-09T06:39:04.683Z&quot;</span><span class="p">,</span>
+   <span class="nt">&quot;response&quot;</span><span class="p">:</span> <span class="p">{</span>
+    <span class="nt">&quot;status&quot;</span><span class="p">:</span> <span class="s2">&quot;success&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;message&quot;</span><span class="p">:</span> <span class="s2">&quot;Notification has been sent to abXXXXXXXXXcd@xyz.com&quot;</span>
+  <span class="p">},</span>
+  <span class="nt">&quot;errors&quot;</span><span class="p">:</span> <span class="kc">null</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="id78">
+<h3>Failed Response:<a class="headerlink" href="#id78" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id79">
+<h4>Status Code : 200 (OK)<a class="headerlink" href="#id79" title="Permalink to this headline">¶</a></h4>
+<div class="highlight-JSON notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+  <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;mosip.resident.vidstatus&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;version&quot;</span><span class="p">:</span> <span class="s2">&quot;v1&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;responseTime&quot;</span><span class="p">:</span> <span class="s2">&quot;2018-12-09T06:39:04.683Z&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;response&quot;</span><span class="p">:</span> <span class="p">{</span>
+
+  <span class="p">},</span>
+  <span class="nt">&quot;errors&quot;</span><span class="p">:</span> <span class="p">[</span>
+    <span class="p">{</span>
+      <span class="nt">&quot;errorCode&quot;</span><span class="p">:</span> <span class="s2">&quot;XXX-XXX-002&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;errorMessage&quot;</span><span class="p">:</span> <span class="s2">&quot;OTP Authentication Failed&quot;</span>
+    <span class="p">}</span>
+  <span class="p">]</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="id80">
+<h2>Failure details<a class="headerlink" href="#id80" title="Permalink to this headline">¶</a></h2>
+<p>Error Code | Error Message | Error Description
+------------|------------------------------|-------------
+RES-RID-002| OTP Authentication Failed.
+RES-RID-003| Data entered is not valid.
+RES-RID-004| No Registered Mobile/email ID found.
+RES-RID-005| VID revocation request failed. Please visit the nearest registration center for assistance.</p>
+</div>
+</div>
+<div class="section" id="post-resident-v1-req-auth-lock">
+<h1>POST /resident/v1/req/auth-lock<a class="headerlink" href="#post-resident-v1-req-auth-lock" title="Permalink to this headline">¶</a></h1>
+<p>This request will authenticate an Individual based on provided OTP and will lock provided authentication types.</p>
+<div class="section" id="id81">
+<h2>Resource URL<a class="headerlink" href="#id81" title="Permalink to this headline">¶</a></h2>
+<div>https://mosip.io/resident/v1/req/auth-lock</div></div>
+<div class="section" id="id82">
+<h2>Resource details<a class="headerlink" href="#id82" title="Permalink to this headline">¶</a></h2>
+<p>Resource Details | Description
+------------ | -------------
+Response format | JSON
+Requires Authentication | Yes</p>
+</div>
+<div class="section" id="id83">
+<h2>Request Body Parameters<a class="headerlink" href="#id83" title="Permalink to this headline">¶</a></h2>
+<p>Name | Required | Description | Default Value | Example
+-----|----------|-------------|---------------|--------
+id | Y | API Id | | mosip.resident.authlock
+version | Y | API version | | v1
+requestTime| Y |Time when Request was captured| | 2018-12-09T06:39:04.683Z
+request: transactionID| Y | Transaction ID of request | | dabed834-974f-11e9-bc42-526af7764f64
+request: authType	| Y| 	Allowed Type	-	demo,bio,bio-FMR,bio-IIR,bio-FID |
+request: individualId| Y | UIN | | 9830872690593682
+request: individualIdType| Y | Allowed Type of Individual ID - UIN,VID | UIN
+request: otp| Y | OTP | |</p>
+</div>
+<div class="section" id="id84">
+<h2>Request Body<a class="headerlink" href="#id84" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-JSON notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+  <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;mosip.resident.authlock&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;version&quot;</span><span class="p">:</span> <span class="s2">&quot;v1&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;requestTime&quot;</span><span class="p">:</span> <span class="s2">&quot;2018-12-09T06:39:04.683Z&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;request&quot;</span><span class="p">:</span> <span class="p">{</span>
+  <span class="nt">&quot;transactionID&quot;</span><span class="p">:</span> <span class="s2">&quot;dabed834-974f-11e9-bc42-526af7764f64&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;individualId&quot;</span><span class="p">:</span> <span class="s2">&quot;9830872690593682&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;individualIdType&quot;</span><span class="p">:</span> <span class="s2">&quot;UIN&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;otp&quot;</span><span class="p">:</span> <span class="s2">&quot;123456&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;authType&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;bio-FMR&quot;</span><span class="p">,</span><span class="s2">&quot;bio-FID&quot;</span><span class="p">]</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="id85">
+<h2>Responses:<a class="headerlink" href="#id85" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id86">
+<h3>Success Response:<a class="headerlink" href="#id86" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id87">
+<h4>Status Code : 200 (OK)<a class="headerlink" href="#id87" title="Permalink to this headline">¶</a></h4>
+<div class="highlight-JSON notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+  <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;mosip.resident.authlock&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;version&quot;</span><span class="p">:</span> <span class="s2">&quot;v1&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;responseTime&quot;</span><span class="p">:</span> <span class="s2">&quot;2018-12-09T06:39:04.683Z&quot;</span><span class="p">,</span>
+   <span class="nt">&quot;response&quot;</span><span class="p">:</span> <span class="p">{</span>
+    <span class="nt">&quot;status&quot;</span><span class="p">:</span> <span class="s2">&quot;success&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;message&quot;</span><span class="p">:</span> <span class="s2">&quot;Notification has been sent to abXXXXXXXXXcd@xyz.com&quot;</span>
+  <span class="p">},</span>
+  <span class="nt">&quot;errors&quot;</span><span class="p">:</span> <span class="kc">null</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="id88">
+<h3>Failed Response:<a class="headerlink" href="#id88" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id89">
+<h4>Status Code : 200 (OK)<a class="headerlink" href="#id89" title="Permalink to this headline">¶</a></h4>
+<div class="highlight-JSON notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+  <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;mosip.resident.authlock&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;version&quot;</span><span class="p">:</span> <span class="s2">&quot;v1&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;responseTime&quot;</span><span class="p">:</span> <span class="s2">&quot;2018-12-09T06:39:04.683Z&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;response&quot;</span><span class="p">:</span> <span class="p">{</span>
+
+  <span class="p">},</span>
+  <span class="nt">&quot;errors&quot;</span><span class="p">:</span> <span class="p">[</span>
+    <span class="p">{</span>
+      <span class="nt">&quot;errorCode&quot;</span><span class="p">:</span> <span class="s2">&quot;XXX-XXX-002&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;errorMessage&quot;</span><span class="p">:</span> <span class="s2">&quot;OTP Authentication Failed&quot;</span>
+    <span class="p">}</span>
+  <span class="p">]</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="id90">
+<h2>Failure details<a class="headerlink" href="#id90" title="Permalink to this headline">¶</a></h2>
+<p>Error Code | Error Message | Error Description
+------------|------------------------------|-------------
+RES-LOC-001|OTP Authentication Failed.
+RES-LOC-002| Data entered is not valid.
+RES-LOC-004| No Registered Mobile/email ID found.
+RES-LOC-005| Locking for the Authentication type(s) is Unsuccessful.</p>
+</div>
+</div>
+<div class="section" id="post-resident-v1-req-auth-unlock">
+<h1>POST /resident/v1/req/auth-unlock<a class="headerlink" href="#post-resident-v1-req-auth-unlock" title="Permalink to this headline">¶</a></h1>
+<p>This request will authenticate an Individual based on provided OTP and will unlock provided locked authentication types.</p>
+<div class="section" id="id91">
+<h2>Resource URL<a class="headerlink" href="#id91" title="Permalink to this headline">¶</a></h2>
+<div>https://mosip.io/resident/v1/req/auth-unlock</div></div>
+<div class="section" id="id92">
+<h2>Resource details<a class="headerlink" href="#id92" title="Permalink to this headline">¶</a></h2>
+<p>Resource Details | Description
+------------ | -------------
+Response format | JSON
+Requires Authentication | Yes</p>
+</div>
+<div class="section" id="id93">
+<h2>Request Body Parameters<a class="headerlink" href="#id93" title="Permalink to this headline">¶</a></h2>
+<p>Name | Required | Description | Default Value | Example
+-----|----------|-------------|---------------|--------
+id | Y | API Id | | mosip.resident.authunlock
+version | Y | API version | | v1
+requestTime| Y |Time when Request was captured| | 2018-12-09T06:39:04.683Z
+request: transactionID| Y | Transaction ID of request | | dabed834-974f-11e9-bc42-526af7764f64
+request: authType	| Y| 	Allowed Type	-demo,bio,bio-FMR,bio-IIR,bio-FID  |
+request: individualId| Y | UIN | | 9830872690593682
+request: individualIdType| Y | Allowed Type of Individual ID - UIN,VID | UIN
+request: otp| Y | OTP | |</p>
+</div>
+<div class="section" id="id94">
+<h2>Request Body<a class="headerlink" href="#id94" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-JSON notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+  <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;mosip.resident.authunlock&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;version&quot;</span><span class="p">:</span> <span class="s2">&quot;v1&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;requestTime&quot;</span><span class="p">:</span> <span class="s2">&quot;2018-12-09T06:39:04.683Z&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;request&quot;</span><span class="p">:</span> <span class="p">{</span>
+  <span class="nt">&quot;transactionID&quot;</span><span class="p">:</span> <span class="s2">&quot;dabed834-974f-11e9-bc42-526af7764f64&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;individualId&quot;</span><span class="p">:</span> <span class="s2">&quot;9830872690593682&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;individualIdType&quot;</span><span class="p">:</span> <span class="s2">&quot;UIN&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;otp&quot;</span><span class="p">:</span> <span class="s2">&quot;123456&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;authType&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;bio-FMR&quot;</span><span class="p">]</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="id95">
+<h2>Responses:<a class="headerlink" href="#id95" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id96">
+<h3>Success Response:<a class="headerlink" href="#id96" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id97">
+<h4>Status Code : 200 (OK)<a class="headerlink" href="#id97" title="Permalink to this headline">¶</a></h4>
+<div class="highlight-JSON notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+  <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;mosip.resident.authunlock&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;version&quot;</span><span class="p">:</span> <span class="s2">&quot;v1&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;responseTime&quot;</span><span class="p">:</span> <span class="s2">&quot;2018-12-09T06:39:04.683Z&quot;</span><span class="p">,</span>
+   <span class="nt">&quot;response&quot;</span><span class="p">:</span> <span class="p">{</span>
+    <span class="nt">&quot;status&quot;</span><span class="p">:</span> <span class="s2">&quot;success&quot;</span><span class="p">,</span>
+   <span class="nt">&quot;message&quot;</span><span class="p">:</span> <span class="s2">&quot;Notification has been sent to abXXXXXXXXXcd@xyz.com&quot;</span>
+  <span class="p">},</span>
+  <span class="nt">&quot;errors&quot;</span><span class="p">:</span> <span class="kc">null</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="id98">
+<h3>Failed Response:<a class="headerlink" href="#id98" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id99">
+<h4>Status Code : 200 (OK)<a class="headerlink" href="#id99" title="Permalink to this headline">¶</a></h4>
+<div class="highlight-JSON notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+  <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;mosip.resident.authunlock&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;version&quot;</span><span class="p">:</span> <span class="s2">&quot;v1&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;responseTime&quot;</span><span class="p">:</span> <span class="s2">&quot;2018-12-09T06:39:04.683Z&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;response&quot;</span><span class="p">:</span> <span class="p">{</span>
+
+  <span class="p">},</span>
+  <span class="nt">&quot;errors&quot;</span><span class="p">:</span> <span class="p">[</span>
+    <span class="p">{</span>
+      <span class="nt">&quot;errorCode&quot;</span><span class="p">:</span> <span class="s2">&quot;XXX-XXX-002&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;errorMessage&quot;</span><span class="p">:</span> <span class="s2">&quot;OTP Authentication Failed&quot;</span>
+    <span class="p">}</span>
+  <span class="p">]</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="id100">
+<h2>Failure details<a class="headerlink" href="#id100" title="Permalink to this headline">¶</a></h2>
+<p>Error Code | Error Message | Error Description
+------------|------------------------------|-------------
+RES-ULC-001| OTP Authentication Failed.
+RES-ULC-002| Data entered is not Valid.
+RES-ULC-004| No Registered Mobile/email ID found.
+RES-ULC-005| Unlocking for the Authentication type is Unsuccessful.</p>
+</div>
+</div>
+<div class="section" id="post-resident-v1-req-auth-history">
+<h1>POST /resident/v1/req/auth-history<a class="headerlink" href="#post-resident-v1-req-auth-history" title="Permalink to this headline">¶</a></h1>
+<p>This request will authenticate an Individual based on provided OTP and respond with auth history. Notification will be sent to phone/email.</p>
+<div class="section" id="id101">
+<h2>Resource URL<a class="headerlink" href="#id101" title="Permalink to this headline">¶</a></h2>
+<div>https://mosip.io/resident/v1/req/auth-history</div></div>
+<div class="section" id="id102">
+<h2>Resource details<a class="headerlink" href="#id102" title="Permalink to this headline">¶</a></h2>
+<p>Resource Details | Description
+------------ | -------------
+Response format | JSON
+Requires Authentication | Yes</p>
+</div>
+<div class="section" id="id103">
+<h2>Request Body Parameters<a class="headerlink" href="#id103" title="Permalink to this headline">¶</a></h2>
+<p>Name | Required | Description | Default Value | Example
+-----|----------|-------------|---------------|--------
+id | Y | API Id | | mosip.resident.authhistory
+version | Y | API version | | v1
+requestTime| Y |Time when Request was captured| | 2018-12-09T06:39:04.683Z
+request: transactionID| Y | Transaction ID of request | | dabed834-974f-11e9-bc42-526af7764f64
+request: individualId| Y | UIN | | 9830872690593682
+request: individualIdType| Y | Allowed Type of Individual ID - UIN,VID | UIN
+request: otp| Y | OTP | |</p>
+</div>
+<div class="section" id="id104">
+<h2>Request Body<a class="headerlink" href="#id104" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-JSON notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+  <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;mosip.resident.authhistory&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;version&quot;</span><span class="p">:</span> <span class="s2">&quot;v1&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;requestTime&quot;</span><span class="p">:</span> <span class="s2">&quot;2018-12-09T06:39:04.683Z&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;request&quot;</span><span class="p">:</span> <span class="p">{</span>
+  <span class="nt">&quot;transactionID&quot;</span><span class="p">:</span> <span class="s2">&quot;dabed834-974f-11e9-bc42-526af7764f64&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;individualId&quot;</span><span class="p">:</span> <span class="s2">&quot;9830872690593682&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;individualIdType&quot;</span><span class="p">:</span> <span class="s2">&quot;UIN&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;otp&quot;</span><span class="p">:</span> <span class="s2">&quot;123456&quot;</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="id105">
+<h2>Responses:<a class="headerlink" href="#id105" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id106">
+<h3>Success Response:<a class="headerlink" href="#id106" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id107">
+<h4>Status Code : 200 (OK)<a class="headerlink" href="#id107" title="Permalink to this headline">¶</a></h4>
+<div class="highlight-JSON notranslate"><div class="highlight"><pre><span></span>{
+  &quot;id&quot;: &quot;mosip.resident.authhistory&quot;,
+  &quot;version&quot;: &quot;v1&quot;,
+  &quot;responseTime&quot;: &quot;2018-12-09T06:39:04.683Z&quot;,
+   &quot;response&quot;: {
+	&quot;authHistory&quot;: [{authDetails1},{authDetails2}],   
+    &quot;status&quot;: &quot;success&quot;,
+    &quot;message&quot;: &quot;Notification has been sent to abXXXXXXXXXcd@xyz.com&quot;
+  },
+  &quot;errors&quot;: null
+}
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="id108">
+<h3>Failed Response:<a class="headerlink" href="#id108" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id109">
+<h4>Status Code : 200 (OK)<a class="headerlink" href="#id109" title="Permalink to this headline">¶</a></h4>
+<div class="highlight-JSON notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+  <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;mosip.resident.authhistory&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;version&quot;</span><span class="p">:</span> <span class="s2">&quot;v1&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;responseTime&quot;</span><span class="p">:</span> <span class="s2">&quot;2018-12-09T06:39:04.683Z&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;response&quot;</span><span class="p">:</span> <span class="p">{</span>
+
+  <span class="p">},</span>
+  <span class="nt">&quot;errors&quot;</span><span class="p">:</span> <span class="p">[</span>
+    <span class="p">{</span>
+      <span class="nt">&quot;errorCode&quot;</span><span class="p">:</span> <span class="s2">&quot;XXX-XXX-002&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;errorMessage&quot;</span><span class="p">:</span> <span class="s2">&quot;OTP Authentication Failed&quot;</span>
+    <span class="p">}</span>
+  <span class="p">]</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="id110">
+<h2>Failure details<a class="headerlink" href="#id110" title="Permalink to this headline">¶</a></h2>
+<p>Error Code | Error Message | Error Description
+------------|------------------------------|-------------
+RES-AUT-001| OTP Authentication Failed.
+RES-AUT-002| Data entered is not valid.
+RES-AUT-004| No Registered Mobile/email ID found.
+RES-AUT-005| Mandatory values not entered.</p>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, mosip-team
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

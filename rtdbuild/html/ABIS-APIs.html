@@ -1,0 +1,509 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="java" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="java" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Common parameters used for all ABIS operations &mdash; MOSIP 0.9 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script type="text/javascript" src="_static/jquery.js"></script>
+        <script type="text/javascript" src="_static/underscore.js"></script>
+        <script type="text/javascript" src="_static/doctools.js"></script>
+        <script type="text/javascript" src="_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search"  style="background: white" >
+          
+
+          
+            <a href="index.html" class="icon icon-home"> MOSIP
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.9
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <!-- Local TOC -->
+              <div class="local-toc"><ul>
+<li><a class="reference internal" href="#">Common parameters used for all ABIS operations</a></li>
+<li><a class="reference internal" href="#standard-return-codes">Standard return codes</a></li>
+<li><a class="reference internal" href="#failure-reasons">Failure reasons</a><ul>
+<li><a class="reference internal" href="#insert-insert-biometric-data-of-an-individual">INSERT (insert biometric data of an Individual)</a></li>
+<li><a class="reference internal" href="#behavior-of-insert">Behavior of Insert</a></li>
+<li><a class="reference internal" href="#identify">IDENTIFY</a></li>
+<li><a class="reference internal" href="#behavior-of-identify">Behavior of IDENTIFY</a></li>
+<li><a class="reference internal" href="#delete">DELETE</a></li>
+<li><a class="reference internal" href="#behavior-of-delete">Behavior of DELETE</a></li>
+<li><a class="reference internal" href="#ping">PING</a></li>
+<li><a class="reference internal" href="#behavior-of-ping">Behavior of PING</a></li>
+<li><a class="reference internal" href="#pending-jobs">Pending Jobs</a></li>
+<li><a class="reference internal" href="#behavior-of-pending-jobs">Behavior of Pending Jobs</a></li>
+<li><a class="reference internal" href="#reference-count">Reference Count</a></li>
+<li><a class="reference internal" href="#behavior-of-reference-count">Behavior of Reference Count</a></li>
+</ul>
+</li>
+</ul>
+</div>
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">MOSIP</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html">Docs</a> &raquo;</li>
+        
+      <li>Common parameters used for all ABIS operations</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/ABIS-APIs.md.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <p>An ABIS system that integrates with MOSIP should support the following operations. All ABIS operations are via a message queue and asynchronous.</p>
+<div class="section" id="common-parameters-used-for-all-abis-operations">
+<h1>Common parameters used for all ABIS operations<a class="headerlink" href="#common-parameters-used-for-all-abis-operations" title="Permalink to this headline">¶</a></h1>
+<p>Name | Description | Restrictions | Default Value | Example
+-----|----------|-------------|--------------|---------------
+requestID | ID that is associated with each request sent to ABIS | ABIS should not use this ID in any other context outside the request | | 80bd41f8-31b2-46ac-ac9c-3534fc1b220e (UUID)
+referenceID |  Id of a single registration record. Registration record is maintained in MOSIP. This ID is the mapping between MOSIP and ABIS | None | | 80bd41f8-31b2-46ac-ac9c-3534fc1b220e (UUID)
+referenceURL | URL to the biometrics data stored in MOSIP. This URL will have read only access | None | |
+biometricType | Type of biometric data sent in the request | FMR/FIR/IIR | |
+Return Value | Response | None | None | Integer
+failureReason | Response | None | None | Integer
+scaledScore | Score of the match against the population | None | None | Integer
+targetFPIR | FPIR score as per the formula | None | None | Integer
+maxResults | maximum number of results returned for IDENTIFY operation | 30 | 30 | Integer</p>
+</div>
+<div class="section" id="standard-return-codes">
+<h1>Standard return codes<a class="headerlink" href="#standard-return-codes" title="Permalink to this headline">¶</a></h1>
+<p>0 | not used
+--|---------
+1 | Success
+2 | Failed</p>
+</div>
+<div class="section" id="failure-reasons">
+<h1>Failure reasons<a class="headerlink" href="#failure-reasons" title="Permalink to this headline">¶</a></h1>
+<p>Code | Reason
+-----| ------
+1 | Internal error - Unknown
+2 | Aborted
+3 | Unexpected error
+4 | Unable to serve the request
+5 | Missing reference id
+7 | Unable to fetch biometric details</p>
+<p>All the below operations send biometric data in CBEFF format. (Please refer to the <a class="reference external" href="MOSIP-Biometric-Data-Specifications#cbeff-xml"><strong>link</strong></a> for sample cbeff data)</p>
+<div class="section" id="insert-insert-biometric-data-of-an-individual">
+<h2>INSERT (insert biometric data of an Individual)<a class="headerlink" href="#insert-insert-biometric-data-of-an-individual" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">//</span><span class="n">Request</span>
+<span class="p">{</span>
+	<span class="s2">&quot;id&quot;</span> <span class="p">:</span> <span class="s2">&quot;mosip.abis.insert&quot;</span><span class="p">,</span>
+	<span class="s2">&quot;ver&quot;</span> <span class="p">:</span> <span class="s2">&quot;1.0&quot;</span><span class="p">,</span>
+	<span class="s2">&quot;requestId&quot;</span> <span class="p">:</span> <span class="s2">&quot;01234567-89AB-CDEF-0123-456789ABCDEF&quot;</span><span class="p">,</span>
+	<span class="s2">&quot;timestamp&quot;</span> <span class="p">:</span> <span class="s2">&quot;1539777717&quot;</span><span class="p">,</span>
+	<span class="s2">&quot;referenceId&quot;</span> <span class="p">:</span> <span class="s2">&quot;01234567-89AB-CDEF-0123-456789ABCDEF&quot;</span><span class="p">,</span>
+	<span class="s2">&quot;referenceURL&quot;</span> <span class="p">:</span> <span class="s2">&quot;https://mosip.io/biometric/45678&quot;</span>
+        	
+<span class="p">}</span>
+
+<span class="o">//</span><span class="n">Success</span> <span class="n">response</span>
+<span class="p">{</span>
+	<span class="s2">&quot;id&quot;</span> <span class="p">:</span> <span class="s2">&quot;mosip.abis.insert&quot;</span><span class="p">,</span>
+	<span class="s2">&quot;requestId&quot;</span> <span class="p">:</span> <span class="s2">&quot;01234567-89AB-CDEF-0123-456789ABCDEF&quot;</span><span class="p">,</span>
+	<span class="s2">&quot;timestamp&quot;</span> <span class="p">:</span> <span class="s2">&quot;1539777717&quot;</span><span class="p">,</span>
+	<span class="s2">&quot;returnValue&quot;</span> <span class="p">:</span> <span class="s2">&quot;1&quot;</span>
+<span class="p">}</span>
+
+<span class="o">//</span><span class="n">Failure</span> <span class="n">response</span>
+<span class="p">{</span>
+	<span class="s2">&quot;id&quot;</span> <span class="p">:</span> <span class="s2">&quot;mosip.abis.insert&quot;</span><span class="p">,</span>
+	<span class="s2">&quot;requestId&quot;</span> <span class="p">:</span> <span class="s2">&quot;01234567-89AB-CDEF-0123-456789ABCDEF&quot;</span><span class="p">,</span>
+	<span class="s2">&quot;timestamp&quot;</span> <span class="p">:</span> <span class="s2">&quot;1539777717&quot;</span><span class="p">,</span>
+	<span class="s2">&quot;returnValue&quot;</span> <span class="p">:</span> <span class="s2">&quot;2&quot;</span><span class="p">,</span>
+	<span class="s2">&quot;errorCode&quot;</span> <span class="p">:</span> <span class="s2">&quot;1&quot;</span>
+	<span class="s2">&quot;failureReason&quot;</span> <span class="p">:</span> <span class="s2">&quot;&quot;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="behavior-of-insert">
+<h2>Behavior of Insert<a class="headerlink" href="#behavior-of-insert" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>ABIS must get biometric data from referenceURL, process it and store it locally within the ABIS reference database</p></li>
+<li><p>referenceId must not be active prior to this operation i.e., it must not have been used before this operation</p></li>
+<li><p>De-duplication must not be performed in this operation</p></li>
+<li><p>MOSIP must provide CBEFF format biometric data to ABIS</p></li>
+</ul>
+</div>
+<div class="section" id="identify">
+<h2>IDENTIFY<a class="headerlink" href="#identify" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">//</span><span class="n">Request</span>
+<span class="p">{</span>
+	<span class="s2">&quot;id&quot;</span> <span class="p">:</span> <span class="s2">&quot;mosip.abis.identify&quot;</span><span class="p">,</span>
+	<span class="s2">&quot;ver&quot;</span> <span class="p">:</span> <span class="s2">&quot;1.0&quot;</span><span class="p">,</span>
+	<span class="s2">&quot;requestId&quot;</span> <span class="p">:</span> <span class="s2">&quot;01234567-89AB-CDEF-0123-456789ABCDEF&quot;</span><span class="p">,</span>
+	<span class="s2">&quot;timestamp&quot;</span> <span class="p">:</span> <span class="s2">&quot;1539777717&quot;</span><span class="p">,</span>
+	<span class="s2">&quot;referenceId&quot;</span> <span class="p">:</span> <span class="s2">&quot;987654321-89AB-CDEF-0123-456789ABCDEF&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;referenceUrl&quot;</span> <span class="p">:</span> <span class="s2">&quot;https://mosip.io/registrationprocessor/v1/bio-dedupe/biometricfile/2cce7b7d-b58a-4466-a006-c79297281789&quot;</span><span class="p">,</span>
+	<span class="s2">&quot;maxResults&quot;</span> <span class="p">:</span> <span class="mi">10</span><span class="p">,</span>
+	<span class="s2">&quot;targetFPIR&quot;</span> <span class="p">:</span> <span class="mi">30</span><span class="p">,</span>
+	<span class="s2">&quot;gallery&quot;</span> <span class="p">:</span> <span class="p">{</span>
+		<span class="s2">&quot;referenceIds&quot;</span> <span class="p">:</span> <span class="p">[</span> <span class="p">{</span>
+			  <span class="s2">&quot;referenceId&quot;</span> <span class="p">:</span> <span class="s2">&quot;2cce7b7d-b58a-4466-a006-c79297281123&quot;</span>
+			<span class="p">},</span> <span class="p">{</span>
+			  <span class="s2">&quot;referenceId&quot;</span> <span class="p">:</span> <span class="s2">&quot;2cce7b7d-b58a-4466-a006-c79297281456&quot;</span>
+			<span class="p">},</span> <span class="p">{</span>
+			  <span class="s2">&quot;referenceId&quot;</span> <span class="p">:</span> <span class="s2">&quot;2cce7b7d-b58a-4466-a006-c79297281678&quot;</span>
+			<span class="p">},</span> <span class="p">{</span>
+			  <span class="s2">&quot;referenceId&quot;</span> <span class="p">:</span> <span class="s2">&quot;2cce7b7d-b58a-4466-a006-c79297281098&quot;</span>
+			<span class="p">},</span> <span class="p">{</span>
+			  <span class="s2">&quot;referenceId&quot;</span> <span class="p">:</span> <span class="s2">&quot;2cce7b7d-b58a-4466-a006-c79297281321&quot;</span>
+			<span class="p">}</span> 
+		<span class="p">]</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="o">//</span><span class="n">Success</span> <span class="n">response</span>
+<span class="p">{</span>
+	<span class="s2">&quot;id&quot;</span> <span class="p">:</span> <span class="s2">&quot;mosip.abis.identify&quot;</span><span class="p">,</span>
+	<span class="s2">&quot;requestId&quot;</span> <span class="p">:</span> <span class="s2">&quot;01234567-89AB-CDEF-0123-456789ABCDEF&quot;</span><span class="p">,</span>
+	<span class="s2">&quot;timestamp&quot;</span> <span class="p">:</span> <span class="s2">&quot;1539777717&quot;</span><span class="p">,</span>
+	<span class="s2">&quot;returnValue&quot;</span> <span class="p">:</span> <span class="s2">&quot;1&quot;</span><span class="p">,</span>
+	<span class="s2">&quot;candidateList&quot;</span> <span class="p">:</span> <span class="p">{</span>
+	 <span class="s2">&quot;count&quot;</span> <span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+	 <span class="s2">&quot;candidates&quot;</span> <span class="p">:</span> <span class="p">[</span>
+	<span class="p">{</span>
+	 <span class="s2">&quot;referenceId&quot;</span> <span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+	 <span class="s2">&quot;internalScore&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+	 <span class="s2">&quot;scaledScore&quot;</span> <span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+	 <span class="s2">&quot;analytics&quot;</span><span class="p">:</span> <span class="p">[</span>
+	   <span class="p">{</span>
+		<span class="s2">&quot;key1&quot;</span><span class="p">:</span> <span class="s2">&quot;value1&quot;</span><span class="p">,</span>
+		<span class="s2">&quot;key2&quot;</span><span class="p">:</span> <span class="s2">&quot;value2&quot;</span>
+	   <span class="p">}</span>
+	 <span class="p">],</span>
+	 <span class="s2">&quot;scores&quot;</span><span class="p">:</span> <span class="p">[</span>
+	  <span class="p">{</span>
+	   <span class="s2">&quot;biometricType&quot;</span><span class="p">:</span> <span class="s2">&quot;FIR&quot;</span><span class="p">,</span>
+	   <span class="s2">&quot;scaledScore&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+	   <span class="s2">&quot;internalScore&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+	   <span class="s2">&quot;analytics&quot;</span><span class="p">:</span> <span class="p">[</span>
+		<span class="p">{</span>
+		 <span class="s2">&quot;key1&quot;</span><span class="p">:</span> <span class="s2">&quot;value1&quot;</span><span class="p">,</span>
+		 <span class="s2">&quot;key2&quot;</span><span class="p">:</span> <span class="s2">&quot;value2&quot;</span>
+		<span class="p">}</span>
+	   <span class="p">]</span>
+	  <span class="p">},</span>
+	  <span class="p">{</span>
+	   <span class="s2">&quot;biometricType&quot;</span><span class="p">:</span> <span class="s2">&quot;IIR&quot;</span><span class="p">,</span>
+	   <span class="s2">&quot;scaledScore&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+	   <span class="s2">&quot;internalScore&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+	   <span class="s2">&quot;analytics&quot;</span><span class="p">:</span> <span class="p">[</span>
+	    <span class="p">{</span>
+		 <span class="s2">&quot;key1&quot;</span><span class="p">:</span> <span class="s2">&quot;value1&quot;</span><span class="p">,</span>
+		 <span class="s2">&quot;key2&quot;</span><span class="p">:</span> <span class="s2">&quot;value2&quot;</span>
+	    <span class="p">}</span>
+	   <span class="p">]</span>
+	  <span class="p">}</span>
+	 <span class="p">]</span>
+	<span class="p">}</span>
+   <span class="p">]</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="o">//</span><span class="n">Failure</span> <span class="n">response</span>
+<span class="p">{</span>
+	<span class="s2">&quot;id&quot;</span> <span class="p">:</span> <span class="s2">&quot;mosip.id.identify&quot;</span><span class="p">,</span>
+	<span class="s2">&quot;requestId&quot;</span> <span class="p">:</span> <span class="s2">&quot;01234567-89AB-CDEF-0123-456789ABCDEF&quot;</span><span class="p">,</span>
+	<span class="s2">&quot;timestamp&quot;</span> <span class="p">:</span> <span class="s2">&quot;1539777717&quot;</span><span class="p">,</span>
+	<span class="s2">&quot;returnValue&quot;</span> <span class="p">:</span> <span class="s2">&quot;2&quot;</span><span class="p">,</span>
+	<span class="s2">&quot;errorCode&quot;</span> <span class="p">:</span> <span class="s2">&quot;7&quot;</span>
+	<span class="s2">&quot;failureReason&quot;</span> <span class="p">:</span> <span class="s2">&quot;&quot;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="behavior-of-identify">
+<h2>Behavior of IDENTIFY<a class="headerlink" href="#behavior-of-identify" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>IDENTIFY request MUST provide a 1:n comparison</p></li>
+<li><p>The input set for comparison can be provided by referenceID</p></li>
+<li><p>The collection against which the input set has to be matched is specified by a set of referenceID's.
+If referenceId is provided, atleast one referenceID must be provided in the input. The provided referenceID's must be
+present in the reference database.</p></li>
+<li><p>If IDENTIFY is against all the entries in ABIS, then gallery attribute MUST not be specified</p></li>
+<li><p>maxResults specify how many results can be returned. By default this will be 10</p></li>
+<li><p>IDENTIFY should give all candidates which match targetFIPR or a better score than the targetFIPR</p></li>
+<li><p>This request should not match against referenceID that is not in the reference database</p></li>
+<li><p>If referenceID is not NULL, then, ABIS performs 1:n comparison against all the entries in ABIS using the referenceID</p></li>
+<li><p>If referenceID is NULL and referenceURL is provided, then, ABIS performs 1:n comparison against all the entries in ABIS using the referenceURL</p></li>
+<li><p>If referenceID and reference URL both are NULL, then, ABIS throws an error (error code 5)</p></li>
+</ul>
+</div>
+<div class="section" id="delete">
+<h2>DELETE<a class="headerlink" href="#delete" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">//</span><span class="n">Request</span>
+<span class="p">{</span>
+	<span class="s2">&quot;id&quot;</span> <span class="p">:</span> <span class="s2">&quot;mosip.abis.delete&quot;</span><span class="p">,</span>
+	<span class="s2">&quot;ver&quot;</span> <span class="p">:</span> <span class="s2">&quot;1.0&quot;</span><span class="p">,</span>
+	<span class="s2">&quot;requestId&quot;</span> <span class="p">:</span> <span class="s2">&quot;01234567-89AB-CDEF-0123-456789ABCDEF&quot;</span><span class="p">,</span>
+	<span class="s2">&quot;timestamp&quot;</span> <span class="p">:</span> <span class="s2">&quot;1539777717&quot;</span><span class="p">,</span>
+	<span class="s2">&quot;referenceId&quot;</span> <span class="p">:</span> <span class="s2">&quot;&quot;</span>
+<span class="p">}</span>
+
+<span class="o">//</span><span class="n">Success</span> <span class="n">response</span>
+<span class="p">{</span>
+	<span class="s2">&quot;id&quot;</span> <span class="p">:</span> <span class="s2">&quot;mosip.abis.delete&quot;</span><span class="p">,</span>
+	<span class="s2">&quot;requestId&quot;</span> <span class="p">:</span> <span class="s2">&quot;01234567-89AB-CDEF-0123-456789ABCDEF&quot;</span><span class="p">,</span>
+	<span class="s2">&quot;timestamp&quot;</span> <span class="p">:</span> <span class="s2">&quot;1539777717&quot;</span><span class="p">,</span>
+	<span class="s2">&quot;returnValue&quot;</span> <span class="p">:</span> <span class="s2">&quot;&quot;</span>
+<span class="p">}</span>
+
+<span class="o">//</span><span class="n">Failure</span> <span class="n">response</span>
+<span class="p">{</span>
+	<span class="s2">&quot;id&quot;</span> <span class="p">:</span> <span class="s2">&quot;mosip.abis.delete&quot;</span><span class="p">,</span>
+	<span class="s2">&quot;requestId&quot;</span> <span class="p">:</span> <span class="s2">&quot;01234567-89AB-CDEF-0123-456789ABCDEF&quot;</span><span class="p">,</span>
+	<span class="s2">&quot;timestamp&quot;</span> <span class="p">:</span> <span class="s2">&quot;1539777717&quot;</span><span class="p">,</span>
+	<span class="s2">&quot;returnValue&quot;</span> <span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+	<span class="s2">&quot;errorCode&quot;</span> <span class="p">:</span> <span class="s2">&quot;1&quot;</span>
+	<span class="s2">&quot;failureReason&quot;</span> <span class="p">:</span> <span class="s2">&quot;&quot;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="behavior-of-delete">
+<h2>Behavior of DELETE<a class="headerlink" href="#behavior-of-delete" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>Removes only the entry referred by the referenceId</p></li>
+<li><p>This operation can be used to remove duplicates found by Identify</p></li>
+</ul>
+</div>
+<div class="section" id="ping">
+<h2>PING<a class="headerlink" href="#ping" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">//</span><span class="n">Request</span>
+<span class="p">{</span>
+	<span class="s2">&quot;id&quot;</span> <span class="p">:</span> <span class="s2">&quot;mosip.abis.ping&quot;</span><span class="p">,</span>
+	<span class="s2">&quot;ver&quot;</span> <span class="p">:</span> <span class="s2">&quot;1.0&quot;</span><span class="p">,</span>
+	<span class="s2">&quot;requestId&quot;</span> <span class="p">:</span> <span class="s2">&quot;01234567-89AB-CDEF-0123-456789ABCDEF&quot;</span><span class="p">,</span>
+	<span class="s2">&quot;timestamp&quot;</span> <span class="p">:</span> <span class="s2">&quot;1539777717&quot;</span>
+<span class="p">}</span>
+
+<span class="o">//</span><span class="n">Success</span> <span class="n">response</span>
+<span class="p">{</span>
+	<span class="s2">&quot;id&quot;</span> <span class="p">:</span> <span class="s2">&quot;mosip.abis.ping&quot;</span><span class="p">,</span>
+	<span class="s2">&quot;requestId&quot;</span> <span class="p">:</span> <span class="s2">&quot;01234567-89AB-CDEF-0123-456789ABCDEF&quot;</span><span class="p">,</span>
+	<span class="s2">&quot;timestamp&quot;</span> <span class="p">:</span> <span class="s2">&quot;1539777717&quot;</span><span class="p">,</span>
+	<span class="s2">&quot;returnValue&quot;</span> <span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+	<span class="s2">&quot;failureReason&quot;</span> <span class="p">:</span> <span class="s2">&quot;&quot;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="behavior-of-ping">
+<h2>Behavior of PING<a class="headerlink" href="#behavior-of-ping" title="Permalink to this headline">¶</a></h2>
+<p>A PING request should respond with a response on the liveness of the ABIS system</p>
+</div>
+<div class="section" id="pending-jobs">
+<h2>Pending Jobs<a class="headerlink" href="#pending-jobs" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">//</span><span class="n">Request</span>
+<span class="p">{</span>
+	<span class="s2">&quot;id&quot;</span> <span class="p">:</span> <span class="s2">&quot;mosip.abis.pendingJobs&quot;</span><span class="p">,</span>
+	<span class="s2">&quot;ver&quot;</span> <span class="p">:</span> <span class="s2">&quot;1.0&quot;</span><span class="p">,</span>
+	<span class="s2">&quot;requestId&quot;</span> <span class="p">:</span> <span class="s2">&quot;01234567-89AB-CDEF-0123-456789ABCDEF&quot;</span><span class="p">,</span>
+	<span class="s2">&quot;timestamp&quot;</span> <span class="p">:</span> <span class="s2">&quot;1539777717&quot;</span>
+<span class="p">}</span>
+
+<span class="o">//</span><span class="n">Success</span> <span class="n">response</span>
+<span class="p">{</span>
+	<span class="s2">&quot;id&quot;</span> <span class="p">:</span> <span class="s2">&quot;mosip.abis.pendingJobs&quot;</span><span class="p">,</span>
+	<span class="s2">&quot;requestId&quot;</span> <span class="p">:</span> <span class="s2">&quot;01234567-89AB-CDEF-0123-456789ABCDEF&quot;</span><span class="p">,</span>
+	<span class="s2">&quot;timestamp&quot;</span> <span class="p">:</span> <span class="s2">&quot;1539777717&quot;</span><span class="p">,</span>
+	<span class="s2">&quot;jobscount&quot;</span> <span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+	<span class="s2">&quot;returnValue&quot;</span> <span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+	<span class="s2">&quot;failureReason&quot;</span> <span class="p">:</span> <span class="s2">&quot;&quot;</span>	
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="behavior-of-pending-jobs">
+<h2>Behavior of Pending Jobs<a class="headerlink" href="#behavior-of-pending-jobs" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>ABIS responds with the count of requests that are still pending</p></li>
+</ul>
+</div>
+<div class="section" id="reference-count">
+<h2>Reference Count<a class="headerlink" href="#reference-count" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">//</span><span class="n">Request</span>
+<span class="p">{</span>
+	<span class="s2">&quot;id&quot;</span> <span class="p">:</span> <span class="s2">&quot;mosip.abis.referenceCount&quot;</span><span class="p">,</span>
+	<span class="s2">&quot;ver&quot;</span> <span class="p">:</span> <span class="s2">&quot;1.0&quot;</span><span class="p">,</span>
+	<span class="s2">&quot;requestId&quot;</span> <span class="p">:</span> <span class="s2">&quot;01234567-89AB-CDEF-0123-456789ABCDEF&quot;</span><span class="p">,</span>
+	<span class="s2">&quot;timestamp&quot;</span> <span class="p">:</span> <span class="s2">&quot;1539777717&quot;</span>
+<span class="p">}</span>
+
+<span class="o">//</span><span class="n">Success</span> <span class="n">response</span>
+<span class="p">{</span>
+	<span class="s2">&quot;id&quot;</span> <span class="p">:</span> <span class="s2">&quot;mosip.abis.referenceCount&quot;</span><span class="p">,</span>
+	<span class="s2">&quot;requestId&quot;</span> <span class="p">:</span> <span class="s2">&quot;01234567-89AB-CDEF-0123-456789ABCDEF&quot;</span><span class="p">,</span>
+	<span class="s2">&quot;timestamp&quot;</span> <span class="p">:</span> <span class="s2">&quot;1539777717&quot;</span><span class="p">,</span>
+	<span class="s2">&quot;count&quot;</span> <span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+	<span class="s2">&quot;returnValue&quot;</span> <span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+	<span class="s2">&quot;failureReason&quot;</span> <span class="p">:</span> <span class="s2">&quot;&quot;</span>	
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="behavior-of-reference-count">
+<h2>Behavior of Reference Count<a class="headerlink" href="#behavior-of-reference-count" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>ABIS will send a count of records in the reference database</p></li>
+</ul>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, mosip-team
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

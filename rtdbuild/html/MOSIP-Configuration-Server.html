@@ -1,0 +1,372 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="java" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="java" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>MOSIP Configuration Server &mdash; MOSIP 0.9 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script type="text/javascript" src="_static/jquery.js"></script>
+        <script type="text/javascript" src="_static/underscore.js"></script>
+        <script type="text/javascript" src="_static/doctools.js"></script>
+        <script type="text/javascript" src="_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search"  style="background: white" >
+          
+
+          
+            <a href="index.html" class="icon icon-home"> MOSIP
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.9
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <!-- Local TOC -->
+              <div class="local-toc"><ul>
+<li><a class="reference internal" href="#">MOSIP Configuration Server</a><ul>
+<li><a class="reference internal" href="#git-repo">Git Repo</a></li>
+<li><a class="reference internal" href="#microservices-configuration-clients-br">Microservices Configuration Clients:<br/></a><ul>
+<li><a class="reference internal" href="#spring-boot-client-br">Spring boot client<br/></a></li>
+<li><a class="reference internal" href="#vert-x-client">Vert.x client:</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">MOSIP</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html">Docs</a> &raquo;</li>
+        
+      <li>MOSIP Configuration Server</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/MOSIP-Configuration-Server.md.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="mosip-configuration-server">
+<h1>MOSIP Configuration Server<a class="headerlink" href="#mosip-configuration-server" title="Permalink to this headline">¶</a></h1>
+<p>We will be using MOSIP config server (Spring cloud configuration Server) to manage configurations of all the services.<br/><br/>
+<strong>NOTE:</strong> For the documentation purpose I have mentioned the config server URL as <code class="docutils literal notranslate"><span class="pre">http://localhost:8080</span></code> in this document, but you have to mention the URL where configuration server is running.</p>
+<p><img alt="Configuration Server" src="_images/MOSIP_config_server_setup.png" /></p>
+<div class="section" id="git-repo">
+<h2>Git Repo<a class="headerlink" href="#git-repo" title="Permalink to this headline">¶</a></h2>
+<ol class="simple">
+<li><p>All the configuration files at the moment are stored inside git in<br/>
+<strong>\git\mosip\config</strong><br/> (can be customized to take it from git repo of system owner.
+Change spring.cloud.config.server.git.search-paths property in config server bootstrap.properties accordingly.)</p></li>
+<li><p>For every module (specific to an environment such as dev, qa, test etc.) there will be a single property file (eg: for kernel)<br/>
+The nomenclature will be as follows:<br/>
+<strong><em>{module-name}-{profile-Name}.properties</em></strong><br/>
+For example if the application name is kernel and microservice is kernel-idgenerator-vid and profile name can be
+dev(to differentiate between different environments, eg: testing, dev, qa etc.), so the properties file name
+will be:<br/>
+<strong>kernel-dev.properties</strong><br/></p></li>
+<li><p>If we are using multiple profiles, say one for dev and one for testing, we can create 2 properties files with names - <strong>kernel-test.properties, kernel-dev.properties</strong>, and can switch between multiple profiles through Microservice application.</p></li>
+<li><p>Properties common across the modules will be stored in files named: <strong>application-{profile-name}.properties</strong></p></li>
+<li><p>For XML files, name them as follows:<br/>
+<em><strong>{NameOfFile}-{profileName}.xml</strong></em></p></li>
+</ol>
+</div>
+<div class="section" id="microservices-configuration-clients-br">
+<h2>Microservices Configuration Clients:<br/><a class="headerlink" href="#microservices-configuration-clients-br" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="spring-boot-client-br">
+<h3>Spring boot client<br/><a class="headerlink" href="#spring-boot-client-br" title="Permalink to this headline">¶</a></h3>
+<p>All the microservices will act as clients and reuqest configuration from config server.<br/></p>
+<ol class="simple">
+<li><p>Microservices should include <em>spring-cloud-starter-config</em> dependency, which can be added through maven in their pom.xml.</p></li>
+</ol>
+<p><code class="docutils literal notranslate"><span class="pre">		&lt;dependency&gt;</span></code><br/>
+<code class="docutils literal notranslate"><span class="pre">&lt;groupId&gt;org.springframework.cloud&lt;/groupId&gt;</span></code><br/>
+<code class="docutils literal notranslate"><span class="pre">&lt;artifactId&gt;spring-cloud-starter-config&lt;/artifactId&gt;</span></code><br/>
+<code class="docutils literal notranslate"><span class="pre">&lt;/dependency&gt;</span></code><br/></p>
+<p>For actuators refresh endpoint (to refresh properties at runtime) we need actuator dependency in client</p>
+<p><code class="docutils literal notranslate">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">&lt;dependency&gt;</span></code><br/>
+<code class="docutils literal notranslate"><span class="pre">&lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;</span></code><br/>
+<code class="docutils literal notranslate"><span class="pre">&lt;artifactId&gt;spring-boot-starter-actuator&lt;/artifactId&gt;</span></code><br/>
+<code class="docutils literal notranslate"><span class="pre">&lt;version&gt;${spring.boot.version}&lt;/version&gt;</span></code><br/>
+<code class="docutils literal notranslate"><span class="pre">&lt;/dependency&gt;</span></code><br/>
+2. There should be one <strong>bootstrap.properties</strong> file in the spring boot application(microservice) under resources which will contain the details for MOSIP config server. Inside the properties file following properties have to be mentioned:</p>
+<ul class="simple">
+<li><p><strong>spring.cloud.config.uri</strong> key with the value of URL of config server that will be provided.</p></li>
+<li><p><strong>spring.cloud.config.label</strong> which will define the branch from which we have to get properties from.</p></li>
+<li><p><strong>spring.profiles.active</strong> which will contain the value of profile to be activated (Eg. dev for dev profile, when filename is kernel-dev.properties, and test for test profile when filename is kernel-test.properties).</p></li>
+<li><p><strong>spring.cloud.config.server.git.search-paths</strong> which is the folder inside git repo which contains the configuration files.</p></li>
+<li><p><strong>spring.application.name</strong> name of the application/microservice <br/></p></li>
+<li><p><strong>spring.cloud.config.name</strong> name of module to which the microservice belongs (eg. Kernel, Pre-Registration) <br/></p></li>
+</ul>
+<p>Sample Bootstrap.properties file:<br/></p>
+<p><code class="docutils literal notranslate"><span class="pre">#Port</span> <span class="pre">where</span> <span class="pre">the</span> <span class="pre">application</span> <span class="pre">needs</span> <span class="pre">to</span> <span class="pre">run</span></code><br/>
+<code class="docutils literal notranslate"><span class="pre">server.port</span> <span class="pre">=</span> <span class="pre">8081</span></code><br/>
+<code class="docutils literal notranslate"><span class="pre">#</span> <span class="pre">Application</span> <span class="pre">name</span> <span class="pre">-</span> <span class="pre">the</span> <span class="pre">name</span> <span class="pre">appended</span> <span class="pre">at</span> <span class="pre">starting</span> <span class="pre">of</span> <span class="pre">file</span> <span class="pre">name</span> <span class="pre">to</span> <span class="pre">differentiate</span></code><br/>
+<code class="docutils literal notranslate"><span class="pre">#</span> <span class="pre">between</span> <span class="pre">different</span> <span class="pre">property</span> <span class="pre">files</span> <span class="pre">for</span> <span class="pre">different</span> <span class="pre">microservices</span></code><br/>
+<code class="docutils literal notranslate"><span class="pre">spring.application.name=kernal-idgenerator-vid</span></code><br/></p>
+<p><code class="docutils literal notranslate"><span class="pre">#Active</span> <span class="pre">Profile</span> <span class="pre">-</span> <span class="pre">will</span> <span class="pre">relate</span> <span class="pre">to</span> <span class="pre">development</span> <span class="pre">properties</span> <span class="pre">file</span> <span class="pre">in</span> <span class="pre">the</span> <span class="pre">server.</span></code><br/>
+<code class="docutils literal notranslate"><span class="pre">#If</span> <span class="pre">this</span> <span class="pre">property</span> <span class="pre">is</span> <span class="pre">absent</span> <span class="pre">then</span> <span class="pre">default</span> <span class="pre">profile</span> <span class="pre">will</span> <span class="pre">be</span> <span class="pre">activated</span> <span class="pre">which</span> <span class="pre">is</span></code><br/>
+<code class="docutils literal notranslate"><span class="pre">#the</span> <span class="pre">property</span> <span class="pre">file</span> <span class="pre">without</span> <span class="pre">any</span> <span class="pre">environment</span> <span class="pre">name</span> <span class="pre">at</span> <span class="pre">the</span> <span class="pre">end.</span> </code><br/>
+<code class="docutils literal notranslate"><span class="pre">spring.profiles.active=dev</span></code><br/></p>
+<p><code class="docutils literal notranslate"><span class="pre">#</span> <span class="pre">defining</span> <span class="pre">current</span> <span class="pre">branch</span> <span class="pre">in</span> <span class="pre">which</span> <span class="pre">we</span> <span class="pre">are</span> <span class="pre">working</span> <span class="pre">as</span> <span class="pre">label</span></code><br/>
+<code class="docutils literal notranslate"><span class="pre">spring.cloud.config.label=master</span> </code><br/></p>
+<p><code class="docutils literal notranslate"><span class="pre">#</span> <span class="pre">url</span> <span class="pre">where</span> <span class="pre">spring</span> <span class="pre">cloud</span> <span class="pre">config</span> <span class="pre">server</span> <span class="pre">is</span> <span class="pre">running</span> </code><br/>
+<code class="docutils literal notranslate"><span class="pre">spring.cloud.config.uri=http://localhost:8080</span></code><br/></p>
+<p><code class="docutils literal notranslate"><span class="pre">#spring.cloud.config.name=kernel</span></code><br/></p>
+<p><code class="docutils literal notranslate"><span class="pre">spring.cloud.config.server.git.search-paths=config</span></code><br/></p>
+<p><code class="docutils literal notranslate"><span class="pre">#exposing</span> <span class="pre">refresh</span> <span class="pre">endpoint</span> <span class="pre">so</span> <span class="pre">that</span> <span class="pre">whenevr</span> <span class="pre">configuration</span> <span class="pre">changes</span> <span class="pre">in</span> <span class="pre">git,</span></code><br/>
+<code class="docutils literal notranslate"><span class="pre">#post</span> <span class="pre">/actuator/refresh</span> <span class="pre">endpoint</span> <span class="pre">can</span> <span class="pre">be</span> <span class="pre">called</span> <span class="pre">for</span> <span class="pre">the</span> <span class="pre">client</span> <span class="pre">microservices</span></code><br/>
+<code class="docutils literal notranslate"><span class="pre">#to</span> <span class="pre">update</span> <span class="pre">the</span> <span class="pre">configuration</span></code><br/>
+<code class="docutils literal notranslate"><span class="pre">management.endpoints.web.exposure.include=refresh</span></code><br/>
+3. Once the setup is done, the microservice/application will be able to fetch the properties from config server. For Example:</p>
+<p><code class="docutils literal notranslate"><span class="pre">/**</span> </code><br/>
+<code class="docutils literal notranslate"><span class="pre">*</span> </code><br/>
+<code class="docutils literal notranslate"><span class="pre">*</span> <span class="pre">RefreshScope</span> <span class="pre">annotation</span> <span class="pre">is</span> <span class="pre">used</span> <span class="pre">such</span> <span class="pre">that</span> <span class="pre">all</span> <span class="pre">the</span> <span class="pre">rest</span> <span class="pre">APIs</span> <span class="pre">can</span> <span class="pre">be</span> <span class="pre">updated</span> <span class="pre">by</span> <span class="pre">calling</span></code><br/>
+<code class="docutils literal notranslate"><span class="pre">*</span> <span class="pre">POST</span> <span class="pre">/actuator/refresh</span> <span class="pre">endpoint</span> <span class="pre">whenever</span> <span class="pre">configuration</span> <span class="pre">files</span> <span class="pre">change</span> <span class="pre">in</span> <span class="pre">git</span> <span class="pre">repo.</span> </code><br/>
+<code class="docutils literal notranslate"><span class="pre">*</span></code><br/>
+<code class="docutils literal notranslate"><span class="pre">*/</span></code><br/>
+<code class="docutils literal notranslate"><span class="pre">&#64;RefreshScope</span></code><br/>
+<code class="docutils literal notranslate"><span class="pre">&#64;RestController</span></code><br/>
+<code class="docutils literal notranslate"><span class="pre">class</span> <span class="pre">MessageRestController</span> <span class="pre">{</span></code><br/></p>
+<p><code class="docutils literal notranslate"><span class="pre">	protected</span> <span class="pre">final</span> <span class="pre">Log</span> <span class="pre">logger</span> <span class="pre">=</span> <span class="pre">LogFactory.getLog(this.getClass());</span></code><br/></p>
+<p><code class="docutils literal notranslate">&#160;&#160; <span class="pre">&#64;Value(&quot;${msg:Hello</span> <span class="pre">world</span> <span class="pre">-</span> <span class="pre">Config</span> <span class="pre">Server</span> <span class="pre">is</span> <span class="pre">not</span> <span class="pre">working..pelase</span> <span class="pre">check}&quot;)</span></code><br/>
+<code class="docutils literal notranslate">&#160; <span class="pre">private</span> <span class="pre">String</span> <span class="pre">msg;</span></code><br/></p>
+<p><code class="docutils literal notranslate"> <span class="pre">&#64;RequestMapping(&quot;/msg&quot;)</span></code><br/>
+<code class="docutils literal notranslate"><span class="pre">String</span> <span class="pre">getMsg()</span> <span class="pre">{</span></code><br/>
+<code class="docutils literal notranslate">&#160;&#160; <span class="pre">return</span> <span class="pre">this.msg;</span></code><br/></p>
+<p><code class="docutils literal notranslate"> <span class="pre">}</span></code><br/>
+In the above snippet we are using &#64;RefreshScope annotation which will help the client application to get lastest configuration from config server without restarting the application (by calling the refresh API /actuator/refresh on the application endpoint) <br/>
+4. For any other configuration file such as xml/json etc. you can directly get the entire file through the following url:<br/>
+<strong>http://{mosip-config-server URL}/{spring.cloud.config.name} /{label} /{branch}/{filename}.(xml/json).</strong>
+<br/>
+<br/></p>
+</div>
+<div class="section" id="vert-x-client">
+<h3>Vert.x client:<a class="headerlink" href="#vert-x-client" title="Permalink to this headline">¶</a></h3>
+<ol class="simple">
+<li><p>For Vert.x application we need the following dependencies to be added to our Maven project:
+<code class="docutils literal notranslate"><span class="pre">&lt;dependency&gt;</span></code><br/>
+<code class="docutils literal notranslate"><span class="pre">&lt;groupId&gt;io.vertx&lt;/groupId&gt;</span></code><br/>
+<code class="docutils literal notranslate"><span class="pre">&lt;artifactId&gt;vertx-config-spring-config-server&lt;/artifactId&gt;</span></code><br/>
+<code class="docutils literal notranslate"><span class="pre">&lt;version&gt;3.5.4&lt;/version&gt;</span></code><br/>
+<code class="docutils literal notranslate"><span class="pre">&lt;/dependency&gt;</span></code><br/>
+<code class="docutils literal notranslate"><span class="pre">&lt;dependency&gt;</span></code><br/>
+<code class="docutils literal notranslate"> &#160; <span class="pre">&lt;groupId&gt;io.vertx&lt;/groupId&gt;</span></code><br/>
+<code class="docutils literal notranslate"> &#160; <span class="pre">&lt;artifactId&gt;vertx-config&lt;/artifactId&gt;</span></code><br/>
+<code class="docutils literal notranslate"> &#160; <span class="pre">&lt;version&gt;3.5.4&lt;/version&gt;</span></code><br/>
+<code class="docutils literal notranslate"><span class="pre">&lt;/dependency&gt;</span></code><br/></p></li>
+<li><p>We will be using **ConfigRetrieverOptions **in Vert.x and set the store type to &quot;spring-config-server&quot; and we will provide configuration for this type, by giving URL in the following format:<br/>
+<strong><em>{config-server-url}/{applicationname}-{microservicename}/{profile-name}/{branchname}</em></strong><br/>
+<code class="docutils literal notranslate"> <span class="pre">protected</span> <span class="pre">Future&lt;Void&gt;</span> <span class="pre">readConfig(String</span> <span class="pre">hoconConfigPath)</span> <span class="pre">{</span></code><br/>
+<code class="docutils literal notranslate"><span class="pre">Future&lt;Void&gt;</span> <span class="pre">future</span> <span class="pre">=</span> <span class="pre">Future.future();</span></code><br/>
+<code class="docutils literal notranslate"><span class="pre">/</span> <span class="pre">**</span></code><br/>
+<code class="docutils literal notranslate"><span class="pre">*</span> <span class="pre">Adding</span> <span class="pre">config</span> <span class="pre">options</span> <span class="pre">for</span> <span class="pre">vert.x</span> <span class="pre">application</span></code><br/>
+<code class="docutils literal notranslate"><span class="pre">*/</span></code><br/>
+<code class="docutils literal notranslate"><span class="pre">ConfigRetrieverOptions</span> <span class="pre">options</span> <span class="pre">=</span> <span class="pre">new</span> <span class="pre">ConfigRetrieverOptions();</span></code><br/>
+<code class="docutils literal notranslate"><span class="pre">options.addStore(new</span> <span class="pre">ConfigStoreOptions()</span></code><br/>
+<code class="docutils literal notranslate"><span class="pre">		/**</span></code><br/>
+<code class="docutils literal notranslate">&#160;  <span class="pre">*</span>&#160; <span class="pre">Vert.x</span> <span class="pre">provides</span> <span class="pre">different</span> <span class="pre">stores</span> <span class="pre">to</span> <span class="pre">choose</span> <span class="pre">from,</span> <span class="pre">right</span> <span class="pre">now</span> <span class="pre">we</span> <span class="pre">are</span> <span class="pre">selecting</span></code><br/>
+<code class="docutils literal notranslate">&#160;  <span class="pre">*</span>&#160; <span class="pre">spring-config-server</span> <span class="pre">to</span> <span class="pre">connect</span> <span class="pre">to</span> <span class="pre">our</span> <span class="pre">server</span></code><br/>
+<code class="docutils literal notranslate">&#160;  <span class="pre">*/</span></code><br/>
+<code class="docutils literal notranslate">&#160;&#160;&#160;&#160;&#160; <span class="pre">.setType(&quot;spring-config-server&quot;)</span></code><br/>
+<code class="docutils literal notranslate">&#160;&#160;&#160; <span class="pre">/**</span></code><br/>
+<code class="docutils literal notranslate">&#160; <span class="pre">*</span> <span class="pre">We</span> <span class="pre">are</span> <span class="pre">providing</span> <span class="pre">URL</span> <span class="pre">in</span> <span class="pre">the</span> <span class="pre">following</span> <span class="pre">format</span> <span class="pre">-</span></code><br/>
+<code class="docutils literal notranslate"> <span class="pre">*</span> <span class="pre">&lt;config-server-url&gt;/&lt;application-name-microservicename&gt;/&lt;profile-name&gt;/&lt;branch-name&gt;</span></code><br/>
+<code class="docutils literal notranslate"> <span class="pre">*</span> <span class="pre">/</span></code><br/>
+<code class="docutils literal notranslate"><span class="pre">.setConfig(new</span> <span class="pre">JsonObject().put(&quot;url&quot;,</span> <span class="pre">&quot;http://localhost:8080/kernal-kernel-idgenerator-vid/uin/DEV&quot;)</span></code><br/>
+<code class="docutils literal notranslate"><span class="pre">		.put(&quot;timeout&quot;,</span> <span class="pre">10000)));</span></code><br/></p></li>
+<li><p>Once the setup is done we can use the ConfigRetriever class object to fetch the configuration as follows:<br/>
+<code class="docutils literal notranslate"><span class="pre">/**</span></code><br/>
+<code class="docutils literal notranslate"><span class="pre">*</span> <span class="pre">ConfigRetriever</span> <span class="pre">object</span> <span class="pre">to</span> <span class="pre">retrieve</span> <span class="pre">the</span> <span class="pre">configuration</span> <span class="pre">stored</span></code><br/>
+<code class="docutils literal notranslate"><span class="pre">*/</span></code><br/>
+<code class="docutils literal notranslate"><span class="pre">ConfigRetriever</span> <span class="pre">retriever</span> <span class="pre">=</span> <span class="pre">ConfigRetriever.create(vertx,</span> <span class="pre">options);</span></code><br/>
+<code class="docutils literal notranslate"><span class="pre">retriever.getConfig(ar</span> <span class="pre">-&gt;</span> <span class="pre">{</span></code><br/>
+<code class="docutils literal notranslate">&#160;&#160; <span class="pre">if</span> <span class="pre">(ar.succeeded())</span> <span class="pre">{</span></code><br/>
+<code class="docutils literal notranslate">&#160; <span class="pre">	/**</span></code><br/>
+<code class="docutils literal notranslate">   <span class="pre">*</span> <span class="pre">All</span> <span class="pre">the</span> <span class="pre">configuration</span> <span class="pre">is</span> <span class="pre">stored</span> <span class="pre">in</span> <span class="pre">this</span> <span class="pre">configuration</span> <span class="pre">object,</span> <span class="pre">we</span> <span class="pre">can</span> <span class="pre">use</span> <span class="pre">it</span> <span class="pre">anywhere</span></code><br/>
+<code class="docutils literal notranslate">  <span class="pre">*</span> <span class="pre">to</span> <span class="pre">fetch</span> <span class="pre">the</span> <span class="pre">values</span> <span class="pre">by</span> <span class="pre">providing</span> <span class="pre">the</span> <span class="pre">keys</span></code><br/>
+<code class="docutils literal notranslate">  <span class="pre">*/</span></code><br/>
+<code class="docutils literal notranslate">&#160;&#160; <span class="pre">this.configuration</span> <span class="pre">=</span> <span class="pre">ar.result();</span></code><br/>
+<code class="docutils literal notranslate">&#160; <span class="pre">future.complete();</span></code><br/>
+<code class="docutils literal notranslate"><span class="pre">}</span> <span class="pre">else</span> <span class="pre">{</span></code><br/>
+<code class="docutils literal notranslate">&#160;&#160; <span class="pre">LOG.error(&quot;Failed</span> <span class="pre">to</span> <span class="pre">read</span> <span class="pre">configuration&quot;,</span> <span class="pre">ar.cause());</span></code><br/>
+<code class="docutils literal notranslate">&#160; <span class="pre">future.fail(ar.cause());</span></code><br/>
+<code class="docutils literal notranslate"><span class="pre">}</span></code><br/>
+<code class="docutils literal notranslate"><span class="pre">});</span></code><br/>
+<code class="docutils literal notranslate"><span class="pre">return</span> <span class="pre">future;</span></code><br/>
+<code class="docutils literal notranslate"> <span class="pre">}</span></code><br/></p></li>
+<li><p>Lets assume I put port number in which the application will be running in the properties file, and I need to get that port value while initiating the application, I can get it as follows:<br/>
+<code class="docutils literal notranslate"> <span class="pre">Integer</span> <span class="pre">port</span> <span class="pre">=</span> <span class="pre">Integer.parseInt(configuration.getString(&quot;port&quot;));</span></code><br/>
+<code class="docutils literal notranslate"><span class="pre">server</span> <span class="pre">=</span> <span class="pre">vertx.createHttpServer()</span></code><br/>
+<code class="docutils literal notranslate"><span class="pre">.requestHandler(req</span> <span class="pre">-&gt;</span> </code><br/>
+<code class="docutils literal notranslate"><span class="pre">	req.response().end(&quot;I</span> <span class="pre">am</span> <span class="pre">running</span> <span class="pre">on</span> <span class="pre">the</span> <span class="pre">port</span> <span class="pre">fetched</span> <span class="pre">from</span> <span class="pre">the</span> <span class="pre">configuration</span> <span class="pre">&quot;</span></code><br/>
+<code class="docutils literal notranslate"><span class="pre">+</span> <span class="pre">&quot;stored</span> <span class="pre">in</span> <span class="pre">Spring</span> <span class="pre">config</span> <span class="pre">server&quot;)).listen(port);</span></code><br/></p></li>
+</ol>
+<p><strong>NOTE:</strong> <br/><strong>Whenever there is a change in the configuration in GIT Repo, every microservice/application which  is using that particular configuration has to call the refresh endpoint in order to get that latest configuration without restarting. If the client doesnt call the refresh API, it will keep on getting the old configuration.</strong> <br/>
+The refresh end point is following:<br/>
+<strong>POST  {Microservice-URL} /actuator/refresh</strong></p>
+<p><strong>For Encryption and Decryption of properties</strong> you need to generate Keystore, For more information look <a class="reference external" href="//cloud.spring.io/spring-cloud-config/single/spring-cloud-config.html#_creating_a_key_store_for_testing">here</a></p>
+<p>To setup and configure keystore for config server refer to the configuration server <a class="reference external" href="/mosip/mosip/blob/0.9.0/kernel/kernel-config-server/README">README</a> (under mosip -&gt; kernel -&gt; kernel-config-server -&gt; README.md)</p>
+<p><strong>To Encrypt any property:</strong> <br/>
+Run the following command : <br/>
+<code class="docutils literal notranslate"><span class="pre">curl</span> <span class="pre">http://&lt;your-config-server-url&gt;/&lt;config-server-application-context-path-if-any&gt;/encrypt</span> <span class="pre">-d</span> <span class="pre">&lt;value-to-encrypt&gt;</span></code></p>
+<p>And place the encrypted value in client application properties file with the format: <br/>
+<code class="docutils literal notranslate"><span class="pre">password={cipher}&lt;encrypted-value&gt;</span></code></p>
+<p><strong>To Decrypt any property manually:</strong> <br/></p>
+<p><code class="docutils literal notranslate"><span class="pre">curl</span> <span class="pre">/&lt;config-server-application-context-path-if-any&gt;/decrypt</span> <span class="pre">-d</span> <span class="pre">&lt;encrypted-value-to-decrypt&gt;</span></code></p>
+<p><strong>NOTE</strong> There is no need to write decryption mechanism in client applications for encrypted values. They will be automatically decrypted by config server as long as <code class="docutils literal notranslate"><span class="pre">{cipher}</span></code> is prefixed with encrypted value.</p>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, mosip-team
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

@@ -1,0 +1,284 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="java" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="java" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Master data - generic &mdash; MOSIP 0.9 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script type="text/javascript" src="_static/jquery.js"></script>
+        <script type="text/javascript" src="_static/underscore.js"></script>
+        <script type="text/javascript" src="_static/doctools.js"></script>
+        <script type="text/javascript" src="_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search"  style="background: white" >
+          
+
+          
+            <a href="index.html" class="icon icon-home"> MOSIP
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.9
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <!-- Local TOC -->
+              <div class="local-toc"><ul>
+<li><a class="reference internal" href="#">Master data - generic</a><ul>
+<li><a class="reference internal" href="#background">Background</a></li>
+<li><a class="reference internal" href="#solution">Solution</a></li>
+<li><a class="reference internal" href="#addition-of-new-master-data">Addition of new master data</a></li>
+<li><a class="reference internal" href="#custom-validators">Custom Validators</a></li>
+</ul>
+</li>
+</ul>
+</div>
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">MOSIP</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html">Docs</a> &raquo;</li>
+        
+      <li>Master data - generic</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/Masterdata-generic.md.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="master-data-generic">
+<h1>Master data - generic<a class="headerlink" href="#master-data-generic" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="background">
+<h2>Background<a class="headerlink" href="#background" title="Permalink to this headline">¶</a></h2>
+<p>There can be new master data added to the system. The common service API can cater to the fetch operations of the master data. This API accepts the entity and the selection criteria as input and returns back the necessary master data.</p>
+</div>
+<div class="section" id="solution">
+<h2>Solution<a class="headerlink" href="#solution" title="Permalink to this headline">¶</a></h2>
+<p><strong>The key solution considerations are</strong></p>
+<ul>
+<li><p>Following are the key considerations for the generic master data functionality,</p>
+<ol>
+<li><p>Fetch master data</p>
+<p>a. Common fetch service API</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span> <span class="o">-</span> <span class="n">The</span> <span class="n">fetch</span> <span class="n">service</span> <span class="n">API</span> <span class="n">accepts</span> <span class="n">the</span> <span class="n">ENTITY</span>  <span class="ow">in</span> <span class="n">the</span> <span class="n">HTTP</span> <span class="n">Request</span> <span class="n">body</span><span class="o">.</span>
+ <span class="o">-</span> <span class="n">Along</span> <span class="k">with</span> <span class="n">the</span> <span class="n">Entity</span> <span class="n">name</span><span class="p">,</span> <span class="n">the</span> <span class="nb">set</span> <span class="n">of</span> <span class="n">query</span> <span class="n">parameters</span> <span class="n">are</span> <span class="n">also</span> <span class="n">passed</span> <span class="ow">in</span> <span class="n">the</span> <span class="n">HTTP</span> <span class="n">request</span> <span class="n">body</span><span class="o">.</span> <span class="n">This</span> <span class="ow">is</span> <span class="n">used</span> <span class="k">as</span> <span class="n">the</span> <span class="n">CONDITION</span> <span class="k">for</span> <span class="n">the</span> <span class="n">query</span><span class="o">.</span>
+ <span class="o">-</span> <span class="n">The</span> <span class="n">OPERATORS</span> <span class="ow">in</span> <span class="n">the</span> <span class="n">CONDITION</span> <span class="ow">is</span> <span class="n">passed</span> <span class="ow">in</span> <span class="n">the</span> <span class="n">parameters</span><span class="o">.</span> <span class="n">For</span> <span class="n">example</span><span class="p">,</span> <span class="o">=</span><span class="p">,</span> <span class="o">!=</span><span class="p">,</span> <span class="o">&gt;</span><span class="p">,</span> <span class="o">&lt;</span> <span class="n">etc</span><span class="o">.</span><span class="p">,</span>
+ <span class="o">-</span> <span class="n">Also</span> <span class="n">the</span> <span class="n">necessary</span> <span class="n">CLAUSE</span> <span class="n">OPERATORS</span> <span class="n">are</span> <span class="n">passed</span><span class="o">.</span> <span class="n">For</span> <span class="n">example</span><span class="p">,</span> <span class="n">AND</span><span class="p">,</span> <span class="n">OR</span><span class="p">,</span> <span class="n">NOT</span> <span class="n">etc</span><span class="o">.</span><span class="p">,</span> 
+ <span class="o">-</span> <span class="n">I</span><span class="o">/</span><span class="n">p</span><span class="p">:</span>
+ 	<span class="n">Entity</span> <span class="n">name</span><span class="o">.</span> <span class="n">Eg</span><span class="o">.</span><span class="p">,</span> <span class="n">table_name</span>
+ 	<span class="n">Condition</span> <span class="o">&amp;</span> <span class="n">Operators</span><span class="o">.</span> <span class="n">Eg</span><span class="o">.</span><span class="p">,</span>  <span class="n">date</span> <span class="o">&gt;</span> <span class="s1">&#39;12-oct-2019&#39;</span>
+ 	<span class="n">Clause</span> <span class="n">operators</span><span class="o">.</span> <span class="n">Eg</span><span class="o">.</span><span class="p">,</span> <span class="n">AND</span>
+ <span class="o">-</span> <span class="n">Please</span> <span class="n">refer</span> <span class="n">the</span> <span class="n">API</span> <span class="n">spec</span> <span class="s2">&quot;masterdata-generic-api-spec.md&quot;</span> <span class="k">for</span> <span class="n">further</span> <span class="n">details</span><span class="o">.</span> 
+</pre></div>
+</div>
+<p>b. Criteria and Limitations</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span> <span class="n">i</span><span class="o">.</span> <span class="n">data</span> <span class="nb">type</span>
+ 	<span class="o">-</span> <span class="n">Following</span> <span class="n">data</span> <span class="n">types</span> <span class="n">are</span> <span class="n">supported</span><span class="p">,</span> 
+ 		<span class="n">i</span><span class="o">.</span> <span class="n">string</span>
+ 		<span class="n">ii</span><span class="o">.</span> <span class="nb">int</span>
+ 		<span class="n">iii</span><span class="o">.</span> <span class="n">boolean</span>
+ 		<span class="n">iv</span><span class="o">.</span> <span class="n">date</span>
+ <span class="n">ii</span><span class="o">.</span> <span class="n">operators</span> <span class="ow">in</span> <span class="n">condition</span> 
+
+ 	<span class="o">-</span> <span class="n">Following</span> <span class="n">are</span> <span class="n">the</span> <span class="n">OPERATORS</span> <span class="ow">in</span> <span class="n">CONDITION</span> <span class="n">are</span> <span class="n">supported</span><span class="p">,</span> 
+ 		<span class="n">i</span><span class="o">.</span> <span class="n">EQUALS</span>
+ 		<span class="n">ii</span><span class="o">.</span> <span class="n">GREATER</span> <span class="n">THAN</span>
+ 		<span class="n">iii</span><span class="o">.</span> <span class="n">LESS</span> <span class="n">THAN</span> 
+ <span class="n">iii</span><span class="o">.</span> <span class="n">clause</span> <span class="n">operators</span>
+
+ 	<span class="o">-</span> <span class="n">Following</span> <span class="n">are</span> <span class="n">the</span> <span class="n">clause</span> <span class="n">operatos</span> <span class="n">which</span> <span class="n">are</span> <span class="n">supported</span><span class="p">,</span> 
+
+ 		<span class="n">i</span><span class="o">.</span> <span class="n">AND</span>
+ 		<span class="n">ii</span><span class="o">.</span> <span class="n">OR</span>
+
+ <span class="n">iv</span><span class="o">.</span> <span class="n">Return</span> <span class="n">JSON</span> <span class="n">will</span> <span class="n">be</span> <span class="n">of</span> <span class="n">flat</span> <span class="n">structure</span><span class="o">.</span> <span class="n">No</span> <span class="n">nested</span> <span class="n">structure</span> <span class="ow">is</span> <span class="n">supported</span><span class="o">.</span>
+
+ <span class="n">iv</span><span class="o">.</span> <span class="n">Return</span> <span class="n">JSON</span> <span class="n">structure</span> <span class="n">will</span> <span class="ow">not</span> <span class="n">have</span> <span class="nb">any</span> <span class="n">types</span> <span class="n">such</span> <span class="k">as</span> <span class="n">number</span><span class="p">,</span> <span class="n">boolean</span> <span class="ow">or</span> <span class="n">string</span><span class="o">.</span>
+</pre></div>
+</div>
+</li>
+</ol>
+</li>
+</ul>
+</div>
+<div class="section" id="addition-of-new-master-data">
+<h2>Addition of new master data<a class="headerlink" href="#addition-of-new-master-data" title="Permalink to this headline">¶</a></h2>
+<ol class="simple">
+<li><p>Database</p>
+<ul class="simple">
+<li><p>new DB tables and constraints have to be added in the database</p></li>
+</ul>
+</li>
+<li><p>Service API</p>
+<ul class="simple">
+<li><p>No Change</p></li>
+</ul>
+</li>
+<li><p>Data API</p>
+<ul class="simple">
+<li><p>New validators have to be developed for the business level validations by the developer</p></li>
+<li><p>These validators have to extend the default validators and inject to the Generic entity.</p></li>
+</ul>
+</li>
+</ol>
+</div>
+<div class="section" id="custom-validators">
+<h2>Custom Validators<a class="headerlink" href="#custom-validators" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">-</span> <span class="n">In</span> <span class="n">case</span> <span class="ow">is</span> <span class="nb">any</span> <span class="n">body</span> <span class="n">wants</span> <span class="n">to</span> <span class="n">introduce</span> <span class="n">a</span> <span class="n">business</span> <span class="n">validation</span><span class="p">,</span> <span class="n">one</span> <span class="n">has</span> <span class="n">to</span> <span class="n">extend</span> <span class="n">the</span> <span class="n">generic</span> <span class="n">service</span> <span class="n">API</span> <span class="ow">and</span> <span class="n">have</span> <span class="n">to</span> <span class="n">inject</span> <span class="n">the</span> <span class="n">dependency</span> <span class="n">of</span> <span class="n">the</span> <span class="n">Validator</span><span class="o">.</span> <span class="n">To</span> <span class="n">do</span> <span class="n">this</span><span class="p">,</span> <span class="n">the</span> <span class="n">developer</span> <span class="n">implements</span> <span class="n">a</span> <span class="n">Validator</span> <span class="n">interface</span><span class="o">.</span> <span class="n">Then</span> <span class="k">for</span> <span class="n">a</span> <span class="n">specific</span> <span class="n">entity</span><span class="p">,</span> <span class="n">an</span> <span class="n">implementation</span> <span class="ow">is</span> <span class="n">created</span> <span class="kn">from</span> <span class="nn">Generic</span> <span class="n">entity</span> <span class="ow">and</span> <span class="n">injects</span> <span class="n">the</span> <span class="n">validators</span><span class="o">.</span> 
+<span class="o">-</span> <span class="n">The</span> <span class="n">custom</span> <span class="n">validators</span> <span class="n">are</span> <span class="n">placed</span> <span class="ow">in</span> <span class="n">a</span> <span class="n">separate</span> <span class="n">respository</span> <span class="n">of</span> <span class="n">the</span> <span class="n">ref</span><span class="o">-</span><span class="n">impl</span><span class="o">.</span>
+</pre></div>
+</div>
+<p><img alt="Generic masters validator" src="_images/GenericMasterValidator.jpg" /></p>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, mosip-team
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

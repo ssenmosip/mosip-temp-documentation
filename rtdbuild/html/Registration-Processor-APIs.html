@@ -1,0 +1,1698 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="java" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="java" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>1 Packet Receiver Service &mdash; MOSIP 0.9 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script type="text/javascript" src="_static/jquery.js"></script>
+        <script type="text/javascript" src="_static/underscore.js"></script>
+        <script type="text/javascript" src="_static/doctools.js"></script>
+        <script type="text/javascript" src="_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search"  style="background: white" >
+          
+
+          
+            <a href="index.html" class="icon icon-home"> MOSIP
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.9
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <!-- Local TOC -->
+              <div class="local-toc"><ul>
+<li><a class="reference internal" href="#">1 Packet Receiver Service</a><ul>
+<li><a class="reference internal" href="#id1">1.1 Packet-receiver service</a><ul>
+<li><a class="reference internal" href="#post-registrationprocessor-v1-packetreceiver-registrationpackets"><code class="docutils literal notranslate"><span class="pre">POST</span> <span class="pre">/registrationprocessor/v1/packetreceiver/registrationpackets</span></code></a></li>
+<li><a class="reference internal" href="#resource-url">Resource URL</a></li>
+<li><a class="reference internal" href="#resource-details">Resource details</a></li>
+<li><a class="reference internal" href="#request-path-parameters">Request Path Parameters</a></li>
+<li><a class="reference internal" href="#request">Request</a></li>
+<li><a class="reference internal" href="#response">Response</a><ul>
+<li><a class="reference internal" href="#success-response">Success response</a><ul>
+<li><a class="reference internal" href="#status-code-200">Status Code: 200</a></li>
+<li><a class="reference internal" href="#description-packet-is-in-packet-received-status">Description: Packet is in PACKET_RECEIVED status</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a class="reference internal" href="#failure-response">Failure response</a><ul>
+<li><a class="reference internal" href="#id2">Status Code: 200</a></li>
+<li><a class="reference internal" href="#description-the-request-received-is-a-duplicate-request-to-upload-a-packet">Description: The request received is a duplicate request to upload a Packet</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a class="reference internal" href="#registration-status-service">2 Registration Status Service</a><ul>
+<li><a class="reference internal" href="#post-registrationprocessor-v1-registrationstatus-search"><code class="docutils literal notranslate"><span class="pre">POST</span> <span class="pre">/registrationprocessor/v1/registrationstatus/search</span></code></a><ul>
+<li><a class="reference internal" href="#id3">Resource URL</a></li>
+<li><a class="reference internal" href="#id4">Resource details</a></li>
+<li><a class="reference internal" href="#parameters">Parameters</a></li>
+<li><a class="reference internal" href="#id5">Request</a></li>
+<li><a class="reference internal" href="#id6">Response</a><ul>
+<li><a class="reference internal" href="#id7">Status Code: 200</a></li>
+<li><a class="reference internal" href="#description-successfully-retrieved-information">Description: Successfully retrieved information</a></li>
+<li><a class="reference internal" href="#id8">Status Code: 200</a></li>
+<li><a class="reference internal" href="#id9">Description: Successfully retrieved information</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a class="reference internal" href="#sync-registration-service">3 Sync registration Service</a><ul>
+<li><a class="reference internal" href="#post-registrationprocessor-v1-registrationstatus-sync"><code class="docutils literal notranslate"><span class="pre">POST</span> <span class="pre">/registrationprocessor/v1/registrationstatus/sync</span></code></a></li>
+<li><a class="reference internal" href="#id10">Resource URL</a></li>
+<li><a class="reference internal" href="#id11">Resource details</a></li>
+<li><a class="reference internal" href="#id12">Parameters</a><ul>
+<li><a class="reference internal" href="#request-header">Request Header</a><ul>
+<li><a class="reference internal" href="#center-machine-refid-10011-10011">Center-Machine-RefId = <code class="docutils literal notranslate"><span class="pre">10011_10011</span></code></a></li>
+<li><a class="reference internal" href="#timestamp-2019-02-14t12-40-59-768z">timestamp = <code class="docutils literal notranslate"><span class="pre">2019-02-14T12:40:59.768Z</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#id13">Request</a></li>
+<li><a class="reference internal" href="#id14">Response</a><ul>
+<li><a class="reference internal" href="#response-code-200">Response Code: 200</a></li>
+<li><a class="reference internal" href="#description-successfully-synced">Description: Successfully synced</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a class="reference internal" href="#manual-adjudication-service">4 Manual Adjudication Service</a><ul>
+<li><a class="reference internal" href="#manual-adjudication-assignment-service">4.1 manual-adjudication-assignment service</a><ul>
+<li><a class="reference internal" href="#post-registrationprocessor-v1-manualverification-assignment"><code class="docutils literal notranslate"><span class="pre">POST</span> <span class="pre">/registrationprocessor/v1/manualverification/assignment</span></code></a></li>
+<li><a class="reference internal" href="#id15">Resource URL</a></li>
+<li><a class="reference internal" href="#id16">Resource details</a></li>
+<li><a class="reference internal" href="#id17">Parameters</a></li>
+<li><a class="reference internal" href="#id18">Request</a></li>
+<li><a class="reference internal" href="#id19">Response</a><ul>
+<li><a class="reference internal" href="#id20">Status Code: 200</a></li>
+<li><a class="reference internal" href="#description-response-code-is-always-200-if-server-receives-the-request">Description : response code is always 200 if server receives the request.</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a class="reference internal" href="#manual-adjudication-decision-service">4.2 manual-adjudication-decision service</a><ul>
+<li><a class="reference internal" href="#post-registrationprocessor-v1-manualverification-decision"><code class="docutils literal notranslate"><span class="pre">POST</span> <span class="pre">/registrationprocessor/v1/manualverification/decision</span></code></a></li>
+<li><a class="reference internal" href="#id21">Resource URL</a></li>
+<li><a class="reference internal" href="#id22">Resource details</a></li>
+<li><a class="reference internal" href="#id23">Parameters</a></li>
+<li><a class="reference internal" href="#id24">Request</a></li>
+<li><a class="reference internal" href="#id25">Response</a><ul>
+<li><a class="reference internal" href="#id26">Status Code: 200</a></li>
+<li><a class="reference internal" href="#id27">Description : response code is always 200 if server receives the request.</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a class="reference internal" href="#manual-adjudication-applicant-biometric-service">4.3 manual-adjudication-applicant-biometric service</a><ul>
+<li><a class="reference internal" href="#post-registrationprocessor-v1-manualverification-applicantbiometric"><code class="docutils literal notranslate"><span class="pre">POST</span> <span class="pre">/registrationprocessor/v1/manualverification/applicantBiometric</span></code></a></li>
+<li><a class="reference internal" href="#id28">Resource URL</a></li>
+<li><a class="reference internal" href="#id29">Resource details</a></li>
+<li><a class="reference internal" href="#id30">Parameters</a></li>
+<li><a class="reference internal" href="#id31">Request</a></li>
+<li><a class="reference internal" href="#id32">Response</a><ul>
+<li><a class="reference internal" href="#id33">Status Code: 200</a></li>
+<li><a class="reference internal" href="#id34">Description : response code is always 200 if server receives the request.</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a class="reference internal" href="#manual-adjudication-applicant-demographic-service">4.4 manual-adjudication-applicant-demographic service</a><ul>
+<li><a class="reference internal" href="#post-registrationprocessor-v1-manualverification-applicantdemographic"><code class="docutils literal notranslate"><span class="pre">POST</span> <span class="pre">/registrationprocessor/v1/manualverification/applicantDemographic</span></code></a></li>
+<li><a class="reference internal" href="#id35">Resource URL</a></li>
+<li><a class="reference internal" href="#id36">Resource details</a></li>
+<li><a class="reference internal" href="#id37">Parameters</a></li>
+<li><a class="reference internal" href="#id38">Request</a></li>
+<li><a class="reference internal" href="#id39">Response</a><ul>
+<li><a class="reference internal" href="#id40">Status Code: 200</a></li>
+<li><a class="reference internal" href="#id41">Description : response code is always 200 if server receives the request.</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a class="reference internal" href="#manual-adjudication-packet-metainfo-service">4.5 manual-adjudication-packet-metainfo service</a><ul>
+<li><a class="reference internal" href="#post-registrationprocessor-v1-manualverification-packetinfo"><code class="docutils literal notranslate"><span class="pre">POST</span> <span class="pre">/registrationprocessor/v1/manualverification/packetInfo</span></code></a></li>
+<li><a class="reference internal" href="#id42">Resource URL</a></li>
+<li><a class="reference internal" href="#id43">Resource details</a></li>
+<li><a class="reference internal" href="#id44">Parameters</a></li>
+<li><a class="reference internal" href="#id45">Request</a></li>
+<li><a class="reference internal" href="#id46">Response</a><ul>
+<li><a class="reference internal" href="#id47">Status Code: 200</a></li>
+<li><a class="reference internal" href="#id48">Description : response code is always 200 if server receives the request.</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a class="reference internal" href="#bio-dedupe-service">5 Bio Dedupe Service</a><ul>
+<li><a class="reference internal" href="#get-registrationprocessor-v1-bio-dedupe-biometricfile-referenceid"><code class="docutils literal notranslate"><span class="pre">GET</span> <span class="pre">/registrationprocessor/v1/bio-dedupe/biometricfile/{referenceid}</span></code></a></li>
+<li><a class="reference internal" href="#id49">Resource URL</a></li>
+<li><a class="reference internal" href="#id50">Resource details</a></li>
+<li><a class="reference internal" href="#id51">Parameters</a></li>
+<li><a class="reference internal" href="#id52">Response</a><ul>
+<li><a class="reference internal" href="#status-codes-200">Status codes: 200</a></li>
+<li><a class="reference internal" href="#id53">Description : response code is always 200 if server receives the request.</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a class="reference internal" href="#packet-generator-service">6 Packet Generator Service</a><ul>
+<li><a class="reference internal" href="#post-registrationprocessor-v1-requesthandler-packetgenerator"><code class="docutils literal notranslate"><span class="pre">POST</span> <span class="pre">/registrationprocessor/v1/requesthandler/packetgenerator</span></code></a></li>
+<li><a class="reference internal" href="#id54">Resource URL</a></li>
+<li><a class="reference internal" href="#id55">Resource details</a></li>
+<li><a class="reference internal" href="#id56">Parameters</a></li>
+<li><a class="reference internal" href="#id57">Request</a></li>
+<li><a class="reference internal" href="#id58">Response</a><ul>
+<li><a class="reference internal" href="#id59">Status Code:200</a></li>
+<li><a class="reference internal" href="#id60">Description : response code is always 200 if server receives the request.</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a class="reference internal" href="#packet-uploader-service">7 Packet Uploader Service</a><ul>
+<li><a class="reference internal" href="#post-registrationprocessor-v1-uploader-securezone"><code class="docutils literal notranslate"><span class="pre">POST</span> <span class="pre">/registrationprocessor/v1/uploader/securezone</span></code></a></li>
+<li><a class="reference internal" href="#id61">Resource URL</a></li>
+<li><a class="reference internal" href="#id62">Resource details</a></li>
+<li><a class="reference internal" href="#id63">Parameters</a></li>
+<li><a class="reference internal" href="#id64">Request</a></li>
+<li><a class="reference internal" href="#id65">Success Response</a></li>
+<li><a class="reference internal" href="#id66">Failure Response</a><ul>
+<li><a class="reference internal" href="#id67">Status Code:200</a></li>
+<li><a class="reference internal" href="#id68">Description : response code is always 200 if server receives the request.</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a class="reference internal" href="#registration-process-request-handler-service">8 Registration Process Request Handler Service</a><ul>
+<li><a class="reference internal" href="#post-registrationprocessor-v1-requesthandler-reprint"><code class="docutils literal notranslate"><span class="pre">POST</span> <span class="pre">/registrationprocessor/v1/requesthandler/reprint</span></code></a></li>
+<li><a class="reference internal" href="#id69">Resource URL</a></li>
+<li><a class="reference internal" href="#id70">Resource details</a></li>
+<li><a class="reference internal" href="#id71">Parameters</a><ul>
+<li><a class="reference internal" href="#id72">Request</a></li>
+<li><a class="reference internal" href="#id73">Response</a><ul>
+<li><a class="reference internal" href="#id74">Status Code:200</a></li>
+<li><a class="reference internal" href="#id75">Description : response code is always 200 if server receives the request.</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a class="reference internal" href="#registration-transaction-service">9 Registration Transaction Service</a><ul>
+<li><a class="reference internal" href="#id76">Resource URL</a></li>
+<li><a class="reference internal" href="#get-registrationprocessor-v1-registrationtransaction-search-langcode-rid"><code class="docutils literal notranslate"><span class="pre">GET</span> <span class="pre">/registrationprocessor/v1/registrationtransaction/search/{langcode}/{rid}</span></code></a><ul>
+<li><a class="reference internal" href="#id77">Resource details</a></li>
+<li><a class="reference internal" href="#id78">Parameters</a></li>
+<li><a class="reference internal" href="#id79">Request</a></li>
+<li><a class="reference internal" href="#id80">Response</a><ul>
+<li><a class="reference internal" href="#id81">Status Code: 200</a></li>
+<li><a class="reference internal" href="#id82">Description: Successfully retrieved information</a></li>
+<li><a class="reference internal" href="#id83">Status Code: 200</a></li>
+<li><a class="reference internal" href="#id84">Description: Successfully retrieved information</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a class="reference internal" href="#uincard-service">10 Uincard Service</a><ul>
+<li><a class="reference internal" href="#post-registrationprocessor-v1-print-uincard"><code class="docutils literal notranslate"><span class="pre">POST</span> <span class="pre">/registrationprocessor/v1/print/uincard</span></code></a></li>
+<li><a class="reference internal" href="#id85">Resource URL</a></li>
+<li><a class="reference internal" href="#id86">Resource details</a></li>
+<li><a class="reference internal" href="#id87">Parameters</a><ul>
+<li><a class="reference internal" href="#id88">Request</a></li>
+<li><a class="reference internal" href="#id89">Response</a><ul>
+<li><a class="reference internal" href="#id90">Status Code:200</a></li>
+<li><a class="reference internal" href="#id91">Description : response code is always 200 if server receives the request.</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">MOSIP</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html">Docs</a> &raquo;</li>
+        
+      <li>1 Packet Receiver Service</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/Registration-Processor-APIs.md.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <p>This section details about the service APIs in the Registration-Processor modules</p>
+<p><a class="reference external" href="#1-packet-receiver-service">1. Packet receiver Service</a></p>
+<p><a class="reference external" href="#2-registration-status-service">2. Registration status Service</a></p>
+<p><a class="reference external" href="#3-sync-registration-service">3. Sync Registration Service</a></p>
+<p><a class="reference external" href="#4-manual-adjudication-service">4. Manual Adjudication Service</a></p>
+<p><a class="reference external" href="#5-bio-dedupe-service">5. Bio Dedupe Service</a></p>
+<p><a class="reference external" href="#6-packet-generator-service">6. Packet Generator Service</a></p>
+<p><a class="reference external" href="#7-packet-uploader-service">7. Packet Uploader Service</a></p>
+<p><a class="reference external" href="#8-registration-process-request-handler-service">8. Registration Process Request Handler Service</a></p>
+<p><a class="reference external" href="#9-registration-transaction-service">9. Registration Transaction Service</a></p>
+<p><a class="reference external" href="#10-uincard-service">10. Uincard Service</a></p>
+<div class="section" id="packet-receiver-service">
+<h1>1 Packet Receiver Service<a class="headerlink" href="#packet-receiver-service" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="id1">
+<h2>1.1 Packet-receiver service<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li></li>
+</ul>
+<div class="section" id="post-registrationprocessor-v1-packetreceiver-registrationpackets">
+<h3><code class="docutils literal notranslate"><span class="pre">POST</span> <span class="pre">/registrationprocessor/v1/packetreceiver/registrationpackets</span></code><a class="headerlink" href="#post-registrationprocessor-v1-packetreceiver-registrationpackets" title="Permalink to this headline">¶</a></h3>
+</div>
+<div class="section" id="resource-url">
+<h3>Resource URL<a class="headerlink" href="#resource-url" title="Permalink to this headline">¶</a></h3>
+<p>https://mosip.io/registrationprocessor/v1/packetreceiver/registrationpackets</p>
+</div>
+<div class="section" id="resource-details">
+<h3>Resource details<a class="headerlink" href="#resource-details" title="Permalink to this headline">¶</a></h3>
+<p>Resource Details | Description
+------------ | -------------
+Request format | MULTIPART
+Response format | JSON
+Requires Authentication | Yes</p>
+</div>
+<div class="section" id="request-path-parameters">
+<h3>Request Path Parameters<a class="headerlink" href="#request-path-parameters" title="Permalink to this headline">¶</a></h3>
+<p>Name | Required | Description | Comment
+-----|----------|-------------|---------------|
+MultipartFile|Yes|The encrypted zip file|</p>
+</div>
+<div class="section" id="request">
+<h3>Request<a class="headerlink" href="#request" title="Permalink to this headline">¶</a></h3>
+<p><img alt="Request" src="_images/packet_receiver_sample_input.PNG" /></p>
+</div>
+<div class="section" id="response">
+<h3>Response<a class="headerlink" href="#response" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="success-response">
+<h4>Success response<a class="headerlink" href="#success-response" title="Permalink to this headline">¶</a></h4>
+<div class="section" id="status-code-200">
+<h5>Status Code: 200<a class="headerlink" href="#status-code-200" title="Permalink to this headline">¶</a></h5>
+</div>
+<div class="section" id="description-packet-is-in-packet-received-status">
+<h5>Description: Packet is in PACKET_RECEIVED status<a class="headerlink" href="#description-packet-is-in-packet-received-status" title="Permalink to this headline">¶</a></h5>
+<div class="highlight-JSON notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+	<span class="nt">&quot;id&quot;</span> <span class="p">:</span> <span class="s2">&quot;mosip.registration.packet&quot;</span><span class="p">,</span>
+	<span class="nt">&quot;version&quot;</span> <span class="p">:</span> <span class="s2">&quot;1.0&quot;</span><span class="p">,</span>
+	<span class="nt">&quot;responsetime&quot;</span> <span class="p">:</span> <span class="s2">&quot;2019-02-02T06:12:25.288Z&quot;</span><span class="p">,</span>
+	<span class="nt">&quot;response&quot;</span> <span class="p">:</span> <span class="p">{</span>
+		<span class="nt">&quot;status&quot;</span> <span class="p">:</span> <span class="s2">&quot;Packet is in PACKET_RECEIVED status&quot;</span>
+	<span class="p">},</span>
+	<span class="nt">&quot;errors&quot;</span><span class="p">:</span> <span class="kc">null</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="failure-response">
+<h3>Failure response<a class="headerlink" href="#failure-response" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id2">
+<h4>Status Code: 200<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h4>
+</div>
+<div class="section" id="description-the-request-received-is-a-duplicate-request-to-upload-a-packet">
+<h4>Description: The request received is a duplicate request to upload a Packet<a class="headerlink" href="#description-the-request-received-is-a-duplicate-request-to-upload-a-packet" title="Permalink to this headline">¶</a></h4>
+<div class="highlight-JSON notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+  <span class="nt">&quot;id&quot;</span> <span class="p">:</span> <span class="s2">&quot;mosip.registration.packet&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;version&quot;</span> <span class="p">:</span> <span class="s2">&quot;1.0&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;responsetime&quot;</span><span class="p">:</span> <span class="s2">&quot;2019-02-02T06:12:25.288Z&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;response&quot;</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
+  <span class="nt">&quot;errors&quot;</span> <span class="p">:</span> <span class="p">[{</span>
+		<span class="nt">&quot;errorcode&quot;</span><span class="p">:</span> <span class="s2">&quot;RPR-PKR-005&quot;</span><span class="p">,</span>
+	    <span class="nt">&quot;message&quot;</span><span class="p">:</span> <span class="s2">&quot;The request received is a duplicate request to upload a Packet&quot;</span>
+	<span class="p">}]</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<p>This service receives registration packet from client. Before moving packet to landing zone it is sent for virus scan and then trustworthiness of the packet is validated using hash value and size.</p>
+</div>
+<div class="section" id="registration-status-service">
+<h1>2 Registration Status Service<a class="headerlink" href="#registration-status-service" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li></li>
+</ul>
+<div class="section" id="post-registrationprocessor-v1-registrationstatus-search">
+<h2><code class="docutils literal notranslate"><span class="pre">POST</span> <span class="pre">/registrationprocessor/v1/registrationstatus/search</span></code><a class="headerlink" href="#post-registrationprocessor-v1-registrationstatus-search" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id3">
+<h3>Resource URL<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h3>
+<p>https://mosip.io/registrationprocessor/v1/registrationstatus/search</p>
+</div>
+<div class="section" id="id4">
+<h3>Resource details<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h3>
+<p>Resource Details | Description
+------------ | -------------
+Request format | JSON
+Response format | JSON
+Requires Authentication | Yes</p>
+</div>
+<div class="section" id="parameters">
+<h3>Parameters<a class="headerlink" href="#parameters" title="Permalink to this headline">¶</a></h3>
+<p>Name | Required | Description | Comment |
+-----|----------|-------------|---------------|
+registrationIds|Yes|List of registration ids|</p>
+</div>
+<div class="section" id="id5">
+<h3>Request<a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-JSON notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+  <span class="nt">&quot;id&quot;</span> <span class="p">:</span> <span class="s2">&quot;mosip.registration.status&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;version&quot;</span> <span class="p">:</span> <span class="s2">&quot;1.0&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;requesttime&quot;</span><span class="p">:</span> <span class="s2">&quot;2019-02-14T12:40:59.768Z&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;request&quot;</span> <span class="p">:</span> <span class="p">[</span>
+	<span class="p">{</span>
+		<span class="nt">&quot;registrationId&quot;</span> <span class="p">:</span> <span class="s2">&quot;2018701130000410092012345678&quot;</span>
+	<span class="p">},</span>
+	<span class="p">{</span>
+		<span class="nt">&quot;registrationId&quot;</span> <span class="p">:</span> <span class="s2">&quot;2018701130000410092012345678&quot;</span>
+	<span class="p">}</span>
+  <span class="p">]</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="id6">
+<h3>Response<a class="headerlink" href="#id6" title="Permalink to this headline">¶</a></h3>
+<p>Record found :</p>
+<div class="section" id="id7">
+<h4>Status Code: 200<a class="headerlink" href="#id7" title="Permalink to this headline">¶</a></h4>
+</div>
+<div class="section" id="description-successfully-retrieved-information">
+<h4>Description: Successfully retrieved information<a class="headerlink" href="#description-successfully-retrieved-information" title="Permalink to this headline">¶</a></h4>
+<div class="highlight-JSON notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+  <span class="nt">&quot;id&quot;</span> <span class="p">:</span> <span class="s2">&quot;mosip.registration.status&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;version&quot;</span> <span class="p">:</span> <span class="s2">&quot;1.0&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;responsetime&quot;</span><span class="p">:</span> <span class="s2">&quot;2019-02-14T12:40:59.768Z&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;response&quot;</span> <span class="p">:</span> <span class="p">[</span>
+  <span class="p">{</span>
+    <span class="nt">&quot;registrationId&quot;</span><span class="p">:</span> <span class="s2">&quot;2018701130000410092012345678&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;statusCode&quot;</span><span class="p">:</span> <span class="s2">&quot;PROCESSING&quot;</span>
+  <span class="p">},</span>
+  <span class="p">{</span>
+    <span class="nt">&quot;registrationId&quot;</span><span class="p">:</span> <span class="s2">&quot;2018701130000410092018110735&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;statusCode&quot;</span><span class="p">:</span> <span class="s2">&quot;PROCESSED&quot;</span>
+  <span class="p">}</span>
+<span class="p">],</span>
+<span class="nt">&quot;errors&quot;</span><span class="p">:</span> <span class="kc">null</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Record not found :</p>
+</div>
+<div class="section" id="id8">
+<h4>Status Code: 200<a class="headerlink" href="#id8" title="Permalink to this headline">¶</a></h4>
+</div>
+<div class="section" id="id9">
+<h4>Description: Successfully retrieved information<a class="headerlink" href="#id9" title="Permalink to this headline">¶</a></h4>
+<div class="highlight-JSON notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+  <span class="nt">&quot;id&quot;</span> <span class="p">:</span> <span class="s2">&quot;mosip.registration.status&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;version&quot;</span> <span class="p">:</span> <span class="s2">&quot;1.0&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;responsetime&quot;</span><span class="p">:</span> <span class="s2">&quot;2019-02-14T12:40:59.768Z&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;response&quot;</span> <span class="p">:</span> <span class="p">[],</span>
+  <span class="nt">&quot;errors&quot;</span><span class="p">:</span> <span class="kc">null</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<p>This service return the registration current status for list of input registration ids.</p>
+<div class="section" id="sync-registration-service">
+<h1>3 Sync registration Service<a class="headerlink" href="#sync-registration-service" title="Permalink to this headline">¶</a></h1>
+<p>The registration ids has to be synced with server before uploading packet to landing zone. This service is used to syncs registration ids.</p>
+<ul class="simple">
+<li></li>
+</ul>
+<div class="section" id="post-registrationprocessor-v1-registrationstatus-sync">
+<h2><code class="docutils literal notranslate"><span class="pre">POST</span> <span class="pre">/registrationprocessor/v1/registrationstatus/sync</span></code><a class="headerlink" href="#post-registrationprocessor-v1-registrationstatus-sync" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="id10">
+<h2>Resource URL<a class="headerlink" href="#id10" title="Permalink to this headline">¶</a></h2>
+<p>https://mosip.io/registrationprocessor/v1/registrationstatus/sync</p>
+</div>
+<div class="section" id="id11">
+<h2>Resource details<a class="headerlink" href="#id11" title="Permalink to this headline">¶</a></h2>
+<p>Resource Details | Description
+------------ | -------------
+Request format | JSON
+Response format | JSON
+Requires Authentication | Yes</p>
+</div>
+<div class="section" id="id12">
+<h2>Parameters<a class="headerlink" href="#id12" title="Permalink to this headline">¶</a></h2>
+<p>Name | Required | Description | Comment
+-----|----------|-------------|---------------|
+id|Yes|the id for sync|mosip.registration.sync
+version|Yes|the version for sync|1.0
+requesttime|Yes|the requesttime for sync|2019-02-14T12:40:59.768Z
+request|Yes|the request object|1.0
+registrationId|Yes|the registration id|80006444440002520181208094000
+registrationType|Yes|the type of the registration|NEW, UPDATE, LOST, ACTIVATE, DEACTIVATE, RES_UPDATE
+packetHashValue|Yes|the hash value of the encrypted packet|D7C87DC5D3A759D77433B02B80435CFAB5087F1A942543F51A5075BC441BF7EB
+packetSize|Yes|size of encrypted packet in bytes|5242880
+supervisorStatus|Yes|supervisor decision|APPROVED, REJECTED
+supervisorComment|No|supervisor comments|rejected because of error
+optionalValues|No|additional values to be passed during sync|key, value pair
+langCode|Yes|language code used |eng or ara</p>
+<div class="section" id="request-header">
+<h3>Request Header<a class="headerlink" href="#request-header" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="center-machine-refid-10011-10011">
+<h4>Center-Machine-RefId = <code class="docutils literal notranslate"><span class="pre">10011_10011</span></code><a class="headerlink" href="#center-machine-refid-10011-10011" title="Permalink to this headline">¶</a></h4>
+</div>
+<div class="section" id="timestamp-2019-02-14t12-40-59-768z">
+<h4>timestamp = <code class="docutils literal notranslate"><span class="pre">2019-02-14T12:40:59.768Z</span></code><a class="headerlink" href="#timestamp-2019-02-14t12-40-59-768z" title="Permalink to this headline">¶</a></h4>
+</div>
+</div>
+<div class="section" id="id13">
+<h3>Request<a class="headerlink" href="#id13" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-JSON notranslate"><div class="highlight"><pre><span></span>// NOTE : the actual request will be an encrypted json. This is an example of decrypted request json.
+{
+	&quot;id&quot;: &quot;mosip.registration.sync&quot;,
+	&quot;version&quot;: &quot;1.0&quot;,
+	&quot;requesttime&quot;: &quot;2019-02-14T12:40:59.768Z&quot;,
+	&quot;request&quot;: [{
+			&quot;registrationId&quot;: &quot;80006444440002520181208094000&quot;,
+			&quot;registrationType&quot;: &quot;NEW&quot;,
+			&quot;packetHashValue&quot;: &quot;D7C87DC5D3A759D77433B02B80435CFAB5087F1A942543F51A5075BC441BF7EB&quot;,
+			&quot;packetSize&quot;: 5242880,
+			&quot;supervisorStatus&quot;: &quot;APPROVED&quot;,
+			&quot;supervisorComment&quot;: &quot;Approved, all good&quot;,
+			&quot;langCode&quot;: &quot;eng&quot;,
+			&quot;optionalValues&quot;: [{
+				&quot;key&quot;: &quot;CNIE&quot;,
+				&quot;value&quot;: &quot;122223456&quot;
+			}]
+		},
+		{
+			&quot;registrationId&quot;: &quot;10011100110002520181208094000&quot;,
+			&quot;registrationType&quot;: &quot;UPDATE&quot;,
+			&quot;packetHashValue&quot;: &quot;D7C87DC5D3A759D77433B02B80435CFAB5087F1A942543F51A5075BC441BF7EB&quot;,
+			&quot;packetSize&quot;: 4242880,
+			&quot;supervisorStatus&quot;: &quot;REJECTED&quot;,
+			&quot;supervisorComment&quot;: &quot;Rejected due to error&quot;,
+			&quot;langCode&quot;: &quot;eng&quot;,
+			&quot;optionalValues&quot;: [{
+				&quot;key&quot;: &quot;CNIE&quot;,
+				&quot;value&quot;: &quot;3456789o&quot;
+			}]
+		}
+	]
+}
+</pre></div>
+</div>
+</div>
+<div class="section" id="id14">
+<h3>Response<a class="headerlink" href="#id14" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="response-code-200">
+<h4>Response Code: 200<a class="headerlink" href="#response-code-200" title="Permalink to this headline">¶</a></h4>
+</div>
+<div class="section" id="description-successfully-synced">
+<h4>Description: Successfully synced<a class="headerlink" href="#description-successfully-synced" title="Permalink to this headline">¶</a></h4>
+<p>Success response :</p>
+<div class="highlight-JSON notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+  <span class="nt">&quot;id&quot;</span> <span class="p">:</span> <span class="s2">&quot;mosip.registration.sync&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;version&quot;</span> <span class="p">:</span> <span class="s2">&quot;1.0&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;responsetime&quot;</span><span class="p">:</span> <span class="s2">&quot;2019-02-14T12:40:59.768Z&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;errors&quot;</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
+  <span class="nt">&quot;response&quot;</span> <span class="p">:</span> <span class="p">[</span>
+	  <span class="p">{</span>
+		<span class="nt">&quot;registrationId&quot;</span><span class="p">:</span> <span class="s2">&quot;1234575&quot;</span><span class="p">,</span>
+		<span class="nt">&quot;status&quot;</span><span class="p">:</span> <span class="s2">&quot;SUCCESS&quot;</span>
+	  <span class="p">},</span>
+	  <span class="p">{</span>
+		<span class="nt">&quot;registrationId&quot;</span><span class="p">:</span> <span class="s2">&quot;12345678901234567890123456789&quot;</span><span class="p">,</span>
+		<span class="nt">&quot;status&quot;</span><span class="p">:</span> <span class="s2">&quot;SUCCESS&quot;</span>
+	  <span class="p">},</span>
+	  <span class="p">{</span>
+		<span class="nt">&quot;registrationId&quot;</span><span class="p">:</span> <span class="s2">&quot;27847657360002520181208183052&quot;</span><span class="p">,</span>
+		<span class="nt">&quot;status&quot;</span><span class="p">:</span> <span class="s2">&quot;SUCCESS&quot;</span>
+	  <span class="p">}</span>
+	<span class="p">]</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Failure response</p>
+<div class="highlight-JSON notranslate"><div class="highlight"><pre><span></span>// response 1 : decryption failed
+{
+  &quot;id&quot; : &quot;mosip.registration.sync&quot;,
+  &quot;version&quot; : &quot;1.0&quot;,
+  &quot;responsetime&quot;: &quot;2019-02-14T12:40:59.768Z&quot;,
+  &quot;response&quot;: null,
+  &quot;errors&quot; : [
+	  {
+		&quot;status&quot;: &quot;FAILURE&quot;,
+                &quot;errorCode&quot;: &quot;RPR-RGS-001&quot;,
+		&quot;errorMessage&quot;: &quot;Decryption failed&quot;
+	  }
+	]
+}
+
+// response 2 : validation failed
+
+{
+  &quot;id&quot; : &quot;mosip.registration.sync&quot;,
+  &quot;version&quot; : &quot;1.0&quot;,
+  &quot;responsetime&quot;: &quot;2019-02-14T12:40:59.768Z&quot;,
+  &quot;response&quot;: null,
+  &quot;errors&quot; : [
+	  {
+		&quot;registrationId&quot;: &quot;1234575&quot;,
+		&quot;status&quot;: &quot;FAILURE&quot;,
+                &quot;errorCode&quot;: &quot;RPR-RGS-009&quot;,
+		&quot;errorMessage&quot;: &quot;RegistrationId Length Must Be 29&quot;
+	  },
+	  {
+		&quot;registrationId&quot;: &quot;12345678901234567890123456789&quot;,
+		&quot;status&quot;: &quot;FAILURE&quot;,
+		&quot;errorCode&quot;: &quot;RPR-RGS-007&quot;,
+                &quot;errorMessage&quot;: &quot;Invalid Time Stamp Found in RegistrationId&quot;
+	  },
+	  {
+		&quot;registrationId&quot;: &quot;27847657360002520181208183052&quot;,
+		&quot;status&quot;: &quot;FAILURE&quot;,
+		&quot;errorCode&quot;: &quot;RPR-RGS-012&quot;,
+		&quot;errorMessage&quot;: &quot;Parent RegistrationId Length Must Be 29&quot;
+	  }
+	]
+}
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="manual-adjudication-service">
+<h1>4 Manual Adjudication Service<a class="headerlink" href="#manual-adjudication-service" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="manual-adjudication-assignment-service">
+<h2>4.1 manual-adjudication-assignment service<a class="headerlink" href="#manual-adjudication-assignment-service" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li></li>
+</ul>
+<div class="section" id="post-registrationprocessor-v1-manualverification-assignment">
+<h3><code class="docutils literal notranslate"><span class="pre">POST</span> <span class="pre">/registrationprocessor/v1/manualverification/assignment</span></code><a class="headerlink" href="#post-registrationprocessor-v1-manualverification-assignment" title="Permalink to this headline">¶</a></h3>
+</div>
+<div class="section" id="id15">
+<h3>Resource URL<a class="headerlink" href="#id15" title="Permalink to this headline">¶</a></h3>
+<p>https://mosip.io/registrationprocessor/v1/manualverification/assignment</p>
+</div>
+<div class="section" id="id16">
+<h3>Resource details<a class="headerlink" href="#id16" title="Permalink to this headline">¶</a></h3>
+<p>Resource Details | Description
+------------ | -------------
+Request format | JSON
+Response format | JSON
+Requires Authentication | Yes</p>
+</div>
+<div class="section" id="id17">
+<h3>Parameters<a class="headerlink" href="#id17" title="Permalink to this headline">¶</a></h3>
+<p>Name | Required | Description | Comment
+-----|----------|-------------|---------------|
+String|Yes|The user id|</p>
+</div>
+<div class="section" id="id18">
+<h3>Request<a class="headerlink" href="#id18" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-JSON notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+  <span class="nt">&quot;id&quot;</span> <span class="p">:</span> <span class="s2">&quot;mosip.manual.verification.assignment&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;version&quot;</span> <span class="p">:</span> <span class="s2">&quot;1.0&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;requesttime&quot;</span><span class="p">:</span> <span class="s2">&quot;2019-02-14T12:40:59.768Z&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;request&quot;</span> <span class="p">:</span> <span class="p">{</span>
+	<span class="nt">&quot;userId&quot;</span><span class="p">:</span> <span class="s2">&quot;mono29&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;matchType&quot;</span> <span class="p">:</span> <span class="s2">&quot;all&quot;</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="id19">
+<h3>Response<a class="headerlink" href="#id19" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id20">
+<h4>Status Code: 200<a class="headerlink" href="#id20" title="Permalink to this headline">¶</a></h4>
+</div>
+<div class="section" id="description-response-code-is-always-200-if-server-receives-the-request">
+<h4>Description : response code is always 200 if server receives the request.<a class="headerlink" href="#description-response-code-is-always-200-if-server-receives-the-request" title="Permalink to this headline">¶</a></h4>
+<p>Success response</p>
+<div class="highlight-JSON notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+  <span class="nt">&quot;id&quot;</span> <span class="p">:</span> <span class="s2">&quot;mosip.manual.verification.assignment&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;version&quot;</span> <span class="p">:</span> <span class="s2">&quot;1.0&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;responsetime&quot;</span><span class="p">:</span> <span class="s2">&quot;2019-02-14T12:40:59.768Z&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;response&quot;</span> <span class="p">:</span> <span class="p">{</span>
+	  <span class="nt">&quot;regId&quot;</span><span class="p">:</span> <span class="s2">&quot;27847657360002520181208123456&quot;</span><span class="p">,</span>
+	  <span class="nt">&quot;mvUsrId&quot;</span><span class="p">:</span> <span class="s2">&quot;mono29&quot;</span><span class="p">,</span>
+	  <span class="nt">&quot;statusCode&quot;</span><span class="p">:</span> <span class="s2">&quot;ASSIGNED&quot;</span><span class="p">,</span>
+	  <span class="nt">&quot;matchedRefId&quot;</span><span class="p">:</span> <span class="s2">&quot;27847657360002520181208123456&quot;</span><span class="p">,</span>
+	  <span class="nt">&quot;matchedRefType&quot;</span><span class="p">:</span> <span class="s2">&quot;UIN&quot;</span><span class="p">,</span>
+	  <span class="nt">&quot;reasonCode&quot;</span><span class="p">:</span> <span class="kc">null</span>
+	<span class="p">},</span>
+	<span class="nt">&quot;errors&quot;</span><span class="p">:</span> <span class="kc">null</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Failure response</p>
+<div class="highlight-JSON notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+  <span class="nt">&quot;id&quot;</span> <span class="p">:</span> <span class="s2">&quot;mosip.manual.verification.assignment&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;version&quot;</span> <span class="p">:</span> <span class="s2">&quot;1.0&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;responsetime&quot;</span><span class="p">:</span> <span class="s2">&quot;2019-02-14T12:40:59.768Z&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;response&quot;</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
+	<span class="nt">&quot;errors&quot;</span> <span class="p">:</span> <span class="p">[{</span>
+		<span class="nt">&quot;errorCode&quot;</span> <span class="p">:</span> <span class="s2">&quot;RPR-FAC-003&quot;</span><span class="p">,</span>
+		<span class="nt">&quot;message&quot;</span> <span class="p">:</span> <span class="s2">&quot;Cannot find the Registration Packet&quot;</span>
+	<span class="p">}]</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<p>This service is used to assign one single unassigned applicant record to the input user.</p>
+<div class="section" id="manual-adjudication-decision-service">
+<h2>4.2 manual-adjudication-decision service<a class="headerlink" href="#manual-adjudication-decision-service" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li></li>
+</ul>
+<div class="section" id="post-registrationprocessor-v1-manualverification-decision">
+<h3><code class="docutils literal notranslate"><span class="pre">POST</span> <span class="pre">/registrationprocessor/v1/manualverification/decision</span></code><a class="headerlink" href="#post-registrationprocessor-v1-manualverification-decision" title="Permalink to this headline">¶</a></h3>
+</div>
+<div class="section" id="id21">
+<h3>Resource URL<a class="headerlink" href="#id21" title="Permalink to this headline">¶</a></h3>
+<p>https://mosip.io/registrationprocessor/v1/manualverification/decision</p>
+</div>
+<div class="section" id="id22">
+<h3>Resource details<a class="headerlink" href="#id22" title="Permalink to this headline">¶</a></h3>
+<p>Resource Details | Description
+------------ | -------------
+Request format | JSON
+Response format | JSON
+Requires Authentication | Yes</p>
+</div>
+<div class="section" id="id23">
+<h3>Parameters<a class="headerlink" href="#id23" title="Permalink to this headline">¶</a></h3>
+<p>Name | Required | Description | Comment
+-----|----------|-------------|---------------|
+ManualVerificationDTO|Yes|Dto containing manual adjudication info|</p>
+</div>
+<div class="section" id="id24">
+<h3>Request<a class="headerlink" href="#id24" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-JSON notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+  <span class="nt">&quot;id&quot;</span> <span class="p">:</span> <span class="s2">&quot;mosip.manual.verification.decision&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;version&quot;</span> <span class="p">:</span> <span class="s2">&quot;1.0&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;requesttime&quot;</span><span class="p">:</span> <span class="s2">&quot;2019-02-14T12:40:59.768Z&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;request&quot;</span> <span class="p">:</span> <span class="p">{</span>
+	  <span class="nt">&quot;matchedRefId&quot;</span><span class="p">:</span> <span class="s2">&quot;27847657360002520181208123987&quot;</span><span class="p">,</span>
+	  <span class="nt">&quot;matchedRefType&quot;</span><span class="p">:</span> <span class="s2">&quot;RID&quot;</span><span class="p">,</span>
+	  <span class="nt">&quot;mvUsrId&quot;</span><span class="p">:</span> <span class="s2">&quot;mono&quot;</span><span class="p">,</span>
+	  <span class="nt">&quot;reasonCode&quot;</span><span class="p">:</span> <span class="s2">&quot;Problem with biometrics&quot;</span><span class="p">,</span>
+	  <span class="nt">&quot;regId&quot;</span><span class="p">:</span> <span class="s2">&quot;27847657360002520181208123456&quot;</span><span class="p">,</span>
+	  <span class="nt">&quot;statusCode&quot;</span><span class="p">:</span> <span class="s2">&quot;APPROVED&quot;</span>
+	<span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="id25">
+<h3>Response<a class="headerlink" href="#id25" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id26">
+<h4>Status Code: 200<a class="headerlink" href="#id26" title="Permalink to this headline">¶</a></h4>
+</div>
+<div class="section" id="id27">
+<h4>Description : response code is always 200 if server receives the request.<a class="headerlink" href="#id27" title="Permalink to this headline">¶</a></h4>
+<p>Success response</p>
+<div class="highlight-JSON notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+  <span class="nt">&quot;id&quot;</span> <span class="p">:</span> <span class="s2">&quot;mosip.manual.verification.decision&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;version&quot;</span> <span class="p">:</span> <span class="s2">&quot;1.0&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;responsetime&quot;</span><span class="p">:</span> <span class="s2">&quot;2019-02-14T12:40:59.768Z&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;response&quot;</span> <span class="p">:</span> <span class="p">{</span>
+	  <span class="nt">&quot;regId&quot;</span><span class="p">:</span> <span class="s2">&quot;27847657360002520181208123456&quot;</span><span class="p">,</span>
+	  <span class="nt">&quot;mvUsrId&quot;</span><span class="p">:</span> <span class="s2">&quot;mono&quot;</span><span class="p">,</span>
+	  <span class="nt">&quot;statusCode&quot;</span><span class="p">:</span> <span class="s2">&quot;APPROVED&quot;</span><span class="p">,</span>
+	  <span class="nt">&quot;matchedRefId&quot;</span><span class="p">:</span> <span class="s2">&quot;27847657360002520181208123987&quot;</span><span class="p">,</span>
+	  <span class="nt">&quot;matchedRefType&quot;</span><span class="p">:</span> <span class="s2">&quot;RID&quot;</span><span class="p">,</span>
+	  <span class="nt">&quot;reasonCode&quot;</span><span class="p">:</span> <span class="s2">&quot;Problem with biometrics&quot;</span>
+	<span class="p">},</span>
+	<span class="nt">&quot;errors&quot;</span><span class="p">:</span> <span class="kc">null</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Failure response</p>
+<div class="highlight-JSON notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+  <span class="nt">&quot;id&quot;</span> <span class="p">:</span> <span class="s2">&quot;mosip.manual.verification.decision&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;version&quot;</span> <span class="p">:</span> <span class="s2">&quot;1.0&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;responsetime&quot;</span><span class="p">:</span> <span class="s2">&quot;2019-02-14T12:40:59.768Z&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;response&quot;</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
+	<span class="nt">&quot;errors&quot;</span> <span class="p">:</span> <span class="p">[{</span>
+		<span class="nt">&quot;errorCode&quot;</span> <span class="p">:</span> <span class="s2">&quot;RPR-MVS-003&quot;</span><span class="p">,</span>
+		<span class="nt">&quot;message&quot;</span> <span class="p">:</span> <span class="s2">&quot;Invalid status update&quot;</span>
+	<span class="p">}]</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<p>This service is used to get the decision from manual adjudicator for an applicant and update the decision in table.</p>
+<div class="section" id="manual-adjudication-applicant-biometric-service">
+<h2>4.3 manual-adjudication-applicant-biometric service<a class="headerlink" href="#manual-adjudication-applicant-biometric-service" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li></li>
+</ul>
+<div class="section" id="post-registrationprocessor-v1-manualverification-applicantbiometric">
+<h3><code class="docutils literal notranslate"><span class="pre">POST</span> <span class="pre">/registrationprocessor/v1/manualverification/applicantBiometric</span></code><a class="headerlink" href="#post-registrationprocessor-v1-manualverification-applicantbiometric" title="Permalink to this headline">¶</a></h3>
+</div>
+<div class="section" id="id28">
+<h3>Resource URL<a class="headerlink" href="#id28" title="Permalink to this headline">¶</a></h3>
+<p>https://mosip.io/registrationprocessor/v1/manualverification/applicantBiometric</p>
+</div>
+<div class="section" id="id29">
+<h3>Resource details<a class="headerlink" href="#id29" title="Permalink to this headline">¶</a></h3>
+<p>Resource Details | Description
+------------ | -------------
+Request format | JSON
+Response format | byte[]
+Requires Authentication | Yes</p>
+</div>
+<div class="section" id="id30">
+<h3>Parameters<a class="headerlink" href="#id30" title="Permalink to this headline">¶</a></h3>
+<p>Name | Required | Description | Comment
+-----|----------|-------------|---------------|
+FileRequestDto|Yes|Dto containing registration id and file name|</p>
+</div>
+<div class="section" id="id31">
+<h3>Request<a class="headerlink" href="#id31" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-JSON notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+  <span class="nt">&quot;id&quot;</span> <span class="p">:</span> <span class="s2">&quot;mosip.manual.verification.biometric&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;version&quot;</span> <span class="p">:</span> <span class="s2">&quot;1.0&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;requesttime&quot;</span><span class="p">:</span> <span class="s2">&quot;2019-02-14T12:40:59.768Z&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;request&quot;</span> <span class="p">:</span> <span class="p">{</span>
+	  <span class="nt">&quot;regId&quot;</span><span class="p">:</span> <span class="s2">&quot;27847657360002520181208123456&quot;</span>
+	<span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="id32">
+<h3>Response<a class="headerlink" href="#id32" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id33">
+<h4>Status Code: 200<a class="headerlink" href="#id33" title="Permalink to this headline">¶</a></h4>
+</div>
+<div class="section" id="id34">
+<h4>Description : response code is always 200 if server receives the request.<a class="headerlink" href="#id34" title="Permalink to this headline">¶</a></h4>
+<p>Success :</p>
+<div class="highlight-JSON notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+  <span class="nt">&quot;id&quot;</span> <span class="p">:</span> <span class="s2">&quot;mosip.manual.verification.biometric&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;version&quot;</span> <span class="p">:</span> <span class="s2">&quot;1.0&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;responsetime&quot;</span><span class="p">:</span> <span class="s2">&quot;2019-02-14T12:40:59.768Z&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;response&quot;</span> <span class="p">:</span> <span class="p">{</span>
+	  <span class="nt">&quot;file&quot;</span><span class="p">:</span> <span class="s2">&quot;&lt;?xml version=\&quot;1.0\&quot; encoding=\&quot;UTF-8\&quot; standalone=\&quot;yes\&quot;?&gt;\n&lt;BIR xmlns=\&quot;http://standards.iso.org/iso-iec/19785/-3/ed-2/\&quot;&gt;\n    &lt;BIRInfo&gt;\n        &lt;Integrity&gt;false&lt;/Integrity&gt;\n    &lt;/BIRInfo&gt;\n    &lt;BIR&gt;\n        &lt;Version&gt;\n            &lt;Major&gt;1&lt;/Major&gt;\n            &lt;Minor&gt;1&lt;/Minor&gt;\n        &lt;/Version&gt;\n        &lt;CBEFFVersion&gt;\n            &lt;Major&gt;1&lt;/Major&gt;\n            &lt;Minor&gt;1&lt;/Minor&gt;\n        &lt;/CBEFFVersion&gt;\n        &lt;ns2:TestFinger xmlns:ns2=\&quot;testschema\&quot;&gt;Duplicate&lt;/ns2:TestFinger&gt;\n        &lt;BIRInfo&gt;\n            &lt;Integrity&gt;false&lt;/Integrity&gt;\n        &lt;/BIRInfo&gt;\n        &lt;BDBInfo&gt;\n            &lt;Index&gt;9317b2fd-d022-4bdf-8edb-24078e63a673&lt;/Index&gt;\n            &lt;Format&gt;\n                &lt;Organization&gt;Mosip&lt;/Organization&gt;\n                &lt;Type&gt;7&lt;/Type&gt;\n            &lt;/Format&gt;\n            &lt;CreationDate&gt;2019-09-05T05:45:26.385Z&lt;/CreationDate&gt;\n            &lt;Type&gt;Finger&lt;/Type&gt;\n            &lt;Subtype&gt;Left IndexFinger&lt;/Subtype&gt;\n            &lt;Level&gt;Raw&lt;/Level&gt;\n            &lt;Purpose&gt;Enroll&lt;/Purpose&gt;\n            &lt;Quality&gt;\n                &lt;Algorithm&gt;\n                    &lt;Organization&gt;HMAC&lt;/Organization&gt;\n                    &lt;Type&gt;SHA-256&lt;/Type&gt;\n                &lt;/Algorithm&gt;\n                &lt;Score&gt;90&lt;/Score&gt;\n            &lt;/Quality&gt;\n        &lt;/BDBInfo&gt;\n        &lt;BDB&gt;Rk1SACAyMAAAAAEaAAABPAFiAMUAxQEAAAAoKoCKAMcjUIB3ANAuZEB9AOkiZICKAIEOZIDNAIvjZIBsARIVZECMAST8ZEBGAQ8jIUA7ARCUIUBBAGkcXUDlAFfuZICvAVx3FEC+ACr2ZIBfACATXYCYAK6tUICaAJz/V0C/APhXZICuAH6LZEB9ARcMZEDKAHfsZIDrAHxsZIEOANlZZICBAFKcZIDPAUH6ZEDYATx7ZEA4AToIV0AxAUjfQ0DzACnuZICDAK4hXYC3AKLeXYBkAOUvZEDXAPBUZIC2ARl1ZEBeAQ4dZECDATXzZEBNAR0SXUBbATb8XUEiAM3XQ0D1ATdpZIDjADp0ZICkABsGZIDFABaDZAAA&lt;/BDB&gt;\n    &lt;/BIR&gt;\n    &lt;BIR&gt;\n        &lt;Version&gt;\n            &lt;Major&gt;1&lt;/Major&gt;\n            &lt;Minor&gt;1&lt;/Minor&gt;\n        &lt;/Version&gt;\n        &lt;CBEFFVersion&gt;\n            &lt;Major&gt;1&lt;/Major&gt;\n            &lt;Minor&gt;1&lt;/Minor&gt;\n        &lt;/CBEFFVersion&gt;\n        &lt;ns2:TestFinger xmlns:ns2=\&quot;testschema\&quot;&gt;Duplicate&lt;/ns2:TestFinger&gt;\n        &lt;BIRInfo&gt;\n            &lt;Integrity&gt;false&lt;/Integrity&gt;\n        &lt;/BIRInfo&gt;\n        &lt;BDBInfo&gt;\n            &lt;Index&gt;8272d67e-879b-4e5b-8993-6919c1f4ec53&lt;/Index&gt;\n            &lt;Format&gt;\n                &lt;Organization&gt;Mosip&lt;/Organization&gt;\n                &lt;Type&gt;7&lt;/Type&gt;\n            &lt;/Format&gt;\n            &lt;CreationDate&gt;2019-09-05T05:45:26.386Z&lt;/CreationDate&gt;\n            &lt;Type&gt;Finger&lt;/Type&gt;\n            &lt;Subtype&gt;Left LittleFinger&lt;/Subtype&gt;\n            &lt;Level&gt;Raw&lt;/Level&gt;\n            &lt;Purpose&gt;Enroll&lt;/Purpose&gt;\n            &lt;Quality&gt;\n                &lt;Algorithm&gt;\n                    &lt;Organization&gt;HMAC&lt;/Organization&gt;\n                    &lt;Type&gt;SHA-256&lt;/Type&gt;\n                &lt;/Algorithm&gt;\n                &lt;Score&gt;90&lt;/Score&gt;\n            &lt;/Quality&gt;\n        &lt;/BDBInfo&gt;\n        &lt;BDB&gt;Rk1SACAyMAAAAAD8AAABPAFiAMUAxQEAAAAoJUB5ANY3ZICRALXPZICNARUmZICSAJ7tZICyAJ5pZIC5AJbZZEC7ATsYKIBlAH4ZZIAhAQ8kXUCuAGjpZEBeAV8EUIAsAU4VNYCtAE7tZICoAOGzZECeALnNZEB4AR6cZICnAR4pZIDJAK1ZXUA+AL+zZIBGASscZECxAUUASYCGAVcAUIBdAVYSUEDhAVL0DYBYAFiiXUCVAMC4ZEB2AQ0nZEBMAOYyZIDUAOK9ZEDhANDKUEBjATkcXUCVAUsNUEDlAKHRZEDMAUp/B0DPAHBqZEBLAGMgV4B+AE0CZAAA&lt;/BDB&gt;\n    &lt;/BIR&gt;\n    &lt;BIR&gt;\n        &lt;Version&gt;\n            &lt;Major&gt;1&lt;/Major&gt;\n            &lt;Minor&gt;1&lt;/Minor&gt;\n        &lt;/Version&gt;\n        &lt;CBEFFVersion&gt;\n            &lt;Major&gt;1&lt;/Major&gt;\n            &lt;Minor&gt;1&lt;/Minor&gt;\n        &lt;/CBEFFVersion&gt;\n        &lt;ns2:TestFinger xmlns:ns2=\&quot;testschema\&quot;&gt;Unique&lt;/ns2:TestFinger&gt;\n        &lt;BIRInfo&gt;\n            &lt;Integrity&gt;false&lt;/Integrity&gt;\n        &lt;/BIRInfo&gt;\n        &lt;BDBInfo&gt;\n            &lt;Index&gt;82dba636-f294-47d0-b3d6-88a02069c189&lt;/Index&gt;\n            &lt;Format&gt;\n                &lt;Organization&gt;Mosip&lt;/Organization&gt;\n                &lt;Type&gt;7&lt;/Type&gt;\n            &lt;/Format&gt;\n            &lt;CreationDate&gt;2019-09-05T05:45:26.386Z&lt;/CreationDate&gt;\n            &lt;Type&gt;Finger&lt;/Type&gt;\n            &lt;Subtype&gt;Left MiddleFinger&lt;/Subtype&gt;\n            &lt;Level&gt;Raw&lt;/Level&gt;\n            &lt;Purpose&gt;Enroll&lt;/Purpose&gt;\n            &lt;Quality&gt;\n                &lt;Algorithm&gt;\n                    &lt;Organization&gt;HMAC&lt;/Organization&gt;\n                    &lt;Type&gt;SHA-256&lt;/Type&gt;\n                &lt;/Algorithm&gt;\n                &lt;Score&gt;90&lt;/Score&gt;\n            &lt;/Quality&gt;\n        &lt;/BDBInfo&gt;\n        &lt;BDB&gt;Rk1SACAyMAAAAAD8AAABPAFiAMUAxQEAAAAoJYCKALVpV4B8AHv1ZEC/AI1PZEBhAGsWZEDPAPJQZEBEAPslZICpASeHXYBOARoXZIC3ADl8Q0CKATwHZICWABb8ZEB4AVD+SUA+AVIFQ4BsAKn3Q4BdAJUXZEA+AJgoZIC+APVYZEDOAGPSZEDJAEdoXYB5AScPZEB5ADQGZEAQAMMnZEDeADvQQ4BGACAbXYBYABObXUCzANNKZIB4AOiSQ0CqAPxjZICIAQWSZECcAReFXUCoADz1ZIDEAR5pXUDaAEtLXYDmARBbSUDrADtASYC2ABZ7L0AdAS4YZAAA&lt;/BDB&gt;\n    &lt;/BIR&gt;\n    &lt;BIR&gt;\n        &lt;Version&gt;\n            &lt;Major&gt;1&lt;/Major&gt;\n            &lt;Minor&gt;1&lt;/Minor&gt;\n        &lt;/Version&gt;\n        &lt;CBEFFVersion&gt;\n            &lt;Major&gt;1&lt;/Major&gt;\n            &lt;Minor&gt;1&lt;/Minor&gt;\n        &lt;/CBEFFVersion&gt;\n        &lt;ns2:TestFinger xmlns:ns2=\&quot;testschema\&quot;&gt;Duplicate&lt;/ns2:TestFinger&gt;\n        &lt;BIRInfo&gt;\n            &lt;Integrity&gt;false&lt;/Integrity&gt;\n        &lt;/BIRInfo&gt;\n        &lt;BDBInfo&gt;\n            &lt;Index&gt;a4fe79e2-11f8-4a09-b5e4-8519bd7e098f&lt;/Index&gt;\n            &lt;Format&gt;\n                &lt;Organization&gt;Mosip&lt;/Organization&gt;\n                &lt;Type&gt;7&lt;/Type&gt;\n            &lt;/Format&gt;\n            &lt;CreationDate&gt;2019-09-05T05:45:26.386Z&lt;/CreationDate&gt;\n            &lt;Type&gt;Finger&lt;/Type&gt;\n            &lt;Subtype&gt;Left RingFinger&lt;/Subtype&gt;\n            &lt;Level&gt;Raw&lt;/Level&gt;\n            &lt;Purpose&gt;Enroll&lt;/Purpose&gt;\n            &lt;Quality&gt;\n                &lt;Algorithm&gt;\n                    &lt;Organization&gt;HMAC&lt;/Organization&gt;\n                    &lt;Type&gt;SHA-256&lt;/Type&gt;\n                &lt;/Algorithm&gt;\n                &lt;Score&gt;90&lt;/Score&gt;\n            &lt;/Quality&gt;\n        &lt;/BDBInfo&gt;\n        &lt;BDB&gt;Rk1SACAyMAAAAAFcAAABPAFiAMUAxQEAAAAoNYCJAMS4Q4B7ALUBQ4BnAMK2ZICmAKrLZIBvAPAwXUBUAOa2ZIBbAPg5XYDOAOzCZEDSAJnOXYBfARghZICWAF31ZEBbAFIfZIDuARrEXUBCAE0eZEBsADygZICDAVkNG4DXAU+4L4AcAUEtB0B/AMmzPEB4AN4zXYCQAO+tXYC4ALVTXYBiAKQnZIBoAPguXYCUAQ6kZEB4AQ8oZEA8AOe0ZIBGAQszZIBPASEhZID3AIPVZIDkASq6ZEDKAEhpZEDtAFzdZEC1AVUlSUD0AFJgZEB0AAwHZICBAL/GQ4CoANBHZICJAJ7sZIB9APWmXUCGAIj7ZIDJAKzHXYBeAI+sZICLAHX9ZIDlANDKZEC1AGl0ZIDHAGNoZEA2ASQqUEB/AD8QZICHADeXZECfAVYQPEAxAT4cQ0A+AVIOQwAA&lt;/BDB&gt;\n    &lt;/BIR&gt;\n    &lt;BIR&gt;\n        &lt;Ve.........................................................................&quot;</span>
+  <span class="p">},</span>
+  <span class="nt">&quot;errors&quot;</span><span class="p">:</span> <span class="kc">null</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Failure :</p>
+<div class="highlight-JSON notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+  <span class="nt">&quot;id&quot;</span> <span class="p">:</span> <span class="s2">&quot;mosip.manual.verification.biometric&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;version&quot;</span> <span class="p">:</span> <span class="s2">&quot;1.0&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;responsetime&quot;</span><span class="p">:</span> <span class="s2">&quot;2019-02-14T12:40:59.768Z&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;response&quot;</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
+  <span class="nt">&quot;errors&quot;</span> <span class="p">:</span> <span class="p">[{</span>
+	<span class="nt">&quot;errorCode&quot;</span> <span class="p">:</span> <span class="s2">&quot;RPR-MVS-002&quot;</span><span class="p">,</span>
+	<span class="nt">&quot;message&quot;</span> <span class="p">:</span> <span class="s2">&quot;Requested file is not present&quot;</span>
+  <span class="p">}]</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<p>The manual adjudicator would need to verify the applicant biometric and demographic records. This service is used to get the applicant biometric from packet store by registration id.</p>
+<div class="section" id="manual-adjudication-applicant-demographic-service">
+<h2>4.4 manual-adjudication-applicant-demographic service<a class="headerlink" href="#manual-adjudication-applicant-demographic-service" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li></li>
+</ul>
+<div class="section" id="post-registrationprocessor-v1-manualverification-applicantdemographic">
+<h3><code class="docutils literal notranslate"><span class="pre">POST</span> <span class="pre">/registrationprocessor/v1/manualverification/applicantDemographic</span></code><a class="headerlink" href="#post-registrationprocessor-v1-manualverification-applicantdemographic" title="Permalink to this headline">¶</a></h3>
+</div>
+<div class="section" id="id35">
+<h3>Resource URL<a class="headerlink" href="#id35" title="Permalink to this headline">¶</a></h3>
+<p>https://mosip.io/registrationprocessor/v1/manualverification/applicantDemographic</p>
+</div>
+<div class="section" id="id36">
+<h3>Resource details<a class="headerlink" href="#id36" title="Permalink to this headline">¶</a></h3>
+<p>Resource Details | Description
+------------ | -------------
+Request format | JSON
+Response format | byte[]
+Requires Authentication | Yes</p>
+</div>
+<div class="section" id="id37">
+<h3>Parameters<a class="headerlink" href="#id37" title="Permalink to this headline">¶</a></h3>
+<p>Name | Required | Description | Comment
+-----|----------|-------------|---------------|
+FileRequestDto|Yes|Dto containing registration id and file name|</p>
+</div>
+<div class="section" id="id38">
+<h3>Request<a class="headerlink" href="#id38" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-JSON notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+  <span class="nt">&quot;id&quot;</span> <span class="p">:</span> <span class="s2">&quot;mosip.manual.verification.demographic&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;version&quot;</span> <span class="p">:</span> <span class="s2">&quot;1.0&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;requesttime&quot;</span><span class="p">:</span> <span class="s2">&quot;2019-02-14T12:40:59.768Z&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;request&quot;</span> <span class="p">:</span> <span class="p">{</span>
+	  <span class="nt">&quot;regId&quot;</span><span class="p">:</span> <span class="s2">&quot;27847657360002520181208123456&quot;</span>
+	<span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="id39">
+<h3>Response<a class="headerlink" href="#id39" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id40">
+<h4>Status Code: 200<a class="headerlink" href="#id40" title="Permalink to this headline">¶</a></h4>
+</div>
+<div class="section" id="id41">
+<h4>Description : response code is always 200 if server receives the request.<a class="headerlink" href="#id41" title="Permalink to this headline">¶</a></h4>
+<div class="highlight-JSON notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+  <span class="nt">&quot;id&quot;</span> <span class="p">:</span> <span class="s2">&quot;mosip.manual.verification.demographic&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;version&quot;</span> <span class="p">:</span> <span class="s2">&quot;1.0&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;responsetime&quot;</span><span class="p">:</span> <span class="s2">&quot;2019-02-14T12:40:59.768Z&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;response&quot;</span> <span class="p">:</span> <span class="p">{</span>
+	  <span class="nt">&quot;file&quot;</span><span class="p">:</span> <span class="s2">&quot;{\r\n  \&quot;identity\&quot; : {\r\n    \&quot;fullName\&quot; : [ {\r\n      \&quot;language\&quot; : \&quot;eng\&quot;,\r\n      \&quot;value\&quot; : \&quot;Rounak Adult\&quot;\r\n    }, {\r\n      \&quot;language\&quot; : \&quot;ara\&quot;,\r\n      \&quot;value\&quot; : \&quot;قخعىشن شيعمف\&quot;\r\n    } ],\r\n    \&quot;dateOfBirth\&quot; : \&quot;1991/04/29\&quot;,\r\n    \&quot;age\&quot; : 28,\r\n    \&quot;gender\&quot; : [ {\r\n      \&quot;language\&quot; : \&quot;eng\&quot;,\r\n      \&quot;value\&quot; : \&quot;Male\&quot;\r\n    }, {\r\n      \&quot;language\&quot; : \&quot;ara\&quot;,\r\n      \&quot;value\&quot; : \&quot;الذكر\&quot;\r\n    } ],\r\n    \&quot;residenceStatus\&quot; : [ {\r\n      \&quot;language\&quot; : \&quot;eng\&quot;,\r\n      \&quot;value\&quot; : \&quot;Non-Foreigner\&quot;\r\n    }, {\r\n      \&quot;language\&quot; : \&quot;ara\&quot;,\r\n      \&quot;value\&quot; : \&quot;غير أجنبي\&quot;\r\n    } ],\r\n    \&quot;addressLine1\&quot; : [ {\r\n      \&quot;language\&quot; : \&quot;eng\&quot;,\r\n      \&quot;value\&quot; : \&quot;Address 1\&quot;\r\n    }, {\r\n      \&quot;language\&quot; : \&quot;ara\&quot;,\r\n      \&quot;value\&quot; : \&quot;شييقثسس ١\&quot;\r\n    } ],\r\n    \&quot;addressLine2\&quot; : [ {\r\n      \&quot;language\&quot; : \&quot;eng\&quot;,\r\n      \&quot;value\&quot; : \&quot;Address 2\&quot;\r\n    }, {\r\n      \&quot;language\&quot; : \&quot;ara\&quot;,\r\n      \&quot;value\&quot; : \&quot;شييقثسس ٢\&quot;\r\n    } ],\r\n    \&quot;region\&quot; : [ {\r\n      \&quot;language\&quot; : \&quot;eng\&quot;,\r\n      \&quot;value\&quot; : \&quot;Rabat Sale Kenitra\&quot;\r\n    }, {\r\n      \&quot;language\&quot; : \&quot;ara\&quot;,\r\n      \&quot;value\&quot; : \&quot;جهة الرباط سلا القنيطرة\&quot;\r\n    } ],\r\n    \&quot;province\&quot; : [ {\r\n      \&quot;language\&quot; : \&quot;eng\&quot;,\r\n      \&quot;value\&quot; : \&quot;Kenitra\&quot;\r\n    }, {\r\n      \&quot;language\&quot; : \&quot;ara\&quot;,\r\n      \&quot;value\&quot; : \&quot;القنيطرة\&quot;\r\n    } ],\r\n    \&quot;city\&quot; : [ {\r\n      \&quot;language\&quot; : \&quot;eng\&quot;,\r\n      \&quot;value\&quot; : \&quot;Kenitra\&quot;\r\n    }, {\r\n      \&quot;language\&quot; : \&quot;ara\&quot;,\r\n      \&quot;value\&quot; : \&quot;القنيطرة\&quot;\r\n    } ],\r\n    \&quot;postalCode\&quot; : \&quot;14080\&quot;,\r\n    \&quot;phone\&quot; : \&quot;8763740607\&quot;,\r\n    \&quot;email\&quot; : \&quot;rounak.nayak@mindtree.com\&quot;,\r\n    \&quot;referenceIdentityNumber\&quot; : \&quot;8763740607\&quot;,\r\n    \&quot;zone\&quot; : [ {\r\n      \&quot;language\&quot; : \&quot;eng\&quot;,\r\n      \&quot;value\&quot; : \&quot;Ouled Oujih\&quot;\r\n    }, {\r\n      \&quot;language\&quot; : \&quot;ara\&quot;,\r\n      \&quot;value\&quot; : \&quot;اولاد اوجيه\&quot;\r\n    } ],\r\n    \&quot;proofOfAddress\&quot; : {\r\n      \&quot;value\&quot; : \&quot;POA_Rental contract\&quot;,\r\n      \&quot;type\&quot; : \&quot;RNC\&quot;,\r\n      \&quot;format\&quot; : \&quot;jpg\&quot;\r\n    },\r\n    \&quot;proofOfIdentity\&quot; : {\r\n      \&quot;value\&quot; : \&quot;POI_Voter Identification card\&quot;,\r\n      \&quot;type\&quot; : \&quot;DOC004\&quot;,\r\n      \&quot;format\&quot; : \&quot;jpg\&quot;\r\n    },\r\n    \&quot;individualBiometrics\&quot; : {\r\n      \&quot;format\&quot; : \&quot;cbeff\&quot;,\r\n      \&quot;version\&quot; : 1.0,\r\n      \&quot;value\&quot; : \&quot;applicant_bio_CBEFF\&quot;\r\n    },\r\n    \&quot;IDSchemaVersion\&quot; : 1.0\r\n  }\r\n}&quot;</span>
+  <span class="p">},</span>
+  <span class="nt">&quot;errors&quot;</span><span class="p">:</span> <span class="kc">null</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Failure :</p>
+<div class="highlight-JSON notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+  <span class="nt">&quot;id&quot;</span> <span class="p">:</span> <span class="s2">&quot;mosip.manual.verification.demographic&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;version&quot;</span> <span class="p">:</span> <span class="s2">&quot;1.0&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;responsetime&quot;</span><span class="p">:</span> <span class="s2">&quot;2019-02-14T12:40:59.768Z&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;response&quot;</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
+  <span class="nt">&quot;errors&quot;</span> <span class="p">:</span> <span class="p">[{</span>
+	<span class="nt">&quot;errorCode&quot;</span> <span class="p">:</span> <span class="s2">&quot;RPR-MVS-002&quot;</span><span class="p">,</span>
+	<span class="nt">&quot;message&quot;</span> <span class="p">:</span> <span class="s2">&quot;Requested file is not present&quot;</span>
+  <span class="p">}]</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<p>The manual adjudicator would need to verify the applicant biometric and demographic records. This service is used to get the applicant demographic from packet store by registration id.</p>
+<div class="section" id="manual-adjudication-packet-metainfo-service">
+<h2>4.5 manual-adjudication-packet-metainfo service<a class="headerlink" href="#manual-adjudication-packet-metainfo-service" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li></li>
+</ul>
+<div class="section" id="post-registrationprocessor-v1-manualverification-packetinfo">
+<h3><code class="docutils literal notranslate"><span class="pre">POST</span> <span class="pre">/registrationprocessor/v1/manualverification/packetInfo</span></code><a class="headerlink" href="#post-registrationprocessor-v1-manualverification-packetinfo" title="Permalink to this headline">¶</a></h3>
+</div>
+<div class="section" id="id42">
+<h3>Resource URL<a class="headerlink" href="#id42" title="Permalink to this headline">¶</a></h3>
+<p>https://mosip.io/registrationprocessor/v1/manualverification/packetInfo</p>
+</div>
+<div class="section" id="id43">
+<h3>Resource details<a class="headerlink" href="#id43" title="Permalink to this headline">¶</a></h3>
+<p>Resource Details | Description
+------------ | -------------
+Request format | JSON
+Response format | byte[]
+Requires Authentication | Yes</p>
+</div>
+<div class="section" id="id44">
+<h3>Parameters<a class="headerlink" href="#id44" title="Permalink to this headline">¶</a></h3>
+<p>Name | Required | Description | Comment
+-----|----------|-------------|---------------|
+FileRequestDto|Yes|Dto containing registration id and file name|</p>
+</div>
+<div class="section" id="id45">
+<h3>Request<a class="headerlink" href="#id45" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-JSON notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+  <span class="nt">&quot;id&quot;</span> <span class="p">:</span> <span class="s2">&quot;mosip.manual.verification.packetinfo&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;version&quot;</span> <span class="p">:</span> <span class="s2">&quot;1.0&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;requesttime&quot;</span><span class="p">:</span> <span class="s2">&quot;2019-02-14T12:40:59.768Z&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;request&quot;</span> <span class="p">:</span> <span class="p">{</span>
+	  <span class="nt">&quot;regId&quot;</span><span class="p">:</span> <span class="s2">&quot;27847657360002520181208123456&quot;</span>
+	<span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="id46">
+<h3>Response<a class="headerlink" href="#id46" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id47">
+<h4>Status Code: 200<a class="headerlink" href="#id47" title="Permalink to this headline">¶</a></h4>
+</div>
+<div class="section" id="id48">
+<h4>Description : response code is always 200 if server receives the request.<a class="headerlink" href="#id48" title="Permalink to this headline">¶</a></h4>
+<div class="highlight-JSON notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+  <span class="nt">&quot;id&quot;</span> <span class="p">:</span> <span class="s2">&quot;mosip.manual.verification.packetinfo&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;version&quot;</span> <span class="p">:</span> <span class="s2">&quot;1.0&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;responsetime&quot;</span><span class="p">:</span> <span class="s2">&quot;2019-02-14T12:40:59.768Z&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;response&quot;</span> <span class="p">:</span> <span class="p">{</span>
+	  <span class="nt">&quot;file&quot;</span><span class="p">:</span> <span class="s2">&quot;{\r\n    \&quot;response\&quot;: {\r\n        \&quot;identity\&quot;: {\r\n            \&quot;biometric\&quot;: {\r\n                \&quot;applicant\&quot;: {\r\n                    \&quot;leftEye\&quot;: {\r\n                        \&quot;language\&quot;: null,\r\n                        \&quot;label\&quot;: null,\r\n                        \&quot;imageName\&quot;: null,\r\n                        \&quot;type\&quot;: null,\r\n                        \&quot;qualityScore\&quot;: 0,\r\n                        \&quot;numRetry\&quot;: 1,\r\n                        \&quot;forceCaptured\&quot;: false\r\n                    },\r\n                    \&quot;rightEye\&quot;: {\r\n                        \&quot;language\&quot;: null,\r\n                        \&quot;label\&quot;: null,\r\n                        \&quot;imageName\&quot;: null,\r\n                        \&quot;type\&quot;: null,\r\n                        \&quot;qualityScore\&quot;: 0,\r\n                        \&quot;numRetry\&quot;: 1,\r\n                        \&quot;forceCaptured\&quot;: false\r\n                    },\r\n                    \&quot;leftThumb\&quot;: {\r\n                        \&quot;language\&quot;: null,\r\n                        \&quot;label\&quot;: null,\r\n                        \&quot;imageName\&quot;: null,\r\n                        \&quot;type\&quot;: null,\r\n                        \&quot;qualityScore\&quot;: 0,\r\n                        \&quot;numRetry\&quot;: 1,\r\n                        \&quot;forceCaptured\&quot;: false\r\n                    },\r\n                    \&quot;rightThumb\&quot;: {\r\n                        \&quot;language\&quot;: null,\r\n                        \&quot;label\&quot;: null,\r\n                        \&quot;imageName\&quot;: null,\r\n                        \&quot;type\&quot;: null,\r\n                        \&quot;qualityScore\&quot;: 0,\r\n                        \&quot;numRetry\&quot;: 1,\r\n                        \&quot;forceCaptured\&quot;: false\r\n                    },\r\n                    \&quot;leftIndex\&quot;: {\r\n                        \&quot;language\&quot;: null,\r\n                        \&quot;label\&quot;: null,\r\n                        \&quot;imageName\&quot;: null,\r\n                        \&quot;type\&quot;: null,\r\n                        \&quot;qualityScore\&quot;: 0,\r\n                        \&quot;numRetry\&quot;: 1,\r\n                        \&quot;forceCaptured\&quot;: false\r\n                    },\r\n                    \&quot;leftMiddle\&quot;: {\r\n                        \&quot;language\&quot;: null,\r\n                        \&quot;label\&quot;: null,\r\n                        \&quot;imageName\&quot;: null,\r\n                        \&quot;type\&quot;: null,\r\n                        \&quot;qualityScore\&quot;: 0,\r\n                        \&quot;numRetry\&quot;: 1,\r\n                        \&quot;forceCaptured\&quot;: false\r\n                    },\r\n                    \&quot;leftRing\&quot;: {\r\n                        \&quot;language\&quot;: null,\r\n                        \&quot;label\&quot;: null,\r\n                        \&quot;imageName\&quot;: null,\r\n                        \&quot;type\&quot;: null,\r\n                        \&quot;qualityScore\&quot;: 0,\r\n                        \&quot;numRetry\&quot;: 1,\r\n                        \&quot;forceCaptured\&quot;: false\r\n                    },\r\n                    \&quot;leftLittle\&quot;: {\r\n                        \&quot;language\&quot;: null,\r\n                        \&quot;label\&quot;: null,\r\n                        \&quot;imageName\&quot;: null,\r\n                        \&quot;type\&quot;: null,\r\n                        \&quot;qualityScore\&quot;: 0,\r\n                        \&quot;numRetry\&quot;: 1,\r\n                        \&quot;forceCaptured\&quot;: false\r\n                    },\r\n                    \&quot;rightIndex\&quot;: {\r\n                        \&quot;language\&quot;: null,\r\n                        \&quot;label\&quot;: null,\r\n                        \&quot;imageName\&quot;: null,\r\n                        \&quot;type\&quot;: null,\r\n                        \&quot;qualityScore\&quot;: 0,\r\n                        \&quot;numRetry\&quot;: 1,\r\n                        \&quot;forceCaptured\&quot;: false\r\n                    },\r\n                    \&quot;rightMiddle\&quot;: {\r\n                        \&quot;language\&quot;: null,\r\n                        \&quot;label\&quot;: null,\r\n                        \&quot;imageName\&quot;: null,\r\n                        \&quot;type\&quot;: null,\r\n                        \&quot;qualityScore\&quot;: 0,\r\n                        \&quot;numRetry\&quot;: 1,\r\n                        \&quot;forceCaptured\&quot;: false\r\n                    },\r\n                    \&quot;rightRing\&quot;: {\r\n                        \&quot;language\&quot;: null,\r\n                        \&quot;label\&quot;: null,\r\n                        \&quot;imageName\&quot;: null,\r\n                        \&quot;type\&quot;: null,\r\n                        \&quot;qualityScore\&quot;: 0,\r\n                        \&quot;numRetry\&quot;: 1,\r\n                        \&quot;forceCaptured\&quot;: false\r\n                    },\r\n                    \&quot;rightLittle\&quot;: {\r\n                        \&quot;language\&quot;: null,\r\n                        \&quot;label\&quot;: null,\r\n                        \&quot;imageName\&quot;: null,\r\n                        \&quot;type\&quot;: null,\r\n                        \&quot;qualityScore\&quot;: 0,\r\n                        \&quot;numRetry\&quot;: 1,\r\n                        \&quot;forceCaptured\&quot;: false\r\n                    }\r\n                },\r\n                \&quot;introducer\&quot;: null\r\n            },\r\n            \&quot;exceptionBiometrics\&quot;: [],\r\n            \&quot;applicantPhotograph\&quot;: {\r\n                \&quot;language\&quot;: null,\r\n                \&quot;label\&quot;: null,\r\n                \&quot;photographName\&quot;: null,\r\n                \&quot;numRetry\&quot;: 0,\r\n                \&quot;qualityScore\&quot;: 0\r\n            },\r\n            \&quot;exceptionPhotograph\&quot;: null,\r\n            \&quot;documents\&quot;: [],\r\n            \&quot;metaData\&quot;: null,\r\n            \&quot;osiData\&quot;: null,\r\n            \&quot;hashSequence1\&quot;: null,\r\n            \&quot;hashSequence2\&quot;: [\r\n                {\r\n                    \&quot;label\&quot;: \&quot;otherFiles\&quot;,\r\n                    \&quot;value\&quot;: [\r\n                        \&quot;audit\&quot;\r\n                    ]\r\n                }\r\n            ],\r\n            \&quot;capturedRegisteredDevices\&quot;: [\r\n                {\r\n                    \&quot;label\&quot;: \&quot;Finger Print Scanner\&quot;,\r\n                    \&quot;value\&quot;: \&quot;3000026\&quot;\r\n                },\r\n                {\r\n                    \&quot;label\&quot;: \&quot;Iris Scanner\&quot;,\r\n                    \&quot;value\&quot;: \&quot;3000046\&quot;\r\n                },\r\n                {\r\n                    \&quot;label\&quot;: \&quot;Camera\&quot;,\r\n                    \&quot;value\&quot;: \&quot;3000066\&quot;\r\n                },\r\n                {\r\n                    \&quot;label\&quot;: \&quot;Document Scanner\&quot;,\r\n                    \&quot;value\&quot;: \&quot;3000086\&quot;\r\n                },\r\n                {\r\n                    \&quot;label\&quot;: \&quot;Printer\&quot;,\r\n                    \&quot;value\&quot;: \&quot;3000106\&quot;\r\n                },\r\n                {\r\n                    \&quot;label\&quot;: \&quot;Finger Print Scanner\&quot;,\r\n                    \&quot;value\&quot;: \&quot;3000125\&quot;\r\n                },\r\n                {\r\n                    \&quot;label\&quot;: \&quot;Iris Scanner\&quot;,\r\n                    \&quot;value\&quot;: \&quot;3000134\&quot;\r\n                },\r\n                {\r\n                    \&quot;label\&quot;: \&quot;Camera\&quot;,\r\n                    \&quot;value\&quot;: \&quot;3000143\&quot;\r\n                },\r\n                {\r\n                    \&quot;label\&quot;: \&quot;Document Scanner\&quot;,\r\n                    \&quot;value\&quot;: \&quot;3000152\&quot;\r\n                },\r\n                {\r\n                    \&quot;label\&quot;: \&quot;Printer\&quot;,\r\n                    \&quot;value\&quot;: \&quot;3000161\&quot;\r\n                },\r\n                {\r\n                    \&quot;label\&quot;: \&quot;Finger Print Scanner\&quot;,\r\n                    \&quot;value\&quot;: \&quot;3000181\&quot;\r\n                },\r\n                {\r\n                    \&quot;label\&quot;: \&quot;Iris Scanner\&quot;,\r\n                    \&quot;value\&quot;: \&quot;3000182\&quot;\r\n                },\r\n                {\r\n                    \&quot;label\&quot;: \&quot;Camera\&quot;,\r\n                    \&quot;value\&quot;: \&quot;3000183\&quot;\r\n                },\r\n                {\r\n                    \&quot;label\&quot;: \&quot;Document Scanner\&quot;,\r\n                    \&quot;value\&quot;: \&quot;3000184\&quot;\r\n                },\r\n                {\r\n                    \&quot;label\&quot;: \&quot;Printer\&quot;,\r\n                    \&quot;value\&quot;: \&quot;3000185\&quot;\r\n                },\r\n                {\r\n                    \&quot;label\&quot;: \&quot;Finger Print Scanner\&quot;,\r\n                    \&quot;value\&quot;: \&quot;3000186\&quot;\r\n                },\r\n                {\r\n                    \&quot;label\&quot;: \&quot;Iris Scanner\&quot;,\r\n                    \&quot;value\&quot;: \&quot;3000187\&quot;\r\n                },\r\n                {\r\n                    \&quot;label\&quot;: \&quot;Camera\&quot;,\r\n                    \&quot;value\&quot;: \&quot;3000188\&quot;\r\n                },\r\n                {\r\n                    \&quot;label\&quot;: \&quot;Document Scanner\&quot;,\r\n                    \&quot;value\&quot;: \&quot;3000189\&quot;\r\n                },\r\n                {\r\n                    \&quot;label\&quot;: \&quot;Printer\&quot;,\r\n                    \&quot;value\&quot;: \&quot;3000190\&quot;\r\n                },\r\n                {\r\n                    \&quot;label\&quot;: \&quot;Finger Print Scanner\&quot;,\r\n                    \&quot;value\&quot;: \&quot;3000191\&quot;\r\n                },\r\n                {\r\n                    \&quot;label\&quot;: \&quot;Iris Scanner\&quot;,\r\n                    \&quot;value\&quot;: \&quot;3000192\&quot;\r\n                },\r\n                {\r\n                    \&quot;label\&quot;: \&quot;Camera\&quot;,\r\n                    \&quot;value\&quot;: \&quot;3000193\&quot;\r\n                },\r\n                {\r\n                    \&quot;label\&quot;: \&quot;Document Scanner\&quot;,\r\n                    \&quot;value\&quot;: \&quot;3000194\&quot;\r\n                },\r\n                {\r\n                    \&quot;label\&quot;: \&quot;Printer\&quot;,\r\n                    \&quot;value\&quot;: \&quot;3000195\&quot;\r\n                },\r\n                {\r\n                    \&quot;label\&quot;: \&quot;Finger Print Scanner\&quot;,\r\n                    \&quot;value\&quot;: \&quot;3000196\&quot;\r\n                },\r\n                {\r\n                    \&quot;label\&quot;: \&quot;Iris Scanner\&quot;,\r\n                    \&quot;value\&quot;: \&quot;3000197\&quot;\r\n                },\r\n                {\r\n                    \&quot;label\&quot;: \&quot;Camera\&quot;,\r\n                    \&quot;value\&quot;: \&quot;3000198\&quot;\r\n                },\r\n                {\r\n                    \&quot;label\&quot;: \&quot;Document Scanner\&quot;,\r\n                    \&quot;value\&quot;: \&quot;3000199\&quot;\r\n                },\r\n                {\r\n                    \&quot;label\&quot;: \&quot;Printer\&quot;,\r\n                    \&quot;value\&quot;: \&quot;3000200\&quot;\r\n                },\r\n                {\r\n                    \&quot;label\&quot;: \&quot;Finger Print Scanner\&quot;,\r\n                    \&quot;value\&quot;: \&quot;3000201\&quot;\r\n                },\r\n                {\r\n                    \&quot;label\&quot;: \&quot;Iris Scanner\&quot;,\r\n                    \&quot;value\&quot;: \&quot;3000202\&quot;\r\n                },\r\n                {\r\n                    \&quot;label\&quot;: \&quot;Camera\&quot;,\r\n                    \&quot;value\&quot;: \&quot;3000203\&quot;\r\n                },\r\n                {\r\n                    \&quot;label\&quot;: \&quot;Document Scanner\&quot;,\r\n                    \&quot;value\&quot;: \&quot;3000204\&quot;\r\n                },\r\n                {\r\n                    \&quot;label\&quot;: \&quot;Printer\&quot;,\r\n                    \&quot;value\&quot;: \&quot;3000205\&quot;\r\n                },\r\n                {\r\n                    \&quot;label\&quot;: \&quot;Finger Print Scanner\&quot;,\r\n                    \&quot;value\&quot;: \&quot;3000206\&quot;\r\n                },\r\n                {\r\n                    \&quot;label\&quot;: \&quot;Iris Scanner\&quot;,\r\n                    \&quot;value\&quot;: \&quot;3000207\&quot;\r\n                },\r\n                {\r\n                    \&quot;label\&quot;: \&quot;Camera\&quot;,\r\n                    \&quot;value\&quot;: \&quot;3000208\&quot;\r\n                },\r\n                {\r\n                    \&quot;label\&quot;: \&quot;Document Scanner\&quot;,\r\n                    \&quot;value\&quot;: \&quot;3000209\&quot;\r\n                },\r\n                {\r\n                    \&quot;label\&quot;: \&quot;Printer\&quot;,\r\n                    \&quot;value\&quot;: \&quot;3000210\&quot;\r\n                },\r\n                {\r\n                    \&quot;label\&quot;: \&quot;Finger Print Scanner\&quot;,\r\n                    \&quot;value\&quot;: \&quot;3000211\&quot;\r\n                },\r\n                {\r\n                    \&quot;label\&quot;: \&quot;Iris Scanner\&quot;,\r\n                    \&quot;value\&quot;: \&quot;3000212\&quot;\r\n                },\r\n                {\r\n                    \&quot;label\&quot;: \&quot;Camera\&quot;,\r\n                    \&quot;value\&quot;: \&quot;3000213\&quot;\r\n                },\r\n                {\r\n                    \&quot;label\&quot;: \&quot;Document Scanner\&quot;,\r\n                    \&quot;value\&quot;: \&quot;3000214\&quot;\r\n                },\r\n                {\r\n                    \&quot;label\&quot;: \&quot;Printer\&quot;,\r\n                    \&quot;value\&quot;: \&quot;3000215\&quot;\r\n                },\r\n                {\r\n                    \&quot;label\&quot;: \&quot;Finger Print Scanner\&quot;,\r\n                    \&quot;value\&quot;: \&quot;3000216\&quot;\r\n                },\r\n                {\r\n                    \&quot;label\&quot;: \&quot;Iris Scanner\&quot;,\r\n                    \&quot;value\&quot;: \&quot;3000217\&quot;\r\n                },\r\n                {\r\n                    \&quot;label\&quot;: \&quot;Camera\&quot;,\r\n                    \&quot;value\&quot;: \&quot;3000218\&quot;\r\n                },\r\n                {\r\n                    \&quot;label\&quot;: \&quot;Document Scanner\&quot;,\r\n                    \&quot;value\&quot;: \&quot;3000219\&quot;\r\n                },\r\n                {\r\n                    \&quot;label\&quot;: \&quot;Printer\&quot;,\r\n                    \&quot;value\&quot;: \&quot;3000220\&quot;\r\n                },\r\n                {\r\n                    \&quot;label\&quot;: \&quot;Finger Print Scanner\&quot;,\r\n                    \&quot;value\&quot;: \&quot;3000221\&quot;\r\n                },\r\n                {\r\n                    \&quot;label\&quot;: \&quot;Iris Scanner\&quot;,\r\n                    \&quot;value\&quot;: \&quot;3000222\&quot;\r\n                },\r\n                {\r\n                    \&quot;label\&quot;: \&quot;Camera\&quot;,\r\n                    \&quot;value\&quot;: \&quot;3000223\&quot;\r\n                },\r\n                {\r\n                    \&quot;label\&quot;: \&quot;Document Scanner\&quot;,\r\n                    \&quot;value\&quot;: \&quot;3000224\&quot;\r\n                },\r\n                {\r\n                    \&quot;label\&quot;: \&quot;Printer\&quot;,\r\n                    \&quot;value\&quot;: \&quot;3000225\&quot;\r\n                },\r\n                {\r\n                    \&quot;label\&quot;: \&quot;Finger Print Scanner\&quot;,\r\n                    \&quot;value\&quot;: \&quot;3000226\&quot;\r\n                },\r\n                {\r\n                    \&quot;label\&quot;: \&quot;Iris Scanner\&quot;,\r\n                    \&quot;value\&quot;: \&quot;3000227\&quot;\r\n                },\r\n                {\r\n                    \&quot;label\&quot;: \&quot;Camera\&quot;,\r\n                    \&quot;value\&quot;: \&quot;3000228\&quot;\r\n                },\r\n                {\r\n                    \&quot;label\&quot;: \&quot;Document Scanner\&quot;,\r\n                    \&quot;value\&quot;: \&quot;3000229\&quot;\r\n                },\r\n                {\r\n                    \&quot;label\&quot;: \&quot;Printer\&quot;,\r\n                    \&quot;value\&quot;: \&quot;3000230\&quot;\r\n                },\r\n                {\r\n                    \&quot;label\&quot;: \&quot;Finger Print Scanner\&quot;,\r\n                    \&quot;value\&quot;: \&quot;3000231\&quot;\r\n                },\r\n                {\r\n                    \&quot;label\&quot;: \&quot;Iris Scanner\&quot;,\r\n                    \&quot;value\&quot;: \&quot;3000232\&quot;\r\n                },\r\n                {\r\n                    \&quot;label\&quot;: \&quot;Camera\&quot;,\r\n                    \&quot;value\&quot;: \&quot;3000233\&quot;\r\n                },\r\n                {\r\n                    \&quot;label\&quot;: \&quot;Document Scanner\&quot;,\r\n                    \&quot;value\&quot;: \&quot;3000234\&quot;\r\n                },\r\n                {\r\n                    \&quot;label\&quot;: \&quot;Printer\&quot;,\r\n                    \&quot;value\&quot;: \&quot;3000235\&quot;\r\n                },\r\n                {\r\n                    \&quot;label\&quot;: \&quot;Finger Print Scanner\&quot;,\r\n                    \&quot;value\&quot;: \&quot;3000236\&quot;\r\n                },\r\n                {\r\n                    \&quot;label\&quot;: \&quot;Iris Scanner\&quot;,\r\n                    \&quot;value\&quot;: \&quot;3000237\&quot;\r\n                },\r\n                {\r\n                    \&quot;label\&quot;: \&quot;Camera\&quot;,\r\n                    \&quot;value\&quot;: \&quot;3000238\&quot;\r\n                },\r\n                {\r\n                    \&quot;label\&quot;: \&quot;Document Scanner\&quot;,\r\n                    \&quot;value\&quot;: \&quot;3000239\&quot;\r\n                },\r\n                {\r\n                    \&quot;label\&quot;: \&quot;Printer\&quot;,\r\n                    \&quot;value\&quot;: \&quot;3000240\&quot;\r\n                },\r\n                {\r\n                    \&quot;label\&quot;: \&quot;Finger Print Scanner\&quot;,\r\n                    \&quot;value\&quot;: \&quot;3000241\&quot;\r\n                },\r\n                {\r\n                    \&quot;label\&quot;: \&quot;Iris Scanner\&quot;,\r\n                    \&quot;value\&quot;: \&quot;3000242\&quot;\r\n                },\r\n                {\r\n                    \&quot;label\&quot;: \&quot;Camera\&quot;,\r\n                    \&quot;value\&quot;: \&quot;3000243\&quot;\r\n                },\r\n                {\r\n                    \&quot;label\&quot;: \&quot;Document Scanner\&quot;,\r\n                    \&quot;value\&quot;: \&quot;3000244\&quot;\r\n                },\r\n                {\r\n                    \&quot;label\&quot;: \&quot;Printer\&quot;,\r\n                    \&quot;value\&quot;: \&quot;3000245\&quot;\r\n                },\r\n                {\r\n                    \&quot;label\&quot;: \&quot;Finger Print Scanner\&quot;,\r\n                    \&quot;value\&quot;: \&quot;3000246\&quot;\r\n                },\r\n                {\r\n                    \&quot;label\&quot;: \&quot;Iris Scanner\&quot;,\r\n                    \&quot;value\&quot;: \&quot;3000247\&quot;\r\n                },\r\n                {\r\n                    \&quot;label\&quot;: \&quot;Camera\&quot;,\r\n                    \&quot;value\&quot;: \&quot;3000248\&quot;\r\n                },\r\n                {\r\n                    \&quot;label\&quot;: \&quot;Document Scanner\&quot;,\r\n                    \&quot;value\&quot;: \&quot;3000249\&quot;\r\n                },\r\n                {\r\n                    \&quot;label\&quot;: \&quot;Printer\&quot;,\r\n                    \&quot;value\&quot;: \&quot;3000250\&quot;\r\n                },\r\n                {\r\n                    \&quot;label\&quot;: \&quot;Finger Print Scanner\&quot;,\r\n                    \&quot;value\&quot;: \&quot;3000251\&quot;\r\n                },\r\n                {\r\n                    \&quot;label\&quot;: \&quot;Iris Scanner\&quot;,\r\n                    \&quot;value\&quot;: \&quot;3000252\&quot;\r\n                },\r\n                {\r\n                    \&quot;label\&quot;: \&quot;Camera\&quot;,\r\n                    \&quot;value\&quot;: \&quot;3000253\&quot;\r\n                },\r\n                {\r\n                    \&quot;label\&quot;: \&quot;Document Scanner\&quot;,\r\n                    \&quot;value\&quot;: \&quot;3000254\&quot;\r\n                },\r\n                {\r\n                    \&quot;label\&quot;: \&quot;Printer\&quot;,\r\n                    \&quot;value\&quot;: \&quot;3000255\&quot;\r\n                },\r\n                {\r\n                    \&quot;label\&quot;: \&quot;Finger Print Scanner\&quot;,\r\n                    \&quot;value\&quot;: \&quot;3000256\&quot;\r\n                },\r\n                {\r\n                    \&quot;label\&quot;: \&quot;Iris Scanner\&quot;,\r\n                    \&quot;value\&quot;: \&quot;3000257\&quot;\r\n                },\r\n                {\r\n                    \&quot;label\&quot;: \&quot;Camera\&quot;,\r\n                    \&quot;value\&quot;: \&quot;3000258\&quot;\r\n                },\r\n                {\r\n                    \&quot;label\&quot;: \&quot;Document Scanner\&quot;,\r\n                    \&quot;value\&quot;: \&quot;3000259\&quot;\r\n                },\r\n                {\r\n                    \&quot;label\&quot;: \&quot;Printer\&quot;,\r\n                    \&quot;value\&quot;: \&quot;3000260\&quot;\r\n                },\r\n                {\r\n                    \&quot;label\&quot;: \&quot;Finger Print Scanner\&quot;,\r\n                    \&quot;value\&quot;: \&quot;3000261\&quot;\r\n                },\r\n                {\r\n                    \&quot;label\&quot;: \&quot;Iris Scanner\&quot;,\r\n                    \&quot;value\&quot;: \&quot;3000262\&quot;\r\n                },\r\n                {\r\n                    \&quot;label\&quot;: \&quot;Camera\&quot;,\r\n                    \&quot;value\&quot;: \&quot;3000263\&quot;\r\n                },\r\n                {\r\n                    \&quot;label\&quot;: \&quot;Document Scanner\&quot;,\r\n                    \&quot;value\&quot;: \&quot;3000264\&quot;\r\n                },\r\n                {\r\n                    \&quot;label\&quot;: \&quot;Printer\&quot;,\r\n                    \&quot;value\&quot;: \&quot;3000265\&quot;\r\n                },\r\n                {\r\n                    \&quot;label\&quot;: \&quot;Finger Print Scanner\&quot;,\r\n                    \&quot;value\&quot;: \&quot;3000266\&quot;\r\n                },\r\n                {\r\n                    \&quot;label\&quot;: \&quot;Iris Scanner\&quot;,\r\n                    \&quot;value\&quot;: \&quot;3000267\&quot;\r\n                },\r\n                {\r\n                    \&quot;label\&quot;: \&quot;Camera\&quot;,\r\n                    \&quot;value\&quot;: \&quot;3000268\&quot;\r\n                },\r\n                {\r\n                    \&quot;label\&quot;: \&quot;Document Scanner\&quot;,\r\n                    \&quot;value\&quot;: \&quot;3000269\&quot;\r\n                },\r\n                {\r\n                    \&quot;label\&quot;: \&quot;Printer\&quot;,\r\n                    \&quot;value\&quot;: \&quot;3000270\&quot;\r\n                },\r\n                {\r\n                    \&quot;label\&quot;: \&quot;Finger Print Scanner\&quot;,\r\n                    \&quot;value\&quot;: \&quot;3000271\&quot;\r\n                },\r\n                {\r\n                    \&quot;label\&quot;: \&quot;Iris Scanner\&quot;,\r\n                    \&quot;value\&quot;: \&quot;3000272\&quot;\r\n                },\r\n                {\r\n                    \&quot;label\&quot;: \&quot;Camera\&quot;,\r\n                    \&quot;value\&quot;: \&quot;3000273\&quot;\r\n                },\r\n                {\r\n                    \&quot;label\&quot;: \&quot;Document Scanner\&quot;,\r\n                    \&quot;value\&quot;: \&quot;3000274\&quot;\r\n                },\r\n                {\r\n                    \&quot;label\&quot;: \&quot;Printer\&quot;,\r\n                    \&quot;value\&quot;: \&quot;3000275\&quot;\r\n                },\r\n                {\r\n                    \&quot;label\&quot;: \&quot;Finger Print Scanner\&quot;,\r\n                    \&quot;value\&quot;: \&quot;3000276\&quot;\r\n                },\r\n                {\r\n                    \&quot;label\&quot;: \&quot;Iris Scanner\&quot;,\r\n                    \&quot;value\&quot;: \&quot;3000277\&quot;\r\n                },\r\n                {\r\n                    \&quot;label\&quot;: \&quot;Camera\&quot;,\r\n                    \&quot;value\&quot;: \&quot;3000278\&quot;\r\n                },\r\n                {\r\n                    \&quot;label\&quot;: \&quot;Document Scanner\&quot;,\r\n                    \&quot;value\&quot;: \&quot;3000279\&quot;\r\n                },\r\n                {\r\n                    \&quot;label\&quot;: \&quot;Printer\&quot;,\r\n                    \&quot;value\&quot;: \&quot;3000280\&quot;\r\n                },\r\n                {\r\n                    \&quot;label\&quot;: \&quot;Finger Print Scanner\&quot;,\r\n                    \&quot;value\&quot;: \&quot;3000281\&quot;\r\n                },\r\n                {\r\n                    \&quot;label\&quot;: \&quot;Iris Scanner\&quot;,\r\n                    \&quot;value\&quot;: \&quot;3000282\&quot;\r\n                },\r\n                {\r\n                    \&quot;label\&quot;: \&quot;Camera\&quot;,\r\n                    \&quot;value\&quot;: \&quot;3000283\&quot;\r\n                },\r\n                {\r\n                    \&quot;label\&quot;: \&quot;Document Scanner\&quot;,\r\n                    \&quot;value\&quot;: \&quot;3000284\&quot;\r\n                },\r\n                {\r\n                    \&quot;label\&quot;: \&quot;Printer\&quot;,\r\n                    \&quot;value\&quot;: \&quot;3000285\&quot;\r\n                },\r\n                {\r\n                    \&quot;label\&quot;: \&quot;Finger Print Scanner\&quot;,\r\n                    \&quot;value\&quot;: \&quot;3000286\&quot;\r\n                },\r\n                {\r\n                    \&quot;label\&quot;: \&quot;Iris Scanner\&quot;,\r\n                    \&quot;value\&quot;: \&quot;3000287\&quot;\r\n                },\r\n                {\r\n                    \&quot;label\&quot;: \&quot;Camera\&quot;,\r\n                    \&quot;value\&quot;: \&quot;3000288\&quot;\r\n                },\r\n                {\r\n                    \&quot;label\&quot;: \&quot;Document Scanner\&quot;,\r\n                    \&quot;value\&quot;: \&quot;3000289\&quot;\r\n                },\r\n                {\r\n                    \&quot;label\&quot;: \&quot;Printer\&quot;,\r\n                    \&quot;value\&quot;: \&quot;3000290\&quot;\r\n                }\r\n            ],\r\n            \&quot;capturedNonRegisteredDevices\&quot;: null,\r\n            \&quot;checkSum\&quot;: null,\r\n            \&quot;uinUpdatedFields\&quot;: null\r\n        }\r\n    },\r\n    \&quot;errors\&quot;: null,\r\n    \&quot;id\&quot;: \&quot;mosip.manual.verification.packetinfo\&quot;,\r\n    \&quot;version\&quot;: \&quot;1.0\&quot;,\r\n    \&quot;responsetime\&quot;: \&quot;2019-09-27T06:57:57.882Z\&quot;\r\n}&quot;</span>
+  <span class="p">},</span>
+  <span class="nt">&quot;errors&quot;</span><span class="p">:</span> <span class="kc">null</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Failure :</p>
+<div class="highlight-JSON notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+  <span class="nt">&quot;id&quot;</span> <span class="p">:</span> <span class="s2">&quot;mosip.manual.verification.packetInfo&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;version&quot;</span> <span class="p">:</span> <span class="s2">&quot;1.0&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;responsetime&quot;</span><span class="p">:</span> <span class="s2">&quot;2019-02-14T12:40:59.768Z&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;response&quot;</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
+  <span class="nt">&quot;errors&quot;</span> <span class="p">:</span> <span class="p">[{</span>
+	<span class="nt">&quot;errorCode&quot;</span> <span class="p">:</span> <span class="s2">&quot;RPR-MVS-002&quot;</span><span class="p">,</span>
+	<span class="nt">&quot;message&quot;</span> <span class="p">:</span> <span class="s2">&quot;Requested file is not present&quot;</span>
+  <span class="p">}]</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<p>The manual adjudicator would need to verify the operator/supervisor/introducer information present inside packet meta info file. This service fetches the file from inside the packet by registration id.</p>
+</div>
+<div class="section" id="bio-dedupe-service">
+<h1>5 Bio Dedupe Service<a class="headerlink" href="#bio-dedupe-service" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li></li>
+</ul>
+<div class="section" id="get-registrationprocessor-v1-bio-dedupe-biometricfile-referenceid">
+<h2><code class="docutils literal notranslate"><span class="pre">GET</span> <span class="pre">/registrationprocessor/v1/bio-dedupe/biometricfile/{referenceid}</span></code><a class="headerlink" href="#get-registrationprocessor-v1-bio-dedupe-biometricfile-referenceid" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="id49">
+<h2>Resource URL<a class="headerlink" href="#id49" title="Permalink to this headline">¶</a></h2>
+<p>https://mosip.io/registrationprocessor/v1/bio-dedupe/biometricfile/{referenceid}</p>
+</div>
+<div class="section" id="id50">
+<h2>Resource details<a class="headerlink" href="#id50" title="Permalink to this headline">¶</a></h2>
+<p>Resource Details | Description
+------------ | -------------
+Request format | JSON
+Response format | byte[]
+Requires Authentication | Yes</p>
+</div>
+<div class="section" id="id51">
+<h2>Parameters<a class="headerlink" href="#id51" title="Permalink to this headline">¶</a></h2>
+<p>Name | Required | Description | Comment
+-----|----------|-------------|---------------|
+byte[]|Yes|byte array of CBEFF file|</p>
+</div>
+<div class="section" id="id52">
+<h2>Response<a class="headerlink" href="#id52" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="status-codes-200">
+<h3>Status codes: 200<a class="headerlink" href="#status-codes-200" title="Permalink to this headline">¶</a></h3>
+</div>
+<div class="section" id="id53">
+<h3>Description : response code is always 200 if server receives the request.<a class="headerlink" href="#id53" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-JSON notranslate"><div class="highlight"><pre><span></span>// byte array of CBEFF xml file
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<p>The abis would call bio-dedupe service to get the biometric cbeff file.</p>
+<div class="section" id="packet-generator-service">
+<h1>6 Packet Generator Service<a class="headerlink" href="#packet-generator-service" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li></li>
+</ul>
+<div class="section" id="post-registrationprocessor-v1-requesthandler-packetgenerator">
+<h2><code class="docutils literal notranslate"><span class="pre">POST</span> <span class="pre">/registrationprocessor/v1/requesthandler/packetgenerator</span></code><a class="headerlink" href="#post-registrationprocessor-v1-requesthandler-packetgenerator" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="id54">
+<h2>Resource URL<a class="headerlink" href="#id54" title="Permalink to this headline">¶</a></h2>
+<p>https://mosip.io/registrationprocessor/v1/requesthandler/packetgenerator</p>
+</div>
+<div class="section" id="id55">
+<h2>Resource details<a class="headerlink" href="#id55" title="Permalink to this headline">¶</a></h2>
+<p>Resource Details | Description
+------------ | -------------
+Request format | JSON
+Response format | JSON
+Requires Authentication | Yes</p>
+</div>
+<div class="section" id="id56">
+<h2>Parameters<a class="headerlink" href="#id56" title="Permalink to this headline">¶</a></h2>
+<p>Name | Required | Description | Comment
+-----|----------|-------------|---------------|
+PacketGeneratorRequestDto|Yes|Dto containing information required for activate or deactivate packet|</p>
+</div>
+<div class="section" id="id57">
+<h2>Request<a class="headerlink" href="#id57" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-JSON notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+  <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;mosip.registration.packetgenerator&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;version&quot;</span><span class="p">:</span> <span class="s2">&quot;1.0&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;requesttime&quot;</span><span class="p">:</span> <span class="s2">&quot;2019-02-02T06:12:25.288Z&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;request&quot;</span><span class="p">:</span> <span class="p">{</span>
+    <span class="nt">&quot;centerId&quot;</span><span class="p">:</span> <span class="s2">&quot;10031&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;machineId&quot;</span><span class="p">:</span> <span class="s2">&quot;10011&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;reason&quot;</span><span class="p">:</span> <span class="s2">&quot;something&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;registrationType&quot;</span><span class="p">:</span> <span class="s2">&quot;DEACTIVATED&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;uin&quot;</span><span class="p">:</span> <span class="s2">&quot;4215839851&quot;</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="id58">
+<h2>Response<a class="headerlink" href="#id58" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id59">
+<h3>Status Code:200<a class="headerlink" href="#id59" title="Permalink to this headline">¶</a></h3>
+</div>
+<div class="section" id="id60">
+<h3>Description : response code is always 200 if server receives the request.<a class="headerlink" href="#id60" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-JSON notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+  <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;mosip.registration.packetgenerator&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;version&quot;</span><span class="p">:</span> <span class="s2">&quot;1.0&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;responsetime&quot;</span><span class="p">:</span> <span class="s2">&quot;2019-02-02T06:12:25.288Z&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;response&quot;</span><span class="p">:</span> <span class="p">{</span>
+    <span class="nt">&quot;registrationId&quot;</span><span class="p">:</span> <span class="s2">&quot;10031100110005020190313110030&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;status&quot;</span><span class="p">:</span> <span class="s2">&quot;SUCCESS&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;message&quot;</span><span class="p">:</span> <span class="s2">&quot;Packet created and uploaded&quot;</span>
+  <span class="p">},</span>
+  <span class="nt">&quot;errors&quot;</span><span class="p">:</span> <span class="kc">null</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<p>The residence service portal would call packet generator service to activate or deactivate uin.</p>
+<div class="section" id="packet-uploader-service">
+<h1>7 Packet Uploader Service<a class="headerlink" href="#packet-uploader-service" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li></li>
+</ul>
+<div class="section" id="post-registrationprocessor-v1-uploader-securezone">
+<h2><code class="docutils literal notranslate"><span class="pre">POST</span> <span class="pre">/registrationprocessor/v1/uploader/securezone</span></code><a class="headerlink" href="#post-registrationprocessor-v1-uploader-securezone" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="id61">
+<h2>Resource URL<a class="headerlink" href="#id61" title="Permalink to this headline">¶</a></h2>
+<p>https://mosip.io/registrationprocessor/v1/uploader/securezone</p>
+</div>
+<div class="section" id="id62">
+<h2>Resource details<a class="headerlink" href="#id62" title="Permalink to this headline">¶</a></h2>
+<p>Resource Details | Description
+------------ | -------------
+Request format | JSON
+Response format | String
+Requires Authentication | Yes</p>
+</div>
+<div class="section" id="id63">
+<h2>Parameters<a class="headerlink" href="#id63" title="Permalink to this headline">¶</a></h2>
+<p>Name | Required | Description | Comment
+-----|----------|-------------|---------------|
+MessageDto|Yes|Dto being transferred in each and every stage of reg-proc|</p>
+</div>
+<div class="section" id="id64">
+<h2>Request<a class="headerlink" href="#id64" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-JSON notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+  <span class="nt">&quot;rid&quot;</span><span class="p">:</span> <span class="s2">&quot;10003100030000420190625111842&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;reg_type&quot;</span> <span class="p">:</span> <span class="s2">&quot;NEW&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;isValid&quot;</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
+  <span class="nt">&quot;internalError&quot;</span><span class="p">:</span> <span class="kc">false</span><span class="p">,</span>
+  <span class="nt">&quot;messageBusAddress&quot;</span><span class="p">:</span> <span class="s2">&quot;packet-receiver-bus-out&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;retryCount&quot;</span><span class="p">:</span> <span class="mi">0</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="id65">
+<h2>Success Response<a class="headerlink" href="#id65" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-JSON notranslate"><div class="highlight"><pre><span></span>Packet with registrationId 10003100030000420190625111842 has been forwarded to next stage
+</pre></div>
+</div>
+</div>
+<div class="section" id="id66">
+<h2>Failure Response<a class="headerlink" href="#id66" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-JSON notranslate"><div class="highlight"><pre><span></span>Packet with registrationId 10003100030000420190625111842 has not been uploaded to file System
+</pre></div>
+</div>
+<div class="section" id="id67">
+<h3>Status Code:200<a class="headerlink" href="#id67" title="Permalink to this headline">¶</a></h3>
+</div>
+<div class="section" id="id68">
+<h3>Description : response code is always 200 if server receives the request.<a class="headerlink" href="#id68" title="Permalink to this headline">¶</a></h3>
+</div>
+</div>
+</div>
+<p>The dmz stage will call packet uploader service to upload the packet in file system(Hdfs, ceph etc). This service is a bridge between dmz and secure network. It accepts json request and connects to dmz VM to get the packet and move it to archive location.</p>
+<div class="section" id="registration-process-request-handler-service">
+<h1>8 Registration Process Request Handler Service<a class="headerlink" href="#registration-process-request-handler-service" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li></li>
+</ul>
+<div class="section" id="post-registrationprocessor-v1-requesthandler-reprint">
+<h2><code class="docutils literal notranslate"><span class="pre">POST</span> <span class="pre">/registrationprocessor/v1/requesthandler/reprint</span></code><a class="headerlink" href="#post-registrationprocessor-v1-requesthandler-reprint" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="id69">
+<h2>Resource URL<a class="headerlink" href="#id69" title="Permalink to this headline">¶</a></h2>
+<p>https://mosip.io/registrationprocessor/v1/requesthandler/reprint</p>
+</div>
+<div class="section" id="id70">
+<h2>Resource details<a class="headerlink" href="#id70" title="Permalink to this headline">¶</a></h2>
+<p>Resource Details | Description
+------------ | -------------
+Request format | JSON
+Response format | JSON
+Requires Authentication | Yes</p>
+</div>
+<div class="section" id="id71">
+<h2>Parameters<a class="headerlink" href="#id71" title="Permalink to this headline">¶</a></h2>
+<p>Name | Required | Description | Comment
+-----|----------|-------------|---------------|
+id|Yes|reprint id|mosip.uincard.reprint
+version|Yes|the version for sync|1.0
+requesttime|Yes|the requesttime for sync|2019-02-14T12:40:59.768Z
+request|Yes|the request object|1.0
+cardType|Yes|the type of the card|'UIN' OR 'MASKED_UIN'
+idType|Yes|type of id provided|'UIN' OR 'VID'
+id|Yes|the id provided|5647294083
+registrationType|Yes|This indicates the registration type in registration processor. The camel route is decided based on this|RES_REPRINT
+centerId|Yes|center id required to create packet|10003
+machineId|Yes|machine id required to create packet|10003
+reason|No|The reason for reprint| Any string</p>
+<div class="section" id="id72">
+<h3>Request<a class="headerlink" href="#id72" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-JSON notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+  <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;mosip.uincard.reprint&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;request&quot;</span><span class="p">:</span> <span class="p">{</span>
+    <span class="nt">&quot;cardType&quot;</span><span class="p">:</span> <span class="s2">&quot;UIN&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;centerId&quot;</span><span class="p">:</span> <span class="s2">&quot;10003&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;5647294083&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;idType&quot;</span><span class="p">:</span> <span class="s2">&quot;UIN&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;machineId&quot;</span><span class="p">:</span> <span class="s2">&quot;10003&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;reason&quot;</span><span class="p">:</span> <span class="s2">&quot;testing&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;registrationType&quot;</span><span class="p">:</span> <span class="s2">&quot;RES_REPRINT&quot;</span>
+  <span class="p">},</span>
+  <span class="nt">&quot;requesttime&quot;</span><span class="p">:</span> <span class="s2">&quot;2019-09-13T11:34:13.827Z&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;version&quot;</span><span class="p">:</span> <span class="s2">&quot;1.0&quot;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="id73">
+<h3>Response<a class="headerlink" href="#id73" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id74">
+<h4>Status Code:200<a class="headerlink" href="#id74" title="Permalink to this headline">¶</a></h4>
+</div>
+<div class="section" id="id75">
+<h4>Description : response code is always 200 if server receives the request.<a class="headerlink" href="#id75" title="Permalink to this headline">¶</a></h4>
+<div class="highlight-JSON notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+    <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;mosip.uincard.reprint&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;version&quot;</span><span class="p">:</span> <span class="s2">&quot;1.0&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;responsetime&quot;</span><span class="p">:</span> <span class="s2">&quot;2019-09-13T11:54:55.313Z&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;response&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="nt">&quot;registrationId&quot;</span><span class="p">:</span> <span class="s2">&quot;10003100030000120190913115453&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;status&quot;</span><span class="p">:</span> <span class="s2">&quot;Packet has reached Packet Receiver&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;message&quot;</span><span class="p">:</span> <span class="s2">&quot;Packet created and uploaded&quot;</span>
+    <span class="p">},</span>
+    <span class="nt">&quot;errors&quot;</span><span class="p">:</span> <span class="kc">null</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Error response</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+  <span class="s2">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;mosip.uincard.reprint&quot;</span><span class="p">,</span>
+  <span class="s2">&quot;version&quot;</span><span class="p">:</span> <span class="s2">&quot;1.0&quot;</span><span class="p">,</span>
+  <span class="s2">&quot;responsetime&quot;</span><span class="p">:</span> <span class="s2">&quot;2019-09-13T11:49:56.180Z&quot;</span><span class="p">,</span>
+  <span class="s2">&quot;response&quot;</span><span class="p">:</span> <span class="n">null</span><span class="p">,</span>
+  <span class="s2">&quot;errors&quot;</span><span class="p">:</span> <span class="p">[</span>
+    <span class="p">{</span>
+      <span class="s2">&quot;errorCode&quot;</span><span class="p">:</span> <span class="s2">&quot;RPR-PGS-011&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;message&quot;</span><span class="p">:</span> <span class="s2">&quot;Invalid Input Parameter - requesttime&quot;</span>
+    <span class="p">},</span>
+    <span class="p">{</span>
+      <span class="s2">&quot;errorCode&quot;</span><span class="p">:</span> <span class="s2">&quot;RPR-RGS-015&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;message&quot;</span><span class="p">:</span> <span class="s2">&quot;Invalid Request Value - Input Data is Incorrect&quot;</span>
+    <span class="p">}</span>
+  <span class="p">]</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<p>The residence service portal would call this api to reprint uin card upon receiving request from the applicant.</p>
+<div class="section" id="registration-transaction-service">
+<h1>9 Registration Transaction Service<a class="headerlink" href="#registration-transaction-service" title="Permalink to this headline">¶</a></h1>
+<p>This service is used to find all the transactions for a registration id. This service accepts a registration id and returns all transactions associated with it.</p>
+<div class="section" id="id76">
+<h2>Resource URL<a class="headerlink" href="#id76" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="get-registrationprocessor-v1-registrationtransaction-search-langcode-rid">
+<h2><code class="docutils literal notranslate"><span class="pre">GET</span> <span class="pre">/registrationprocessor/v1/registrationtransaction/search/{langcode}/{rid}</span></code><a class="headerlink" href="#get-registrationprocessor-v1-registrationtransaction-search-langcode-rid" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id77">
+<h3>Resource details<a class="headerlink" href="#id77" title="Permalink to this headline">¶</a></h3>
+<p>Resource Details | Description
+------------ | -------------
+Response format | JSON
+Requires Authentication | Yes</p>
+</div>
+<div class="section" id="id78">
+<h3>Parameters<a class="headerlink" href="#id78" title="Permalink to this headline">¶</a></h3>
+<p>Name | Required | Description | Comment |
+-----|----------|-------------|---------------|
+langcode|Yes|The language code|
+registrationId|Yes|The registration id|</p>
+</div>
+<div class="section" id="id79">
+<h3>Request<a class="headerlink" href="#id79" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-JSON notranslate"><div class="highlight"><pre><span></span>-NA-
+</pre></div>
+</div>
+</div>
+<div class="section" id="id80">
+<h3>Response<a class="headerlink" href="#id80" title="Permalink to this headline">¶</a></h3>
+<p>Record found :</p>
+<div class="section" id="id81">
+<h4>Status Code: 200<a class="headerlink" href="#id81" title="Permalink to this headline">¶</a></h4>
+</div>
+<div class="section" id="id82">
+<h4>Description: Successfully retrieved information<a class="headerlink" href="#id82" title="Permalink to this headline">¶</a></h4>
+<div class="highlight-JSON notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+  <span class="nt">&quot;id&quot;</span> <span class="p">:</span> <span class="s2">&quot;mosip.registration.transaction&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;version&quot;</span> <span class="p">:</span> <span class="s2">&quot;1.0&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;responsetime&quot;</span><span class="p">:</span> <span class="s2">&quot;2019-02-14T12:40:59.768Z&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;response&quot;</span> <span class="p">:</span> <span class="p">[</span>
+  <span class="p">{</span>
+    <span class="nt">&quot;id&quot;</span> <span class="p">:</span> <span class="s2">&quot;810e43c3-cc89-4581-84f0-5ee535bf7e3a&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;registrationId&quot;</span><span class="p">:</span> <span class="s2">&quot;10006100067159820190618081137&quot;</span><span class="p">,</span>
+	<span class="nt">&quot;transactionTypeCode&quot;</span> <span class="p">:</span> <span class="s2">&quot;PACKET_RECEIVER&quot;</span><span class="p">,</span>
+	<span class="nt">&quot;parentTransactionId&quot;</span> <span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
+    <span class="nt">&quot;statusCode&quot;</span><span class="p">:</span> <span class="s2">&quot;SUCCESS&quot;</span><span class="p">,</span>
+	<span class="nt">&quot;statusCommentCode&quot;</span> <span class="p">:</span> <span class="s2">&quot;RPR-PKR-SUCCESS-001&quot;</span><span class="p">,</span>
+	<span class="nt">&quot;statusComment&quot;</span> <span class="p">:</span> <span class="s2">&quot;Packet is in PACKET_RECEIVED status&quot;</span><span class="p">,</span>
+	<span class="nt">&quot;createdDateTimes&quot;</span> <span class="p">:</span> <span class="s2">&quot;2019-06-19 10:42:15.04&quot;</span>
+  <span class="p">},</span>
+  <span class="p">{</span>
+	<span class="nt">&quot;id&quot;</span> <span class="p">:</span> <span class="s2">&quot;76796d41-3c42-40a8-8842-02fe87bf4aab&quot;</span><span class="p">,</span>
+	<span class="nt">&quot;registrationId&quot;</span><span class="p">:</span> <span class="s2">&quot;10006100067159820190618081137&quot;</span><span class="p">,</span>
+	<span class="nt">&quot;transactionTypeCode&quot;</span> <span class="p">:</span> <span class="s2">&quot;PACKET_RECEIVER&quot;</span><span class="p">,</span>
+	<span class="nt">&quot;parentTransactionId&quot;</span> <span class="p">:</span> <span class="s2">&quot;810e43c3-cc89-4581-84f0-5ee535bf7e3a&quot;</span><span class="p">,</span>
+	<span class="nt">&quot;statusCode&quot;</span><span class="p">:</span> <span class="s2">&quot;SUCCESS&quot;</span><span class="p">,</span>
+	<span class="nt">&quot;statusCommentCode&quot;</span> <span class="p">:</span> <span class="s2">&quot;RPR-PKR-SUCCESS-002&quot;</span><span class="p">,</span>
+	<span class="nt">&quot;statusComment&quot;</span> <span class="p">:</span> <span class="s2">&quot;Packet is in PACKET_UPLOADED_TO_LANDING_ZONE status&quot;</span><span class="p">,</span>
+	<span class="nt">&quot;createdDateTimes&quot;</span> <span class="p">:</span> <span class="s2">&quot;2019-06-19 10:42:16.285&quot;</span>
+  <span class="p">},</span>
+  <span class="p">{</span>
+	<span class="nt">&quot;id&quot;</span> <span class="p">:</span> <span class="s2">&quot;d04b74cc-7364-407f-aa40-058daa774136&quot;</span><span class="p">,</span>
+	<span class="nt">&quot;registrationId&quot;</span><span class="p">:</span> <span class="s2">&quot;10006100067159820190618081137&quot;</span><span class="p">,</span>
+	<span class="nt">&quot;transactionTypeCode&quot;</span> <span class="p">:</span> <span class="s2">&quot;UPLOAD_PACKET&quot;</span><span class="p">,</span>
+	<span class="nt">&quot;parentTransactionId&quot;</span> <span class="p">:</span> <span class="s2">&quot;76796d41-3c42-40a8-8842-02fe87bf4aab&quot;</span><span class="p">,</span>
+	<span class="nt">&quot;statusCode&quot;</span><span class="p">:</span> <span class="s2">&quot;SUCCESS&quot;</span><span class="p">,</span>
+	<span class="nt">&quot;statusCommentCode&quot;</span> <span class="p">:</span> <span class="s2">&quot;RPR-PKU-SUCCESS-001&quot;</span><span class="p">,</span>
+	<span class="nt">&quot;statusComment&quot;</span> <span class="p">:</span> <span class="s2">&quot;Packet 10006100067159820190618081137 is uploaded in file system.&quot;</span><span class="p">,</span>
+	<span class="nt">&quot;createdDateTimes&quot;</span> <span class="p">:</span> <span class="s2">&quot;2019-06-19 10:42:21.507&quot;</span>
+  <span class="p">},</span>
+  <span class="p">{</span>
+	<span class="nt">&quot;id&quot;</span> <span class="p">:</span> <span class="s2">&quot;19be9e8f-1740-4b6e-8b07-2ea5628abc12&quot;</span><span class="p">,</span>
+	<span class="nt">&quot;registrationId&quot;</span><span class="p">:</span> <span class="s2">&quot;10006100067159820190618081137&quot;</span><span class="p">,</span>
+	<span class="nt">&quot;transactionTypeCode&quot;</span> <span class="p">:</span> <span class="s2">&quot;VALIDATE_PACKET&quot;</span><span class="p">,</span>
+	<span class="nt">&quot;parentTransactionId&quot;</span> <span class="p">:</span> <span class="s2">&quot;d04b74cc-7364-407f-aa40-058daa774136&quot;</span><span class="p">,</span>
+	<span class="nt">&quot;statusCode&quot;</span><span class="p">:</span> <span class="s2">&quot;SUCCESS&quot;</span><span class="p">,</span>
+	<span class="nt">&quot;statusCommentCode&quot;</span> <span class="p">:</span> <span class="s2">&quot;RPR-PKV-SUCCESS-001&quot;</span><span class="p">,</span>
+	<span class="nt">&quot;statusComment&quot;</span> <span class="p">:</span> <span class="s2">&quot;Packet structural validation is successful&quot;</span><span class="p">,</span>
+	<span class="nt">&quot;createdDateTimes&quot;</span> <span class="p">:</span> <span class="s2">&quot;2019-06-19 10:42:34.265&quot;</span>
+  <span class="p">},</span>
+  <span class="p">{</span>
+	<span class="nt">&quot;id&quot;</span> <span class="p">:</span> <span class="s2">&quot;72d8099d-37e1-4bcc-a772-a4c86b441acf&quot;</span><span class="p">,</span>
+	<span class="nt">&quot;registrationId&quot;</span><span class="p">:</span> <span class="s2">&quot;10006100067159820190618081137&quot;</span><span class="p">,</span>
+	<span class="nt">&quot;transactionTypeCode&quot;</span> <span class="p">:</span> <span class="s2">&quot;QUALITY_CHECK&quot;</span><span class="p">,</span>
+	<span class="nt">&quot;parentTransactionId&quot;</span> <span class="p">:</span> <span class="s2">&quot;19be9e8f-1740-4b6e-8b07-2ea5628abc12&quot;</span><span class="p">,</span>
+	<span class="nt">&quot;statusCode&quot;</span><span class="p">:</span> <span class="s2">&quot;SUCCESS&quot;</span><span class="p">,</span>
+	<span class="nt">&quot;statusCommentCode&quot;</span> <span class="p">:</span> <span class="s2">&quot;RPR-QCS-SUCCESS-001&quot;</span><span class="p">,</span>
+	<span class="nt">&quot;statusComment&quot;</span> <span class="p">:</span> <span class="s2">&quot;All Quality Scores are more than threshold&quot;</span><span class="p">,</span>
+	<span class="nt">&quot;createdDateTimes&quot;</span> <span class="p">:</span> <span class="s2">&quot;2019-06-19 10:42:35.677&quot;</span>
+  <span class="p">},</span>
+  <span class="p">{</span>
+	<span class="nt">&quot;id&quot;</span> <span class="p">:</span> <span class="s2">&quot;0a7baa01-2d64-4e82-89cd-a6e2bdcebe72&quot;</span><span class="p">,</span>
+	<span class="nt">&quot;registrationId&quot;</span><span class="p">:</span> <span class="s2">&quot;10006100067159820190618081137&quot;</span><span class="p">,</span>
+	<span class="nt">&quot;transactionTypeCode&quot;</span> <span class="p">:</span> <span class="s2">&quot;OSI_VALIDATE&quot;</span><span class="p">,</span>
+	<span class="nt">&quot;parentTransactionId&quot;</span> <span class="p">:</span> <span class="s2">&quot;72d8099d-37e1-4bcc-a772-a4c86b441acf&quot;</span><span class="p">,</span>
+	<span class="nt">&quot;statusCode&quot;</span><span class="p">:</span> <span class="s2">&quot;SUCCESS&quot;</span><span class="p">,</span>
+	<span class="nt">&quot;statusCommentCode&quot;</span> <span class="p">:</span> <span class="s2">&quot;RPR-OSI-SUCCESS-001&quot;</span><span class="p">,</span>
+	<span class="nt">&quot;statusComment&quot;</span> <span class="p">:</span> <span class="s2">&quot;OSI Validation is successful&quot;</span><span class="p">,</span>
+	<span class="nt">&quot;createdDateTimes&quot;</span> <span class="p">:</span> <span class="s2">&quot;2019-06-19 10:42:35.677&quot;</span>
+  <span class="p">},</span>
+  <span class="p">{</span>
+	<span class="nt">&quot;id&quot;</span> <span class="p">:</span> <span class="s2">&quot;dd7d8892-1cdd-4af7-99fc-9b2ef59d207c&quot;</span><span class="p">,</span>
+	<span class="nt">&quot;registrationId&quot;</span><span class="p">:</span> <span class="s2">&quot;10006100067159820190618081137&quot;</span><span class="p">,</span>
+	<span class="nt">&quot;transactionTypeCode&quot;</span> <span class="p">:</span> <span class="s2">&quot;BIOMETRIC_AUTHENTICATION&quot;</span><span class="p">,</span>
+	<span class="nt">&quot;parentTransactionId&quot;</span> <span class="p">:</span> <span class="s2">&quot;0a7baa01-2d64-4e82-89cd-a6e2bdcebe72&quot;</span><span class="p">,</span>
+	<span class="nt">&quot;statusCode&quot;</span><span class="p">:</span> <span class="s2">&quot;SUCCESS&quot;</span><span class="p">,</span>
+	<span class="nt">&quot;statusCommentCode&quot;</span> <span class="p">:</span> <span class="s2">&quot;RPR-BAS-SUCCESS-001&quot;</span><span class="p">,</span>
+	<span class="nt">&quot;statusComment&quot;</span> <span class="p">:</span> <span class="s2">&quot;Biometric Authentication Success&quot;</span><span class="p">,</span>
+	<span class="nt">&quot;createdDateTimes&quot;</span> <span class="p">:</span> <span class="s2">&quot;2019-06-19 10:42:35.677&quot;</span>
+  <span class="p">},</span>
+  <span class="p">{</span>
+	<span class="nt">&quot;id&quot;</span> <span class="p">:</span> <span class="s2">&quot;247eb4b2-3abc-4f2d-9200-01a4c6b76217&quot;</span><span class="p">,</span>
+	<span class="nt">&quot;registrationId&quot;</span><span class="p">:</span> <span class="s2">&quot;10006100067159820190618081137&quot;</span><span class="p">,</span>
+	<span class="nt">&quot;transactionTypeCode&quot;</span> <span class="p">:</span> <span class="s2">&quot;DEMOGRAPHIC_VERIFICATION&quot;</span><span class="p">,</span>
+	<span class="nt">&quot;parentTransactionId&quot;</span> <span class="p">:</span> <span class="s2">&quot;dd7d8892-1cdd-4af7-99fc-9b2ef59d207c&quot;</span><span class="p">,</span>
+	<span class="nt">&quot;statusCode&quot;</span><span class="p">:</span> <span class="s2">&quot;SUCCESS&quot;</span><span class="p">,</span>
+	<span class="nt">&quot;statusCommentCode&quot;</span> <span class="p">:</span> <span class="s2">&quot;RPR-DDS-SUCCESS-001&quot;</span><span class="p">,</span>
+	<span class="nt">&quot;statusComment&quot;</span> <span class="p">:</span> <span class="s2">&quot;Demographic Authentication Success&quot;</span><span class="p">,</span>
+	<span class="nt">&quot;createdDateTimes&quot;</span> <span class="p">:</span> <span class="s2">&quot;2019-06-19 10:42:35.677&quot;</span>
+  <span class="p">},</span>
+  <span class="p">{</span>
+	<span class="nt">&quot;id&quot;</span> <span class="p">:</span> <span class="s2">&quot;c478ba68-64a0-4b8d-8e50-a59c12926de6&quot;</span><span class="p">,</span>
+	<span class="nt">&quot;registrationId&quot;</span><span class="p">:</span> <span class="s2">&quot;10006100067159820190618081137&quot;</span><span class="p">,</span>
+	<span class="nt">&quot;transactionTypeCode&quot;</span> <span class="p">:</span> <span class="s2">&quot;BIOGRAPHIC_VERIFICATION&quot;</span><span class="p">,</span>
+	<span class="nt">&quot;parentTransactionId&quot;</span> <span class="p">:</span> <span class="s2">&quot;247eb4b2-3abc-4f2d-9200-01a4c6b76217&quot;</span><span class="p">,</span>
+	<span class="nt">&quot;statusCode&quot;</span><span class="p">:</span> <span class="s2">&quot;IN_PROGRESS&quot;</span><span class="p">,</span>
+	<span class="nt">&quot;statusCommentCode&quot;</span> <span class="p">:</span> <span class="s2">&quot;RPR-BDS-SUCCESS-001&quot;</span><span class="p">,</span>
+	<span class="nt">&quot;statusComment&quot;</span> <span class="p">:</span> <span class="s2">&quot;Packet biodedupe Inprogress&quot;</span><span class="p">,</span>
+	<span class="nt">&quot;createdDateTimes&quot;</span> <span class="p">:</span> <span class="s2">&quot;2019-06-19 10:43:22.758&quot;</span>
+  <span class="p">},</span>
+  <span class="p">{</span>
+	<span class="nt">&quot;id&quot;</span> <span class="p">:</span> <span class="s2">&quot;faaaf60f-a591-40a7-b5fa-b6b7fa5894bd&quot;</span><span class="p">,</span>
+	<span class="nt">&quot;registrationId&quot;</span><span class="p">:</span> <span class="s2">&quot;10006100067159820190618081137&quot;</span><span class="p">,</span>
+	<span class="nt">&quot;transactionTypeCode&quot;</span> <span class="p">:</span> <span class="s2">&quot;BIOMETRIC_AUTHENTICATION&quot;</span><span class="p">,</span>
+	<span class="nt">&quot;parentTransactionId&quot;</span> <span class="p">:</span> <span class="s2">&quot;c478ba68-64a0-4b8d-8e50-a59c12926de6&quot;</span><span class="p">,</span>
+	<span class="nt">&quot;statusCode&quot;</span><span class="p">:</span> <span class="s2">&quot;SUCCESS&quot;</span><span class="p">,</span>
+	<span class="nt">&quot;statusCommentCode&quot;</span> <span class="p">:</span> <span class="s2">&quot;RPR-BDS-SUCCESS-002&quot;</span><span class="p">,</span>
+	<span class="nt">&quot;statusComment&quot;</span> <span class="p">:</span> <span class="s2">&quot;Packet biodedupe successful&quot;</span><span class="p">,</span>
+	<span class="nt">&quot;createdDateTimes&quot;</span> <span class="p">:</span> <span class="s2">&quot;2019-06-19 10:43:34.845&quot;</span>
+  <span class="p">},</span>
+  <span class="p">{</span>
+	<span class="nt">&quot;id&quot;</span> <span class="p">:</span> <span class="s2">&quot;66d87a75-a32e-4651-bb64-23a552a8dd69&quot;</span><span class="p">,</span>
+	<span class="nt">&quot;registrationId&quot;</span><span class="p">:</span> <span class="s2">&quot;10006100067159820190618081137&quot;</span><span class="p">,</span>
+	<span class="nt">&quot;transactionTypeCode&quot;</span> <span class="p">:</span> <span class="s2">&quot;UIN_GENERATOR&quot;</span><span class="p">,</span>
+	<span class="nt">&quot;parentTransactionId&quot;</span> <span class="p">:</span> <span class="s2">&quot;faaaf60f-a591-40a7-b5fa-b6b7fa5894bd&quot;</span><span class="p">,</span>
+	<span class="nt">&quot;statusCode&quot;</span><span class="p">:</span> <span class="s2">&quot;SUCCESS&quot;</span><span class="p">,</span>
+	<span class="nt">&quot;statusCommentCode&quot;</span> <span class="p">:</span> <span class="s2">&quot;RPR-UIN-SUCCESS-001&quot;</span><span class="p">,</span>
+	<span class="nt">&quot;statusComment&quot;</span> <span class="p">:</span> <span class="s2">&quot;Data updated successfully for regId  for registration Id:  10006100067159820190618081137&quot;</span><span class="p">,</span>
+	<span class="nt">&quot;createdDateTimes&quot;</span> <span class="p">:</span> <span class="s2">&quot;2019-06-19 10:43:42.709&quot;</span>
+  <span class="p">},</span>
+  <span class="p">{</span>
+	<span class="nt">&quot;id&quot;</span> <span class="p">:</span> <span class="s2">&quot;42df348d-6f9f-49c2-830b-4da8e1f6123c&quot;</span><span class="p">,</span>
+	<span class="nt">&quot;registrationId&quot;</span><span class="p">:</span> <span class="s2">&quot;10006100067159820190618081137&quot;</span><span class="p">,</span>
+	<span class="nt">&quot;transactionTypeCode&quot;</span> <span class="p">:</span> <span class="s2">&quot;PRINT_POSTAL_SERVICE&quot;</span><span class="p">,</span>
+	<span class="nt">&quot;parentTransactionId&quot;</span> <span class="p">:</span> <span class="s2">&quot;66d87a75-a32e-4651-bb64-23a552a8dd69&quot;</span><span class="p">,</span>
+	<span class="nt">&quot;statusCode&quot;</span><span class="p">:</span> <span class="s2">&quot;PROCESSED&quot;</span><span class="p">,</span>
+	<span class="nt">&quot;statusCommentCode&quot;</span> <span class="p">:</span> <span class="s2">&quot;RPR-PPS-SUCCESS-001&quot;</span><span class="p">,</span>
+	<span class="nt">&quot;statusComment&quot;</span> <span class="p">:</span> <span class="s2">&quot;Pdf added to the mosip queue for printing&quot;</span><span class="p">,</span>
+	<span class="nt">&quot;createdDateTimes&quot;</span> <span class="p">:</span> <span class="s2">&quot;2019-06-19 10:42:35.677&quot;</span>
+  <span class="p">},</span>
+ <span class="p">{</span>
+	<span class="nt">&quot;id&quot;</span> <span class="p">:</span> <span class="s2">&quot;0039b5fd-fe6a-4cb7-9456-5f2f25977bb4&quot;</span><span class="p">,</span>
+	<span class="nt">&quot;registrationId&quot;</span><span class="p">:</span> <span class="s2">&quot;10006100067159820190618081137&quot;</span><span class="p">,</span>
+	<span class="nt">&quot;transactionTypeCode&quot;</span> <span class="p">:</span> <span class="s2">&quot;PRINT_POSTAL_SERVICE&quot;</span><span class="p">,</span>
+	<span class="nt">&quot;parentTransactionId&quot;</span> <span class="p">:</span> <span class="s2">&quot;66d87a75-a32e-4651-bb64-23a552a8dd69&quot;</span><span class="p">,</span>
+	<span class="nt">&quot;statusCode&quot;</span><span class="p">:</span> <span class="s2">&quot;PROCESSED&quot;</span><span class="p">,</span>
+	<span class="nt">&quot;statusCommentCode&quot;</span> <span class="p">:</span> <span class="s2">&quot;RPR-PPS-SUCCESS-002&quot;</span><span class="p">,</span>
+	<span class="nt">&quot;statusComment&quot;</span> <span class="p">:</span> <span class="s2">&quot;Print and Post Completed for the regId : 10006100067159820190618081137&quot;</span><span class="p">,</span>
+	<span class="nt">&quot;createdDateTimes&quot;</span> <span class="p">:</span> <span class="s2">&quot;2019-06-19 10:42:35.677&quot;</span>
+  <span class="p">},</span>
+ <span class="p">{</span>
+	<span class="nt">&quot;id&quot;</span> <span class="p">:</span> <span class="s2">&quot;53b573fd-349d-4171-ba7f-29a926345ded&quot;</span><span class="p">,</span>
+	<span class="nt">&quot;registrationId&quot;</span><span class="p">:</span> <span class="s2">&quot;10006100067159820190618081137&quot;</span><span class="p">,</span>
+	<span class="nt">&quot;transactionTypeCode&quot;</span> <span class="p">:</span> <span class="s2">&quot;NOTIFICATION&quot;</span><span class="p">,</span>
+	<span class="nt">&quot;parentTransactionId&quot;</span> <span class="p">:</span> <span class="s2">&quot;66d87a75-a32e-4651-bb64-23a552a8dd69&quot;</span><span class="p">,</span>
+	<span class="nt">&quot;statusCode&quot;</span><span class="p">:</span> <span class="s2">&quot;SUCCESS&quot;</span><span class="p">,</span>
+	<span class="nt">&quot;statusCommentCode&quot;</span> <span class="p">:</span> <span class="s2">&quot;RPR-MSS-SUCCESS-001&quot;</span><span class="p">,</span>
+	<span class="nt">&quot;statusComment&quot;</span> <span class="p">:</span> <span class="s2">&quot;Notification sent successfully for registrationId 10006100067159820190618081137&quot;</span><span class="p">,</span>
+	<span class="nt">&quot;createdDateTimes&quot;</span> <span class="p">:</span> <span class="s2">&quot;2019-06-19 10:43:56.823&quot;</span>
+  <span class="p">}</span>
+<span class="p">],</span>
+<span class="nt">&quot;errors&quot;</span><span class="p">:</span> <span class="kc">null</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Record not found :</p>
+</div>
+<div class="section" id="id83">
+<h4>Status Code: 200<a class="headerlink" href="#id83" title="Permalink to this headline">¶</a></h4>
+</div>
+<div class="section" id="id84">
+<h4>Description: Successfully retrieved information<a class="headerlink" href="#id84" title="Permalink to this headline">¶</a></h4>
+<div class="highlight-JSON notranslate"><div class="highlight"><pre><span></span>{
+  &quot;id&quot; : &quot;mosip.registration.transaction&quot;,
+  &quot;version&quot; : &quot;1.0&quot;,
+  &quot;responsetime&quot;: &quot;2019-02-14T12:40:59.768Z&quot;,
+  &quot;response&quot; : null,
+  &quot;errors&quot; : [
+	  {
+		&quot;status&quot;: &quot;FAILURE&quot;,
+		&quot;errorCode&quot;: &quot;RPR-RTS-001&quot;,
+		&quot;errorMessage&quot;: &quot;Invalid RID&quot;
+	  }
+	]
+}
+}
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="uincard-service">
+<h1>10 Uincard Service<a class="headerlink" href="#uincard-service" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li></li>
+</ul>
+<div class="section" id="post-registrationprocessor-v1-print-uincard">
+<h2><code class="docutils literal notranslate"><span class="pre">POST</span> <span class="pre">/registrationprocessor/v1/print/uincard</span></code><a class="headerlink" href="#post-registrationprocessor-v1-print-uincard" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="id85">
+<h2>Resource URL<a class="headerlink" href="#id85" title="Permalink to this headline">¶</a></h2>
+<p>https://mosip.io/registrationprocessor/v1/print/uincard</p>
+</div>
+<div class="section" id="id86">
+<h2>Resource details<a class="headerlink" href="#id86" title="Permalink to this headline">¶</a></h2>
+<p>Resource Details | Description
+------------ | -------------
+Request format | JSON
+Response format | application/pdf
+Error Response format | JSON
+Requires Authentication | Yes</p>
+</div>
+<div class="section" id="id87">
+<h2>Parameters<a class="headerlink" href="#id87" title="Permalink to this headline">¶</a></h2>
+<p>Name | Required | Description | Comment
+-----|----------|-------------|---------------|
+id|Yes|reprint id|mosip.uincard.reprint
+version|Yes|the version for sync|1.0
+requesttime|Yes|the requesttime for sync|2019-02-14T12:40:59.768Z
+request|Yes|the request object|1.0
+cardType|Yes|the type of the card|'UIN' OR 'MASKED_UIN'
+idType|Yes|type of id provided|'UIN' OR 'VID' OR 'RID'
+idValue|Yes|the id provided|5647294083</p>
+<div class="section" id="id88">
+<h3>Request<a class="headerlink" href="#id88" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-JSON notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+  <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;mosip.registration.print&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;request&quot;</span><span class="p">:</span> <span class="p">{</span>
+    <span class="nt">&quot;cardType&quot;</span><span class="p">:</span> <span class="s2">&quot;UIN&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;idValue&quot;</span><span class="p">:</span> <span class="s2">&quot;5647294083&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;idType&quot;</span><span class="p">:</span> <span class="s2">&quot;UIN&quot;</span>
+  <span class="p">},</span>
+  <span class="nt">&quot;requesttime&quot;</span><span class="p">:</span> <span class="s2">&quot;2019-09-13T11:34:13.827Z&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;version&quot;</span><span class="p">:</span> <span class="s2">&quot;1.0&quot;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="id89">
+<h3>Response<a class="headerlink" href="#id89" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id90">
+<h4>Status Code:200<a class="headerlink" href="#id90" title="Permalink to this headline">¶</a></h4>
+</div>
+<div class="section" id="id91">
+<h4>Description : response code is always 200 if server receives the request.<a class="headerlink" href="#id91" title="Permalink to this headline">¶</a></h4>
+<p>Success response :</p>
+<div class="highlight-JSON notranslate"><div class="highlight"><pre><span></span>// PDF bytes
+</pre></div>
+</div>
+<p>Error response :</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+  <span class="s2">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;mosip.registration.print&quot;</span><span class="p">,</span>
+  <span class="s2">&quot;version&quot;</span><span class="p">:</span> <span class="s2">&quot;1.0&quot;</span><span class="p">,</span>
+  <span class="s2">&quot;responsetime&quot;</span><span class="p">:</span> <span class="s2">&quot;2019-09-18T06:28:55.676Z&quot;</span><span class="p">,</span>
+  <span class="s2">&quot;errors&quot;</span><span class="p">:</span> <span class="p">[</span>
+    <span class="p">{</span>
+      <span class="s2">&quot;errorCode&quot;</span><span class="p">:</span> <span class="s2">&quot;RPR-PRT-011&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;message&quot;</span><span class="p">:</span> <span class="s2">&quot;UIN length should be as per configured digit.&quot;</span>
+    <span class="p">}</span>
+  <span class="p">],</span>
+  <span class="s2">&quot;response&quot;</span><span class="p">:</span> <span class="n">null</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<p>The residence service portal would call this api to get uin card upon receiving request from the applicant.</p>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, mosip-team
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

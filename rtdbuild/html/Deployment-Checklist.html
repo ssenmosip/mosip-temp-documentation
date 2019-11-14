@@ -1,0 +1,468 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="java" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="java" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Deployment Checklist &mdash; MOSIP 0.9 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script type="text/javascript" src="_static/jquery.js"></script>
+        <script type="text/javascript" src="_static/underscore.js"></script>
+        <script type="text/javascript" src="_static/doctools.js"></script>
+        <script type="text/javascript" src="_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search"  style="background: white" >
+          
+
+          
+            <a href="index.html" class="icon icon-home"> MOSIP
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.9
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <!-- Local TOC -->
+              <div class="local-toc"><ul>
+<li><a class="reference internal" href="#">Deployment Checklist</a></li>
+</ul>
+</div>
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">MOSIP</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html">Docs</a> &raquo;</li>
+        
+      <li>Deployment Checklist</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/Deployment-Checklist.md.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="deployment-checklist">
+<h1>Deployment Checklist<a class="headerlink" href="#deployment-checklist" title="Permalink to this headline">¶</a></h1>
+<p>This checklist should be verified once the environment is ready, and before it can be consumed.</p>
+<p>Deployment checklist is divided into 2 parts -</p>
+<ol class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">Infrastructure</span> <span class="pre">Checklist</span></code> – This checklist lists the required installations for all the modules.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Application</span> <span class="pre">Checklist</span></code> – This checklist lists the dependent services, configurations, required roles, any explicit permissions, etc. for all the modules.</p></li>
+</ol>
+<p><em><strong>1. Infrastructure Checklist</strong></em><br />Below are the list of infrastructure items which should be checked per module, before using them.</p>
+<table>
+    <thead>
+        <tr>
+            <th>Module Name</th>
+            <th>Infrastructure Checklist</th>
+            <th>Additional Information</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td rowspan=5>Kernel</td>
+            <td rowspan=1>PostgreSQL</td>
+            <td></td>
+        </tr>
+        <tr>
+            <td rowspan=1>SMTP Server</td>
+            <td>If mail notification is enabled</td>
+        </tr>
+        <tr>
+            <td rowspan=1>SMS Gateway</td>
+            <td>If SMS notification is enabled</td>
+        </tr>
+        <tr>
+            <td rowspan=1>HDFS</td>
+            <td></td>
+        </tr>
+        <tr>
+            <td rowspan=1>LDAP</td>
+            <td>Import ldif</td>
+        </tr>
+       <tr>
+            <td rowspan=5>Pre-Registration</td>
+            <td rowspan=1>PostgreSQL</td>
+            <td></td>
+        </tr>
+        <tr>
+            <td rowspan=1>SMTP Server</td>
+            <td>If mail notification is enabled</td>
+        </tr>
+        <tr>
+            <td rowspan=1>SMS Gateway</td>
+            <td>If SMS notification is enabled</td>
+        </tr>
+        <tr>
+            <td rowspan=1>HDFS</td>
+            <td></td>
+        </tr>
+        <tr>
+            <td rowspan=1>LDAP</td>
+            <td></td>
+        </tr>
+        <tr>
+            <td rowspan=5>Registration</td>
+            <td rowspan=1>TPM</td>
+            <td></td>
+        </tr>
+        <tr>
+            <td rowspan=1>SMTP Server</td>
+            <td>If mail notification is enabled</td>
+        </tr>
+        <tr>
+            <td rowspan=1>SMS Gateway</td>
+            <td>If SMS notification is enabled</td>
+        </tr>
+        <tr>
+            <td rowspan=1>Devices</td>
+            <td>Fingerprint Slab, Iris, Webcamera, Printer, Scanner</td>
+        </tr>
+        <tr>
+            <td rowspan=1>LDAP</td>
+            <td></td>
+        </tr>
+     <tr>
+            <td rowspan=7>Registration Processor</td>
+            <td rowspan=1>Virus Scanner</td>
+            <td>ClamAV virusscanner service should be accessible from dmz and secure zone using IP:Port</td>
+        </tr>
+        <tr>
+            <td rowspan=1>SMTP Server</td>
+            <td>If mail notification is enabled</td>
+        </tr>
+        <tr>
+            <td rowspan=1>SMS Gateway</td>
+            <td>If SMS notification is enabled</td>
+        </tr>
+        <tr>
+            <td rowspan=1>HDFS</td>
+            <td>HDFS should be accessible, and write permission to regproc user should be provided</td>
+        </tr>
+        <tr>
+            <td rowspan=1>ActiveMQ</td>
+            <td>ActiveMQ should be installed and accessible using IP:Port</td>
+        </tr>
+         <tr>
+            <td rowspan=1>LDAP</td>
+            <td></td>
+        </tr>
+         <tr>
+            <td rowspan=1>PostgresSQL</td>
+            <td></td>
+        </tr>
+       <tr>
+            <td rowspan=3>ID Repository</td>
+            <td rowspan=1>HDFS</td>
+            <td></td>
+        </tr>
+        <tr>
+            <td rowspan=1>LDAP</td>
+            <td></td>
+        </tr>
+        <tr>
+            <td rowspan=1>PostgresSQL</td>
+            <td></td>
+        </tr>
+       <tr>
+            <td rowspan=4>ID Authentication</td>
+            <td rowspan=1>SMTP Server</td>
+            <td>If mail notification is enabled</td>
+        </tr>
+        <tr>
+            <td rowspan=1>SMS Gateway</td>
+            <td>If SMS notification is enabled</td>
+        </tr>
+        <tr>
+            <td rowspan=1>LDAP</td>
+            <td></td>
+        </tr>
+        <tr>
+            <td rowspan=1>PostgresSQL</td>
+            <td></td>
+        </tr>    
+    </tbody>
+</table><p><em><strong>2. Application Checklist</strong></em><br />Below are list of items to be checked for each module to work.</p>
+<table>
+    <thead>
+        <tr>
+            <th>Module Name</th>
+            <th>Application Checklist</th>
+            <th>Additional Information</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td rowspan=1>Kernel</td>
+            <td rowspan=1>Configurations</td>
+            <td>kernel.properties, application.properties</td>
+        </tr>
+       <tr>
+            <td rowspan=5>Pre-Registration</td>
+            <td rowspan=1>Virus Scanner</td>
+            <td></td>
+        </tr>
+        <tr>
+            <td rowspan=1>HDFS</td>
+            <td></td>
+        </tr>
+        <tr>
+            <td rowspan=1>Configurations</td>
+            <td>pre-registration.properties, application.properties</td>
+        </tr>
+        <tr>
+            <td rowspan=1>HDFS</td>
+            <td></td>
+        </tr>
+        <tr>
+            <td rowspan=1>Kernel Services</td>
+            <td>Authmanager, AuditManager, MasterData, CryptoManager, KeyManager, SmsNotifier, EmailNotifier, Config Server, OTPManager</td>
+        </tr>
+        <tr>
+            <td rowspan=6>Registration</td>
+            <td rowspan=1>Kernel Services</td>
+            <td>AuthManager, Sync Data Service, Key Manager,  
+Notification Manager, Master Data, User Salt Service,  
+User Detail Service</td>
+        </tr>
+        <tr>
+            <td rowspan=1>Pre-Registrtaion Services</td>
+            <td>Pre-Registration Sync Service</td>
+        </tr>
+        <tr>
+            <td rowspan=1>Registration  
+Processor Services</td>
+            <td>Packet Reciever, Packet Sync Status, Packet Status</td>
+        </tr>
+        <tr>
+            <td rowspan=1>ID Authentication Services</td>
+            <td>Internal Authentication Service</td>
+        </tr>
+        <tr>
+            <td rowspan=1>Devices and/or MDS</td>
+            <td>Fingerprint/Iris/Webcamera/Printer/Scanner</td>
+        </tr>
+        <tr>
+            <td rowspan=1>Configurations</td>
+            <td>registration.properties, application.properties,  
+spring.properties  
+Required properties for library URL, HealthCheck URL, TPM availability needs to be changed in the file present at -  
+"registrtaion-services/src/main/resources  
+/spring.properties"</td>
+        </tr>
+     <tr>
+            <td rowspan=5>Registration Processor</td>
+            <td rowspan=1>Kernel Services</td>
+            <td>AuthManager, AuditManager, MasterData,  
+CryptoManager, KeyManager, Signature,  
+RidGenerator, SmsNotifier, EmailNotifier</td>
+        </tr>
+        <tr>
+            <td rowspan=1>ID Authentication Services</td>
+            <td>Internal Authentication Service</td>
+        </tr>
+        <tr>
+            <td rowspan=1>ID Repository Services</td>
+            <td>IDRepo Identity and VID Services</td>
+        </tr>
+        <tr>
+            <td rowspan=1>ABIS</td>
+            <td></td>
+        </tr>
+        <tr>
+            <td rowspan=1>Configurations</td>
+            <td>registration-processor.properties,  
+RegistrationProcessorAbis.json  
+These configurations should be updated with correct hdfs, activemq, virusscanner ip/port, etc.</td>
+        </tr>
+       <tr>
+            <td rowspan=3>ID Repository</td>
+            <td rowspan=1>Kernel Services</td>
+            <td>AuditManager, CryptoManager, Config Server, AuthManager</td>
+        </tr>
+        <tr>
+            <td rowspan=1>Configurations</td>
+            <td>ID Schema, VID Policy Schema, id-repository.properties</td>
+        </tr>
+        <tr>
+            <td rowspan=1>Job</td>
+            <td>Salt Generator</td>
+        </tr>
+        <tr>
+            <td rowspan=1>LDAP Roles</td>
+            <td>roles=REGISTRATION_PROCESSOR, ID_AUTHENTICATION, REGISTRATION_ADMIN, REGISTRATION_SUPERVISOR, REGISTRATION_OFFICER</td>
+        </tr>
+       <tr>
+            <td rowspan=4>ID Authentication</td>
+            <td rowspan=1>Kernel Services</td>
+            <td>AuditManager, CryptoManager, AuthManager,  
+Config Server, OTPManager, Email Notifier, SMS Notifier, Signature, Master Data, TokenID Generator</td>
+        </tr>
+        <tr>
+            <td rowspan=1>ID Repository Services</td>
+            <td>ID Repo Identity and VID Services</td>
+        </tr>
+        <tr>
+            <td rowspan=1>Configurations</td>
+            <td>ID Auth Mapping, id-authentication.properties</td>
+        </tr>
+        <tr>
+            <td rowspan=1>Job</td>
+            <td>Salt Generator</td>
+        </tr>    
+        <tr>
+            <td rowspan=1>LDAP Roles</td>
+            <td>roles=REGISTRATION_PROCESSOR, ID_AUTHENTICATION, REGISTRATION_ADMIN, REGISTRATION_SUPERVISOR, REGISTRATION_OFFICER</td>
+        </tr>    
+    </tbody>
+</table></div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, mosip-team
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

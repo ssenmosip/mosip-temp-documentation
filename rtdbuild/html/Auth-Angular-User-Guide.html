@@ -1,0 +1,324 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="java" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="java" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Guidelines &mdash; MOSIP 0.9 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script type="text/javascript" src="_static/jquery.js"></script>
+        <script type="text/javascript" src="_static/underscore.js"></script>
+        <script type="text/javascript" src="_static/doctools.js"></script>
+        <script type="text/javascript" src="_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search"  style="background: white" >
+          
+
+          
+            <a href="index.html" class="icon icon-home"> MOSIP
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.9
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <!-- Local TOC -->
+              <div class="local-toc"><ul>
+<li><a class="reference internal" href="#">Guidelines</a><ul>
+<li><a class="reference internal" href="#authentication-flow">Authentication flow:</a></li>
+<li><a class="reference internal" href="#authorization-flow">Authorization flow:</a></li>
+<li><a class="reference internal" href="#implementation-of-above-flows">Implementation of above flows:</a></li>
+<li><a class="reference internal" href="#http-interceptor">Http Interceptor</a></li>
+<li><a class="reference internal" href="#roles-directive">Roles Directive</a></li>
+</ul>
+</li>
+</ul>
+</div>
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">MOSIP</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html">Docs</a> &raquo;</li>
+        
+      <li>Guidelines</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/Auth-Angular-User-Guide.md.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="guidelines">
+<h1>Guidelines<a class="headerlink" href="#guidelines" title="Permalink to this headline">¶</a></h1>
+<p>Guidelines to implement Authorization and Authentication techniques in the Angular application are detailed in this document.</p>
+<p>Before going in to the components let us discuss the following flows of Authorization and Authentication.</p>
+<div class="section" id="authentication-flow">
+<h2>Authentication flow:<a class="headerlink" href="#authentication-flow" title="Permalink to this headline">¶</a></h2>
+<ol class="simple">
+<li><p>Initially a login request is made passing user credentials to a REST API as specified in the SPECS of that API.</p></li>
+<li><p>In the response of a successful authentication you will receive user details and an auth_token as the value of the header <strong>&quot;Authorization&quot;</strong>.</p></li>
+<li><p>Now the received auth token has to be stored and re-used. For example let us use sessionStorage to store the auth_token under the key &quot;TOKEN&quot;.</p></li>
+<li><p>Now any kind of HTTP/HTTPS requests we make from the application has to be sent by adding a header <strong>&quot;Authorization&quot;</strong> and value of auth_token stored in sessionStorage with key by name &quot;Token&quot; for the purpose of authentication.</p></li>
+<li><p>If the response comes back with a new token which might be because of previous token getting expired or refresh token mechanisms that happen in the backend, we need to replace the old token with the new one in the session storage.</p></li>
+</ol>
+</div>
+<div class="section" id="authorization-flow">
+<h2>Authorization flow:<a class="headerlink" href="#authorization-flow" title="Permalink to this headline">¶</a></h2>
+<ol class="simple">
+<li><p>After successful login the user details are sent to the client(Angular application/ Browser).</p></li>
+<li><p>Now store the userDetails in the sessionStorage for example under the key &quot;UserDetails&quot;.</p></li>
+<li><p>Now we need to hide some pages/components/user action elements etc. based on the roles that the user possess.</p></li>
+</ol>
+</div>
+<div class="section" id="implementation-of-above-flows">
+<h2>Implementation of above flows:<a class="headerlink" href="#implementation-of-above-flows" title="Permalink to this headline">¶</a></h2>
+<p>To implement the Authentication and Authorization flows mentioned above, all we need to do is implement an Interceptor and a Directive which were mentioned above and detailed below.</p>
+</div>
+<div class="section" id="http-interceptor">
+<h2>Http Interceptor<a class="headerlink" href="#http-interceptor" title="Permalink to this headline">¶</a></h2>
+<p>Tasks to be implemented in a Client/UI Http interceptor are:</p>
+<ol class="simple">
+<li><p>Append <strong>&quot;Authorization&quot;</strong> header to the request using the token value stored in the session storage.</p></li>
+<li><p>Replace/Add the session storage token value with the one received in the response <strong>&quot;Authorization&quot;</strong> headers.</p></li>
+</ol>
+<p>Below code implements the requirements mentioned above:</p>
+<div class="highlight-JS notranslate"><div class="highlight"><pre><span></span>import { Injectable } from &#39;@angular/core&#39;;
+import { HttpInterceptor, HttpRequest, HttpHandler, HttpResponse, HttpEvent, HttpEventType } from &#39;@angular/common/http&#39;;
+import { Observable } from &#39;rxjs&#39;;
+import { map, catchError, tap } from &#39;rxjs/operators&#39;;
+
+@Injectable({
+  providedIn: &#39;root&#39;
+})
+
+export class InterceptService implements HttpInterceptor {
+  constructor() { }
+
+  intercept(request: HttpRequest&lt;any&gt;, next: HttpHandler): Observable&lt;HttpEvent&lt;any&gt;&gt; {
+    const token = sessionStorage.getItem(&#39;TOKEN&#39;);
+    if (token) {
+      request = request.clone({
+        setHeaders: {
+          &#39;Authorization&#39;: token
+        }
+      });
+    }
+
+    return next.handle(request).pipe(tap(event =&gt; {
+      if (event instanceof HttpResponse) {
+        const receivedToken = event.headers.get(&#39;Authorization&#39;);
+        if (receivedToken) {
+          sessionStorage.setItem(&#39;TOKEN&#39;, receivedToken);
+        }
+      }
+    }, err =&gt; {
+      console.log(err);
+    }));
+  }
+}
+</pre></div>
+</div>
+</div>
+<div class="section" id="roles-directive">
+<h2>Roles Directive<a class="headerlink" href="#roles-directive" title="Permalink to this headline">¶</a></h2>
+<p>Role of the Roles directive is to fetch roles from UserDetails stored in the session storage and verify if the user has required roles to perform some action or read some details and restrict access accordingly.</p>
+<p>Below code implements the requirements mentioned above:</p>
+<div class="highlight-JS notranslate"><div class="highlight"><pre><span></span>import { Directive, TemplateRef, ViewContainerRef, Input, ElementRef } from &#39;@angular/core&#39;;
+
+@Directive({
+  selector: &#39;[appRole]&#39;
+})
+
+export class RoleDirective {
+  userRolesString: any;
+  userRoles: Array&lt;string&gt;;
+  shouldDisplay = false;
+  requiredRoles: Array&lt;string&gt;;
+
+  constructor(private element: ElementRef) { }
+
+  @Input() set appRole(roles: string) {
+    this.element.nativeElement.hidden = true;
+    const userSessionData = sessionStorage.getItem(&#39;UserDetails&#39;);
+    this.userRolesString = JSON.parse(userSessionData).role;
+    this.userRoles = this.userRolesString.split(&#39;,&#39;);
+    this.requiredRoles = roles.split(&#39;,&#39;);
+    this.shouldDisplay = this.userRoles.some(v =&gt; this.requiredRoles.indexOf(v) !== -1);
+    if (this.shouldDisplay) {
+      this.element.nativeElement.hidden = false;
+    }
+  }
+}
+</pre></div>
+</div>
+<p>Now inject the above interceptor and directive in the app.module.ts as follows</p>
+<div class="highlight-JS notranslate"><div class="highlight"><pre><span></span>@NgModule({
+  declarations: [ RoleDirective, ...],
+  imports: [...],
+  providers: [{
+    provide: HTTP_INTERCEPTORS,
+    useClass: InterceptService,
+    multi: true
+  }, ...],
+  bootstrap: [AppComponent]
+})
+</pre></div>
+</div>
+<p>To activate/deactivate =&gt; show/hide element all we need to do is add the appRole attribute to the HTML element as shown below:</p>
+<div class="highlight-HTML notranslate"><div class="highlight"><pre><span></span><span class="p">&lt;</span><span class="nt">button</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;btn btn-success&quot;</span> <span class="na">appRole</span><span class="o">=</span><span class="s">&quot;DIVISION_ADMIN,SUPERVISOR&quot;</span><span class="p">&gt;</span>Add<span class="p">&lt;/</span><span class="nt">button</span><span class="p">&gt;</span>
+</pre></div>
+</div>
+<p>In the above sample, the add button will only be visible for users with DIVISION_ADMIN or SUPERVISOR role.</p>
+<p><strong>Note:</strong> Above mentioned code snippets are not the final implementations. Based on the API spec's and few other factors the method implementations might change a bit. But the component structures remain the same.</p>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, mosip-team
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

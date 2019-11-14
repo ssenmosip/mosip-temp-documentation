@@ -1,0 +1,289 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="java" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="java" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Open Source and Vendor Neutral &mdash; MOSIP 0.9 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script type="text/javascript" src="_static/jquery.js"></script>
+        <script type="text/javascript" src="_static/underscore.js"></script>
+        <script type="text/javascript" src="_static/doctools.js"></script>
+        <script type="text/javascript" src="_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search"  style="background: white" >
+          
+
+          
+            <a href="index.html" class="icon icon-home"> MOSIP
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.9
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <!-- Local TOC -->
+              <div class="local-toc"><ul>
+<li><a class="reference internal" href="#">Open Source and Vendor Neutral</a></li>
+<li><a class="reference internal" href="#adaptability">Adaptability</a></li>
+<li><a class="reference internal" href="#security">Security</a></li>
+<li><a class="reference internal" href="#multi-party">Multi party</a></li>
+<li><a class="reference internal" href="#authorization">Authorization</a></li>
+<li><a class="reference internal" href="#authentication">Authentication</a></li>
+<li><a class="reference internal" href="#multi-language">Multi-Language</a></li>
+<li><a class="reference internal" href="#high-availability">High Availability</a></li>
+<li><a class="reference internal" href="#auditability">Auditability</a></li>
+<li><a class="reference internal" href="#high-performance">High Performance</a></li>
+</ul>
+</div>
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">MOSIP</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html">Docs</a> &raquo;</li>
+        
+      <li>Open Source and Vendor Neutral</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/Data-Architecture-Principles.md.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <p>This section covers high-level data architecture principles of MOSIP.</p>
+<ul class="simple">
+<li><p>Open source and Vendor Neutral</p></li>
+<li><p>Adaptability</p></li>
+<li><p>Security</p></li>
+<li><p>Multi party</p></li>
+<li><p>Authorization</p></li>
+<li><p>Authentication</p></li>
+<li><p>Multi language support</p></li>
+<li><p>Performance and scalability</p></li>
+<li><p>High Availability</p></li>
+<li><p>Auditability</p></li>
+</ul>
+<div class="section" id="open-source-and-vendor-neutral">
+<h1>Open Source and Vendor Neutral<a class="headerlink" href="#open-source-and-vendor-neutral" title="Permalink to this headline">¶</a></h1>
+<p>To handle vendor neutrality and open source, the following consideration are followed while designing the data model and the database design.</p>
+<ul class="simple">
+<li><p>No business logic is applied at database level: Database will be used only to store and retrieve data. There is no business logic applied at database level other than Primary / Unique key, Not null and foreign keys. Foreign keys are applied within the same database, if a table is referenced in another database then no FK is applied.</p></li>
+<li><p>No specific database features to be used: Features that are common across databases which are compliant with open source standards are applied.</p></li>
+<li><p>All DDL, DML and DQL statements will follow ANSI standards</p></li>
+<li><p>Metadata approach to handle complex and flexible data structures</p></li>
+<li><p>Only following datatypes are being used</p>
+<ul>
+<li><p>Character varying</p></li>
+<li><p>Timestamp</p></li>
+<li><p>Date</p></li>
+<li><p>Integer</p></li>
+<li><p>Number</p></li>
+<li><p>Bytea/blob</p></li>
+<li><p>Boolean</p></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="adaptability">
+<h1>Adaptability<a class="headerlink" href="#adaptability" title="Permalink to this headline">¶</a></h1>
+<p>TBD</p>
+</div>
+<div class="section" id="security">
+<h1>Security<a class="headerlink" href="#security" title="Permalink to this headline">¶</a></h1>
+<p>TBD</p>
+</div>
+<div class="section" id="multi-party">
+<h1>Multi party<a class="headerlink" href="#multi-party" title="Permalink to this headline">¶</a></h1>
+<p>TBD</p>
+</div>
+<div class="section" id="authorization">
+<h1>Authorization<a class="headerlink" href="#authorization" title="Permalink to this headline">¶</a></h1>
+<p>TBD</p>
+</div>
+<div class="section" id="authentication">
+<h1>Authentication<a class="headerlink" href="#authentication" title="Permalink to this headline">¶</a></h1>
+<p>TBD</p>
+</div>
+<div class="section" id="multi-language">
+<h1>Multi-Language<a class="headerlink" href="#multi-language" title="Permalink to this headline">¶</a></h1>
+<p>MOSIP platform is being built for multiple countries, there is a need to support multiple languages. So as per the requirements, MOSIP will support 3 languages as configured by the country level administrator.
+Multi language support is needed for the following datasets.</p>
+<ul class="simple">
+<li><p>Master Data</p></li>
+<li><p>ID data of an individual</p></li>
+<li><p>Transaction comments</p></li>
+<li><p>Labels used in UI</p></li>
+<li><p>Messages and notifications</p></li>
+</ul>
+<p>From database side, the data will support <strong>UTF-8 Unicode character set</strong> to store data entered in multiple languages.
+There will not be any in-built support to translate data at database level. Any translation or transliteration will be handled at API or UI layer.</p>
+</div>
+<div class="section" id="high-availability">
+<h1>High Availability<a class="headerlink" href="#high-availability" title="Permalink to this headline">¶</a></h1>
+<p>TBD</p>
+</div>
+<div class="section" id="auditability">
+<h1>Auditability<a class="headerlink" href="#auditability" title="Permalink to this headline">¶</a></h1>
+<p>TBD</p>
+</div>
+<div class="section" id="high-performance">
+<h1>High Performance<a class="headerlink" href="#high-performance" title="Permalink to this headline">¶</a></h1>
+<p>To support high performance, following database design features are to be considered</p>
+<ul class="simple">
+<li><p>Database sharding is applied on uin dataset. By default, base sharding algorithm will be applied in MOSIP system. SI can define the sharding algorithm based on the deployment setup</p></li>
+<li><p>All tables will have a primary key index on the primary key field. This will help in faster retrievals and joins</p></li>
+<li><p>All foreign keys will have indexes defined so that it will help in faster joins</p></li>
+<li><p>No referential integrity is applied on tables across databases</p></li>
+<li><p>Partitioning: Partitioning design to be discussed as PostgreSQL has certain limitation / different way of implementation that requires specific database features to be applied. To be discussed further to finalize the implementation of this feature.</p></li>
+</ul>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, mosip-team
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

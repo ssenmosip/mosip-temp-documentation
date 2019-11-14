@@ -1,0 +1,451 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="java" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="java" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Table Of Content &mdash; MOSIP 0.9 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script type="text/javascript" src="_static/jquery.js"></script>
+        <script type="text/javascript" src="_static/underscore.js"></script>
+        <script type="text/javascript" src="_static/doctools.js"></script>
+        <script type="text/javascript" src="_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search"  style="background: white" >
+          
+
+          
+            <a href="index.html" class="icon icon-home"> MOSIP
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.9
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <!-- Local TOC -->
+              <div class="local-toc"><ul>
+<li><a class="reference internal" href="#">Table Of Content</a></li>
+<li><a class="reference internal" href="#partner-management-ssp">1. Partner Management - SSP</a><ul>
+<li><a class="reference internal" href="#partners-create-read-update-delete">1.1 Partners - Create/Read/Update/Delete <strong>[↑]</strong></a><ul>
+<li><a class="reference internal" href="#a-create-partner">A. Create Partner</a></li>
+<li><a class="reference internal" href="#b-read-partner">B. Read Partner</a></li>
+<li><a class="reference internal" href="#c-update-partner">C. Update Partner</a></li>
+<li><a class="reference internal" href="#d-delete-partner">D.  Delete Partner</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#policies-create-read-update-delete">1.2 Policies - Create/Read/Update/Delete <strong>[↑]</strong></a><ul>
+<li><a class="reference internal" href="#a-create-policy">A. Create Policy</a></li>
+<li><a class="reference internal" href="#b-read-policy">B. Read Policy</a></li>
+<li><a class="reference internal" href="#c-update-policy">C. Update Policy</a></li>
+<li><a class="reference internal" href="#d-delete-policy">D. Delete Policy</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#partner-policy-mapping-create-read-update-delete">1.3 Partner-Policy Mapping - Create/Read/Update/Delete <strong>[↑]</strong></a><ul>
+<li><a class="reference internal" href="#a-create-partner-policy-mapping">A. Create Partner-Policy Mapping</a></li>
+<li><a class="reference internal" href="#b-read-policy-json-file-based-on-partner-id">B. Read Policy Json File based on Partner ID</a></li>
+<li><a class="reference internal" href="#c-update-partner-policy-mapping">C. Update Partner-Policy Mapping</a></li>
+<li><a class="reference internal" href="#d-delete-partner-policy-mapping">D. Delete Partner-Policy Mapping</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#misp-partner-mapping-create-read-delete">1.4 MISP-Partner Mapping - Create/Read/Delete <strong>[↑]</strong></a><ul>
+<li><a class="reference internal" href="#id1">A. Create Partner-Policy Mapping</a></li>
+<li><a class="reference internal" href="#b-read-misp-partner-mapping">B. Read MISP-Partner Mapping</a></li>
+<li><a class="reference internal" href="#c-delete-partner-policy-mapping">C. Delete Partner-Policy Mapping</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#validate-and-re-issue-digital-certificate-to-partner">1.5 Validate and Re-issue Digital Certificate to Partner <strong>[↑]</strong></a></li>
+<li><a class="reference internal" href="#distribution-of-public-keys-to-partners">1.6 Distribution of Public Keys to Partners <strong>[↑]</strong></a></li>
+</ul>
+</li>
+</ul>
+</div>
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">MOSIP</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html">Docs</a> &raquo;</li>
+        
+      <li>Table Of Content</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/FRS-MISP-Self-Service-Portal.md.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="table-of-content">
+<h1>Table Of Content<a class="headerlink" href="#table-of-content" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p><a class="reference external" href="#1-partner-management---ssp">1. Partner Management - SSP</a></p>
+<ul>
+<li><p><a class="reference external" href="#11-partners---createreadupdatedelete-">1.1 Partners - Create/Read/Update/Delete</a> <em>(MSP_FR_1.1)</em></p></li>
+<li><p><a class="reference external" href="#12-policies---createreadupdatedelete-">1.2 Policies - Create/Read/Update/Delete</a> <em>(MSP_FR_1.2)</em></p></li>
+<li><p><a class="reference external" href="#13-partner-policy-mapping---createreadupdatedelete-">1.3 Partner-Policy Mapping - Create/Read/Update/Delete</a> <em>(MSP_FR_1.3)</em></p></li>
+<li><p><a class="reference external" href="#14-misp-partner-mapping---createreaddelete-">1.4 MISP-Partner Mapping - Create/Read/Delete</a> <em>(MSP_FR_1.4)</em></p></li>
+<li><p><a class="reference external" href="#15-validate-and-re-issue-digital-certificate-to-partner-">1.5 Validate and Re-issue Digital Certificate to Partner</a> <em>(MSP_FR_1.5)</em></p></li>
+<li><p><a class="reference external" href="#16-distribution-of-public-keys-to-partners-">1.6 Distribution of Public Keys to Partners</a> <em>(MSP_FR_1.6)</em></p></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="partner-management-ssp">
+<h1>1. Partner Management - SSP<a class="headerlink" href="#partner-management-ssp" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="partners-create-read-update-delete">
+<h2>1.1 Partners - Create/Read/Update/Delete <a class="reference external" href="#table-of-content"><strong>[↑]</strong></a><a class="headerlink" href="#partners-create-read-update-delete" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="a-create-partner">
+<h3>A. Create Partner<a class="headerlink" href="#a-create-partner" title="Permalink to this headline">¶</a></h3>
+<p>Upon receiving request to create a Partner with input parameters (Partner ID, Partner Organization Name, Partner Contact Number, Partner Email ID, Partner Address, IsActive), the system stores the data in the database</p>
+<p>Throws an error message if mandatory parameters are missing</p>
+</div>
+<div class="section" id="b-read-partner">
+<h3>B. Read Partner<a class="headerlink" href="#b-read-partner" title="Permalink to this headline">¶</a></h3>
+<p>Upon receiving request to fetch a Partner with input parameters (Partner ID and/or Partner Organization Name), the system fetches the data existing against the input parameter received.</p>
+<ol class="simple">
+<li><p>If only Partner ID is received, fetches data against the Partner ID from the database</p></li>
+<li><p>If Partner Organization Name is received, fetches data against the Partner Organization Name from the DB</p></li>
+<li><p>If both Partner ID and Partner Organization Name is received, fetches data against the combination of both the input parameters</p></li>
+<li><p>If the input parameter received is null or empty, fetches all the data</p></li>
+<li><p>Fetches only active data from the database</p></li>
+<li><p>If the data does not exist for input parameters received, throws the appropriate message.</p></li>
+<li><p>In case of exceptions, system should trigger relevant error messages.</p></li>
+</ol>
+</div>
+<div class="section" id="c-update-partner">
+<h3>C. Update Partner<a class="headerlink" href="#c-update-partner" title="Permalink to this headline">¶</a></h3>
+<p>Upon receiving a request to update a Partner with input parameters (Partner ID, Partner Organization Name, Partner Contact Number, Partner Email ID, Partner Address, IsActive) the system updates the data as per the below steps:</p>
+<ol class="simple">
+<li><p>Partner ID serves as search criteria to update the record in the database</p></li>
+<li><p>Updates the data received against the data already existing in the database against the Partner ID received</p></li>
+<li><p>If the mandatory input parameters are missing, throws the appropriate message.</p></li>
+<li><p>In case of exceptions, system triggers relevant error messages.</p></li>
+</ol>
+</div>
+<div class="section" id="d-delete-partner">
+<h3>D.  Delete Partner<a class="headerlink" href="#d-delete-partner" title="Permalink to this headline">¶</a></h3>
+<p>Upon receiving a request to delete a Partner with input parameters (Partner ID), the system deletes the data as requested</p>
+<ol class="simple">
+<li><p>Responds to the source with the required message</p></li>
+<li><p>If the mandatory input parameters are missing, throw the appropriate message</p></li>
+<li><p>In case of exceptions, system triggers relevant error messages</p></li>
+</ol>
+</div>
+</div>
+<div class="section" id="policies-create-read-update-delete">
+<h2>1.2 Policies - Create/Read/Update/Delete <a class="reference external" href="#table-of-content"><strong>[↑]</strong></a><a class="headerlink" href="#policies-create-read-update-delete" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="a-create-policy">
+<h3>A. Create Policy<a class="headerlink" href="#a-create-policy" title="Permalink to this headline">¶</a></h3>
+<p>Upon receiving a request to create a Policy with input parameters (Policy ID, Policy Name, Policy Description, Policy Json File, IsActive), the system stores the data in the database and responds to the source with the required message</p>
+<ol class="simple">
+<li><p>If the mandatory input parameters are missing, throw the appropriate message</p></li>
+<li><p>In case of exceptions, system should trigger relevant error messages</p></li>
+</ol>
+</div>
+<div class="section" id="b-read-policy">
+<h3>B. Read Policy<a class="headerlink" href="#b-read-policy" title="Permalink to this headline">¶</a></h3>
+<ol class="simple">
+<li><p>The system receives a request to fetch a Policy with input parameters (Policy ID and/or Policy Name)</p></li>
+<li><p>Fetches the data existing against the input parameter received</p></li>
+<li><p>Responds to the source with the required data</p>
+<ul class="simple">
+<li><p>If only Policy ID is received, fetches data against the Policy ID from the database</p></li>
+<li><p>If Policy Name is received, fetches data against the Policy Name from the database</p></li>
+<li><p>If both Policy ID and Policy Name is received, fetches data against the combination of both the input parameters</p></li>
+<li><p>If the input parameter received is null or empty, fetches all the data</p></li>
+<li><p>Fetches only active data from the database</p></li>
+<li><p>If the data does not exist for input parameters received, throws the appropriate message.</p></li>
+</ul>
+</li>
+<li><p>In case of exceptions, system triggers relevant error messages</p></li>
+</ol>
+</div>
+<div class="section" id="c-update-policy">
+<h3>C. Update Policy<a class="headerlink" href="#c-update-policy" title="Permalink to this headline">¶</a></h3>
+<p>Upon receiving a request to update a Policy with input parameters (Policy ID, Policy Name, Policy Description, Policy Json File, IsActive), the system updates the data and responds to the source with the required message</p>
+<ol class="simple">
+<li><p>Policy ID serves as search criteria to update the record in the database</p></li>
+<li><p>Updates the data received against the data already existing in the database against the Policy ID received</p></li>
+<li><p>If the mandatory input parameters are missing, throws the appropriate message</p></li>
+<li><p>In case of exceptions, system triggers relevant error messages</p></li>
+</ol>
+</div>
+<div class="section" id="d-delete-policy">
+<h3>D. Delete Policy<a class="headerlink" href="#d-delete-policy" title="Permalink to this headline">¶</a></h3>
+<p>Upon receiving a request to delete a Policy with input parameters (Policy ID) the system deletes the data as requested and responds to the source with the required message</p>
+<ol class="simple">
+<li><p>If the mandatory input parameters are missing, throws the appropriate message</p></li>
+<li><p>In case of exceptions, system triggers relevant error messages.</p></li>
+</ol>
+</div>
+</div>
+<div class="section" id="partner-policy-mapping-create-read-update-delete">
+<h2>1.3 Partner-Policy Mapping - Create/Read/Update/Delete <a class="reference external" href="#table-of-content"><strong>[↑]</strong></a><a class="headerlink" href="#partner-policy-mapping-create-read-update-delete" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="a-create-partner-policy-mapping">
+<h3>A. Create Partner-Policy Mapping<a class="headerlink" href="#a-create-partner-policy-mapping" title="Permalink to this headline">¶</a></h3>
+<p>Upon receiving a request to create a Partner-Policy Mapping with input parameters (Partner ID, Policy ID, IsActive), the system stores the data in the database and responds to the source with the required message:</p>
+<ol class="simple">
+<li><p>Input parameters must be present as mentioned below:</p>
+<ul class="simple">
+<li><p>Partner ID - Mandatory</p></li>
+<li><p>Policy ID - Mandatory</p></li>
+<li><p>IsActive - Mandatory</p></li>
+</ul>
+</li>
+<li><p>There can only be one Policy mapped to a Partner</p></li>
+<li><p>If the mandatory input parameters are missing, the system throws the appropriate message</p></li>
+<li><p>In case of exceptions, system triggers relevant error messages.</p></li>
+</ol>
+</div>
+<div class="section" id="b-read-policy-json-file-based-on-partner-id">
+<h3>B. Read Policy Json File based on Partner ID<a class="headerlink" href="#b-read-policy-json-file-based-on-partner-id" title="Permalink to this headline">¶</a></h3>
+<p>Upon receiving a request to fetch a Policy with input parameters (Partner ID), the system fetches the data existing against the input parameter received and responds to the source with the required data as per the below steps:</p>
+<ol class="simple">
+<li><p>Fetches the Policy mapped to the Partner ID received in input</p></li>
+<li><p>Fetches only active data from the database</p></li>
+<li><p>If the mandatory input parameters are missing, throws the appropriate message.</p></li>
+<li><p>If the data does not exist for input parameters received, throws the appropriate message</p></li>
+<li><p>In case of exceptions, system triggers relevant error messages.</p></li>
+</ol>
+</div>
+<div class="section" id="c-update-partner-policy-mapping">
+<h3>C. Update Partner-Policy Mapping<a class="headerlink" href="#c-update-partner-policy-mapping" title="Permalink to this headline">¶</a></h3>
+<p>Upon receiving a request to update a Partner-Policy Mapping with input parameters (Partner ID, Policy ID, IsActive), the system updates the data and responds to the source with the required message as per the below steps:</p>
+<ol class="simple">
+<li><p>Input parameters must be present as mentioned below:</p>
+<ul class="simple">
+<li><p>Partner ID - Mandatory</p></li>
+<li><p>Policy ID - Mandatory</p></li>
+<li><p>IsActive - Mandatory</p></li>
+</ul>
+</li>
+<li><p>Partner ID serves as search criteria to update the record in the database</p></li>
+<li><p>There can only be one Policy mapped to a Partner</p></li>
+<li><p>Updates the data received against the data already existing in the database against the Partner ID received</p></li>
+<li><p>If the mandatory input parameters are missing, throw the appropriate message</p></li>
+<li><p>In case of exceptions, system triggers relevant error messages.</p></li>
+</ol>
+</div>
+<div class="section" id="d-delete-partner-policy-mapping">
+<h3>D. Delete Partner-Policy Mapping<a class="headerlink" href="#d-delete-partner-policy-mapping" title="Permalink to this headline">¶</a></h3>
+<p>Upon receiving a request to delete a Partner-Policy Mapping with input parameters (Partner ID, Policy ID), the system deletes the data as requested and Responds to the source with the required message</p>
+<ol class="simple">
+<li><p>Input parameters must be present as mentioned below:</p>
+<ul class="simple">
+<li><p>Partner ID - Mandatory</p></li>
+<li><p>Policy ID - Mandatory</p></li>
+</ul>
+</li>
+<li><p>If the mandatory input parameters are missing, throw the appropriate message</p></li>
+<li><p>In case of exceptions, system triggers relevant error messages.</p></li>
+</ol>
+</div>
+</div>
+<div class="section" id="misp-partner-mapping-create-read-delete">
+<h2>1.4 MISP-Partner Mapping - Create/Read/Delete <a class="reference external" href="#table-of-content"><strong>[↑]</strong></a><a class="headerlink" href="#misp-partner-mapping-create-read-delete" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id1">
+<h3>A. Create Partner-Policy Mapping<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h3>
+<p>Upon receiving a request to create a MISP-Partner Mapping with input parameters (MISP ID, Partner ID, IsActive), the system store the data in the database and Responds to the source with the required message</p>
+<ol class="simple">
+<li><p>One MISP can be mapped to multiple Partners</p></li>
+<li><p>One Partner can be mapped to multiple MISPs</p></li>
+<li><p>If the mandatory input parameters are missing, the system throws an appropriate message</p></li>
+<li><p>In case of exceptions, system triggers relevant error messages</p></li>
+</ol>
+</div>
+<div class="section" id="b-read-misp-partner-mapping">
+<h3>B. Read MISP-Partner Mapping<a class="headerlink" href="#b-read-misp-partner-mapping" title="Permalink to this headline">¶</a></h3>
+<p>Upon receiving a request to fetch a MISP-Partner mapping (MISP ID and/or Partner ID), the system fetches the data existing against the input parameter received and responds to the source with the required data</p>
+<ol class="simple">
+<li><p>If only MISP ID is received, system fetches data against the MISP ID from the database</p></li>
+<li><p>If Partner ID is received, fetches data against the Partner ID from the database</p></li>
+<li><p>If both MISP ID and Partner ID is received, fetches data against the combination of both the input parameters</p></li>
+<li><p>If the input parameter received is null or empty, fetches all the data</p></li>
+<li><p>Fetches only active data from the database</p></li>
+<li><p>If the mandatory input parameters are missing, throws the appropriate message.</p></li>
+<li><p>If the data does not exist for input parameters received, throws the appropriate message.</p></li>
+<li><p>In case of exceptions, system triggers relevant error messages</p></li>
+</ol>
+</div>
+<div class="section" id="c-delete-partner-policy-mapping">
+<h3>C. Delete Partner-Policy Mapping<a class="headerlink" href="#c-delete-partner-policy-mapping" title="Permalink to this headline">¶</a></h3>
+<p>Upon receiving a request to delete a MISP-Partner Mapping with input parameters (MISP ID, Partner ID), the system Deletes the data as mentioned in Acceptance Criteria and responds to the source with the required message</p>
+<ol class="simple">
+<li><p>If the mandatory input parameters are missing, throws the appropriate message</p></li>
+<li><p>In case of exceptions, system triggers relevant error messages.</p></li>
+</ol>
+</div>
+</div>
+<div class="section" id="validate-and-re-issue-digital-certificate-to-partner">
+<h2>1.5 Validate and Re-issue Digital Certificate to Partner <a class="reference external" href="#table-of-content"><strong>[↑]</strong></a><a class="headerlink" href="#validate-and-re-issue-digital-certificate-to-partner" title="Permalink to this headline">¶</a></h2>
+<p>Upon receiving a request to validate the Digital Certificate provided by a Partner with Input (Digital Certificate), the system does the following:</p>
+<ol class="simple">
+<li><p>Validates the Digital Certificate</p></li>
+<li><p>Signs the Digital Certificate with MOSIP's Certificate and issue a Certificate Chain</p></li>
+<li><p>Responds with the signed certificate to the source</p></li>
+<li><p>If the mandatory input parameters are missing, throws the appropriate message.</p></li>
+<li><p>In case of exceptions, system triggers relevant error messages</p></li>
+</ol>
+</div>
+<div class="section" id="distribution-of-public-keys-to-partners">
+<h2>1.6 Distribution of Public Keys to Partners <a class="reference external" href="#table-of-content"><strong>[↑]</strong></a><a class="headerlink" href="#distribution-of-public-keys-to-partners" title="Permalink to this headline">¶</a></h2>
+<p>Upon receiving a request to get Public Key with an input parameter (Date Time-stamp) the system performs the following steps:</p>
+<ol class="simple">
+<li><p>The system calls the Key Manager Service to get the Public Key with Input Parameter (Application ID, Reference ID, Date Time-Stamp)</p></li>
+<li><p>Retrieves the Public Key as per the timestamp.</p></li>
+<li><p>Responds to the source with the Private Key</p></li>
+<li><p>The Public Key should be a valid and active key for the Time-Stamp received</p></li>
+<li><p>The Public Key corresponds to the Private Key used by the IDA</p></li>
+<li><p>If the mandatory input parameters are missing, system throws the appropriate message.</p></li>
+<li><p>In case of exceptions, system triggers relevant error messages.</p></li>
+</ol>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, mosip-team
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>
