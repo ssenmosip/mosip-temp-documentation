@@ -33,6 +33,7 @@
   
   <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
   <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" /> 
 </head>
@@ -51,6 +52,9 @@
             <a href="index.html" class="icon icon-home"> MOSIP
           
 
+          
+            
+            <img src="_static/mosip-logo.png" class="logo" alt="Logo"/>
           
           </a>
 
@@ -82,138 +86,30 @@
               
             
             
-              <!-- Local TOC -->
-              <div class="local-toc"><ul>
-<li><a class="reference internal" href="#">Identity Services (Private)</a><ul>
-<li><a class="reference internal" href="#users-of-identity-service">Users of Identity service -</a></li>
-<li><a class="reference internal" href="#post-idrepository-v1-identity">POST /idrepository/v1/identity</a><ul>
-<li><a class="reference internal" href="#resource-url">Resource URL</a></li>
-<li><a class="reference internal" href="#resource-details">Resource details</a></li>
-<li><a class="reference internal" href="#request-body-parameters">Request Body Parameters</a></li>
-<li><a class="reference internal" href="#request">Request:</a></li>
-<li><a class="reference internal" href="#responses">Responses:</a><ul>
-<li><a class="reference internal" href="#success-response">Success Response:</a><ul>
-<li><a class="reference internal" href="#status-code-200">Status code: '200'</a></li>
-<li><a class="reference internal" href="#description-identity-stored-successfully">Description: Identity stored successfully</a></li>
+              <p class="caption"><span class="caption-text">Overview</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="Architecture.html">MOSIP Architecture</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="Architecture.html#architectural-principles">Architectural Principles</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="Architecture.html#ecosystem-approach">Ecosystem approach</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Architecture.html#configurability">Configurability</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Architecture.html#extensibility">Extensibility</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Architecture.html#modularity">Modularity</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#failure-details">Failure details</a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li><a class="reference internal" href="#get-idrepository-v1-identity-uin-uin-type-bio">GET /idrepository/v1/identity/UIN/{UIN}?type=bio</a><ul>
-<li><a class="reference internal" href="#id1">Resource URL</a></li>
-<li><a class="reference internal" href="#id2">Resource details</a></li>
-<li><a class="reference internal" href="#id3">Responses:</a><ul>
-<li><a class="reference internal" href="#id4">Success Response:</a><ul>
-<li><a class="reference internal" href="#id5">Status code: '200'</a></li>
-<li><a class="reference internal" href="#description-identity-retrieved-successfully">Description: Identity retrieved successfully</a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#id6">Failure details</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Architecture.html#logical-architecture">Logical Architecture</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Architecture.html#data-architecture">Data Architecture</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="Architecture.html#open-source-and-vendor-neutral">Open Source and Vendor Neutral</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Architecture.html#multi-language">Multi-Language</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Architecture.html#high-performance">High Performance</a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li><a class="reference internal" href="#get-idrepository-v1-identity-rid-rid-type-bio">GET /idrepository/v1/identity/RID/{RID}?type=bio</a><ul>
-<li><a class="reference internal" href="#id7">Resource URL</a></li>
-<li><a class="reference internal" href="#id8">Resource details</a></li>
-<li><a class="reference internal" href="#id9">Responses:</a><ul>
-<li><a class="reference internal" href="#id10">Success Response:</a><ul>
-<li><a class="reference internal" href="#id11">Status code: '200'</a></li>
-<li><a class="reference internal" href="#id12">Description: Identity retrieved successfully</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Technology-Stack.html">Technology Stack</a></li>
+<li class="toctree-l1"><a class="reference internal" href="MOSIP-Releases.html">Latest Release</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Roadmap.html">July 2019 to June 2020</a></li>
 </ul>
-</li>
-<li><a class="reference internal" href="#id13">Failure details</a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li><a class="reference internal" href="#patch-idrepository-v1-identity">PATCH /idrepository/v1/identity</a><ul>
-<li><a class="reference internal" href="#id14">Resource URL</a></li>
-<li><a class="reference internal" href="#id15">Resource details</a></li>
-<li><a class="reference internal" href="#id16">Request Body Parameters</a></li>
-<li><a class="reference internal" href="#id17">Request:</a></li>
-<li><a class="reference internal" href="#id18">Responses:</a><ul>
-<li><a class="reference internal" href="#id19">Success Response:</a><ul>
-<li><a class="reference internal" href="#id20">Status code: '200'</a></li>
-<li><a class="reference internal" href="#description-identity-updated-successfully">Description: Identity updated successfully</a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#id21">Failure details</a></li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-</li>
-<li><a class="reference internal" href="#vid-services-private">VID Services (Private)</a><ul>
-<li><a class="reference internal" href="#users-of-vid-services">Users of VID services -</a></li>
-<li><a class="reference internal" href="#post-idrepository-v1-vid">POST /idrepository/v1/vid</a><ul>
-<li><a class="reference internal" href="#id22">Resource URL</a></li>
-<li><a class="reference internal" href="#id23">Resource details</a></li>
-<li><a class="reference internal" href="#id24">Request Body Parameters</a></li>
-<li><a class="reference internal" href="#id25">Request:</a></li>
-<li><a class="reference internal" href="#id26">Responses:</a><ul>
-<li><a class="reference internal" href="#id27">Success Response:</a><ul>
-<li><a class="reference internal" href="#id28">Status code: '200'</a></li>
-<li><a class="reference internal" href="#description-vid-created-successfully">Description: VID created successfully</a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#id29">Failure details</a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li><a class="reference internal" href="#get-idrepository-v1-vid-vid">GET /idrepository/v1/vid/{VID}</a><ul>
-<li><a class="reference internal" href="#id30">Resource URL</a></li>
-<li><a class="reference internal" href="#id31">Resource details</a></li>
-<li><a class="reference internal" href="#id32">Responses:</a><ul>
-<li><a class="reference internal" href="#id33">Success Response:</a><ul>
-<li><a class="reference internal" href="#id34">Status code: '200'</a></li>
-<li><a class="reference internal" href="#description-uin-for-a-given-vid-retrieved-successfully">Description: UIN for a given VID retrieved successfully</a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#id35">Failure details</a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li><a class="reference internal" href="#patch-idrepository-v1-vid-vid">PATCH /idrepository/v1/vid/{VID}</a><ul>
-<li><a class="reference internal" href="#id36">Resource URL</a></li>
-<li><a class="reference internal" href="#id37">Resource details</a></li>
-<li><a class="reference internal" href="#id38">Request Body Parameters</a></li>
-<li><a class="reference internal" href="#id39">Request:</a></li>
-<li><a class="reference internal" href="#id40">Responses:</a><ul>
-<li><a class="reference internal" href="#id41">Success Response:</a><ul>
-<li><a class="reference internal" href="#id42">Status code: '200'</a></li>
-<li><a class="reference internal" href="#description-vid-status-updated-successfully">Description: VID status updated successfully</a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#id43">Failure details</a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li><a class="reference internal" href="#post-idrepository-v1-vid-vid-regenerate">POST /idrepository/v1/vid/{VID}/regenerate</a><ul>
-<li><a class="reference internal" href="#id44">Resource URL</a></li>
-<li><a class="reference internal" href="#id45">Resource details</a></li>
-<li><a class="reference internal" href="#id46">Responses:</a><ul>
-<li><a class="reference internal" href="#id47">Success Response:</a><ul>
-<li><a class="reference internal" href="#id48">Status code: '200'</a></li>
-<li><a class="reference internal" href="#description-vid-re-generated-successfully">Description: VID re-generated successfully</a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#id49">Failure details</a></li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-</div>
+
             
           
         </div>

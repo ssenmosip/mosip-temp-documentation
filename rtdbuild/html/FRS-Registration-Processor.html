@@ -33,6 +33,7 @@
   
   <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
   <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" /> 
 </head>
@@ -51,6 +52,9 @@
             <a href="index.html" class="icon icon-home"> MOSIP
           
 
+          
+            
+            <img src="_static/mosip-logo.png" class="logo" alt="Logo"/>
           
           </a>
 
@@ -82,80 +86,30 @@
               
             
             
-              <!-- Local TOC -->
-              <div class="local-toc"><ul>
-<li><a class="reference internal" href="#">Table Of Contents</a></li>
-<li><a class="reference internal" href="#registration-processor">Registration Processor <strong>[↑]</strong></a></li>
-<li><a class="reference internal" href="#id-lifecycle-management">1. ID Lifecycle Management <strong>[↑]</strong></a><ul>
-<li><a class="reference internal" href="#new-id-issuance">1.1 New ID Issuance <strong>[↑]</strong></a></li>
-<li><a class="reference internal" href="#update-individuals-information">1.2 Update Individual’s Information <strong>[↑]</strong></a></li>
-<li><a class="reference internal" href="#de-activate-individuals-id">1.3 De-activate individual’s ID <strong>[↑]</strong></a></li>
-<li><a class="reference internal" href="#re-activate-individuals-id">1.4 Re-activate individual’s ID <strong>[↑]</strong></a></li>
-<li><a class="reference internal" href="#find-an-individuals-id">1.5 Find an Individual’s ID <strong>[↑]</strong></a></li>
+              <p class="caption"><span class="caption-text">Overview</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="Architecture.html">MOSIP Architecture</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="Architecture.html#architectural-principles">Architectural Principles</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="Architecture.html#ecosystem-approach">Ecosystem approach</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Architecture.html#configurability">Configurability</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Architecture.html#extensibility">Extensibility</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Architecture.html#modularity">Modularity</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#configurable-workflow">2. Configurable Workflow <strong>[↑]</strong></a><ul>
-<li><a class="reference internal" href="#orchestration">2.1 Orchestration <strong>[↑]</strong></a></li>
-<li><a class="reference internal" href="#retry-processing-in-case-of-exceptions-failures">2.2 Retry Processing (In case of exceptions/failures) <strong>[↑]</strong></a></li>
-<li><a class="reference internal" href="#resume-workflow">2.3 Resume Workflow <strong>[↑]</strong></a></li>
-<li><a class="reference internal" href="#integration-system-integrator-can-integrate-their-system-with-mosip">2.4 Integration (System Integrator can integrate their system with MOSIP) <strong>[↑]</strong></a></li>
-<li><a class="reference internal" href="#multiple-workflows">2.5 Multiple Workflows <strong>[↑]</strong></a></li>
-<li><a class="reference internal" href="#scalability-and-throughput">2.6 Scalability and Throughput <strong>[↑]</strong></a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#types-of-stages">3. Types of Stages <strong>[↑]</strong></a><ul>
-<li><a class="reference internal" href="#pre-processing-validations">3.1 Pre-processing Validations <strong>[↑]</strong></a><ul>
-<li><a class="reference internal" href="#sanity-check">3.1.1 Sanity Check <strong>[↑]</strong></a></li>
-<li><a class="reference internal" href="#virus-scan">3.1.2 Virus Scan <strong>[↑]</strong></a></li>
-<li><a class="reference internal" href="#machine-center-mapping">3.1.3 Machine-Center Mapping <strong>[↑]</strong></a></li>
-<li><a class="reference internal" href="#officer-supervisor-validation">3.1.4 Officer &amp; Supervisor Validation <strong>[↑]</strong></a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#processing">3.2 Processing <strong>[↑]</strong></a><ul>
-<li><a class="reference internal" href="#individual-data-validations">3.2.1 Individual Data Validations <strong>[↑]</strong></a><ul>
-<li><a class="reference internal" href="#data-quality-check-photo-age-gender-data-check">3.2.1.1 Data Quality Check: Photo, Age, Gender Data Check <strong>[↑]</strong></a></li>
-<li><a class="reference internal" href="#biometrics-quality-check">3.2.1.2 Biometrics Quality Check <strong>[↑]</strong></a></li>
-<li><a class="reference internal" href="#doc-validation-ocr">3.2.1.3 Doc. Validation - OCR <strong>[↑]</strong></a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#functional-validations">3.2.2 Functional Validations <strong>[↑]</strong></a><ul>
-<li><a class="reference internal" href="#file-document-validation">3.2.2.1 File &amp; Document Validation <strong>[↑]</strong></a></li>
-<li><a class="reference internal" href="#introducer-validation">3.2.2.2 Introducer Validation <strong>[↑]</strong></a></li>
-<li><a class="reference internal" href="#deduplication-demographic-biometrics">3.2.2.3 Deduplication – Demographic, Biometrics <strong>[↑]</strong></a></li>
-<li><a class="reference internal" href="#a-demographic-deduplication">A. Demographic deduplication <strong>[↑]</strong></a></li>
-<li><a class="reference internal" href="#b-biometric-deduplication">B. Biometric deduplication <strong>[↑]</strong></a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#external-system-integration-elaborate-with-examples">3.2.3 External System Integration: (Elaborate with examples) <strong>[↑]</strong></a><ul>
-<li><a class="reference internal" href="#data-verification-pluggable-by-si-not-part-of-mosip">3.2.3.1 Data Verification (Pluggable by SI – Not part of MOSIP) <strong>[↑]</strong></a></li>
-<li><a class="reference internal" href="#data-enrichment">3.2.3.2 Data Enrichment <strong>[↑]</strong></a></li>
-<li><a class="reference internal" href="#manual-verification-for-ext-system-data-update-pluggable-by-si">3.2.3.3 Manual Verification for ext. system data update (Pluggable by SI) <strong>[↑]</strong></a></li>
-<li><a class="reference internal" href="#manual-adjudication-pluggable-by-si">3.2.3.4 Manual Adjudication (Pluggable by SI) <strong>[↑]</strong></a></li>
-<li><a class="reference internal" href="#abis-integration-incl-abis-middleware">3.2.3.5 ABIS Integration (Incl. ABIS Middleware) <strong>[↑]</strong></a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#id-issuance">3.2.4 ID Issuance <strong>[↑]</strong></a><ul>
-<li><a class="reference internal" href="#identity-generation-refer-to-uin-generation-service-incl-uin-generation-and-uin-association">3.2.4.1 Identity Generation (Refer to UIN Generation service) – Incl. UIN Generation and UIN association <strong>[↑]</strong></a></li>
-<li><a class="reference internal" href="#store-update-id-repository-refer-to-id-auth">3.2.4.2 Store/Update ID Repository (Refer to ID-Auth) <strong>[↑]</strong></a></li>
-<li><a class="reference internal" href="#data-extractor-for-id-authentication">3.2.4.3 Data Extractor for ID Authentication <strong>[↑]</strong></a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#capture-audit-trails-analytics-data">3.2.5 Capture Audit Trails/Analytics Data <strong>[↑]</strong></a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#post-processing">3.3 Post-Processing <strong>[↑]</strong></a><ul>
-<li><a class="reference internal" href="#notification-pluggable-by-si">3.3.1 Notification (Pluggable by SI) <strong>[↑]</strong></a></li>
-<li><a class="reference internal" href="#print-post-pluggable-by-si">3.3.2 Print &amp; Post (Pluggable by SI) <strong>[↑]</strong></a></li>
-<li><a class="reference internal" href="#packet-processing-status">3.4 Packet Processing Status <strong>[↑]</strong></a></li>
-<li><a class="reference internal" href="#list-of-configurable-parameters-and-processes">List of Configurable Parameters and Processes <strong>[↑]</strong></a></li>
-<li><a class="reference internal" href="#registration-processor-api">Registration Processor API <strong>[↑]</strong></a></li>
-<li><a class="reference internal" href="#process-view">Process View <strong>[↑]</strong></a></li>
+<li class="toctree-l2"><a class="reference internal" href="Architecture.html#logical-architecture">Logical Architecture</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Architecture.html#data-architecture">Data Architecture</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="Architecture.html#open-source-and-vendor-neutral">Open Source and Vendor Neutral</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Architecture.html#multi-language">Multi-Language</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Architecture.html#high-performance">High Performance</a></li>
 </ul>
 </li>
 </ul>
 </li>
+<li class="toctree-l1"><a class="reference internal" href="Technology-Stack.html">Technology Stack</a></li>
+<li class="toctree-l1"><a class="reference internal" href="MOSIP-Releases.html">Latest Release</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Roadmap.html">July 2019 to June 2020</a></li>
 </ul>
-</div>
+
             
           
         </div>

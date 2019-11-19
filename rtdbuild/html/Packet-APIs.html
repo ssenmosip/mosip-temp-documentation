@@ -33,6 +33,7 @@
   
   <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
   <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" /> 
 </head>
@@ -51,6 +52,9 @@
             <a href="index.html" class="icon icon-home"> MOSIP
           
 
+          
+            
+            <img src="_static/mosip-logo.png" class="logo" alt="Logo"/>
           
           </a>
 
@@ -82,87 +86,30 @@
               
             
             
-              <!-- Local TOC -->
-              <div class="local-toc"><ul>
-<li><a class="reference internal" href="#">Packet Rejection Reasons Master API</a></li>
-<li><a class="reference internal" href="#post-packetrejectionreasons-reasoncategory">POST /packetrejectionreasons/reasoncategory</a><ul>
-<li><a class="reference internal" href="#resource-url">Resource URL</a></li>
-<li><a class="reference internal" href="#id1"><code class="docutils literal notranslate"><span class="pre">POST</span> <span class="pre">/packetrejectionreasons/reasoncategory</span></code></a></li>
-<li><a class="reference internal" href="#resource-details">Resource details</a></li>
-<li><a class="reference internal" href="#parameters">Parameters</a></li>
-<li><a class="reference internal" href="#example-request">Example Request</a></li>
-<li><a class="reference internal" href="#example-response">Example Response</a></li>
-<li><a class="reference internal" href="#response-codes">Response codes</a></li>
+              <p class="caption"><span class="caption-text">Overview</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="Architecture.html">MOSIP Architecture</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="Architecture.html#architectural-principles">Architectural Principles</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="Architecture.html#ecosystem-approach">Ecosystem approach</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Architecture.html#configurability">Configurability</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Architecture.html#extensibility">Extensibility</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Architecture.html#modularity">Modularity</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#post-packetrejectionreasons-reasonlist">POST /packetrejectionreasons/reasonlist</a><ul>
-<li><a class="reference internal" href="#id2">Resource URL</a></li>
-<li><a class="reference internal" href="#id3"><code class="docutils literal notranslate"><span class="pre">POST</span> <span class="pre">/packetrejectionreasons/reasonlist</span></code></a></li>
-<li><a class="reference internal" href="#id4">Resource details</a></li>
-<li><a class="reference internal" href="#id5">Parameters</a></li>
-<li><a class="reference internal" href="#id6">Example Request</a></li>
-<li><a class="reference internal" href="#id7">Example Response</a></li>
-<li><a class="reference internal" href="#id8">Response codes</a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#get-packetrejectionreasons">GET /packetrejectionreasons</a><ul>
-<li><a class="reference internal" href="#id9">Resource URL</a></li>
-<li><a class="reference internal" href="#id10"><code class="docutils literal notranslate"><span class="pre">GET</span> <span class="pre">/packetrejectionreasons</span></code></a></li>
-<li><a class="reference internal" href="#id11">Resource details</a></li>
-<li><a class="reference internal" href="#id12">Parameters</a></li>
-<li><a class="reference internal" href="#id13">Example Response</a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#get-packetrejectionreasons-reasoncategorycode-languagecode">GET /packetrejectionreasons/{reasoncategorycode}/{languagecode}</a><ul>
-<li><a class="reference internal" href="#id14">Resource URL</a></li>
-<li><a class="reference internal" href="#id15"><code class="docutils literal notranslate"><span class="pre">GET</span> <span class="pre">/packetrejectionreasons/{reasoncategorycode}/{languagecode}</span></code></a></li>
-<li><a class="reference internal" href="#id16">Resource details</a></li>
-<li><a class="reference internal" href="#id17">Parameters</a></li>
-<li><a class="reference internal" href="#id18">Example Response</a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#get-packetrejectionreasons-id-languagecode-locationcode">GET /packetrejectionreasons/{id}/{languagecode}/{locationcode}</a><ul>
-<li><a class="reference internal" href="#id19">Resource URL</a></li>
-<li><a class="reference internal" href="#id20"><code class="docutils literal notranslate"><span class="pre">GET</span> <span class="pre">/packetrejectionreasons/{id}/{languagecode}/{locationcode}</span></code></a></li>
-<li><a class="reference internal" href="#id21">Resource details</a></li>
-<li><a class="reference internal" href="#id22">Parameters</a></li>
-<li><a class="reference internal" href="#id23">Example Response</a></li>
-<li><a class="reference internal" href="#failure-response">Failure Response</a><ul>
-<li><a class="reference internal" href="#failure-details">Failure details</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Architecture.html#logical-architecture">Logical Architecture</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Architecture.html#data-architecture">Data Architecture</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="Architecture.html#open-source-and-vendor-neutral">Open Source and Vendor Neutral</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Architecture.html#multi-language">Multi-Language</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Architecture.html#high-performance">High Performance</a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li><a class="reference internal" href="#packet-on-hold-reasons-master-api">Packet On-hold Reasons Master API</a></li>
-<li><a class="reference internal" href="#post-packetonholdreasons">POST /packetonholdreasons</a><ul>
-<li><a class="reference internal" href="#id24">Resource URL</a></li>
-<li><a class="reference internal" href="#id25"><code class="docutils literal notranslate"><span class="pre">POST</span> <span class="pre">/packetonholdreasons</span></code></a></li>
-<li><a class="reference internal" href="#id26">Resource details</a></li>
-<li><a class="reference internal" href="#id27">Parameters</a></li>
-<li><a class="reference internal" href="#id28">Example Request</a></li>
-<li><a class="reference internal" href="#id29">Example Response</a></li>
-<li><a class="reference internal" href="#id30">Response codes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Technology-Stack.html">Technology Stack</a></li>
+<li class="toctree-l1"><a class="reference internal" href="MOSIP-Releases.html">Latest Release</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Roadmap.html">July 2019 to June 2020</a></li>
 </ul>
-</li>
-<li><a class="reference internal" href="#get-packetonholdreasons">GET /packetonholdreasons</a><ul>
-<li><a class="reference internal" href="#id31">Resource URL</a></li>
-<li><a class="reference internal" href="#id32"><code class="docutils literal notranslate"><span class="pre">GET</span> <span class="pre">/packetonholdreasons</span></code></a></li>
-<li><a class="reference internal" href="#id33">Resource details</a></li>
-<li><a class="reference internal" href="#id34">Parameters</a></li>
-<li><a class="reference internal" href="#id35">Example Response</a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#get-packetonholdreasons-id-languagecode">GET /packetonholdreasons/{id}/{languagecode}</a><ul>
-<li><a class="reference internal" href="#id36">Resource URL</a></li>
-<li><a class="reference internal" href="#id37"><code class="docutils literal notranslate"><span class="pre">GET</span> <span class="pre">/packetonholdreasons/{id}/{languagecode}</span></code></a></li>
-<li><a class="reference internal" href="#id38">Resource details</a></li>
-<li><a class="reference internal" href="#id39">Parameters</a></li>
-<li><a class="reference internal" href="#id40">Example Response</a></li>
-<li><a class="reference internal" href="#id41">Failure Response</a></li>
-</ul>
-</li>
-</ul>
-</div>
+
             
           
         </div>

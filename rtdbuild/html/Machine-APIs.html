@@ -33,6 +33,7 @@
   
   <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
   <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" /> 
 </head>
@@ -51,6 +52,9 @@
             <a href="index.html" class="icon icon-home"> MOSIP
           
 
+          
+            
+            <img src="_static/mosip-logo.png" class="logo" alt="Logo"/>
           
           </a>
 
@@ -82,210 +86,30 @@
               
             
             
-              <!-- Local TOC -->
-              <div class="local-toc"><ul>
-<li><a class="reference internal" href="#">Machines Master API</a></li>
-<li><a class="reference internal" href="#post-machines">POST /machines</a><ul>
-<li><a class="reference internal" href="#resource-url">Resource URL</a></li>
-<li><a class="reference internal" href="#id1"><code class="docutils literal notranslate"><span class="pre">POST</span> <span class="pre">/machines</span></code></a></li>
-<li><a class="reference internal" href="#resource-details">Resource details</a></li>
-<li><a class="reference internal" href="#parameters">Parameters</a></li>
-<li><a class="reference internal" href="#example-request">Example Request</a></li>
-<li><a class="reference internal" href="#example-response">Example Response</a></li>
-<li><a class="reference internal" href="#response-codes">Response codes</a></li>
+              <p class="caption"><span class="caption-text">Overview</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="Architecture.html">MOSIP Architecture</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="Architecture.html#architectural-principles">Architectural Principles</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="Architecture.html#ecosystem-approach">Ecosystem approach</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Architecture.html#configurability">Configurability</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Architecture.html#extensibility">Extensibility</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Architecture.html#modularity">Modularity</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#get-machines">GET /machines</a><ul>
-<li><a class="reference internal" href="#id2">Resource URL</a></li>
-<li><a class="reference internal" href="#id3"><code class="docutils literal notranslate"><span class="pre">GET</span> <span class="pre">/machines</span></code></a></li>
-<li><a class="reference internal" href="#id4">Resource details</a></li>
-<li><a class="reference internal" href="#id5">Parameters</a></li>
-<li><a class="reference internal" href="#id6">Example Response</a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#get-machines-languagecode">GET /machines/{languagecode}</a><ul>
-<li><a class="reference internal" href="#id7">Resource URL</a></li>
-<li><a class="reference internal" href="#id8"><code class="docutils literal notranslate"><span class="pre">GET</span> <span class="pre">/machines/{languagecode}</span></code></a></li>
-<li><a class="reference internal" href="#id9">Resource details</a></li>
-<li><a class="reference internal" href="#id10">Parameters</a></li>
-<li><a class="reference internal" href="#id11">Example Response</a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#get-machineshistory-id-languagecode-eff-dtimes">GET /machineshistory/{id}/{languagecode}/{eff_dtimes}</a><ul>
-<li><a class="reference internal" href="#id12">Resource URL</a></li>
-<li><a class="reference internal" href="#id13"><code class="docutils literal notranslate"><span class="pre">GET</span> <span class="pre">/machineshistory/{id}/{languagecode}/{eff_dtimes}</span></code></a></li>
-<li><a class="reference internal" href="#id14">Resource details</a></li>
-<li><a class="reference internal" href="#id15">Parameters</a></li>
-<li><a class="reference internal" href="#id16">Example Response</a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#delete-machines-id">DELETE /machines/{id}</a><ul>
-<li><a class="reference internal" href="#id17">Resource URL</a></li>
-<li><a class="reference internal" href="#id18"><code class="docutils literal notranslate"><span class="pre">DELETE</span> <span class="pre">/machines/{id}</span></code></a></li>
-<li><a class="reference internal" href="#id19">Resource details</a></li>
-<li><a class="reference internal" href="#id20">Parameters</a></li>
-<li><a class="reference internal" href="#id21">Example Response</a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#put-machines">PUT /machines</a><ul>
-<li><a class="reference internal" href="#id22">Resource URL</a></li>
-<li><a class="reference internal" href="#id23"><code class="docutils literal notranslate"><span class="pre">PUT</span> <span class="pre">/machines</span></code></a></li>
-<li><a class="reference internal" href="#id24">Resource details</a></li>
-<li><a class="reference internal" href="#id25">Parameters</a></li>
-<li><a class="reference internal" href="#id26">Example Request</a></li>
-<li><a class="reference internal" href="#id27">Example Response</a></li>
-<li><a class="reference internal" href="#id28">Response codes</a></li>
-<li><a class="reference internal" href="#failure-response">Failure Response</a><ul>
-<li><a class="reference internal" href="#failure-details">Failure details</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Architecture.html#logical-architecture">Logical Architecture</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Architecture.html#data-architecture">Data Architecture</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="Architecture.html#open-source-and-vendor-neutral">Open Source and Vendor Neutral</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Architecture.html#multi-language">Multi-Language</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Architecture.html#high-performance">High Performance</a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li><a class="reference internal" href="#machine-types-master-api">Machine Types Master API</a></li>
-<li><a class="reference internal" href="#post-machinetypes">POST /machinetypes</a><ul>
-<li><a class="reference internal" href="#id29">Resource URL</a></li>
-<li><a class="reference internal" href="#id30"><code class="docutils literal notranslate"><span class="pre">POST</span> <span class="pre">/machinetypes</span></code></a></li>
-<li><a class="reference internal" href="#id31">Resource details</a></li>
-<li><a class="reference internal" href="#id32">Parameters</a></li>
-<li><a class="reference internal" href="#id33">Example Request</a></li>
-<li><a class="reference internal" href="#id34">Example Response</a></li>
-<li><a class="reference internal" href="#id35">Response codes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Technology-Stack.html">Technology Stack</a></li>
+<li class="toctree-l1"><a class="reference internal" href="MOSIP-Releases.html">Latest Release</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Roadmap.html">July 2019 to June 2020</a></li>
 </ul>
-</li>
-<li><a class="reference internal" href="#get-machinetypes">GET /machinetypes</a><ul>
-<li><a class="reference internal" href="#id36">Resource URL</a></li>
-<li><a class="reference internal" href="#id37"><code class="docutils literal notranslate"><span class="pre">GET</span> <span class="pre">/machinetypes</span></code></a></li>
-<li><a class="reference internal" href="#id38">Resource details</a></li>
-<li><a class="reference internal" href="#id39">Parameters</a></li>
-<li><a class="reference internal" href="#id40">Example Response</a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#get-machinetypes-languagecode">GET /machinetypes/{languagecode}</a><ul>
-<li><a class="reference internal" href="#id41">Resource URL</a></li>
-<li><a class="reference internal" href="#id42"><code class="docutils literal notranslate"><span class="pre">GET</span> <span class="pre">/machinetypes/{languagecode}</span></code></a></li>
-<li><a class="reference internal" href="#id43">Resource details</a></li>
-<li><a class="reference internal" href="#id44">Parameters</a></li>
-<li><a class="reference internal" href="#id45">Example Response</a></li>
-<li><a class="reference internal" href="#id46">Failure Response</a><ul>
-<li><a class="reference internal" href="#id47">Failure details</a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li><a class="reference internal" href="#machine-type-search-apis">Machine Type search APIs</a></li>
-<li><a class="reference internal" href="#post-machinetypes-search">POST /machinetypes/search</a><ul>
-<li><a class="reference internal" href="#id48">Resource URL</a></li>
-<li><a class="reference internal" href="#id49"><code class="docutils literal notranslate"><span class="pre">POST</span> <span class="pre">/machinetypes/search</span></code></a></li>
-<li><a class="reference internal" href="#id50">Resource details</a></li>
-<li><a class="reference internal" href="#id51">Parameters</a></li>
-<li><a class="reference internal" href="#id52">Example Request</a></li>
-<li><a class="reference internal" href="#id53">Example Response</a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#machine-types-filter-values">Machine Types filter values</a></li>
-<li><a class="reference internal" href="#post-machinetypes-filtervalues">POST /machinetypes/filtervalues</a><ul>
-<li><a class="reference internal" href="#id54">Resource URL</a></li>
-<li><a class="reference internal" href="#id55"><code class="docutils literal notranslate"><span class="pre">POST</span> <span class="pre">/machinetypes/filtervalues</span></code></a></li>
-<li><a class="reference internal" href="#id56">Resource details</a></li>
-<li><a class="reference internal" href="#id57">Parameters</a></li>
-<li><a class="reference internal" href="#id58">Example Request</a></li>
-<li><a class="reference internal" href="#id59">Example Response</a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#machine-specifications">Machine Specifications</a></li>
-<li><a class="reference internal" href="#post-machinespecifications">POST /machinespecifications</a><ul>
-<li><a class="reference internal" href="#id60">Resource URL</a></li>
-<li><a class="reference internal" href="#id61"><code class="docutils literal notranslate"><span class="pre">POST</span> <span class="pre">/machinespecifications</span></code></a></li>
-<li><a class="reference internal" href="#id62">Resource details</a></li>
-<li><a class="reference internal" href="#id63">Parameters</a></li>
-<li><a class="reference internal" href="#id64">Example Request</a></li>
-<li><a class="reference internal" href="#id65">Example Response</a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#put-machinespecifications">PUT /machinespecifications</a><ul>
-<li><a class="reference internal" href="#id66">Resource URL</a></li>
-<li><a class="reference internal" href="#id67"><code class="docutils literal notranslate"><span class="pre">PUT</span> <span class="pre">/machinespecifications</span></code></a></li>
-<li><a class="reference internal" href="#id68">Resource details</a></li>
-<li><a class="reference internal" href="#id69">Parameters</a></li>
-<li><a class="reference internal" href="#id70">Example Request</a></li>
-<li><a class="reference internal" href="#id71">Example Response</a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#delete-machinespecifications-id">DELETE /machinespecifications/{id}</a><ul>
-<li><a class="reference internal" href="#id72">Resource URL</a></li>
-<li><a class="reference internal" href="#id73"><code class="docutils literal notranslate"><span class="pre">DELETE</span> <span class="pre">/machinespecifications/{id}</span></code></a></li>
-<li><a class="reference internal" href="#id74">Resource details</a></li>
-<li><a class="reference internal" href="#id75">Parameters</a></li>
-<li><a class="reference internal" href="#id76">Example Response</a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#get-machinespecifications">GET /machinespecifications</a><ul>
-<li><a class="reference internal" href="#id77">Resource URL</a></li>
-<li><a class="reference internal" href="#id78"><code class="docutils literal notranslate"><span class="pre">GET</span> <span class="pre">/machinespecifications</span></code></a></li>
-<li><a class="reference internal" href="#id79">Resource details</a></li>
-<li><a class="reference internal" href="#id80">Parameters</a></li>
-<li><a class="reference internal" href="#id81">Example Request</a></li>
-<li><a class="reference internal" href="#id82">Example Response</a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#get-machinespecifications-lang-code">GET /machinespecifications/{lang_code}</a><ul>
-<li><a class="reference internal" href="#id83">Resource URL</a></li>
-<li><a class="reference internal" href="#id84"><code class="docutils literal notranslate"><span class="pre">GET</span> <span class="pre">/machinespecifications/{lang_code}</span></code></a></li>
-<li><a class="reference internal" href="#id85">Resource details</a></li>
-<li><a class="reference internal" href="#id86">Parameters</a></li>
-<li><a class="reference internal" href="#id87">Example Request</a></li>
-<li><a class="reference internal" href="#id88">Example Response</a></li>
-<li><a class="reference internal" href="#id89">Response codes</a></li>
-<li><a class="reference internal" href="#id90">Failure Response:</a><ul>
-<li><a class="reference internal" href="#id91">Failure details</a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li><a class="reference internal" href="#machine-specifications-search-apis">Machine Specifications Search APIs</a></li>
-<li><a class="reference internal" href="#post-machinespecifications-search">POST /machinespecifications/search</a><ul>
-<li><a class="reference internal" href="#id92">Resource URL</a></li>
-<li><a class="reference internal" href="#id93"><code class="docutils literal notranslate"><span class="pre">POST</span> <span class="pre">/machinespecifications/search</span></code></a></li>
-<li><a class="reference internal" href="#id94">Resource details</a></li>
-<li><a class="reference internal" href="#id95">Parameters</a></li>
-<li><a class="reference internal" href="#filter-values">Filter Values</a></li>
-<li><a class="reference internal" href="#id96">Example Request</a></li>
-<li><a class="reference internal" href="#id97">Example Response</a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#machine-specifications-filter-values">Machine Specifications filter values</a></li>
-<li><a class="reference internal" href="#post-machinespecifications-filtervalues">POST /machinespecifications/filtervalues</a><ul>
-<li><a class="reference internal" href="#id98">Resource URL</a></li>
-<li><a class="reference internal" href="#id99"><code class="docutils literal notranslate"><span class="pre">POST</span> <span class="pre">/machinespecifications/filtervalues</span></code></a></li>
-<li><a class="reference internal" href="#id100">Resource details</a></li>
-<li><a class="reference internal" href="#id101">Parameters</a></li>
-<li><a class="reference internal" href="#id102">Example Request</a></li>
-<li><a class="reference internal" href="#id103">Example Response</a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#machine-search-apis">Machine search APIs</a></li>
-<li><a class="reference internal" href="#post-machines-search">POST /machines/search</a><ul>
-<li><a class="reference internal" href="#id104">Resource URL</a></li>
-<li><a class="reference internal" href="#id105"><code class="docutils literal notranslate"><span class="pre">POST</span> <span class="pre">/machines/search</span></code></a></li>
-<li><a class="reference internal" href="#id106">Resource details</a></li>
-<li><a class="reference internal" href="#id107">Parameters</a></li>
-<li><a class="reference internal" href="#id108">Filter Values</a></li>
-<li><a class="reference internal" href="#id109">Example Request</a></li>
-<li><a class="reference internal" href="#id110">Example Response</a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#machine-filter-values">Machine filter values</a></li>
-<li><a class="reference internal" href="#post-machines-filtervalues">POST /machines/filtervalues</a><ul>
-<li><a class="reference internal" href="#id111">Resource URL</a></li>
-<li><a class="reference internal" href="#id112"><code class="docutils literal notranslate"><span class="pre">POST</span> <span class="pre">/machines/filtervalues</span></code></a></li>
-<li><a class="reference internal" href="#id113">Resource details</a></li>
-<li><a class="reference internal" href="#id114">Parameters</a></li>
-<li><a class="reference internal" href="#id115">Example Request</a></li>
-<li><a class="reference internal" href="#id116">Example Response</a></li>
-</ul>
-</li>
-</ul>
-</div>
+
             
           
         </div>

@@ -33,6 +33,7 @@
   
   <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
   <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" /> 
 </head>
@@ -51,6 +52,9 @@
             <a href="index.html" class="icon icon-home"> MOSIP
           
 
+          
+            
+            <img src="_static/mosip-logo.png" class="logo" alt="Logo"/>
           
           </a>
 
@@ -82,119 +86,30 @@
               
             
             
-              <!-- Local TOC -->
-              <div class="local-toc"><ul>
-<li><a class="reference internal" href="#">1. Introduction</a><ul>
-<li><a class="reference internal" href="#context">Context</a></li>
-<li><a class="reference internal" href="#purpose-of-this-document">Purpose of this document</a></li>
-<li><a class="reference internal" href="#scope-of-this-document">Scope of this document</a></li>
+              <p class="caption"><span class="caption-text">Overview</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="Architecture.html">MOSIP Architecture</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="Architecture.html#architectural-principles">Architectural Principles</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="Architecture.html#ecosystem-approach">Ecosystem approach</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Architecture.html#configurability">Configurability</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Architecture.html#extensibility">Extensibility</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Architecture.html#modularity">Modularity</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#java-files">2. Java files</a><ul>
-<li><a class="reference internal" href="#number-of-lines">2.1 Number of lines</a></li>
-<li><a class="reference internal" href="#class-and-interface">2.2 Class and Interface</a></li>
-<li><a class="reference internal" href="#ordering">2.3 Ordering</a><ul>
-<li><a class="reference internal" href="#beginning-documentation-comment">2.3.1 Beginning documentation comment</a></li>
-<li><a class="reference internal" href="#package-statement">2.3.2 Package statement</a></li>
-<li><a class="reference internal" href="#import-statement">2.3.3 Import statement</a></li>
-<li><a class="reference internal" href="#class-comment">2.3.4 Class comment</a></li>
-<li><a class="reference internal" href="#public-class-or-interface-definition">2.3.5 Public class or interface definition</a></li>
-<li><a class="reference internal" href="#other-related-private-class-or-interface-definition">2.3.6 Other related private class or interface definition</a></li>
-<li><a class="reference internal" href="#combined-example">2.3.7 Combined example</a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#inside-class-or-interface">3 Inside class or interface</a><ul>
-<li><a class="reference internal" href="#class-comment-for-documentation">3.1.1 Class comment for documentation</a></li>
-<li><a class="reference internal" href="#class-or-interface-statement">3.1.2 Class or interface statement</a></li>
-<li><a class="reference internal" href="#class-or-interface-implementation-comment">3.1.3 Class or interface implementation comment</a></li>
-<li><a class="reference internal" href="#instance-variables">3.1.4 Instance variables</a></li>
-<li><a class="reference internal" href="#constructors">3.1.5 Constructors</a></li>
-<li><a class="reference internal" href="#method-declarations">3.1.6 Method declarations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Architecture.html#logical-architecture">Logical Architecture</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Architecture.html#data-architecture">Data Architecture</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="Architecture.html#open-source-and-vendor-neutral">Open Source and Vendor Neutral</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Architecture.html#multi-language">Multi-Language</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Architecture.html#high-performance">High Performance</a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li><a class="reference internal" href="#indentation">4 Indentation</a><ul>
-<li><a class="reference internal" href="#line-length">4.1 Line length</a></li>
-<li><a class="reference internal" href="#wrapping-lines">4.2 Wrapping lines</a></li>
-<li><a class="reference internal" href="#implementation-comment">5.1 Implementation Comment</a><ul>
-<li><a class="reference internal" href="#block-comments">5.1.1 Block Comments</a></li>
-<li><a class="reference internal" href="#single-line-comments">5.1.2 Single-Line Comments</a></li>
-<li><a class="reference internal" href="#trailing-comments">5.1.3 Trailing Comments</a></li>
-<li><a class="reference internal" href="#end-of-line-comments">5.1.4 End-Of-Line comments</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Technology-Stack.html">Technology Stack</a></li>
+<li class="toctree-l1"><a class="reference internal" href="MOSIP-Releases.html">Latest Release</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Roadmap.html">July 2019 to June 2020</a></li>
 </ul>
-</li>
-<li><a class="reference internal" href="#documentation-comments">5.2 Documentation comments</a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#declarations">6 Declarations</a><ul>
-<li><a class="reference internal" href="#number-per-line">6.1 Number Per Line</a></li>
-<li><a class="reference internal" href="#placement">6.2 Placement</a></li>
-<li><a class="reference internal" href="#class-and-interface-declarations">6.3 Class and Interface Declarations</a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#statements">7 Statements</a><ul>
-<li><a class="reference internal" href="#simple-statements">7.1 Simple Statements</a></li>
-<li><a class="reference internal" href="#return-statements">7.2 &quot;return&quot; Statements</a></li>
-<li><a class="reference internal" href="#if-if-else-if-else-if-else-statements">7.3 if, if-else, if-else-if-else Statements</a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#white-space">8 White Space</a><ul>
-<li><a class="reference internal" href="#blank-lines">8.1 Blank Lines</a></li>
-<li><a class="reference internal" href="#blank-spaces">8.2 Blank Spaces</a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#naming-conventions">9 Naming Conventions</a><ul>
-<li><a class="reference internal" href="#package-names">9.1 Package names</a></li>
-<li><a class="reference internal" href="#classes">9.2 Classes</a></li>
-<li><a class="reference internal" href="#interfaces">9.3 Interfaces</a></li>
-<li><a class="reference internal" href="#methods">9.4 Methods</a></li>
-<li><a class="reference internal" href="#variables">9.5 Variables</a></li>
-<li><a class="reference internal" href="#constants">9.6 Constants</a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#programming-practices">10 Programming Practices</a><ul>
-<li><a class="reference internal" href="#providing-access-to-instance-and-class-variables">10.1 Providing Access to Instance and Class Variables</a></li>
-<li><a class="reference internal" href="#referring-to-class-variables-and-methods">10.2 Referring to Class Variables and Methods</a></li>
-<li><a class="reference internal" href="#id1">10.3 Constants</a></li>
-<li><a class="reference internal" href="#variable-assignments">10.4 Variable Assignments</a></li>
-<li><a class="reference internal" href="#lambdas">10.5 Lambdas</a><ul>
-<li><a class="reference internal" href="#parameter-type-inference">10.5.1 Parameter type inference</a></li>
-<li><a class="reference internal" href="#parenthesis-when-optional">10.5.2 Parenthesis when optional</a></li>
-<li><a class="reference internal" href="#expression-lambdas">10.5.3 Expression lambdas</a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#functional-interfaces">10.6 Functional Interfaces</a></li>
-<li><a class="reference internal" href="#exceptions">10.7 Exceptions</a><ul>
-<li><a class="reference internal" href="#specific-exceptions">10.7.1 Specific exceptions</a></li>
-<li><a class="reference internal" href="#documenting-exceptions">10.7.2 Documenting exceptions</a></li>
-<li><a class="reference internal" href="#error-and-throwable">10.7.3 Error and Throwable</a></li>
-<li><a class="reference internal" href="#exception-hierarchy">10.7.4 Exception hierarchy</a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#logs">10.8 Logs</a><ul>
-<li><a class="reference internal" href="#log-levels">10.8.1 Log levels</a></li>
-<li><a class="reference internal" href="#mosip-log-component">10.8.2 MOSIP log component</a></li>
-<li><a class="reference internal" href="#always-use-core-kernel-log-module">10.8.3 Always use core-kernel log module</a></li>
-<li><a class="reference internal" href="#mosip-log-format">10.8.4 MOSIP log format</a></li>
-<li><a class="reference internal" href="#no-sensitive-information-is-logged">10.8.5 No sensitive information is logged</a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#streams">10.9 Streams</a></li>
-<li><a class="reference internal" href="#common-utilities">10.10 Common utilities</a></li>
-<li><a class="reference internal" href="#miscellaneous-practices">10.11 Miscellaneous Practices</a><ul>
-<li><a class="reference internal" href="#parentheses">10.11.1 Parentheses</a></li>
-<li><a class="reference internal" href="#returning-values">10.11.2 Returning Values</a></li>
-<li><a class="reference internal" href="#expressions-before-in-the-conditional-operator">10.11.3 Expressions before '?' in the Conditional Operator</a></li>
-<li><a class="reference internal" href="#special-comments">10.11.4 Special Comments</a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#sample-java-code">10.12 Sample Java code</a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#references">References</a></li>
-</ul>
-</div>
+
             
           
         </div>

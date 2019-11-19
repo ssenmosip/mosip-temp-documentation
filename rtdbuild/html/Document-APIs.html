@@ -33,6 +33,7 @@
   
   <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
   <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" /> 
 </head>
@@ -51,6 +52,9 @@
             <a href="index.html" class="icon icon-home"> MOSIP
           
 
+          
+            
+            <img src="_static/mosip-logo.png" class="logo" alt="Logo"/>
           
           </a>
 
@@ -82,201 +86,30 @@
               
             
             
-              <!-- Local TOC -->
-              <div class="local-toc"><ul>
-<li><a class="reference internal" href="#">Documents Category Master API</a></li>
-<li><a class="reference internal" href="#post-documentcategories">POST /documentcategories</a><ul>
-<li><a class="reference internal" href="#resource-url">Resource URL</a></li>
-<li><a class="reference internal" href="#id1"><code class="docutils literal notranslate"><span class="pre">POST</span> <span class="pre">/documentcategories</span></code></a></li>
-<li><a class="reference internal" href="#resource-details">Resource details</a></li>
-<li><a class="reference internal" href="#parameters">Parameters</a></li>
-<li><a class="reference internal" href="#example-request">Example Request</a></li>
-<li><a class="reference internal" href="#example-response">Example Response</a></li>
-<li><a class="reference internal" href="#response-codes">Response codes</a></li>
-<li><a class="reference internal" href="#description-forbidden">Description: Forbidden</a><ul>
-<li><a class="reference internal" href="#id2">Resource URL</a></li>
-<li><a class="reference internal" href="#put-documentcategories"><code class="docutils literal notranslate"><span class="pre">PUT</span> <span class="pre">/documentcategories</span></code></a></li>
-<li><a class="reference internal" href="#id3">Resource details</a></li>
-<li><a class="reference internal" href="#id4">Parameters</a></li>
-<li><a class="reference internal" href="#id5">Example Request</a></li>
-<li><a class="reference internal" href="#id6">Example Response</a></li>
-<li><a class="reference internal" href="#id7">Response codes</a></li>
+              <p class="caption"><span class="caption-text">Overview</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="Architecture.html">MOSIP Architecture</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="Architecture.html#architectural-principles">Architectural Principles</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="Architecture.html#ecosystem-approach">Ecosystem approach</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Architecture.html#configurability">Configurability</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Architecture.html#extensibility">Extensibility</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Architecture.html#modularity">Modularity</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="Architecture.html#logical-architecture">Logical Architecture</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Architecture.html#data-architecture">Data Architecture</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="Architecture.html#open-source-and-vendor-neutral">Open Source and Vendor Neutral</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Architecture.html#multi-language">Multi-Language</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Architecture.html#high-performance">High Performance</a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li><a class="reference internal" href="#get-documentcategories">GET /documentcategories</a><ul>
-<li><a class="reference internal" href="#id8">Resource URL</a></li>
-<li><a class="reference internal" href="#id9"><code class="docutils literal notranslate"><span class="pre">GET</span> <span class="pre">/documentcategories</span></code></a></li>
-<li><a class="reference internal" href="#id10">Resource details</a></li>
-<li><a class="reference internal" href="#id11">Parameters</a></li>
-<li><a class="reference internal" href="#id12">Example Response</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Technology-Stack.html">Technology Stack</a></li>
+<li class="toctree-l1"><a class="reference internal" href="MOSIP-Releases.html">Latest Release</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Roadmap.html">July 2019 to June 2020</a></li>
 </ul>
-</li>
-<li><a class="reference internal" href="#get-documentcategories-code-langcode">GET /documentcategories/{code}/{langcode}</a><ul>
-<li><a class="reference internal" href="#id13">Resource URL</a></li>
-<li><a class="reference internal" href="#id14"><code class="docutils literal notranslate"><span class="pre">GET</span> <span class="pre">/documentcategories/{code}/{langcode}</span></code></a></li>
-<li><a class="reference internal" href="#id15">Resource details</a></li>
-<li><a class="reference internal" href="#id16">Parameters</a></li>
-<li><a class="reference internal" href="#id17">Example Response</a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#get-documentcategories-langcode">GET /documentcategories/{langcode}</a><ul>
-<li><a class="reference internal" href="#id18">Resource URL</a></li>
-<li><a class="reference internal" href="#id19"><code class="docutils literal notranslate"><span class="pre">GET</span> <span class="pre">/documentcategories/{langcode}</span></code></a></li>
-<li><a class="reference internal" href="#id20">Resource details</a></li>
-<li><a class="reference internal" href="#id21">Parameters</a></li>
-<li><a class="reference internal" href="#id22">Example Response</a></li>
-<li><a class="reference internal" href="#id23">404</a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#delete-documentcategories-code">DELETE /documentcategories/{code}</a><ul>
-<li><a class="reference internal" href="#id24">Resource URL</a></li>
-<li><a class="reference internal" href="#id25"><code class="docutils literal notranslate"><span class="pre">DELETE</span> <span class="pre">/documentcategories/{code}</span></code></a></li>
-<li><a class="reference internal" href="#id26">Resource details</a></li>
-<li><a class="reference internal" href="#id27">Parameters</a></li>
-<li><a class="reference internal" href="#id28">Example Response</a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#documents-category-search-apis">Documents Category search APIs</a></li>
-<li><a class="reference internal" href="#post-documentcategories-search">POST /documentcategories/search</a><ul>
-<li><a class="reference internal" href="#id29">Resource URL</a></li>
-<li><a class="reference internal" href="#id30"><code class="docutils literal notranslate"><span class="pre">POST</span> <span class="pre">/documentcategories/search</span></code></a></li>
-<li><a class="reference internal" href="#id31">Resource details</a></li>
-<li><a class="reference internal" href="#id32">Parameters</a></li>
-<li><a class="reference internal" href="#filter-values">Filter Values</a></li>
-<li><a class="reference internal" href="#id33">Example Request</a></li>
-<li><a class="reference internal" href="#id34">Example Response</a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#documents-category-filter-values">Documents Category filter values</a></li>
-<li><a class="reference internal" href="#post-documentcategories-filtervalues">POST /documentcategories/filtervalues</a><ul>
-<li><a class="reference internal" href="#id35">Resource URL</a></li>
-<li><a class="reference internal" href="#id36"><code class="docutils literal notranslate"><span class="pre">POST</span> <span class="pre">/documentcategories/filtervalues</span></code></a></li>
-<li><a class="reference internal" href="#id37">Resource details</a></li>
-<li><a class="reference internal" href="#id38">Parameters</a></li>
-<li><a class="reference internal" href="#id39">Example Request</a></li>
-<li><a class="reference internal" href="#id40">Example Response</a><ul>
-<li><a class="reference internal" href="#failure-response">Failure Response:</a></li>
-<li><a class="reference internal" href="#failure-details">Failure details</a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li><a class="reference internal" href="#documents-types-api">Documents Types API</a></li>
-<li><a class="reference internal" href="#post-documenttype">POST /documenttype</a><ul>
-<li><a class="reference internal" href="#id41">Resource URL</a></li>
-<li><a class="reference internal" href="#id42"><code class="docutils literal notranslate"><span class="pre">POST</span> <span class="pre">/documenttype</span></code></a></li>
-<li><a class="reference internal" href="#id43">Resource details</a></li>
-<li><a class="reference internal" href="#id44">Parameters</a></li>
-<li><a class="reference internal" href="#id45">Example Request</a></li>
-<li><a class="reference internal" href="#id46">Example Response</a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#put-documenttype">PUT /documenttype</a><ul>
-<li><a class="reference internal" href="#id47">Resource URL</a></li>
-<li><a class="reference internal" href="#id48"><code class="docutils literal notranslate"><span class="pre">PUT</span> <span class="pre">/documenttype</span></code></a></li>
-<li><a class="reference internal" href="#id49">Resource details</a></li>
-<li><a class="reference internal" href="#id50">Parameters</a></li>
-<li><a class="reference internal" href="#id51">Example Request</a></li>
-<li><a class="reference internal" href="#id52">Example Response</a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#get-documenttypes-documentcategorycode-langcode">GET /documenttypes/{documentcategorycode}/{langcode}</a><ul>
-<li><a class="reference internal" href="#id53">Resource URL</a></li>
-<li><a class="reference internal" href="#id54"><code class="docutils literal notranslate"><span class="pre">GET</span> <span class="pre">/documenttypes/{documentcategorycode}/{langcode}</span></code></a></li>
-<li><a class="reference internal" href="#id55">Resource details</a></li>
-<li><a class="reference internal" href="#id56">Parameters</a></li>
-<li><a class="reference internal" href="#id57">Example Response</a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#get-documentcategorytypes">GET /documentcategorytypes</a><ul>
-<li><a class="reference internal" href="#id58">Resource URL</a></li>
-<li><a class="reference internal" href="#id59"><code class="docutils literal notranslate"><span class="pre">GET</span> <span class="pre">/documentcategorytypes</span></code></a></li>
-<li><a class="reference internal" href="#id60">Resource details</a></li>
-<li><a class="reference internal" href="#id61">Parameters</a></li>
-<li><a class="reference internal" href="#id62">Example Request</a></li>
-<li><a class="reference internal" href="#id63">Example Response</a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#get-doccattypes">GET /doccattypes</a><ul>
-<li><a class="reference internal" href="#id64">Resource URL</a></li>
-<li><a class="reference internal" href="#id65"><code class="docutils literal notranslate"><span class="pre">GET</span> <span class="pre">/doccattypes</span></code></a></li>
-<li><a class="reference internal" href="#id66">Resource details</a></li>
-<li><a class="reference internal" href="#id67">Parameters</a></li>
-<li><a class="reference internal" href="#id68">Example Request</a></li>
-<li><a class="reference internal" href="#id69">Example Response</a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#get-checkapptypedoccattypedoctype">GET /checkapptypedoccattypedoctype</a><ul>
-<li><a class="reference internal" href="#id70">Resource URL</a></li>
-<li><a class="reference internal" href="#id71"><code class="docutils literal notranslate"><span class="pre">GET</span> <span class="pre">/checkapptypedoccattypedoctype</span></code></a></li>
-<li><a class="reference internal" href="#id72">Resource details</a></li>
-<li><a class="reference internal" href="#id73">Parameters</a></li>
-<li><a class="reference internal" href="#id74">Example Request</a></li>
-<li><a class="reference internal" href="#id75">Example Response</a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#document-type-search-apis">Document type search APIs</a></li>
-<li><a class="reference internal" href="#post-documenttypes-search">POST /documenttypes/search</a><ul>
-<li><a class="reference internal" href="#id76">Resource URL</a></li>
-<li><a class="reference internal" href="#id77"><code class="docutils literal notranslate"><span class="pre">POST</span> <span class="pre">/documenttypes/search</span></code></a></li>
-<li><a class="reference internal" href="#id78">Resource details</a></li>
-<li><a class="reference internal" href="#id79">Parameters</a></li>
-<li><a class="reference internal" href="#id80">Filter Values</a></li>
-<li><a class="reference internal" href="#id81">Example Request</a></li>
-<li><a class="reference internal" href="#id82">Example Response</a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#document-type-filter-values">Document Type filter values</a></li>
-<li><a class="reference internal" href="#post-documenttypes-filtervalues">POST /documenttypes/filtervalues</a><ul>
-<li><a class="reference internal" href="#id83">Resource URL</a></li>
-<li><a class="reference internal" href="#id84"><code class="docutils literal notranslate"><span class="pre">POST</span> <span class="pre">/documenttypes/filtervalues</span></code></a></li>
-<li><a class="reference internal" href="#id85">Resource details</a></li>
-<li><a class="reference internal" href="#id86">Parameters</a></li>
-<li><a class="reference internal" href="#id87">Example Request</a></li>
-<li><a class="reference internal" href="#id88">Example Response</a><ul>
-<li><a class="reference internal" href="#id89">Failure details</a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li><a class="reference internal" href="#valid-documents-api">Valid documents API</a><ul>
-<li><a class="reference internal" href="#id90">Resource URL</a></li>
-<li><a class="reference internal" href="#get-validdocuments-languagecode"><code class="docutils literal notranslate"><span class="pre">GET</span> <span class="pre">/validdocuments/{languagecode}</span></code></a></li>
-<li><a class="reference internal" href="#id91">Resource details</a></li>
-<li><a class="reference internal" href="#id92">Parameters</a></li>
-<li><a class="reference internal" href="#id93">Example Request</a></li>
-<li><a class="reference internal" href="#example-success-response">Example Success Response</a></li>
-<li><a class="reference internal" href="#example-failure-response">Example Failure Response</a></li>
-<li><a class="reference internal" href="#valid-documents-search-apis">Valid Documents search APIs</a></li>
-<li><a class="reference internal" href="#post-validdocuments-search">POST /validdocuments/search</a><ul>
-<li><a class="reference internal" href="#id94">Resource URL</a></li>
-<li><a class="reference internal" href="#id95"><code class="docutils literal notranslate"><span class="pre">POST</span> <span class="pre">/validdocuments/search</span></code></a></li>
-<li><a class="reference internal" href="#id96">Resource details</a></li>
-<li><a class="reference internal" href="#id97">Parameters</a></li>
-<li><a class="reference internal" href="#id98">Example Request</a></li>
-<li><a class="reference internal" href="#id99">Example Response</a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#valid-documents-filter-values">Valid Documents filter values</a><ul>
-<li><a class="reference internal" href="#post-validdocuments-filtervalues">POST /validdocuments/filtervalues</a></li>
-<li><a class="reference internal" href="#id100">Resource URL</a></li>
-<li><a class="reference internal" href="#id101"><code class="docutils literal notranslate"><span class="pre">POST</span> <span class="pre">/validdocuments/filtervalues</span></code></a></li>
-<li><a class="reference internal" href="#id102">Resource details</a></li>
-<li><a class="reference internal" href="#id103">Parameters</a></li>
-<li><a class="reference internal" href="#id104">Example Request</a></li>
-<li><a class="reference internal" href="#id105">Example Response</a></li>
-<li><a class="reference internal" href="#id106">Response codes</a><ul>
-<li><a class="reference internal" href="#id107">Failure details</a></li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-</div>
+
             
           
         </div>

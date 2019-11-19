@@ -33,6 +33,7 @@
   
   <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
   <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" /> 
 </head>
@@ -51,6 +52,9 @@
             <a href="index.html" class="icon icon-home"> MOSIP
           
 
+          
+            
+            <img src="_static/mosip-logo.png" class="logo" alt="Logo"/>
           
           </a>
 
@@ -82,236 +86,30 @@
               
             
             
-              <!-- Local TOC -->
-              <div class="local-toc"><ul>
-<li><a class="reference internal" href="#">Table Of Contents</a></li>
-<li><a class="reference internal" href="#admin-services">Admin Services</a><ul>
-<li><a class="reference internal" href="#master-data-management">1. Master Data Management <strong>[↑]</strong></a><ul>
-<li><a class="reference internal" href="#location-hierarchy-create-read-update-delete">1.1 Location Hierarchy - Create/Read/Update/Delete <strong>[↑]</strong></a><ul>
-<li><a class="reference internal" href="#a-create-location-hierarchy-in-the-master-database">A. Create Location Hierarchy in the Master database</a></li>
-<li><a class="reference internal" href="#b-update-a-location-in-location-master-database">B. Update a Location in Location Master Database</a></li>
-<li><a class="reference internal" href="#c-check-the-existence-of-a-location-in-master-database">C. Check the existence of a Location in Master Database</a></li>
-<li><a class="reference internal" href="#d-fetch-location-hierarchy-levels-based-on-a-language-code">D. Fetch Location Hierarchy Levels based on a Language Code</a></li>
-<li><a class="reference internal" href="#e-fetch-the-location-hierarchy-data-based-on-a-location-code-and-a-language-code">E. Fetch the Location Hierarchy Data based on a Location Code and a Language Code</a></li>
-<li><a class="reference internal" href="#f-fetch-the-location-hierarchy-data-for-the-bottom-next-hierarchy-based-on-a-location-code-and-a-language-code">F. Fetch the Location Hierarchy Data for the bottom next hierarchy based on a Location Code and a Language Code</a></li>
-<li><a class="reference internal" href="#g-delete-a-location-in-location-master-database">G. Delete a Location in Location Master Database</a></li>
+              <p class="caption"><span class="caption-text">Overview</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="Architecture.html">MOSIP Architecture</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="Architecture.html#architectural-principles">Architectural Principles</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="Architecture.html#ecosystem-approach">Ecosystem approach</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Architecture.html#configurability">Configurability</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Architecture.html#extensibility">Extensibility</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Architecture.html#modularity">Modularity</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#list-of-holidays-create-read-update-delete">1.2 List of Holidays - Create/Read/Update/Delete <strong>[↑]</strong></a><ul>
-<li><a class="reference internal" href="#a-create-holiday-data-in-master-database">A. Create Holiday data in Master Database</a></li>
-<li><a class="reference internal" href="#b-fetch-list-of-holidays-based-on-a-registration-center-id-a-year-and-a-language-code">B. Fetch List of Holidays based on a Registration Center ID, a Year and a Language Code</a></li>
-<li><a class="reference internal" href="#c-update-and-delete-list-of-holiday-in-master-database">C. Update and Delete List of Holiday in  Master Database</a></li>
-<li><a class="reference internal" href="#i-update">(i) Update</a></li>
-<li><a class="reference internal" href="#ii-delete">(ii) Delete</a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#biometric-authentication-type-create-read">1.3 Biometric Authentication Type - Create/Read <strong>[↑]</strong></a><ul>
-<li><a class="reference internal" href="#a-create-biometric-authentication-type-in-master-database">A. Create Biometric Authentication Type in Master Database</a></li>
-<li><a class="reference internal" href="#b-fetch-the-list-of-biometric-authentication-type-based-on-a-language-code">B. Fetch the List of Biometric Authentication Type based on a Language Code</a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#biometric-attribute-type-create-read">1.4 Biometric Attribute Type - Create/Read <strong>[↑]</strong></a><ul>
-<li><a class="reference internal" href="#a-create-biometric-attribute-in-master-database">A. Create Biometric Attribute in Master Database</a></li>
-<li><a class="reference internal" href="#b-fetch-the-list-of-biometric-attributes-based-on-the-biometric-authentication-type-and-a-language-code">B. Fetch the List of Biometric Attributes based on the Biometric Authentication Type and a Language Code</a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#gender-create-read-update-delete">1.5 Gender - Create/Read/Update/Delete <strong>[↑]</strong></a><ul>
-<li><a class="reference internal" href="#a-create-gender-types-in-master-database">A. Create Gender Types in Master Database</a></li>
-<li><a class="reference internal" href="#b-update-and-delete-a-gender-type-in-gender-type-master-database">B. Update and Delete a Gender Type in Gender Type Master Database</a></li>
-<li><a class="reference internal" href="#id1">(i) Update</a></li>
-<li><a class="reference internal" href="#id2">(ii) Delete</a></li>
-<li><a class="reference internal" href="#c-check-the-existence-of-a-gender-in-master-database">C. Check the existence of a Gender in Master Database</a></li>
-<li><a class="reference internal" href="#d-fetch-the-list-of-gender-types-based-on-a-language-code">D. Fetch the List of Gender Types based on a Language Code</a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#document-category-create-read-update-delete">1.6 Document Category - Create/Read/Update/Delete <strong>[↑]</strong></a><ul>
-<li><a class="reference internal" href="#a-create-document-category-in-master-database">A. Create Document Category in Master Database</a></li>
-<li><a class="reference internal" href="#b-update-and-delete-a-document-category-in-the-document-category-master-database">B. Update and Delete a Document Category in the Document Category Master Database</a></li>
-<li><a class="reference internal" href="#id3">(i) Update</a></li>
-<li><a class="reference internal" href="#id4">(ii) Delete</a></li>
-<li><a class="reference internal" href="#c-fetch-list-of-document-categories-based-on-a-language-code">C. Fetch list of Document Categories based on a Language Code</a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#document-type-create-update-delete">1.7 Document Type - Create/Update/Delete <strong>[↑]</strong></a><ul>
-<li><a class="reference internal" href="#a-create-document-type-in-master-database">A. Create Document Type in Master Database</a></li>
-<li><a class="reference internal" href="#b-update-a-document-type-in-the-document-type-master-database">B. Update a Document Type in the Document Type Master Database</a></li>
-<li><a class="reference internal" href="#c-delete-a-document-type-in-the-document-type-master-database">C. Delete a Document Type in the Document Type Master Database</a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#applicant-type-document-category-document-type-mapping-read">1.8 Applicant Type - Document Category - Document Type Mapping - Read <strong>[↑]</strong></a><ul>
-<li><a class="reference internal" href="#a-fetch-list-of-document-categories-based-on-applicant-type-from-master-database">A. Fetch list of Document Categories based on Applicant Type from Master Database</a></li>
-<li><a class="reference internal" href="#b-fetch-list-of-document-category-document-type-mappings-based-on-applicant-type-and-a-list-of-language-codes">B. Fetch List of Document Category-Document Type mappings based on Applicant Type and a List of Language Codes</a></li>
-<li><a class="reference internal" href="#c-delete-a-document-category-type-mapping-in-the-document-category-type-mapping-master-database">C. Delete a Document Category-Type mapping in the Document Category-Type mapping Master Database</a></li>
-<li><a class="reference internal" href="#d-fetch-applicant-type-based-on-individual-type-code-date-of-birth-gender-type-code-and-biometric-exception-type">D. Fetch applicant type based on Individual Type Code, Date of Birth, Gender Type Code and Biometric Exception Type</a></li>
-<li><a class="reference internal" href="#e-check-the-mapping-of-applicant-type-document-category-name-document-type-name">E. Check the mapping of Applicant Type-Document Category Name-Document Type Name</a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#list-of-rejection-reasons-create-read">1.9 List of Rejection Reasons - Create/Read <strong>[↑]</strong></a><ul>
-<li><a class="reference internal" href="#a-create-a-rejection-reason-in-reason-list-master-database">A. Create a Rejection Reason in Reason List Master Database</a></li>
-<li><a class="reference internal" href="#b-fetch-the-requested-list-of-reasons-based-on-reason-category-code-and-language-code">B. Fetch the requested list of reasons based on Reason Category Code and Language Code</a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#list-of-languages-create-read-update-delete">1.10 List of Languages - Create/Read/Update/Delete <strong>[↑]</strong></a><ul>
-<li><a class="reference internal" href="#a-create-list-of-languages-in-master-database">A. Create List of Languages in Master Database</a></li>
-<li><a class="reference internal" href="#b-fetch-the-list-of-languages">B. Fetch the List of Languages</a></li>
-<li><a class="reference internal" href="#c-update-and-delete-a-language-in-the-list-of-languages-master-database">C. Update and Delete a Language in the List of Languages Master Database</a></li>
-<li><a class="reference internal" href="#id5">(i) Update</a></li>
-<li><a class="reference internal" href="#id6">(ii) Delete</a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#list-of-titles-create-read-update-delete">1.11 List of Titles - Create/Read/Update/Delete <strong>[↑]</strong></a><ul>
-<li><a class="reference internal" href="#a-create-a-title-in-master-database">A.	Create a Title in Master Database</a></li>
-<li><a class="reference internal" href="#b-update-and-delete-a-title-in-title-master-database">B.	Update and Delete a Title in Title Master Database</a></li>
-<li><a class="reference internal" href="#id7">(i) Update</a></li>
-<li><a class="reference internal" href="#i-delete">(i) Delete</a></li>
-<li><a class="reference internal" href="#c-fetch-the-list-of-titles-based-on-a-language-code">C. Fetch the List of Titles based on a Language Code</a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#template-file-format-create-update-delete">1.12 Template File Format - Create/Update/Delete <strong>[↑]</strong></a><ul>
-<li><a class="reference internal" href="#a-create-template-file-format-in-master-database">A. Create Template File Format in Master Database</a></li>
-<li><a class="reference internal" href="#b-create-template-file-format-in-master-database">B. Create Template File Format in Master Database</a></li>
-<li><a class="reference internal" href="#id8">(i) Update</a></li>
-<li><a class="reference internal" href="#id9">(ii) Delete</a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#list-of-template-types-create">1.13 List of Template Types - Create <strong>[↑]</strong></a></li>
-<li><a class="reference internal" href="#list-of-templates-create-read-update-delete">1.14 List of Templates - Create/Read/Update/Delete <strong>[↑]</strong></a><ul>
-<li><a class="reference internal" href="#a-create-template-in-the-master-database">A. Create Template in the Master Database</a></li>
-<li><a class="reference internal" href="#b-fetch-template-based-on-a-template-type-and-a-language-code">B. Fetch Template based on a Template Type and a Language Code</a></li>
-<li><a class="reference internal" href="#c-update-and-delete-a-template-in-template-master-database">C. Update and Delete a Template in Template Master Database</a></li>
-<li><a class="reference internal" href="#id10">(i) Update</a></li>
-<li><a class="reference internal" href="#id11">(ii) Delete</a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#list-of-blacklisted-words-create-read-update-delete">1.15 List of Blacklisted Words - Create/Read/Update/Delete <strong>[↑]</strong></a><ul>
-<li><a class="reference internal" href="#a-create-blacklisted-words-in-master-database">A. Create Blacklisted Words in Master Database</a></li>
-<li><a class="reference internal" href="#b-update-a-blacklisted-word-in-blacklisted-word-master-database">B. Update a Blacklisted Word in Blacklisted Word Master Database</a></li>
-<li><a class="reference internal" href="#c-delete-a-blacklisted-word-in-blacklisted-word-master-database">C. Delete a Blacklisted Word in Blacklisted Word Master Database</a></li>
-<li><a class="reference internal" href="#c-fetch-list-of-blacklisted-words-based-on-a-language-code">C. Fetch List of Blacklisted words based on a Language Code</a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#list-of-reason-categories-create">1.16 List of Reason Categories - Create <strong>[↑]</strong></a></li>
-<li><a class="reference internal" href="#list-of-applications-create-read">1.17 List of Applications - Create/Read <strong>[↑]</strong></a><ul>
-<li><a class="reference internal" href="#a-create-a-list-of-applications-in-master-database">A. Create a List of Applications in Master Database</a></li>
-<li><a class="reference internal" href="#b-fetch-list-of-applications-based-on-received-input-parameter">B. Fetch List of Applications based on received input parameter</a></li>
-<li><a class="reference internal" href="#i-fetch-the-list-of-all-applications">(i) Fetch the List of all Applications</a></li>
-<li><a class="reference internal" href="#ii-fetch-the-application-detail-based-on-a-language-code-and-application-id">(ii) Fetch the Application detail based on a Language Code and Application ID</a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#list-of-id-types-create-read">1.18 List of ID Types - Create/Read <strong>[↑]</strong></a><ul>
-<li><a class="reference internal" href="#a-create-an-id-type-in-master-database">A. Create an ID type in Master Database</a></li>
-<li><a class="reference internal" href="#b-fetch-the-list-of-id-types-based-on-language-code">B. Fetch the List of ID Types based on Language Code</a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#user-history">1.19 User History <strong>[↑]</strong></a></li>
-<li><a class="reference internal" href="#document-type-to-category-mapping-map-unmap">1.20 Document Type to Category Mapping - Map/Unmap <strong>[↑]</strong></a><ul>
-<li><a class="reference internal" href="#a-create-a-mapping-record-of-document-type-and-document-category-in-valid-document-mapping-master-database">A. Create a mapping record of Document Type and Document Category in Valid Document Mapping Master Database</a></li>
-<li><a class="reference internal" href="#b-remove-a-mapping-record-of-document-type-and-document-category-in-valid-document-mapping-master-database">B. Remove a mapping record of Document Type and Document Category in Valid Document Mapping Master Database</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Architecture.html#logical-architecture">Logical Architecture</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Architecture.html#data-architecture">Data Architecture</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="Architecture.html#open-source-and-vendor-neutral">Open Source and Vendor Neutral</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Architecture.html#multi-language">Multi-Language</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Architecture.html#high-performance">High Performance</a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li><a class="reference internal" href="#registration-management">2. Registration Management</a><ul>
-<li><a class="reference internal" href="#registration-center-type-create-update-delete">2.1 Registration Center Type - Create/Update/Delete <strong>[↑]</strong></a><ul>
-<li><a class="reference internal" href="#a-create-registration-center-type-in-master-database">A. Create Registration Center Type in Master Database</a></li>
-<li><a class="reference internal" href="#b-update-and-delete-a-registration-center-type-in-the-registration-center-type-master-database">B. Update and Delete a Registration Center Type in the Registration Center Type Master Database</a></li>
-<li><a class="reference internal" href="#id12">(i) Update</a></li>
-<li><a class="reference internal" href="#id13">(ii) Delete</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Technology-Stack.html">Technology Stack</a></li>
+<li class="toctree-l1"><a class="reference internal" href="MOSIP-Releases.html">Latest Release</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Roadmap.html">July 2019 to June 2020</a></li>
 </ul>
-</li>
-<li><a class="reference internal" href="#registration-center-create-read-update-decommission">2.2 Registration Center - Create/Read/Update/Decommission <strong>[↑]</strong></a><ul>
-<li><a class="reference internal" href="#a-create-a-registration-center-record-in-master-database">A. Create a Registration Center record in Master Database</a></li>
-<li><a class="reference internal" href="#b-update-a-registration-center-in-the-list-of-registration-center-master-database">B. Update a Registration Center in the List of Registration Center Master Database</a></li>
-<li><a class="reference internal" href="#c-decommission-a-registration-center-in-the-list-of-registration-center-master-database">C. Decommission a Registration Center in the List of Registration Center Master Database</a></li>
-<li><a class="reference internal" href="#d-fetch-registration-center-details-based-on-a-registration-center-id-and-language-code">D. Fetch Registration Center details based on a Registration Center ID and Language Code.</a></li>
-<li><a class="reference internal" href="#e-fetch-registration-center-record-based-on-a-registration-center-id-date-and-language-code-from-the-registration-center-updation-creation-history-table">E. Fetch Registration Center record based on a Registration center ID, Date and Language Code from the Registration Center Updation/Creation History table</a></li>
-<li><a class="reference internal" href="#f-fetch-registration-center-details-based-on-a-location-code-and-a-language-code">F. Fetch Registration Center details based on a Location Code and a Language Code</a></li>
-<li><a class="reference internal" href="#g-fetch-registration-center-details-based-on-a-longitude-and-a-latitude-proximity-distance-and-language-code">G. Fetch Registration Center details based on a Longitude and a Latitude, Proximity Distance and Language Code</a></li>
-<li><a class="reference internal" href="#h-fetch-the-list-of-registration-centers-based-on-location-hierarchy-level-text-input-and-a-language-code">H. Fetch the List of Registration Centers based on Location Hierarchy Level, text input and a Language Code</a></li>
-<li><a class="reference internal" href="#i-validates-whether-a-registration-center-is-under-working-hours-based-on-a-timestamp-received">I. Validates whether a Registration Center is under working hours based on a timestamp received</a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#list-of-machine-types-create">2.3 List of Machine Types - Create <strong>[↑]</strong></a></li>
-<li><a class="reference internal" href="#list-of-machine-specifications-create-update-delete">2.4 List of Machine Specifications - Create/Update/Delete <strong>[↑]</strong></a><ul>
-<li><a class="reference internal" href="#a-create-machine-specifications-in-the-master-database">A. Create Machine Specifications in the Master Database</a></li>
-<li><a class="reference internal" href="#b-update-and-delete-a-machine-specification-in-the-machine-specification-master-database">B. Update and Delete a Machine Specification in the Machine Specification Master Database</a></li>
-<li><a class="reference internal" href="#id14">(i) Update</a></li>
-<li><a class="reference internal" href="#id15">(ii) Delete</a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#list-of-machines-create-read-update-decommission">2.5 List of Machines - Create/Read/Update/Decommission <strong>[↑]</strong></a><ul>
-<li><a class="reference internal" href="#a-create-a-machine-in-master-database">A. Create a Machine in Master Database</a></li>
-<li><a class="reference internal" href="#b-update-a-machine-in-the-list-of-machines-master-database">B. Update a Machine in the List of Machines Master Database</a></li>
-<li><a class="reference internal" href="#c-decommission-a-machine-in-the-list-of-machines-master-database">C. Decommission a Machine in the List of Machines Master Database</a></li>
-<li><a class="reference internal" href="#d-fetch-machine-registration-updation-history-detail-based-on-a-machine-id-and-language-code">D. Fetch Machine Registration/Updation History detail based on a Machine ID and Language Code</a></li>
-<li><a class="reference internal" href="#e-fetch-machine-details-based-on-a-machine-id-and-a-language-code">E. Fetch Machine Details based on a Machine ID and a Language Code</a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#mappings-of-registration-center-machine-and-user-mappings-create-read-delete">2.6 Mappings of Registration Center, Machine and User Mappings - Create/Read/Delete <strong>[↑]</strong></a><ul>
-<li><a class="reference internal" href="#a-create-a-mapping-record-of-center-user-and-machine-in-center-user-machine-mapping-master-database">A. Create a mapping record of Center, User and Machine in Center-User-Machine Mapping Master Database</a></li>
-<li><a class="reference internal" href="#b-delete-a-center-machine-user-mapping-in-the-center-machine-user-mapping-master-database">B. Delete a Center-Machine-User mapping in the Center-Machine-User mapping Master Database</a></li>
-<li><a class="reference internal" href="#c-fetch-mapping-history-of-registration-center-machine-and-user-based-on-registration-centre-id-machine-id-user-id-and-date">C. Fetch Mapping History of Registration Center, Machine and User based on Registration Centre ID, Machine ID, User ID and Date</a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#list-of-devices-create-read-update-decommission">2.7 List of Devices - Create/Read/Update/Decommission <strong>[↑]</strong></a><ul>
-<li><a class="reference internal" href="#a-create-a-device-in-master-database">A. Create a Device in Master Database</a></li>
-<li><a class="reference internal" href="#b-update-a-device-in-the-list-of-devices-master-database">B. Update a Device in the List of Devices Master Database</a></li>
-<li><a class="reference internal" href="#c-decommission-a-device-in-the-list-of-devices-master-database">C. Decommission a Device in the List of Devices Master Database</a></li>
-<li><a class="reference internal" href="#d-fetch-all-the-list-of-devices-based-on-device-type-and-language-code">D. Fetch all the List of Devices based on Device Type and Language Code</a></li>
-<li><a class="reference internal" href="#e-fetch-device-registration-update-history-detail-based-on-a-device-id-and-language-code">E. Fetch Device Registration/Update History detail based on a Device ID and Language Code</a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#list-of-device-specifications-create-read-update-delete">2.8 List of Device Specifications - Create/Read/Update/Delete <strong>[↑]</strong></a><ul>
-<li><a class="reference internal" href="#a-create-device-specifications-in-master-database">A. Create Device Specifications in Master Database</a></li>
-<li><a class="reference internal" href="#b-fetch-list-of-device-specifications-based-on-a-language-code">B. Fetch List of Device Specifications based on a Language Code</a></li>
-<li><a class="reference internal" href="#c-update-and-delete-a-device-specification-in-the-device-specification-master-database">C. Update and Delete a Device Specification in the Device Specification Master Database</a></li>
-<li><a class="reference internal" href="#id16">(i) Update</a></li>
-<li><a class="reference internal" href="#id17">(ii) Delete</a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#list-of-device-types-create">2.9 List of Device Types - Create <strong>[↑]</strong></a><ul>
-<li><a class="reference internal" href="#a-create-device-type-in-master-database">A. Create Device Type in Master Database</a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#mappings-of-registration-center-and-machine-map-unmap">2.10 Mappings of Registration Center and Machine - Map/Unmap <strong>[↑]</strong></a><ul>
-<li><a class="reference internal" href="#a-create-a-mapping-record-of-machine-and-center-in-machine-center-mapping-master-database">A. Create a mapping record of Machine and Center in Machine-Center Mapping Master Database</a></li>
-<li><a class="reference internal" href="#b-delete-a-center-machine-mapping-in-the-center-machine-mapping-master-database">B. Delete a Center-Machine mapping in the Center-Machine mapping Master Database</a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#mappings-of-registration-center-and-device-map-unmap-read">2.11 Mappings of Registration Center and Device - Map/Unmap/Read <strong>[↑]</strong></a><ul>
-<li><a class="reference internal" href="#a-create-a-mapping-record-of-device-and-center-in-device-center-mapping-master-database">A. Create a mapping record of Device and Center in Device-Center Mapping Master Database</a></li>
-<li><a class="reference internal" href="#b-unmap-a-center-device-mapping-in-the-center-device-mapping-master-database">B. Unmap a Center-Device mapping in the Center-Device mapping Master Database</a></li>
-<li><a class="reference internal" href="#c-fetch-device-center-history-record-based-on-the-timestamp-received">C. Fetch Device-Center History record based on the timestamp received</a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#mappings-of-registration-center-machine-and-device-create-delete">2.12 Mappings of Registration Center, Machine, and Device - Create/Delete <strong>[↑]</strong></a><ul>
-<li><a class="reference internal" href="#a-create-a-mapping-record-of-center-machine-and-device-in-center-machine-device-mapping-master-database">A. Create a mapping record of Center, Machine and Device in Center-Machine-Device Mapping Master Database</a></li>
-<li><a class="reference internal" href="#b-delete-a-center-machine-device-mapping-in-the-center-machine-device-mapping-master-database">B. Delete a Center-Machine-Device mapping in the Center-Machine-Device mapping Master Database</a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#mappings-of-registration-center-and-user-map-unmap">2.13 Mappings of Registration Center and User - Map/Unmap <strong>[↑]</strong></a><ul>
-<li><a class="reference internal" href="#a-create-a-mapping-record-of-user-and-center-in-user-center-mapping-master-database">A. Create a mapping record of User and Center in User-Center Mapping Master Database</a></li>
-<li><a class="reference internal" href="#b-delete-a-center-user-mapping-in-the-center-user-mapping-master-database">B. Delete a Center-User mapping in the Center-User mapping Master Database</a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li><a class="reference internal" href="#misp-management">3. MISP Management  <strong>[↑]</strong></a><ul>
-<li><a class="reference internal" href="#misp-create-read-update-delete">3.1 MISP - Create/Read/Update/Delete <strong>[↑]</strong></a><ul>
-<li><a class="reference internal" href="#license-key-allocation-create-read-update-delete">3.1.1 License Key Allocation- Create/Read/Update/Delete</a></li>
-<li><a class="reference internal" href="#a-create-misp">A. Create MISP</a></li>
-<li><a class="reference internal" href="#b-read-misp">B. Read MISP</a></li>
-<li><a class="reference internal" href="#c-update-misp">C. Update MISP</a></li>
-<li><a class="reference internal" href="#d-delete-misp">D. Delete MISP</a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#kernel-api">Kernel API <strong>[↑]</strong></a></li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-</div>
+
             
           
         </div>

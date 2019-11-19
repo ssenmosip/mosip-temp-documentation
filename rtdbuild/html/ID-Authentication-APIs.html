@@ -33,6 +33,7 @@
   
   <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
   <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" /> 
 </head>
@@ -51,6 +52,9 @@
             <a href="index.html" class="icon icon-home"> MOSIP
           
 
+          
+            
+            <img src="_static/mosip-logo.png" class="logo" alt="Logo"/>
           
           </a>
 
@@ -82,179 +86,30 @@
               
             
             
-              <!-- Local TOC -->
-              <div class="local-toc"><ul>
-<li><a class="reference internal" href="#">Authentication Service (Public)</a><ul>
-<li><a class="reference internal" href="#users-of-authentication-service">Users of Authentication service -</a></li>
-<li><a class="reference internal" href="#post-idauthentication-v1-auth">POST /idauthentication/v1/auth/</a><ul>
-<li><a class="reference internal" href="#resource-url">Resource URL</a></li>
-<li><a class="reference internal" href="#resource-details">Resource details</a></li>
-<li><a class="reference internal" href="#request-body-parameters">Request Body Parameters</a></li>
-<li><a class="reference internal" href="#request-body">Request Body</a></li>
-<li><a class="reference internal" href="#responses">Responses:</a><ul>
-<li><a class="reference internal" href="#success-response">Success Response:</a><ul>
-<li><a class="reference internal" href="#status-code-200-ok">Status Code : 200 (OK)</a></li>
-<li><a class="reference internal" href="#description-successfully-authenticated-an-individual">Description : Successfully authenticated an Individual</a></li>
+              <p class="caption"><span class="caption-text">Overview</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="Architecture.html">MOSIP Architecture</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="Architecture.html#architectural-principles">Architectural Principles</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="Architecture.html#ecosystem-approach">Ecosystem approach</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Architecture.html#configurability">Configurability</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Architecture.html#extensibility">Extensibility</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Architecture.html#modularity">Modularity</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#failed-response">Failed Response:</a><ul>
-<li><a class="reference internal" href="#id1">Status Code : 200 (OK)</a></li>
-<li><a class="reference internal" href="#description-authentication-of-an-individual-failed">Description : Authentication of an Individual failed</a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#failure-details">Failure Details</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Architecture.html#logical-architecture">Logical Architecture</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Architecture.html#data-architecture">Data Architecture</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="Architecture.html#open-source-and-vendor-neutral">Open Source and Vendor Neutral</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Architecture.html#multi-language">Multi-Language</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Architecture.html#high-performance">High Performance</a></li>
 </ul>
 </li>
 </ul>
 </li>
+<li class="toctree-l1"><a class="reference internal" href="Technology-Stack.html">Technology Stack</a></li>
+<li class="toctree-l1"><a class="reference internal" href="MOSIP-Releases.html">Latest Release</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Roadmap.html">July 2019 to June 2020</a></li>
 </ul>
-</li>
-<li><a class="reference internal" href="#ekyc-service-public">eKYC Service (Public)</a><ul>
-<li><a class="reference internal" href="#users-of-kyc-service">Users of KYC service -</a></li>
-<li><a class="reference internal" href="#post-idauthentication-v1-kyc">POST /idauthentication/v1/kyc/</a><ul>
-<li><a class="reference internal" href="#id2">Resource URL</a></li>
-<li><a class="reference internal" href="#id3">Resource details</a></li>
-<li><a class="reference internal" href="#id4">Request Body Parameters</a></li>
-<li><a class="reference internal" href="#id5">Request Body</a></li>
-<li><a class="reference internal" href="#id6">Responses:</a><ul>
-<li><a class="reference internal" href="#id7">Success Response:</a><ul>
-<li><a class="reference internal" href="#id8">Status Code : 200 (OK)</a></li>
-<li><a class="reference internal" href="#description-successful-kyc-authentication-of-an-individual">Description : Successful KYC Authentication of an Individual</a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#id9">Failed Response:</a><ul>
-<li><a class="reference internal" href="#id10">Status Code : 200 (OK)</a></li>
-<li><a class="reference internal" href="#description-kyc-authentication-of-an-individual-failed">Description : KYC Authentication of an Individual failed</a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#id11">Failure Details</a></li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-</li>
-<li><a class="reference internal" href="#otp-request-service-public">OTP Request Service (Public)</a><ul>
-<li><a class="reference internal" href="#users-of-otp-request-service">Users of OTP Request service -</a></li>
-<li><a class="reference internal" href="#post-idauthentication-v1-otp">POST /idauthentication/v1/otp/</a><ul>
-<li><a class="reference internal" href="#id12">Resource URL</a></li>
-<li><a class="reference internal" href="#id13">Resource details</a></li>
-<li><a class="reference internal" href="#id14">Request Body Parameters</a></li>
-<li><a class="reference internal" href="#id15">Request Body</a></li>
-<li><a class="reference internal" href="#id16">Responses:</a><ul>
-<li><a class="reference internal" href="#id17">Success Response:</a><ul>
-<li><a class="reference internal" href="#id18">Status Code : 200 (OK)</a></li>
-<li><a class="reference internal" href="#description-otp-for-authentication-or-kyc-service-was-successfully-sent-to-the-individual">Description : OTP for Authentication or KYC Service was successfully sent to the Individual</a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#id19">Failed Response:</a><ul>
-<li><a class="reference internal" href="#id20">Status Code : 200 (OK)</a></li>
-<li><a class="reference internal" href="#description-failed-to-send-otp-to-the-individual">Description : Failed to send OTP to the Individual</a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#id21">Failure Details</a></li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-</li>
-<li><a class="reference internal" href="#authentication-service-internal">Authentication Service (Internal)</a><ul>
-<li><a class="reference internal" href="#users-of-internal-authentication-service">Users of Internal Authentication service -</a></li>
-<li><a class="reference internal" href="#post-idauthentication-v1-internal-auth">POST /idauthentication/v1/internal/auth</a><ul>
-<li><a class="reference internal" href="#id22">Resource URL</a></li>
-<li><a class="reference internal" href="#id23">Resource details</a></li>
-<li><a class="reference internal" href="#id24">Request Body Parameters</a></li>
-<li><a class="reference internal" href="#id25">Request Body</a></li>
-<li><a class="reference internal" href="#id26">Responses:</a><ul>
-<li><a class="reference internal" href="#id27">Success Response:</a><ul>
-<li><a class="reference internal" href="#id28">Status Code : 200 (OK)</a></li>
-<li><a class="reference internal" href="#id29">Description : Successfully authenticated an Individual</a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#id30">Failed Response:</a><ul>
-<li><a class="reference internal" href="#id31">Status Code : 200 (OK)</a></li>
-<li><a class="reference internal" href="#id32">Description : Authentication of an Individual failed</a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#id33">Failure Details</a></li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-</li>
-<li><a class="reference internal" href="#authentication-transactions-service-internal">Authentication Transactions Service (Internal)</a><ul>
-<li><a class="reference internal" href="#users-of-authentication-transactions-service">Users of Authentication Transactions Service -</a></li>
-<li><a class="reference internal" href="#get-idauthentication-v1-internal-authtransactions-individualidtype-idtype-individualid-id-pagestart-1-pagefetch-10">GET /idauthentication/v1/internal/authTransactions/individualIdType/:IDType/individualId/:ID?pageStart=1&amp;pageFetch=10</a><ul>
-<li><a class="reference internal" href="#id34">Resource URL</a></li>
-<li><a class="reference internal" href="#id35">Resource details</a></li>
-<li><a class="reference internal" href="#request-query-parameters">Request Query Parameters</a></li>
-<li><a class="reference internal" href="#id36">Responses:</a><ul>
-<li><a class="reference internal" href="#id37">Success Response:</a><ul>
-<li><a class="reference internal" href="#id38">Status Code : 200 (OK)</a></li>
-<li><a class="reference internal" href="#description-successfully-retrieved-authentication-transactions">Description : Successfully retrieved authentication transactions</a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#id39">Failed Response:</a><ul>
-<li><a class="reference internal" href="#id40">Status Code : 200 (OK)</a></li>
-<li><a class="reference internal" href="#description-failed-to-retrieve-authentication-transactions">Description : Failed to retrieve authentication transactions</a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#id41">Failure Details</a></li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-</li>
-<li><a class="reference internal" href="#authentication-types-status-service-internal">Authentication Types Status Service (Internal)</a><ul>
-<li><a class="reference internal" href="#users-of-retrieve-authentication-types-status-service">Users of Retrieve Authentication Types Status Service -</a></li>
-<li><a class="reference internal" href="#get-idauthentication-v1-internal-authtypes-status-individualidtype-idtype-individualid-id">GET /idauthentication/v1/internal/authtypes/status/individualIdType/:IDType/individualId/:ID</a><ul>
-<li><a class="reference internal" href="#id42">Resource URL</a></li>
-<li><a class="reference internal" href="#id43">Resource details</a></li>
-<li><a class="reference internal" href="#request-path-parameters">Request Path Parameters</a></li>
-<li><a class="reference internal" href="#id44">Responses:</a><ul>
-<li><a class="reference internal" href="#id45">Success Response:</a><ul>
-<li><a class="reference internal" href="#id46">Status Code : 200 (OK)</a></li>
-<li><a class="reference internal" href="#description-successfully-retrieved-auth-type-status-list">Description : Successfully retrieved auth type status list</a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#id47">Failed Response:</a><ul>
-<li><a class="reference internal" href="#id48">Status Code : 200 (OK)</a></li>
-<li><a class="reference internal" href="#description-failed-to-retrieve-auth-type-status">Description : Failed to retrieve auth type status</a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#id49">Failure Details</a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li><a class="reference internal" href="#put-idauthentication-v1-internal-authtypes-status">PUT /idauthentication/v1/internal/authtypes/status</a><ul>
-<li><a class="reference internal" href="#id50">Resource URL</a></li>
-<li><a class="reference internal" href="#id51">Resource details</a></li>
-<li><a class="reference internal" href="#id52">Request Body Parameters</a></li>
-<li><a class="reference internal" href="#id53">Request Body</a></li>
-<li><a class="reference internal" href="#id54">Responses:</a><ul>
-<li><a class="reference internal" href="#id55">Success Response:</a><ul>
-<li><a class="reference internal" href="#id56">Status Code : 200 (OK)</a></li>
-<li><a class="reference internal" href="#description-successfully-updated-auth-type-status">Description : Successfully updated auth type status</a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#id57">Failed Response:</a><ul>
-<li><a class="reference internal" href="#id58">Status Code : 200 (OK)</a></li>
-<li><a class="reference internal" href="#description-failed-to-update-auth-type-status">Description : Failed to update auth type status</a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#id59">Failure Details</a></li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-</div>
+
             
           
         </div>

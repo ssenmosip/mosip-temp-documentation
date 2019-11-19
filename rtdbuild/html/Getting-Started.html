@@ -33,6 +33,7 @@
   
   <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
   <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" /> 
 </head>
@@ -51,6 +52,9 @@
             <a href="index.html" class="icon icon-home"> MOSIP
           
 
+          
+            
+            <img src="_static/mosip-logo.png" class="logo" alt="Logo"/>
           
           </a>
 
@@ -82,99 +86,30 @@
               
             
             
-              <!-- Local TOC -->
-              <div class="local-toc"><ul>
-<li><a class="reference internal" href="#">Getting Started</a><ul>
-<li><a class="reference internal" href="#getting-the-source-code">1. Getting the Source Code <strong>[↑]</strong></a></li>
-<li><a class="reference internal" href="#setup-and-configure-jenkins">2. Setup and Configure Jenkins <strong>[↑]</strong></a><ul>
-<li><a class="reference internal" href="#a-installing-jenkins-version-2-150-1">A. Installing Jenkins version 2.150.1</a></li>
-<li><a class="reference internal" href="#b-setting-up-github-for-in-jenkins">B. Setting Up Github for/in Jenkins</a></li>
-<li><a class="reference internal" href="#c-create-pipelines">C. Create Pipelines</a></li>
+              <p class="caption"><span class="caption-text">Overview</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="Architecture.html">MOSIP Architecture</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="Architecture.html#architectural-principles">Architectural Principles</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="Architecture.html#ecosystem-approach">Ecosystem approach</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Architecture.html#configurability">Configurability</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Architecture.html#extensibility">Extensibility</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Architecture.html#modularity">Modularity</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#setup-and-configure-jfrog-artifactory-version-6-5-2">3. Setup and Configure Jfrog Artifactory Version 6.5.2 <strong>[↑]</strong></a></li>
-<li><a class="reference internal" href="#setup-and-configure-sonarqube-version-7-3">4. Setup and Configure SonarQube version 7.3 <strong>[↑]</strong></a></li>
-<li><a class="reference internal" href="#setup-and-configure-docker-registry">5. Setup and Configure Docker Registry <strong>[↑]</strong></a></li>
-<li><a class="reference internal" href="#installing-external-dependencies">6. Installing External Dependencies <strong>[↑]</strong></a><ul>
-<li><a class="reference internal" href="#install-and-use-postgresql-version-10-2-on-rhel-7-5">6.1 Install and use PostgreSql Version 10.2 on RHEL 7.5</a><ul>
-<li><a class="reference internal" href="#steps-to-install-postgresql-in-rhel-7-5">Steps to install Postgresql in RHEL-7.5</a><ul>
-<li><a class="reference internal" href="#download-and-install-postgresql">Download and install PostgreSQL.</a></li>
-<li><a class="reference internal" href="#checking-the-postgresql-packages">checking  the postgresql packages</a></li>
-<li><a class="reference internal" href="#to-increase-the-buffer-size-and-number-of-postgresql-connection-same-fine-modify-the-below-changes-also">To increase the buffer size and number of postgreSql connection  same fine modify the below changes also</a></li>
-<li><a class="reference internal" href="#to-change-the-default-password">To change the default password</a><ul>
-<li><a class="reference internal" href="#default-lines-are-present-in-pg-hab-conf-file-br">Default lines are present in pg_hab.conf file <br/></a></li>
-<li><a class="reference internal" href="#modify-with-below-changes-in-file-var-lib-pgsql-10-data-pg-hba-conf">Modify  with below changes in file  /var/lib/pgsql/10/data/pg_hba.conf</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Architecture.html#logical-architecture">Logical Architecture</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Architecture.html#data-architecture">Data Architecture</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="Architecture.html#open-source-and-vendor-neutral">Open Source and Vendor Neutral</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Architecture.html#multi-language">Multi-Language</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Architecture.html#high-performance">High Performance</a></li>
 </ul>
 </li>
 </ul>
 </li>
+<li class="toctree-l1"><a class="reference internal" href="Technology-Stack.html">Technology Stack</a></li>
+<li class="toctree-l1"><a class="reference internal" href="MOSIP-Releases.html">Latest Release</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Roadmap.html">July 2019 to June 2020</a></li>
 </ul>
-</li>
-<li><a class="reference internal" href="#install-and-use-nginx-version-1-15-8-on-rhel-7-5">6.2 Install and use Nginx Version-1.15.8 on RHEL 7.5</a><ul>
-<li><a class="reference internal" href="#generate-ssl-tls-for-https">Generate SSL/TLS for HTTPS -</a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#clam-antivirus-version-0-101-0">6.3 Clam AntiVirus Version 0.101.0</a><ul>
-<li><a class="reference internal" href="#steps-to-install-clamav-in-rhel-7-5">Steps to install ClamAV in RHEL-7.5</a><ul>
-<li><a class="reference internal" href="#reference-link-link">Reference link: link</a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li><a class="reference internal" href="#steps-to-install-and-configuration-ceph">6.4 Steps to Install and configuration CEPH</a><ul>
-<li><a class="reference internal" href="#on-red-hat-enterprise-linux-7-register-the-target-machine-with-subscription-manager-verify-your-subscriptions-and-enable-the-extras-repository-for-package-dependencies-for-example">1. On Red Hat Enterprise Linux 7, register the target machine with subscription-manager, verify your subscriptions, and enable the “Extras” repository for package dependencies. For example:</a></li>
-<li><a class="reference internal" href="#install-and-enable-the-extra-packages-for-enterprise-linux-epel-repository">2. Install and enable the Extra Packages for Enterprise Linux (EPEL) repository:</a></li>
-<li><a class="reference internal" href="#add-the-ceph-repository-to-your-yum-configuration-file-at-etc-yum-repos-d-ceph-repo-with-the-following-command-replace-ceph-stable-release-with-a-stable-ceph-release-e-g-luminous-for-example">3. Add the Ceph repository to your yum configuration file at /etc/yum.repos.d/ceph.repo with the following command.  Replace {ceph-stable-release} with a stable Ceph release (e.g., luminous.) For example:</a></li>
-<li><a class="reference internal" href="#update-your-repository-and-install-ceph-deploy">4. Update your repository and install ceph-deploy:</a></li>
-<li><a class="reference internal" href="#ceph-node-setup">CEPH NODE SETUP</a></li>
-<li><a class="reference internal" href="#install-ntp">INSTALL NTP</a></li>
-<li><a class="reference internal" href="#install-ssh-server">INSTALL SSH SERVER</a><ul>
-<li><a class="reference internal" href="#this-step-marks-the-nodes-as-initial-monitors">This step marks the nodes as initial monitors.</a></li>
-<li><a class="reference internal" href="#this-step-will-install-the-latest-stable-version-of-ceph-i-e-mimic-13-2-1-on-the-given-nodes">This step will install the latest stable version of ceph, i.e. mimic (13.2.1) on the given nodes.</a></li>
-<li><a class="reference internal" href="#after-successfully-executing-these-steps-our-ceph-cluster-is-up-and-running-the-status-and-health-of-the-cluster-can-be-checked-in-by-executing">After successfully executing these steps, our ceph cluster is up and running. The status and health of the cluster can be checked in by executing</a></li>
-<li><a class="reference internal" href="#we-should-get-a-status-saying-health-ok-and-a-detailed-status-resembling">We should get a status saying HEALTH_OK, and a detailed status resembling :</a></li>
-<li><a class="reference internal" href="#expanding-the-existing-cluster">Expanding the Existing cluster</a></li>
-<li><a class="reference internal" href="#public-network-ip-address-bits">public network = {ip-address}/{bits}</a></li>
-<li><a class="reference internal" href="#for-this-we-need-to-follow-these-sample-steps">For this, we need to follow these sample steps:</a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li><a class="reference internal" href="#ceph-dashboard">CEPH Dashboard</a><ul>
-<li><a class="reference internal" href="#to-enable-the-dashboard-we-need-to-follow-these-steps">To enable the dashboard, we need to follow these steps:</a></li>
-<li><a class="reference internal" href="#reference-link">Reference link:</a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#steps-to-install-and-configuration-ldap">6.5 Steps to Install and configuration LDAP</a></li>
-<li><a class="reference internal" href="#steps-to-install-and-configuration-hdfs">6.6 Steps to Install and configuration HDFS</a></li>
-<li><a class="reference internal" href="#steps-to-deploy-kernel-key-manager-service">6.7 Steps to Deploy Kernel Key Manager Service</a></li>
-<li><a class="reference internal" href="#sms-gateway-configuration">6.8 SMS Gateway configuration</a></li>
-<li><a class="reference internal" href="#installation-of-activemq">6.9 Installation of ActiveMQ</a><ul>
-<li><a class="reference internal" href="#installation-steps">Installation steps</a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li><a class="reference internal" href="#configuring-mosip">7. Configuring MOSIP <strong>[↑]</strong></a><ul>
-<li><a class="reference internal" href="#mosip-database-object-deployment-configuration">MOSIP database object deployment / configuration</a></li>
-<li><a class="reference internal" href="#setup-and-configure-mosip">Setup and configure MOSIP</a></li>
-<li><a class="reference internal" href="#global">Global</a></li>
-<li><a class="reference internal" href="#kernel">Kernel</a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#mosip-deployment">8. MOSIP Deployment <strong>[↑]</strong></a><ul>
-<li><a class="reference internal" href="#a-one-time-setup-of-mosip-in-kubernetes-cluster">A. One time setup of MOSIP in Kubernetes Cluster</a></li>
-<li><a class="reference internal" href="#firstly-deploy-kernel-configuration-server">Firstly Deploy Kernel Configuration server</a></li>
-<li><a class="reference internal" href="#deploy-other-components-br">Deploy other components: <br/></a></li>
-<li><a class="reference internal" href="#registration-processor-dmz-services-deployment">8.1  Registration-Processor DMZ services deployment</a></li>
-<li><a class="reference internal" href="#kernel-salt-generator">8.2 Kernel Salt Generator</a></li>
-<li><a class="reference internal" href="#first-user-registration-and-onboarding">8.3 First User Registration and Onboarding</a></li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-</div>
+
             
           
         </div>

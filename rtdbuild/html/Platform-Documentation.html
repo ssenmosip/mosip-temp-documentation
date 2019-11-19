@@ -33,6 +33,7 @@
   
   <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
   <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" /> 
 </head>
@@ -51,6 +52,9 @@
             <a href="index.html" class="icon icon-home"> MOSIP
           
 
+          
+            
+            <img src="_static/mosip-logo.png" class="logo" alt="Logo"/>
           
           </a>
 
@@ -82,90 +86,30 @@
               
             
             
-              <!-- Local TOC -->
-              <div class="local-toc"><ul>
-<li><a class="reference internal" href="#">Table Of Contents</a></li>
-<li><a class="reference internal" href="#introduction">1. INTRODUCTION</a></li>
-<li><a class="reference internal" href="#functional-overview">2. FUNCTIONAL OVERVIEW<strong>[↑]</strong></a><ul>
-<li><a class="reference internal" href="#pre-registration">2.1 Pre-Registration</a></li>
-<li><a class="reference internal" href="#registration-services">2.2 Registration Services</a></li>
-<li><a class="reference internal" href="#registration-processor">2.3 Registration Processor</a></li>
-<li><a class="reference internal" href="#id-authentication">2.4 ID Authentication</a></li>
-<li><a class="reference internal" href="#kernel">2.5 Kernel</a></li>
-<li><a class="reference internal" href="#admin-portal-and-administrator-services-wip">2.6 Admin Portal and Administrator Services (WIP)</a></li>
-<li><a class="reference internal" href="#id-repository">2.9 ID Repository</a></li>
+              <p class="caption"><span class="caption-text">Overview</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="Architecture.html">MOSIP Architecture</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="Architecture.html#architectural-principles">Architectural Principles</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="Architecture.html#ecosystem-approach">Ecosystem approach</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Architecture.html#configurability">Configurability</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Architecture.html#extensibility">Extensibility</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Architecture.html#modularity">Modularity</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#architecture-overview">3. ARCHITECTURE OVERVIEW<strong>[↑]</strong></a><ul>
-<li><a class="reference internal" href="#architectural-principles-and-platform-goals">3.1 Architectural Principles and Platform Goals</a></li>
-<li><a class="reference internal" href="#logical-architecture">3.2 Logical Architecture</a></li>
-<li><a class="reference internal" href="#technology-stack">3.3 Technology Stack</a></li>
-<li><a class="reference internal" href="#data-architecture">3.4 Data Architecture</a></li>
-<li><a class="reference internal" href="#high-level-design">3.5 High Level Design</a><ul>
-<li><a class="reference internal" href="#id1">3.5.1 Pre-Registration</a></li>
-<li><a class="reference internal" href="#id2">3.5.2 Kernel</a></li>
-<li><a class="reference internal" href="#id3">3.5.3 Registration Services</a></li>
-<li><a class="reference internal" href="#id4">3.5.4 Registration Processor</a></li>
-<li><a class="reference internal" href="#authentication-services">3.5.5 Authentication Services</a></li>
-<li><a class="reference internal" href="#administrator-services">3.5.7 Administrator Services</a></li>
-<li><a class="reference internal" href="#id5">3.5.8 ID Repository</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Architecture.html#logical-architecture">Logical Architecture</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Architecture.html#data-architecture">Data Architecture</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="Architecture.html#open-source-and-vendor-neutral">Open Source and Vendor Neutral</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Architecture.html#multi-language">Multi-Language</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Architecture.html#high-performance">High Performance</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#deployment-architecture">3.6 Deployment Architecture</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#requirement-specifications">4. REQUIREMENT SPECIFICATIONS<strong>[↑]</strong></a><ul>
-<li><a class="reference internal" href="#functional-requirement-specifications">4.1 Functional Requirement Specifications</a><ul>
-<li><a class="reference internal" href="#id6">4.1.1 Pre-Registration</a></li>
-<li><a class="reference internal" href="#data-services">4.1.2 Data Services</a></li>
-<li><a class="reference internal" href="#common-services">4.1.3 Common Services</a></li>
-<li><a class="reference internal" href="#admin-services">4.1.4 Admin Services</a></li>
-<li><a class="reference internal" href="#uin-generation">4.1.5 UIN Generation</a></li>
-<li><a class="reference internal" href="#configuration-server">4.1.6 Configuration Server</a></li>
-<li><a class="reference internal" href="#audit-manager">4.1.7 Audit Manager</a></li>
-<li><a class="reference internal" href="#authentication-and-authorization">4.1.8 Authentication and Authorization</a></li>
-<li><a class="reference internal" href="#id7">4.1.9 Registration Services</a></li>
-<li><a class="reference internal" href="#id8">4.1.10 Registration Processor</a></li>
-<li><a class="reference internal" href="#id9">4.1.11 Authentication Services</a></li>
-<li><a class="reference internal" href="#id10">4.1.13 Administrator Services</a></li>
-<li><a class="reference internal" href="#id11">4.1.15 ID Repository</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Technology-Stack.html">Technology Stack</a></li>
+<li class="toctree-l1"><a class="reference internal" href="MOSIP-Releases.html">Latest Release</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Roadmap.html">July 2019 to June 2020</a></li>
 </ul>
-</li>
-<li><a class="reference internal" href="#non-functional-requirement-specifications">4.2 Non-Functional Requirement Specifications</a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#architecturally-significant-components">5. ARCHITECTURALLY SIGNIFICANT COMPONENTS<strong>[↑]</strong></a><ul>
-<li><a class="reference internal" href="#id-object-definition">5.1 ID Object Definition</a></li>
-<li><a class="reference internal" href="#configurations">5.2 Configurations</a></li>
-<li><a class="reference internal" href="#registration-packet-structure">5.3 Registration Packet Structure</a></li>
-<li><a class="reference internal" href="#abis-middleware">5.4 ABIS Middleware</a></li>
-<li><a class="reference internal" href="#biometric-data-standards">5.5 Biometric Data Standards</a></li>
-<li><a class="reference internal" href="#mosip-device-specification">5.6 MOSIP Device Specification</a></li>
-<li><a class="reference internal" href="#core-data-management">5.7 Core Data Management</a></li>
-<li><a class="reference internal" href="#integration-with-external-systems">5.8 Integration with External Systems</a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#mosip-apis">6. MOSIP APIs<strong>[↑]</strong></a><ul>
-<li><a class="reference internal" href="#external-apis">6.1	External APIs</a></li>
-<li><a class="reference internal" href="#internal-apis">6.2	Internal APIs</a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#privacy-and-security">7. PRIVACY AND SECURITY<strong>[↑]</strong></a></li>
-<li><a class="reference internal" href="#contributing">8. CONTRIBUTING<strong>[↑]</strong></a></li>
-<li><a class="reference internal" href="#building-and-deploying-mosip">9. BUILDING AND DEPLOYING MOSIP<strong>[↑]</strong></a><ul>
-<li><a class="reference internal" href="#getting-started-guide">9.1 Getting Started Guide</a></li>
-<li><a class="reference internal" href="#tester-documentation">9.2 Tester Documentation</a></li>
-<li><a class="reference internal" href="#developer-documentation">9.3 Developer Documentation</a></li>
-<li><a class="reference internal" href="#customization-wip">9.4 [Customization (WIP)]</a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#infrastructure-recommendations">10.  INFRASTRUCTURE RECOMMENDATIONS<strong>[↑]</strong></a><ul>
-<li><a class="reference internal" href="#data-center-architecture-wip">10.1 Data Center Architecture (WIP)</a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#list-of-acronyms">11. List Of Acronyms</a></li>
-</ul>
-</div>
+
             
           
         </div>

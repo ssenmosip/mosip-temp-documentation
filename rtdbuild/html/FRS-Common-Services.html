@@ -33,6 +33,7 @@
   
   <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
   <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" /> 
 </head>
@@ -51,6 +52,9 @@
             <a href="index.html" class="icon icon-home"> MOSIP
           
 
+          
+            
+            <img src="_static/mosip-logo.png" class="logo" alt="Logo"/>
           
           </a>
 
@@ -82,65 +86,30 @@
               
             
             
-              <!-- Local TOC -->
-              <div class="local-toc"><ul>
-<li><a class="reference internal" href="#">Table Of Contents</a></li>
-<li><a class="reference internal" href="#common-services">Common Services</a><ul>
-<li><a class="reference internal" href="#otp-manager">1. OTP Manager <strong>[↑]</strong></a><ul>
-<li><a class="reference internal" href="#a-otp-generation">A. OTP Generation</a></li>
-<li><a class="reference internal" href="#b-otp-validation">B. OTP Validation</a></li>
+              <p class="caption"><span class="caption-text">Overview</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="Architecture.html">MOSIP Architecture</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="Architecture.html#architectural-principles">Architectural Principles</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="Architecture.html#ecosystem-approach">Ecosystem approach</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Architecture.html#configurability">Configurability</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Architecture.html#extensibility">Extensibility</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Architecture.html#modularity">Modularity</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#qr-code-generator">2. QR Code Generator <strong>[↑]</strong></a></li>
-<li><a class="reference internal" href="#crypto-services">3. Crypto Services <strong>[↑]</strong></a><ul>
-<li><a class="reference internal" href="#cryptography-services">3.1 Cryptography Services <strong>[↑]</strong></a><ul>
-<li><a class="reference internal" href="#a-for-encryption">A. For Encryption</a></li>
-<li><a class="reference internal" href="#b-for-decryption">B. For Decryption</a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#key-generator">3.2 Key Generator <strong>[↑]</strong></a><ul>
-<li><a class="reference internal" href="#a-generate-a-symmetric-key">A. Generate a Symmetric Key</a></li>
-<li><a class="reference internal" href="#b-generate-an-asymmetric-key">B. Generate an Asymmetric Key</a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#key-management">3.3 Key Management <strong>[↑]</strong></a></li>
-<li><a class="reference internal" href="#crypto-utility">3.4 Crypto Utility <strong>[↑]</strong></a></li>
-<li><a class="reference internal" href="#hash-utility">3.5 Hash Utility <strong>[↑]</strong></a></li>
-<li><a class="reference internal" href="#hmac-utility-checksum-utility">3.6 HMAC Utility/Checksum Utility <strong>[↑]</strong></a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#notification">4. Notification <strong>[↑]</strong></a><ul>
-<li><a class="reference internal" href="#otp-notification-services">4.1 OTP Notification Services <strong>[↑]</strong></a></li>
-<li><a class="reference internal" href="#email-notification">4.2 Email Notification <strong>[↑]</strong></a></li>
-<li><a class="reference internal" href="#sms-notification">4.3 SMS Notification <strong>[↑]</strong></a></li>
-<li><a class="reference internal" href="#pdf-generator">4.4 PDF Generator <strong>[↑]</strong></a></li>
-<li><a class="reference internal" href="#template-merger">4.5 Template Merger <strong>[↑]</strong></a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#transliteration">5. Transliteration <strong>[↑]</strong></a></li>
-<li><a class="reference internal" href="#mosip-utils">6. MOSIP Utils <strong>[↑]</strong></a><ul>
-<li><a class="reference internal" href="#mobile-data-validator">6.1 Mobile Data Validator <strong>[↑]</strong></a></li>
-<li><a class="reference internal" href="#email-data-validator">6.2 Email Data Validator <strong>[↑]</strong></a></li>
-<li><a class="reference internal" href="#exception-framework">6.3 Exception Framework <strong>[↑]</strong></a></li>
-<li><a class="reference internal" href="#calendar-utility">6.4 Calendar Utility <strong>[↑]</strong></a></li>
-<li><a class="reference internal" href="#date-utility">6.5 Date Utility <strong>[↑]</strong></a></li>
-<li><a class="reference internal" href="#file-utility">6.6 File Utility <strong>[↑]</strong></a></li>
-<li><a class="reference internal" href="#json-utility">6.7 Json Utility <strong>[↑]</strong></a></li>
-<li><a class="reference internal" href="#math-utility">6.8 Math Utility <strong>[↑]</strong></a></li>
-<li><a class="reference internal" href="#string-utility">6.9 String Utility <strong>[↑]</strong></a></li>
-<li><a class="reference internal" href="#uuid-utility">6.10 UUID Utility <strong>[↑]</strong></a></li>
-<li><a class="reference internal" href="#zip-unzip-utility">6.11 Zip-Unzip Utility <strong>[↑]</strong></a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#virus-scanner">7 Virus Scanner <strong>[↑]</strong></a><ul>
-<li><a class="reference internal" href="#list-of-configurable-parameters-and-processes">List of Configurable Parameters and Processes <strong>[↑]</strong></a></li>
-<li><a class="reference internal" href="#kernel-api">Kernel API <strong>[↑]</strong></a></li>
+<li class="toctree-l2"><a class="reference internal" href="Architecture.html#logical-architecture">Logical Architecture</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Architecture.html#data-architecture">Data Architecture</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="Architecture.html#open-source-and-vendor-neutral">Open Source and Vendor Neutral</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Architecture.html#multi-language">Multi-Language</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Architecture.html#high-performance">High Performance</a></li>
 </ul>
 </li>
 </ul>
 </li>
+<li class="toctree-l1"><a class="reference internal" href="Technology-Stack.html">Technology Stack</a></li>
+<li class="toctree-l1"><a class="reference internal" href="MOSIP-Releases.html">Latest Release</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Roadmap.html">July 2019 to June 2020</a></li>
 </ul>
-</div>
+
             
           
         </div>

@@ -33,6 +33,7 @@
   
   <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
   <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" /> 
 </head>
@@ -51,6 +52,9 @@
             <a href="index.html" class="icon icon-home"> MOSIP
           
 
+          
+            
+            <img src="_static/mosip-logo.png" class="logo" alt="Logo"/>
           
           </a>
 
@@ -82,216 +86,30 @@
               
             
             
-              <!-- Local TOC -->
-              <div class="local-toc"><ul>
-<li><a class="reference internal" href="#">Pre-Registration</a><ul>
-<li><a class="reference internal" href="#authentication">1. Authentication</a><ul>
-<li><a class="reference internal" href="#login">1.1 Login</a></li>
-<li><a class="reference internal" href="#logout">1.2 Logout</a></li>
+              <p class="caption"><span class="caption-text">Overview</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="Architecture.html">MOSIP Architecture</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="Architecture.html#architectural-principles">Architectural Principles</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="Architecture.html#ecosystem-approach">Ecosystem approach</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Architecture.html#configurability">Configurability</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Architecture.html#extensibility">Extensibility</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Architecture.html#modularity">Modularity</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#language-data-manager">2. Language Data Manager</a><ul>
-<li><a class="reference internal" href="#translation">2.1 Translation</a></li>
-<li><a class="reference internal" href="#transliteration">2.2 Transliteration</a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#pre-registration-sync">3. Pre-Registration Sync</a><ul>
-<li><a class="reference internal" href="#pre-registration-data-sync">3.1 Pre-Registration Data Sync</a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#appointment-scheduler">4. Appointment Scheduler</a><ul>
-<li><a class="reference internal" href="#rc-identifier">4.1 RC Identifier</a></li>
-<li><a class="reference internal" href="#availability-checker">4.2 Availability Checker</a></li>
-<li><a class="reference internal" href="#appointment-booking">4.3 Appointment Booking</a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#pre-registration-application-manager">5. Pre-Registration Application Manager</a><ul>
-<li><a class="reference internal" href="#id1">5.1 Pre-Registration Application Manager</a></li>
-<li><a class="reference internal" href="#acknowledgment">5.2 Acknowledgment</a></li>
-<li><a class="reference internal" href="#prid-generator">5.3 PRID Generator</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Architecture.html#logical-architecture">Logical Architecture</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Architecture.html#data-architecture">Data Architecture</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="Architecture.html#open-source-and-vendor-neutral">Open Source and Vendor Neutral</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Architecture.html#multi-language">Multi-Language</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Architecture.html#high-performance">High Performance</a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li><a class="reference internal" href="#registration">Registration</a><ul>
-<li><a class="reference internal" href="#registration-client-setup">1. Registration Client Setup</a><ul>
-<li><a class="reference internal" href="#registration-client-installation">1.1 Registration Client Installation</a></li>
-<li><a class="reference internal" href="#registration-client-launch">1.2 Registration Client Launch</a></li>
-<li><a class="reference internal" href="#registration-client-software-update">1.3 Registration Client Software Update</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Technology-Stack.html">Technology Stack</a></li>
+<li class="toctree-l1"><a class="reference internal" href="MOSIP-Releases.html">Latest Release</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Roadmap.html">July 2019 to June 2020</a></li>
 </ul>
-</li>
-<li><a class="reference internal" href="#system-health-checker">2. System Health Checker</a><ul>
-<li><a class="reference internal" href="#connectivity-checker">2.1 Connectivity Checker</a></li>
-<li><a class="reference internal" href="#security-scan">2.2 Security Scan</a></li>
-<li><a class="reference internal" href="#disk-space-checker">2.3 Disk Space Checker</a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#registration-officer-authentication">3. Registration Officer Authentication</a><ul>
-<li><a class="reference internal" href="#id2">3.1 Login</a></li>
-<li><a class="reference internal" href="#id3">3.2 Logout</a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#user-onboarding-manager">4. User Onboarding/Manager</a><ul>
-<li><a class="reference internal" href="#user-registration">4.1 User Registration</a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#language-manager">5. Language Manager</a><ul>
-<li><a class="reference internal" href="#id4">5.1 Translation</a></li>
-<li><a class="reference internal" href="#id5">5.2 Transliteration</a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#registration-application-manager-new">6. Registration Application Manager - New</a><ul>
-<li><a class="reference internal" href="#location-geo-tagging">6.1 Location Geo tagging</a></li>
-<li><a class="reference internal" href="#individual-category-selection">6.2 Individual Category Selection</a></li>
-<li><a class="reference internal" href="#demo-data-capture">6.3 Demo Data Capture</a></li>
-<li><a class="reference internal" href="#document-upload">6.4 Document Upload</a></li>
-<li><a class="reference internal" href="#fingerprint-capture">6.5 Fingerprint Capture</a></li>
-<li><a class="reference internal" href="#iris-capture">6.6 Iris Capture</a></li>
-<li><a class="reference internal" href="#face-capture">6.7 Face Capture</a></li>
-<li><a class="reference internal" href="#biometric-exception-capture">6.8 Biometric Exception Capture</a></li>
-<li><a class="reference internal" href="#registration-checks">6.9 Registration Checks</a></li>
-<li><a class="reference internal" href="#id6">6.10 Acknowledgment</a></li>
-<li><a class="reference internal" href="#notification">6.11 Notification</a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#registration-officer-authorization">7. Registration Officer Authorization</a><ul>
-<li><a class="reference internal" href="#id7">7.1 Registration Officer Authorization</a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#registration-packet-manager">8. Registration Packet Manager</a><ul>
-<li><a class="reference internal" href="#packet-creation">8.1 Packet Creation</a></li>
-<li><a class="reference internal" href="#packet-exporter">8.2 Packet Exporter</a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#sync-handler">9. Sync Handler</a><ul>
-<li><a class="reference internal" href="#master-data-syncher">9.1 Master Data Syncher</a></li>
-<li><a class="reference internal" href="#packet-syncher">9.2 Packet Syncher</a></li>
-<li><a class="reference internal" href="#registration-packet-status-reader">9.3 Registration Packet Status-Reader</a></li>
-<li><a class="reference internal" href="#registration-client-configuration-syncher">9.4 Registration Client Configuration Syncher</a></li>
-<li><a class="reference internal" href="#user-role-setup-syncher">9.5 User Role Setup Syncher</a></li>
-<li><a class="reference internal" href="#policy-syncher">9.6 Policy Syncher</a></li>
-<li><a class="reference internal" href="#pre-registration-data-syncher">9.7 Pre-Registration Data Syncher</a></li>
-<li><a class="reference internal" href="#login-credentials-syncher">9.8 Login Credentials Syncher</a></li>
-<li><a class="reference internal" href="#audit-log-syncher">9.9 Audit Log Syncher</a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#individual-uin-update">10. Individual UIN - Update</a><ul>
-<li><a class="reference internal" href="#uin-update">10.1 UIN Update</a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#reporting">11. Reporting</a><ul>
-<li><a class="reference internal" href="#registration-reports">11.1 Registration Reports</a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#clean-up">12. Clean Up</a><ul>
-<li><a class="reference internal" href="#data-clean-up">12.1 Data Clean Up</a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li><a class="reference internal" href="#registration-processor">Registration Processor</a><ul>
-<li><a class="reference internal" href="#registration-packet-handler">1. Registration Packet Handler</a><ul>
-<li><a class="reference internal" href="#packets-receiver">1.1  Packets Receiver</a></li>
-<li><a class="reference internal" href="#virus-scanner-stage">1.2  Virus Scanner Stage</a></li>
-<li><a class="reference internal" href="#archive-packets">1.3 Archive Packets</a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#registration-status-service">2. Registration Status Service</a><ul>
-<li><a class="reference internal" href="#registration-status">2.1 Registration Status</a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#registration-packet-processor">3. Registration Packet Processor</a><ul>
-<li><a class="reference internal" href="#packet-validator-stage">3.1 Packet Validator Stage</a></li>
-<li><a class="reference internal" href="#osi-validator-stage">3.2 OSI Validator Stage</a></li>
-<li><a class="reference internal" href="#quality-check-stage">3.3 Quality Check Stage</a></li>
-<li><a class="reference internal" href="#demo-de-dupe-stage">3.4 Demo De-Dupe Stage</a></li>
-<li><a class="reference internal" href="#biometric-de-dupe-dummy-abis">3.5 Biometric De-Dupe Dummy ABIS</a></li>
-<li><a class="reference internal" href="#manual-verification">3.6 Manual Verification</a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#uin-generator">4. UIN Generator</a><ul>
-<li><a class="reference internal" href="#uin-generator-stage">4.1 UIN Generator Stage</a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#print">5. Print</a><ul>
-<li><a class="reference internal" href="#print-queue-stage">5.1 Print Queue Stage</a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#uin-lifecycle-manager">6. UIN Lifecycle Manager</a><ul>
-<li><a class="reference internal" href="#uin-update-stage">6.1 UIN Update Stage</a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#external-system-integration">7. External System Integration</a><ul>
-<li><a class="reference internal" href="#id8">7.1 External System Integration</a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li><a class="reference internal" href="#id-authentication">ID-Authentication</a><ul>
-<li><a class="reference internal" href="#tsp-ua-authentication">1. TSP/UA Authentication</a><ul>
-<li><a class="reference internal" href="#tsp-authentication">1.1 TSP Authentication</a></li>
-<li><a class="reference internal" href="#authentication-mode-verifier">1.2 Authentication Mode Verifier</a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#tsp-ua-authorization">2. TSP/UA Authorization</a><ul>
-<li><a class="reference internal" href="#tsp-authorization">2.1 TSP Authorization</a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#individual-authentication">3. Individual Authentication</a><ul>
-<li><a class="reference internal" href="#biometric-authentication">3.1 Biometric Authentication</a></li>
-<li><a class="reference internal" href="#demographic-authentication">3.2 Demographic Authentication</a></li>
-<li><a class="reference internal" href="#otp-authentication">3.3 OTP Authentication</a></li>
-<li><a class="reference internal" href="#static-pin-authentication">3.4 Static PIN Authentication</a></li>
-<li><a class="reference internal" href="#e-kyc-authentication-services">3.5 E-KYC Authentication Services</a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#integrated-individual-authentication">4. Integrated Individual Authentication</a><ul>
-<li><a class="reference internal" href="#multiple-components">4.1 Multiple Components</a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li><a class="reference internal" href="#admin-setup-tbd-wip">Admin Setup (TBD WIP)</a></li>
-<li><a class="reference internal" href="#resident-services-tbd-wip">Resident Services (TBD WIP)</a></li>
-<li><a class="reference internal" href="#reporting-tbd-wip">Reporting (TBD WIP)</a></li>
-<li><a class="reference internal" href="#platform-level-features-and-utilities">Platform Level Features and Utilities</a><ul>
-<li><a class="reference internal" href="#utilities">Utilities</a><ul>
-<li><a class="reference internal" href="#exception-handler">Exception Handler</a></li>
-<li><a class="reference internal" href="#log-manager-mosip-logging">Log Manager (mosip-logging)</a></li>
-<li><a class="reference internal" href="#mosip-utils">mosip-utils</a></li>
-<li><a class="reference internal" href="#data-access-manager-dataaccess-hibernate">Data Access Manager(dataaccess-hibernate)</a></li>
-<li><a class="reference internal" href="#data-mapper">Data Mapper</a></li>
-<li><a class="reference internal" href="#mobile-validator">Mobile validator</a></li>
-<li><a class="reference internal" href="#email-validator">Email validator</a></li>
-<li><a class="reference internal" href="#blacklisted-words-validator">Blacklisted Words Validator</a></li>
-<li><a class="reference internal" href="#rid-generator">RID Generator</a></li>
-<li><a class="reference internal" href="#id9">PRID Generator</a></li>
-<li><a class="reference internal" href="#vid-generator">VID Generator</a></li>
-<li><a class="reference internal" href="#token-id-generator">Token ID Generator</a></li>
-<li><a class="reference internal" href="#static-pin-generator">Static PIN Generator</a></li>
-<li><a class="reference internal" href="#registration-center-id-generator">Registration Center ID Generator</a></li>
-<li><a class="reference internal" href="#machine-id-generator">Machine ID generator</a></li>
-<li><a class="reference internal" href="#tsp-id-generator">TSP ID Generator</a></li>
-<li><a class="reference internal" href="#virusscanner-clamav">virusscanner-clamav</a></li>
-<li><a class="reference internal" href="#template-merger">Template Merger</a></li>
-<li><a class="reference internal" href="#pdfgenerator">pdfgenerator</a></li>
-<li><a class="reference internal" href="#qr-code-generator">QR Code Generator</a></li>
-<li><a class="reference internal" href="#ftp-upload-packet">FTP - Upload packet</a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#features">Features</a><ul>
-<li><a class="reference internal" href="#notification-manager-notification-sms">Notification Manager-notification-sms</a></li>
-<li><a class="reference internal" href="#notification-manager-notification-email">Notification Manager-notification-email</a></li>
-<li><a class="reference internal" href="#sync-handler-master-data">Sync Handler-Master data</a></li>
-<li><a class="reference internal" href="#sync-handler-public-keys">Sync Handler-Public keys</a></li>
-<li><a class="reference internal" href="#sync-handler-configuration-changes">Sync Handler-Configuration changes</a></li>
-<li><a class="reference internal" href="#sync-handler-list-of-roles-and-users">Sync Handler-List of Roles and users</a></li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-</div>
+
             
           
         </div>

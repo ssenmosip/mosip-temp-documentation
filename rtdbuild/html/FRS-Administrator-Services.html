@@ -33,6 +33,7 @@
   
   <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
   <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" /> 
 </head>
@@ -51,6 +52,9 @@
             <a href="index.html" class="icon icon-home"> MOSIP
           
 
+          
+            
+            <img src="_static/mosip-logo.png" class="logo" alt="Logo"/>
           
           </a>
 
@@ -82,143 +86,30 @@
               
             
             
-              <!-- Local TOC -->
-              <div class="local-toc"><ul>
-<li><a class="reference internal" href="#">Table Of Contents</a></li>
-<li><a class="reference internal" href="#login">1. Login <strong>[↑]</strong></a><ul>
-<li><a class="reference internal" href="#id1">1.1 Login</a></li>
-<li><a class="reference internal" href="#logout">1.2 Logout</a><ul>
-<li><a class="reference internal" href="#manual-logout">1.2.1 Manual Logout</a></li>
-<li><a class="reference internal" href="#auto-logout">1.2.2 Auto Logout</a></li>
+              <p class="caption"><span class="caption-text">Overview</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="Architecture.html">MOSIP Architecture</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="Architecture.html#architectural-principles">Architectural Principles</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="Architecture.html#ecosystem-approach">Ecosystem approach</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Architecture.html#configurability">Configurability</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Architecture.html#extensibility">Extensibility</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Architecture.html#modularity">Modularity</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="Architecture.html#logical-architecture">Logical Architecture</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Architecture.html#data-architecture">Data Architecture</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="Architecture.html#open-source-and-vendor-neutral">Open Source and Vendor Neutral</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Architecture.html#multi-language">Multi-Language</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Architecture.html#high-performance">High Performance</a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li><a class="reference internal" href="#account-management-wip">2. Account Management (WIP) <strong>[↑]</strong></a><ul>
-<li><a class="reference internal" href="#edit-personal-details">2.1 Edit Personal Details</a></li>
-<li><a class="reference internal" href="#change-password">2.2 Change Password</a></li>
-<li><a class="reference internal" href="#reset-password">2.3 Reset Password</a></li>
-<li><a class="reference internal" href="#forgot-user-name">2.4 Forgot User Name</a></li>
-<li><a class="reference internal" href="#account-unlock">2.5 Account Unlock</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Technology-Stack.html">Technology Stack</a></li>
+<li class="toctree-l1"><a class="reference internal" href="MOSIP-Releases.html">Latest Release</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Roadmap.html">July 2019 to June 2020</a></li>
 </ul>
-</li>
-<li><a class="reference internal" href="#security-policy-configuration-wip">3. Security Policy Configuration (WIP) <strong>[↑]</strong></a></li>
-<li><a class="reference internal" href="#notification-v1-5-wip">4. Notification (v1.5) (WIP) <strong>[↑]</strong></a><ul>
-<li><a class="reference internal" href="#approval-notifications">4.1 Approval Notifications</a></li>
-<li><a class="reference internal" href="#country-specific-news-notifications">4.2 Country Specific News/Notifications</a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#resource-management">5. Resource Management <strong>[↑]</strong></a><ul>
-<li><a class="reference internal" href="#center-management">5.1 Center Management <strong>[↑]</strong></a><ul>
-<li><a class="reference internal" href="#view-center">5.1.1 View Center <strong>[↑]</strong></a></li>
-<li><a class="reference internal" href="#create-center">5.1.2 Create Center <strong>[↑]</strong></a></li>
-<li><a class="reference internal" href="#update-center">5.1.3 Update Center <strong>[↑]</strong></a></li>
-<li><a class="reference internal" href="#activate-deactivate-decommission-center">5.1.4 Activate/Deactivate/Decommission Center <strong>[↑]</strong></a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#machine-management">5.2 Machine Management <strong>[↑]</strong></a><ul>
-<li><a class="reference internal" href="#view-machine">5.2.1 View Machine <strong>[↑]</strong></a></li>
-<li><a class="reference internal" href="#create-machine">5.2.2 Create Machine <strong>[↑]</strong></a></li>
-<li><a class="reference internal" href="#update-machine">5.2.3 Update Machine <strong>[↑]</strong></a></li>
-<li><a class="reference internal" href="#activate-deactivate-decommission-machine">5.2.4 Activate/Deactivate/Decommission Machine <strong>[↑]</strong></a></li>
-<li><a class="reference internal" href="#map-un-map-re-map-machine-to-a-center">5.2.5 Map/Un-map/Re-map Machine to a Center <strong>[↑]</strong></a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#device-management">5.3 Device Management <strong>[↑]</strong></a><ul>
-<li><a class="reference internal" href="#view-device">5.3.1 View Device <strong>[↑]</strong></a></li>
-<li><a class="reference internal" href="#create-device">5.3.2 Create Device <strong>[↑]</strong></a></li>
-<li><a class="reference internal" href="#update-device">5.3.3 Update Device <strong>[↑]</strong></a></li>
-<li><a class="reference internal" href="#activate-deactivate-decommission-device">5.3.4 Activate/Deactivate/Decommission Device <strong>[↑]</strong></a></li>
-<li><a class="reference internal" href="#map-un-map-re-map-device-to-a-center">5.3.5 Map/Un-map/Re-map Device to a Center <strong>[↑]</strong></a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#user-management-wip">5.4 User Management (WIP) <strong>[↑]</strong></a><ul>
-<li><a class="reference internal" href="#view-user-wip">5.4.1 View User (WIP)</a></li>
-<li><a class="reference internal" href="#create-user-wip">5.4.2 Create User (WIP)</a></li>
-<li><a class="reference internal" href="#update-user-wip">5.4.3 Update User (WIP)</a></li>
-<li><a class="reference internal" href="#activate-deactivate-blacklist-whitelist-user-wip">5.4.4 Activate/Deactivate/Blacklist/Whitelist User (WIP)</a><ul>
-<li><a class="reference internal" href="#a-activate-user-wip">A. Activate User (WIP)</a></li>
-<li><a class="reference internal" href="#b-deactivate-user-wip">B. Deactivate User (WIP)</a></li>
-<li><a class="reference internal" href="#c-blacklist-user-wip">C. Blacklist User (WIP)</a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#map-un-map-re-map-user-to-a-center">5.4.5 Map/Un-map/Re-map User to a Center</a></li>
-<li><a class="reference internal" href="#a-map-un-map-user-to-a-registration-center">A. Map/Un-map User to a Registration Center</a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#administrative-zone-management">5.5 Administrative Zone Management <strong>[↑]</strong></a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#master-data-management">6. Master Data Management <strong>[↑]</strong></a><ul>
-<li><a class="reference internal" href="#view-master-data-types">6.1 View Master Data Types <strong>[↑]</strong></a></li>
-<li><a class="reference internal" href="#view-master-data-for-each-table">6.2 View Master Data for Each Table <strong>[↑]</strong></a></li>
-<li><a class="reference internal" href="#manage-master-data">6.3 Manage Master Data <strong>[↑]</strong></a><ul>
-<li><a class="reference internal" href="#manage-document-type-view-create-update-activate-deactivate">6.3.1 Manage Document Type (View, Create, Update, Activate, Deactivate) <strong>[↑]</strong></a></li>
-<li><a class="reference internal" href="#a-view-document-types">A. View Document Types <strong>[↑]</strong></a></li>
-<li><a class="reference internal" href="#b-create-update-document-types">B. Create/Update Document Types <strong>[↑]</strong></a></li>
-<li><a class="reference internal" href="#c-activate-deactivate-document-types">C. Activate/Deactivate Document types <strong>[↑]</strong></a></li>
-<li><a class="reference internal" href="#manage-document-categories-view">6.3.2 Manage Document Categories (View) <strong>[↑]</strong></a></li>
-<li><a class="reference internal" href="#manage-document-type-to-document-category-mapping-map-unmap-view">6.3.3 Manage Document Type to Document Category Mapping (Map, Unmap, View) <strong>[↑]</strong></a></li>
-<li><a class="reference internal" href="#a-view-mappings-of-document-categories-and-document-types">A. View mappings of Document Categories and Document Types <strong>[↑]</strong></a></li>
-<li><a class="reference internal" href="#b-map-un-map-document-type-to-document-category">B. Map/Un-map Document Type to Document Category <strong>[↑]</strong></a></li>
-<li><a class="reference internal" href="#manage-location-data-view-create-update-activate-deactivate">6.3.4 Manage Location Data (View, Create, Update, Activate, Deactivate) <strong>[↑]</strong></a></li>
-<li><a class="reference internal" href="#a-view-location-data">A. View Location Data <strong>[↑]</strong></a></li>
-<li><a class="reference internal" href="#b-create-update-location-data">B. Create/Update Location Data <strong>[↑]</strong></a></li>
-<li><a class="reference internal" href="#c-activate-deactivate-location-data">C. Activate/Deactivate Location data <strong>[↑]</strong></a></li>
-<li><a class="reference internal" href="#manage-blacklisted-words-view-create-update-activate-deactivate">6.3.5 Manage Blacklisted Words (View, Create, Update, Activate, Deactivate) <strong>[↑]</strong></a></li>
-<li><a class="reference internal" href="#a-view-blacklisted-words">A. View Blacklisted Words <strong>[↑]</strong></a></li>
-<li><a class="reference internal" href="#b-create-update-blacklisted-word">B. Create/Update Blacklisted Word <strong>[↑]</strong></a></li>
-<li><a class="reference internal" href="#c-activate-deactivate-blacklisted-word">C. Activate/Deactivate Blacklisted Word <strong>[↑]</strong></a></li>
-<li><a class="reference internal" href="#manage-registration-center-types-view">6.3.6 Manage Registration Center Types (View) <strong>[↑]</strong></a></li>
-<li><a class="reference internal" href="#manage-machine-types-view">6.3.7 Manage Machine Types (View) <strong>[↑]</strong></a></li>
-<li><a class="reference internal" href="#manage-machine-specifications-view">6.3.8 Manage Machine Specifications (View) <strong>[↑]</strong></a></li>
-<li><a class="reference internal" href="#manage-device-types-view">6.3.9 Manage Device Types (View) <strong>[↑]</strong></a></li>
-<li><a class="reference internal" href="#manage-device-specifications-view">6.3.10 Manage Device Specifications (View) <strong>[↑]</strong></a></li>
-<li><a class="reference internal" href="#manage-individual-types-view">6.3.11 Manage Individual Types (View) <strong>[↑]</strong></a></li>
-<li><a class="reference internal" href="#manage-list-of-holidays-view">6.3.12 Manage List of Holidays (View) <strong>[↑]</strong></a></li>
-<li><a class="reference internal" href="#manage-list-of-templates-view">6.3.13 Manage List of Templates (View) <strong>[↑]</strong></a></li>
-<li><a class="reference internal" href="#manage-list-of-titles-view">6.3.14 Manage List of Titles (View) <strong>[↑]</strong></a></li>
-<li><a class="reference internal" href="#manage-gender-types-view">6.3.15 Manage Gender Types (View) <strong>[↑]</strong></a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li><a class="reference internal" href="#approval-process-wip">7. Approval Process (WIP) <strong>[↑]</strong></a><ul>
-<li><a class="reference internal" href="#approval-for-resource-creation">7.1 Approval for Resource Creation</a><ul>
-<li><a class="reference internal" href="#approval-of-center">7.1.1 Approval of Center</a></li>
-<li><a class="reference internal" href="#approval-of-machine">7.1.2 Approval of Machine</a></li>
-<li><a class="reference internal" href="#approval-of-device">7.1.3 Approval of Device</a></li>
-<li><a class="reference internal" href="#approval-of-user">7.1.4 Approval of User</a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#approval-for-master-data-creation">7.2 Approval for Master Data Creation</a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#uin-activation-deactivation-wip">8. UIN Activation/Deactivation (WIP) <strong>[↑]</strong></a></li>
-<li><a class="reference internal" href="#packet-status-check-based-on-rid-wip">9. Packet Status Check (based on RID) (WIP) <strong>[↑]</strong></a></li>
-<li><a class="reference internal" href="#device-provider-management">10. Device Provider Management <strong>[↑]</strong></a><ul>
-<li><a class="reference internal" href="#device-providers-create-update">10.1 Device Providers (Create/Update) <strong>[↑]</strong></a></li>
-<li><a class="reference internal" href="#foundational-trust-providers-create-update">10.2 Foundational Trust Providers (Create/Update) <strong>[↑]</strong></a></li>
-<li><a class="reference internal" href="#mosip-complaint-mds-services-create-update">10.3 MOSIP Complaint MDS services (Create/Update) <strong>[↑]</strong></a></li>
-<li><a class="reference internal" href="#devices-register-de-register">10.4 Devices (Register/De-Register) <strong>[↑]</strong></a></li>
-<li><a class="reference internal" href="#device-detail-validation">10.5 Device Detail Validation <strong>[↑]</strong></a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#multi-language-support-wip">11. Multi-language Support (WIP) <strong>[↑]</strong></a><ul>
-<li><a class="reference internal" href="#i18n">11.1 i18N</a></li>
-<li><a class="reference internal" href="#implementation-in-english-labels-etc">11.2 Implementation in English (Labels etc)</a></li>
-<li><a class="reference internal" href="#language-specific-setup">11.3 Language Specific Setup</a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#responsive-ui-wip">12. Responsive UI (WIP) <strong>[↑]</strong></a></li>
-<li><a class="reference internal" href="#mosip-platform-setup-wip">13. MOSIP Platform Setup (WIP) <strong>[↑]</strong></a></li>
-<li><a class="reference internal" href="#configuration-setup-wip">14. Configuration Setup (WIP) <strong>[↑]</strong></a></li>
-<li><a class="reference internal" href="#process-flow-setup-wip">15. Process Flow Setup (WIP) <strong>[↑]</strong></a></li>
-<li><a class="reference internal" href="#list-of-configurable-parameters-and-processes">List of Configurable Parameters and Processes <strong>[↑]</strong></a></li>
-<li><a class="reference internal" href="#administrator-services-api">Administrator Services API <strong>[↑]</strong></a></li>
-<li><a class="reference internal" href="#process-view">Process View <strong>[↑]</strong></a></li>
-</ul>
-</div>
+
             
           
         </div>

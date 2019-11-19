@@ -33,9 +33,10 @@
   
   <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
   <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Getting Started" href="Getting-Started.html" /> 
+    <link rel="next" title="MOSIP Architecture" href="Architecture.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -52,6 +53,9 @@
             <a href="#" class="icon icon-home"> MOSIP
           
 
+          
+            
+            <img src="_static/mosip-logo.png" class="logo" alt="Logo"/>
           
           </a>
 
@@ -83,18 +87,28 @@
               
             
             
-              <ul>
-<li class="toctree-l1"><a class="reference internal" href="Getting-Started.html">Getting Started</a></li>
+              <p class="caption"><span class="caption-text">Overview</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="Architecture.html">MOSIP Architecture</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="Architecture.html#architectural-principles">Architectural Principles</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="Architecture.html#ecosystem-approach">Ecosystem approach</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Architecture.html#configurability">Configurability</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Architecture.html#extensibility">Extensibility</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Architecture.html#modularity">Modularity</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="Architecture.html#logical-architecture">Logical Architecture</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Architecture.html#data-architecture">Data Architecture</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="Architecture.html#open-source-and-vendor-neutral">Open Source and Vendor Neutral</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Architecture.html#multi-language">Multi-Language</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Architecture.html#high-performance">High Performance</a></li>
+</ul>
+</li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="Technology-Stack.html">Technology Stack</a></li>
-<li class="toctree-l1"><a class="reference internal" href="Privacy-and-Security.html">Privacy and Security</a></li>
-<li class="toctree-l1"><a class="reference internal" href="Privacy-and-Security.html#governing-principles">Governing Principles</a></li>
-<li class="toctree-l1"><a class="reference internal" href="Privacy-and-Security.html#mosip-security-design-key-features">MOSIP Security Design Key Features</a></li>
-<li class="toctree-l1"><a class="reference internal" href="Privacy-and-Security.html#mosip-cryptography-algorithms">MOSIP Cryptography Algorithms</a></li>
-<li class="toctree-l1"><a class="reference internal" href="Privacy-and-Security.html#database-encryption">Database encryption</a></li>
-<li class="toctree-l1"><a class="reference internal" href="Privacy-and-Security.html#registration-data-encryption">Registration data encryption</a></li>
-<li class="toctree-l1"><a class="reference internal" href="Privacy-and-Security.html#key-management">Key management</a></li>
-<li class="toctree-l1"><a class="reference internal" href="Privacy-and-Security.html#id1">Registration data encryption</a></li>
-<li class="toctree-l1"><a class="reference internal" href="Privacy-and-Security.html#authentication-authorization-tbd">Authentication &amp; Authorization (TBD)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="MOSIP-Releases.html">Latest Release</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Roadmap.html">July 2019 to June 2020</a></li>
 </ul>
 
             
@@ -161,34 +175,17 @@
             
   <p>Contents:</p>
 <div class="toctree-wrapper compound">
+<p class="caption"><span class="caption-text">Overview</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="Getting-Started.html">Getting Started</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="Getting-Started.html#getting-the-source-code">1. Getting the Source Code <strong>[↑]</strong></a></li>
-<li class="toctree-l2"><a class="reference internal" href="Getting-Started.html#setup-and-configure-jenkins">2. Setup and Configure Jenkins <strong>[↑]</strong></a></li>
-<li class="toctree-l2"><a class="reference internal" href="Getting-Started.html#setup-and-configure-jfrog-artifactory-version-6-5-2">3. Setup and Configure Jfrog Artifactory Version 6.5.2 <strong>[↑]</strong></a></li>
-<li class="toctree-l2"><a class="reference internal" href="Getting-Started.html#setup-and-configure-sonarqube-version-7-3">4. Setup and Configure SonarQube version 7.3 <strong>[↑]</strong></a></li>
-<li class="toctree-l2"><a class="reference internal" href="Getting-Started.html#setup-and-configure-docker-registry">5. Setup and Configure Docker Registry <strong>[↑]</strong></a></li>
-<li class="toctree-l2"><a class="reference internal" href="Getting-Started.html#installing-external-dependencies">6. Installing External Dependencies <strong>[↑]</strong></a></li>
-<li class="toctree-l2"><a class="reference internal" href="Getting-Started.html#configuring-mosip">7. Configuring MOSIP <strong>[↑]</strong></a></li>
-<li class="toctree-l2"><a class="reference internal" href="Getting-Started.html#mosip-deployment">8. MOSIP Deployment <strong>[↑]</strong></a></li>
+<li class="toctree-l1"><a class="reference internal" href="Architecture.html">MOSIP Architecture</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="Architecture.html#architectural-principles">Architectural Principles</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Architecture.html#logical-architecture">Logical Architecture</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Architecture.html#data-architecture">Data Architecture</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="Technology-Stack.html">Technology Stack</a></li>
-<li class="toctree-l1"><a class="reference internal" href="Privacy-and-Security.html">Privacy and Security</a></li>
-<li class="toctree-l1"><a class="reference internal" href="Privacy-and-Security.html#governing-principles">Governing Principles</a></li>
-<li class="toctree-l1"><a class="reference internal" href="Privacy-and-Security.html#mosip-security-design-key-features">MOSIP Security Design Key Features</a></li>
-<li class="toctree-l1"><a class="reference internal" href="Privacy-and-Security.html#mosip-cryptography-algorithms">MOSIP Cryptography Algorithms</a></li>
-<li class="toctree-l1"><a class="reference internal" href="Privacy-and-Security.html#database-encryption">Database encryption</a></li>
-<li class="toctree-l1"><a class="reference internal" href="Privacy-and-Security.html#registration-data-encryption">Registration data encryption</a></li>
-<li class="toctree-l1"><a class="reference internal" href="Privacy-and-Security.html#key-management">Key management</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="Privacy-and-Security.html#database-encryption-keys">Database encryption keys</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="Privacy-and-Security.html#id1">Registration data encryption</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="Privacy-and-Security.html#id2">Key Management</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="Privacy-and-Security.html#authentication-authorization-tbd">Authentication &amp; Authorization (TBD)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="MOSIP-Releases.html">Latest Release</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Roadmap.html">July 2019 to June 2020</a></li>
 </ul>
 </div>
 <div class="section" id="welcome-to-mosip-s-documentation">
@@ -217,7 +214,7 @@
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="Getting-Started.html" class="btn btn-neutral float-right" title="Getting Started" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="Architecture.html" class="btn btn-neutral float-right" title="MOSIP Architecture" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
     </div>

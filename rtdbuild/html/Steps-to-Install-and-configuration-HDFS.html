@@ -33,6 +33,7 @@
   
   <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
   <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" /> 
 </head>
@@ -51,6 +52,9 @@
             <a href="index.html" class="icon icon-home"> MOSIP
           
 
+          
+            
+            <img src="_static/mosip-logo.png" class="logo" alt="Logo"/>
           
           </a>
 
@@ -82,66 +86,30 @@
               
             
             
-              <!-- Local TOC -->
-              <div class="local-toc"><ul>
-<li><a class="reference internal" href="#">1. Setup HDFS version 2.8.1</a><ul>
-<li><a class="reference internal" href="#before-you-begin">Before you begin</a><ul>
-<li><a class="reference internal" href="#edit-bashrc-sh">Edit ~/bashrc.sh:</a></li>
+              <p class="caption"><span class="caption-text">Overview</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="Architecture.html">MOSIP Architecture</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="Architecture.html#architectural-principles">Architectural Principles</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="Architecture.html#ecosystem-approach">Ecosystem approach</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Architecture.html#configurability">Configurability</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Architecture.html#extensibility">Extensibility</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Architecture.html#modularity">Modularity</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#creating-hadoop-user">Creating Hadoop User</a></li>
-<li><a class="reference internal" href="#distribute-authentication-key-pairs-for-the-hadoop-user">Distribute Authentication Key-pairs for the Hadoop User</a></li>
-<li><a class="reference internal" href="#verify-ssh-from-master-node-to-slave-node-and-vice-versa">Verify ssh from Master node to slave node and vice versa.</a></li>
-<li><a class="reference internal" href="#download-and-unpack-hadoop-binaries">Download and Unpack Hadoop Binaries</a></li>
-<li><a class="reference internal" href="#set-environment-variables-in-each-machine-in-the-cluster">Set Environment Variables in each machine in the cluster</a></li>
-<li><a class="reference internal" href="#configure-the-master-node">Configure the Master Node</a><ul>
-<li><a class="reference internal" href="#set-namenode">Set NameNode</a></li>
-<li><a class="reference internal" href="#set-path-for-hdfs">Set path for HDFS</a></li>
-<li><a class="reference internal" href="#configure-master">Configure Master</a></li>
-<li><a class="reference internal" href="#configure-slaves">Configure Slaves</a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#duplicate-config-files-on-each-node">Duplicate Config Files on Each Node</a></li>
-<li><a class="reference internal" href="#format-hdfs">Format HDFS</a></li>
-<li><a class="reference internal" href="#start-hdfs">Start HDFS</a></li>
-<li><a class="reference internal" href="#create-hdfs-users">Create hdfs users</a><ul>
-<li><a class="reference internal" href="#enabling-configured-port-through-firewall-in-each-machine-in-cluster">enabling configured port through firewall in each machine in cluster</a><ul>
-<li><a class="reference internal" href="#note">NOTE:</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Architecture.html#logical-architecture">Logical Architecture</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Architecture.html#data-architecture">Data Architecture</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="Architecture.html#open-source-and-vendor-neutral">Open Source and Vendor Neutral</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Architecture.html#multi-language">Multi-Language</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Architecture.html#high-performance">High Performance</a></li>
 </ul>
 </li>
 </ul>
 </li>
+<li class="toctree-l1"><a class="reference internal" href="Technology-Stack.html">Technology Stack</a></li>
+<li class="toctree-l1"><a class="reference internal" href="MOSIP-Releases.html">Latest Release</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Roadmap.html">July 2019 to June 2020</a></li>
 </ul>
-</li>
-<li><a class="reference internal" href="#securing-hdfs">2. Securing HDFS</a><ul>
-<li><a class="reference internal" href="#install-kerberos">Install Kerberos</a></li>
-<li><a class="reference internal" href="#before-installing-kerberos-install-the-jce-policy-file">Before Installing Kerberos Install the JCE Policy File</a></li>
-<li><a class="reference internal" href="#kerberos">Kerberos</a></li>
-<li><a class="reference internal" href="#configuring-the-master-kdc-server">Configuring the Master KDC Server</a></li>
-<li><a class="reference internal" href="#create-and-deploy-the-kerberos-principals-and-keytab-files">Create and Deploy the Kerberos Principals and Keytab Files</a><ul>
-<li><a class="reference internal" href="#to-create-the-kerberos-principals">To create the Kerberos principals</a></li>
-<li><a class="reference internal" href="#to-create-the-kerberos-keytab-files">To create the Kerberos keytab files</a><ul>
-<li><a class="reference internal" href="#creating-keytab-mosip-keytab-file-for-application-to-authenticate-with-hdfs-cluster">Creating keytab [mosip.keytab] file for application to authenticate  with hdfs cluster</a></li>
-<li><a class="reference internal" href="#to-view-the-principals-in-keytab">to view the principals in keytab</a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#to-deploy-the-kerberos-keytab-file">To deploy the Kerberos keytab file</a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#to-configure-kernel-hdfs-adapter">To configure Kernel HDFS Adapter</a></li>
-<li><a class="reference internal" href="#enable-security-in-hdfs">Enable security in hdfs</a></li>
-<li><a class="reference internal" href="#enable-hadoop-security">Enable Hadoop Security</a></li>
-<li><a class="reference internal" href="#configuring-https-in-hdfs">Configuring https in hdfs</a><ul>
-<li><a class="reference internal" href="#generating-the-key-and-certificate">Generating the key and certificate</a></li>
-<li><a class="reference internal" href="#creating-your-own-ca">Creating your own CA</a></li>
-<li><a class="reference internal" href="#signing-the-certificate">Signing the certificate:</a></li>
-<li><a class="reference internal" href="#configuring-hdfs">Configuring Hdfs</a></li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-</div>
+
             
           
         </div>

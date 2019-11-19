@@ -33,6 +33,7 @@
   
   <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
   <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" /> 
 </head>
@@ -51,6 +52,9 @@
             <a href="index.html" class="icon icon-home"> MOSIP
           
 
+          
+            
+            <img src="_static/mosip-logo.png" class="logo" alt="Logo"/>
           
           </a>
 
@@ -82,91 +86,30 @@
               
             
             
-              <!-- Local TOC -->
-              <div class="local-toc"><ul>
-<li><a class="reference internal" href="#">1. Authentication</a><ul>
-<li><a class="reference internal" href="#send-otp">1.1 Send OTP</a><ul>
-<li><a class="reference internal" href="#resource-url">Resource URL</a></li>
-<li><a class="reference internal" href="#post-v1-authenticate-sendotp"><code class="docutils literal notranslate"><span class="pre">POST</span> <span class="pre">/v1/authenticate/sendotp</span></code></a></li>
-<li><a class="reference internal" href="#resource-details">Resource details</a></li>
-<li><a class="reference internal" href="#parameters">Parameters</a></li>
-<li><a class="reference internal" href="#example-request">Example Request</a></li>
-<li><a class="reference internal" href="#example-response">Example Response</a></li>
+              <p class="caption"><span class="caption-text">Overview</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="Architecture.html">MOSIP Architecture</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="Architecture.html#architectural-principles">Architectural Principles</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="Architecture.html#ecosystem-approach">Ecosystem approach</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Architecture.html#configurability">Configurability</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Architecture.html#extensibility">Extensibility</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Architecture.html#modularity">Modularity</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#authenticate-userid-and-otp">1.2 Authenticate UserId and OTP</a><ul>
-<li><a class="reference internal" href="#id1">Resource URL</a></li>
-<li><a class="reference internal" href="#post-v1-authenticate-useridotp"><code class="docutils literal notranslate"><span class="pre">POST</span> <span class="pre">/v1/authenticate/useridOTP</span></code></a></li>
-<li><a class="reference internal" href="#id2">Resource details</a></li>
-<li><a class="reference internal" href="#id3">Parameters</a></li>
-<li><a class="reference internal" href="#id4">Example Request</a></li>
-<li><a class="reference internal" href="#id5">Example Response</a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#authenticate-using-username-and-password">1.3 Authenticate using username and password</a><ul>
-<li><a class="reference internal" href="#id6">Resource URL</a></li>
-<li><a class="reference internal" href="#post-v-1authenticate-useridpwd"><code class="docutils literal notranslate"><span class="pre">POST</span> <span class="pre">/v/1authenticate/useridPwd</span></code></a></li>
-<li><a class="reference internal" href="#id7">Resource details</a></li>
-<li><a class="reference internal" href="#id8">Parameters</a></li>
-<li><a class="reference internal" href="#id9">Example Request</a></li>
-<li><a class="reference internal" href="#id10">Example Response</a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#authenticate-using-clientid-and-secret-key">1.4 Authenticate using clientid and secret key</a><ul>
-<li><a class="reference internal" href="#id11">Resource URL</a></li>
-<li><a class="reference internal" href="#post-v1-authenticate-clientidsecretkey"><code class="docutils literal notranslate"><span class="pre">POST</span> <span class="pre">/v1/authenticate/clientidsecretkey</span></code></a></li>
-<li><a class="reference internal" href="#id12">Resource details</a></li>
-<li><a class="reference internal" href="#id13">Parameters</a></li>
-<li><a class="reference internal" href="#id14">Example Request</a></li>
-<li><a class="reference internal" href="#id15">Example Response</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Architecture.html#logical-architecture">Logical Architecture</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Architecture.html#data-architecture">Data Architecture</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="Architecture.html#open-source-and-vendor-neutral">Open Source and Vendor Neutral</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Architecture.html#multi-language">Multi-Language</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Architecture.html#high-performance">High Performance</a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li><a class="reference internal" href="#authorization">2. Authorization</a><ul>
-<li><a class="reference internal" href="#validate-token">2.1 Validate Token</a><ul>
-<li><a class="reference internal" href="#id16">Resource URL</a></li>
-<li><a class="reference internal" href="#post-v1-authorize-validatetoken"><code class="docutils literal notranslate"><span class="pre">POST</span> <span class="pre">/v1/authorize/validateToken</span></code></a></li>
-<li><a class="reference internal" href="#resource-detail">Resource detail</a></li>
-<li><a class="reference internal" href="#id17">Parameters</a></li>
-<li><a class="reference internal" href="#id18">Example Request</a></li>
-<li><a class="reference internal" href="#id19">Example Response</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Technology-Stack.html">Technology Stack</a></li>
+<li class="toctree-l1"><a class="reference internal" href="MOSIP-Releases.html">Latest Release</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Roadmap.html">July 2019 to June 2020</a></li>
 </ul>
-</li>
-<li><a class="reference internal" href="#invalidate-token">2.3 Invalidate Token</a><ul>
-<li><a class="reference internal" href="#id20">Resource URL</a></li>
-<li><a class="reference internal" href="#post-v1-authorize-invalidatetoken"><code class="docutils literal notranslate"><span class="pre">POST</span> <span class="pre">/v1/authorize/invalidateToken</span></code></a></li>
-<li><a class="reference internal" href="#id21">Resource details</a></li>
-<li><a class="reference internal" href="#id22">Parameters</a></li>
-<li><a class="reference internal" href="#id23">Example Request</a></li>
-<li><a class="reference internal" href="#id24">Example Response</a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li><a class="reference internal" href="#otp-services">3. OTP services</a><ul>
-<li><a class="reference internal" href="#generate-otp">3.1 Generate OTP</a><ul>
-<li><a class="reference internal" href="#id25">Resource URL</a></li>
-<li><a class="reference internal" href="#post-v1-otp-generate"><code class="docutils literal notranslate"><span class="pre">POST</span> <span class="pre">/v1/otp/generate</span></code></a></li>
-<li><a class="reference internal" href="#id26">Resource details</a></li>
-<li><a class="reference internal" href="#id27">Parameters</a></li>
-<li><a class="reference internal" href="#id28">Example Request</a></li>
-<li><a class="reference internal" href="#id29">Example Response</a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#validate-otp">3.2 Validate OTP</a><ul>
-<li><a class="reference internal" href="#id30">Resource URL</a></li>
-<li><a class="reference internal" href="#post-v1-otp-validate"><code class="docutils literal notranslate"><span class="pre">POST</span> <span class="pre">/v1/otp/validate</span></code></a></li>
-<li><a class="reference internal" href="#id31">Resource details</a></li>
-<li><a class="reference internal" href="#id32">Parameters</a></li>
-<li><a class="reference internal" href="#id33">Example Request</a></li>
-<li><a class="reference internal" href="#id34">Example Response</a></li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-</div>
+
             
           
         </div>

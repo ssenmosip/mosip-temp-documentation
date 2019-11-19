@@ -2,10 +2,13 @@ Contents:
 
 .. toctree::
    :maxdepth: 2
+   :caption: Overview
 
-   Getting-Started
-   Technology-Stack 
-   Privacy-and-Security 
+   Architecture
+   Technology-Stack
+   MOSIP-Releases
+   Roadmap
+   
 
 
 

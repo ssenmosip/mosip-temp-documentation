@@ -33,6 +33,7 @@
   
   <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
   <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" /> 
 </head>
@@ -51,6 +52,9 @@
             <a href="index.html" class="icon icon-home"> MOSIP
           
 
+          
+            
+            <img src="_static/mosip-logo.png" class="logo" alt="Logo"/>
           
           </a>
 
@@ -82,225 +86,30 @@
               
             
             
-              <!-- Local TOC -->
-              <div class="local-toc"><ul>
-<li><a class="reference internal" href="#">1 Packet Receiver Service</a><ul>
-<li><a class="reference internal" href="#id1">1.1 Packet-receiver service</a><ul>
-<li><a class="reference internal" href="#post-registrationprocessor-v1-packetreceiver-registrationpackets"><code class="docutils literal notranslate"><span class="pre">POST</span> <span class="pre">/registrationprocessor/v1/packetreceiver/registrationpackets</span></code></a></li>
-<li><a class="reference internal" href="#resource-url">Resource URL</a></li>
-<li><a class="reference internal" href="#resource-details">Resource details</a></li>
-<li><a class="reference internal" href="#request-path-parameters">Request Path Parameters</a></li>
-<li><a class="reference internal" href="#request">Request</a></li>
-<li><a class="reference internal" href="#response">Response</a><ul>
-<li><a class="reference internal" href="#success-response">Success response</a><ul>
-<li><a class="reference internal" href="#status-code-200">Status Code: 200</a></li>
-<li><a class="reference internal" href="#description-packet-is-in-packet-received-status">Description: Packet is in PACKET_RECEIVED status</a></li>
+              <p class="caption"><span class="caption-text">Overview</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="Architecture.html">MOSIP Architecture</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="Architecture.html#architectural-principles">Architectural Principles</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="Architecture.html#ecosystem-approach">Ecosystem approach</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Architecture.html#configurability">Configurability</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Architecture.html#extensibility">Extensibility</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Architecture.html#modularity">Modularity</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="Architecture.html#logical-architecture">Logical Architecture</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Architecture.html#data-architecture">Data Architecture</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="Architecture.html#open-source-and-vendor-neutral">Open Source and Vendor Neutral</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Architecture.html#multi-language">Multi-Language</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Architecture.html#high-performance">High Performance</a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li><a class="reference internal" href="#failure-response">Failure response</a><ul>
-<li><a class="reference internal" href="#id2">Status Code: 200</a></li>
-<li><a class="reference internal" href="#description-the-request-received-is-a-duplicate-request-to-upload-a-packet">Description: The request received is a duplicate request to upload a Packet</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Technology-Stack.html">Technology Stack</a></li>
+<li class="toctree-l1"><a class="reference internal" href="MOSIP-Releases.html">Latest Release</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Roadmap.html">July 2019 to June 2020</a></li>
 </ul>
-</li>
-</ul>
-</li>
-</ul>
-</li>
-<li><a class="reference internal" href="#registration-status-service">2 Registration Status Service</a><ul>
-<li><a class="reference internal" href="#post-registrationprocessor-v1-registrationstatus-search"><code class="docutils literal notranslate"><span class="pre">POST</span> <span class="pre">/registrationprocessor/v1/registrationstatus/search</span></code></a><ul>
-<li><a class="reference internal" href="#id3">Resource URL</a></li>
-<li><a class="reference internal" href="#id4">Resource details</a></li>
-<li><a class="reference internal" href="#parameters">Parameters</a></li>
-<li><a class="reference internal" href="#id5">Request</a></li>
-<li><a class="reference internal" href="#id6">Response</a><ul>
-<li><a class="reference internal" href="#id7">Status Code: 200</a></li>
-<li><a class="reference internal" href="#description-successfully-retrieved-information">Description: Successfully retrieved information</a></li>
-<li><a class="reference internal" href="#id8">Status Code: 200</a></li>
-<li><a class="reference internal" href="#id9">Description: Successfully retrieved information</a></li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-</li>
-<li><a class="reference internal" href="#sync-registration-service">3 Sync registration Service</a><ul>
-<li><a class="reference internal" href="#post-registrationprocessor-v1-registrationstatus-sync"><code class="docutils literal notranslate"><span class="pre">POST</span> <span class="pre">/registrationprocessor/v1/registrationstatus/sync</span></code></a></li>
-<li><a class="reference internal" href="#id10">Resource URL</a></li>
-<li><a class="reference internal" href="#id11">Resource details</a></li>
-<li><a class="reference internal" href="#id12">Parameters</a><ul>
-<li><a class="reference internal" href="#request-header">Request Header</a><ul>
-<li><a class="reference internal" href="#center-machine-refid-10011-10011">Center-Machine-RefId = <code class="docutils literal notranslate"><span class="pre">10011_10011</span></code></a></li>
-<li><a class="reference internal" href="#timestamp-2019-02-14t12-40-59-768z">timestamp = <code class="docutils literal notranslate"><span class="pre">2019-02-14T12:40:59.768Z</span></code></a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#id13">Request</a></li>
-<li><a class="reference internal" href="#id14">Response</a><ul>
-<li><a class="reference internal" href="#response-code-200">Response Code: 200</a></li>
-<li><a class="reference internal" href="#description-successfully-synced">Description: Successfully synced</a></li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-</li>
-<li><a class="reference internal" href="#manual-adjudication-service">4 Manual Adjudication Service</a><ul>
-<li><a class="reference internal" href="#manual-adjudication-assignment-service">4.1 manual-adjudication-assignment service</a><ul>
-<li><a class="reference internal" href="#post-registrationprocessor-v1-manualverification-assignment"><code class="docutils literal notranslate"><span class="pre">POST</span> <span class="pre">/registrationprocessor/v1/manualverification/assignment</span></code></a></li>
-<li><a class="reference internal" href="#id15">Resource URL</a></li>
-<li><a class="reference internal" href="#id16">Resource details</a></li>
-<li><a class="reference internal" href="#id17">Parameters</a></li>
-<li><a class="reference internal" href="#id18">Request</a></li>
-<li><a class="reference internal" href="#id19">Response</a><ul>
-<li><a class="reference internal" href="#id20">Status Code: 200</a></li>
-<li><a class="reference internal" href="#description-response-code-is-always-200-if-server-receives-the-request">Description : response code is always 200 if server receives the request.</a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li><a class="reference internal" href="#manual-adjudication-decision-service">4.2 manual-adjudication-decision service</a><ul>
-<li><a class="reference internal" href="#post-registrationprocessor-v1-manualverification-decision"><code class="docutils literal notranslate"><span class="pre">POST</span> <span class="pre">/registrationprocessor/v1/manualverification/decision</span></code></a></li>
-<li><a class="reference internal" href="#id21">Resource URL</a></li>
-<li><a class="reference internal" href="#id22">Resource details</a></li>
-<li><a class="reference internal" href="#id23">Parameters</a></li>
-<li><a class="reference internal" href="#id24">Request</a></li>
-<li><a class="reference internal" href="#id25">Response</a><ul>
-<li><a class="reference internal" href="#id26">Status Code: 200</a></li>
-<li><a class="reference internal" href="#id27">Description : response code is always 200 if server receives the request.</a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li><a class="reference internal" href="#manual-adjudication-applicant-biometric-service">4.3 manual-adjudication-applicant-biometric service</a><ul>
-<li><a class="reference internal" href="#post-registrationprocessor-v1-manualverification-applicantbiometric"><code class="docutils literal notranslate"><span class="pre">POST</span> <span class="pre">/registrationprocessor/v1/manualverification/applicantBiometric</span></code></a></li>
-<li><a class="reference internal" href="#id28">Resource URL</a></li>
-<li><a class="reference internal" href="#id29">Resource details</a></li>
-<li><a class="reference internal" href="#id30">Parameters</a></li>
-<li><a class="reference internal" href="#id31">Request</a></li>
-<li><a class="reference internal" href="#id32">Response</a><ul>
-<li><a class="reference internal" href="#id33">Status Code: 200</a></li>
-<li><a class="reference internal" href="#id34">Description : response code is always 200 if server receives the request.</a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li><a class="reference internal" href="#manual-adjudication-applicant-demographic-service">4.4 manual-adjudication-applicant-demographic service</a><ul>
-<li><a class="reference internal" href="#post-registrationprocessor-v1-manualverification-applicantdemographic"><code class="docutils literal notranslate"><span class="pre">POST</span> <span class="pre">/registrationprocessor/v1/manualverification/applicantDemographic</span></code></a></li>
-<li><a class="reference internal" href="#id35">Resource URL</a></li>
-<li><a class="reference internal" href="#id36">Resource details</a></li>
-<li><a class="reference internal" href="#id37">Parameters</a></li>
-<li><a class="reference internal" href="#id38">Request</a></li>
-<li><a class="reference internal" href="#id39">Response</a><ul>
-<li><a class="reference internal" href="#id40">Status Code: 200</a></li>
-<li><a class="reference internal" href="#id41">Description : response code is always 200 if server receives the request.</a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li><a class="reference internal" href="#manual-adjudication-packet-metainfo-service">4.5 manual-adjudication-packet-metainfo service</a><ul>
-<li><a class="reference internal" href="#post-registrationprocessor-v1-manualverification-packetinfo"><code class="docutils literal notranslate"><span class="pre">POST</span> <span class="pre">/registrationprocessor/v1/manualverification/packetInfo</span></code></a></li>
-<li><a class="reference internal" href="#id42">Resource URL</a></li>
-<li><a class="reference internal" href="#id43">Resource details</a></li>
-<li><a class="reference internal" href="#id44">Parameters</a></li>
-<li><a class="reference internal" href="#id45">Request</a></li>
-<li><a class="reference internal" href="#id46">Response</a><ul>
-<li><a class="reference internal" href="#id47">Status Code: 200</a></li>
-<li><a class="reference internal" href="#id48">Description : response code is always 200 if server receives the request.</a></li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-</li>
-<li><a class="reference internal" href="#bio-dedupe-service">5 Bio Dedupe Service</a><ul>
-<li><a class="reference internal" href="#get-registrationprocessor-v1-bio-dedupe-biometricfile-referenceid"><code class="docutils literal notranslate"><span class="pre">GET</span> <span class="pre">/registrationprocessor/v1/bio-dedupe/biometricfile/{referenceid}</span></code></a></li>
-<li><a class="reference internal" href="#id49">Resource URL</a></li>
-<li><a class="reference internal" href="#id50">Resource details</a></li>
-<li><a class="reference internal" href="#id51">Parameters</a></li>
-<li><a class="reference internal" href="#id52">Response</a><ul>
-<li><a class="reference internal" href="#status-codes-200">Status codes: 200</a></li>
-<li><a class="reference internal" href="#id53">Description : response code is always 200 if server receives the request.</a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li><a class="reference internal" href="#packet-generator-service">6 Packet Generator Service</a><ul>
-<li><a class="reference internal" href="#post-registrationprocessor-v1-requesthandler-packetgenerator"><code class="docutils literal notranslate"><span class="pre">POST</span> <span class="pre">/registrationprocessor/v1/requesthandler/packetgenerator</span></code></a></li>
-<li><a class="reference internal" href="#id54">Resource URL</a></li>
-<li><a class="reference internal" href="#id55">Resource details</a></li>
-<li><a class="reference internal" href="#id56">Parameters</a></li>
-<li><a class="reference internal" href="#id57">Request</a></li>
-<li><a class="reference internal" href="#id58">Response</a><ul>
-<li><a class="reference internal" href="#id59">Status Code:200</a></li>
-<li><a class="reference internal" href="#id60">Description : response code is always 200 if server receives the request.</a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li><a class="reference internal" href="#packet-uploader-service">7 Packet Uploader Service</a><ul>
-<li><a class="reference internal" href="#post-registrationprocessor-v1-uploader-securezone"><code class="docutils literal notranslate"><span class="pre">POST</span> <span class="pre">/registrationprocessor/v1/uploader/securezone</span></code></a></li>
-<li><a class="reference internal" href="#id61">Resource URL</a></li>
-<li><a class="reference internal" href="#id62">Resource details</a></li>
-<li><a class="reference internal" href="#id63">Parameters</a></li>
-<li><a class="reference internal" href="#id64">Request</a></li>
-<li><a class="reference internal" href="#id65">Success Response</a></li>
-<li><a class="reference internal" href="#id66">Failure Response</a><ul>
-<li><a class="reference internal" href="#id67">Status Code:200</a></li>
-<li><a class="reference internal" href="#id68">Description : response code is always 200 if server receives the request.</a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li><a class="reference internal" href="#registration-process-request-handler-service">8 Registration Process Request Handler Service</a><ul>
-<li><a class="reference internal" href="#post-registrationprocessor-v1-requesthandler-reprint"><code class="docutils literal notranslate"><span class="pre">POST</span> <span class="pre">/registrationprocessor/v1/requesthandler/reprint</span></code></a></li>
-<li><a class="reference internal" href="#id69">Resource URL</a></li>
-<li><a class="reference internal" href="#id70">Resource details</a></li>
-<li><a class="reference internal" href="#id71">Parameters</a><ul>
-<li><a class="reference internal" href="#id72">Request</a></li>
-<li><a class="reference internal" href="#id73">Response</a><ul>
-<li><a class="reference internal" href="#id74">Status Code:200</a></li>
-<li><a class="reference internal" href="#id75">Description : response code is always 200 if server receives the request.</a></li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-</li>
-<li><a class="reference internal" href="#registration-transaction-service">9 Registration Transaction Service</a><ul>
-<li><a class="reference internal" href="#id76">Resource URL</a></li>
-<li><a class="reference internal" href="#get-registrationprocessor-v1-registrationtransaction-search-langcode-rid"><code class="docutils literal notranslate"><span class="pre">GET</span> <span class="pre">/registrationprocessor/v1/registrationtransaction/search/{langcode}/{rid}</span></code></a><ul>
-<li><a class="reference internal" href="#id77">Resource details</a></li>
-<li><a class="reference internal" href="#id78">Parameters</a></li>
-<li><a class="reference internal" href="#id79">Request</a></li>
-<li><a class="reference internal" href="#id80">Response</a><ul>
-<li><a class="reference internal" href="#id81">Status Code: 200</a></li>
-<li><a class="reference internal" href="#id82">Description: Successfully retrieved information</a></li>
-<li><a class="reference internal" href="#id83">Status Code: 200</a></li>
-<li><a class="reference internal" href="#id84">Description: Successfully retrieved information</a></li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-</li>
-<li><a class="reference internal" href="#uincard-service">10 Uincard Service</a><ul>
-<li><a class="reference internal" href="#post-registrationprocessor-v1-print-uincard"><code class="docutils literal notranslate"><span class="pre">POST</span> <span class="pre">/registrationprocessor/v1/print/uincard</span></code></a></li>
-<li><a class="reference internal" href="#id85">Resource URL</a></li>
-<li><a class="reference internal" href="#id86">Resource details</a></li>
-<li><a class="reference internal" href="#id87">Parameters</a><ul>
-<li><a class="reference internal" href="#id88">Request</a></li>
-<li><a class="reference internal" href="#id89">Response</a><ul>
-<li><a class="reference internal" href="#id90">Status Code:200</a></li>
-<li><a class="reference internal" href="#id91">Description : response code is always 200 if server receives the request.</a></li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-</div>
+
             
           
         </div>

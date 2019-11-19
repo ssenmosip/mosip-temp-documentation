@@ -33,6 +33,7 @@
   
   <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
   <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" /> 
 </head>
@@ -51,6 +52,9 @@
             <a href="index.html" class="icon icon-home"> MOSIP
           
 
+          
+            
+            <img src="_static/mosip-logo.png" class="logo" alt="Logo"/>
           
           </a>
 
@@ -82,209 +86,30 @@
               
             
             
-              <!-- Local TOC -->
-              <div class="local-toc"><ul>
-<li><a class="reference internal" href="#">Login</a><ul>
-<li><a class="reference internal" href="#get-security-authfactors">GET /security/authfactors</a><ul>
-<li><a class="reference internal" href="#resource-url">Resource URL</a></li>
-<li><a class="reference internal" href="#resource-details">Resource details</a></li>
-<li><a class="reference internal" href="#request-part-parameters">Request Part Parameters</a></li>
-<li><a class="reference internal" href="#request">Request</a></li>
-<li><a class="reference internal" href="#responses">Responses:</a><ul>
-<li><a class="reference internal" href="#success-response">Success Response:</a><ul>
-<li><a class="reference internal" href="#status-code-200">Status code: '200'</a></li>
-<li><a class="reference internal" href="#description-list-of-auth-factors-are-returned">Description: List of auth factors are returned</a></li>
+              <p class="caption"><span class="caption-text">Overview</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="Architecture.html">MOSIP Architecture</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="Architecture.html#architectural-principles">Architectural Principles</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="Architecture.html#ecosystem-approach">Ecosystem approach</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Architecture.html#configurability">Configurability</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Architecture.html#extensibility">Extensibility</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Architecture.html#modularity">Modularity</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#error-response">Error Response:</a><ul>
-<li><a class="reference internal" href="#id1">Status code: '200'</a></li>
-<li><a class="reference internal" href="#description-if-the-user-is-not-found">Description: If the user is not found.</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Architecture.html#logical-architecture">Logical Architecture</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Architecture.html#data-architecture">Data Architecture</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="Architecture.html#open-source-and-vendor-neutral">Open Source and Vendor Neutral</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Architecture.html#multi-language">Multi-Language</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Architecture.html#high-performance">High Performance</a></li>
 </ul>
 </li>
 </ul>
 </li>
+<li class="toctree-l1"><a class="reference internal" href="Technology-Stack.html">Technology Stack</a></li>
+<li class="toctree-l1"><a class="reference internal" href="MOSIP-Releases.html">Latest Release</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Roadmap.html">July 2019 to June 2020</a></li>
 </ul>
-</li>
-<li><a class="reference internal" href="#post-login">POST /login</a><ul>
-<li><a class="reference internal" href="#id2">Resource URL</a></li>
-<li><a class="reference internal" href="#id3">Resource details</a></li>
-<li><a class="reference internal" href="#parameters">Parameters</a></li>
-<li><a class="reference internal" href="#example-request">Example Request</a></li>
-<li><a class="reference internal" href="#example-response">Example Response</a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#post-sendotp">POST /sendotp</a><ul>
-<li><a class="reference internal" href="#id4">Resource URL</a></li>
-<li><a class="reference internal" href="#id5">Resource details</a></li>
-<li><a class="reference internal" href="#id6">Parameters</a></li>
-<li><a class="reference internal" href="#id7">Example Request</a></li>
-<li><a class="reference internal" href="#id8">Example Response</a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#post-useridotp">POST /useridOTP</a><ul>
-<li><a class="reference internal" href="#id9">Resource URL</a></li>
-<li><a class="reference internal" href="#post-v1-0-admin-useridotp"><code class="docutils literal notranslate"><span class="pre">POST</span> <span class="pre">/v1.0/admin/useridOTP</span></code></a></li>
-<li><a class="reference internal" href="#id10">Resource details</a></li>
-<li><a class="reference internal" href="#id11">Parameters</a></li>
-<li><a class="reference internal" href="#id12">Example Request</a></li>
-<li><a class="reference internal" href="#id13">Example Response</a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#post-logout">POST /logout</a><ul>
-<li><a class="reference internal" href="#id14">Resource URL</a></li>
-<li><a class="reference internal" href="#id15">Resource details</a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#id16">Request</a><ul>
-<li><a class="reference internal" href="#id17">Example Response</a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li><a class="reference internal" href="#master-data">Master Data</a><ul>
-<li><a class="reference internal" href="#get-mastercards">GET /mastercards</a><ul>
-<li><a class="reference internal" href="#id18">Resource URL</a></li>
-<li><a class="reference internal" href="#id19">Resource details</a></li>
-<li><a class="reference internal" href="#id20">Request Part Parameters</a></li>
-<li><a class="reference internal" href="#id21">Request</a></li>
-<li><a class="reference internal" href="#id22">Responses:</a><ul>
-<li><a class="reference internal" href="#id23">Success Response:</a><ul>
-<li><a class="reference internal" href="#id24">Status code: '200'</a></li>
-<li><a class="reference internal" href="#description-list-of-master-data-are-returned-based-on-the-requested-language">Description: List of master data are returned based on the requested language</a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#id25">Error Response:</a><ul>
-<li><a class="reference internal" href="#id26">Status code: '200'</a></li>
-<li><a class="reference internal" href="#id27">Description: If the user is not found.</a></li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-</li>
-<li><a class="reference internal" href="#account-management">Account Management</a><ul>
-<li><a class="reference internal" href="#get-unblockuser">GET /unblockuser</a><ul>
-<li><a class="reference internal" href="#id28">Resource URL</a></li>
-<li><a class="reference internal" href="#id29">Resource details</a></li>
-<li><a class="reference internal" href="#id30">Request Part Parameters</a></li>
-<li><a class="reference internal" href="#id31">Request</a></li>
-<li><a class="reference internal" href="#id32">Responses:</a><ul>
-<li><a class="reference internal" href="#id33">Success Response:</a><ul>
-<li><a class="reference internal" href="#id34">Status code: '200'</a></li>
-<li><a class="reference internal" href="#id35">Description: List of auth factors are returned</a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#id36">Error Response:</a><ul>
-<li><a class="reference internal" href="#id37">Status code: '200'</a></li>
-<li><a class="reference internal" href="#id38">Description: If the user is not found.</a></li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-</li>
-<li><a class="reference internal" href="#post-changepassword">POST /changepassword</a><ul>
-<li><a class="reference internal" href="#id39">Resource URL</a></li>
-<li><a class="reference internal" href="#id40">Resource details</a></li>
-<li><a class="reference internal" href="#id41">Parameters</a></li>
-<li><a class="reference internal" href="#id42">Example Request</a></li>
-<li><a class="reference internal" href="#id43">Example Response</a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#post-resetpassword">POST /resetpassword</a><ul>
-<li><a class="reference internal" href="#id44">Resource URL</a></li>
-<li><a class="reference internal" href="#id45">Resource details</a></li>
-<li><a class="reference internal" href="#id46">Parameters</a></li>
-<li><a class="reference internal" href="#id47">Example Request</a></li>
-<li><a class="reference internal" href="#id48">Example Response</a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#get-username-mobilenumber">GET /username/{mobilenumber}</a><ul>
-<li><a class="reference internal" href="#id49">Resource URL</a></li>
-<li><a class="reference internal" href="#id50">Resource details</a></li>
-<li><a class="reference internal" href="#id51">Request Part Parameters</a></li>
-<li><a class="reference internal" href="#id52">Request</a></li>
-<li><a class="reference internal" href="#id53">Responses:</a><ul>
-<li><a class="reference internal" href="#id54">Success Response:</a><ul>
-<li><a class="reference internal" href="#id55">Status code: '200'</a></li>
-<li><a class="reference internal" href="#id56">Description: List of auth factors are returned</a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#id57">Error Response:</a><ul>
-<li><a class="reference internal" href="#id58">Status code: '200'</a></li>
-<li><a class="reference internal" href="#id59">Description: If the user is not found.</a></li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-</li>
-<li><a class="reference internal" href="#user-management">User Management</a><ul>
-<li><a class="reference internal" href="#post-register">POST /register</a><ul>
-<li><a class="reference internal" href="#id60">Resource URL</a></li>
-<li><a class="reference internal" href="#id61">Resource details</a></li>
-<li><a class="reference internal" href="#id62">Parameters</a></li>
-<li><a class="reference internal" href="#id63">Example Request</a></li>
-<li><a class="reference internal" href="#id64">Example Response</a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#post-rid">POST /rid</a><ul>
-<li><a class="reference internal" href="#id65">Resource URL</a></li>
-<li><a class="reference internal" href="#id66">Resource details</a></li>
-<li><a class="reference internal" href="#id67">Parameters</a></li>
-<li><a class="reference internal" href="#id68">Example Request</a></li>
-<li><a class="reference internal" href="#id69">Example Response</a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#post-password">POST /password</a><ul>
-<li><a class="reference internal" href="#id70">Resource URL</a></li>
-<li><a class="reference internal" href="#id71">Resource details</a></li>
-<li><a class="reference internal" href="#id72">Parameters</a></li>
-<li><a class="reference internal" href="#id73">Example Request</a></li>
-<li><a class="reference internal" href="#id74">Example Response</a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li><a class="reference internal" href="#uin-services">UIN Services</a><ul>
-<li><a class="reference internal" href="#get-status-uin">GET /status/{uin}</a><ul>
-<li><a class="reference internal" href="#id75">Resource URL</a></li>
-<li><a class="reference internal" href="#id76">Resource details</a></li>
-<li><a class="reference internal" href="#id77">Request Part Parameters</a></li>
-<li><a class="reference internal" href="#id78">Request</a></li>
-<li><a class="reference internal" href="#id79">Responses:</a><ul>
-<li><a class="reference internal" href="#id80">Success Response:</a><ul>
-<li><a class="reference internal" href="#id81">Status code: '200'</a></li>
-<li><a class="reference internal" href="#description-returns-status-of-uin">Description: returns status of uin</a></li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-</li>
-<li><a class="reference internal" href="#get-ridstatus-rid">GET /ridstatus/{rid}</a><ul>
-<li><a class="reference internal" href="#id82">Resource URL</a></li>
-<li><a class="reference internal" href="#id83">Resource details</a></li>
-<li><a class="reference internal" href="#id84">Request Part Parameters</a></li>
-<li><a class="reference internal" href="#id85">Request</a></li>
-<li><a class="reference internal" href="#id86">Responses:</a><ul>
-<li><a class="reference internal" href="#id87">Success Response:</a><ul>
-<li><a class="reference internal" href="#id88">Status code: '200'</a></li>
-<li><a class="reference internal" href="#id89">Description: returns status of uin</a></li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-</div>
+
             
           
         </div>

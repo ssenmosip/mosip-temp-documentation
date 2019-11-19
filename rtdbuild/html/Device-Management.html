@@ -33,6 +33,7 @@
   
   <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
   <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" /> 
 </head>
@@ -51,6 +52,9 @@
             <a href="index.html" class="icon icon-home"> MOSIP
           
 
+          
+            
+            <img src="_static/mosip-logo.png" class="logo" alt="Logo"/>
           
           </a>
 
@@ -82,276 +86,30 @@
               
             
             
-              <!-- Local TOC -->
-              <div class="local-toc"><ul>
-<li><a class="reference internal" href="#">Device Management</a></li>
-<li><a class="reference internal" href="#device-providers">Device Providers</a><ul>
-<li><a class="reference internal" href="#get-deviceprovider">GET /deviceprovider</a></li>
-<li><a class="reference internal" href="#resource-url">Resource URL</a></li>
-<li><a class="reference internal" href="#id1"><code class="docutils literal notranslate"><span class="pre">GET</span> <span class="pre">/deviceprovider</span></code></a></li>
-<li><a class="reference internal" href="#resource-details">Resource details</a></li>
-<li><a class="reference internal" href="#parameters">Parameters</a></li>
-<li><a class="reference internal" href="#example-request">Example Request</a></li>
-<li><a class="reference internal" href="#example-success-response">Example success response</a></li>
-<li><a class="reference internal" href="#response-codes">Response codes</a></li>
-<li><a class="reference internal" href="#example-failure-response">Example failure response</a></li>
-<li><a class="reference internal" href="#id2">Response codes</a></li>
-<li><a class="reference internal" href="#get-deviceprovider-deviceproviderid">GET /deviceprovider/{deviceProviderId}</a></li>
-<li><a class="reference internal" href="#id3">Resource URL</a></li>
-<li><a class="reference internal" href="#id4"><code class="docutils literal notranslate"><span class="pre">GET</span> <span class="pre">/deviceprovider/{deviceProviderId}</span></code></a></li>
-<li><a class="reference internal" href="#id5">Resource details</a></li>
-<li><a class="reference internal" href="#id6">Parameters</a></li>
-<li><a class="reference internal" href="#id7">Example Request</a></li>
-<li><a class="reference internal" href="#id8">Example success response</a></li>
-<li><a class="reference internal" href="#id9">Response codes</a></li>
-<li><a class="reference internal" href="#id10">Example failure response</a><ul>
-<li><a class="reference internal" href="#failure-details">Failure details</a></li>
+              <p class="caption"><span class="caption-text">Overview</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="Architecture.html">MOSIP Architecture</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="Architecture.html#architectural-principles">Architectural Principles</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="Architecture.html#ecosystem-approach">Ecosystem approach</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Architecture.html#configurability">Configurability</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Architecture.html#extensibility">Extensibility</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Architecture.html#modularity">Modularity</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#post-deviceprovider">POST /deviceprovider</a></li>
-<li><a class="reference internal" href="#id11">Resource URL</a></li>
-<li><a class="reference internal" href="#id12"><code class="docutils literal notranslate"><span class="pre">POST</span> <span class="pre">/deviceprovider</span></code></a></li>
-<li><a class="reference internal" href="#id13">Resource details</a></li>
-<li><a class="reference internal" href="#id14">Parameters</a></li>
-<li><a class="reference internal" href="#id15">Example Request</a></li>
-<li><a class="reference internal" href="#id16">Example success response</a></li>
-<li><a class="reference internal" href="#id17">Response codes</a></li>
-<li><a class="reference internal" href="#id18">Example failure response</a></li>
-<li><a class="reference internal" href="#id19">Response codes</a><ul>
-<li><a class="reference internal" href="#id20">Failure details</a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#put-deviceprovider">PUT /deviceprovider</a></li>
-<li><a class="reference internal" href="#id21">Resource URL</a></li>
-<li><a class="reference internal" href="#id22"><code class="docutils literal notranslate"><span class="pre">PUT</span> <span class="pre">/deviceprovider</span></code></a></li>
-<li><a class="reference internal" href="#id23">Resource details</a></li>
-<li><a class="reference internal" href="#id24">Parameters</a></li>
-<li><a class="reference internal" href="#id25">Example Request</a></li>
-<li><a class="reference internal" href="#id26">Example success response</a></li>
-<li><a class="reference internal" href="#id27">Response codes</a></li>
-<li><a class="reference internal" href="#id28">Example failure response</a></li>
-<li><a class="reference internal" href="#id29">Response codes</a><ul>
-<li><a class="reference internal" href="#id30">Failure details</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Architecture.html#logical-architecture">Logical Architecture</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Architecture.html#data-architecture">Data Architecture</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="Architecture.html#open-source-and-vendor-neutral">Open Source and Vendor Neutral</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Architecture.html#multi-language">Multi-Language</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Architecture.html#high-performance">High Performance</a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li><a class="reference internal" href="#foundational-trust-providers">Foundational Trust Providers</a><ul>
-<li><a class="reference internal" href="#get-foundationaltrustprovider">GET /foundationaltrustprovider</a></li>
-<li><a class="reference internal" href="#id31">Resource URL</a></li>
-<li><a class="reference internal" href="#id32"><code class="docutils literal notranslate"><span class="pre">GET</span> <span class="pre">/foundationaltrustprovider</span></code></a></li>
-<li><a class="reference internal" href="#id33">Resource details</a></li>
-<li><a class="reference internal" href="#id34">Parameters</a></li>
-<li><a class="reference internal" href="#id35">Example Request</a></li>
-<li><a class="reference internal" href="#id36">Example success response</a></li>
-<li><a class="reference internal" href="#id37">Response codes</a></li>
-<li><a class="reference internal" href="#id38">Example failure response</a></li>
-<li><a class="reference internal" href="#id39">Response codes</a></li>
-<li><a class="reference internal" href="#get-foundationaltrustprovider-foundationaltrustproviderid">GET /foundationaltrustprovider/{foundationalTrustProviderId}</a></li>
-<li><a class="reference internal" href="#id40">Resource URL</a></li>
-<li><a class="reference internal" href="#id41"><code class="docutils literal notranslate"><span class="pre">GET</span> <span class="pre">/foundationaltrustprovider/{foundationalTrustProviderId}</span></code></a></li>
-<li><a class="reference internal" href="#id42">Resource details</a></li>
-<li><a class="reference internal" href="#id43">Parameters</a></li>
-<li><a class="reference internal" href="#id44">Example Request</a></li>
-<li><a class="reference internal" href="#id45">Example success response</a></li>
-<li><a class="reference internal" href="#id46">Response codes</a></li>
-<li><a class="reference internal" href="#id47">Example failure response</a></li>
-<li><a class="reference internal" href="#id48">Response codes</a></li>
-<li><a class="reference internal" href="#post-foundationaltrustprovider">POST /foundationaltrustprovider</a></li>
-<li><a class="reference internal" href="#id49">Resource URL</a></li>
-<li><a class="reference internal" href="#id50"><code class="docutils literal notranslate"><span class="pre">POST</span> <span class="pre">/foundationaltrustprovider</span></code></a></li>
-<li><a class="reference internal" href="#id51">Resource details</a></li>
-<li><a class="reference internal" href="#id52">Parameters</a></li>
-<li><a class="reference internal" href="#id53">Example Request</a></li>
-<li><a class="reference internal" href="#id54">Example success response</a></li>
-<li><a class="reference internal" href="#id55">Response codes</a></li>
-<li><a class="reference internal" href="#id56">Example failure response</a></li>
-<li><a class="reference internal" href="#id57">Response codes</a><ul>
-<li><a class="reference internal" href="#id58">Failure details</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Technology-Stack.html">Technology Stack</a></li>
+<li class="toctree-l1"><a class="reference internal" href="MOSIP-Releases.html">Latest Release</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Roadmap.html">July 2019 to June 2020</a></li>
 </ul>
-</li>
-<li><a class="reference internal" href="#put-foundationaltrustprovider">PUT /foundationaltrustprovider</a></li>
-<li><a class="reference internal" href="#id59">Resource URL</a></li>
-<li><a class="reference internal" href="#id60"><code class="docutils literal notranslate"><span class="pre">PUT</span> <span class="pre">/foundationaltrustprovider</span></code></a></li>
-<li><a class="reference internal" href="#id61">Resource details</a></li>
-<li><a class="reference internal" href="#id62">Parameters</a></li>
-<li><a class="reference internal" href="#id63">Example Request</a></li>
-<li><a class="reference internal" href="#id64">Example success response</a></li>
-<li><a class="reference internal" href="#id65">Response codes</a></li>
-<li><a class="reference internal" href="#id66">Example failure response</a></li>
-<li><a class="reference internal" href="#id67">Response codes</a><ul>
-<li><a class="reference internal" href="#id68">Failure details</a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li><a class="reference internal" href="#devices">Devices</a><ul>
-<li><a class="reference internal" href="#get-device-devicetype">GET /device/{devicetype}</a></li>
-<li><a class="reference internal" href="#id69">Resource URL</a></li>
-<li><a class="reference internal" href="#id70"><code class="docutils literal notranslate"><span class="pre">GET</span> <span class="pre">/device/{devicetype}</span></code></a></li>
-<li><a class="reference internal" href="#id71">Resource details</a></li>
-<li><a class="reference internal" href="#id72">Parameters</a></li>
-<li><a class="reference internal" href="#id73">Example Request</a></li>
-<li><a class="reference internal" href="#id74">Example success response</a></li>
-<li><a class="reference internal" href="#id75">Response codes</a></li>
-<li><a class="reference internal" href="#id76">Example failure response</a></li>
-<li><a class="reference internal" href="#id77">Response codes</a></li>
-<li><a class="reference internal" href="#post-device-l0-register">POST /device/l0/register</a></li>
-<li><a class="reference internal" href="#id78">Resource URL</a></li>
-<li><a class="reference internal" href="#id79"><code class="docutils literal notranslate"><span class="pre">POST</span> <span class="pre">/device/l0/register</span></code></a></li>
-<li><a class="reference internal" href="#id80">Resource details</a></li>
-<li><a class="reference internal" href="#id81">Parameters</a></li>
-<li><a class="reference internal" href="#id82">Example Request</a></li>
-<li><a class="reference internal" href="#id83">Example success response</a></li>
-<li><a class="reference internal" href="#id84">Response codes</a></li>
-<li><a class="reference internal" href="#id85">Example failure response</a></li>
-<li><a class="reference internal" href="#id86">Response codes</a><ul>
-<li><a class="reference internal" href="#id87">Failure details</a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#id88">POST /device/l0/register</a></li>
-<li><a class="reference internal" href="#id89">Resource URL</a></li>
-<li><a class="reference internal" href="#id90"><code class="docutils literal notranslate"><span class="pre">POST</span> <span class="pre">/device/l0/register</span></code></a></li>
-<li><a class="reference internal" href="#id91">Resource details</a></li>
-<li><a class="reference internal" href="#id92">Parameters</a></li>
-<li><a class="reference internal" href="#id93">Example Request</a></li>
-<li><a class="reference internal" href="#id94">Example success response</a></li>
-<li><a class="reference internal" href="#id95">Response codes</a></li>
-<li><a class="reference internal" href="#id96">Example failure response</a></li>
-<li><a class="reference internal" href="#id97">Response codes</a></li>
-<li><a class="reference internal" href="#post-device-l1-register">POST /device/l1/register</a></li>
-<li><a class="reference internal" href="#id98">Resource URL</a></li>
-<li><a class="reference internal" href="#id99"><code class="docutils literal notranslate"><span class="pre">POST</span> <span class="pre">/device/l1/register</span></code></a></li>
-<li><a class="reference internal" href="#id100">Resource details</a></li>
-<li><a class="reference internal" href="#id101">Parameters</a></li>
-<li><a class="reference internal" href="#id102">Example Request</a></li>
-<li><a class="reference internal" href="#id103">Example success response</a></li>
-<li><a class="reference internal" href="#id104">Response codes</a></li>
-<li><a class="reference internal" href="#id105">Example failure response</a></li>
-<li><a class="reference internal" href="#id106">Response codes</a></li>
-<li><a class="reference internal" href="#delete-device-l0-deregister">DELETE /device/l0/deregister</a></li>
-<li><a class="reference internal" href="#id107">Resource URL</a></li>
-<li><a class="reference internal" href="#delete-device-l0-register"><code class="docutils literal notranslate"><span class="pre">DELETE</span> <span class="pre">/device/l0/register</span></code></a></li>
-<li><a class="reference internal" href="#id108">Resource details</a></li>
-<li><a class="reference internal" href="#id109">Parameters</a></li>
-<li><a class="reference internal" href="#id110">Example Request</a></li>
-<li><a class="reference internal" href="#id111">Example success response</a></li>
-<li><a class="reference internal" href="#id112">Response codes</a></li>
-<li><a class="reference internal" href="#id113">Example failure response</a></li>
-<li><a class="reference internal" href="#id114">Response codes</a></li>
-<li><a class="reference internal" href="#delete-device-l1-deregister">DELETE /device/l1/deregister</a></li>
-<li><a class="reference internal" href="#id115">Resource URL</a></li>
-<li><a class="reference internal" href="#delete-device-l1-register"><code class="docutils literal notranslate"><span class="pre">DELETE</span> <span class="pre">/device/l1/register</span></code></a></li>
-<li><a class="reference internal" href="#id116">Resource details</a></li>
-<li><a class="reference internal" href="#id117">Parameters</a></li>
-<li><a class="reference internal" href="#id118">Example Request</a></li>
-<li><a class="reference internal" href="#id119">Example success response</a></li>
-<li><a class="reference internal" href="#id120">Response codes</a></li>
-<li><a class="reference internal" href="#id121">Example failure response</a></li>
-<li><a class="reference internal" href="#id122">Response codes</a></li>
-<li><a class="reference internal" href="#put-device-l0">PUT /device/l0</a></li>
-<li><a class="reference internal" href="#id123">Resource URL</a></li>
-<li><a class="reference internal" href="#id124"><code class="docutils literal notranslate"><span class="pre">PUT</span> <span class="pre">/device/l0</span></code></a></li>
-<li><a class="reference internal" href="#id125">Resource details</a></li>
-<li><a class="reference internal" href="#id126">Parameters</a></li>
-<li><a class="reference internal" href="#id127">Example Request</a></li>
-<li><a class="reference internal" href="#id128">Example success response</a></li>
-<li><a class="reference internal" href="#id129">Response codes</a></li>
-<li><a class="reference internal" href="#id130">Example failure response</a></li>
-<li><a class="reference internal" href="#id131">Response codes</a><ul>
-<li><a class="reference internal" href="#id132">Failure details</a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#put-device-l1">PUT /device/l1</a></li>
-<li><a class="reference internal" href="#id133">Resource URL</a></li>
-<li><a class="reference internal" href="#id134"><code class="docutils literal notranslate"><span class="pre">PUT</span> <span class="pre">/device/l1</span></code></a></li>
-<li><a class="reference internal" href="#id135">Resource details</a></li>
-<li><a class="reference internal" href="#id136">Parameters</a></li>
-<li><a class="reference internal" href="#id137">Example Request</a></li>
-<li><a class="reference internal" href="#id138">Example success response</a></li>
-<li><a class="reference internal" href="#id139">Response codes</a></li>
-<li><a class="reference internal" href="#id140">Example failure response</a></li>
-<li><a class="reference internal" href="#id141">Response codes</a><ul>
-<li><a class="reference internal" href="#id142">Failure details</a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#post-deviceprovidermanagement-validate">POST /deviceprovidermanagement/validate</a></li>
-<li><a class="reference internal" href="#id143">Resource URL</a></li>
-<li><a class="reference internal" href="#id144"><code class="docutils literal notranslate"><span class="pre">POST</span> <span class="pre">/deviceprovidermanagement/validate</span></code></a></li>
-<li><a class="reference internal" href="#id145">Resource details</a></li>
-<li><a class="reference internal" href="#request-parameters">Request Parameters</a></li>
-<li><a class="reference internal" href="#id146">Example Request</a></li>
-<li><a class="reference internal" href="#example-response">Example Response</a><ul>
-<li><a class="reference internal" href="#error-response">Error Response:</a></li>
-<li><a class="reference internal" href="#id147">Failure details</a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#post-deviceprovidermanagement-validate-history">POST/deviceprovidermanagement/validate/history</a></li>
-<li><a class="reference internal" href="#id148">Resource URL</a></li>
-<li><a class="reference internal" href="#id149"><code class="docutils literal notranslate"><span class="pre">POST/deviceprovidermanagement/validate/history</span></code></a></li>
-<li><a class="reference internal" href="#id150">Resource details</a></li>
-<li><a class="reference internal" href="#id151">Request Parameters</a></li>
-<li><a class="reference internal" href="#id152">Example Request</a></li>
-<li><a class="reference internal" href="#id153">Example Response</a><ul>
-<li><a class="reference internal" href="#id154">Error Response:</a></li>
-<li><a class="reference internal" href="#id155">Failure details</a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li><a class="reference internal" href="#mds-api">MDS API</a></li>
-<li><a class="reference internal" href="#post-mds">POST /mds</a><ul>
-<li><a class="reference internal" href="#id156">Resource URL</a></li>
-<li><a class="reference internal" href="#id157"><code class="docutils literal notranslate"><span class="pre">POST</span> <span class="pre">/mds</span></code></a></li>
-<li><a class="reference internal" href="#id158">Resource details</a></li>
-<li><a class="reference internal" href="#id159">Parameters</a></li>
-<li><a class="reference internal" href="#id160">Example Request</a></li>
-<li><a class="reference internal" href="#id161">Example Response</a><ul>
-<li><a class="reference internal" href="#id162">Error Response:</a></li>
-<li><a class="reference internal" href="#id163">Failure details</a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li><a class="reference internal" href="#get-mds-id">GET /mds/{id}</a><ul>
-<li><a class="reference internal" href="#id164">Resource URL</a></li>
-<li><a class="reference internal" href="#id165"><code class="docutils literal notranslate"><span class="pre">GET</span> <span class="pre">/mds/{id}</span></code></a></li>
-<li><a class="reference internal" href="#id166">Resource details</a></li>
-<li><a class="reference internal" href="#id167">Parameters</a></li>
-<li><a class="reference internal" href="#id168">Example Response</a><ul>
-<li><a class="reference internal" href="#id169">Error Response:</a></li>
-<li><a class="reference internal" href="#id170">Failure details</a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li><a class="reference internal" href="#put-mds">PUT /mds</a><ul>
-<li><a class="reference internal" href="#id171">Resource URL</a></li>
-<li><a class="reference internal" href="#id172"><code class="docutils literal notranslate"><span class="pre">PUT</span> <span class="pre">/mds</span></code></a></li>
-<li><a class="reference internal" href="#id173">Resource details</a></li>
-<li><a class="reference internal" href="#id174">Parameters</a></li>
-<li><a class="reference internal" href="#id175">Example Request</a></li>
-<li><a class="reference internal" href="#id176">Example Response</a><ul>
-<li><a class="reference internal" href="#id177">Error Response:</a></li>
-<li><a class="reference internal" href="#id178">Failure details</a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li><a class="reference internal" href="#delete-mds-id">DELETE /mds/{id}</a><ul>
-<li><a class="reference internal" href="#id179">Resource URL</a></li>
-<li><a class="reference internal" href="#id180"><code class="docutils literal notranslate"><span class="pre">DELETE</span> <span class="pre">/mds/{id}</span></code></a></li>
-<li><a class="reference internal" href="#id181">Resource details</a></li>
-<li><a class="reference internal" href="#id182">Parameters</a></li>
-<li><a class="reference internal" href="#id183">Example Response</a><ul>
-<li><a class="reference internal" href="#id184">Error Response:</a></li>
-<li><a class="reference internal" href="#id185">Failure details</a></li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-</div>
+
             
           
         </div>

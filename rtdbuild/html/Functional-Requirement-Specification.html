@@ -33,6 +33,7 @@
   
   <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
   <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" /> 
 </head>
@@ -51,6 +52,9 @@
             <a href="index.html" class="icon icon-home"> MOSIP
           
 
+          
+            
+            <img src="_static/mosip-logo.png" class="logo" alt="Logo"/>
           
           </a>
 
@@ -82,85 +86,30 @@
               
             
             
-              <!-- Local TOC -->
-              <div class="local-toc"><ul>
-<li><a class="reference internal" href="#">Table Of Content</a></li>
-<li><a class="reference internal" href="#pre-registration">1. Pre-Registration</a><ul>
-<li><a class="reference internal" href="#log-in-log-out-feature">1.1 Log in- Log out Feature</a></li>
-<li><a class="reference internal" href="#pre-registration-application-manager">1.2 Pre-Registration Application Manager</a><ul>
-<li><a class="reference internal" href="#id1">1.2.1	Pre-Registration Application Manager</a></li>
-<li><a class="reference internal" href="#prid-generator">1.2.2	PRID Generator</a></li>
+              <p class="caption"><span class="caption-text">Overview</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="Architecture.html">MOSIP Architecture</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="Architecture.html#architectural-principles">Architectural Principles</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="Architecture.html#ecosystem-approach">Ecosystem approach</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Architecture.html#configurability">Configurability</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Architecture.html#extensibility">Extensibility</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Architecture.html#modularity">Modularity</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#language-data-manager">1.3 Language Data Manager</a><ul>
-<li><a class="reference internal" href="#translation">1.3.1	Translation</a></li>
-<li><a class="reference internal" href="#transliteration">1.3.2	Transliteration</a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#appointment-booking">1.4 Appointment Booking</a><ul>
-<li><a class="reference internal" href="#search-registration-center">1.4.1 Search Registration center</a></li>
-<li><a class="reference internal" href="#choose-the-registration-center-from-the-search-result-and-check-available-slots">1.4.2 Choose the Registration center from the search result and check available slots</a></li>
-<li><a class="reference internal" href="#choose-an-available-time-slot-and-book-an-appointment">1.4.3 Choose an available time slot and book an appointment</a></li>
-<li><a class="reference internal" href="#reschedule-a-booked-appointment">1.4.4 Reschedule a booked appointment</a></li>
-<li><a class="reference internal" href="#cancel-an-appointment">1.4.5 Cancel an appointment</a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#acknowledgment">1.5 Acknowledgment</a></li>
-<li><a class="reference internal" href="#pre-registration-sync">1.6 Pre-Registration Sync</a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#registration">2. Registration</a><ul>
-<li><a class="reference internal" href="#registration-client-setup">2.1 Registration Client Setup</a></li>
-<li><a class="reference internal" href="#system-health-checker">2.2 System Health Checker</a></li>
-<li><a class="reference internal" href="#registration-officer-authentication">2.3 Registration Officer Authentication</a></li>
-<li><a class="reference internal" href="#user-onboarding-manager">2.4 User Onboarding/Manager</a></li>
-<li><a class="reference internal" href="#language-manager">2.5 Language Manager</a></li>
-<li><a class="reference internal" href="#registration-application-manager-new">2.6 Registration Application Manager – New</a></li>
-<li><a class="reference internal" href="#registration-officer-authorization">2.7 Registration Officer Authorization</a></li>
-<li><a class="reference internal" href="#registration-packet-manager">2.8 Registration Packet Manager</a></li>
-<li><a class="reference internal" href="#sync-handler">2.9 Sync Handler</a></li>
-<li><a class="reference internal" href="#individual-uin-update">2.10 Individual UIN – Update</a></li>
-<li><a class="reference internal" href="#clean-up">2.11 Clean Up</a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#registration-processor">3. Registration Processor</a><ul>
-<li><a class="reference internal" href="#registration-packet-handler">3.1 Registration Packet Handler</a></li>
-<li><a class="reference internal" href="#registration-status-service">3.2 Registration Status Service</a></li>
-<li><a class="reference internal" href="#registration-packet-processor">3.3 Registration Packet Processor</a></li>
-<li><a class="reference internal" href="#uin-generator">3.4 UIN Generator</a></li>
-<li><a class="reference internal" href="#print">3.5 Print</a></li>
-<li><a class="reference internal" href="#uin-lifecycle-manager">3.6 UIN Lifecycle Manager</a></li>
-<li><a class="reference internal" href="#external-system-integration">3.7 External System Integration</a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#id-authentication">4. ID-Authentication</a><ul>
-<li><a class="reference internal" href="#tsp-ua-authentication">4.1 TSP/UA Authentication</a><ul>
-<li><a class="reference internal" href="#tsp-authentication">4.1.1 TSP Authentication</a></li>
-<li><a class="reference internal" href="#authentication-mode-verifier">4.1.2 Authentication Mode Verifier</a></li>
-<li><a class="reference internal" href="#tsp-ua-authorization">4.2 TSP/UA Authorization</a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#individual-authentication">4.3 Individual Authentication</a><ul>
-<li><a class="reference internal" href="#biometric-authentication">4.3.1 Biometric Authentication</a></li>
-<li><a class="reference internal" href="#demographic-authentication">4.3.2 Demographic Authentication</a></li>
-<li><a class="reference internal" href="#otp-authentication">4.3.3 OTP Authentication</a></li>
-<li><a class="reference internal" href="#static-pin-authentication">4.3.4 Static PIN Authentication</a></li>
-<li><a class="reference internal" href="#e-kyc-authentication-service">4.3.5 E-KYC Authentication Service</a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#integrated-individual-authentication">4.4 Integrated Individual Authentication</a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#resident-services-tbd-wip">5. Resident Services (TBD WIP)</a></li>
-<li><a class="reference internal" href="#admin-setup-tbd-wip">6. Admin Setup (TBD WIP)</a></li>
-<li><a class="reference internal" href="#reporting-tbd-wip">7. Reporting (TBD WIP)</a></li>
-<li><a class="reference internal" href="#platform-level-features-and-utilities">8. Platform Level Features and Utilities</a><ul>
-<li><a class="reference internal" href="#features">8.1 Features</a></li>
-<li><a class="reference internal" href="#utilities">8.2 Utilities</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Architecture.html#logical-architecture">Logical Architecture</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Architecture.html#data-architecture">Data Architecture</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="Architecture.html#open-source-and-vendor-neutral">Open Source and Vendor Neutral</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Architecture.html#multi-language">Multi-Language</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Architecture.html#high-performance">High Performance</a></li>
 </ul>
 </li>
 </ul>
-</div>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="Technology-Stack.html">Technology Stack</a></li>
+<li class="toctree-l1"><a class="reference internal" href="MOSIP-Releases.html">Latest Release</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Roadmap.html">July 2019 to June 2020</a></li>
+</ul>
+
             
           
         </div>

@@ -33,6 +33,7 @@
   
   <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
   <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" /> 
 </head>
@@ -51,6 +52,9 @@
             <a href="index.html" class="icon icon-home"> MOSIP
           
 
+          
+            
+            <img src="_static/mosip-logo.png" class="logo" alt="Logo"/>
           
           </a>
 
@@ -82,257 +86,30 @@
               
             
             
-              <!-- Local TOC -->
-              <div class="local-toc"><ul>
-<li><a class="reference internal" href="#">Registration Centers API</a></li>
-<li><a class="reference internal" href="#post-registrationcenters">POST /registrationcenters</a><ul>
-<li><a class="reference internal" href="#resource-url">Resource URL</a></li>
-<li><a class="reference internal" href="#id1"><code class="docutils literal notranslate"><span class="pre">POST</span> <span class="pre">/registrationcenters</span></code></a></li>
-<li><a class="reference internal" href="#resource-details">Resource details</a></li>
-<li><a class="reference internal" href="#parameters">Parameters</a></li>
-<li><a class="reference internal" href="#example-request">Example Request</a></li>
-<li><a class="reference internal" href="#example-response">Example Response</a><ul>
-<li><a class="reference internal" href="#error-response">Error Response:</a></li>
-<li><a class="reference internal" href="#failure-details">Failure details</a></li>
+              <p class="caption"><span class="caption-text">Overview</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="Architecture.html">MOSIP Architecture</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="Architecture.html#architectural-principles">Architectural Principles</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="Architecture.html#ecosystem-approach">Ecosystem approach</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Architecture.html#configurability">Configurability</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Architecture.html#extensibility">Extensibility</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Architecture.html#modularity">Modularity</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="Architecture.html#logical-architecture">Logical Architecture</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Architecture.html#data-architecture">Data Architecture</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="Architecture.html#open-source-and-vendor-neutral">Open Source and Vendor Neutral</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Architecture.html#multi-language">Multi-Language</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Architecture.html#high-performance">High Performance</a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li><a class="reference internal" href="#put-registrationcenters">PUT /registrationcenters</a><ul>
-<li><a class="reference internal" href="#id2">Resource URL</a></li>
-<li><a class="reference internal" href="#id3"><code class="docutils literal notranslate"><span class="pre">PUT</span> <span class="pre">/registrationcenters</span></code></a></li>
-<li><a class="reference internal" href="#id4">Resource details</a></li>
-<li><a class="reference internal" href="#id5">Parameters</a></li>
-<li><a class="reference internal" href="#id6">Example Request</a></li>
-<li><a class="reference internal" href="#id7">Example Response</a><ul>
-<li><a class="reference internal" href="#id8">Error Response:</a></li>
-<li><a class="reference internal" href="#id9">Failure details</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Technology-Stack.html">Technology Stack</a></li>
+<li class="toctree-l1"><a class="reference internal" href="MOSIP-Releases.html">Latest Release</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Roadmap.html">July 2019 to June 2020</a></li>
 </ul>
-</li>
-</ul>
-</li>
-<li><a class="reference internal" href="#get-registrationcenters">GET /registrationcenters</a><ul>
-<li><a class="reference internal" href="#id10">Resource URL</a></li>
-<li><a class="reference internal" href="#id11"><code class="docutils literal notranslate"><span class="pre">GET</span> <span class="pre">/registrationcenters</span></code></a></li>
-<li><a class="reference internal" href="#id12">Resource details</a></li>
-<li><a class="reference internal" href="#id13">Parameters</a></li>
-<li><a class="reference internal" href="#id14">Example Response</a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#get-registrationcenters-id-languagecode">GET /registrationcenters/{id}/{languagecode}</a><ul>
-<li><a class="reference internal" href="#id15">Resource URL</a></li>
-<li><a class="reference internal" href="#id16"><code class="docutils literal notranslate"><span class="pre">GET</span> <span class="pre">/registrationcenters/{id}/{languagecode}</span></code></a></li>
-<li><a class="reference internal" href="#id17">Resource details</a></li>
-<li><a class="reference internal" href="#id18">Parameters</a></li>
-<li><a class="reference internal" href="#id19">Example Response</a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#get-getregistrationcenterholidays-languagecode-registrationcenterid-year">GET /getregistrationcenterholidays/{languagecode}/{registrationcenterid}/{year}</a><ul>
-<li><a class="reference internal" href="#id20">Resource URL</a></li>
-<li><a class="reference internal" href="#id21"><code class="docutils literal notranslate"><span class="pre">GET</span> <span class="pre">/getregistrationcenterholidays/{languagecode}/{registrationcenterid}/{year}</span></code></a></li>
-<li><a class="reference internal" href="#id22">Resource details</a></li>
-<li><a class="reference internal" href="#id23">Parameters</a></li>
-<li><a class="reference internal" href="#id24">Example Response</a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#get-getlocspecificregistrationcenters-langcode-locationcode">GET /getlocspecificregistrationcenters/{langcode}/{locationcode}</a><ul>
-<li><a class="reference internal" href="#id25">Resource URL</a></li>
-<li><a class="reference internal" href="#id26"><code class="docutils literal notranslate"><span class="pre">GET</span> <span class="pre">/getlocspecificregistrationcenters/{langcode}/{locationcode}</span></code></a></li>
-<li><a class="reference internal" href="#id27">Resource details</a></li>
-<li><a class="reference internal" href="#id28">Parameters</a></li>
-<li><a class="reference internal" href="#id29">Example Response</a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#get-getcoordinatespecificregistrationcenters-languagecode-longitude-latitude-proximitydistance">GET /getcoordinatespecificregistrationcenters/{languagecode}/{longitude}/{latitude}/{proximitydistance}</a><ul>
-<li><a class="reference internal" href="#id30">Resource URL</a></li>
-<li><a class="reference internal" href="#id31"><code class="docutils literal notranslate"><span class="pre">GET</span> <span class="pre">/getcoordinatespecificregistrationcenters/{languagecode}/{longitude}/{latitude}/{proximitydistance}</span></code></a></li>
-<li><a class="reference internal" href="#id32">Resource details</a></li>
-<li><a class="reference internal" href="#id33">Parameters</a></li>
-<li><a class="reference internal" href="#id34">Example Response</a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#get-registrationcentershistory-id-languagecode-eff-dtimes">GET /registrationcentershistory/{id}/{languagecode}/{eff_dtimes}</a><ul>
-<li><a class="reference internal" href="#id35">Resource URL</a></li>
-<li><a class="reference internal" href="#id36"><code class="docutils literal notranslate"><span class="pre">GET</span> <span class="pre">/registrationcentershistory/{id}/{languagecode}/{eff_dtimes}</span></code></a></li>
-<li><a class="reference internal" href="#id37">Resource details</a></li>
-<li><a class="reference internal" href="#id38">Parameters</a></li>
-<li><a class="reference internal" href="#id39">Example Response</a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#get-getregistrationmachineusermappinghistory-eff-dtimes-registrationcenterid-machineid-userid">GET /getregistrationmachineusermappinghistory/{eff_dtimes}/{registrationcenterid}/{machineid}/{userid}</a><ul>
-<li><a class="reference internal" href="#id40">Resource URL</a></li>
-<li><a class="reference internal" href="#id41"><code class="docutils literal notranslate"><span class="pre">GET</span> <span class="pre">/getregistrationmachineusermappinghistory/{eff_dtimes}/{registrationcenterid}/{machineid}/{userid}</span></code></a></li>
-<li><a class="reference internal" href="#id42">Resource details</a></li>
-<li><a class="reference internal" href="#id43">Parameters</a></li>
-<li><a class="reference internal" href="#id44">Example Response</a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#get-getlocspecificregistrationcenters-hierarchylevel-textvalue-languagecode">GET /getlocspecificregistrationcenters/{hierarchylevel}/{textvalue}/{languagecode}</a><ul>
-<li><a class="reference internal" href="#id45">Resource URL</a></li>
-<li><a class="reference internal" href="#id46"><code class="docutils literal notranslate"><span class="pre">GET</span> <span class="pre">/getlocspecificregistrationcenters/{hierarchylevel}/{textvalue}/{languagecode}</span></code></a></li>
-<li><a class="reference internal" href="#id47">Resource details</a></li>
-<li><a class="reference internal" href="#id48">Parameters</a></li>
-<li><a class="reference internal" href="#id49">Example Response</a></li>
-<li><a class="reference internal" href="#failure-response">Failure Response:</a><ul>
-<li><a class="reference internal" href="#id50">Failure details</a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li><a class="reference internal" href="#registration-center-user-machine-mapping-api">Registration Center User Machine Mapping API</a><ul>
-<li><a class="reference internal" href="#post-registrationmachineusermappings">POST /registrationmachineusermappings</a><ul>
-<li><a class="reference internal" href="#id51">Resource URL</a></li>
-<li><a class="reference internal" href="#id52"><code class="docutils literal notranslate"><span class="pre">POST</span> <span class="pre">/registrationmachineusermappings</span></code></a></li>
-<li><a class="reference internal" href="#id53">Resource details</a></li>
-<li><a class="reference internal" href="#id54">Parameters</a></li>
-<li><a class="reference internal" href="#id55">Example Request</a></li>
-<li><a class="reference internal" href="#id56">Example Response</a></li>
-<li><a class="reference internal" href="#response-codes">Response codes</a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#get-getregistrationmachineusermappinghistory-effdtimes-registrationcenterid-machineid-userid">GET /getregistrationmachineusermappinghistory/{effdtimes}/{registrationcenterid}/{machineid}/{userid}</a><ul>
-<li><a class="reference internal" href="#id57">Resource URL</a></li>
-<li><a class="reference internal" href="#id58"><code class="docutils literal notranslate"><span class="pre">GET</span> <span class="pre">/getregistrationmachineusermappinghistory/{effdtimes}/{registrationcenterid}/{machineid}/{userid}</span></code></a></li>
-<li><a class="reference internal" href="#id59">Resource details</a></li>
-<li><a class="reference internal" href="#id60">Parameters</a></li>
-<li><a class="reference internal" href="#id61">Example Response</a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#put-registrationmachineusermappings">PUT /registrationmachineusermappings</a><ul>
-<li><a class="reference internal" href="#id62">Resource URL</a></li>
-<li><a class="reference internal" href="#id63"><code class="docutils literal notranslate"><span class="pre">PUT</span> <span class="pre">/registrationmachineusermappings</span></code></a></li>
-<li><a class="reference internal" href="#id64">Resource details</a></li>
-<li><a class="reference internal" href="#id65">Parameters</a></li>
-<li><a class="reference internal" href="#id66">Example Request</a></li>
-<li><a class="reference internal" href="#id67">Example Response</a></li>
-<li><a class="reference internal" href="#id68">Response codes</a></li>
-<li><a class="reference internal" href="#id69">Failure Response:</a><ul>
-<li><a class="reference internal" href="#id70">Failure details</a></li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-</li>
-<li><a class="reference internal" href="#registration-center-machine-api">Registration Center Machine API</a><ul>
-<li><a class="reference internal" href="#post-registrationcentermachine">POST /registrationcentermachine</a><ul>
-<li><a class="reference internal" href="#id71">Resource URL</a></li>
-<li><a class="reference internal" href="#id72"><code class="docutils literal notranslate"><span class="pre">POST</span> <span class="pre">/registrationcentermachine</span></code></a></li>
-<li><a class="reference internal" href="#id73">Resource details</a></li>
-<li><a class="reference internal" href="#id74">Parameters</a></li>
-<li><a class="reference internal" href="#id75">Example Request</a></li>
-<li><a class="reference internal" href="#id76">Example Response</a></li>
-<li><a class="reference internal" href="#id77">Response codes</a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#delete-registrationcentermachine-regcenterid-machineid">DELETE/registrationcentermachine/{regCenterId}/{machineId}</a><ul>
-<li><a class="reference internal" href="#id78">Resource URL</a></li>
-<li><a class="reference internal" href="#id79"><code class="docutils literal notranslate"><span class="pre">DELETE</span> <span class="pre">/registrationcentermachine/{regCenterId}/{machineId}</span></code></a></li>
-<li><a class="reference internal" href="#id80">Resource details</a></li>
-<li><a class="reference internal" href="#id81">Parameters</a></li>
-<li><a class="reference internal" href="#id82">Example Response</a></li>
-<li><a class="reference internal" href="#id83">Failure Response:</a><ul>
-<li><a class="reference internal" href="#id84">Failure details</a></li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-</li>
-<li><a class="reference internal" href="#registration-center-device-api">Registration Center Device API</a><ul>
-<li><a class="reference internal" href="#post-registrationcenterdevice">POST /registrationcenterdevice</a><ul>
-<li><a class="reference internal" href="#id85">Resource URL</a></li>
-<li><a class="reference internal" href="#id86"><code class="docutils literal notranslate"><span class="pre">POST</span> <span class="pre">/registrationcenterdevice</span></code></a></li>
-<li><a class="reference internal" href="#id87">Resource details</a></li>
-<li><a class="reference internal" href="#id88">Parameters</a></li>
-<li><a class="reference internal" href="#id89">Example Request</a></li>
-<li><a class="reference internal" href="#id90">Example Response</a></li>
-<li><a class="reference internal" href="#id91">Response codes</a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#delete-registrationcenterdevice-regcenterid-deviceid">DELETE/registrationcenterdevice/{regCenterId}/{deviceId}</a><ul>
-<li><a class="reference internal" href="#id92">Resource URL</a></li>
-<li><a class="reference internal" href="#id93"><code class="docutils literal notranslate"><span class="pre">DELETE</span> <span class="pre">/registrationcenterdevice/{regCenterId}/{deviceId}</span></code></a></li>
-<li><a class="reference internal" href="#id94">Resource details</a></li>
-<li><a class="reference internal" href="#id95">Parameters</a></li>
-<li><a class="reference internal" href="#id96">Example Response</a></li>
-<li><a class="reference internal" href="#id97">Failure Response:</a><ul>
-<li><a class="reference internal" href="#id98">Failure details</a></li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-</li>
-<li><a class="reference internal" href="#registration-center-machine-device-api">Registration Center Machine Device API</a><ul>
-<li><a class="reference internal" href="#post-registrationcentermachinedevice">POST /registrationcentermachinedevice</a><ul>
-<li><a class="reference internal" href="#id99">Resource URL</a></li>
-<li><a class="reference internal" href="#id100"><code class="docutils literal notranslate"><span class="pre">POST</span> <span class="pre">/registrationcentermachinedevice</span></code></a></li>
-<li><a class="reference internal" href="#id101">Resource details</a></li>
-<li><a class="reference internal" href="#id102">Parameters</a></li>
-<li><a class="reference internal" href="#id103">Example Request</a></li>
-<li><a class="reference internal" href="#id104">Example Response</a></li>
-<li><a class="reference internal" href="#id105">Response codes</a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#delete-registrationcentermachinedevice-regcenterid-machineid-deviceid">DELETE /registrationcentermachinedevice/{regcenterid}/{machineid}/{deviceid}</a><ul>
-<li><a class="reference internal" href="#id106">Resource URL</a></li>
-<li><a class="reference internal" href="#id107"><code class="docutils literal notranslate"><span class="pre">DELETE</span> <span class="pre">/registrationcentermachinedevice/{regcenterid}/{machineid}/{deviceid}</span></code></a></li>
-<li><a class="reference internal" href="#id108">Resource details</a></li>
-<li><a class="reference internal" href="#id109">Parameters</a></li>
-<li><a class="reference internal" href="#id110">Example Response</a></li>
-<li><a class="reference internal" href="#id111">Response codes</a></li>
-<li><a class="reference internal" href="#id112">Failure Response:</a><ul>
-<li><a class="reference internal" href="#id113">Failure details</a></li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-</li>
-<li><a class="reference internal" href="#registration-center-search-apis">Registration Center search APIs</a></li>
-<li><a class="reference internal" href="#post-registrationcenters-search">POST /registrationcenters/search</a><ul>
-<li><a class="reference internal" href="#id114">Resource URL</a></li>
-<li><a class="reference internal" href="#id115"><code class="docutils literal notranslate"><span class="pre">POST</span> <span class="pre">/registrationcenters/search</span></code></a></li>
-<li><a class="reference internal" href="#id116">Resource details</a></li>
-<li><a class="reference internal" href="#id117">Parameters</a></li>
-<li><a class="reference internal" href="#id118">Example Request</a></li>
-<li><a class="reference internal" href="#id119">Example Response</a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#registration-center-filter-values">Registration Center filter values</a></li>
-<li><a class="reference internal" href="#post-registrationcenters-filtervalues">POST /registrationcenters/filtervalues</a><ul>
-<li><a class="reference internal" href="#id120">Resource URL</a></li>
-<li><a class="reference internal" href="#id121"><code class="docutils literal notranslate"><span class="pre">POST</span> <span class="pre">/registrationcenters/filtervalues</span></code></a></li>
-<li><a class="reference internal" href="#id122">Resource details</a></li>
-<li><a class="reference internal" href="#id123">Parameters</a></li>
-<li><a class="reference internal" href="#id124">Example Request</a></li>
-<li><a class="reference internal" href="#id125">Example Response</a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#registration-center-type-search-apis">Registration Center Type Search APIs</a></li>
-<li><a class="reference internal" href="#post-registrationcentertypes-search">POST /registrationcentertypes/search</a><ul>
-<li><a class="reference internal" href="#id126">Resource URL</a></li>
-<li><a class="reference internal" href="#id127"><code class="docutils literal notranslate"><span class="pre">POST</span> <span class="pre">/registrationcentertypes/search</span></code></a></li>
-<li><a class="reference internal" href="#id128">Resource details</a></li>
-<li><a class="reference internal" href="#id129">Parameters</a></li>
-<li><a class="reference internal" href="#filter-values">Filter Values</a></li>
-<li><a class="reference internal" href="#id130">Example Request</a></li>
-<li><a class="reference internal" href="#id131">Example Response</a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#registration-center-types-filter-values">Registration Center Types Filter values</a></li>
-<li><a class="reference internal" href="#post-regcentertypes-filtervalues">POST /regcentertypes/filtervalues</a><ul>
-<li><a class="reference internal" href="#id132">Resource URL</a></li>
-<li><a class="reference internal" href="#id133"><code class="docutils literal notranslate"><span class="pre">POST</span> <span class="pre">/regcentertypes/filtervalues</span></code></a></li>
-<li><a class="reference internal" href="#id134">Resource details</a></li>
-<li><a class="reference internal" href="#id135">Parameters</a></li>
-<li><a class="reference internal" href="#id136">Example Request</a></li>
-<li><a class="reference internal" href="#id137">Example Response</a></li>
-</ul>
-</li>
-</ul>
-</div>
+
             
           
         </div>

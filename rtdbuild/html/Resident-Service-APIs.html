@@ -33,6 +33,7 @@
   
   <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
   <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" /> 
 </head>
@@ -51,6 +52,9 @@
             <a href="index.html" class="icon icon-home"> MOSIP
           
 
+          
+            
+            <img src="_static/mosip-logo.png" class="logo" alt="Logo"/>
           
           </a>
 
@@ -82,239 +86,30 @@
               
             
             
-              <!-- Local TOC -->
-              <div class="local-toc"><ul>
-<li><a class="reference internal" href="#">POST /resident/v1/req/otp</a><ul>
-<li><a class="reference internal" href="#resource-url">Resource URL</a></li>
-<li><a class="reference internal" href="#resource-details">Resource details</a></li>
-<li><a class="reference internal" href="#request-body-parameters">Request Body Parameters</a></li>
-<li><a class="reference internal" href="#request-body-1">Request Body -1</a></li>
-<li><a class="reference internal" href="#request-body-2">Request Body -2</a></li>
-<li><a class="reference internal" href="#responses">Responses:</a><ul>
-<li><a class="reference internal" href="#success-response">Success Response:</a><ul>
-<li><a class="reference internal" href="#status-code-200-ok">Status Code : 200 (OK)</a></li>
+              <p class="caption"><span class="caption-text">Overview</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="Architecture.html">MOSIP Architecture</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="Architecture.html#architectural-principles">Architectural Principles</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="Architecture.html#ecosystem-approach">Ecosystem approach</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Architecture.html#configurability">Configurability</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Architecture.html#extensibility">Extensibility</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Architecture.html#modularity">Modularity</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#failed-response">Failed Response:</a><ul>
-<li><a class="reference internal" href="#id1">Status Code : 200 (OK)</a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li><a class="reference internal" href="#failure-details">Failure details</a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#post-resident-v1-rid-check-status">POST /resident/v1/rid/check-status</a><ul>
-<li><a class="reference internal" href="#id2">Resource URL</a></li>
-<li><a class="reference internal" href="#id3">Resource details</a></li>
-<li><a class="reference internal" href="#id4">Request Body Parameters</a></li>
-<li><a class="reference internal" href="#request-body">Request Body</a></li>
-<li><a class="reference internal" href="#id5">Responses:</a><ul>
-<li><a class="reference internal" href="#id6">Success Response:</a><ul>
-<li><a class="reference internal" href="#id7">Status Code : 200 (OK)</a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#id8">Failed Response:</a><ul>
-<li><a class="reference internal" href="#id9">Status Code : 200 (OK)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Architecture.html#logical-architecture">Logical Architecture</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Architecture.html#data-architecture">Data Architecture</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="Architecture.html#open-source-and-vendor-neutral">Open Source and Vendor Neutral</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Architecture.html#multi-language">Multi-Language</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Architecture.html#high-performance">High Performance</a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li><a class="reference internal" href="#id10">Failure details</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Technology-Stack.html">Technology Stack</a></li>
+<li class="toctree-l1"><a class="reference internal" href="MOSIP-Releases.html">Latest Release</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Roadmap.html">July 2019 to June 2020</a></li>
 </ul>
-</li>
-<li><a class="reference internal" href="#post-resident-v1-req-euin">POST /resident/v1/req/euin</a><ul>
-<li><a class="reference internal" href="#id11">Resource URL</a></li>
-<li><a class="reference internal" href="#id12">Resource details</a></li>
-<li><a class="reference internal" href="#id13">Request Body Parameters</a></li>
-<li><a class="reference internal" href="#id14">Request Body</a></li>
-<li><a class="reference internal" href="#id15">Responses:</a><ul>
-<li><a class="reference internal" href="#id16">Success Response:</a><ul>
-<li><a class="reference internal" href="#id17">Status Code : 200 (OK)</a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#id18">Failed Response:</a><ul>
-<li><a class="reference internal" href="#id19">Status Code : 200 (OK)</a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li><a class="reference internal" href="#id20">Failure details</a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#post-resident-v1-req-print-uin">POST /resident/v1/req/print-uin</a><ul>
-<li><a class="reference internal" href="#id21">Resource URL</a></li>
-<li><a class="reference internal" href="#id22">Resource details</a></li>
-<li><a class="reference internal" href="#id23">Request Body Parameters</a></li>
-<li><a class="reference internal" href="#id24">Request Body</a></li>
-<li><a class="reference internal" href="#id25">Responses:</a><ul>
-<li><a class="reference internal" href="#id26">Success Response:</a><ul>
-<li><a class="reference internal" href="#id27">Status Code : 200 (OK)</a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#id28">Failed Response:</a><ul>
-<li><a class="reference internal" href="#id29">Status Code : 200 (OK)</a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li><a class="reference internal" href="#id30">Failure details</a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#post-resident-v1-req-uin">POST /resident/v1/req/uin</a><ul>
-<li><a class="reference internal" href="#id31">Resource URL</a></li>
-<li><a class="reference internal" href="#id32">Resource details</a></li>
-<li><a class="reference internal" href="#id33">Request Body Parameters</a></li>
-<li><a class="reference internal" href="#id34">Request Body</a></li>
-<li><a class="reference internal" href="#id35">Responses:</a><ul>
-<li><a class="reference internal" href="#id36">Success Response:</a><ul>
-<li><a class="reference internal" href="#id37">Status Code : 200 (OK)</a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#id38">Failed Response:</a><ul>
-<li><a class="reference internal" href="#id39">Status Code : 200 (OK)</a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li><a class="reference internal" href="#id40">Failure details</a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#post-resident-v1-req-rid">POST /resident/v1/req/rid</a><ul>
-<li><a class="reference internal" href="#id41">Resource URL</a></li>
-<li><a class="reference internal" href="#id42">Resource details</a></li>
-<li><a class="reference internal" href="#id43">Request Body Parameters</a></li>
-<li><a class="reference internal" href="#id44">Request Body</a></li>
-<li><a class="reference internal" href="#id45">Responses:</a><ul>
-<li><a class="reference internal" href="#id46">Success Response:</a><ul>
-<li><a class="reference internal" href="#id47">Status Code : 200 (OK)</a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#id48">Failed Response:</a><ul>
-<li><a class="reference internal" href="#id49">Status Code : 200 (OK)</a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li><a class="reference internal" href="#id50">Failure details</a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#post-resident-v1-req-update-uin">POST /resident/v1/req/update-uin</a><ul>
-<li><a class="reference internal" href="#id51">Resource URL</a></li>
-<li><a class="reference internal" href="#id52">Resource details</a></li>
-<li><a class="reference internal" href="#id53">Request Body Parameters</a></li>
-<li><a class="reference internal" href="#id54">Request Body</a></li>
-<li><a class="reference internal" href="#id55">Responses:</a><ul>
-<li><a class="reference internal" href="#id56">Success Response:</a><ul>
-<li><a class="reference internal" href="#id57">Status Code : 200 (OK)</a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#id58">Failed Response:</a><ul>
-<li><a class="reference internal" href="#id59">Status Code : 200 (OK)</a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li><a class="reference internal" href="#id60">Failure details</a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#post-resident-v1-vid">POST /resident/v1/vid</a><ul>
-<li><a class="reference internal" href="#id61">Resource URL</a></li>
-<li><a class="reference internal" href="#id62">Resource details</a></li>
-<li><a class="reference internal" href="#id63">Request Body Parameters</a></li>
-<li><a class="reference internal" href="#id64">Request Body</a></li>
-<li><a class="reference internal" href="#id65">Responses:</a><ul>
-<li><a class="reference internal" href="#id66">Success Response:</a><ul>
-<li><a class="reference internal" href="#id67">Status Code : 200 (OK)</a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#id68">Failed Response:</a><ul>
-<li><a class="reference internal" href="#id69">Status Code : 200 (OK)</a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li><a class="reference internal" href="#id70">Failure details</a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#patch-resident-v1-vid-vid">PATCH /resident/v1/vid/{vid}</a><ul>
-<li><a class="reference internal" href="#id71">Resource URL</a></li>
-<li><a class="reference internal" href="#id72">Resource details</a></li>
-<li><a class="reference internal" href="#id73">Request Body Parameters</a></li>
-<li><a class="reference internal" href="#id74">Request Body</a></li>
-<li><a class="reference internal" href="#id75">Responses:</a><ul>
-<li><a class="reference internal" href="#id76">Success Response:</a><ul>
-<li><a class="reference internal" href="#id77">Status Code : 200 (OK)</a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#id78">Failed Response:</a><ul>
-<li><a class="reference internal" href="#id79">Status Code : 200 (OK)</a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li><a class="reference internal" href="#id80">Failure details</a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#post-resident-v1-req-auth-lock">POST /resident/v1/req/auth-lock</a><ul>
-<li><a class="reference internal" href="#id81">Resource URL</a></li>
-<li><a class="reference internal" href="#id82">Resource details</a></li>
-<li><a class="reference internal" href="#id83">Request Body Parameters</a></li>
-<li><a class="reference internal" href="#id84">Request Body</a></li>
-<li><a class="reference internal" href="#id85">Responses:</a><ul>
-<li><a class="reference internal" href="#id86">Success Response:</a><ul>
-<li><a class="reference internal" href="#id87">Status Code : 200 (OK)</a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#id88">Failed Response:</a><ul>
-<li><a class="reference internal" href="#id89">Status Code : 200 (OK)</a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li><a class="reference internal" href="#id90">Failure details</a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#post-resident-v1-req-auth-unlock">POST /resident/v1/req/auth-unlock</a><ul>
-<li><a class="reference internal" href="#id91">Resource URL</a></li>
-<li><a class="reference internal" href="#id92">Resource details</a></li>
-<li><a class="reference internal" href="#id93">Request Body Parameters</a></li>
-<li><a class="reference internal" href="#id94">Request Body</a></li>
-<li><a class="reference internal" href="#id95">Responses:</a><ul>
-<li><a class="reference internal" href="#id96">Success Response:</a><ul>
-<li><a class="reference internal" href="#id97">Status Code : 200 (OK)</a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#id98">Failed Response:</a><ul>
-<li><a class="reference internal" href="#id99">Status Code : 200 (OK)</a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li><a class="reference internal" href="#id100">Failure details</a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#post-resident-v1-req-auth-history">POST /resident/v1/req/auth-history</a><ul>
-<li><a class="reference internal" href="#id101">Resource URL</a></li>
-<li><a class="reference internal" href="#id102">Resource details</a></li>
-<li><a class="reference internal" href="#id103">Request Body Parameters</a></li>
-<li><a class="reference internal" href="#id104">Request Body</a></li>
-<li><a class="reference internal" href="#id105">Responses:</a><ul>
-<li><a class="reference internal" href="#id106">Success Response:</a><ul>
-<li><a class="reference internal" href="#id107">Status Code : 200 (OK)</a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#id108">Failed Response:</a><ul>
-<li><a class="reference internal" href="#id109">Status Code : 200 (OK)</a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li><a class="reference internal" href="#id110">Failure details</a></li>
-</ul>
-</li>
-</ul>
-</div>
+
             
           
         </div>

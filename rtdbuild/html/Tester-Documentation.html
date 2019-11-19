@@ -33,6 +33,7 @@
   
   <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
   <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" /> 
 </head>
@@ -51,6 +52,9 @@
             <a href="index.html" class="icon icon-home"> MOSIP
           
 
+          
+            
+            <img src="_static/mosip-logo.png" class="logo" alt="Logo"/>
           
           </a>
 
@@ -82,91 +86,30 @@
               
             
             
-              <!-- Local TOC -->
-              <div class="local-toc"><ul>
-<li><a class="reference internal" href="#">1. Introduction</a><ul>
-<li><a class="reference internal" href="#overview">1.1 Overview</a></li>
-<li><a class="reference internal" href="#scope">1.2 Scope</a><ul>
-<li><a class="reference internal" href="#test-coverage">1.2.1 Test Coverage</a></li>
-<li><a class="reference internal" href="#data-coverage">1.2.2 Data Coverage</a></li>
-<li><a class="reference internal" href="#test-management-tools">1.2.3 Test Management Tools</a></li>
-<li><a class="reference internal" href="#defect-management-lifecycle">1.2.4 Defect Management &amp; Lifecycle</a></li>
+              <p class="caption"><span class="caption-text">Overview</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="Architecture.html">MOSIP Architecture</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="Architecture.html#architectural-principles">Architectural Principles</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="Architecture.html#ecosystem-approach">Ecosystem approach</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Architecture.html#configurability">Configurability</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Architecture.html#extensibility">Extensibility</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Architecture.html#modularity">Modularity</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="Architecture.html#logical-architecture">Logical Architecture</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Architecture.html#data-architecture">Data Architecture</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="Architecture.html#open-source-and-vendor-neutral">Open Source and Vendor Neutral</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Architecture.html#multi-language">Multi-Language</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Architecture.html#high-performance">High Performance</a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li><a class="reference internal" href="#test-approach">2. Test Approach</a></li>
-<li><a class="reference internal" href="#test-automation-user-guides">4. Test Automation User Guides</a><ul>
-<li><a class="reference internal" href="#kernel-test-automation-suite-user-guide">4.1 Kernel Test Automation Suite - User Guide</a><ul>
-<li><a class="reference internal" href="#about-the-kernel-module">4.1.1 About the Kernel Module</a></li>
-<li><a class="reference internal" href="#pre-requisites-for-understanding-java-api-automation">4.1.2 Pre-requisites for understanding Java API automation</a></li>
-<li><a class="reference internal" href="#procedure-to-check-out-the-test-code-from-the-repository">4.1.3 Procedure to check out the test code from the repository</a></li>
-<li><a class="reference internal" href="#pre-configuration-information-prior-to-test-run">4.1.4 Pre-configuration information prior to test run</a></li>
-<li><a class="reference internal" href="#procedure-to-add-new-test-cases-into-the-api-test-suite">4.1.5 Procedure to Add new test cases into the API test suite</a></li>
-<li><a class="reference internal" href="#procedure-to-execute-or-run-the-tests-on-a-new-environment">4.1.6 Procedure to execute or Run the tests on a new environment</a></li>
-<li><a class="reference internal" href="#running-a-test-suite">4.1.7 Running a test suite</a></li>
-<li><a class="reference internal" href="#analyze-the-test-reports">4.1.8 Analyze the test reports</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Technology-Stack.html">Technology Stack</a></li>
+<li class="toctree-l1"><a class="reference internal" href="MOSIP-Releases.html">Latest Release</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Roadmap.html">July 2019 to June 2020</a></li>
 </ul>
-</li>
-<li><a class="reference internal" href="#pre-registration-test-automation-suite-user-guide">4.2 Pre-Registration Test Automation Suite - User Guide</a><ul>
-<li><a class="reference internal" href="#about-the-pre-registration-module">4.2.1 About the Pre-Registration Module</a></li>
-<li><a class="reference internal" href="#id1">4.2.2 Pre-requisites for understanding Java API automation</a></li>
-<li><a class="reference internal" href="#procedure-to-checkout-out-the-test-code-from-the-repository">4.2.3 Procedure to checkout-out the test code from the repository</a></li>
-<li><a class="reference internal" href="#id2">4.2.4 Pre-configuration information prior to test run</a></li>
-<li><a class="reference internal" href="#id3">4.2.5 Procedure to Add new test cases into the API test suite</a></li>
-<li><a class="reference internal" href="#id4">4.2.6 Procedure to execute or Run the tests on a new environment</a></li>
-<li><a class="reference internal" href="#id5">4.2.7 Running a test suite</a></li>
-<li><a class="reference internal" href="#running-a-single-test-case">4.2.8 Running a single test case</a></li>
-<li><a class="reference internal" href="#id6">4.2.9 Analyze the test reports</a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#registration-client-test-automation-suite-user-guide">4.3 Registration Client Test Automation Suite - User Guide</a><ul>
-<li><a class="reference internal" href="#about-the-registration-client-module">4.3.1 About the Registration Client Module</a></li>
-<li><a class="reference internal" href="#id7">4.3.2 Pre-requisites for understanding Java API automation</a></li>
-<li><a class="reference internal" href="#id8">4.3.3 Procedure to check out the test code from the repository</a></li>
-<li><a class="reference internal" href="#id9">4.3.4 Pre-configuration information prior to test run</a></li>
-<li><a class="reference internal" href="#id10">4.3.5 Procedure to Add new test cases into the API test suite</a></li>
-<li><a class="reference internal" href="#id11">4.3.6 Procedure to execute or Run the tests on a new environment</a></li>
-<li><a class="reference internal" href="#id12">4.3.7 Running a test suite</a></li>
-<li><a class="reference internal" href="#appendix">4.3.8 Appendix</a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#registration-processor-test-automation-suite-user-guide">4.4 Registration Processor Test Automation Suite - User Guide</a><ul>
-<li><a class="reference internal" href="#about-the-registration-processor-module">4.4.1 About The Registration Processor Module</a></li>
-<li><a class="reference internal" href="#pre-requisites-for-understanding-rest-api-automation">4.4.2 Pre-requisites for understanding Rest API automation</a></li>
-<li><a class="reference internal" href="#id13">4.4.3 Procedure to checkout-out the test code from the repository</a></li>
-<li><a class="reference internal" href="#id14">4.4.4 Procedure to Add new test cases into the API test suite</a></li>
-<li><a class="reference internal" href="#id15">4.4.5 Procedure to execute or Run the tests on a new environment</a></li>
-<li><a class="reference internal" href="#id16">4.4.6 Analyze the test reports</a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#id-authentication-ida-test-automation-suite-user-guide">4.5 ID Authentication (IDA) Test Automation Suite - User Guide</a><ul>
-<li><a class="reference internal" href="#about-the-id-authentication">4.5.1 About the ID-Authentication</a></li>
-<li><a class="reference internal" href="#id17">4.5.2 Pre-requisites for understanding Rest API automation</a></li>
-<li><a class="reference internal" href="#id18">4.5.3 Procedure to checkout-out the test code from the repository</a></li>
-<li><a class="reference internal" href="#id19">4.5.4 Procedure to Add new test cases into the API test suite</a></li>
-<li><a class="reference internal" href="#id20">4.5.5 Procedure to execute or Run the tests on a new environment</a></li>
-<li><a class="reference internal" href="#id21">4.5.6 Analyze the test reports</a></li>
-<li><a class="reference internal" href="#annexure">4.5.7 Annexure</a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#e2e-test-automation-suite-user-guide">4.6 E2E Test Automation Suite - User Guide</a><ul>
-<li><a class="reference internal" href="#about-the-end-to-end-test-rig">4.6.1 About The End To End Test Rig</a></li>
-<li><a class="reference internal" href="#pre-requisite-to-understand-the-flow-of-e2e-test-rig">4.6.2 Pre Requisite To Understand The Flow Of E2E Test Rig</a></li>
-<li><a class="reference internal" href="#id22">4.6.3 Procedure to checkout-out the test code from the repository</a></li>
-<li><a class="reference internal" href="#basic-code-structure-of-the-e2e-rig">4.6.4 Basic Code Structure Of The E2E Rig</a><ul>
-<li><a class="reference internal" href="#a-code-structure-for-e2e-run">4.6.4.1 A Code Structure For E2E run</a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#id23">4.6.5 Procedure to execute or Run the tests on a new environment</a></li>
-<li><a class="reference internal" href="#id24">4.6.6 Analyze the test reports</a></li>
-<li><a class="reference internal" href="#limitations-for-the-test-rig">4.6.7 Limitations for the test rig</a></li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-</div>
+
             
           
         </div>

@@ -33,6 +33,7 @@
   
   <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
   <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" /> 
 </head>
@@ -51,6 +52,9 @@
             <a href="index.html" class="icon icon-home"> MOSIP
           
 
+          
+            
+            <img src="_static/mosip-logo.png" class="logo" alt="Logo"/>
           
           </a>
 
@@ -82,112 +86,30 @@
               
             
             
-              <!-- Local TOC -->
-              <div class="local-toc"><ul>
-<li><a class="reference internal" href="#">Table Of Contents</a></li>
-<li><a class="reference internal" href="#introduction-of-partner-management">Introduction of Partner Management</a></li>
-<li><a class="reference internal" href="#users-and-roles">1. Users and Roles <strong>[↑]</strong></a><ul>
-<li><a class="reference internal" href="#user-creation">1.1 User Creation <strong>[↑]</strong></a></li>
-<li><a class="reference internal" href="#role-mapping">1.2 Role Mapping <strong>[↑]</strong></a><ul>
-<li><a class="reference internal" href="#misp">1.2.1 MISP <strong>[↑]</strong></a><ul>
-<li><a class="reference internal" href="#a-misp-creation">A. MISP Creation</a></li>
-<li><a class="reference internal" href="#b-retrieve-misps">B. Retrieve MISPs</a></li>
-<li><a class="reference internal" href="#c-update-misps">C. Update MISPs</a></li>
-<li><a class="reference internal" href="#d-deactivate-suspend-misp-and-misp-license">D. Deactivate/Suspend MISP and MISP License</a></li>
+              <p class="caption"><span class="caption-text">Overview</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="Architecture.html">MOSIP Architecture</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="Architecture.html#architectural-principles">Architectural Principles</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="Architecture.html#ecosystem-approach">Ecosystem approach</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Architecture.html#configurability">Configurability</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Architecture.html#extensibility">Extensibility</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Architecture.html#modularity">Modularity</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#partner">1.2.2 Partner <strong>[↑]</strong></a><ul>
-<li><a class="reference internal" href="#a-partner-creation">A. Partner Creation</a></li>
-<li><a class="reference internal" href="#b-create-auth-e-kyc-partners">B. Create Auth/E-KYC Partners</a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#policy-manager">1.2.3 Policy Manager <strong>[↑]</strong></a><ul>
-<li><a class="reference internal" href="#a-generate-policy-manager-id">A. Generate Policy Manager ID</a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#partner-manager">1.2.4 Partner Manager <strong>[↑]</strong></a><ul>
-<li><a class="reference internal" href="#a-generate-partner-manager-id">A. Generate Partner Manager ID</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Architecture.html#logical-architecture">Logical Architecture</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Architecture.html#data-architecture">Data Architecture</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="Architecture.html#open-source-and-vendor-neutral">Open Source and Vendor Neutral</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Architecture.html#multi-language">Multi-Language</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Architecture.html#high-performance">High Performance</a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li><a class="reference internal" href="#policy-group-assignment-regulator">1.3 Policy Group Assignment (Regulator) <strong>[↑]</strong></a></li>
+<li class="toctree-l1"><a class="reference internal" href="Technology-Stack.html">Technology Stack</a></li>
+<li class="toctree-l1"><a class="reference internal" href="MOSIP-Releases.html">Latest Release</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Roadmap.html">July 2019 to June 2020</a></li>
 </ul>
-</li>
-<li><a class="reference internal" href="#misp-activities">2. MISP Activities <strong>[↑]</strong></a><ul>
-<li><a class="reference internal" href="#license-key-management">2.1 License Key Management <strong>[↑]</strong></a><ul>
-<li><a class="reference internal" href="#a-generate-misp-license-key">A. Generate MISP License Key</a></li>
-<li><a class="reference internal" href="#b-regenerate-misp-license-key">B. Regenerate MISP License Key</a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li><a class="reference internal" href="#partner-activities">3. Partner Activities <strong>[↑]</strong></a><ul>
-<li><a class="reference internal" href="#registration">3.1 Registration <strong>[↑]</strong></a><ul>
-<li><a class="reference internal" href="#a-create-auth-e-kyc-partners">A. Create Auth/E-KYC Partners</a></li>
-<li><a class="reference internal" href="#b-retrieve-auth-e-kyc-partners">B. Retrieve Auth/E-KYC Partners</a></li>
-<li><a class="reference internal" href="#c-update-auth-e-kyc-partners">C. Update Auth/E-KYC Partners</a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#api-key-management">3.2 API Key Management <strong>[↑]</strong></a><ul>
-<li><a class="reference internal" href="#a-view-policies-available-for-policy-group-to-place-a-request-for-a-partner-api-key">A. View policies available for policy group to place a request for a partner API key</a></li>
-<li><a class="reference internal" href="#b-submit-partner-api-key-request">B. Submit Partner API key request</a></li>
-<li><a class="reference internal" href="#c-view-partner-api-key-status">C. View Partner API key status</a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#certificate-management">3.3 Certificate Management <strong>[↑]</strong></a><ul>
-<li><a class="reference internal" href="#a-upload-partner-digital-certificate">A. Upload Partner digital certificate</a></li>
-<li><a class="reference internal" href="#b-download-mosip-digital-certificate">B. Download MOSIP digital certificate</a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li><a class="reference internal" href="#policy-manager-activities">4. Policy Manager Activities <strong>[↑]</strong></a><ul>
-<li><a class="reference internal" href="#policy-management">4.1 Policy Management <strong>[↑]</strong></a><ul>
-<li><a class="reference internal" href="#creation-and-publication-of-authentication-policies">4.1.1 Creation and Publication of Authentication Policies <strong>[↑]</strong></a></li>
-<li><a class="reference internal" href="#list-view-add-edit-activate-deactivate-policies">4.1.2 List, View, Add, Edit, Activate, Deactivate Policies <strong>[↑]</strong></a><ul>
-<li><a class="reference internal" href="#a-retrieve-auth-e-kyc-policy">A. Retrieve Auth/E-KYC Policy</a></li>
-<li><a class="reference internal" href="#b-update-auth-e-kyc-policy">B. Update Auth/E-KYC Policy</a></li>
-<li><a class="reference internal" href="#c-deactivate-auth-e-kyc-policy">C. Deactivate Auth/E-KYC Policy</a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#filtered-by-policy-group-regulator">4.1.3 Filtered by Policy Group (Regulator) <strong>[↑]</strong></a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li><a class="reference internal" href="#partner-manager-activities">5. Partner Manager Activities <strong>[↑]</strong></a><ul>
-<li><a class="reference internal" href="#partner-management">5.1 Partner Management <strong>[↑]</strong></a><ul>
-<li><a class="reference internal" href="#a-activate-deactivate-auth-e-kyc-partners">A. Activate/Deactivate Auth/E-KYC Partners</a></li>
-<li><a class="reference internal" href="#b-view-auth-e-kyc-partners">B. View Auth/E-KYC Partners</a></li>
-<li><a class="reference internal" href="#id1">5.1.1 Filtered by Policy Group (Regulator) <strong>[↑]</strong></a><ul>
-<li><a class="reference internal" href="#a-view-partner-api-key-requests-based-on-policy-group">A. View  Partner API key requests based on 'policy group'</a></li>
-<li><a class="reference internal" href="#b-approve-reject-partner-api-key-requests-based-on-policy-group">B. Approve/Reject Partner API key requests based on 'policy group'</a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li><a class="reference internal" href="#partner-policy-assignment">5.2 Partner Policy Assignment <strong>[↑]</strong></a><ul>
-<li><a class="reference internal" href="#a-generate-partner-api-key">A. Generate Partner API key</a></li>
-<li><a class="reference internal" href="#b-retrieve-auth-e-kyc-policy-for-policy-group-to-assign-relevant-policy-to-partner-api-key">B. Retrieve Auth/E-KYC Policy for policy group to assign relevant policy to partner API key</a></li>
-<li><a class="reference internal" href="#c-create-partner-api-key-to-policy-mappings">C. Create “Partner API key to Policy” Mappings</a></li>
-<li><a class="reference internal" href="#d-retrieve-partner-api-key-to-policy-mappings">D. Retrieve “Partner API key to Policy” Mappings</a></li>
-<li><a class="reference internal" href="#e-activate-deactivate-partner-api-key-based-on-policy-group">E. Activate/deactivate Partner API key based on 'policy group'</a></li>
-<li><a class="reference internal" href="#f-update-partner-api-key-to-policy-mappings">F. Update Partner API key to Policy Mappings</a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li><a class="reference internal" href="#impact-on-authentication">6. Impact on Authentication</a><ul>
-<li><a class="reference internal" href="#a-id-authentication-validates-misp-license-key">A. ID Authentication Validates MISP License key</a></li>
-<li><a class="reference internal" href="#b-id-authentication-retrieves-policy-of-a-partner-with-partner-id-and-partner-api-key">B. ID Authentication retrieves policy of a partner with partner-ID and partner API key</a></li>
-<li><a class="reference internal" href="#list-of-configurable-parameters-and-processes">List of Configurable Parameters and Processes <strong>[↑]</strong></a></li>
-<li><a class="reference internal" href="#partner-management-api">Partner Management API <strong>[↑]</strong></a></li>
-<li><a class="reference internal" href="#process-view">Process View <strong>[↑]</strong></a></li>
-</ul>
-</li>
-</ul>
-</div>
+
             
           
         </div>

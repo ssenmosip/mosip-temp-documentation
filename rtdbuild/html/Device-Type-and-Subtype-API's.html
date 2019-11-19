@@ -33,6 +33,7 @@
   
   <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
   <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" /> 
 </head>
@@ -51,6 +52,9 @@
             <a href="index.html" class="icon icon-home"> MOSIP
           
 
+          
+            
+            <img src="_static/mosip-logo.png" class="logo" alt="Logo"/>
           
           </a>
 
@@ -82,112 +86,30 @@
               
             
             
-              <!-- Local TOC -->
-              <div class="local-toc"><ul>
-<li><a class="reference internal" href="#">Device Types API</a></li>
-<li><a class="reference internal" href="#post-devicetypes">POST /devicetypes</a><ul>
-<li><a class="reference internal" href="#resource-url">Resource URL</a></li>
-<li><a class="reference internal" href="#id1"><code class="docutils literal notranslate"><span class="pre">POST</span> <span class="pre">/devicetypes</span></code></a></li>
-<li><a class="reference internal" href="#resource-details">Resource details</a></li>
-<li><a class="reference internal" href="#parameters">Parameters</a></li>
-<li><a class="reference internal" href="#example-request">Example Request</a></li>
-<li><a class="reference internal" href="#example-response">Example Response</a><ul>
-<li><a class="reference internal" href="#error-response">Error Response:</a></li>
-<li><a class="reference internal" href="#failure-details">Failure details</a></li>
+              <p class="caption"><span class="caption-text">Overview</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="Architecture.html">MOSIP Architecture</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="Architecture.html#architectural-principles">Architectural Principles</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="Architecture.html#ecosystem-approach">Ecosystem approach</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Architecture.html#configurability">Configurability</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Architecture.html#extensibility">Extensibility</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Architecture.html#modularity">Modularity</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="Architecture.html#logical-architecture">Logical Architecture</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Architecture.html#data-architecture">Data Architecture</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="Architecture.html#open-source-and-vendor-neutral">Open Source and Vendor Neutral</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Architecture.html#multi-language">Multi-Language</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Architecture.html#high-performance">High Performance</a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li><a class="reference internal" href="#get-devicetypes-code">GET /devicetypes/{code}</a><ul>
-<li><a class="reference internal" href="#id2">Resource URL</a></li>
-<li><a class="reference internal" href="#id3"><code class="docutils literal notranslate"><span class="pre">GET</span> <span class="pre">/devicetypes/{code}</span></code></a></li>
-<li><a class="reference internal" href="#id4">Resource details</a></li>
-<li><a class="reference internal" href="#id5">Parameters</a></li>
-<li><a class="reference internal" href="#id6">Example Response</a><ul>
-<li><a class="reference internal" href="#id7">Error Response:</a></li>
-<li><a class="reference internal" href="#id8">Failure details</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Technology-Stack.html">Technology Stack</a></li>
+<li class="toctree-l1"><a class="reference internal" href="MOSIP-Releases.html">Latest Release</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Roadmap.html">July 2019 to June 2020</a></li>
 </ul>
-</li>
-</ul>
-</li>
-<li><a class="reference internal" href="#put-devicetypes">PUT /devicetypes</a><ul>
-<li><a class="reference internal" href="#id9">Resource URL</a></li>
-<li><a class="reference internal" href="#id10"><code class="docutils literal notranslate"><span class="pre">PUT</span> <span class="pre">/devicetypes</span></code></a></li>
-<li><a class="reference internal" href="#id11">Resource details</a></li>
-<li><a class="reference internal" href="#id12">Parameters</a></li>
-<li><a class="reference internal" href="#id13">Example Request</a></li>
-<li><a class="reference internal" href="#id14">Example Response</a><ul>
-<li><a class="reference internal" href="#id15">Error Response:</a></li>
-<li><a class="reference internal" href="#id16">Failure details</a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li><a class="reference internal" href="#delete-devicetypes-code">DELETE /devicetypes/{code}</a><ul>
-<li><a class="reference internal" href="#id17">Resource URL</a></li>
-<li><a class="reference internal" href="#id18"><code class="docutils literal notranslate"><span class="pre">DELETE</span> <span class="pre">/devicetypes/{code}</span></code></a></li>
-<li><a class="reference internal" href="#id19">Resource details</a></li>
-<li><a class="reference internal" href="#id20">Parameters</a></li>
-<li><a class="reference internal" href="#id21">Example Response</a><ul>
-<li><a class="reference internal" href="#id22">Error Response:</a></li>
-<li><a class="reference internal" href="#id23">Failure details</a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li><a class="reference internal" href="#device-subtypes-api">Device Subtypes API</a></li>
-<li><a class="reference internal" href="#post-devicesubtypes">POST /devicesubtypes</a><ul>
-<li><a class="reference internal" href="#id24">Resource URL</a></li>
-<li><a class="reference internal" href="#id25"><code class="docutils literal notranslate"><span class="pre">POST</span> <span class="pre">/devicesubtypes</span></code></a></li>
-<li><a class="reference internal" href="#id26">Resource details</a></li>
-<li><a class="reference internal" href="#id27">Parameters</a></li>
-<li><a class="reference internal" href="#id28">Example Request</a></li>
-<li><a class="reference internal" href="#id29">Example Response</a><ul>
-<li><a class="reference internal" href="#id30">Error Response:</a></li>
-<li><a class="reference internal" href="#id31">Failure details</a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li><a class="reference internal" href="#get-devicesubtypes-code">GET /devicesubtypes/{code}</a><ul>
-<li><a class="reference internal" href="#id32">Resource URL</a></li>
-<li><a class="reference internal" href="#id33"><code class="docutils literal notranslate"><span class="pre">GET</span> <span class="pre">/devicesubtypes/{code}</span></code></a></li>
-<li><a class="reference internal" href="#id34">Resource details</a></li>
-<li><a class="reference internal" href="#id35">Parameters</a></li>
-<li><a class="reference internal" href="#id36">Example Response</a><ul>
-<li><a class="reference internal" href="#id37">Error Response:</a></li>
-<li><a class="reference internal" href="#id38">Failure details</a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li><a class="reference internal" href="#put-devicesubtypes">PUT /devicesubtypes</a><ul>
-<li><a class="reference internal" href="#id39">Resource URL</a></li>
-<li><a class="reference internal" href="#id40"><code class="docutils literal notranslate"><span class="pre">PUT</span> <span class="pre">/devicesubtypes</span></code></a></li>
-<li><a class="reference internal" href="#id41">Resource details</a></li>
-<li><a class="reference internal" href="#id42">Parameters</a></li>
-<li><a class="reference internal" href="#id43">Example Request</a></li>
-<li><a class="reference internal" href="#id44">Example Response</a><ul>
-<li><a class="reference internal" href="#id45">Error Response:</a></li>
-<li><a class="reference internal" href="#id46">Failure details</a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li><a class="reference internal" href="#delete-devicesubtypes-code">DELETE /devicesubtypes/{code}</a><ul>
-<li><a class="reference internal" href="#id47">Resource URL</a></li>
-<li><a class="reference internal" href="#id48"><code class="docutils literal notranslate"><span class="pre">DELETE</span> <span class="pre">/devicesubtypes/{code}</span></code></a></li>
-<li><a class="reference internal" href="#id49">Resource details</a></li>
-<li><a class="reference internal" href="#id50">Parameters</a></li>
-<li><a class="reference internal" href="#id51">Example Response</a><ul>
-<li><a class="reference internal" href="#id52">Error Response:</a></li>
-<li><a class="reference internal" href="#id53">Failure details</a></li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-</div>
+
             
           
         </div>
