@@ -54,8 +54,7 @@ All components in MOSIP should be modular and their features exposed via interfa
 * UIN generator algorithm provided by the platform can be replaced by a country with their own implementation
 * The default demographic deduplication algorithm provided by MOSIP can be changed to a different one without impacting the process flow
 
-### Solution Principles
-MOSIP will adopt the following Architecture patterns & principles to achieve the stated design considerations
+## Logical Architecture
 
 * Microservice based architecture for all platform services
     * Services must be stateless to scale out horizontally
