@@ -3,9 +3,7 @@ Contents:
 .. toctree::
    :maxdepth: 2
 
-   Getting-Started
-   Technology-Stack 
-   Privacy-and-Security 
+   Architecture
 
 
 
