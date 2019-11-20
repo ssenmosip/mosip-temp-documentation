@@ -9,4 +9,42 @@
     </url>
     
 
+    
+        
+    <url>
+     <loc>/Architecture/</loc>
+     <lastmod>2019-11-20</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
+     <loc>/Technology-Stack/</loc>
+     <lastmod>2019-11-20</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
+     <loc>/MOSIP-Releases/</loc>
+     <lastmod>2019-11-20</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
+     <loc>/Roadmap/</loc>
+     <lastmod>2019-11-20</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    
+
+    
+        
+    <url>
+     <loc>/Getting-Started/</loc>
+     <lastmod>2019-11-20</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    
+
 </urlset>
