@@ -1,0 +1,11 @@
+site_name: MOSIP Documentation
+theme: readthedocs
+pages:
+  - Home: index.md
+  - Overview: 
+    - Architecture: Architecture.md
+    - Technology Stack: Technology-Stack.md
+    - Releases: MOSIP-Releases.md
+    - Roadmap: Roadmap.md
+  - Build and Deploy: 
+    - Getting Started: Getting-Started.md
