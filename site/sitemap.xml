@@ -1,50 +1,33 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-
-    
     <url>
-     <loc>/</loc>
-     <lastmod>2019-11-20</lastmod>
+     <loc>None</loc>
+     <lastmod>2019-11-25</lastmod>
      <changefreq>daily</changefreq>
     </url>
-    
-
-    
-        
     <url>
-     <loc>/Architecture/</loc>
-     <lastmod>2019-11-20</lastmod>
+     <loc>None</loc>
+     <lastmod>2019-11-25</lastmod>
      <changefreq>daily</changefreq>
     </url>
-        
     <url>
-     <loc>/Technology-Stack/</loc>
-     <lastmod>2019-11-20</lastmod>
+     <loc>None</loc>
+     <lastmod>2019-11-25</lastmod>
      <changefreq>daily</changefreq>
     </url>
-        
     <url>
-     <loc>/MOSIP-Releases/</loc>
-     <lastmod>2019-11-20</lastmod>
+     <loc>None</loc>
+     <lastmod>2019-11-25</lastmod>
      <changefreq>daily</changefreq>
     </url>
-        
     <url>
-     <loc>/Roadmap/</loc>
-     <lastmod>2019-11-20</lastmod>
+     <loc>None</loc>
+     <lastmod>2019-11-25</lastmod>
      <changefreq>daily</changefreq>
     </url>
-        
-    
-
-    
-        
     <url>
-     <loc>/Getting-Started/</loc>
-     <lastmod>2019-11-20</lastmod>
+     <loc>None</loc>
+     <lastmod>2019-11-25</lastmod>
      <changefreq>daily</changefreq>
     </url>
-        
-    
-
 </urlset>

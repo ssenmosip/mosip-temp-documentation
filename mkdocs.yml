@@ -1,11 +1,20 @@
 site_name: MOSIP Documentation
-theme: readthedocs
-pages:
-  - Home: index.md
+theme: 
+  name: 'material'  
+repo_name: 'mosip-docs'
+repo_url: 'https://github.com/mosip/mosip-docs'
+edit_uri: 'blob/master/docs/'
+
+
+nav:
   - Overview: 
+    - Introduction: index.md
     - Architecture: Architecture.md
     - Technology Stack: Technology-Stack.md
     - Releases: MOSIP-Releases.md
     - Roadmap: Roadmap.md
   - Build and Deploy: 
     - Getting Started: Getting-Started.md
+
+extra_css: 
+  - css/extra.css   
