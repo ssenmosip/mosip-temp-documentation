@@ -1,0 +1,12 @@
+.wy-nav-side {
+    color:#e6e6e6;
+    background:#e6e6e6; 
+}
+
+.wy-menu-vertical a {
+    color: #404040;
+}
+
+.wy-menu-vertical a:hover {
+    background: #c9c9c9;
+}
